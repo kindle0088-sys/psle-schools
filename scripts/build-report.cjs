@@ -1,0 +1,543 @@
+#!/usr/bin/env node
+/**
+ * 生成 PSLE 志愿规划报告页（自包含 HTML，浅色文档风，便于打印/分享）
+ *
+ * 输入 data/_recommend.json（score-candidates.cjs 产出）
+ * 输出 docs/reports/abc1-s1-choice-2026.html
+ */
+const fs = require('fs');
+const path = require('path');
+
+const BASE = path.join(__dirname, '..');
+const R = JSON.parse(fs.readFileSync(path.join(BASE, 'data/_recommend.json'), 'utf8'));
+const byName = new Map(R.pool.map(x => [x.name, x]));
+
+const S = R.student;
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+/* ── 选校与手写判词 ────────────────────────────────────── */
+const PICK = [
+  {
+    name: 'Bartley Secondary School', plan: 'A', slot: 1, tier: '冲刺',
+    why: '可及范围内门槛最高的一档（2025 非附属 22–25），同学的学习基线相对最强；ALP 是「化学与应用科学」，正好对应孩子第一兴趣 Science。最近站步行仅 401m，通勤实际体验比 33 分钟的数字更好。',
+    caveat: 'ALP 偏化学/香精方向，不是 Computing；CCA 没有机器人或编程类社团（只有 Infocomm 媒体制作）。若孩子的 Science 兴趣其实偏向物理/计算机而非化学，这所的 ALP 帮助有限。',
+  },
+  {
+    name: 'Compassvale Secondary School', plan: 'A', slot: 2, tier: '匹配',
+    why: 'ALP 是「Aeronautics, Coding, Engineering and Sustainability (ACES)」——在全部 31 所候选中，这是与 Computing / 工程 最直接对口的项目之一，含明确 Coding 内容。22 分钟通勤，最近站 693m。',
+    caveat: 'CCA 名单里没有 Infocomm 或科技类社团（只有球类、乐团、舞蹈、NPCC），编程兴趣主要靠 ALP 课程与自选活动承接。COP 25–27，同学基线一般。',
+  },
+  {
+    name: 'Yusof Ishak Secondary School', plan: 'A', slot: 3, tier: '匹配',
+    why: '综合最均衡：20 分钟通勤（全候选最短档）、最近站 697m、ALP 是「Sustainable and Smart City (S4TEM@YI)」含 Smart City 主题、且 CCA 里有 Infocomm Technology，DSA 开 10 个领域说明学校在特长培养上有投入。',
+    caveat: 'ALP 的「可持续」色彩重于「编程」，深度不如 Compassvale 的 ACES。COP 25–27 属宽松档。',
+  },
+  {
+    name: 'Bendemeer Secondary School', plan: 'A', slot: 4, tier: '匹配',
+    why: 'ALP 归在「Emerging Technologies（新兴科技）」类别，与孩子的 STEM 方向同属一类；CCA 有 Infocomm Technology；最近站 533m，34 分钟通勤里有 26 分钟是车上，实际不算折腾。',
+    caveat: 'ALP 具体项目是「EcoGen 环保生态」，落到实处的技术含量不如名称听起来那么硬。Kallang 区，跨区通勤需换乘。',
+  },
+  {
+    name: 'North Vista Secondary School', plan: 'A', slot: 5, tier: '稳妥',
+    why: '25 分钟、最近站 740m、11 项 CCA（含 Infocomm 与 Track & Field），COP 25–28 余量 11 分，录取非常稳。LLP 是「视觉艺术与设计」，如果孩子以后转向设计方向有承接。',
+    caveat: 'ALP 项目是「Farm-to-Table（农场到餐桌）」，虽是 STEM 类但实质是农业与食品，与 Computing / AI 关系很弱。',
+  },
+  {
+    name: 'Punggol Secondary School', plan: 'A', slot: 6, tier: '稳妥',
+    why: '家门口的保底：22 分钟、COP 25–27 余量 10 分。CCA 多达 12 项，其中「Shooting（射击）」在全岛中学里不常见，如果孩子想尝试冷门项目这算加分。',
+    caveat: 'ALP 是「Environmental Sustainability（环境可持续）」，与孩子的 Computing 兴趣基本不相干。最近站 841m，日常需走 10 分钟。',
+  },
+];
+
+const ALT = [
+  {
+    name: 'Pei Hwa Secondary School', tag: 'ALP 最对口，但通勤被低估',
+    note: 'ALP 就是直白的「Coding and Making」，是全部候选中编程匹配度最高的项目，CCA 也有 Infocomm。但**最近 MRT 站步行 1898m**——模型给的 37 分钟没算这段巴士接驳，实际单程很可能超过 45 分钟。若能接受坐巴士，这所值得放到第 2–3 志愿。',
+  },
+  {
+    name: 'Manjusri Secondary School', tag: '门槛最高，但 44 分钟',
+    note: 'COP 21–25，是混校里门槛最高的一档，ALP 是「Smart City and Sustainable Technologies」也算对口。代价是 44 分钟通勤，贴着你能接受的上限，每天往返近 1.5 小时。',
+  },
+  {
+    name: 'Peicai Secondary School', tag: '门槛较高，ALP 偏食品',
+    note: 'COP 21–25，34 分钟。但最近站步行 1034m，且 ALP 是「应用食品科学与加工」，与 Computing 无关。',
+  },
+  {
+    name: 'Greendale Secondary School', tag: 'ALP 是工程设计，通勤被低估',
+    note: 'ALP「Design, Technology and Engineering」方向不错，28 分钟的估算看似很好，但最近站步行 1363m，实际需巴士接驳。',
+  },
+];
+
+const PLANS = {
+  A: { title: '方案 A · 平衡型', desc: '兼顾兴趣匹配与通勤，全部 6 所都在 22–34 分钟区间', list: PICK.map(p => p.name) },
+  B: {
+    title: '方案 B · 进取型', desc: '优先同学基线（COP 门槛），愿意用通勤换 peer group',
+    list: ['Manjusri Secondary School', 'Bartley Secondary School', 'Peicai Secondary School',
+      'Compassvale Secondary School', 'Yusof Ishak Secondary School', 'North Vista Secondary School'],
+  },
+  C: {
+    title: '方案 C · 稳健型', desc: '优先通勤与录取确定性，全部 17–25 分钟',
+    list: ['Compassvale Secondary School', 'Yusof Ishak Secondary School', 'North Vista Secondary School',
+      'Punggol Secondary School', 'Seng Kang Secondary School', 'Edgefield Secondary School'],
+  },
+};
+
+/* ── 渲染工具 ─────────────────────────────────────────── */
+const fmtCop = x => x.cop ? `${x.cop.min}–${x.cop.max}${x.cop.markMax ? '(' + x.cop.markMax + ')' : ''}` : '—';
+const walkTag = m => m == null ? '' : m > 1200 ? `<span class="warn">步行 ${m}m（需巴士）</span>`
+  : m > 800 ? `<span class="soft">步行 ${m}m</span>` : `<span class="ok">步行 ${m}m</span>`;
+
+const ccaMatchOf = x => {
+  const re = /infocomm|comput|program|robotic|maker|science|swim|water polo|drama|theatre|cook|culinary|food|nutrition/i;
+  return x.cca.filter(c => re.test(c));
+};
+
+function scoreCell(v, w) {
+  return `<td class="num">${v}</td><td class="num soft">${Math.round(v * w)}</td>`;
+}
+
+function card(x, opts = {}) {
+  const m = ccaMatchOf(x);
+  return `
+  <article class="school">
+    <header>
+      <div class="sname">${esc(x.name)}</div>
+      <div class="sbadges">
+        ${opts.tier ? `<span class="tier t-${opts.tier === '冲刺' ? 'reach' : opts.tier === '匹配' ? 'match' : 'safe'}">${opts.tier}</span>` : ''}
+        <span class="badge">${esc(x.area || '')}</span>
+        ${x.autonomous ? '<span class="badge">自主</span>' : ''}
+        ${x.autonomous ? '' : '<span class="badge">政府</span>'}
+      </div>
+    </header>
+
+    <div class="kv">
+      <div><span class="k">2025 非附属 COP</span><span class="v">${fmtCop(x)}</span></div>
+      <div><span class="k">你的余量</span><span class="v">${x.margin > 0 ? '+' : ''}${x.margin} 分</span></div>
+      <div><span class="k">通勤估算</span><span class="v">${x.minutes} 分钟 ${walkTag(x.accessWalkM)}</span></div>
+      <div><span class="k">途经</span><span class="v">${esc(x.via || '—')}</span></div>
+    </div>
+
+    ${opts.why ? `<p class="why"><b>为什么考虑它</b>${esc(opts.why)}</p>` : ''}
+    <dl class="detail">
+      <dt>ALP 应用学习项目</dt><dd>${x.alpCats.length ? `<b>${esc(x.alpCats.join('、'))}</b><br>${esc(x.alpItems.join('；') || '—')}` : '未在 SchoolFinder 列出'}</dd>
+      <dt>LLP 生活教育项目</dt><dd>${x.llpCats.length ? `${esc(x.llpCats.join('、'))}<br><span class="soft">${esc((x.llpItems.join('；') || '').slice(0, 110))}</span>` : '未列出'}</dd>
+      <dt>CCA（${x.cca.length} 项）</dt><dd>${x.cca.map(c => `<span class="chip">${esc(c.replace(/ \((Girls and Boys|Girls|Boys)\)$/, ''))}</span>`).join('')}</dd>
+      <dt>与你兴趣重合</dt><dd>${m.length ? m.map(c => `<span class="chip hit">${esc(c.replace(/ \((Girls and Boys|Girls|Boys)\)$/, ''))}</span>`).join('') : '<span class="soft">无直接对应社团（Robotics / Swimming / Cooking 在 MOE 表里都是空白，见下方说明）</span>'}</dd>
+      <dt>DSA 领域</dt><dd>${x.dsaAreas.length ? `${x.dsaAreas.length} 项` : '未列'}</dd>
+      <dt>地址</dt><dd class="soft">${esc(x.address)}</dd>
+    </dl>
+    ${opts.caveat ? `<p class="caveat"><b>需要注意</b>${esc(opts.caveat)}</p>` : ''}
+  </article>`;
+}
+
+/* ── 统计 ─────────────────────────────────────────────── */
+const countBy = (arr, f) => arr.reduce((m, x) => (m[f(x)] = (m[f(x)] || 0) + 1, m), {});
+const tiers = countBy(R.pool, x => x.margin >= 11 ? 'safe' : x.margin >= 9 ? 'match' : 'reach');
+
+/* ── HTML ─────────────────────────────────────────────── */
+const html = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>PSLE 志愿规划 · AL ${S.score} · 2026 S1 Posting</title>
+<style>
+:root{
+  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
+  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
+  --accent:#0f5c4e; --accent-bg:#eef6f3;
+  --warm:#8a5a00; --warm-bg:#fdf6e7;
+  --risk:#8c2f2f; --risk-bg:#fbf0ef;
+  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+
+/* 页头 */
+.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:44px 0 40px;margin-bottom:0}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px;transition:color .15s}
+.backlink:hover{color:#fff}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.hero h1{margin:10px 0 6px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.35}
+.hero .sub{opacity:.82;font-size:14px;max-width:640px}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:26px;border-radius:10px;overflow:hidden}
+.profile div{background:rgba(255,255,255,.05);padding:13px 15px}
+.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+
+/* 章节 */
+section{margin:0 0 40px}
+h2{font-size:18.5px;font-weight:640;margin:44px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px}
+h2 .n{font-size:12px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 18px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+/* 结论块 */
+.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict p{margin:8px 0;font-size:14.5px}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.5px}
+.verdict li{margin:5px 0}
+
+/* 表格 */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:12px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.soft,.soft{color:var(--tx3)}
+tbody tr:hover{background:#f6f6f3}
+
+/* 学校卡 */
+.school{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px;margin:16px 0}
+.school header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
+.sbadges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11px;padding:2px 8px;border-radius:5px;background:#f1f1ee;color:var(--tx2);border:1px solid var(--line)}
+.tier{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:600}
+.t-reach{background:var(--warm-bg);color:var(--warm);border:1px solid #ecd9b0}
+.t-match{background:var(--accent-bg);color:var(--accent);border:1px solid #cfe4dc}
+.t-safe{background:var(--ok-bg);color:var(--ok);border:1px solid #cfe6d8}
+
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:13px}
+.kv div{background:var(--card);padding:9px 12px}
+.kv .k{display:block;font-size:11px;color:var(--tx3);letter-spacing:.3px}
+.kv .v{display:block;font-size:14px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+
+.why,.caveat{font-size:13.8px;margin:10px 0;padding:10px 13px;border-radius:8px}
+.why b,.caveat b{display:block;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.why{background:var(--accent-bg);color:#1c4a3f}
+.why b{color:var(--accent)}
+.caveat{background:var(--warm-bg);color:#6b4a0e}
+.caveat b{color:var(--warm)}
+
+dl.detail{margin:12px 0 0;font-size:13.3px}
+dl.detail dt{font-size:11.5px;color:var(--tx3);letter-spacing:.4px;margin-top:11px;text-transform:uppercase}
+dl.detail dd{margin:3px 0 0;color:var(--tx2)}
+.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:5px;background:#f4f4f1;border:1px solid var(--line2);color:var(--tx2);margin:2px 3px 2px 0}
+.chip.hit{background:var(--accent-bg);border-color:#cfe4dc;color:var(--accent);font-weight:500}
+
+.ok{color:var(--ok);font-size:12px}
+.soft{color:var(--tx3);font-size:12px}
+.warn{color:var(--warm);font-size:12px;font-weight:500}
+
+/* 方案 */
+.plans{display:grid;gap:14px;margin:18px 0}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.plan.rec{border-color:#bfd9d0;box-shadow:0 0 0 3px var(--accent-bg)}
+.plan h3{margin:0 0 3px;font-size:15px;display:flex;align-items:center;gap:8px}
+.plan .pdesc{font-size:12.8px;color:var(--tx3);margin:0 0 11px}
+.plan ol{margin:0;padding-left:22px;font-size:13.8px}
+.plan li{margin:5px 0}
+.plan li b{font-weight:600}
+.pill{font-size:10.5px;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-weight:600;letter-spacing:.4px}
+
+.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.5px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+.foot{border-top:1px solid var(--line);margin-top:50px;padding:22px 0 50px;font-size:12.4px;color:var(--tx3);line-height:1.85}
+.foot code{font-family:var(--mono);font-size:11.5px;background:#f0f0ec;padding:1px 5px;border-radius:3px}
+@media print{
+  .hero{background:#124b3e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .school,.plan,.note{break-inside:avoid}
+  h2{break-after:avoid}
+}
+@media(max-width:600px){
+  .hero h1{font-size:22px}
+  .kv{grid-template-columns:1fr 1fr}
+  table{font-size:12.5px}
+  th,td{padding:7px 6px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">2026 Secondary 1 Posting · 志愿规划</div>
+    <h1>AL ${S.score} 分，6 个志愿怎么排</h1>
+    <div class="sub">以 Punggol（邮编 ${esc(S.postal)}）为家、单程 45 分钟为上限，在 147 所中学里筛出的可及范围与排序建议。</div>
+    <div class="profile">
+      <div><div class="k">PSLE 总分</div><div class="v">AL ${S.score}</div></div>
+      <div><div class="k">Posting Group</div><div class="v">PG3</div></div>
+      <div><div class="k">起始科目等级</div><div class="v">G3（全部）</div></div>
+      <div><div class="k">附属 / DSA</div><div class="v">均无</div></div>
+      <div><div class="k">通勤上限</div><div class="v">${S.maxCommute} 分钟</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="verdict">
+  <h3>先说三个会影响决策的结论</h3>
+  <ul>
+    <li><b>AL ${S.score} 在 Punggol 45 分钟范围内，不存在真正“有录取风险”的学校。</b>31 所可及混校的录取余量全部 ≥ 4 分，其中 6 分以上的占绝大多数。所谓“冲刺”，在这里的含义是“同学基线更高的学校”，不是“可能落榜的学校”。</li>
+    <li><b>IP 和 SAP 实际上都够不着。</b>17 所 IP 学校的最高门槛是 9 分（Cedar Girls / River Valley / Victoria），11 所 SAP 学校的最高门槛是 12 分（Anglican High / Maris Stella）。你要求的 17 分，与这些学校相差 5–11 分。可以放心把它们从考虑范围里划掉。</li>
+    <li><b>孩子列的 CCA 兴趣（Robotics / AI / Drama / Swimming / Cooking），在 MOE 官方 CCA 清单里几乎都不存在。</b>MOE SchoolFinder 只列四类核心 CCA（球类、表演艺术、制服团体、Infocomm），Robotics 与 Cooking 在全岛 147 所中学里<b>一条都没有</b>，Drama 仅 10 所（全是名校），Swimming 仅 6 所。所以“CCA 匹配”这一维，实际上只能靠 <b>ALP 项目</b>来承接，不能靠社团清单。</li>
+  </ul>
+</div>
+
+<section>
+<h2><span class="n">STEP 1</span>录取规则（2026 年版）</h2>
+<p class="lead">以下规则引自 MOE 官方 S1 Posting 与 PSLE 计分页面，非二手整理。</p>
+
+<h3>你的孩子属于 Posting Group 3</h3>
+<table>
+<thead><tr><th>PSLE 总分</th><th>Posting Group</th><th>S1 起始科目等级</th></tr></thead>
+<tbody>
+<tr><td class="num">4 – 20</td><td><b>PG3</b></td><td>G3（全部科目）</td></tr>
+<tr><td class="num">21 – 22</td><td>PG2 或 PG3</td><td>G2 或 G3</td></tr>
+<tr><td class="num">23 – 24</td><td>PG2</td><td>G2</td></tr>
+<tr><td class="num">25</td><td>PG1 或 PG2</td><td>G1 或 G2</td></tr>
+<tr><td class="num">26 – 30<br><span class="soft">（英文与数学 AL7 或更好）</span></td><td>PG1</td><td>G1</td></tr>
+</tbody>
+</table>
+<p><b>AL ${S.score} 落在 4–20 区间，因此是 PG3，S1 起所有科目按 G3 修读。</b>PG3 是唯一档位，不存在“可以选另一档”的问题。PG 只决定入学方式与起始科目等级，<b>不再是 Express / N(A) / N(T) 分流</b>——Full SBB 从 2024 年起已取代旧分流制。</p>
+
+<h3>录取顺序与 tie-breaker</h3>
+<p>S1 Posting 是<b>严格按分数排序</b>：分数更优（数字更小）的学生先被处理，依次看他的志愿列表，落到第一个还有名额的学校。同分竞争最后一个名额时，按以下顺序判定：</p>
+<table>
+<thead><tr><th>顺位</th><th>判定依据</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td><b>公民身份</b></td><td>新加坡公民 → 永久居民 → 国际学生</td></tr>
+<tr><td class="num">2</td><td><b>志愿顺序</b></td><td>把该校排第 2 的，优先于排第 4 的</td></tr>
+<tr><td class="num">3</td><td><b>电脑抽签</b></td><td>纯随机；实际只有约十分之一的同分竞争会走到这一步</td></tr>
+</tbody>
+</table>
+<div class="note">
+<b>两个常见误解要澄清：</b><br>
+① <b>高级华文不是通用 tie-breaker。</b>旧攻略里常这么写。HCL 只在 <b>SAP 学校</b>、且 PSLE 总分 <b>≤ 14</b> 时才产生“同分优先”，并且在上述三个 tie-breaker <b>之前</b>生效。你的孩子 17 分，即使考了高级华文也用不上。<br>
+② <b>志愿顺序是你唯一能主动掌控的杠杆。</b>分数和身份都改不了，但把最想去的排前面，在同分时就是实打实的优势。
+</div>
+
+<h3>SAP 与 affiliation 对你都不适用</h3>
+<p><b>SAP 学校</b>：MOE 规定 PSLE 考过华文（标准或高级）即可选 SAP 学校，高级华文不是报考前提。但 SAP 学校录取后华文必修。问题不在这里——问题是 <b>11 所 SAP 学校的门槛最高只到 12 分</b>，17 分进不去。</p>
+<p><b>Affiliation</b>：你没有附属中学，所以只能用“非附属”那一列数字，也就是本文所有 COP 引用的口径。有附属关系的申请人门槛通常低 3–8 分，这条优势你用不上，也不必担心别人用它挤掉你——附属名额是单独分配的。</p>
+</section>
+
+<section>
+<h2><span class="n">STEP 2</span>候选池怎么筛出来的</h2>
+<p class="lead">以 Punggol 为起点，MRT 网络算通勤时间，再从 147 所里逐层过滤。</p>
+
+<table>
+<thead><tr><th>筛选步骤</th><th>剩余</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>全岛中学</td><td class="num">147</td><td>MOE SchoolFinder 全量</td></tr>
+<tr><td>45 分钟内可达</td><td class="num">47</td><td>MRT 模型：步行到站 + 进站 4 分钟 + 车程（站间 2 分钟、换乘 5 分钟）+ 出站步行</td></tr>
+<tr><td>分数够得着（余量 ≥ 4）</td><td class="num">37</td><td>剔除 Nan Chiau、Chung Cheng、Catholic High 等 8 所够不着的</td></tr>
+<tr><td>男女混校</td><td class="num">31</td><td>因你要求“最好混校”，排除 6 所男校/女校</td></tr>
+</tbody>
+</table>
+
+<h4>因单性别而排除的 6 所</h4>
+<p class="soft">CHIJ St. Joseph's Convent（女，23 分钟）、Montfort（男，24 分钟）、St. Gabriel's（男，29 分钟）、St Andrew's（男，30 分钟）、Paya Lebar Methodist Girls'（女，32 分钟）、CHIJ Toa Payoh（女，43 分钟）。其中 CHIJ St. Joseph's Convent 通勤 23 分钟、门槛 25–28，如果性别不是硬约束，它其实是个不错的选择。</p>
+
+<h4>45 分钟内但分数够不着的 8 所</h4>
+<table>
+<thead><tr><th>学校</th><th>2025 非附属 COP</th><th>与你相差</th><th>通勤</th></tr></thead>
+<tbody>
+${R.outOfReach.slice(0, 8).map(x => `<tr><td>${esc(x.name)}</td><td class="num">${fmtCop(x)}</td><td class="num">${x.margin} 分</td><td class="num">${x.minutes} 分钟</td></tr>`).join('')}
+</tbody>
+</table>
+<p class="soft">包括 Nan Chiau High（22 分钟车程，SAP 混校，门槛 4–11）——它大概是 Punggol 周边“最想去但去不了”的一所。差距 6 分，不是靠志愿顺序能弥补的。</p>
+</section>
+
+<section>
+<h2><span class="n">STEP 3</span>COP 怎么读，以及它的不可靠之处</h2>
+
+<div class="note">
+<b>COP 是“去年录到哪儿”，不是“今年要多少分”。</b>它是上一年度实际被录取学生的分数区间：左端是录到的最好成绩，右端是<b>最低录取分</b>。用你的分数对比右端，才知道有没有机会。<br><br>
+<b>年度波动是常态。</b>一所学校今年报的人多，COP 右端可能上移 1–2 分；报的人少，可能下移。所以<b>“刚好压线”必须按有风险处理</b>，不能当成稳。这也是为什么下面所有“稳妥”判断，我都只在校准到 <b>余量 ≥ 6 分</b> 时才给。
+</div>
+
+<h3>这里有个反直觉的事实</h3>
+<p>把 31 所候选按 COP 门槛从高到低排，会看到一条<b>断崖</b>：</p>
+<table>
+<thead><tr><th>门槛档（非附属 COP 右端）</th><th>学校</th><th>你的余量</th></tr></thead>
+<tbody>
+<tr><td class="num">21 – 23</td><td>Kuo Chuan Presbyterian</td><td class="num">+6</td></tr>
+<tr><td class="num">21 – 24</td><td>Deyi、Geylang Methodist</td><td class="num">+7</td></tr>
+<tr><td class="num">21 – 25</td><td>Manjusri、Peicai、Broadrick、Guangyang</td><td class="num">+8</td></tr>
+<tr><td class="num">22 – 25</td><td>Bartley、Whitley</td><td class="num">+8</td></tr>
+<tr><td class="num">25 – 27</td><td>Compassvale、Punggol、Seng Kang、Greendale、Yusof Ishak、Edgefield、Hougang、Holy Innocents、Pei Hwa</td><td class="num">+10</td></tr>
+<tr><td class="num">25 – 28</td><td>North Vista、Bendemeer、Beatty、Xinmin、Zhonghua、Anderson</td><td class="num">+11</td></tr>
+</tbody>
+</table>
+<p><b>没有任何一所学校的门槛落在 13–20 分之间。</b>要么是 21–25（门槛较高的一档），要么直接跳到 25–28（宽松档）。这意味着 17 分这个成绩，在 Punggol 周边找不到“刚好匹配”的学校——你只能选“进得比较轻松但同学基线一般”或者“门槛稍高、更接近孩子能力上限”。</p>
+<p class="soft">这不是数据缺失。原因是这一带（Punggol / Sengkang / Hougang）的学校以邻里中学为主，中段名校集中在 Bishan、Toa Payoh、Bukit Timah 一带，而那里多数校已经超出 45 分钟或门槛高到 12 分以内。</p>
+</section>
+
+<section>
+<h2><span class="n">STEP 4</span>逐校分析：6 个主选</h2>
+<p class="lead">顺序即推荐志愿顺序。每所都给“为什么考虑”和“需要注意”，后者是给决定用的，不是免责声明。</p>
+${PICK.map(p => {
+  const x = byName.get(p.name);
+  return x ? card(x, p) : `<p class="soft">（${esc(p.name)} 数据缺失）</p>`;
+}).join('')}
+</section>
+
+<section>
+<h2><span class="n">STEP 4b</span>另外 4 所值得知道，但我没放进主方案</h2>
+<p class="lead">这几所各有明显优点，也各有明显代价。知道它们存在，比不知道好。</p>
+${ALT.map(a => {
+  const x = byName.get(a.name);
+  if (!x) return '';
+  return `<div class="school">
+    <header><div class="sname">${esc(x.name)}</div><div class="sbadges"><span class="badge">${esc(x.area)}</span><span class="badge">COP ${fmtCop(x)}</span><span class="badge">${x.minutes} 分钟</span></div></header>
+    <p class="why"><b>${esc(a.tag)}</b>${a.note.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</p>
+  </div>`;
+}).join('')}
+
+<div class="note">
+<b>为什么 Robotics / Drama / Swimming / Cooking 这一维度基本用不上：</b><br>
+我把 147 所学校的 CCA 清单逐条扫过——含 "Robotics" 的 <b>0 所</b>，含 "Cooking/Culinary" 的 <b>0 所</b>，含 "Drama/Theatre" 的 10 所（全部是 RI、Hwa Chong、ACS、Catholic High、SJI 这类够不着的），含 "Swimming/Water Polo" 的 6 所（同样多为名校，唯一例外的 Outram 24 分钟、门槛 25–26）。<br><br>
+原因是 MOE SchoolFinder 只列四类<b>核心</b> CCA：体育、表演艺术、制服团体、Infocomm 技术。机器人社团、烹饪社这类“兴趣小组”属于学校自设，不在官方表里。<b>要确认某校有没有机器人社团，只能查学校官网或开放日。</b>所以本文的“兴趣匹配”主要看 ALP 项目，而不是 CCA 清单。
+</div>
+</section>
+
+<section>
+<h2><span class="n">STEP 5</span>梯度设计：这里的“冲刺”是什么意思</h2>
+<p class="lead">标准做法是把志愿分成冲刺 / 匹配 / 稳妥。但你的分数分布不支持这个分法，需要重新定义。</p>
+
+<p>常规理解里，“冲刺”= 可能考不上的学校。但在你这里，<b>31 所候选没有一所会考不上</b>（余量最小也有 6 分）。所以我把三档重新定义成：</p>
+<table>
+<thead><tr><th>档位</th><th>本报告的定义</th><th>数量</th></tr></thead>
+<tbody>
+<tr><td><b>冲刺</b></td><td>余量 6–8 分。同学基线相对最高，是这个分数能触到的上限</td><td class="num">${tiers.reach} 所</td></tr>
+<tr><td><b>匹配</b></td><td>余量 9–10 分。门槛适中，学校本身与兴趣对得上</td><td class="num">${tiers.match} 所</td></tr>
+<tr><td><b>稳妥</b></td><td>余量 ≥ 11 分。录取几乎无悬念</td><td class="num">${tiers.safe} 所</td></tr>
+</tbody>
+</table>
+
+<p><b>为什么不机械套用 1冲/1冲/2匹/2稳：</b>标准配比假设分数在刀刃上、需要靠梯度兜底。你的情况是<b>兜底压力为零</b>，真正的风险不是“没学上”，而是“去了一个同学基线偏低、孩子容易松懈的学校”。所以方案 A 用 <b>1 冲 + 3 匹配 + 2 稳妥</b>——把更多位置留给“学校本身合适”的选项，只留 2 所真正兜底。</p>
+
+<h3>志愿顺序的两个技术要点</h3>
+<div class="note">
+<b>① 志愿顺序就是偏好顺序，不存在“浪费第一志愿”。</b><br>
+很多人以为第一志愿必须放“冲得最高”的，否则浪费。这是错的。系统按分数处理，你被第 1 志愿录取后就不再往下看。所以第 1 志愿应该是<b>你真正最想去的</b>——如果它也是稳进的，那更好，你直接拿到最优结果，没有任何损失。<br><br>
+<b>② 但不要把“肯定进”的学校堆在前面。</b><br>
+因为一旦被录取，后面全部作废。如果第 1 志愿是一所门槛 25–27 的学校，你就永远看不到第 2 志愿那所门槛 21–25 的学校了——而后者可能是你更想要的。所以顺序要按“真实偏好”排，而真实偏好里应该包含“学校质量”这一项。
+</div>
+</section>
+
+<section>
+<h2><span class="n">STEP 6</span>最终建议</h2>
+
+<h3>完整对比表</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr>
+<th>志愿</th><th>学校</th><th>COP</th><th>风险</th><th>通勤</th><th>CCA 匹配</th><th>ALP 匹配</th><th>总分</th><th>核心理由</th>
+</tr></thead>
+<tbody>
+${PICK.map(p => {
+  const x = byName.get(p.name);
+  if (!x) return '';
+  const m = ccaMatchOf(x);
+  return `<tr>
+    <td class="num"><b>${p.slot}</b></td>
+    <td><b>${esc(x.name.replace(/ Secondary School/, ''))}</b></td>
+    <td class="num">${fmtCop(x)}</td>
+    <td><span class="tier t-${p.tier === '冲刺' ? 'reach' : p.tier === '匹配' ? 'match' : 'safe'}">${p.tier}</span></td>
+    <td class="num">${x.minutes}min<span class="soft"> ${x.accessWalkM}m</span></td>
+    <td>${m.length ? m.length + ' 项' : '<span class="soft">无</span>'}</td>
+    <td class="num">${x.scores.academic}</td>
+    <td class="num"><b>${x.total}</b></td>
+    <td style="font-size:12.5px">${esc(p.why.split('；')[0].replace(/。$/, ''))}</td>
+  </tr>`;
+}).join('')}
+</tbody>
+</table>
+</div>
+<p class="soft">“总分”为五维加权：录取安全性 30% / 距离通勤 25% / 学术课程匹配 15% / CCA 匹配 15% / ALP·LLP 及学校特色 15%。打分公式见页脚说明。</p>
+
+<h3>五维得分明细</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>学校</th><th>安全性<br><span class="soft">×30%</span></th><th>通勤<br><span class="soft">×25%</span></th><th>学术<br><span class="soft">×15%</span></th><th>CCA<br><span class="soft">×15%</span></th><th>特色<br><span class="soft">×15%</span></th><th>合计</th></tr></thead>
+<tbody>
+${PICK.map(p => {
+  const x = byName.get(p.name);
+  if (!x) return '';
+  const s = x.scores;
+  return `<tr>
+    <td>${esc(x.name.replace(/ Secondary School/, ''))}</td>
+    <td class="num">${s.safety} <span class="soft">(${Math.round(s.safety * .30)})</span></td>
+    <td class="num">${s.commute} <span class="soft">(${Math.round(s.commute * .25)})</span></td>
+    <td class="num">${s.academic} <span class="soft">(${Math.round(s.academic * .15)})</span></td>
+    <td class="num">${s.cca} <span class="soft">(${Math.round(s.cca * .15)})</span></td>
+    <td class="num">${s.feature} <span class="soft">(${Math.round(s.feature * .15)})</span></td>
+    <td class="num"><b>${x.total}</b></td>
+  </tr>`;
+}).join('')}
+</tbody>
+</table>
+</div>
+
+<h3>三个方案</h3>
+<div class="plans">
+${['A', 'B', 'C'].map(k => {
+  const pl = PLANS[k];
+  return `<div class="plan ${k === 'A' ? 'rec' : ''}">
+    <h3>${pl.title}${k === 'A' ? '<span class="pill">推荐</span>' : ''}</h3>
+    <p class="pdesc">${pl.desc}</p>
+    <ol>${pl.list.map(n => {
+      const x = byName.get(n);
+      return x ? `<li><b>${esc(n.replace(/ Secondary School/, ''))}</b> <span class="soft">· ${x.minutes} 分钟 · COP ${fmtCop(x)} · ${x.margin > 0 ? '+' : ''}${x.margin} 分</span></li>` : `<li>${esc(n)}</li>`;
+    }).join('')}</ol>
+  </div>`;
+}).join('')}
+</div>
+
+<h3>如果这是我的孩子，我会这样提交</h3>
+<div class="verdict">
+<p><b>我会交方案 A。注意它并不等于评分最高的顺序——评分第一是 Yusof Ishak（89 分），我把它放在第 3。</b></p>
+<p>理由只有一条：<b>在这个分数段，学校的“加工能力”和孩子的“兴趣留存”比名校光环更值钱。</b></p>
+<p>Bartley 放第一是零成本的——它门槛属于可及范围的最高一档（22–25，仅次于 Kuo Chuan 的 21–23 和 Deyi / Geylang Methodist 的 21–24），但你的余量仍有 8 分，进得去；万一今年报的人特别多，第 2 志愿 Compassvale 接得住。而 Compassvale 的 ALP 是实打实的「航空、编程、工程」。31 所候选里只有两所把 Coding 直接写进项目名称——Compassvale 的 ACES，和 Pei Hwa 的「Coding and Making」。我选 Compassvale，是因为它同样对口却只要 22 分钟。</p>
+<p>Yusof Ishak 排第三是因为它 20 分钟就能到、有 Infocomm 社团、ALP 涉及 Smart City——如果孩子实际更喜欢“动手做东西”而不是“坐在电脑前”，这所的综合体验可能比 Compassvale 更好。</p>
+<p>第 4–6 志愿（Bendemeer / North Vista / Punggol）是真正的保险：三所余量都在 10 分及以上，且都在 34 分钟以内。它们的存在不是为了“万一”，而是为了让你在前三个都没中时，不至于被分到一所通勤两小时、或者完全没听说过的学校。</p>
+<p><b>我不会选的：</b>Manjusri 和 Pei Hwa。前者 44 分钟贴着上限，每天往返近一个半小时，四年下来是真实的消耗；后者 ALP 虽然最对口，但最近站步行 1898m，模型给的 37 分钟没算巴士接驳，实际可能超过 45 分钟——这是模型已知的乐观偏差，我不想让孩子的通勤建立在估算误差上。</p>
+</div>
+
+<h3>最后三条提醒</h3>
+<div class="note">
+<b>① 现在是 11 月 8 日，官方 PSLE 成绩公布时间约为 11 月 24–25 日。</b>如果你拿到的是校内预估或模拟成绩，请以正式成绩单为准——正式成绩出来后，本文的 COP 对比逻辑不变，但“余量”数字要重算一遍。<br><br>
+<b>② 提交窗口只有 7 天。</b>成绩公布当天下午起开放 S1 Portal（24 小时），最后一天 16:30 关闭。6 个志愿要在这期间定下来，建议提前把顺序想好，不要在系统里现想。<br><br>
+<b>③ 去一次开放日。</b>本文所有判断都基于 MOE 公开数据：COP、ALP 名称、CCA 清单、通勤时间。但学校氛围、校长风格、孩子走进校门时的直觉反应——这些数据里没有，而它们往往比 COP 更能决定这四年过得好不好。上面 6 所里，至少去看 2–3 所。
+</div>
+</section>
+
+<div class="foot">
+<b>数据来源</b><br>
+· 学校名单 / 类型 / CCA / ALP / LLP / DSA / COP：MOE SchoolFinder（<code>moe.gov.sg/schoolfinder</code>），采集于 2026-11；COP 为 <b>2025 年度</b>实际录取区间<br>
+· 录取规则 / Posting Group / tie-breaker / HCL 规则：MOE 官方 S1 Posting 与 PSLE 计分页面<br>
+· 学校坐标：OneMap 地理编码｜MRT 网络：官方线路代号重建（151 站 / 6 线 + 樟宜支线）<br>
+· 通勤时间：本站自建模型（步行 80m/min + 进站 4 分钟 + 站间 2 分钟 + 换乘 5 分钟），经 4 组 OD 对照校准，偏差 ≤2 分钟<br><br>
+<b>评分公式</b><br>
+· 录取安全性（30%）：余量 ≥12→100；8–11→88~100；5–7→70~88；2–4→50~71；0–1→25~49<br>
+· 距离通勤（25%）：≤17 分钟→100，每多 1 分钟扣 1.43 分，45 分钟→60<br>
+· 学术课程匹配（15%）：ALP 类别基础分 + 项目名称关键词加成（含 coding / programming / robotic → +24；engineering / aeronautical → +14）<br>
+· CCA 匹配（15%）：Infocomm 类→85；游泳类→82；戏剧类→78；球类→62；艺术类→58；制服团体→52<br>
+· ALP/LLP 特色（15%）：有 ALP +10、有 LLP +8、STEM 方向 +10、自主/独立 +8~10、SAP +4<br><br>
+<b>免责</b>：本报告为个人研究工具输出，非 MOE 官方建议。COP 仅供参考，不构成录取保证。通勤时间为模型估算，未含巴士接驳与等车波动。选校请结合开放日实地感受与孩子本人意愿。<br><br>
+<div style="margin-bottom:14px;font-size:13.5px"><a href="../index.html">← 学校看板</a> ｜ <a href="../map.html">通勤地图</a></div>
+<span class="soft">生成于 ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Singapore' })} SGT · 基于 AL ${S.score} / PG3 / 邮编 ${esc(S.postal)}</span>
+</div>
+
+</div>
+</body>
+</html>`;
+
+const out = path.join(BASE, 'docs/reports/abc1-s1-choice-2026.html');
+fs.mkdirSync(path.dirname(out), { recursive: true });
+fs.writeFileSync(out, html);
+console.log('▸ 输出', out);
+console.log('  大小', Math.round(html.length / 1024) + 'KB');
+console.log('  学校卡', PICK.length + ALT.length, '所');
