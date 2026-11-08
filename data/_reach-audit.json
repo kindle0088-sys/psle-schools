@@ -1,0 +1,737 @@
+[
+ {
+  "name": "Serangoon Garden Secondary School",
+  "distM": 1991,
+  "station": "KOVAN"
+ },
+ {
+  "name": "Pei Hwa Secondary School",
+  "distM": 1784,
+  "station": "BUANGKOK"
+ },
+ {
+  "name": "Westwood Secondary School",
+  "distM": 1749,
+  "station": "BOON LAY"
+ },
+ {
+  "name": "Jurong Secondary School",
+  "distM": 1618,
+  "station": "LAKESIDE"
+ },
+ {
+  "name": "Commonwealth Secondary School",
+  "distM": 1579,
+  "station": "JURONG EAST"
+ },
+ {
+  "name": "Kent Ridge Secondary School",
+  "distM": 1545,
+  "station": "CLEMENTI"
+ },
+ {
+  "name": "Northbrooks Secondary School",
+  "distM": 1405,
+  "station": "KHATIB"
+ },
+ {
+  "name": "Bowen Secondary School",
+  "distM": 1389,
+  "station": "KOVAN"
+ },
+ {
+  "name": "Greendale Secondary School",
+  "distM": 1363,
+  "station": "PUNGGOL"
+ },
+ {
+  "name": "Hougang Secondary School",
+  "distM": 1349,
+  "station": "BUANGKOK"
+ },
+ {
+  "name": "Serangoon Secondary School",
+  "distM": 1198,
+  "station": "HOUGANG"
+ },
+ {
+  "name": "Pasir Ris Crest Secondary School",
+  "distM": 1161,
+  "station": "PASIR RIS"
+ },
+ {
+  "name": "Juying Secondary School",
+  "distM": 1120,
+  "station": "PIONEER"
+ },
+ {
+  "name": "NUS High School of Mathematics and Science",
+  "distM": 1118,
+  "station": "DOVER"
+ },
+ {
+  "name": "Loyang View Secondary School",
+  "distM": 1114,
+  "station": "PASIR RIS"
+ },
+ {
+  "name": "Zhenghua Secondary School",
+  "distM": 1091,
+  "station": "BUKIT PANJANG"
+ },
+ {
+  "name": "Jurongville Secondary School",
+  "distM": 1075,
+  "station": "CHINESE GARDEN"
+ },
+ {
+  "name": "Xinmin Secondary School",
+  "distM": 1053,
+  "station": "HOUGANG"
+ },
+ {
+  "name": "CHIJ St. Theresa's Convent",
+  "distM": 1047,
+  "station": "KEPPEL"
+ },
+ {
+  "name": "Peicai Secondary School",
+  "distM": 1034,
+  "station": "SERANGOON"
+ },
+ {
+  "name": "Junyuan Secondary School",
+  "distM": 1029,
+  "station": "TAMPINES"
+ },
+ {
+  "name": "Crest Secondary School",
+  "distM": 1014,
+  "station": "BUKIT BATOK"
+ },
+ {
+  "name": "Springfield Secondary School",
+  "distM": 1005,
+  "station": "TAMPINES WEST"
+ },
+ {
+  "name": "Paya Lebar Methodist Girls' School (Secondary)",
+  "distM": 996,
+  "station": "KOVAN"
+ },
+ {
+  "name": "Bukit Batok Secondary School",
+  "distM": 968,
+  "station": "BUKIT BATOK"
+ },
+ {
+  "name": "St. Anthony's Canossian Secondary School",
+  "distM": 963,
+  "station": "TANAH MERAH"
+ },
+ {
+  "name": "Dunearn Secondary School",
+  "distM": 961,
+  "station": "BUKIT GOMBAK"
+ },
+ {
+  "name": "West Spring Secondary School",
+  "distM": 926,
+  "station": "BUKIT PANJANG"
+ },
+ {
+  "name": "Northland Secondary School",
+  "distM": 906,
+  "station": "YISHUN"
+ },
+ {
+  "name": "Hua Yi Secondary School",
+  "distM": 904,
+  "station": "LAKESIDE"
+ },
+ {
+  "name": "Tanjong Katong Secondary School",
+  "distM": 885,
+  "station": "DAKOTA"
+ },
+ {
+  "name": "Anglo-Chinese School (Independent) (Secondary)",
+  "distM": 878,
+  "station": "DOVER"
+ },
+ {
+  "name": "Nan Hua High School",
+  "distM": 866,
+  "station": "CLEMENTI"
+ },
+ {
+  "name": "Punggol Secondary School",
+  "distM": 841,
+  "station": "PUNGGOL"
+ },
+ {
+  "name": "Anglo-Chinese School (Barker Road)",
+  "distM": 823,
+  "station": "NEWTON"
+ },
+ {
+  "name": "Outram Secondary School",
+  "distM": 823,
+  "station": "SENGKANG"
+ },
+ {
+  "name": "Canberra Secondary School",
+  "distM": 796,
+  "station": "SEMBAWANG"
+ },
+ {
+  "name": "Chua Chu Kang Secondary School",
+  "distM": 796,
+  "station": "BUKIT PANJANG"
+ },
+ {
+  "name": "Whitley Secondary School",
+  "distM": 787,
+  "station": "MARYMOUNT"
+ },
+ {
+  "name": "Ahmad Ibrahim Secondary School",
+  "distM": 780,
+  "station": "CANBERRA"
+ },
+ {
+  "name": "CHIJ St. Joseph's Convent",
+  "distM": 776,
+  "station": "SENGKANG"
+ },
+ {
+  "name": "Ang Mo Kio Secondary School",
+  "distM": 772,
+  "station": "MAYFLOWER"
+ },
+ {
+  "name": "Evergreen Secondary School",
+  "distM": 768,
+  "station": "ADMIRALTY"
+ },
+ {
+  "name": "Tanjong Katong Girls' School",
+  "distM": 766,
+  "station": "DAKOTA"
+ },
+ {
+  "name": "Catholic High School (Secondary)",
+  "distM": 750,
+  "station": "BISHAN"
+ },
+ {
+  "name": "North Vista Secondary School",
+  "distM": 740,
+  "station": "BUANGKOK"
+ },
+ {
+  "name": "Woodlands Secondary School",
+  "distM": 736,
+  "station": "MARSILING"
+ },
+ {
+  "name": "Bukit Panjang Govt. High School",
+  "distM": 725,
+  "station": "CHOA CHU KANG"
+ },
+ {
+  "name": "Yishun Secondary School",
+  "distM": 709,
+  "station": "YISHUN"
+ },
+ {
+  "name": "River Valley High School (Secondary)",
+  "distM": 707,
+  "station": "BOON LAY"
+ },
+ {
+  "name": "Yuying Secondary School",
+  "distM": 704,
+  "station": "KOVAN"
+ },
+ {
+  "name": "Anglican High School",
+  "distM": 697,
+  "station": "TANAH MERAH"
+ },
+ {
+  "name": "Yusof Ishak Secondary School",
+  "distM": 697,
+  "station": "PUNGGOL"
+ },
+ {
+  "name": "Swiss Cottage Secondary School",
+  "distM": 696,
+  "station": "BUKIT GOMBAK"
+ },
+ {
+  "name": "Compassvale Secondary School",
+  "distM": 693,
+  "station": "SENGKANG"
+ },
+ {
+  "name": "Fuhua Secondary School",
+  "distM": 691,
+  "station": "LAKESIDE"
+ },
+ {
+  "name": "Northlight School",
+  "distM": 672,
+  "station": "FARRER PARK"
+ },
+ {
+  "name": "Tampines Secondary School",
+  "distM": 670,
+  "station": "TAMPINES"
+ },
+ {
+  "name": "East Spring Secondary School",
+  "distM": 668,
+  "station": "TAMPINES EAST"
+ },
+ {
+  "name": "Pasir Ris Secondary School",
+  "distM": 667,
+  "station": "TAMPINES EAST"
+ },
+ {
+  "name": "Nan Chiau High School",
+  "distM": 661,
+  "station": "BUANGKOK"
+ },
+ {
+  "name": "Seng Kang Secondary School",
+  "distM": 658,
+  "station": "SENGKANG"
+ },
+ {
+  "name": "Boon Lay Secondary School",
+  "distM": 652,
+  "station": "BOON LAY"
+ },
+ {
+  "name": "Meridian Secondary School",
+  "distM": 645,
+  "station": "PASIR RIS"
+ },
+ {
+  "name": "Beatty Secondary School",
+  "distM": 642,
+  "station": "BRADDELL"
+ },
+ {
+  "name": "New Town Secondary School",
+  "distM": 632,
+  "station": "DOVER"
+ },
+ {
+  "name": "Regent Secondary School",
+  "distM": 622,
+  "station": "YEW TEE"
+ },
+ {
+  "name": "Guangyang Secondary School",
+  "distM": 614,
+  "station": "BRADDELL"
+ },
+ {
+  "name": "Nanyang Girls' High School",
+  "distM": 614,
+  "station": "SIXTH AVENUE"
+ },
+ {
+  "name": "Kranji Secondary School",
+  "distM": 612,
+  "station": "CHOA CHU KANG"
+ },
+ {
+  "name": "Admiralty Secondary School",
+  "distM": 610,
+  "station": "ADMIRALTY"
+ },
+ {
+  "name": "Hai Sing Catholic School",
+  "distM": 602,
+  "station": "PASIR RIS"
+ },
+ {
+  "name": "St. Gabriel's Secondary School",
+  "distM": 591,
+  "station": "SERANGOON"
+ },
+ {
+  "name": "Orchid Park Secondary School",
+  "distM": 589,
+  "station": "KHATIB"
+ },
+ {
+  "name": "Queenstown Secondary School",
+  "distM": 585,
+  "station": "REDHILL"
+ },
+ {
+  "name": "Jurong West Secondary School",
+  "distM": 577,
+  "station": "BOON LAY"
+ },
+ {
+  "name": "Cedar Girls' Secondary School",
+  "distM": 573,
+  "station": "POTONG PASIR"
+ },
+ {
+  "name": "Damai Secondary School",
+  "distM": 573,
+  "station": "BEDOK RESERVOIR"
+ },
+ {
+  "name": "Bukit Merah Secondary School",
+  "distM": 572,
+  "station": "REDHILL"
+ },
+ {
+  "name": "Bedok South Secondary School",
+  "distM": 564,
+  "station": "TANAH MERAH"
+ },
+ {
+  "name": "Hillgrove Secondary School",
+  "distM": 560,
+  "station": "BUKIT BATOK"
+ },
+ {
+  "name": "Kuo Chuan Presbyterian Secondary School",
+  "distM": 556,
+  "station": "BISHAN"
+ },
+ {
+  "name": "Deyi Secondary School",
+  "distM": 549,
+  "station": "ANG MO KIO"
+ },
+ {
+  "name": "Montfort Secondary School",
+  "distM": 548,
+  "station": "HOUGANG"
+ },
+ {
+  "name": "Sembawang Secondary School",
+  "distM": 547,
+  "station": "SEMBAWANG"
+ },
+ {
+  "name": "School of Science and Technology, Singapore",
+  "distM": 541,
+  "station": "DOVER"
+ },
+ {
+  "name": "Greenridge Secondary School",
+  "distM": 540,
+  "station": "BUKIT PANJANG"
+ },
+ {
+  "name": "Anderson Secondary School",
+  "distM": 538,
+  "station": "ANG MO KIO"
+ },
+ {
+  "name": "Raffles Institution (Secondary)",
+  "distM": 538,
+  "station": "MARYMOUNT"
+ },
+ {
+  "name": "Riverside Secondary School",
+  "distM": 537,
+  "station": "WOODLANDS"
+ },
+ {
+  "name": "Bendemeer Secondary School",
+  "distM": 533,
+  "station": "BOON KENG"
+ },
+ {
+  "name": "Chung Cheng High School (Yishun)",
+  "distM": 531,
+  "station": "KHATIB"
+ },
+ {
+  "name": "Dunman Secondary School",
+  "distM": 526,
+  "station": "TAMPINES EAST"
+ },
+ {
+  "name": "Spectra Secondary School",
+  "distM": 525,
+  "station": "ADMIRALTY"
+ },
+ {
+  "name": "Yio Chu Kang Secondary School",
+  "distM": 524,
+  "station": "YIO CHU KANG"
+ },
+ {
+  "name": "National Junior College (Secondary)",
+  "distM": 511,
+  "station": "TAN KAH KEE"
+ },
+ {
+  "name": "Queensway Secondary School",
+  "distM": 510,
+  "station": "COMMONWEALTH"
+ },
+ {
+  "name": "Marsiling Secondary School",
+  "distM": 506,
+  "station": "MARSILING"
+ },
+ {
+  "name": "St. Joseph's Institution (Secondary)",
+  "distM": 485,
+  "station": "STEVENS"
+ },
+ {
+  "name": "Gan Eng Seng School",
+  "distM": 484,
+  "station": "TIONG BAHRU"
+ },
+ {
+  "name": "Holy Innocents' High School",
+  "distM": 479,
+  "station": "HOUGANG"
+ },
+ {
+  "name": "Peirce Secondary School",
+  "distM": 479,
+  "station": "BRIGHT HILL"
+ },
+ {
+  "name": "St. Hilda's Secondary School",
+  "distM": 479,
+  "station": "TAMPINES WEST"
+ },
+ {
+  "name": "Bukit View Secondary School",
+  "distM": 471,
+  "station": "BUKIT BATOK"
+ },
+ {
+  "name": "CHIJ Secondary (Toa Payoh)",
+  "distM": 471,
+  "station": "TOA PAYOH"
+ },
+ {
+  "name": "Yishun Town Secondary School",
+  "distM": 469,
+  "station": "YISHUN"
+ },
+ {
+  "name": "Raffles Girls' School (Secondary)",
+  "distM": 464,
+  "station": "BRADDELL"
+ },
+ {
+  "name": "Chung Cheng High School (Main)",
+  "distM": 456,
+  "station": "DAKOTA"
+ },
+ {
+  "name": "Zhonghua Secondary School",
+  "distM": 446,
+  "station": "SERANGOON"
+ },
+ {
+  "name": "Edgefield Secondary School",
+  "distM": 445,
+  "station": "PUNGGOL"
+ },
+ {
+  "name": "Woodlands Ring Secondary School",
+  "distM": 443,
+  "station": "MARSILING"
+ },
+ {
+  "name": "Bedok View Secondary School",
+  "distM": 442,
+  "station": "TANAH MERAH"
+ },
+ {
+  "name": "Singapore Sports School",
+  "distM": 438,
+  "station": "WOODLANDS SOUTH"
+ },
+ {
+  "name": "Dunman High School (Secondary)",
+  "distM": 431,
+  "station": "KATONG PARK"
+ },
+ {
+  "name": "Fairfield Methodist School (Secondary)",
+  "distM": 427,
+  "station": "ONE-NORTH"
+ },
+ {
+  "name": "Crescent Girls' School",
+  "distM": 419,
+  "station": "REDHILL"
+ },
+ {
+  "name": "Changkat Changi Secondary School",
+  "distM": 411,
+  "station": "SIMEI"
+ },
+ {
+  "name": "Assumption English School",
+  "distM": 410,
+  "station": "CASHEW"
+ },
+ {
+  "name": "St. Margaret's School (Secondary)",
+  "distM": 409,
+  "station": "FARRER ROAD"
+ },
+ {
+  "name": "Bartley Secondary School",
+  "distM": 401,
+  "station": "BARTLEY"
+ },
+ {
+  "name": "Manjusri Secondary School",
+  "distM": 393,
+  "station": "UBI"
+ },
+ {
+  "name": "Bedok Green Secondary School",
+  "distM": 388,
+  "station": "BEDOK RESERVOIR"
+ },
+ {
+  "name": "Mayflower Secondary School",
+  "distM": 379,
+  "station": "MAYFLOWER"
+ },
+ {
+  "name": "Yuhua Secondary School",
+  "distM": 379,
+  "station": "LAKESIDE"
+ },
+ {
+  "name": "Clementi Town Secondary School",
+  "distM": 356,
+  "station": "CLEMENTI"
+ },
+ {
+  "name": "St Andrew's School (Secondary)",
+  "distM": 354,
+  "station": "POTONG PASIR"
+ },
+ {
+  "name": "CHIJ St. Nicholas Girls' School (Secondary)",
+  "distM": 341,
+  "station": "MAYFLOWER"
+ },
+ {
+  "name": "Methodist Girls' School (Secondary)",
+  "distM": 334,
+  "station": "KING ALBERT PARK"
+ },
+ {
+  "name": "Woodgrove Secondary School",
+  "distM": 326,
+  "station": "WOODLANDS SOUTH"
+ },
+ {
+  "name": "Unity Secondary School",
+  "distM": 316,
+  "station": "YEW TEE"
+ },
+ {
+  "name": "St. Patrick's School",
+  "distM": 312,
+  "station": "MARINE TERRACE"
+ },
+ {
+  "name": "Naval Base Secondary School",
+  "distM": 309,
+  "station": "KHATIB"
+ },
+ {
+  "name": "Broadrick Secondary School",
+  "distM": 303,
+  "station": "DAKOTA"
+ },
+ {
+  "name": "Ngee Ann Secondary School",
+  "distM": 303,
+  "station": "TAMPINES EAST"
+ },
+ {
+  "name": "Maris Stella High School (Secondary)",
+  "distM": 297,
+  "station": "BARTLEY"
+ },
+ {
+  "name": "Presbyterian High School",
+  "distM": 285,
+  "station": "YIO CHU KANG"
+ },
+ {
+  "name": "Victoria School",
+  "distM": 269,
+  "station": "SIGLAP"
+ },
+ {
+  "name": "Yuan Ching Secondary School",
+  "distM": 251,
+  "station": "LAKESIDE"
+ },
+ {
+  "name": "Singapore Chinese Girls' School",
+  "distM": 246,
+  "station": "STEVENS"
+ },
+ {
+  "name": "CHIJ Katong Convent",
+  "distM": 228,
+  "station": "MARINE TERRACE"
+ },
+ {
+  "name": "Temasek Secondary School",
+  "distM": 212,
+  "station": "BEDOK SOUTH"
+ },
+ {
+  "name": "Temasek Junior College (Secondary)",
+  "distM": 211,
+  "station": "TAMPINES EAST"
+ },
+ {
+  "name": "School of the Arts, Singapore",
+  "distM": 192,
+  "station": "BENCOOLEN"
+ },
+ {
+  "name": "Assumption Pathway School",
+  "distM": 184,
+  "station": "CASHEW"
+ },
+ {
+  "name": "Geylang Methodist School (Secondary)",
+  "distM": 138,
+  "station": "ALJUNIED"
+ },
+ {
+  "name": "Hwa Chong Institution (Secondary)",
+  "distM": 125,
+  "station": "TAN KAH KEE"
+ },
+ {
+  "name": "Christ Church Secondary School",
+  "distM": 100,
+  "station": "WOODLANDS SOUTH"
+ }
+]

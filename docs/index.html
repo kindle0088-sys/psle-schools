@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PSLE 择校看板 · 新加坡中学</title>
+<meta name="description" content="新加坡 147 所中学的 PSLE 录取区间、IP/SAP 类型、CCA 与 DSA 信息，含 MRT 通勤时间。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <h1>PSLE 择校看板</h1>
+    <div class="sub">新加坡 <b id="totalN">147</b> 所中学 · 录取区间 / 学校类型 / CCA / DSA / MRT 通勤</div>
+    <nav class="nav">
+      <a href="index.html" class="on">学校看板</a>
+      <a href="map.html">通勤地图</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="notice">
+    <b>口径说明</b> · COP 是 <b id="copYear">2025</b> 年<b>实际录取区间</b>（非本年度门槛），每年随报考热度浮动；
+    分数越小越好，区间右端（较大值）为该校该档<b>最低录取分</b>。
+    本页按<b>非附属生</b>口径展示（无兄姐在读、非校友子女）；有附属关系的学校另列附属生区间。
+  </div>
+
+  <div class="filters">
+    <div class="filter-row">
+      <div class="search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+          <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+        </svg>
+        <input id="q" type="search" placeholder="搜索学校名 / 区域 / 邮编（例：Raffles、Bishan、579954）" autocomplete="off">
+      </div>
+      <select id="area"><option value="">全部区域</option></select>
+      <select id="sort">
+        <option value="cop">按门槛（严 → 松）</option>
+        <option value="cop-asc">按门槛（松 → 严）</option>
+        <option value="name">按校名 A–Z</option>
+        <option value="cca">按 CCA 数量</option>
+      </select>
+    </div>
+    <div class="filter-row">
+      <div class="chip-group" id="tags">
+        <span class="chip" data-tag="ip">IP 直通车</span>
+        <span class="chip" data-tag="sap">SAP 特选</span>
+        <span class="chip" data-tag="autonomous">自主学校</span>
+        <span class="chip" data-tag="independent">独立学校</span>
+        <span class="chip" data-tag="specialised">专科学校</span>
+      </div>
+      <span style="flex:1"></span>
+      <label style="font-size:12.5px;color:var(--tx2);display:flex;align-items:center;gap:7px">
+        我的 PSLE 分数
+        <input id="score" class="num-in" type="number" min="4" max="30" step="1" placeholder="4–30">
+      </label>
+      <button class="btn" id="reset">重置</button>
+    </div>
+  </div>
+
+  <div class="statline" id="statline"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <b>数据来源</b> · 学校与录取区间：MOE SchoolFinder（<code>moe.gov.sg/schoolfinder</code>）｜
+    坐标：OneMap 地理编码｜MRT 网络：官方线路代号 + 站间 2 分钟 / 换乘 5 分钟 / 进站 4 分钟模型<br>
+    <b>免责</b> · 本页为个人研究工具，非 MOE 官方发布。录取区间仅供定位参考，实际分配由 S1 Posting 按成绩与志愿顺序决定。
+    选择学校请同时考虑校风、CCA、通勤、办学理念等本页无法量化的因素。<br>
+    <span id="built"></span>
+  </div>
+</footer>
+
+<script>
+/* ────────────────────────────────────────────────
+   状态
+   ──────────────────────────────────────────────── */
+const S = { q: '', area: '', sort: 'cop', tags: new Set(), score: null };
+let DATA = null, SCHOOLS = [];
+
+/* ────────────────────────────────────────────────
+   工具
+   ──────────────────────────────────────────────── */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+/** 取"最宽松"的非附属档（门槛值 = max） */
+function gate(sc) {
+  const cop = sc.cop;
+  if (!cop || !cop.rows?.length) return null;
+  let best = null;
+  for (const r of cop.rows) {
+    const v = r.nonAff || r.aff;          // 无附属信息时退回附属区间
+    if (!v) continue;
+    if (!best || v.max > best.max) best = { ...v, label: r.label, kind: r.kind, isAff: !r.nonAff };
+  }
+  return best;
+}
+
+/** 分数匹配：返回 {status, delta} */
+function fitOf(sc, score) {
+  if (score == null) return null;
+  const g = gate(sc);
+  if (!g) return { status: 'na', delta: null };
+  const delta = g.max - score;
+  if (delta < 0) return { status: 'out', delta };
+  if (delta <= 1) return { status: 'edge', delta };
+  return { status: 'ok', delta };
+}
+
+const FIT_LABEL = {
+  ok: d => `余量 ${d} 分`,
+  edge: d => d === 0 ? '压线' : `余量 ${d} 分`,
+  out: d => `差 ${-d} 分`,
+  na: () => '无区间',
+};
+
+function fmtRange(v) {
+  if (!v) return '—';
+  const suffix = v.markMax ? `(${v.markMax})` : '';
+  return v.min === v.max ? `${v.min}${suffix}` : `${v.min}–${v.max}${suffix}`;
+}
+
+/* ────────────────────────────────────────────────
+   渲染
+   ──────────────────────────────────────────────── */
+function applyFilter() {
+  const q = S.q.trim().toLowerCase();
+  return SCHOOLS.filter(sc => {
+    if (S.area && sc.area !== S.area) return false;
+    for (const t of S.tags) if (!sc[t]) return false;
+    if (q) {
+      const hay = [sc.name, sc.area, sc.postal, sc.address, sc.nearStation?.name]
+        .filter(Boolean).join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function sortList(list) {
+  if (S.sort === 'name') return list.sort((a, b) => a.name.localeCompare(b.name));
+  if (S.sort === 'cca') return list.sort((a, b) => (b.cca.length || 0) - (a.cca.length || 0));
+  const dir = S.sort === 'cop-asc' ? 1 : -1;
+  return list.sort((a, b) => {
+    const ga = gate(a), gb = gate(b);
+    // 无 COP 的排最后
+    if (!ga && !gb) return a.name.localeCompare(b.name);
+    if (!ga) return 1;
+    if (!gb) return -1;
+    if (ga.max !== gb.max) return (ga.max - gb.max) * -dir;
+    return a.name.localeCompare(b.name);
+  });
+}
+
+function cardHtml(sc) {
+  const g = gate(sc);
+  const fit = fitOf(sc, S.score);
+
+  // 标签
+  const tags = [];
+  if (sc.ip) tags.push('<span class="tag tag-ip">IP</span>');
+  if (sc.sap) tags.push('<span class="tag tag-sap">SAP</span>');
+  if (sc.independent) tags.push('<span class="tag tag-indep">独立</span>');
+  else if (sc.autonomous) tags.push('<span class="tag tag-auto">自主</span>');
+  if (sc.specialised) tags.push('<span class="tag tag-spec">专科</span>');
+  if (!tags.length) tags.push('<span class="tag tag-none">政府</span>');
+
+  // COP 分档
+  let copBlock = '';
+  if (sc.cop?.rows?.length) {
+    copBlock = `<table class="cop-table">${sc.cop.rows.map(r => `
+      <tr>
+        <td>${esc(r.label.replace('Posting Group ', 'PG').replace('Integrated Programme', 'IP'))}
+            ${r.nonAff ? '' : '<span style="font-size:10px">（附属）</span>'}</td>
+        <td>${fmtRange(r.nonAff || r.aff)}</td>
+      </tr>`).join('')}</table>`;
+  } else {
+    copBlock = '<div style="font-size:11.5px;color:var(--tx3)">该校不参与 S1 Posting（专科校，另有申请流程）</div>';
+  }
+
+  const mrt = sc.nearStation;
+  const mrtTxt = mrt
+    ? `<span class="mrt"><span class="code">${esc(mrt.codes.join('/'))}</span> ${esc(mrt.name)} · ${mrt.distM}m</span>`
+    : '<span style="color:var(--tx3)">无坐标</span>';
+
+  const fitHtml = fit
+    ? `<span class="fit fit-${fit.status}">${fit.status === 'na' ? '无区间' : FIT_LABEL[fit.status](fit.delta)}</span>`
+    : '';
+
+  return `
+  <article class="card" data-slug="${esc(sc.slug)}">
+    <div class="card-head">
+      <div style="min-width:0">
+        <div class="card-name">${esc(sc.name)}</div>
+        <div class="card-area">${esc(sc.area || '')}${sc.postal ? ' · ' + esc(sc.postal) : ''}</div>
+      </div>
+      <div class="cop-main">
+        <div class="v">${g ? fmtRange(g) : '—'}</div>
+        <div class="l">${g ? (g.kind === 'IP' ? 'IP 录取区间' : 'PG3 最低线') : 'N/A'}</div>
+      </div>
+    </div>
+
+    <div class="tags">${tags.join('')}${fitHtml}</div>
+
+    <div class="rows">
+      <div class="r"><span class="k">CCA</span><span class="val">${sc.cca.length} 项</span></div>
+      <div class="r"><span class="k">DSA</span><span class="val">${sc.dsaAreas.length ? sc.dsaAreas.length + ' 项（' + sc.dsaYear + '）' : '未列'}</span></div>
+    </div>
+
+    ${copBlock}
+
+    <div class="card-foot">
+      ${mrtTxt}
+      <button class="expand-btn" data-act="toggle">详情 ›</button>
+    </div>
+
+    <div class="detail">
+      ${sc.address ? `<h4>地址</h4><div class="addr">${esc(sc.address)}</div>` : ''}
+      ${sc.type ? `<h4>学校类型</h4><div class="addr">${esc(sc.type)}${sc.nature ? ' · ' + esc(sc.nature) : ''}${sc.mode ? ' · ' + esc(sc.mode) : ''}</div>` : ''}
+      ${sc.cca.length ? `<h4>CCA（${sc.cca.length}）</h4><div class="list">${sc.cca.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : ''}
+      ${sc.dsaAreas.length ? `<h4>DSA 才能领域（${sc.dsaYear}）</h4><div class="list">${sc.dsaAreas.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : ''}
+      ${sc.affiliations && (sc.affiliations.primary?.length || sc.affiliations.jc?.length) ? `
+        <h4>附属学校</h4>
+        <div class="addr">
+          ${sc.affiliations.primary?.length ? '小学：' + sc.affiliations.primary.map(esc).join('、') + '<br>' : ''}
+          ${sc.affiliations.jc?.length ? '初院：' + sc.affiliations.jc.map(esc).join('、') : ''}
+        </div>` : ''}
+      ${sc.contact ? `<h4>联系</h4><div class="addr">
+        ${sc.contact.phone ? '电话 ' + esc(sc.contact.phone) : ''}
+        ${sc.contact.website ? ' · <a href="' + esc(sc.contact.website) + '" target="_blank" rel="noopener">官网</a>' : ''}
+      </div>` : ''}
+      <div style="margin-top:9px;font-size:11px;color:var(--tx3)">
+        录取区间来源 MOE SchoolFinder · 采集于 2026-11
+      </div>
+    </div>
+  </article>`;
+}
+
+function render() {
+  const list = sortList(applyFilter());
+  const grid = $('#grid');
+
+  if (!list.length) {
+    grid.innerHTML = '<div class="empty">没有符合条件的学校，试试放宽筛选条件。</div>';
+  } else {
+    grid.innerHTML = list.map(cardHtml).join('');
+  }
+
+  // 统计
+  const ip = list.filter(x => x.ip).length;
+  const sap = list.filter(x => x.sap).length;
+  const withCop = list.filter(x => x.cop).length;
+  let extra = '';
+  if (S.score != null) {
+    const ok = list.filter(x => { const f = fitOf(x, S.score); return f && (f.status === 'ok' || f.status === 'edge'); }).length;
+    extra = ` · <span class="hint">PSLE ${S.score} 分可报 <b>${ok}</b> 所</span>`;
+  }
+  $('#statline').innerHTML = `共 <b>${list.length}</b> 所${extra} · IP <b>${ip}</b> · SAP <b>${sap}</b> · 有录取区间 <b>${withCop}</b>`;
+}
+
+/* ────────────────────────────────────────────────
+   事件
+   ──────────────────────────────────────────────── */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-act="toggle"]');
+  if (!t) return;
+  const card = t.closest('.card');
+  const d = card.querySelector('.detail');
+  const open = d.classList.toggle('open');
+  t.textContent = open ? '收起 ‹' : '详情 ›';
+});
+
+$('#q').addEventListener('input', e => { S.q = e.target.value; render(); });
+$('#area').addEventListener('change', e => { S.area = e.target.value; render(); });
+$('#sort').addEventListener('change', e => { S.sort = e.target.value; render(); });
+$('#tags').addEventListener('click', e => {
+  const c = e.target.closest('.chip');
+  if (!c) return;
+  const t = c.dataset.tag;
+  if (S.tags.has(t)) { S.tags.delete(t); c.classList.remove('on'); }
+  else { S.tags.add(t); c.classList.add('on'); }
+  render();
+});
+$('#score').addEventListener('input', e => {
+  const v = e.target.value.trim();
+  if (!v) { S.score = null; render(); return; }
+  const n = parseInt(v, 10);
+  if (isNaN(n) || n < 4 || n > 30) { S.score = null; render(); return; }
+  S.score = n;
+  render();
+});
+$('#reset').addEventListener('click', () => {
+  S.q = ''; S.area = ''; S.sort = 'cop'; S.tags.clear(); S.score = null;
+  $('#q').value = ''; $('#area').value = ''; $('#sort').value = 'cop'; $('#score').value = '';
+  document.querySelectorAll('#tags .chip').forEach(c => c.classList.remove('on'));
+  render();
+});
+
+/* ────────────────────────────────────────────────
+   启动
+   ──────────────────────────────────────────────── */
+(async function init() {
+  try {
+    const res = await fetch('data/schools.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    DATA = await res.json();
+  } catch (err) {
+    $('#grid').innerHTML = `<div class="empty">数据加载失败：${esc(err.message)}<br>
+      <span style="font-size:12px">若用 file:// 直接打开会因浏览器安全策略失败，请用本地服务器访问。</span></div>`;
+    return;
+  }
+
+  SCHOOLS = DATA.schools;
+  $('#totalN').textContent = DATA.meta.total;
+  $('#copYear').textContent = DATA.meta.copYear || '—';
+  $('#built').textContent = '构建于 ' + new Date(DATA.meta.generatedAt).toLocaleString('zh-CN', { timeZone: 'Asia/Singapore' }) + ' SGT';
+
+  // 区域下拉
+  const areas = [...new Set(SCHOOLS.map(s => s.area).filter(Boolean))].sort();
+  $('#area').innerHTML = '<option value="">全部区域</option>' +
+    areas.map(a => `<option value="${esc(a)}">${esc(a)}</option>`).join('');
+
+  render();
+})();
+</script>
+</body>
+</html>

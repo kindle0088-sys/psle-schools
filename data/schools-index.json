@@ -1,0 +1,1112 @@
+[
+ {
+  "slug": "admiralty-secondary-school",
+  "name": "Admiralty Secondary School",
+  "code": "3072",
+  "area": "Woodlands"
+ },
+ {
+  "slug": "ahmad-ibrahim-secondary-school",
+  "name": "Ahmad Ibrahim Secondary School",
+  "code": "3201",
+  "area": "Yishun"
+ },
+ {
+  "slug": "anderson-secondary-school",
+  "name": "Anderson Secondary School",
+  "code": "3001",
+  "area": "Ang Mo Kio"
+ },
+ {
+  "slug": "anglican-high-school",
+  "name": "Anglican High School",
+  "code": "7101",
+  "area": "Bedok"
+ },
+ {
+  "slug": "st-andrews-junior-college",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "anglo-chinese-school-barker-road",
+  "name": "Anglo-Chinese School (Barker Road)",
+  "code": "7032",
+  "area": "Novena"
+ },
+ {
+  "slug": "anglo-chinese-junior-college",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "anglo-chinese-school-junior",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "anglo-chinese-school-primary",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "anglo-chinese-school-independent-secondary",
+  "name": "Anglo-Chinese School (Independent) (Secondary)",
+  "code": "7001",
+  "area": "Queenstown"
+ },
+ {
+  "slug": "ang-mo-kio-secondary-school",
+  "name": "Ang Mo Kio Secondary School",
+  "code": "3026",
+  "area": "Ang Mo Kio"
+ },
+ {
+  "slug": "assumption-english-school",
+  "name": "Assumption English School",
+  "code": "7002",
+  "area": "Bukit Panjang"
+ },
+ {
+  "slug": "catholic-junior-college",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "assumption-pathway-school",
+  "name": "Assumption Pathway School",
+  "code": "7804",
+  "area": "Bukit Panjang"
+ },
+ {
+  "slug": "bartley-secondary-school",
+  "name": "Bartley Secondary School",
+  "code": "3002",
+  "area": "Toa Payoh"
+ },
+ {
+  "slug": "beatty-secondary-school",
+  "name": "Beatty Secondary School",
+  "code": "3003",
+  "area": "Toa Payoh"
+ },
+ {
+  "slug": "bedok-green-secondary-school",
+  "name": "Bedok Green Secondary School",
+  "code": "3069",
+  "area": "Bedok"
+ },
+ {
+  "slug": "bedok-south-secondary-school",
+  "name": "Bedok South Secondary School",
+  "code": "3027",
+  "area": "Bedok"
+ },
+ {
+  "slug": "bedok-view-secondary-school",
+  "name": "Bedok View Secondary School",
+  "code": "3225",
+  "area": "Bedok"
+ },
+ {
+  "slug": "bendemeer-secondary-school",
+  "name": "Bendemeer Secondary School",
+  "code": "3021",
+  "area": "Kallang"
+ },
+ {
+  "slug": "boon-lay-secondary-school",
+  "name": "Boon Lay Secondary School",
+  "code": "3224",
+  "area": "Jurong West"
+ },
+ {
+  "slug": "bowen-secondary-school",
+  "name": "Bowen Secondary School",
+  "code": "3043",
+  "area": "Hougang"
+ },
+ {
+  "slug": "broadrick-secondary-school",
+  "name": "Broadrick Secondary School",
+  "code": "3202",
+  "area": "Geylang"
+ },
+ {
+  "slug": "bukit-batok-secondary-school",
+  "name": "Bukit Batok Secondary School",
+  "code": "3044",
+  "area": "Bukit Batok"
+ },
+ {
+  "slug": "bukit-merah-secondary-school",
+  "name": "Bukit Merah Secondary School",
+  "code": "3203",
+  "area": "Bukit Merah"
+ },
+ {
+  "slug": "bukit-panjang-govt-high-school",
+  "name": "Bukit Panjang Govt. High School",
+  "code": "3204",
+  "area": "Choa Chu Kang"
+ },
+ {
+  "slug": "bukit-view-secondary-school",
+  "name": "Bukit View Secondary School",
+  "code": "3040",
+  "area": "Bukit Batok"
+ },
+ {
+  "slug": "canberra-secondary-school",
+  "name": "Canberra Secondary School",
+  "code": "3621",
+  "area": "Sembawang"
+ },
+ {
+  "slug": "catholic-high-school-secondary",
+  "name": "Catholic High School (Secondary)",
+  "code": "7102",
+  "area": "Bishan"
+ },
+ {
+  "slug": "catholic-high-school-primary",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "cedar-girls-secondary-school",
+  "name": "Cedar Girls' Secondary School",
+  "code": "3004",
+  "area": "Toa Payoh"
+ },
+ {
+  "slug": "changkat-changi-secondary-school",
+  "name": "Changkat Changi Secondary School",
+  "code": "3402",
+  "area": "Tampines"
+ },
+ {
+  "slug": "chij-katong-convent",
+  "name": "CHIJ Katong Convent",
+  "code": "7008",
+  "area": "Marine Parade"
+ },
+ {
+  "slug": "chij-katong-primary",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "chij-secondary-toa-payoh",
+  "name": "CHIJ Secondary (Toa Payoh)",
+  "code": "7004",
+  "area": "Toa Payoh"
+ },
+ {
+  "slug": "chij-primary-toa-payoh",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "chij-st-josephs-convent",
+  "name": "CHIJ St. Joseph's Convent",
+  "code": "7019",
+  "area": "Seng Kang"
+ },
+ {
+  "slug": "chij-our-lady-of-the-nativity",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "chij-our-lady-of-good-counsel",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "chij-st-nicholas-girls-school-secondary",
+  "name": "CHIJ St. Nicholas Girls' School (Secondary)",
+  "code": "7118",
+  "area": "Ang Mo Kio"
+ },
+ {
+  "slug": "chij-st-nicholas-girls-school-primary",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "chij-st-theresas-convent",
+  "name": "CHIJ St. Theresa's Convent",
+  "code": "7023",
+  "area": "Bukit Merah"
+ },
+ {
+  "slug": "chij-kellock",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "chij-our-lady-queen-of-peace",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "christ-church-secondary-school",
+  "name": "Christ Church Secondary School",
+  "code": "7025",
+  "area": "Woodlands"
+ },
+ {
+  "slug": "chua-chu-kang-secondary-school",
+  "name": "Chua Chu Kang Secondary School",
+  "code": "3055",
+  "area": "Choa Chu Kang"
+ },
+ {
+  "slug": "chung-cheng-high-school-main",
+  "name": "Chung Cheng High School (Main)",
+  "code": "7104",
+  "area": "Marine Parade"
+ },
+ {
+  "slug": "nanyang-junior-college",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "chung-cheng-high-school-yishun",
+  "name": "Chung Cheng High School (Yishun)",
+  "code": "7105",
+  "area": "Yishun"
+ },
+ {
+  "slug": "clementi-town-secondary-school",
+  "name": "Clementi Town Secondary School",
+  "code": "3029",
+  "area": "Clementi"
+ },
+ {
+  "slug": "commonwealth-secondary-school",
+  "name": "Commonwealth Secondary School",
+  "code": "3012",
+  "area": "Jurong East"
+ },
+ {
+  "slug": "compassvale-secondary-school",
+  "name": "Compassvale Secondary School",
+  "code": "3622",
+  "area": "Seng Kang"
+ },
+ {
+  "slug": "crescent-girls-school",
+  "name": "Crescent Girls' School",
+  "code": "3005",
+  "area": "Bukit Merah"
+ },
+ {
+  "slug": "crest-secondary-school",
+  "name": "Crest Secondary School",
+  "code": "7806",
+  "area": "Jurong East"
+ },
+ {
+  "slug": "damai-secondary-school",
+  "name": "Damai Secondary School",
+  "code": "3056",
+  "area": "Bedok"
+ },
+ {
+  "slug": "deyi-secondary-school",
+  "name": "Deyi Secondary School",
+  "code": "3228",
+  "area": "Ang Mo Kio"
+ },
+ {
+  "slug": "dunearn-secondary-school",
+  "name": "Dunearn Secondary School",
+  "code": "3503",
+  "area": "Bukit Batok"
+ },
+ {
+  "slug": "dunman-high-school-secondary",
+  "name": "Dunman High School (Secondary)",
+  "code": "3101",
+  "area": "Kallang"
+ },
+ {
+  "slug": "dunman-secondary-school",
+  "name": "Dunman Secondary School",
+  "code": "3207",
+  "area": "Tampines"
+ },
+ {
+  "slug": "east-spring-secondary-school",
+  "name": "East Spring Secondary School",
+  "code": "3609",
+  "area": "Tampines"
+ },
+ {
+  "slug": "edgefield-secondary-school",
+  "name": "Edgefield Secondary School",
+  "code": "3075",
+  "area": "Punggol"
+ },
+ {
+  "slug": "evergreen-secondary-school",
+  "name": "Evergreen Secondary School",
+  "code": "3623",
+  "area": "Woodlands"
+ },
+ {
+  "slug": "fairfield-methodist-school-secondary",
+  "name": "Fairfield Methodist School (Secondary)",
+  "code": "7309",
+  "area": "Queenstown"
+ },
+ {
+  "slug": "fairfield-methodist-school-primary",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "fuhua-secondary-school",
+  "name": "Fuhua Secondary School",
+  "code": "3614",
+  "area": "Jurong West"
+ },
+ {
+  "slug": "gan-eng-seng-school",
+  "name": "Gan Eng Seng School",
+  "code": "3006",
+  "area": "Bukit Merah"
+ },
+ {
+  "slug": "geylang-methodist-school-secondary",
+  "name": "Geylang Methodist School (Secondary)",
+  "code": "7005",
+  "area": "Geylang"
+ },
+ {
+  "slug": "geylang-methodist-school-primary",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "greendale-secondary-school",
+  "name": "Greendale Secondary School",
+  "code": "3074",
+  "area": "Punggol"
+ },
+ {
+  "slug": "greenridge-secondary-school",
+  "name": "Greenridge Secondary School",
+  "code": "3051",
+  "area": "Bukit Panjang"
+ },
+ {
+  "slug": "guangyang-secondary-school",
+  "name": "Guangyang Secondary School",
+  "code": "3238",
+  "area": "Bishan"
+ },
+ {
+  "slug": "hai-sing-catholic-school",
+  "name": "Hai Sing Catholic School",
+  "code": "7031",
+  "area": "Pasir Ris"
+ },
+ {
+  "slug": "hillgrove-secondary-school",
+  "name": "Hillgrove Secondary School",
+  "code": "3048",
+  "area": "Bukit Batok"
+ },
+ {
+  "slug": "holy-innocents-high-school",
+  "name": "Holy Innocents' High School",
+  "code": "7108",
+  "area": "Hougang"
+ },
+ {
+  "slug": "holy-innocents-primary-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "hougang-secondary-school",
+  "name": "Hougang Secondary School",
+  "code": "3046",
+  "area": "Hougang"
+ },
+ {
+  "slug": "hua-yi-secondary-school",
+  "name": "Hua Yi Secondary School",
+  "code": "3226",
+  "area": "Jurong West"
+ },
+ {
+  "slug": "hwa-chong-institution-secondary",
+  "name": "Hwa Chong Institution (Secondary)",
+  "code": "0806",
+  "area": "Bukit Timah"
+ },
+ {
+  "slug": "junyuan-secondary-school",
+  "name": "Junyuan Secondary School",
+  "code": "3608",
+  "area": "Tampines"
+ },
+ {
+  "slug": "jurong-secondary-school",
+  "name": "Jurong Secondary School",
+  "code": "3211",
+  "area": "Jurong West"
+ },
+ {
+  "slug": "jurongville-secondary-school",
+  "name": "Jurongville Secondary School",
+  "code": "3063",
+  "area": "Jurong East"
+ },
+ {
+  "slug": "jurong-west-secondary-school",
+  "name": "Jurong West Secondary School",
+  "code": "3068",
+  "area": "Jurong West"
+ },
+ {
+  "slug": "juying-secondary-school",
+  "name": "Juying Secondary School",
+  "code": "3066",
+  "area": "Jurong West"
+ },
+ {
+  "slug": "kent-ridge-secondary-school",
+  "name": "Kent Ridge Secondary School",
+  "code": "3619",
+  "area": "Clementi"
+ },
+ {
+  "slug": "kranji-secondary-school",
+  "name": "Kranji Secondary School",
+  "code": "3065",
+  "area": "Choa Chu Kang"
+ },
+ {
+  "slug": "kuo-chuan-presbyterian-secondary-school",
+  "name": "Kuo Chuan Presbyterian Secondary School",
+  "code": "7028",
+  "area": "Bishan"
+ },
+ {
+  "slug": "kuo-chuan-presbyterian-primary-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "loyang-view-secondary-school",
+  "name": "Loyang View Secondary School",
+  "code": "3077",
+  "area": "Pasir Ris"
+ },
+ {
+  "slug": "manjusri-secondary-school",
+  "name": "Manjusri Secondary School",
+  "code": "7307",
+  "area": "Geylang"
+ },
+ {
+  "slug": "mee-toh-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "maha-bodhi-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "maris-stella-high-school-secondary",
+  "name": "Maris Stella High School (Secondary)",
+  "code": "7111",
+  "area": "Toa Payoh"
+ },
+ {
+  "slug": "maris-stella-high-school-primary",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "marsiling-secondary-school",
+  "name": "Marsiling Secondary School",
+  "code": "3615",
+  "area": "Woodlands"
+ },
+ {
+  "slug": "mayflower-secondary-school",
+  "name": "Mayflower Secondary School",
+  "code": "3031",
+  "area": "Ang Mo Kio"
+ },
+ {
+  "slug": "meridian-secondary-school",
+  "name": "Meridian Secondary School",
+  "code": "3076",
+  "area": "Pasir Ris"
+ },
+ {
+  "slug": "methodist-girls-school-secondary",
+  "name": "Methodist Girls' School (Secondary)",
+  "code": "7030",
+  "area": "Bukit Timah"
+ },
+ {
+  "slug": "methodist-girls-school-primary",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "montfort-secondary-school",
+  "name": "Montfort Secondary School",
+  "code": "7011",
+  "area": "Hougang"
+ },
+ {
+  "slug": "montfort-junior-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "nan-chiau-high-school",
+  "name": "Nan Chiau High School",
+  "code": "7112",
+  "area": "Seng Kang"
+ },
+ {
+  "slug": "nan-hua-high-school",
+  "name": "Nan Hua High School",
+  "code": "3047",
+  "area": "Clementi"
+ },
+ {
+  "slug": "nanyang-girls-high-school",
+  "name": "Nanyang Girls' High School",
+  "code": "7114",
+  "area": "Bukit Timah"
+ },
+ {
+  "slug": "nanyang-primary-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "national-junior-college-secondary",
+  "name": "National Junior College (Secondary)",
+  "code": "0701",
+  "area": "Bukit Timah"
+ },
+ {
+  "slug": "naval-base-secondary-school",
+  "name": "Naval Base Secondary School",
+  "code": "3214",
+  "area": "Yishun"
+ },
+ {
+  "slug": "new-town-secondary-school",
+  "name": "New Town Secondary School",
+  "code": "3507",
+  "area": "Queenstown"
+ },
+ {
+  "slug": "ngee-ann-secondary-school",
+  "name": "Ngee Ann Secondary School",
+  "code": "7310",
+  "area": "Tampines"
+ },
+ {
+  "slug": "ngee-ann-primary-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "northbrooks-secondary-school",
+  "name": "Northbrooks Secondary School",
+  "code": "3612",
+  "area": "Yishun"
+ },
+ {
+  "slug": "northland-secondary-school",
+  "name": "Northland Secondary School",
+  "code": "3058",
+  "area": "Yishun"
+ },
+ {
+  "slug": "northlight-school",
+  "name": "Northlight School",
+  "code": "7803",
+  "area": "Kallang"
+ },
+ {
+  "slug": "north-vista-secondary-school",
+  "name": "North Vista Secondary School",
+  "code": "3071",
+  "area": "Seng Kang"
+ },
+ {
+  "slug": "nus-high-school-of-mathematics-and-science",
+  "name": "NUS High School of Mathematics and Science",
+  "code": "7801",
+  "area": "Clementi"
+ },
+ {
+  "slug": "orchid-park-secondary-school",
+  "name": "Orchid Park Secondary School",
+  "code": "3605",
+  "area": "Yishun"
+ },
+ {
+  "slug": "outram-secondary-school",
+  "name": "Outram Secondary School",
+  "code": "3215",
+  "area": "Seng Kang"
+ },
+ {
+  "slug": "pasir-ris-crest-secondary-school",
+  "name": "Pasir Ris Crest Secondary School",
+  "code": "3613",
+  "area": "Pasir Ris"
+ },
+ {
+  "slug": "pasir-ris-secondary-school",
+  "name": "Pasir Ris Secondary School",
+  "code": "3235",
+  "area": "Tampines"
+ },
+ {
+  "slug": "paya-lebar-methodist-girls-school-secondary",
+  "name": "Paya Lebar Methodist Girls' School (Secondary)",
+  "code": "7026",
+  "area": "Hougang"
+ },
+ {
+  "slug": "paya-lebar-methodist-girls-school-primary",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "peicai-secondary-school",
+  "name": "Peicai Secondary School",
+  "code": "3232",
+  "area": "Serangoon"
+ },
+ {
+  "slug": "pei-hwa-secondary-school",
+  "name": "Pei Hwa Secondary School",
+  "code": "3073",
+  "area": "Seng Kang"
+ },
+ {
+  "slug": "peirce-secondary-school",
+  "name": "Peirce Secondary School",
+  "code": "3061",
+  "area": "Bishan"
+ },
+ {
+  "slug": "presbyterian-high-school",
+  "name": "Presbyterian High School",
+  "code": "7308",
+  "area": "Ang Mo Kio"
+ },
+ {
+  "slug": "punggol-secondary-school",
+  "name": "Punggol Secondary School",
+  "code": "3070",
+  "area": "Punggol"
+ },
+ {
+  "slug": "queenstown-secondary-school",
+  "name": "Queenstown Secondary School",
+  "code": "3508",
+  "area": "Queenstown"
+ },
+ {
+  "slug": "queensway-secondary-school",
+  "name": "Queensway Secondary School",
+  "code": "3007",
+  "area": "Queenstown"
+ },
+ {
+  "slug": "raffles-girls-school-secondary",
+  "name": "Raffles Girls' School (Secondary)",
+  "code": "3008",
+  "area": "Toa Payoh"
+ },
+ {
+  "slug": "raffles-institution-secondary",
+  "name": "Raffles Institution (Secondary)",
+  "code": "3009",
+  "area": "Bishan"
+ },
+ {
+  "slug": "regent-secondary-school",
+  "name": "Regent Secondary School",
+  "code": "3618",
+  "area": "Choa Chu Kang"
+ },
+ {
+  "slug": "riverside-secondary-school",
+  "name": "Riverside Secondary School",
+  "code": "3239",
+  "area": "Woodlands"
+ },
+ {
+  "slug": "river-valley-high-school-secondary",
+  "name": "River Valley High School (Secondary)",
+  "code": "3103",
+  "area": "Jurong West"
+ },
+ {
+  "slug": "school-of-science-and-technology-singapore",
+  "name": "School of Science and Technology, Singapore",
+  "code": "7805",
+  "area": "Clementi"
+ },
+ {
+  "slug": "school-of-the-arts-singapore",
+  "name": "School of the Arts, Singapore",
+  "code": "7802",
+  "area": "Central"
+ },
+ {
+  "slug": "sembawang-secondary-school",
+  "name": "Sembawang Secondary School",
+  "code": "3606",
+  "area": "Sembawang"
+ },
+ {
+  "slug": "seng-kang-secondary-school",
+  "name": "Seng Kang Secondary School",
+  "code": "3607",
+  "area": "Seng Kang"
+ },
+ {
+  "slug": "serangoon-garden-secondary-school",
+  "name": "Serangoon Garden Secondary School",
+  "code": "3509",
+  "area": "Serangoon"
+ },
+ {
+  "slug": "serangoon-secondary-school",
+  "name": "Serangoon Secondary School",
+  "code": "3010",
+  "area": "Hougang"
+ },
+ {
+  "slug": "singapore-chinese-girls-school",
+  "name": "Singapore Chinese Girls' School",
+  "code": "7014",
+  "area": "Novena"
+ },
+ {
+  "slug": "singapore-chinese-girls-primary-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "singapore-sports-school",
+  "name": "Singapore Sports School",
+  "code": "7800",
+  "area": "Woodlands"
+ },
+ {
+  "slug": "spectra-secondary-school",
+  "name": "Spectra Secondary School",
+  "code": "7807",
+  "area": "Woodlands"
+ },
+ {
+  "slug": "springfield-secondary-school",
+  "name": "Springfield Secondary School",
+  "code": "3053",
+  "area": "Tampines"
+ },
+ {
+  "slug": "st-andrews-school-secondary",
+  "name": "St Andrew's School (Secondary)",
+  "code": "7015",
+  "area": "Toa Payoh"
+ },
+ {
+  "slug": "st-andrews-school-junior",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "st-anthonys-canossian-secondary-school",
+  "name": "St. Anthony's Canossian Secondary School",
+  "code": "7016",
+  "area": "Bedok"
+ },
+ {
+  "slug": "st-anthonys-canossian-primary-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "canossa-catholic-primary-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "st-gabriels-secondary-school",
+  "name": "St. Gabriel's Secondary School",
+  "code": "7017",
+  "area": "Serangoon"
+ },
+ {
+  "slug": "st-gabriels-primary-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "st-hildas-secondary-school",
+  "name": "St. Hilda's Secondary School",
+  "code": "7029",
+  "area": "Tampines"
+ },
+ {
+  "slug": "st-hildas-primary-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "st-josephs-institution-secondary",
+  "name": "St. Joseph's Institution (Secondary)",
+  "code": "7020",
+  "area": "Novena"
+ },
+ {
+  "slug": "de-la-salle-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "st-josephs-institution-junior",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "st-stephens-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "st-anthonys-primary-school",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "st-margarets-school-secondary",
+  "name": "St. Margaret's School (Secondary)",
+  "code": "7021",
+  "area": "Bukit Timah"
+ },
+ {
+  "slug": "st-margarets-school-primary",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "st-patricks-school",
+  "name": "St. Patrick's School",
+  "code": "7022",
+  "area": "Bedok"
+ },
+ {
+  "slug": "swiss-cottage-secondary-school",
+  "name": "Swiss Cottage Secondary School",
+  "code": "3304",
+  "area": "Bukit Batok"
+ },
+ {
+  "slug": "tampines-secondary-school",
+  "name": "Tampines Secondary School",
+  "code": "3037",
+  "area": "Tampines"
+ },
+ {
+  "slug": "tanjong-katong-girls-school",
+  "name": "Tanjong Katong Girls' School",
+  "code": "3013",
+  "area": "Marine Parade"
+ },
+ {
+  "slug": "tanjong-katong-secondary-school",
+  "name": "Tanjong Katong Secondary School",
+  "code": "3512",
+  "area": "Marine Parade"
+ },
+ {
+  "slug": "temasek-junior-college-secondary",
+  "name": "Temasek Junior College (Secondary)",
+  "code": "0702",
+  "area": "Tampines"
+ },
+ {
+  "slug": "temasek-secondary-school",
+  "name": "Temasek Secondary School",
+  "code": "3030",
+  "area": "Bedok"
+ },
+ {
+  "slug": "unity-secondary-school",
+  "name": "Unity Secondary School",
+  "code": "3611",
+  "area": "Choa Chu Kang"
+ },
+ {
+  "slug": "victoria-school",
+  "name": "Victoria School",
+  "code": "3014",
+  "area": "Bedok"
+ },
+ {
+  "slug": "victoria-junior-college",
+  "name": null,
+  "code": null,
+  "area": null
+ },
+ {
+  "slug": "west-spring-secondary-school",
+  "name": "West Spring Secondary School",
+  "code": "3067",
+  "area": "Bukit Panjang"
+ },
+ {
+  "slug": "westwood-secondary-school",
+  "name": "Westwood Secondary School",
+  "code": "3620",
+  "area": "Jurong West"
+ },
+ {
+  "slug": "whitley-secondary-school",
+  "name": "Whitley Secondary School",
+  "code": "3015",
+  "area": "Bishan"
+ },
+ {
+  "slug": "woodgrove-secondary-school",
+  "name": "Woodgrove Secondary School",
+  "code": "3616",
+  "area": "Woodlands"
+ },
+ {
+  "slug": "woodlands-ring-secondary-school",
+  "name": "Woodlands Ring Secondary School",
+  "code": "3604",
+  "area": "Woodlands"
+ },
+ {
+  "slug": "woodlands-secondary-school",
+  "name": "Woodlands Secondary School",
+  "code": "3041",
+  "area": "Woodlands"
+ },
+ {
+  "slug": "xinmin-secondary-school",
+  "name": "Xinmin Secondary School",
+  "code": "3050",
+  "area": "Hougang"
+ },
+ {
+  "slug": "yio-chu-kang-secondary-school",
+  "name": "Yio Chu Kang Secondary School",
+  "code": "3222",
+  "area": "Ang Mo Kio"
+ },
+ {
+  "slug": "yishun-secondary-school",
+  "name": "Yishun Secondary School",
+  "code": "3020",
+  "area": "Yishun"
+ },
+ {
+  "slug": "yishun-town-secondary-school",
+  "name": "Yishun Town Secondary School",
+  "code": "3045",
+  "area": "Yishun"
+ },
+ {
+  "slug": "yuan-ching-secondary-school",
+  "name": "Yuan Ching Secondary School",
+  "code": "3223",
+  "area": "Jurong West"
+ },
+ {
+  "slug": "yuhua-secondary-school",
+  "name": "Yuhua Secondary School",
+  "code": "3019",
+  "area": "Jurong West"
+ },
+ {
+  "slug": "yusof-ishak-secondary-school",
+  "name": "Yusof Ishak Secondary School",
+  "code": "3307",
+  "area": "Punggol"
+ },
+ {
+  "slug": "yuying-secondary-school",
+  "name": "Yuying Secondary School",
+  "code": "7027",
+  "area": "Hougang"
+ },
+ {
+  "slug": "zhenghua-secondary-school",
+  "name": "Zhenghua Secondary School",
+  "code": "3617",
+  "area": "Bukit Panjang"
+ },
+ {
+  "slug": "zhonghua-secondary-school",
+  "name": "Zhonghua Secondary School",
+  "code": "3240",
+  "area": "Serangoon"
+ }
+]

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>通勤地图 · PSLE 择校</title>
+<meta name="description" content="输入地址或邮编，列出 30 / 45 / 60 分钟内可乘公共交通到达的新加坡中学。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  .map-shell {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 14px;
+    margin: 16px 0 34px;
+    align-items: start;
+  }
+  #map {
+    height: min(74vh, 720px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #0d1421;
+    z-index: 1;
+  }
+  .side {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--card);
+    display: flex;
+    flex-direction: column;
+    max-height: min(74vh, 720px);
+    overflow: hidden;
+  }
+  .side-head {
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .side-head .origin {
+    font-size: 12.5px;
+    color: var(--tx2);
+    line-height: 1.55;
+    word-break: break-word;
+  }
+  .side-head .origin b { color: var(--accent); }
+  .side-tabs {
+    display: flex; gap: 5px; margin-top: 10px; flex-wrap: wrap;
+  }
+  .side-tabs .chip { padding: 4px 10px; font-size: 12px; }
+  .side-body { overflow-y: auto; flex: 1; }
+  .side-body::-webkit-scrollbar { width: 7px; }
+  .side-body::-webkit-scrollbar-thumb { background: #22314a; border-radius: 4px; }
+
+  .hit {
+    display: flex; gap: 11px; align-items: flex-start;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line-soft);
+    cursor: pointer;
+  }
+  .hit:hover { background: rgba(56,189,248,.05); }
+  .hit .min {
+    flex: 0 0 46px;
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    padding-top: 1px;
+  }
+  .hit .min small { font-size: 10px; font-weight: 400; color: var(--tx3); margin-left: 1px; }
+  .hit .body { min-width: 0; flex: 1; }
+  .hit .nm { font-size: 13px; font-weight: 560; line-height: 1.35; }
+  .hit .meta { font-size: 11px; color: var(--tx3); margin-top: 3px; font-family: var(--mono); }
+  .hit .meta .code { color: var(--accent); }
+
+  .t30 { color: #38bdf8; } .t45 { color: #818cf8; }
+  .t60 { color: #a78bfa; } .t99 { color: #64748b; }
+
+  .legend {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    padding: 9px 14px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px; color: var(--tx3);
+    background: var(--bg-soft);
+  }
+  .legend i {
+    display: inline-block; width: 9px; height: 9px;
+    border-radius: 50%; margin-right: 5px; vertical-align: 0px;
+  }
+
+  .searchbar {
+    display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;
+  }
+  .searchbar input {
+    flex: 1 1 320px;
+    padding: 11px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    color: var(--tx);
+    font-size: 14px;
+    font-family: var(--font);
+  }
+  .searchbar input:focus { outline: none; border-color: var(--accent-dim); }
+  .searchbar button {
+    padding: 11px 20px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-dim);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    font-size: 13.5px;
+    font-weight: 560;
+    cursor: pointer;
+    font-family: var(--font);
+  }
+  .searchbar button:hover { background: rgba(56,189,248,.2); }
+  .searchbar button:disabled { opacity: .45; cursor: default; }
+
+  .quick { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 9px; align-items: center; }
+  .quick span { font-size: 11.5px; color: var(--tx3); }
+
+  .hint-inline { font-size: 12px; color: var(--tx3); margin-top: 8px; }
+
+  .err {
+    margin-top: 10px; padding: 9px 13px;
+    border: 1px solid rgba(251,191,36,.3);
+    border-left: 3px solid var(--amber);
+    background: rgba(251,191,36,.06);
+    border-radius: var(--radius-sm);
+    font-size: 12.5px; color: #d7c39a;
+  }
+
+  .marker-here {
+    background: var(--accent);
+    border: 3px solid #0a0f1a;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(56,189,248,.28);
+  }
+
+  @media (max-width: 900px) {
+    .map-shell { grid-template-columns: 1fr; }
+    #map { height: 46vh; }
+    .side { max-height: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <h1>通勤地图</h1>
+    <div class="sub">输入地址或邮编，列出 <b>30 / 45 / 60 分钟</b>内可乘公共交通到达的中学</div>
+    <nav class="nav">
+      <a href="index.html">学校看板</a>
+      <a href="map.html" class="on">通勤地图</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="searchbar">
+    <input id="addr" type="text" placeholder="输入邮编或地址，例：560123 / Bishan / 1 Raffles Institution Lane" autocomplete="off">
+    <button id="go">查通勤</button>
+  </div>
+  <div class="quick">
+    <span>试试：</span>
+    <button class="btn" data-preset="570123" style="padding:4px 10px;font-size:12px">Bishan 570123</button>
+    <button class="btn" data-preset="600123" style="padding:4px 10px;font-size:12px">Jurong East 600123</button>
+    <button class="btn" data-preset="520123" style="padding:4px 10px;font-size:12px">Tampines 520123</button>
+    <button class="btn" data-preset="730123" style="padding:4px 10px;font-size:12px">Woodlands 730123</button>
+    <span style="margin-left:6px">· 也可以直接点地图选起点</span>
+  </div>
+  <div id="err" class="err" hidden></div>
+
+  <div class="notice" style="margin-top:14px">
+    <b>模型说明</b> · 时间 = 步行到站 + 进站等车 + MRT 车程（站间 2 分钟 / 换乘 5 分钟）+ 出站步行到校。
+    <b>只计 MRT，不含巴士</b>：最近站步行超过 800m 的学校实际需巴士接驳，本页估算偏乐观。
+    时间为估算值，非官方通勤数据。
+  </div>
+
+  <div class="map-shell">
+    <div id="map"></div>
+    <aside class="side">
+      <div class="side-head">
+        <div class="origin" id="origin">尚未选择起点 —— 输入地址或点击地图</div>
+        <div class="side-tabs" id="tabs">
+          <span class="chip on" data-b="999">全部</span>
+          <span class="chip" data-b="30">≤30 分钟</span>
+          <span class="chip" data-b="45">≤45 分钟</span>
+          <span class="chip" data-b="60">≤60 分钟</span>
+        </div>
+      </div>
+      <div class="side-body" id="hits">
+        <div style="padding:40px 20px;text-align:center;color:var(--tx3);font-size:13px">
+          选择起点后，这里会列出可达学校
+        </div>
+      </div>
+      <div class="legend">
+        <span><i style="background:#38bdf8"></i>≤30 分钟</span>
+        <span><i style="background:#818cf8"></i>31–45 分钟</span>
+        <span><i style="background:#a78bfa"></i>46–60 分钟</span>
+        <span><i style="background:#64748b"></i>&gt;60 分钟</span>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <b>数据来源</b> · 学校坐标：OneMap 地理编码｜MRT 网络：官方线路代号重建（151 站 / 6 线 + 樟宜支线）｜
+    地址解析：OneMap Search API<br>
+    <b>免责</b> · 通勤时间为模型估算，未含巴士、步行速度因人而异、未含等车波动。请以实际试乘为准。
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/iso.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+let SCHOOLS = [], NET = null, GRAPH = null;
+let map = null, hereMarker = null, schoolLayer = null, stationLayer = null;
+let lastResult = null, curBucket = 999;
+
+/* ── 颜色分档（表示通勤时间，不表示学校好坏）── */
+function band(min) {
+  if (min <= 30) return { cls: 't30', color: '#38bdf8' };
+  if (min <= 45) return { cls: 't45', color: '#818cf8' };
+  if (min <= 60) return { cls: 't60', color: '#a78bfa' };
+  return { cls: 't99', color: '#64748b' };
+}
+
+/* ── 地理编码（OneMap，免 token）── */
+async function geocode(q) {
+  const url = 'https://www.onemap.gov.sg/api/common/elastic/search?searchVal=' +
+    encodeURIComponent(q) + '&returnGeom=Y&getAddrDetails=Y&pageNum=1';
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('地址解析服务返回 ' + res.status);
+  const j = await res.json();
+  const r = (j.results || [])[0];
+  if (!r) return null;
+  return {
+    lat: parseFloat(r.LATITUDE), lon: parseFloat(r.LONGITUDE),
+    label: r.SEARCHVAL, addr: r.ADDRESS || '', postal: r.POSTAL || '',
+  };
+}
+
+/* ── 计算 ── */
+function compute(origin) {
+  const { stationMin } = Iso.solveFrom(GRAPH, origin);
+  const list = Iso.timeToSchools(GRAPH, stationMin, SCHOOLS)
+    .filter(x => x.minutes != null)
+    .sort((a, b) => a.minutes - b.minutes);
+  const access = Iso.nearestStations(GRAPH, origin, 3);
+  return { list, access, stationMin };
+}
+
+/* ── 渲染地图 ── */
+function drawMap(origin, result) {
+  if (!map) {
+    map = L.map('map', { zoomControl: true, attributionControl: true })
+      .setView([origin.lat, origin.lon], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors',
+    }).addTo(map);
+
+    L.circleMarker([origin.lat, origin.lon], {
+      radius: 8, color: '#0a0f1a', weight: 3, fillColor: '#38bdf8', fillOpacity: 1,
+    }).addTo(map).bindPopup('起点');
+    map.on('click', e => {
+      runAt({ lat: e.latlng.lat, lon: e.latlng.lng, label: '地图选点', addr: '', postal: '' });
+    });
+  } else {
+    map.setView([origin.lat, origin.lon], Math.max(map.getZoom(), 12));
+  }
+
+  if (schoolLayer) map.removeLayer(schoolLayer);
+  if (stationLayer) map.removeLayer(stationLayer);
+
+  // 起点
+  if (hereMarker) map.removeLayer(hereMarker);
+  hereMarker = L.circleMarker([origin.lat, origin.lon], {
+    radius: 9, color: '#0a0f1a', weight: 3, fillColor: '#38bdf8', fillOpacity: 1,
+  }).addTo(map).bindTooltip('起点', { permanent: false, direction: 'top' });
+
+  // 最近站
+  stationLayer = L.layerGroup();
+  for (const s of result.access) {
+    L.circleMarker([s.lat, s.lon], {
+      radius: 4, color: '#94a3b8', weight: 1.5, fillColor: '#1e293b', fillOpacity: 1,
+    }).addTo(stationLayer).bindTooltip(`${s.name} ${s.codes.join('/')} · ${s.distM}m`, { direction: 'top' });
+  }
+  stationLayer.addTo(map);
+
+  // 学校
+  schoolLayer = L.layerGroup();
+  const focusPts = [[origin.lat, origin.lon]];
+  for (const h of result.list) {
+    const b = band(h.minutes);
+    if (h.minutes <= 60) focusPts.push([h.school.lat, h.school.lon]);
+    const m = L.circleMarker([h.school.lat, h.school.lon], {
+      radius: h.minutes <= 60 ? 5 : 3,
+      color: '#0a0f1a', weight: 1.2,
+      fillColor: b.color,
+      fillOpacity: h.minutes <= 60 ? .92 : .35,
+    });
+    m.bindPopup(`<b>${esc(h.school.name)}</b><br>${h.minutes} 分钟（乘 ${h.rideMinutes} + 走 ${h.walkMinutes}）<br>
+      经 ${esc(h.viaStationName)} ${esc(h.viaStation)}<br>
+      <span style="color:#64748b">${esc(h.school.area || '')}</span>`);
+    m.on('click', () => focusHit(h.school.slug));
+    m.addTo(schoolLayer);
+  }
+  schoolLayer.addTo(map);
+
+  // 视野聚焦到起点 + 60 分钟内的学校（避免一开始显示到柔佛去）
+  if (focusPts.length > 1) {
+    map.fitBounds(L.latLngBounds(focusPts), { padding: [40, 40], maxZoom: 14 });
+  }
+}
+
+/* ── 渲染列表 ── */
+function renderHits() {
+  if (!lastResult) return;
+  const list = lastResult.list.filter(h => h.minutes <= curBucket);
+  const box = $('#hits');
+
+  if (!list.length) {
+    box.innerHTML = '<div style="padding:34px 20px;text-align:center;color:var(--tx3);font-size:13px">该范围内没有学校</div>';
+    return;
+  }
+
+  box.innerHTML = list.map(h => {
+    const b = band(h.minutes);
+    return `<div class="hit" data-slug="${esc(h.school.slug)}">
+      <div class="min ${b.cls}">${h.minutes}<small>min</small></div>
+      <div class="body">
+        <div class="nm">${esc(h.school.name)}</div>
+        <div class="meta">${esc(h.school.area || '')} · 乘 ${h.rideMinutes} + 走 ${h.walkMinutes}
+          · <span class="code">${esc(h.viaStation)}</span> ${esc(h.viaStationName)}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  box.querySelectorAll('.hit').forEach(el => {
+    el.addEventListener('click', () => {
+      const h = list.find(x => x.school.slug === el.dataset.slug);
+      if (h && map) {
+        map.setView([h.school.lat, h.school.lon], 15);
+        if (schoolLayer) schoolLayer.eachLayer(l => {
+          const ll = l.getLatLng();
+          if (Math.abs(ll.lat - h.school.lat) < 1e-6 && Math.abs(ll.lng - h.school.lon) < 1e-6) l.openPopup();
+        });
+      }
+    });
+  });
+}
+
+function focusHit(slug) {
+  const el = document.querySelector(`.hit[data-slug="${slug}"]`);
+  if (el) { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); el.style.background = 'rgba(56,189,248,.1)'; setTimeout(() => el.style.background = '', 1200); }
+}
+
+/* ── 主流程 ── */
+function runAt(origin) {
+  $('#err').hidden = true;
+  const t0 = Date.now();
+  const result = compute(origin);
+  lastResult = result;
+
+  const within = {
+    t30: result.list.filter(h => h.minutes <= 30).length,
+    t45: result.list.filter(h => h.minutes <= 45).length,
+    t60: result.list.filter(h => h.minutes <= 60).length,
+  };
+
+  $('#origin').innerHTML = `<b>${esc(origin.label || '起点')}</b>${origin.postal ? ' · ' + esc(origin.postal) : ''}<br>
+    最近站 ${result.access.slice(0, 2).map(s => `${esc(s.name)} ${s.codes.join('/')} ${s.distM}m`).join(' ｜ ')}<br>
+    <span style="color:var(--tx3);font-size:11.5px">≤30 分钟 ${within.t30} 所 · ≤45 分钟 ${within.t45} 所 · ≤60 分钟 ${within.t60} 所（${Date.now() - t0}ms）</span>`;
+
+  drawMap(origin, result);
+  renderHits();
+
+  // 更新 hash，方便分享/回看
+  if (origin.postal) history.replaceState(null, '', '#' + origin.postal);
+}
+
+async function runQuery(q) {
+  if (!q.trim()) return;
+  const btn = $('#go');
+  btn.disabled = true; btn.textContent = '解析中…';
+  $('#err').hidden = true;
+  try {
+    const g = await geocode(q.trim());
+    if (!g) {
+      $('#err').hidden = false;
+      $('#err').textContent = `找不到「${q}」对应的地址。请换一个邮编，或直接点击地图选点。`;
+      return;
+    }
+    runAt(g);
+  } catch (e) {
+    $('#err').hidden = false;
+    $('#err').textContent = '地址解析失败：' + e.message + '（若网络受限，可直接点地图选起点）';
+  } finally {
+    btn.disabled = false; btn.textContent = '查通勤';
+  }
+}
+
+/* ── 事件 ── */
+$('#go').addEventListener('click', () => runQuery($('#addr').value));
+$('#addr').addEventListener('keydown', e => { if (e.key === 'Enter') runQuery($('#addr').value); });
+document.querySelectorAll('[data-preset]').forEach(b => {
+  b.addEventListener('click', () => { $('#addr').value = b.dataset.preset; runQuery(b.dataset.preset); });
+});
+$('#tabs').addEventListener('click', e => {
+  const c = e.target.closest('.chip');
+  if (!c) return;
+  document.querySelectorAll('#tabs .chip').forEach(x => x.classList.remove('on'));
+  c.classList.add('on');
+  curBucket = +c.dataset.b;
+  renderHits();
+});
+
+/* ── 启动 ── */
+window.addEventListener('hashchange', () => {
+  const h = location.hash.slice(1);
+  if (h && GRAPH) { $('#addr').value = h; runQuery(h); }
+});
+
+(async function init() {
+  try {
+    const [ds, dn] = await Promise.all([
+      fetch('data/schools.json', { cache: 'no-cache' }).then(r => r.json()),
+      fetch('data/network.json', { cache: 'no-cache' }).then(r => r.json()),
+    ]);
+    SCHOOLS = ds.schools.filter(s => s.lat && s.lon);
+    NET = dn;
+    GRAPH = Iso.buildGraph(NET);
+
+    // 默认视图：全岛中心
+    if (typeof L !== 'undefined') {
+      map = L.map('map').setView([1.3521, 103.8198], 11);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18, attribution: '&copy; OpenStreetMap contributors',
+      }).addTo(map);
+      // 先画全岛学校（浅灰）
+      schoolLayer = L.layerGroup();
+      for (const s of SCHOOLS) {
+        L.circleMarker([s.lat, s.lon], {
+          radius: 3, color: '#334155', weight: 1, fillColor: '#475569', fillOpacity: .8,
+        }).addTo(schoolLayer);
+      }
+      schoolLayer.addTo(map);
+      map.on('click', e => runAt({ lat: e.latlng.lat, lon: e.latlng.lng, label: '地图选点', addr: '', postal: '' }));
+    }
+
+    const h = location.hash.slice(1);
+    if (h) { $('#addr').value = h; runQuery(h); }
+  } catch (e) {
+    $('#err').hidden = false;
+    $('#err').textContent = '数据加载失败：' + e.message;
+  }
+})();
+</script>
+</body>
+</html>
