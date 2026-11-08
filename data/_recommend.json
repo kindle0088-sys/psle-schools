@@ -12,277 +12,6 @@
  },
  "pool": [
   {
-   "slug": "yusof-ishak-secondary-school",
-   "name": "Yusof Ishak Secondary School",
-   "area": "Punggol",
-   "address": "8 Sumang Walk, S828676",
-   "postal": "828676",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 27,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 10,
-   "minutes": 20,
-   "rideMinutes": 11,
-   "walkMinutes": 9,
-   "via": "NE17 PUNGGOL",
-   "accessWalkM": 697,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Boys)",
-    "Chinese Orchestra (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Wushu (Girls and Boys)"
-   ],
-   "alpCats": [
-    "STEM - Sustainability"
-   ],
-   "alpItems": [
-    "STEM for the Strategic Development of a Sustainable and Smart City (S4TEM@YI)"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Nurturing Honourable Leaders for Tomorrow (YI LEAD+)"
-   ],
-   "dsaAreas": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Boys)",
-    "Community Youth Leadership (Girls and Boys)",
-    "Fencing (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "Robotics (Girls and Boys)",
-    "Softball (Girls)",
-    "Stem (Girls and Boys)",
-    "Table Tennis (Girls and Boys)",
-    "Wushu (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 94,
-    "commute": 96,
-    "academic": 76,
-    "cca": 85,
-    "feature": 86
-   },
-   "total": 89
-  },
-  {
-   "slug": "compassvale-secondary-school",
-   "name": "Compassvale Secondary School",
-   "area": "Seng Kang",
-   "address": "51 Compassvale Crescent, S545083",
-   "postal": "545083",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 27,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 10,
-   "minutes": 22,
-   "rideMinutes": 13,
-   "walkMinutes": 9,
-   "via": "NE16 SENGKANG",
-   "accessWalkM": 693,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Girl Guides (Girls)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)"
-   ],
-   "alpCats": [
-    "STEM - Future of Transportation"
-   ],
-   "alpItems": [
-    "Applied Learning Programme – Aeronautics, Coding, Engineering and Sustainability (ACES)"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Green Compass Programme"
-   ],
-   "dsaAreas": [
-    "Badminton (Girls and Boys)",
-    "Environmental Science (Girls and Boys)",
-    "Floorball (Girls and Boys)",
-    "Netball (Girls)",
-    "Robotics (Girls and Boys)",
-    "Softball (Boys)",
-    "Stem - Aeronautics (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 94,
-    "commute": 93,
-    "academic": 100,
-    "cca": 62,
-    "feature": 83
-   },
-   "total": 88
-  },
-  {
-   "slug": "north-vista-secondary-school",
-   "name": "North Vista Secondary School",
-   "area": "Seng Kang",
-   "address": "11 Rivervale Link, S545081",
-   "postal": "545081",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 28,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 11,
-   "minutes": 25,
-   "rideMinutes": 15,
-   "walkMinutes": 9,
-   "via": "NE15 BUANGKOK",
-   "accessWalkM": 740,
-   "cca": [
-    "Basketball (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Girl Guides (Girls)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "String Ensemble (Girls and Boys)",
-    "Track and Field (Girls and Boys)"
-   ],
-   "alpCats": [
-    "STEM - Cities and Urban Landscapes"
-   ],
-   "alpItems": [
-    "Farm-to-Table"
-   ],
-   "llpCats": [
-    "Visual Arts & Design"
-   ],
-   "llpItems": [
-    "Nurture Caring Vistarians through Design and the Arts"
-   ],
-   "dsaAreas": [
-    "Basketball (Girls and Boys)",
-    "Chinese Dance (Girls)",
-    "Choir (Girls)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Golf (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "Netball (Girls)",
-    "String Ensemble (Girls and Boys)",
-    "Track and Field (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 97,
-    "commute": 89,
-    "academic": 72,
-    "cca": 85,
-    "feature": 86
-   },
-   "total": 88
-  },
-  {
-   "slug": "pei-hwa-secondary-school",
-   "name": "Pei Hwa Secondary School",
-   "area": "Seng Kang",
-   "address": "21 Fernvale Link, S797702",
-   "postal": "797702",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 27,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 10,
-   "minutes": 37,
-   "rideMinutes": 13,
-   "walkMinutes": 24,
-   "via": "NE16 SENGKANG",
-   "accessWalkM": 1898,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Taekwondo (Girls and Boys)",
-    "Wushu (Girls and Boys)"
-   ],
-   "alpCats": [
-    "STEM - Emerging Technologies"
-   ],
-   "alpItems": [
-    "Coding and Making"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Nurturing Leaders, Contributors and Changemakers"
-   ],
-   "dsaAreas": [
-    "Chinese and Modern Dance (Girls and Boys)",
-    "Floorball (Girls)",
-    "Guzheng Ensemble (Girls and Boys)",
-    "Robotics (Girls and Boys)",
-    "Taekwondo (Girls and Boys)",
-    "Wushu (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 94,
-    "commute": 71,
-    "academic": 100,
-    "cca": 85,
-    "feature": 86
-   },
-   "total": 87
-  },
-  {
    "slug": "bendemeer-secondary-school",
    "name": "Bendemeer Secondary School",
    "area": "Kallang",
@@ -295,13 +24,13 @@
    "autonomous": false,
    "independent": false,
    "cop": {
-    "min": 25,
-    "max": 28,
+    "min": 11,
+    "max": 22,
     "markMax": null,
     "kind": "PG",
     "year": 2025
    },
-   "margin": 11,
+   "margin": 5,
    "minutes": 34,
    "rideMinutes": 27,
    "walkMinutes": 7,
@@ -336,21 +65,88 @@
     "Modern Dance (Girls and Boys)",
     "Tchoukball (Girls and Boys)"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 97,
+    "safety": 82,
     "commute": 76,
     "academic": 81,
     "cca": 85,
     "feature": 86
    },
-   "total": 86
+   "total": 81
   },
   {
-   "slug": "edgefield-secondary-school",
-   "name": "Edgefield Secondary School",
-   "area": "Punggol",
-   "address": "36 Punggol Field, S828814",
-   "postal": "828814",
+   "slug": "yuying-secondary-school",
+   "name": "Yuying Secondary School",
+   "area": "Hougang",
+   "address": "47 Hougang Avenue 1, S538884",
+   "postal": "538884",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 11,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 5,
+   "minutes": 28,
+   "rideMinutes": 19,
+   "walkMinutes": 9,
+   "via": "NE13 KOVAN",
+   "accessWalkM": 704,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Concert Band (Girls and Boys)",
+    "Guitar Ensemble (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Malay Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Table Tennis (Boys)",
+    "Volleyball (Girls)",
+    "Wushu (Girls and Boys)"
+   ],
+   "alpCats": [
+    "Business & Entrepreneurship"
+   ],
+   "alpItems": [
+    "Fostering Innovation through Design Thinking"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "YUYING C.A.R.E.S - Collaborate, Act, Reflect, Empathise, Serve"
+   ],
+   "dsaAreas": [
+    "Community Youth Leadership (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Volleyball (Girls)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 82,
+    "commute": 84,
+    "academic": 60,
+    "cca": 85,
+    "feature": 76
+   },
+   "total": 79
+  },
+  {
+   "slug": "broadrick-secondary-school",
+   "name": "Broadrick Secondary School",
+   "area": "Geylang",
+   "address": "61 Dakota Crescent, S399935",
+   "postal": "399935",
    "nature": "Co-Ed School",
    "type": "Government School",
    "ip": false,
@@ -358,62 +154,187 @@
    "autonomous": false,
    "independent": false,
    "cop": {
-    "min": 25,
-    "max": 27,
+    "min": 5,
+    "max": 22,
     "markMax": null,
     "kind": "PG",
     "year": 2025
    },
-   "margin": 10,
-   "minutes": 17,
-   "rideMinutes": 11,
-   "walkMinutes": 6,
-   "via": "NE17 PUNGGOL",
-   "accessWalkM": 445,
+   "margin": 5,
+   "minutes": 40,
+   "rideMinutes": 36,
+   "walkMinutes": 4,
+   "via": "CC8 DAKOTA",
+   "accessWalkM": 303,
    "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
+    "Basketball (Boys)",
     "Choir (Girls and Boys)",
     "Concert Band (Girls and Boys)",
     "Girl Guides (Girls)",
     "Infocomm Technology (Media Production) (Girls and Boys)",
     "Modern Dance (Girls and Boys)",
-    "Scouts (Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Shooting (Girls and Boys)",
-    "Taekwondo (Girls and Boys)",
-    "Volleyball (Boys)",
-    "Wushu (Girls and Boys)"
+    "Taekwondo (Girls and Boys)"
    ],
    "alpCats": [
-    "Business & Entrepreneurship"
+    "STEM - Sustainability"
    ],
    "alpItems": [
-    "Growing the Edgefield Mindset (G.E.M)"
+    "Sustainability in Broadrick"
    ],
    "llpCats": [
-    "Sports & Outdoor Education"
+    "Community Youth Leadership"
    ],
    "llpItems": [
-    "Character Education Through Sports (Anchored on Taekwondo)"
+    "Nurturing Grateful, Respectful and Compassionate (GRC) Leaders through Service in the Community"
+   ],
+   "dsaAreas": [
+    "Basketball (Boys)",
+    "Leadership (Girls and Boys)",
+    "Shooting (Girls and Boys)",
+    "Tchoukball (Girls)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 82,
+    "commute": 67,
+    "academic": 71,
+    "cca": 85,
+    "feature": 86
+   },
+   "total": 78
+  },
+  {
+   "slug": "guangyang-secondary-school",
+   "name": "Guangyang Secondary School",
+   "area": "Bishan",
+   "address": "8 Bishan Street 12, S579807",
+   "postal": "579807",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 9,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 5,
+   "minutes": 40,
+   "rideMinutes": 30,
+   "walkMinutes": 9,
+   "via": "NS17/CC15 BISHAN",
+   "accessWalkM": 735,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)"
+   ],
+   "alpCats": [
+    "STEM - Sustainability"
+   ],
+   "alpItems": [
+    "Sustainability"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Guangyang Advocates"
    ],
    "dsaAreas": [
     "Badminton (Girls and Boys)",
     "Basketball (Girls and Boys)",
-    "Innovation (Girls and Boys)",
-    "Leadership (Girls and Boys)",
-    "Softball (Girls)",
-    "Taekwondo (Girls and Boys)",
-    "Volleyball (Boys)",
-    "Wushu (Girls and Boys)"
+    "Community Youth Leadership (Girls and Boys)",
+    "Cross Country (Girls and Boys)",
+    "English Drama (Girls and Boys)"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 94,
-    "commute": 100,
-    "academic": 52,
+    "safety": 82,
+    "commute": 67,
+    "academic": 71,
     "cca": 85,
-    "feature": 79
+    "feature": 86
    },
-   "total": 86
+   "total": 78
+  },
+  {
+   "slug": "bartley-secondary-school",
+   "name": "Bartley Secondary School",
+   "area": "Toa Payoh",
+   "address": "10 Jalan Bunga Rampai, S538403",
+   "postal": "538403",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 16,
+    "max": 21,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 4,
+   "minutes": 33,
+   "rideMinutes": 28,
+   "walkMinutes": 5,
+   "via": "CC12 BARTLEY",
+   "accessWalkM": 401,
+   "cca": [
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Table Tennis (Boys)",
+    "Volleyball (Girls)"
+   ],
+   "alpCats": [
+    "STEM - Health and Food Science"
+   ],
+   "alpItems": [
+    "Chemical and Applied Sciences (Fragrance)"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "i-LEAD @ Bartley to develop as Leaders for Others"
+   ],
+   "dsaAreas": [
+    "Chemical and Applied Sciences (Fragrance) (Girls and Boys)",
+    "Community Youth Leadership (Girls and Boys)",
+    "Football (Boys)",
+    "Table Tennis (Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 74,
+    "commute": 77,
+    "academic": 68,
+    "cca": 85,
+    "feature": 86
+   },
+   "total": 77
   },
   {
    "slug": "hougang-secondary-school",
@@ -428,13 +349,13 @@
    "autonomous": false,
    "independent": false,
    "cop": {
-    "min": 25,
-    "max": 27,
+    "min": 14,
+    "max": 20,
     "markMax": null,
     "kind": "PG",
     "year": 2025
    },
-   "margin": 10,
+   "margin": 3,
    "minutes": 32,
    "rideMinutes": 15,
    "walkMinutes": 17,
@@ -477,14 +398,618 @@
     "Netball (Girls)",
     "Stem (Girls and Boys)"
    ],
+   "moeNearby": true,
    "scores": {
-    "safety": 94,
+    "safety": 66,
     "commute": 79,
     "academic": 78,
     "cca": 85,
     "feature": 86
    },
-   "total": 85
+   "total": 77
+  },
+  {
+   "slug": "compassvale-secondary-school",
+   "name": "Compassvale Secondary School",
+   "area": "Seng Kang",
+   "address": "51 Compassvale Crescent, S545083",
+   "postal": "545083",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 18,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 1,
+   "minutes": 22,
+   "rideMinutes": 13,
+   "walkMinutes": 9,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 693,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)"
+   ],
+   "alpCats": [
+    "STEM - Future of Transportation"
+   ],
+   "alpItems": [
+    "Applied Learning Programme – Aeronautics, Coding, Engineering and Sustainability (ACES)"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Green Compass Programme"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Environmental Science (Girls and Boys)",
+    "Floorball (Girls and Boys)",
+    "Netball (Girls)",
+    "Robotics (Girls and Boys)",
+    "Softball (Boys)",
+    "Stem - Aeronautics (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 50,
+    "commute": 93,
+    "academic": 100,
+    "cca": 62,
+    "feature": 83
+   },
+   "total": 75
+  },
+  {
+   "slug": "manjusri-secondary-school",
+   "name": "Manjusri Secondary School",
+   "area": "Geylang",
+   "address": "20 Ubi Avenue 1, S408940",
+   "postal": "408940",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 15,
+    "max": 21,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 4,
+   "minutes": 44,
+   "rideMinutes": 39,
+   "walkMinutes": 5,
+   "via": "DT27 UBI",
+   "accessWalkM": 393,
+   "cca": [
+    "Badminton (Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Scouts (Boys)",
+    "Table Tennis (Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "alpCats": [
+    "STEM - Cities and Urban Landscapes"
+   ],
+   "alpItems": [
+    "Smart City and Sustainable Technologies"
+   ],
+   "llpCats": [
+    "Music & Performing Arts"
+   ],
+   "llpItems": [
+    "Learning through the ARTS"
+   ],
+   "dsaAreas": [
+    "Chinese Calligraphy (Girls and Boys)",
+    "Chinese Dance (Girls)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Table Tennis (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 74,
+    "commute": 61,
+    "academic": 80,
+    "cca": 85,
+    "feature": 86
+   },
+   "total": 75
+  },
+  {
+   "slug": "peicai-secondary-school",
+   "name": "Peicai Secondary School",
+   "area": "Serangoon",
+   "address": "10 Serangoon Avenue 4, S556094",
+   "postal": "556094",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 20,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 3,
+   "minutes": 34,
+   "rideMinutes": 21,
+   "walkMinutes": 13,
+   "via": "CC13/NE12 SERANGOON",
+   "accessWalkM": 1034,
+   "cca": [
+    "Basketball (Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "alpCats": [
+    "STEM - Health and Food Science"
+   ],
+   "alpItems": [
+    "Applied food science & processing"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Becoming Persons for Others – Developing Leadership through and for the Community"
+   ],
+   "dsaAreas": [
+    "Basketball (Boys)",
+    "Concert Band (Girls and Boys)",
+    "English Drama (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Leadership (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) Sea (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Softball (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 66,
+    "commute": 76,
+    "academic": 68,
+    "cca": 85,
+    "feature": 86
+   },
+   "total": 75
+  },
+  {
+   "slug": "north-vista-secondary-school",
+   "name": "North Vista Secondary School",
+   "area": "Seng Kang",
+   "address": "11 Rivervale Link, S545081",
+   "postal": "545081",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 11,
+    "max": 18,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 1,
+   "minutes": 25,
+   "rideMinutes": 15,
+   "walkMinutes": 9,
+   "via": "NE15 BUANGKOK",
+   "accessWalkM": 740,
+   "cca": [
+    "Basketball (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "String Ensemble (Girls and Boys)",
+    "Track and Field (Girls and Boys)"
+   ],
+   "alpCats": [
+    "STEM - Cities and Urban Landscapes"
+   ],
+   "alpItems": [
+    "Farm-to-Table"
+   ],
+   "llpCats": [
+    "Visual Arts & Design"
+   ],
+   "llpItems": [
+    "Nurture Caring Vistarians through Design and the Arts"
+   ],
+   "dsaAreas": [
+    "Basketball (Girls and Boys)",
+    "Chinese Dance (Girls)",
+    "Choir (Girls)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Golf (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Netball (Girls)",
+    "String Ensemble (Girls and Boys)",
+    "Track and Field (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 50,
+    "commute": 89,
+    "academic": 72,
+    "cca": 85,
+    "feature": 86
+   },
+   "total": 74
+  },
+  {
+   "slug": "punggol-secondary-school",
+   "name": "Punggol Secondary School",
+   "area": "Punggol",
+   "address": "51 Edgefield Plains, S828870",
+   "postal": "828870",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 13,
+    "max": 19,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 2,
+   "minutes": 22,
+   "rideMinutes": 11,
+   "walkMinutes": 11,
+   "via": "NE17 PUNGGOL",
+   "accessWalkM": 841,
+   "cca": [
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Scouts (Boys)",
+    "Shooting (Girls and Boys)",
+    "Table Tennis (Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "alpCats": [
+    "STEM - Sustainability"
+   ],
+   "alpItems": [
+    "Environmental Sustainability"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Serving with values, developing a community of confident leaders and learners."
+   ],
+   "dsaAreas": [
+    "Choir (Girls and Boys)",
+    "Environmental Science (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 58,
+    "commute": 93,
+    "academic": 71,
+    "cca": 62,
+    "feature": 83
+   },
+   "total": 73
+  },
+  {
+   "slug": "seng-kang-secondary-school",
+   "name": "Seng Kang Secondary School",
+   "area": "Seng Kang",
+   "address": "10 Compassvale Lane, S545090",
+   "postal": "545090",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 19,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 2,
+   "minutes": 22,
+   "rideMinutes": 13,
+   "walkMinutes": 8,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 658,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)"
+   ],
+   "alpCats": [
+    "STEM - Health and Food Science"
+   ],
+   "alpItems": [
+    "Food for the Future"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "TREK for Life"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Football (Boys)",
+    "Hockey (Girls and Boys)",
+    "Netball (Girls)",
+    "Stem (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 58,
+    "commute": 93,
+    "academic": 68,
+    "cca": 62,
+    "feature": 86
+   },
+   "total": 73
+  },
+  {
+   "slug": "serangoon-secondary-school",
+   "name": "Serangoon Secondary School",
+   "area": "Hougang",
+   "address": "11 Upper Serangoon View, S534237",
+   "postal": "534237",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 16,
+    "max": 20,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 3,
+   "minutes": 32,
+   "rideMinutes": 17,
+   "walkMinutes": 15,
+   "via": "NE14 HOUGANG",
+   "accessWalkM": 1198,
+   "cca": [
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Scouts (Boys)"
+   ],
+   "alpCats": [
+    "STEM - Future of Transportation"
+   ],
+   "alpItems": [
+    "Real-world Explorations in ICT"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Project Ablaze: Harnessing Student Leadership in the Service of Community"
+   ],
+   "dsaAreas": [
+    "Community Youth Leadership (Girls and Boys)",
+    "Programming and 3D Modelling (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 66,
+    "commute": 79,
+    "academic": 76,
+    "cca": 62,
+    "feature": 83
+   },
+   "total": 73
+  },
+  {
+   "slug": "serangoon-garden-secondary-school",
+   "name": "Serangoon Garden Secondary School",
+   "area": "Serangoon",
+   "address": "21 Serangoon North Avenue 1, S555889",
+   "postal": "555889",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 12,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 5,
+   "minutes": 44,
+   "rideMinutes": 19,
+   "walkMinutes": 25,
+   "via": "NE13 KOVAN",
+   "accessWalkM": 1991,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Table Tennis (Boys)"
+   ],
+   "alpCats": [
+    "Humanities"
+   ],
+   "alpItems": [
+    "Researching Society through Media Literacy"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Nurturing Confident and Compassionate Leaders"
+   ],
+   "dsaAreas": [
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Floorball (Girls)",
+    "Football (Boys)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Netball (Girls)",
+    "Robotics (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 82,
+    "commute": 61,
+    "academic": 50,
+    "cca": 85,
+    "feature": 76
+   },
+   "total": 72
+  },
+  {
+   "slug": "whitley-secondary-school",
+   "name": "Whitley Secondary School",
+   "area": "Bishan",
+   "address": "30 Bishan Street 24, S579747",
+   "postal": "579747",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 15,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 5,
+   "minutes": 42,
+   "rideMinutes": 32,
+   "walkMinutes": 10,
+   "via": "CC16 MARYMOUNT",
+   "accessWalkM": 787,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)"
+   ],
+   "alpCats": [
+    "Languages"
+   ],
+   "alpItems": [
+    "Speech Communication Arts"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Active Citizenship for Social Change (ACSC)"
+   ],
+   "dsaAreas": [
+    "Debating and Public Speaking (Girls and Boys)",
+    "Leadership and Character (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 82,
+    "commute": 64,
+    "academic": 50,
+    "cca": 85,
+    "feature": 76
+   },
+   "total": 72
   },
   {
    "slug": "beatty-secondary-school",
@@ -499,13 +1024,13 @@
    "autonomous": false,
    "independent": false,
    "cop": {
-    "min": 25,
-    "max": 28,
+    "min": 12,
+    "max": 18,
     "markMax": null,
     "kind": "PG",
     "year": 2025
    },
-   "margin": 11,
+   "margin": 1,
    "minutes": 44,
    "rideMinutes": 30,
    "walkMinutes": 13,
@@ -552,1310 +1077,15 @@
     "Volleyball (Girls)",
     "Wushu (Girls and Boys)"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 97,
+    "safety": 50,
     "commute": 61,
     "academic": 96,
     "cca": 85,
     "feature": 86
    },
-   "total": 84
-  },
-  {
-   "slug": "greendale-secondary-school",
-   "name": "Greendale Secondary School",
-   "area": "Punggol",
-   "address": "51 Edgedale Plains, S828866",
-   "postal": "828866",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 27,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 10,
-   "minutes": 28,
-   "rideMinutes": 11,
-   "walkMinutes": 17,
-   "via": "NE17 PUNGGOL",
-   "accessWalkM": 1363,
-   "cca": [
-    "Canoeing (Girls and Boys)",
-    "Chinese Orchestra (Girls and Boys)",
-    "Football (Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Softball (Girls and Boys)"
-   ],
-   "alpCats": [
-    "STEM - Sustainability"
-   ],
-   "alpItems": [
-    "Design, Technology and Engineering ALP Programme"
-   ],
-   "llpCats": [
-    "Sports & Outdoor Education"
-   ],
-   "llpItems": [
-    "Character Development through Outdoor and Adventure Education"
-   ],
-   "dsaAreas": [
-    "Design, Technology and Engineering (DTE) (Girls and Boys)",
-    "Leadership (Girls and Boys)",
-    "Outdoor Adventure (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 94,
-    "commute": 84,
-    "academic": 82,
-    "cca": 62,
-    "feature": 86
-   },
-   "total": 84
-  },
-  {
-   "slug": "punggol-secondary-school",
-   "name": "Punggol Secondary School",
-   "area": "Punggol",
-   "address": "51 Edgefield Plains, S828870",
-   "postal": "828870",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 27,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 10,
-   "minutes": 22,
-   "rideMinutes": 11,
-   "walkMinutes": 11,
-   "via": "NE17 PUNGGOL",
-   "accessWalkM": 841,
-   "cca": [
-    "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "Scouts (Boys)",
-    "Shooting (Girls and Boys)",
-    "Table Tennis (Boys)",
-    "Volleyball (Girls and Boys)"
-   ],
-   "alpCats": [
-    "STEM - Sustainability"
-   ],
-   "alpItems": [
-    "Environmental Sustainability"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Serving with values, developing a community of confident leaders and learners."
-   ],
-   "dsaAreas": [
-    "Choir (Girls and Boys)",
-    "Environmental Science (Girls and Boys)",
-    "Volleyball (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 94,
-    "commute": 93,
-    "academic": 71,
-    "cca": 62,
-    "feature": 83
-   },
-   "total": 84
-  },
-  {
-   "slug": "seng-kang-secondary-school",
-   "name": "Seng Kang Secondary School",
-   "area": "Seng Kang",
-   "address": "10 Compassvale Lane, S545090",
-   "postal": "545090",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 27,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 10,
-   "minutes": 22,
-   "rideMinutes": 13,
-   "walkMinutes": 8,
-   "via": "NE16 SENGKANG",
-   "accessWalkM": 658,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Girl Guides (Girls)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)"
-   ],
-   "alpCats": [
-    "STEM - Health and Food Science"
-   ],
-   "alpItems": [
-    "Food for the Future"
-   ],
-   "llpCats": [
-    "Sports & Outdoor Education"
-   ],
-   "llpItems": [
-    "TREK for Life"
-   ],
-   "dsaAreas": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Football (Boys)",
-    "Hockey (Girls and Boys)",
-    "Netball (Girls)",
-    "Stem (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 94,
-    "commute": 93,
-    "academic": 68,
-    "cca": 62,
-    "feature": 86
-   },
-   "total": 84
-  },
-  {
-   "slug": "yuying-secondary-school",
-   "name": "Yuying Secondary School",
-   "area": "Hougang",
-   "address": "47 Hougang Avenue 1, S538884",
-   "postal": "538884",
-   "nature": "Co-Ed School",
-   "type": "Government-Aided School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 29,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 12,
-   "minutes": 28,
-   "rideMinutes": 19,
-   "walkMinutes": 9,
-   "via": "NE13 KOVAN",
-   "accessWalkM": 704,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Boys)",
-    "Concert Band (Girls and Boys)",
-    "Guitar Ensemble (Girls and Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Malay Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Table Tennis (Boys)",
-    "Volleyball (Girls)",
-    "Wushu (Girls and Boys)"
-   ],
-   "alpCats": [
-    "Business & Entrepreneurship"
-   ],
-   "alpItems": [
-    "Fostering Innovation through Design Thinking"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "YUYING C.A.R.E.S - Collaborate, Act, Reflect, Empathise, Serve"
-   ],
-   "dsaAreas": [
-    "Community Youth Leadership (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Volleyball (Girls)",
-    "Wushu (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 100,
-    "commute": 84,
-    "academic": 60,
-    "cca": 85,
-    "feature": 76
-   },
-   "total": 84
-  },
-  {
-   "slug": "bartley-secondary-school",
-   "name": "Bartley Secondary School",
-   "area": "Toa Payoh",
-   "address": "10 Jalan Bunga Rampai, S538403",
-   "postal": "538403",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 22,
-    "max": 25,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 8,
-   "minutes": 33,
-   "rideMinutes": 28,
-   "walkMinutes": 5,
-   "via": "CC12 BARTLEY",
-   "accessWalkM": 401,
-   "cca": [
-    "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "Table Tennis (Boys)",
-    "Volleyball (Girls)"
-   ],
-   "alpCats": [
-    "STEM - Health and Food Science"
-   ],
-   "alpItems": [
-    "Chemical and Applied Sciences (Fragrance)"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "i-LEAD @ Bartley to develop as Leaders for Others"
-   ],
-   "dsaAreas": [
-    "Chemical and Applied Sciences (Fragrance) (Girls and Boys)",
-    "Community Youth Leadership (Girls and Boys)",
-    "Football (Boys)",
-    "Table Tennis (Boys)"
-   ],
-   "scores": {
-    "safety": 88,
-    "commute": 77,
-    "academic": 68,
-    "cca": 85,
-    "feature": 86
-   },
-   "total": 82
-  },
-  {
-   "slug": "serangoon-secondary-school",
-   "name": "Serangoon Secondary School",
-   "area": "Hougang",
-   "address": "11 Upper Serangoon View, S534237",
-   "postal": "534237",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 26,
-    "max": 28,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 11,
-   "minutes": 32,
-   "rideMinutes": 17,
-   "walkMinutes": 15,
-   "via": "NE14 HOUGANG",
-   "accessWalkM": 1198,
-   "cca": [
-    "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Girl Guides (Girls)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "Scouts (Boys)"
-   ],
-   "alpCats": [
-    "STEM - Future of Transportation"
-   ],
-   "alpItems": [
-    "Real-world Explorations in ICT"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Project Ablaze: Harnessing Student Leadership in the Service of Community"
-   ],
-   "dsaAreas": [
-    "Community Youth Leadership (Girls and Boys)",
-    "Programming and 3D Modelling (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 97,
-    "commute": 79,
-    "academic": 76,
-    "cca": 62,
-    "feature": 83
-   },
-   "total": 82
-  },
-  {
-   "slug": "outram-secondary-school",
-   "name": "Outram Secondary School",
-   "area": "Seng Kang",
-   "address": "48 Anchorvale Crescent, S549936",
-   "postal": "549936",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 26,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 9,
-   "minutes": 24,
-   "rideMinutes": 13,
-   "walkMinutes": 10,
-   "via": "NE16 SENGKANG",
-   "accessWalkM": 823,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Water Polo (Boys)"
-   ],
-   "alpCats": [
-    "Business & Entrepreneurship"
-   ],
-   "alpItems": [
-    "Business and Enterprise"
-   ],
-   "llpCats": [
-    "Sports & Outdoor Education"
-   ],
-   "llpItems": [
-    "Sports For Life@Outram"
-   ],
-   "dsaAreas": [
-    "Basketball (Girls and Boys)",
-    "Communication (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Entrepreneurship (Girls and Boys)",
-    "Environmental Science (Girls and Boys)",
-    "Leadership (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "Swimming (Girls and Boys)",
-    "Water Polo (Boys)"
-   ],
-   "scores": {
-    "safety": 91,
-    "commute": 90,
-    "academic": 52,
-    "cca": 82,
-    "feature": 76
-   },
-   "total": 81
-  },
-  {
-   "slug": "peicai-secondary-school",
-   "name": "Peicai Secondary School",
-   "area": "Serangoon",
-   "address": "10 Serangoon Avenue 4, S556094",
-   "postal": "556094",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 21,
-    "max": 25,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 8,
-   "minutes": 34,
-   "rideMinutes": 21,
-   "walkMinutes": 13,
-   "via": "CC13/NE12 SERANGOON",
-   "accessWalkM": 1034,
-   "cca": [
-    "Basketball (Boys)",
-    "Concert Band (Girls and Boys)",
-    "Girl Guides (Girls)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Volleyball (Girls and Boys)"
-   ],
-   "alpCats": [
-    "STEM - Health and Food Science"
-   ],
-   "alpItems": [
-    "Applied food science & processing"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Becoming Persons for Others – Developing Leadership through and for the Community"
-   ],
-   "dsaAreas": [
-    "Basketball (Boys)",
-    "Concert Band (Girls and Boys)",
-    "English Drama (Girls and Boys)",
-    "Girl Guides (Girls)",
-    "Leadership (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) Sea (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Softball (Girls and Boys)",
-    "Volleyball (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 88,
-    "commute": 76,
-    "academic": 68,
-    "cca": 85,
-    "feature": 86
-   },
-   "total": 81
-  },
-  {
-   "slug": "presbyterian-high-school",
-   "name": "Presbyterian High School",
-   "area": "Ang Mo Kio",
-   "address": "5209 Ang Mo Kio Avenue 6, S569845",
-   "postal": "569845",
-   "nature": "Co-Ed School",
-   "type": "Government-Aided School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 28,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 11,
-   "minutes": 43,
-   "rideMinutes": 39,
-   "walkMinutes": 4,
-   "via": "NS15 YIO CHU KANG",
-   "accessWalkM": 285,
-   "cca": [
-    "Badminton (Boys)",
-    "Basketball (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Volleyball (Girls and Boys)"
-   ],
-   "alpCats": [
-    "STEM - Health and Food Science"
-   ],
-   "alpItems": [
-    "Igniting Minds@PresHigh"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Igniting Hearts@PresHigh"
-   ],
-   "dsaAreas": [
-    "Badminton (Boys)",
-    "Basketball (Girls and Boys)",
-    "Community Youth Leadership (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Guzheng Ensemble (Girls and Boys)",
-    "Stem (Girls and Boys)",
-    "Table Tennis (Girls and Boys)",
-    "Volleyball (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 97,
-    "commute": 63,
-    "academic": 68,
-    "cca": 85,
-    "feature": 86
-   },
-   "total": 81
-  },
-  {
-   "slug": "zhonghua-secondary-school",
-   "name": "Zhonghua Secondary School",
-   "area": "Serangoon",
-   "address": "13 Serangoon Avenue 3, S556123",
-   "postal": "556123",
-   "nature": "Co-Ed School",
-   "type": "Government School / Autonomous",
-   "ip": false,
-   "sap": false,
-   "autonomous": true,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 27,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 10,
-   "minutes": 27,
-   "rideMinutes": 21,
-   "walkMinutes": 6,
-   "via": "CC13/NE12 SERANGOON",
-   "accessWalkM": 446,
-   "cca": [
-    "Chinese Dance (Girls and Boys)",
-    "Chinese Orchestra (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Table Tennis (Boys)",
-    "Volleyball (Boys)"
-   ],
-   "alpCats": [],
-   "alpItems": [],
-   "llpCats": [],
-   "llpItems": [],
-   "dsaAreas": [
-    "Badminton (Girls)",
-    "Basketball (Girls)",
-    "Chinese Dance (Girls and Boys)",
-    "Chinese Orchestra (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Guzheng Ensemble (Girls and Boys)",
-    "Leadership and Character (Girls and Boys)",
-    "Table Tennis (Boys)",
-    "Volleyball (Boys)"
-   ],
-   "scores": {
-    "safety": 94,
-    "commute": 86,
-    "academic": 55,
-    "cca": 85,
-    "feature": 66
-   },
-   "total": 81
-  },
-  {
-   "slug": "xinmin-secondary-school",
-   "name": "Xinmin Secondary School",
-   "area": "Hougang",
-   "address": "11 Hougang Avenue 8, S538789",
-   "postal": "538789",
-   "nature": "Co-Ed School",
-   "type": "Government School / Autonomous",
-   "ip": false,
-   "sap": false,
-   "autonomous": true,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 28,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 11,
-   "minutes": 31,
-   "rideMinutes": 17,
-   "walkMinutes": 13,
-   "via": "NE14 HOUGANG",
-   "accessWalkM": 1053,
-   "cca": [
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "Shooting (Girls and Boys)",
-    "Volleyball (Girls and Boys)"
-   ],
-   "alpCats": [],
-   "alpItems": [],
-   "llpCats": [],
-   "llpItems": [],
-   "dsaAreas": [
-    "Badminton (Girls)",
-    "Boys&#x27; Brigade (Boys)",
-    "Chinese Dance (Girls)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Cross Country (Girls and Boys)",
-    "English Drama (Girls and Boys)",
-    "Floorball (Boys)",
-    "Girls&#x27; Brigade (Girls)",
-    "Guzheng Ensemble (Girls and Boys)",
-    "Rockwall Climbing (Girls and Boys)",
-    "Shooting (Girls and Boys)",
-    "St John Brigade (Girls and Boys)",
-    "Volleyball (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 97,
-    "commute": 80,
-    "academic": 55,
-    "cca": 85,
-    "feature": 66
-   },
-   "total": 80
-  },
-  {
-   "slug": "bowen-secondary-school",
-   "name": "Bowen Secondary School",
-   "area": "Hougang",
-   "address": "2 Lorong Napiri, S547529",
-   "postal": "547529",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 28,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 11,
-   "minutes": 37,
-   "rideMinutes": 19,
-   "walkMinutes": 17,
-   "via": "NE13 KOVAN",
-   "accessWalkM": 1389,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Girl Guides (Girls)",
-    "Indian Dance (Girls and Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Malay Dance (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Boys)",
-    "Netball (Girls)",
-    "Table Tennis (Boys)",
-    "Taekwondo (Girls and Boys)"
-   ],
-   "alpCats": [
-    "Business & Entrepreneurship"
-   ],
-   "alpItems": [
-    "Nurturing Creativity, Empathy and Enterprise through Social Entrepreneurship"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Bowen ChANgemakers Programme"
-   ],
-   "dsaAreas": [
-    "Badminton (Girls and Boys)",
-    "Community Youth Leadership (Girls and Boys)",
-    "Entrepreneurship (Girls and Boys)",
-    "Football (Girls and Boys)",
-    "Marching Band (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 97,
-    "commute": 71,
-    "academic": 52,
-    "cca": 85,
-    "feature": 76
-   },
-   "total": 79
-  },
-  {
-   "slug": "broadrick-secondary-school",
-   "name": "Broadrick Secondary School",
-   "area": "Geylang",
-   "address": "61 Dakota Crescent, S399935",
-   "postal": "399935",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 21,
-    "max": 25,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 8,
-   "minutes": 40,
-   "rideMinutes": 36,
-   "walkMinutes": 4,
-   "via": "CC8 DAKOTA",
-   "accessWalkM": 303,
-   "cca": [
-    "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Girl Guides (Girls)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Shooting (Girls and Boys)",
-    "Taekwondo (Girls and Boys)"
-   ],
-   "alpCats": [
-    "STEM - Sustainability"
-   ],
-   "alpItems": [
-    "Sustainability in Broadrick"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Nurturing Grateful, Respectful and Compassionate (GRC) Leaders through Service in the Community"
-   ],
-   "dsaAreas": [
-    "Basketball (Boys)",
-    "Leadership (Girls and Boys)",
-    "Shooting (Girls and Boys)",
-    "Tchoukball (Girls)"
-   ],
-   "scores": {
-    "safety": 88,
-    "commute": 67,
-    "academic": 71,
-    "cca": 85,
-    "feature": 86
-   },
-   "total": 79
-  },
-  {
-   "slug": "guangyang-secondary-school",
-   "name": "Guangyang Secondary School",
-   "area": "Bishan",
-   "address": "8 Bishan Street 12, S579807",
-   "postal": "579807",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 21,
-    "max": 25,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 8,
-   "minutes": 40,
-   "rideMinutes": 30,
-   "walkMinutes": 9,
-   "via": "NS17/CC15 BISHAN",
-   "accessWalkM": 735,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)"
-   ],
-   "alpCats": [
-    "STEM - Sustainability"
-   ],
-   "alpItems": [
-    "Sustainability"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Guangyang Advocates"
-   ],
-   "dsaAreas": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Community Youth Leadership (Girls and Boys)",
-    "Cross Country (Girls and Boys)",
-    "English Drama (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 88,
-    "commute": 67,
-    "academic": 71,
-    "cca": 85,
-    "feature": 86
-   },
-   "total": 79
-  },
-  {
-   "slug": "holy-innocents-high-school",
-   "name": "Holy Innocents' High School",
-   "area": "Hougang",
-   "address": "1191 Upper Serangoon Road, S534786",
-   "postal": "534786",
-   "nature": "Co-Ed School",
-   "type": "Government-Aided School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 27,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 10,
-   "minutes": 23,
-   "rideMinutes": 17,
-   "walkMinutes": 6,
-   "via": "NE14 HOUGANG",
-   "accessWalkM": 479,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Boys)",
-    "Bowling (Girls and Boys)",
-    "Chinese Orchestra (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Football (Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "Scouts (Boys)",
-    "Wushu (Girls and Boys)"
-   ],
-   "alpCats": [
-    "Languages"
-   ],
-   "alpItems": [
-    "Journalism and Broadcasting -- Developing Critical Thinkers and Effective Communicators"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Good Samaritan Programme (GSP)"
-   ],
-   "dsaAreas": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Boys)",
-    "Chinese Orchestra (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Leadership (Girls and Boys)",
-    "Media/Journalism (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "Scouts (Boys)"
-   ],
-   "scores": {
-    "safety": 94,
-    "commute": 91,
-    "academic": 50,
-    "cca": 62,
-    "feature": 73
-   },
-   "total": 79
-  },
-  {
-   "slug": "manjusri-secondary-school",
-   "name": "Manjusri Secondary School",
-   "area": "Geylang",
-   "address": "20 Ubi Avenue 1, S408940",
-   "postal": "408940",
-   "nature": "Co-Ed School",
-   "type": "Government-Aided School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 21,
-    "max": 25,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 8,
-   "minutes": 44,
-   "rideMinutes": 39,
-   "walkMinutes": 5,
-   "via": "DT27 UBI",
-   "accessWalkM": 393,
-   "cca": [
-    "Badminton (Boys)",
-    "Chinese Orchestra (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Girl Guides (Girls)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Scouts (Boys)",
-    "Table Tennis (Boys)",
-    "Wushu (Girls and Boys)"
-   ],
-   "alpCats": [
-    "STEM - Cities and Urban Landscapes"
-   ],
-   "alpItems": [
-    "Smart City and Sustainable Technologies"
-   ],
-   "llpCats": [
-    "Music & Performing Arts"
-   ],
-   "llpItems": [
-    "Learning through the ARTS"
-   ],
-   "dsaAreas": [
-    "Chinese Calligraphy (Girls and Boys)",
-    "Chinese Dance (Girls)",
-    "Chinese Orchestra (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Table Tennis (Girls and Boys)",
-    "Wushu (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 88,
-    "commute": 61,
-    "academic": 80,
-    "cca": 85,
-    "feature": 86
-   },
-   "total": 79
-  },
-  {
-   "slug": "serangoon-garden-secondary-school",
-   "name": "Serangoon Garden Secondary School",
-   "area": "Serangoon",
-   "address": "21 Serangoon North Avenue 1, S555889",
-   "postal": "555889",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 26,
-    "max": 30,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 13,
-   "minutes": 44,
-   "rideMinutes": 19,
-   "walkMinutes": 25,
-   "via": "NE13 KOVAN",
-   "accessWalkM": 1991,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "Table Tennis (Boys)"
-   ],
-   "alpCats": [
-    "Humanities"
-   ],
-   "alpItems": [
-    "Researching Society through Media Literacy"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Nurturing Confident and Compassionate Leaders"
-   ],
-   "dsaAreas": [
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Floorball (Girls)",
-    "Football (Boys)",
-    "Guzheng Ensemble (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "Netball (Girls)",
-    "Robotics (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 100,
-    "commute": 61,
-    "academic": 50,
-    "cca": 85,
-    "feature": 76
-   },
-   "total": 77
-  },
-  {
-   "slug": "anderson-secondary-school",
-   "name": "Anderson Secondary School",
-   "area": "Ang Mo Kio",
-   "address": "10 Ang Mo Kio Street 53, S569206",
-   "postal": "569206",
-   "nature": "Co-Ed School",
-   "type": "Government School / Autonomous",
-   "ip": false,
-   "sap": false,
-   "autonomous": true,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 28,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 11,
-   "minutes": 44,
-   "rideMinutes": 37,
-   "walkMinutes": 7,
-   "via": "NS16 ANG MO KIO",
-   "accessWalkM": 538,
-   "cca": [
-    "Basketball (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Girl Guides (Girls)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Malay Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "Table Tennis (Girls)",
-    "Volleyball (Girls)",
-    "Wushu (Girls and Boys)"
-   ],
-   "alpCats": [],
-   "alpItems": [],
-   "llpCats": [],
-   "llpItems": [],
-   "dsaAreas": [
-    "Basketball (Boys)",
-    "Chinese Dance (Girls)",
-    "Concert Band (Girls and Boys)",
-    "Malay Language (Girls and Boys)",
-    "Netball (Girls)",
-    "Table Tennis (Girls)",
-    "Volleyball (Girls)",
-    "Wushu (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 97,
-    "commute": 61,
-    "academic": 55,
-    "cca": 85,
-    "feature": 66
-   },
-   "total": 75
-  },
-  {
-   "slug": "naval-base-secondary-school",
-   "name": "Naval Base Secondary School",
-   "area": "Yishun",
-   "address": "901 Yishun Ring Road, S768689",
-   "postal": "768689",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 27,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 10,
-   "minutes": 45,
-   "rideMinutes": 41,
-   "walkMinutes": 4,
-   "via": "NS14 KHATIB",
-   "accessWalkM": 309,
-   "cca": [
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Girl Guides (Girls)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)"
-   ],
-   "alpCats": [
-    "Aesthetics"
-   ],
-   "alpItems": [
-    "ALP in Art"
-   ],
-   "llpCats": [
-    "Sports & Outdoor Education"
-   ],
-   "llpItems": [
-    "Character Education through Sports"
-   ],
-   "dsaAreas": [
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Indian Dance (Girls and Boys)",
-    "Leadership (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "Table Tennis (Girls and Boys)",
-    "Visual Arts (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 94,
-    "commute": 60,
-    "academic": 50,
-    "cca": 85,
-    "feature": 79
-   },
-   "total": 75
-  },
-  {
-   "slug": "whitley-secondary-school",
-   "name": "Whitley Secondary School",
-   "area": "Bishan",
-   "address": "30 Bishan Street 24, S579747",
-   "postal": "579747",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 22,
-    "max": 25,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 8,
-   "minutes": 42,
-   "rideMinutes": 32,
-   "walkMinutes": 10,
-   "via": "CC16 MARYMOUNT",
-   "accessWalkM": 787,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Girl Guides (Girls)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)"
-   ],
-   "alpCats": [
-    "Languages"
-   ],
-   "alpItems": [
-    "Speech Communication Arts"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Active Citizenship for Social Change (ACSC)"
-   ],
-   "dsaAreas": [
-    "Debating and Public Speaking (Girls and Boys)",
-    "Leadership and Character (Girls and Boys)"
-   ],
-   "scores": {
-    "safety": 88,
-    "commute": 64,
-    "academic": 50,
-    "cca": 85,
-    "feature": 76
-   },
-   "total": 74
+   "total": 70
   },
   {
    "slug": "kuo-chuan-presbyterian-secondary-school",
@@ -1870,13 +1100,13 @@
    "autonomous": false,
    "independent": false,
    "cop": {
-    "min": 21,
-    "max": 23,
+    "min": 8,
+    "max": 20,
     "markMax": null,
     "kind": "PG",
     "year": 2025
    },
-   "margin": 6,
+   "margin": 3,
    "minutes": 37,
    "rideMinutes": 30,
    "walkMinutes": 7,
@@ -1918,14 +1148,286 @@
     "Shooting (Girls and Boys)",
     "Table Tennis (Girls and Boys)"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 76,
+    "safety": 66,
     "commute": 71,
     "academic": 50,
     "cca": 85,
     "feature": 76
    },
-   "total": 72
+   "total": 69
+  },
+  {
+   "slug": "outram-secondary-school",
+   "name": "Outram Secondary School",
+   "area": "Seng Kang",
+   "address": "48 Anchorvale Crescent, S549936",
+   "postal": "549936",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 9,
+    "max": 17,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 0,
+   "minutes": 24,
+   "rideMinutes": 13,
+   "walkMinutes": 10,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 823,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Water Polo (Boys)"
+   ],
+   "alpCats": [
+    "Business & Entrepreneurship"
+   ],
+   "alpItems": [
+    "Business and Enterprise"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Sports For Life@Outram"
+   ],
+   "dsaAreas": [
+    "Basketball (Girls and Boys)",
+    "Communication (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Entrepreneurship (Girls and Boys)",
+    "Environmental Science (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Swimming (Girls and Boys)",
+    "Water Polo (Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 90,
+    "academic": 52,
+    "cca": 82,
+    "feature": 76
+   },
+   "total": 66
+  },
+  {
+   "slug": "naval-base-secondary-school",
+   "name": "Naval Base Secondary School",
+   "area": "Yishun",
+   "address": "901 Yishun Ring Road, S768689",
+   "postal": "768689",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 13,
+    "max": 19,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 2,
+   "minutes": 45,
+   "rideMinutes": 41,
+   "walkMinutes": 4,
+   "via": "NS14 KHATIB",
+   "accessWalkM": 309,
+   "cca": [
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)"
+   ],
+   "alpCats": [
+    "Aesthetics"
+   ],
+   "alpItems": [
+    "ALP in Art"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Character Education through Sports"
+   ],
+   "dsaAreas": [
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Indian Dance (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Table Tennis (Girls and Boys)",
+    "Visual Arts (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 58,
+    "commute": 60,
+    "academic": 50,
+    "cca": 85,
+    "feature": 79
+   },
+   "total": 65
+  }
+ ],
+ "singleSex": [
+  {
+   "slug": "montfort-secondary-school",
+   "name": "Montfort Secondary School",
+   "area": "Hougang",
+   "address": "50 Hougang Avenue 8, S538785",
+   "postal": "538785",
+   "nature": "Boys School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": 5,
+   "minutes": 24,
+   "rideMinutes": 17,
+   "walkMinutes": 7,
+   "via": "NE14 HOUGANG",
+   "accessWalkM": 548,
+   "cca": [
+    "Audio Visual Aid (Boys)",
+    "Badminton (Boys)",
+    "Basketball (Boys)",
+    "Choir (Boys)",
+    "Football (Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Boys)",
+    "Scouts (Boys)",
+    "Wushu (Boys)"
+   ],
+   "alpCats": [
+    "STEM - Emerging Technologies"
+   ],
+   "alpItems": [
+    "Made In Montfort – Design, Code, Make"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Student Leadership through Outdoor Adventure & Sports"
+   ],
+   "dsaAreas": [
+    "Badminton (Boys)",
+    "Basketball (Boys)",
+    "Football (Boys)",
+    "Rugby (Boys)",
+    "Softball (Boys)",
+    "Wushu (Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 82,
+    "commute": 90,
+    "academic": 78,
+    "cca": 62,
+    "feature": 86
+   },
+   "total": 81
+  }
+ ],
+ "outOfReach": [
+  {
+   "slug": "bowen-secondary-school",
+   "name": "Bowen Secondary School",
+   "area": "Hougang",
+   "address": "2 Lorong Napiri, S547529",
+   "postal": "547529",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 12,
+    "max": 16,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -1,
+   "minutes": 37,
+   "rideMinutes": 19,
+   "walkMinutes": 17,
+   "via": "NE13 KOVAN",
+   "accessWalkM": 1389,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Indian Dance (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Malay Dance (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Boys)",
+    "Netball (Girls)",
+    "Table Tennis (Boys)",
+    "Taekwondo (Girls and Boys)"
+   ],
+   "alpCats": [
+    "Business & Entrepreneurship"
+   ],
+   "alpItems": [
+    "Nurturing Creativity, Empathy and Enterprise through Social Entrepreneurship"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Bowen ChANgemakers Programme"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Community Youth Leadership (Girls and Boys)",
+    "Entrepreneurship (Girls and Boys)",
+    "Football (Girls and Boys)",
+    "Marching Band (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 71,
+    "academic": 52,
+    "cca": 85,
+    "feature": 76
+   },
+   "total": 62
   },
   {
    "slug": "deyi-secondary-school",
@@ -1940,13 +1442,13 @@
    "autonomous": false,
    "independent": false,
    "cop": {
-    "min": 21,
-    "max": 24,
+    "min": 9,
+    "max": 16,
     "markMax": null,
     "kind": "PG",
     "year": 2025
    },
-   "margin": 7,
+   "margin": -1,
    "minutes": 44,
    "rideMinutes": 37,
    "walkMinutes": 7,
@@ -1989,377 +1491,76 @@
     "Visual Arts (Girls and Boys)",
     "Volleyball (Boys)"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 82,
+    "safety": 40,
     "commute": 61,
     "academic": 50,
     "cca": 62,
     "feature": 73
    },
-   "total": 68
+   "total": 55
   },
   {
-   "slug": "geylang-methodist-school-secondary",
-   "name": "Geylang Methodist School (Secondary)",
-   "area": "Geylang",
-   "address": "2 Geylang East Central, S389705",
-   "postal": "389705",
+   "slug": "greendale-secondary-school",
+   "name": "Greendale Secondary School",
+   "area": "Punggol",
+   "address": "51 Edgedale Plains, S828866",
+   "postal": "828866",
    "nature": "Co-Ed School",
-   "type": "Government-Aided School",
+   "type": "Government School",
    "ip": false,
    "sap": false,
    "autonomous": false,
    "independent": false,
    "cop": {
-    "min": 21,
-    "max": 24,
+    "min": 11,
+    "max": 16,
     "markMax": null,
     "kind": "PG",
     "year": 2025
    },
-   "margin": 7,
-   "minutes": 43,
-   "rideMinutes": 41,
-   "walkMinutes": 2,
-   "via": "EW9 ALJUNIED",
-   "accessWalkM": 138,
+   "margin": -1,
+   "minutes": 28,
+   "rideMinutes": 11,
+   "walkMinutes": 17,
+   "via": "NE17 PUNGGOL",
+   "accessWalkM": 1363,
    "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
+    "Canoeing (Girls and Boys)",
+    "Chinese Orchestra (Girls and Boys)",
     "Football (Boys)",
-    "Girl Guides (Girls)",
-    "National Police Cadet Corps (NPCC) (Boys)",
-    "Netball (Girls)",
-    "Track and Field (Girls and Boys)",
-    "Volleyball (Girls)"
-   ],
-   "alpCats": [],
-   "alpItems": [],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Nurturing Confident, Compassionate and Courageous Leaders"
-   ],
-   "dsaAreas": [
-    "Badminton (Girls and Boys)",
-    "Chinese Dance (Girls)",
-    "Leadership (Girls and Boys)",
-    "Volleyball (Boys)"
-   ],
-   "scores": {
-    "safety": 82,
-    "commute": 63,
-    "academic": 55,
-    "cca": 62,
-    "feature": 63
-   },
-   "total": 67
-  }
- ],
- "singleSex": [
-  {
-   "slug": "chij-secondary-toa-payoh",
-   "name": "CHIJ Secondary (Toa Payoh)",
-   "area": "Toa Payoh",
-   "address": "626 Lorong 1 Toa Payoh, S319764",
-   "postal": "319764",
-   "nature": "Girls School",
-   "type": "Government-Aided School / Autonomous",
-   "ip": false,
-   "sap": false,
-   "autonomous": true,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 28,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 11,
-   "minutes": 43,
-   "rideMinutes": 34,
-   "walkMinutes": 9,
-   "via": "TE9/CC17 CALDECOTT",
-   "accessWalkM": 683,
-   "cca": [
-    "Girl Guides (Girls)",
-    "Netball (Girls)"
-   ],
-   "alpCats": [],
-   "alpItems": [],
-   "llpCats": [],
-   "llpItems": [],
-   "dsaAreas": [
-    "Badminton (Girls)",
-    "Basketball (Girls)",
-    "Bowling (Girls)",
-    "Choir (Girls)",
-    "Concert Band (Girls)",
-    "Debating (Girls)",
-    "Netball (Girls)",
-    "Rhythmic Gymnastics (Girls)",
-    "Tennis (Girls)",
-    "Track and Field (Girls)"
-   ],
-   "scores": {
-    "safety": 97,
-    "commute": 63,
-    "academic": 55,
-    "cca": 62,
-    "feature": 63
-   },
-   "total": 72
-  },
-  {
-   "slug": "chij-st-josephs-convent",
-   "name": "CHIJ St. Joseph's Convent",
-   "area": "Seng Kang",
-   "address": "62 Sengkang East Way, S548595",
-   "postal": "548595",
-   "nature": "Girls School",
-   "type": "Government-Aided School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 28,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 11,
-   "minutes": 23,
-   "rideMinutes": 13,
-   "walkMinutes": 10,
-   "via": "NE16 SENGKANG",
-   "accessWalkM": 776,
-   "cca": [
-    "Girl Guides (Girls)",
-    "Netball (Girls)",
-    "Table Tennis (Girls)",
-    "Volleyball (Girls)"
-   ],
-   "alpCats": [
-    "Languages"
-   ],
-   "alpItems": [
-    "The Art of Communication through Theatre and Debates"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Bringing L.I.G.H.T. Into The Community"
-   ],
-   "dsaAreas": [
-    "Choir (Girls)",
-    "Concert Band (Girls)",
-    "Debate and Theatre (Girls)",
-    "Leadership (Girls)",
-    "Netball (Girls)",
-    "Table Tennis (Girls)",
-    "Volleyball (Girls)"
-   ],
-   "scores": {
-    "safety": 97,
-    "commute": 91,
-    "academic": 50,
-    "cca": 62,
-    "feature": 73
-   },
-   "total": 80
-  },
-  {
-   "slug": "montfort-secondary-school",
-   "name": "Montfort Secondary School",
-   "area": "Hougang",
-   "address": "50 Hougang Avenue 8, S538785",
-   "postal": "538785",
-   "nature": "Boys School",
-   "type": "Government-Aided School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 27,
-    "max": 29,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 12,
-   "minutes": 24,
-   "rideMinutes": 17,
-   "walkMinutes": 7,
-   "via": "NE14 HOUGANG",
-   "accessWalkM": 548,
-   "cca": [
-    "Audio Visual Aid (Boys)",
-    "Badminton (Boys)",
-    "Basketball (Boys)",
-    "Choir (Boys)",
-    "Football (Boys)",
+    "Modern Dance (Girls and Boys)",
     "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Boys)",
-    "Scouts (Boys)",
-    "Wushu (Boys)"
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Softball (Girls and Boys)"
    ],
    "alpCats": [
-    "STEM - Emerging Technologies"
+    "STEM - Sustainability"
    ],
    "alpItems": [
-    "Made In Montfort – Design, Code, Make"
+    "Design, Technology and Engineering ALP Programme"
    ],
    "llpCats": [
     "Sports & Outdoor Education"
    ],
    "llpItems": [
-    "Student Leadership through Outdoor Adventure & Sports"
+    "Character Development through Outdoor and Adventure Education"
    ],
    "dsaAreas": [
-    "Badminton (Boys)",
-    "Basketball (Boys)",
-    "Football (Boys)",
-    "Rugby (Boys)",
-    "Softball (Boys)",
-    "Wushu (Boys)"
+    "Design, Technology and Engineering (DTE) (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Outdoor Adventure (Girls and Boys)"
    ],
+   "moeNearby": true,
    "scores": {
-    "safety": 100,
-    "commute": 90,
-    "academic": 78,
+    "safety": 40,
+    "commute": 84,
+    "academic": 82,
     "cca": 62,
     "feature": 86
    },
-   "total": 86
-  },
-  {
-   "slug": "paya-lebar-methodist-girls-school-secondary",
-   "name": "Paya Lebar Methodist Girls' School (Secondary)",
-   "area": "Hougang",
-   "address": "296 Lor Ah Soo, S536742",
-   "postal": "536742",
-   "nature": "Girls School",
-   "type": "Government-Aided School / Autonomous",
-   "ip": false,
-   "sap": false,
-   "autonomous": true,
-   "independent": false,
-   "cop": {
-    "min": 21,
-    "max": 23,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 6,
-   "minutes": 32,
-   "rideMinutes": 19,
-   "walkMinutes": 12,
-   "via": "NE13 KOVAN",
-   "accessWalkM": 996,
-   "cca": [
-    "Netball (Girls)",
-    "Table Tennis (Girls)",
-    "Volleyball (Girls)"
-   ],
-   "alpCats": [],
-   "alpItems": [],
-   "llpCats": [],
-   "llpItems": [],
-   "dsaAreas": [
-    "Badminton (Girls)",
-    "Concert Band (Girls)",
-    "Guzheng Ensemble (Girls)",
-    "Harp Ensemble (Girls)",
-    "Leadership (Girls)",
-    "Netball (Girls)",
-    "Rhythmic Gymnastics (Girls)",
-    "Swimming (Girls)",
-    "Table Tennis (Girls)",
-    "Volleyball (Girls)"
-   ],
-   "scores": {
-    "safety": 76,
-    "commute": 79,
-    "academic": 55,
-    "cca": 62,
-    "feature": 63
-   },
-   "total": 70
-  },
-  {
-   "slug": "st-andrews-school-secondary",
-   "name": "St Andrew's School (Secondary)",
-   "area": "Toa Payoh",
-   "address": "15 Francis Thomas Drive, S359342",
-   "postal": "359342",
-   "nature": "Boys School",
-   "type": "Government-Aided School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 25,
-    "max": 27,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 10,
-   "minutes": 30,
-   "rideMinutes": 25,
-   "walkMinutes": 4,
-   "via": "NE10 POTONG PASIR",
-   "accessWalkM": 354,
-   "cca": [
-    "Badminton (Boys)",
-    "Basketball (Boys)",
-    "Choir (Boys)",
-    "English Drama (Boys)",
-    "Football (Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Boys)",
-    "Scouts (Boys)",
-    "Singapore Youth Flying Club (Boys)",
-    "Tennis (Boys)",
-    "Track and Field (Boys)",
-    "Water Polo (Boys)"
-   ],
-   "alpCats": [],
-   "alpItems": [],
-   "llpCats": [
-    "Community & Youth Leadership"
-   ],
-   "llpItems": [
-    "Serve and Lead Together (SALT)"
-   ],
-   "dsaAreas": [
-    "Concert Band (Boys)",
-    "Football (Boys)",
-    "Hockey (Boys)",
-    "Leadership (Boys)",
-    "Rugby (Boys)",
-    "Squash (Boys)",
-    "Visual Arts (Boys)",
-    "Water Polo (Boys)"
-   ],
-   "scores": {
-    "safety": 94,
-    "commute": 81,
-    "academic": 55,
-    "cca": 82,
-    "feature": 63
-   },
-   "total": 78
+   "total": 68
   },
   {
    "slug": "st-gabriels-secondary-school",
@@ -2374,13 +1575,13 @@
    "autonomous": false,
    "independent": false,
    "cop": {
-    "min": 25,
-    "max": 28,
+    "min": 10,
+    "max": 15,
     "markMax": null,
     "kind": "PG",
     "year": 2025
    },
-   "margin": 11,
+   "margin": -2,
    "minutes": 29,
    "rideMinutes": 21,
    "walkMinutes": 7,
@@ -2425,17 +1626,549 @@
     "Softball (Boys)",
     "Table Tennis (Boys)"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 97,
+    "safety": 40,
     "commute": 83,
     "academic": 76,
     "cca": 62,
     "feature": 83
    },
-   "total": 83
-  }
- ],
- "outOfReach": [
+   "total": 66
+  },
+  {
+   "slug": "yusof-ishak-secondary-school",
+   "name": "Yusof Ishak Secondary School",
+   "area": "Punggol",
+   "address": "8 Sumang Walk, S828676",
+   "postal": "828676",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 7,
+    "max": 15,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -2,
+   "minutes": 20,
+   "rideMinutes": 11,
+   "walkMinutes": 9,
+   "via": "NE17 PUNGGOL",
+   "accessWalkM": 697,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "alpCats": [
+    "STEM - Sustainability"
+   ],
+   "alpItems": [
+    "STEM for the Strategic Development of a Sustainable and Smart City (S4TEM@YI)"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Nurturing Honourable Leaders for Tomorrow (YI LEAD+)"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Community Youth Leadership (Girls and Boys)",
+    "Fencing (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Robotics (Girls and Boys)",
+    "Softball (Girls)",
+    "Stem (Girls and Boys)",
+    "Table Tennis (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 96,
+    "academic": 76,
+    "cca": 85,
+    "feature": 86
+   },
+   "total": 73
+  },
+  {
+   "slug": "chij-st-josephs-convent",
+   "name": "CHIJ St. Joseph's Convent",
+   "area": "Seng Kang",
+   "address": "62 Sengkang East Way, S548595",
+   "postal": "548595",
+   "nature": "Girls School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 8,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -3,
+   "minutes": 23,
+   "rideMinutes": 13,
+   "walkMinutes": 10,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 776,
+   "cca": [
+    "Girl Guides (Girls)",
+    "Netball (Girls)",
+    "Table Tennis (Girls)",
+    "Volleyball (Girls)"
+   ],
+   "alpCats": [
+    "Languages"
+   ],
+   "alpItems": [
+    "The Art of Communication through Theatre and Debates"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Bringing L.I.G.H.T. Into The Community"
+   ],
+   "dsaAreas": [
+    "Choir (Girls)",
+    "Concert Band (Girls)",
+    "Debate and Theatre (Girls)",
+    "Leadership (Girls)",
+    "Netball (Girls)",
+    "Table Tennis (Girls)",
+    "Volleyball (Girls)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 91,
+    "academic": 50,
+    "cca": 62,
+    "feature": 73
+   },
+   "total": 63
+  },
+  {
+   "slug": "edgefield-secondary-school",
+   "name": "Edgefield Secondary School",
+   "area": "Punggol",
+   "address": "36 Punggol Field, S828814",
+   "postal": "828814",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 5,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -3,
+   "minutes": 17,
+   "rideMinutes": 11,
+   "walkMinutes": 6,
+   "via": "NE17 PUNGGOL",
+   "accessWalkM": 445,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Scouts (Boys)",
+    "Shooting (Girls and Boys)",
+    "Taekwondo (Girls and Boys)",
+    "Volleyball (Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "alpCats": [
+    "Business & Entrepreneurship"
+   ],
+   "alpItems": [
+    "Growing the Edgefield Mindset (G.E.M)"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Character Education Through Sports (Anchored on Taekwondo)"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Innovation (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Softball (Girls)",
+    "Taekwondo (Girls and Boys)",
+    "Volleyball (Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 100,
+    "academic": 52,
+    "cca": 85,
+    "feature": 79
+   },
+   "total": 69
+  },
+  {
+   "slug": "geylang-methodist-school-secondary",
+   "name": "Geylang Methodist School (Secondary)",
+   "area": "Geylang",
+   "address": "2 Geylang East Central, S389705",
+   "postal": "389705",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 11,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -3,
+   "minutes": 43,
+   "rideMinutes": 41,
+   "walkMinutes": 2,
+   "via": "EW9 ALJUNIED",
+   "accessWalkM": 138,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "National Police Cadet Corps (NPCC) (Boys)",
+    "Netball (Girls)",
+    "Track and Field (Girls and Boys)",
+    "Volleyball (Girls)"
+   ],
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Nurturing Confident, Compassionate and Courageous Leaders"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Chinese Dance (Girls)",
+    "Leadership (Girls and Boys)",
+    "Volleyball (Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 63,
+    "academic": 55,
+    "cca": 62,
+    "feature": 63
+   },
+   "total": 55
+  },
+  {
+   "slug": "holy-innocents-high-school",
+   "name": "Holy Innocents' High School",
+   "area": "Hougang",
+   "address": "1191 Upper Serangoon Road, S534786",
+   "postal": "534786",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 11,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -3,
+   "minutes": 23,
+   "rideMinutes": 17,
+   "walkMinutes": 6,
+   "via": "NE14 HOUGANG",
+   "accessWalkM": 479,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Bowling (Girls and Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Football (Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Scouts (Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "alpCats": [
+    "Languages"
+   ],
+   "alpItems": [
+    "Journalism and Broadcasting -- Developing Critical Thinkers and Effective Communicators"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Good Samaritan Programme (GSP)"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Media/Journalism (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Scouts (Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 91,
+    "academic": 50,
+    "cca": 62,
+    "feature": 73
+   },
+   "total": 63
+  },
+  {
+   "slug": "pei-hwa-secondary-school",
+   "name": "Pei Hwa Secondary School",
+   "area": "Seng Kang",
+   "address": "21 Fernvale Link, S797702",
+   "postal": "797702",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 7,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -3,
+   "minutes": 37,
+   "rideMinutes": 13,
+   "walkMinutes": 24,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 1898,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Taekwondo (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "alpCats": [
+    "STEM - Emerging Technologies"
+   ],
+   "alpItems": [
+    "Coding and Making"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Nurturing Leaders, Contributors and Changemakers"
+   ],
+   "dsaAreas": [
+    "Chinese and Modern Dance (Girls and Boys)",
+    "Floorball (Girls)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Robotics (Girls and Boys)",
+    "Taekwondo (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 71,
+    "academic": 100,
+    "cca": 85,
+    "feature": 86
+   },
+   "total": 70
+  },
+  {
+   "slug": "presbyterian-high-school",
+   "name": "Presbyterian High School",
+   "area": "Ang Mo Kio",
+   "address": "5209 Ang Mo Kio Avenue 6, S569845",
+   "postal": "569845",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 8,
+    "max": 13,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -4,
+   "minutes": 43,
+   "rideMinutes": 39,
+   "walkMinutes": 4,
+   "via": "NS15 YIO CHU KANG",
+   "accessWalkM": 285,
+   "cca": [
+    "Badminton (Boys)",
+    "Basketball (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "alpCats": [
+    "STEM - Health and Food Science"
+   ],
+   "alpItems": [
+    "Igniting Minds@PresHigh"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Igniting Hearts@PresHigh"
+   ],
+   "dsaAreas": [
+    "Badminton (Boys)",
+    "Basketball (Girls and Boys)",
+    "Community Youth Leadership (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Stem (Girls and Boys)",
+    "Table Tennis (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 63,
+    "academic": 68,
+    "cca": 85,
+    "feature": 86
+   },
+   "total": 64
+  },
+  {
+   "slug": "xinmin-secondary-school",
+   "name": "Xinmin Secondary School",
+   "area": "Hougang",
+   "address": "11 Hougang Avenue 8, S538789",
+   "postal": "538789",
+   "nature": "Co-Ed School",
+   "type": "Government School / Autonomous",
+   "ip": false,
+   "sap": false,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 8,
+    "max": 13,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -4,
+   "minutes": 31,
+   "rideMinutes": 17,
+   "walkMinutes": 13,
+   "via": "NE14 HOUGANG",
+   "accessWalkM": 1053,
+   "cca": [
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "Shooting (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Badminton (Girls)",
+    "Boys&#x27; Brigade (Boys)",
+    "Chinese Dance (Girls)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Cross Country (Girls and Boys)",
+    "English Drama (Girls and Boys)",
+    "Floorball (Boys)",
+    "Girls&#x27; Brigade (Girls)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Rockwall Climbing (Girls and Boys)",
+    "Shooting (Girls and Boys)",
+    "St John Brigade (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 80,
+    "academic": 55,
+    "cca": 85,
+    "feature": 66
+   },
+   "total": 63
+  },
   {
    "slug": "maris-stella-high-school-secondary",
    "name": "Maris Stella High School (Secondary)",
@@ -2504,14 +2237,141 @@
     "Taekwondo (Boys)",
     "Wushu (Boys)"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 0,
+    "safety": 40,
     "commute": 79,
     "academic": 68,
     "cca": 78,
     "feature": 98
    },
-   "total": 56
+   "total": 68
+  },
+  {
+   "slug": "zhonghua-secondary-school",
+   "name": "Zhonghua Secondary School",
+   "area": "Serangoon",
+   "address": "13 Serangoon Avenue 3, S556123",
+   "postal": "556123",
+   "nature": "Co-Ed School",
+   "type": "Government School / Autonomous",
+   "ip": false,
+   "sap": false,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 8,
+    "max": 12,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -5,
+   "minutes": 27,
+   "rideMinutes": 21,
+   "walkMinutes": 6,
+   "via": "CC13/NE12 SERANGOON",
+   "accessWalkM": 446,
+   "cca": [
+    "Chinese Dance (Girls and Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Table Tennis (Boys)",
+    "Volleyball (Boys)"
+   ],
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Badminton (Girls)",
+    "Basketball (Girls)",
+    "Chinese Dance (Girls and Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Leadership and Character (Girls and Boys)",
+    "Table Tennis (Boys)",
+    "Volleyball (Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 86,
+    "academic": 55,
+    "cca": 85,
+    "feature": 66
+   },
+   "total": 64
+  },
+  {
+   "slug": "anderson-secondary-school",
+   "name": "Anderson Secondary School",
+   "area": "Ang Mo Kio",
+   "address": "10 Ang Mo Kio Street 53, S569206",
+   "postal": "569206",
+   "nature": "Co-Ed School",
+   "type": "Government School / Autonomous",
+   "ip": false,
+   "sap": false,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 7,
+    "max": 11,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -6,
+   "minutes": 44,
+   "rideMinutes": 37,
+   "walkMinutes": 7,
+   "via": "NS16 ANG MO KIO",
+   "accessWalkM": 538,
+   "cca": [
+    "Basketball (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Malay Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Table Tennis (Girls)",
+    "Volleyball (Girls)",
+    "Wushu (Girls and Boys)"
+   ],
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Basketball (Boys)",
+    "Chinese Dance (Girls)",
+    "Concert Band (Girls and Boys)",
+    "Malay Language (Girls and Boys)",
+    "Netball (Girls)",
+    "Table Tennis (Girls)",
+    "Volleyball (Girls)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 61,
+    "academic": 55,
+    "cca": 85,
+    "feature": 66
+   },
+   "total": 58
   },
   {
    "slug": "nan-chiau-high-school",
@@ -2572,14 +2432,70 @@
     "Visual Arts (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 0,
+    "safety": 40,
     "commute": 93,
     "academic": 86,
     "cca": 62,
     "feature": 87
    },
-   "total": 58
+   "total": 71
+  },
+  {
+   "slug": "chij-secondary-toa-payoh",
+   "name": "CHIJ Secondary (Toa Payoh)",
+   "area": "Toa Payoh",
+   "address": "626 Lorong 1 Toa Payoh, S319764",
+   "postal": "319764",
+   "nature": "Girls School",
+   "type": "Government-Aided School / Autonomous",
+   "ip": false,
+   "sap": false,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 6,
+    "max": 10,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -7,
+   "minutes": 43,
+   "rideMinutes": 34,
+   "walkMinutes": 9,
+   "via": "TE9/CC17 CALDECOTT",
+   "accessWalkM": 683,
+   "cca": [
+    "Girl Guides (Girls)",
+    "Netball (Girls)"
+   ],
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Badminton (Girls)",
+    "Basketball (Girls)",
+    "Bowling (Girls)",
+    "Choir (Girls)",
+    "Concert Band (Girls)",
+    "Debating (Girls)",
+    "Netball (Girls)",
+    "Rhythmic Gymnastics (Girls)",
+    "Tennis (Girls)",
+    "Track and Field (Girls)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 63,
+    "academic": 55,
+    "cca": 62,
+    "feature": 63
+   },
+   "total": 55
   },
   {
    "slug": "chung-cheng-high-school-main",
@@ -2636,14 +2552,71 @@
     "Volleyball (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 0,
+    "safety": 40,
     "commute": 64,
     "academic": 55,
     "cca": 62,
     "feature": 67
    },
-   "total": 44
+   "total": 56
+  },
+  {
+   "slug": "paya-lebar-methodist-girls-school-secondary",
+   "name": "Paya Lebar Methodist Girls' School (Secondary)",
+   "area": "Hougang",
+   "address": "296 Lor Ah Soo, S536742",
+   "postal": "536742",
+   "nature": "Girls School",
+   "type": "Government-Aided School / Autonomous",
+   "ip": false,
+   "sap": false,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 7,
+    "max": 10,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -7,
+   "minutes": 32,
+   "rideMinutes": 19,
+   "walkMinutes": 12,
+   "via": "NE13 KOVAN",
+   "accessWalkM": 996,
+   "cca": [
+    "Netball (Girls)",
+    "Table Tennis (Girls)",
+    "Volleyball (Girls)"
+   ],
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Badminton (Girls)",
+    "Concert Band (Girls)",
+    "Guzheng Ensemble (Girls)",
+    "Harp Ensemble (Girls)",
+    "Leadership (Girls)",
+    "Netball (Girls)",
+    "Rhythmic Gymnastics (Girls)",
+    "Swimming (Girls)",
+    "Table Tennis (Girls)",
+    "Volleyball (Girls)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 79,
+    "academic": 55,
+    "cca": 62,
+    "feature": 63
+   },
+   "total": 59
   },
   {
    "slug": "cedar-girls-secondary-school",
@@ -2658,10 +2631,10 @@
    "autonomous": true,
    "independent": false,
    "cop": {
-    "min": 4,
+    "min": 6,
     "max": 9,
     "markMax": null,
-    "kind": "IP",
+    "kind": "PG",
     "year": 2025
    },
    "margin": -8,
@@ -2702,14 +2675,82 @@
     "Volleyball (Girls)",
     "Volleyball (Girls) - IP"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 0,
+    "safety": 40,
     "commute": 77,
     "academic": 55,
     "cca": 62,
     "feature": 63
    },
-   "total": 46
+   "total": 58
+  },
+  {
+   "slug": "st-andrews-school-secondary",
+   "name": "St Andrew's School (Secondary)",
+   "area": "Toa Payoh",
+   "address": "15 Francis Thomas Drive, S359342",
+   "postal": "359342",
+   "nature": "Boys School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 8,
+    "max": 9,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "margin": -8,
+   "minutes": 30,
+   "rideMinutes": 25,
+   "walkMinutes": 4,
+   "via": "NE10 POTONG PASIR",
+   "accessWalkM": 354,
+   "cca": [
+    "Badminton (Boys)",
+    "Basketball (Boys)",
+    "Choir (Boys)",
+    "English Drama (Boys)",
+    "Football (Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Boys)",
+    "Scouts (Boys)",
+    "Singapore Youth Flying Club (Boys)",
+    "Tennis (Boys)",
+    "Track and Field (Boys)",
+    "Water Polo (Boys)"
+   ],
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [
+    "Community & Youth Leadership"
+   ],
+   "llpItems": [
+    "Serve and Lead Together (SALT)"
+   ],
+   "dsaAreas": [
+    "Concert Band (Boys)",
+    "Football (Boys)",
+    "Hockey (Boys)",
+    "Leadership (Boys)",
+    "Rugby (Boys)",
+    "Squash (Boys)",
+    "Visual Arts (Boys)",
+    "Water Polo (Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 81,
+    "academic": 55,
+    "cca": 82,
+    "feature": 63
+   },
+   "total": 62
   },
   {
    "slug": "catholic-high-school-secondary",
@@ -2798,14 +2839,15 @@
     "Wushu (Boys)",
     "Wushu (Boys) - IP"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 0,
+    "safety": 40,
     "commute": 67,
     "academic": 92,
     "cca": 78,
     "feature": 98
    },
-   "total": 57
+   "total": 69
   },
   {
    "slug": "singapore-chinese-girls-school",
@@ -2875,166 +2917,15 @@
     "Tennis (Girls)",
     "Tennis (Girls) - IP"
    ],
+   "moeNearby": false,
    "scores": {
-    "safety": 0,
+    "safety": 40,
     "commute": 61,
     "academic": 55,
     "cca": 62,
     "feature": 65
    },
-   "total": 43
-  },
-  {
-   "slug": "raffles-girls-school-secondary",
-   "name": "Raffles Girls' School (Secondary)",
-   "area": "Toa Payoh",
-   "address": "2 Braddell Rise, S318871",
-   "postal": "318871",
-   "nature": "Girls School",
-   "type": "Independent School",
-   "ip": true,
-   "sap": false,
-   "autonomous": false,
-   "independent": true,
-   "cop": {
-    "min": 4,
-    "max": 6,
-    "markMax": null,
-    "kind": "IP",
-    "year": 2025
-   },
-   "margin": -11,
-   "minutes": 43,
-   "rideMinutes": 34,
-   "walkMinutes": 8,
-   "via": "TE9/CC17 CALDECOTT",
-   "accessWalkM": 669,
-   "cca": [
-    "Girl Guides (Girls)",
-    "Netball (Girls)",
-    "Table Tennis (Girls)"
-   ],
-   "alpCats": [],
-   "alpItems": [],
-   "llpCats": [],
-   "llpItems": [],
-   "dsaAreas": [
-    "Badminton (Girls) - IP",
-    "Basketball (Girls) - IP",
-    "Chinese Language (Girls) - IP",
-    "Community Youth Leadership (Girls) - IP",
-    "English Language (Girls) - IP",
-    "Malay Language (Girls) - IP",
-    "Mathematics (Girls) - IP",
-    "Music Elective Programme (Girls) - IP",
-    "Netball (Girls) - IP",
-    "Rhythmic Gymnastics (Girls) - IP",
-    "Science (Girls) - IP",
-    "Softball (Girls) - IP",
-    "Squash (Girls) - IP",
-    "Swimming (Girls) - IP",
-    "Table Tennis (Girls) - IP",
-    "Tamil Language (Girls) - IP",
-    "Tennis (Girls) - IP",
-    "Visual Arts (Girls) - IP"
-   ],
-   "scores": {
-    "safety": 0,
-    "commute": 63,
-    "academic": 55,
-    "cca": 62,
-    "feature": 65
-   },
-   "total": 43
-  },
-  {
-   "slug": "raffles-institution-secondary",
-   "name": "Raffles Institution (Secondary)",
-   "area": "Bishan",
-   "address": "1 Raffles Institution Lane, S575954",
-   "postal": "575954",
-   "nature": "Boys School",
-   "type": "Independent School",
-   "ip": true,
-   "sap": false,
-   "autonomous": false,
-   "independent": true,
-   "cop": {
-    "min": 4,
-    "max": 6,
-    "markMax": null,
-    "kind": "IP",
-    "year": 2025
-   },
-   "margin": -11,
-   "minutes": 39,
-   "rideMinutes": 32,
-   "walkMinutes": 7,
-   "via": "CC16 MARYMOUNT",
-   "accessWalkM": 538,
-   "cca": [
-    "Badminton (Boys)",
-    "Basketball (Boys)",
-    "Chinese Orchestra (Boys)",
-    "Choir (Boys)",
-    "Cross Country (Boys)",
-    "Debating and Public Speaking (Boys)",
-    "English Drama (Boys)",
-    "Fencing (Boys)",
-    "Football (Boys)",
-    "Infocomm Technology (Computing) (Boys)",
-    "International Chess (Boys)",
-    "Judo (Boys)",
-    "Mathematics (Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Boys)",
-    "Scouts (Boys)",
-    "Shooting (Boys)",
-    "String Ensemble (Boys)",
-    "Table Tennis (Boys)",
-    "Tennis (Boys)",
-    "Track and Field (Boys)",
-    "Water Polo (Boys)"
-   ],
-   "alpCats": [],
-   "alpItems": [],
-   "llpCats": [],
-   "llpItems": [],
-   "dsaAreas": [
-    "Badminton (Boys) - IP",
-    "Basketball (Boys) - IP",
-    "Chinese Orchestra (Boys) - IP",
-    "Choir (Boys) - IP",
-    "Communication (Boys) - IP",
-    "Concert Band (Boys) - IP",
-    "Cricket (Boys) - IP",
-    "Cross Country (Boys) - IP",
-    "Hockey (Boys) - IP",
-    "Leadership and Character (Boys) - IP",
-    "Malay Language (Boys) - IP",
-    "Mathematics (Boys) - IP",
-    "Music (Boys) - IP",
-    "Rugby (Boys) - IP",
-    "Sailing (Boys) - IP",
-    "Science (Boys) - IP",
-    "Shooting (Boys) - IP",
-    "Softball (Boys) - IP",
-    "String Ensemble (Boys) - IP",
-    "Swimming (Boys) - IP",
-    "Table Tennis (Boys) - IP",
-    "Tennis (Boys) - IP",
-    "Track and Field (Boys) - IP",
-    "Visual Arts (Boys) - IP",
-    "Water Polo (Boys) - IP"
-   ],
-   "scores": {
-    "safety": 0,
-    "commute": 69,
-    "academic": 55,
-    "cca": 89,
-    "feature": 68
-   },
-   "total": 49
+   "total": 55
   }
  ],
  "weights": {

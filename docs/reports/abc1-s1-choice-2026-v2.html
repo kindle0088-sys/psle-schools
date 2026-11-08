@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>PSLE 志愿规划 v2 · AL 17 · COP 口径修正版</title>
+<style>
+:root{
+  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
+  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
+  --accent:#0f5c4e; --accent-bg:#eef6f3;
+  --warm:#8a5a00; --warm-bg:#fdf6e7;
+  --risk:#8c2f2f; --risk-bg:#fbf0ef;
+  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:#fff}
+.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.hero h1{margin:10px 0 6px;font-size:26px;font-weight:650;letter-spacing:-.4px;line-height:1.35}
+.hero .sub{opacity:.82;font-size:14px;max-width:660px}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
+.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
+.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+
+section{margin:0 0 38px}
+h2{font-size:18px;font-weight:640;margin:42px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px}
+h2 .n{font-size:12px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 16px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.fixbox{background:var(--risk-bg);border:1px solid #efd6d4;border-left:4px solid var(--risk);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.fixbox h3{margin:0 0 8px;font-size:15.5px;color:var(--risk)}
+.fixbox p{margin:8px 0;font-size:14.3px}
+
+.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict p{margin:8px 0;font-size:14.3px}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+
+table{width:100%;border-collapse:collapse;font-size:13.4px;margin:14px 0}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:12px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.soft,.soft{color:var(--tx3)}
+tbody tr:hover{background:#f6f6f3}
+.tight{color:var(--warm)}
+
+.school{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px;margin:16px 0}
+.school header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
+.sbadges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11px;padding:2px 8px;border-radius:5px;background:#f1f1ee;color:var(--tx2);border:1px solid var(--line)}
+.badge-moe{background:var(--accent-bg);color:var(--accent);border-color:#cfe4dc;font-weight:600}
+.tier{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:600}
+.t-reach{background:var(--warm-bg);color:var(--warm);border:1px solid #ecd9b0}
+.t-match{background:var(--accent-bg);color:var(--accent);border:1px solid #cfe4dc}
+.t-safe{background:var(--ok-bg);color:var(--ok);border:1px solid #cfe6d8}
+
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:13px}
+.kv div{background:var(--card);padding:9px 12px}
+.kv .k{display:block;font-size:11px;color:var(--tx3);letter-spacing:.3px}
+.kv .v{display:block;font-size:14px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+
+.why,.caveat{font-size:13.7px;margin:10px 0;padding:10px 13px;border-radius:8px}
+.why b,.caveat b{display:block;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.why{background:var(--accent-bg);color:#1c4a3f}
+.why b{color:var(--accent)}
+.caveat{background:var(--warm-bg);color:#6b4a0e}
+.caveat b{color:var(--warm)}
+
+dl.detail{margin:12px 0 0;font-size:13.2px}
+dl.detail dt{font-size:11.5px;color:var(--tx3);letter-spacing:.4px;margin-top:11px;text-transform:uppercase}
+dl.detail dd{margin:3px 0 0;color:var(--tx2)}
+.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:5px;background:#f4f4f1;border:1px solid var(--line2);color:var(--tx2);margin:2px 3px 2px 0}
+.chip.hit{background:var(--accent-bg);border-color:#cfe4dc;color:var(--accent);font-weight:500}
+
+.ok{color:var(--ok);font-size:12px}
+.warn{color:var(--warm);font-size:12px;font-weight:500}
+
+.plans{display:grid;gap:14px;margin:18px 0}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.plan.rec{border-color:#bfd9d0;box-shadow:0 0 0 3px var(--accent-bg)}
+.plan h3{margin:0 0 3px;font-size:15px;display:flex;align-items:center;gap:8px}
+.plan .pdesc{font-size:12.8px;color:var(--tx3);margin:0 0 11px}
+.plan ol{margin:0;padding-left:22px;font-size:13.7px}
+.plan li{margin:5px 0}
+.pill{font-size:10.5px;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-weight:600}
+
+.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+.foot{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 50px;font-size:12.3px;color:var(--tx3);line-height:1.85}
+.foot code{font-family:var(--mono);font-size:11.4px;background:#f0f0ec;padding:1px 5px;border-radius:3px}
+@media print{.hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.school,.plan,.note{break-inside:avoid}}
+@media(max-width:600px){.hero h1{font-size:21px}.kv{grid-template-columns:1fr 1fr}table{font-size:12.4px}th,td{padding:7px 6px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">2026 S1 Posting · 志愿规划 v2 · COP 口径修正版</div>
+    <h1>AL 17 分，6 个志愿怎么排</h1>
+    <div class="sub">用 <b>Posting Group 3 档</b>的正确口径重算，并以 MOE SchoolFinder 输入邮编 828765 的「附近学校」列表为候选池。</div>
+    <div class="profile">
+      <div><div class="k">PSLE 总分</div><div class="v">AL 17</div></div>
+      <div><div class="k">Posting Group</div><div class="v">PG3</div></div>
+      <div><div class="k">适用 COP 档</div><div class="v">PG3 行</div></div>
+      <div><div class="k">MOE 附近学校</div><div class="v">17 所</div></div>
+      <div><div class="k">够得着</div><div class="v">20 所</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="fixbox">
+  <h3>本版修正了什么（上一版是错的，必须说明）</h3>
+  <p><b>上一版取错了 COP 列。</b>当时用「该校所有 Posting Group 档里区间上端最大的那个」作为门槛——而 PG1 行的区间是 25–30，永远最大，所以实际取到的一直是 <b>PG1 行</b>，把每所学校的门槛系统性<b>低估了 8–10 分</b>。</p>
+  <p>以 Punggol Secondary 为例，上一版判定「25–27，余量 10 分，非常安全」，但它真实的 PG3 区间是 <b>13–19</b>，余量只有 <b>+2 分</b>。</p>
+  <p><b>正确口径</b>：PG3 学生只竞争该校 PG3 档的名额，必须只看 PG3 行的非附属区间。</p>
+  <p><b>后果</b>：上一版推荐的三所里，<b>Edgefield（17 分钟）、Yusof Ishak（20 分钟）、Pei Hwa（ALP 最对口）其实全部够不着</b>——它们的 PG3 上限分别只有 14、15、14，你 17 分高出 2–3 分。本版已全部剔除。</p>
+</div>
+
+<div class="verdict">
+  <h3>修正后的三个结论</h3>
+  <ul>
+    <li><b>AL 17 不是「很安全」，而是「刚好够得着」。</b>全国 130 所有 PG3 档的学校里，够得着的只有 68 所；在 MOE 邮编筛出的 17 所附近学校中，只有 <b>9 所</b>（8 混校 + 1 男校）。且这 8 所的余量全部落在 <b>+0 到 +5</b> 之间。</li>
+    <li><b>没有真正的「稳妥」档。</b>MOE 附近余量最大的混校是 Serangoon Garden（+5），但它 44 分钟 + 步行 1991m，实际通勤很可能超 45 分钟。要真保底，只能接受 1 所「不在 MOE 附近列表、但通勤可接受」的学校。</li>
+    <li><b>兴趣与门槛在这个分数段是冲突的。</b>ALP 与 Computing 最对口的 Compassvale 余量只有 1 分；余量 5 分的那几所，ALP 多是环保/食品/人文方向。</li>
+  </ul>
+</div>
+
+<section>
+<h2><span class="n">STEP 1</span>录取规则：PG 与 COP 的对应关系</h2>
+<p class="lead">这一节是整份报告的地基。上一版就是在这里错的。</p>
+
+<h3>你的孩子是 PG3，只能看 PG3 那一行</h3>
+<p>MOE SchoolFinder 每所学校的「PSLE score range」表都是按 <b>Posting Group 分行</b>的，每行有「附属 / 非附属」两列。以 Punggol Secondary 为例：</p>
+<table>
+<thead><tr><th>该校 2025 年实际录取区间</th><th>附属</th><th><b>非附属</b></th><th>你该看哪一行</th></tr></thead>
+<tbody>
+<tr><td>Posting Group 3</td><td class="num">—</td><td class="num"><b>13 – 19</b></td><td><b>✅ 看这一行</b>（AL 17 在 4–20，属 PG3）</td></tr>
+<tr><td>Posting Group 2</td><td class="num">—</td><td class="num">21 – 24</td><td>❌ 不适用</td></tr>
+<tr><td>Posting Group 1</td><td class="num">—</td><td class="num">25 – 27</td><td>❌ 不适用（上一版错取的就是这一行）</td></tr>
+</tbody>
+</table>
+<p><b>为什么不能混着看</b>：PG 决定你的孩子进入哪一档名额池。PG3 学生与 PG3 学生竞争，不与 PG1 学生抢同一批座位。所以判断「够不够得着」，只能用 PG3 行。</p>
+<p><b>余量怎么算</b>：余量 = PG3 区间右端（最低录取分）− 你的分数。<br>
+Punggol：19 − 17 = <b>+2</b>。Compassvale：18 − 17 = <b>+1</b>。Outram：17 − 17 = <b>0（压线）</b>。</p>
+
+<h3>录取顺序与 tie-breaker</h3>
+<table>
+<thead><tr><th>顺位</th><th>判定依据</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td><b>PSLE 分数</b></td><td>分数更优者优先，逐个处理</td></tr>
+<tr><td class="num">2</td><td><b>公民身份</b></td><td>新加坡公民 → 永久居民 → 国际学生</td></tr>
+<tr><td class="num">3</td><td><b>志愿顺序</b></td><td>把该校排第 2 的，优先于排第 4 的</td></tr>
+<tr><td class="num">4</td><td><b>电脑抽签</b></td><td>纯随机</td></tr>
+</tbody>
+</table>
+<div class="note">
+<b>两点澄清：</b><br>
+① 高级华文<b>不是</b>通用 tie-breaker（旧攻略常见错误）。它只在 SAP 学校、且 PSLE ≤14 时才产生同分优先——你 17 分用不上。<br>
+② <b>志愿顺序是你唯一能主动掌控的杠杆。</b>分数改不了，但同分时排第 2 优先于排第 4，这是实打实的。
+</div>
+</section>
+
+<section>
+<h2><span class="n">STEP 2</span>候选池：先用 MOE 邮编筛选，再算分数</h2>
+<p class="lead">按你的要求，先以 MOE SchoolFinder 输入邮编 828765 的结果为池子。</p>
+
+<p>SchoolFinder 的邮编筛选是前端交互（URL 参数无效），我在浏览器里操作「Enter your postal code」输入框触发的，返回 <b>17 所</b>附近中学：</p>
+<p style="font-size:13px;color:var(--tx2);line-height:2">
+Bowen · CHIJ St. Joseph&#39;s Convent · Compassvale · Edgefield · Greendale · Holy Innocents&#39; High School · Hougang · Montfort · North Vista · Outram · Pei Hwa · Punggol · Seng Kang · Serangoon Garden · Serangoon · Xinmin · Yusof Ishak
+</p>
+
+<h3>这 17 所里，分数够得着几所？</h3>
+<table>
+<thead><tr><th>筛法</th><th>剩余</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>MOE 邮编 828765 筛选</td><td class="num">17</td><td>官方「附近学校」口径</td></tr>
+<tr><td>其中 PG3 够得着（区间右端 ≥ 17）</td><td class="num"><b>9</b></td><td>8 所混校 + 1 所男校（Montfort）</td></tr>
+<tr><td>其中 PG3 够不着</td><td class="num">8</td><td>Bowen、Greendale、Yusof Ishak、CHIJ St. Joseph's、Edgefield、Holy Innocents、Pei Hwa、Xinmin</td></tr>
+</tbody>
+</table>
+
+<h4>够不着的 8 所，差多少</h4>
+<table>
+<thead><tr><th>学校</th><th>PG3 区间</th><th>与你相差</th><th>通勤</th></tr></thead>
+<tbody>
+<tr><td>Bowen</td><td class="num">12–16</td><td class="num">-1 分</td><td class="num">37 分钟</td></tr><tr><td>Greendale</td><td class="num">11–16</td><td class="num">-1 分</td><td class="num">28 分钟</td></tr><tr><td>Yusof Ishak</td><td class="num">7–15</td><td class="num">-2 分</td><td class="num">20 分钟</td></tr><tr><td>CHIJ St. Joseph&#39;s Convent</td><td class="num">8–14</td><td class="num">-3 分</td><td class="num">23 分钟</td></tr><tr><td>Edgefield</td><td class="num">5–14</td><td class="num">-3 分</td><td class="num">17 分钟</td></tr><tr><td>Holy Innocents&#39; High School</td><td class="num">11–14</td><td class="num">-3 分</td><td class="num">23 分钟</td></tr><tr><td>Pei Hwa</td><td class="num">7–14</td><td class="num">-3 分</td><td class="num">37 分钟</td></tr><tr><td>Xinmin</td><td class="num">8–13</td><td class="num">-4 分</td><td class="num">31 分钟</td></tr>
+</tbody>
+</table>
+<p class="soft">其中 Edgefield（17 分钟）、Yusof Ishak（20 分钟）、Pei Hwa（23 分钟）是上一版误推的三所。它们的 PG3 上限分别是 14、15、14，与你的 17 分差 2–3 分——不是「差一点」，是<b>超出录取范围</b>。</p>
+
+<h3>为什么要用「扩展范围」补充</h3>
+<p>MOE 的邮编筛选给的是「附近」，但「附近」不等于「45 分钟内」。比如 Bartley（33 分钟、最近站步行仅 401m）通勤完全在你能接受的范围，却不在那 17 所里。</p>
+<p>所以我按你原本的 45 分钟上限，另算了一遍全岛：<b>45 分钟内可达 47 所</b>，其中 PG3 够得着 <b>20 所</b>（19 所混校 + 1 所男校）。这 20 所里，9 所在 MOE 附近列表内，11 所在列表外。</p>
+
+<table>
+<thead><tr><th>层级</th><th>数量</th></tr></thead>
+<tbody>
+<tr><td>全岛中学</td><td class="num">147</td></tr>
+<tr><td>有 PG3 招生档</td><td class="num">130</td></tr>
+<tr><td>全国范围内分数够得着</td><td class="num">68</td></tr>
+<tr><td>其中 45 分钟通勤可达</td><td class="num"><b>20</b>（19 混校 + 1 男校）</td></tr>
+<tr><td>其中同时在 MOE 邮编「附近」列表内</td><td class="num"><b>9</b>（8 混校 + 1 男校）</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2><span class="n">STEP 3</span>19 所可及混校的 PG3 区间与余量</h2>
+<p class="lead">★ = 同时在 MOE 邮编 828765 的「附近学校」列表内。下表为 19 所混校；另有 1 所男校 Montfort 见脚注。</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>通勤</th><th>学校</th><th>PG3 非附属</th><th>余量</th><th>性别</th><th>ALP 方向</th><th>MOE 附近</th></tr></thead>
+<tbody>
+<tr>
+    <td class="num">34 分钟</td>
+    <td><b>Bendemeer</b></td>
+    <td class="num">11–22</td>
+    <td class="num "><b>+5</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Emerging Technologies</td>
+    <td><span class="soft">—</span></td>
+  </tr><tr>
+    <td class="num">28 分钟</td>
+    <td><b>Yuying</b></td>
+    <td class="num">11–22</td>
+    <td class="num "><b>+5</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Business &amp; Entrepreneurship</td>
+    <td><span class="soft">—</span></td>
+  </tr><tr>
+    <td class="num">40 分钟</td>
+    <td><b>Broadrick</b></td>
+    <td class="num">5–22</td>
+    <td class="num "><b>+5</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Sustainability</td>
+    <td><span class="soft">—</span></td>
+  </tr><tr>
+    <td class="num">40 分钟</td>
+    <td><b>Guangyang</b></td>
+    <td class="num">9–22</td>
+    <td class="num "><b>+5</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Sustainability</td>
+    <td><span class="soft">—</span></td>
+  </tr><tr>
+    <td class="num">33 分钟</td>
+    <td><b>Bartley</b></td>
+    <td class="num">16–21</td>
+    <td class="num "><b>+4</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Health and Food Science</td>
+    <td><span class="soft">—</span></td>
+  </tr><tr>
+    <td class="num">32 分钟</td>
+    <td><b>Hougang</b></td>
+    <td class="num">14–20</td>
+    <td class="num "><b>+3</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">STEM</td>
+    <td>★</td>
+  </tr><tr>
+    <td class="num">22 分钟</td>
+    <td><b>Compassvale</b></td>
+    <td class="num">14–18</td>
+    <td class="num tight"><b>+1</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Future of Transportation</td>
+    <td>★</td>
+  </tr><tr>
+    <td class="num">44 分钟</td>
+    <td><b>Manjusri</b></td>
+    <td class="num">15–21</td>
+    <td class="num "><b>+4</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Cities and Urban Landscapes</td>
+    <td><span class="soft">—</span></td>
+  </tr><tr>
+    <td class="num">34 分钟</td>
+    <td><b>Peicai</b></td>
+    <td class="num">14–20</td>
+    <td class="num "><b>+3</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Health and Food Science</td>
+    <td><span class="soft">—</span></td>
+  </tr><tr>
+    <td class="num">25 分钟</td>
+    <td><b>North Vista</b></td>
+    <td class="num">11–18</td>
+    <td class="num tight"><b>+1</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Cities and Urban Landscapes</td>
+    <td>★</td>
+  </tr><tr>
+    <td class="num">22 分钟</td>
+    <td><b>Punggol</b></td>
+    <td class="num">13–19</td>
+    <td class="num "><b>+2</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Sustainability</td>
+    <td>★</td>
+  </tr><tr>
+    <td class="num">22 分钟</td>
+    <td><b>Seng Kang</b></td>
+    <td class="num">14–19</td>
+    <td class="num "><b>+2</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Health and Food Science</td>
+    <td>★</td>
+  </tr><tr>
+    <td class="num">32 分钟</td>
+    <td><b>Serangoon</b></td>
+    <td class="num">16–20</td>
+    <td class="num "><b>+3</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Future of Transportation</td>
+    <td>★</td>
+  </tr><tr>
+    <td class="num">44 分钟</td>
+    <td><b>Serangoon Garden</b></td>
+    <td class="num">12–22</td>
+    <td class="num "><b>+5</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Humanities</td>
+    <td>★</td>
+  </tr><tr>
+    <td class="num">42 分钟</td>
+    <td><b>Whitley</b></td>
+    <td class="num">15–22</td>
+    <td class="num "><b>+5</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Languages</td>
+    <td><span class="soft">—</span></td>
+  </tr><tr>
+    <td class="num">44 分钟</td>
+    <td><b>Beatty</b></td>
+    <td class="num">12–18</td>
+    <td class="num tight"><b>+1</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Cities and Urban Landscapes</td>
+    <td><span class="soft">—</span></td>
+  </tr><tr>
+    <td class="num">37 分钟</td>
+    <td><b>Kuo Chuan Presbyterian</b></td>
+    <td class="num">8–20</td>
+    <td class="num "><b>+3</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Languages</td>
+    <td><span class="soft">—</span></td>
+  </tr><tr>
+    <td class="num">24 分钟</td>
+    <td><b>Outram</b></td>
+    <td class="num">9–17</td>
+    <td class="num tight"><b>0</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Business &amp; Entrepreneurship</td>
+    <td>★</td>
+  </tr><tr>
+    <td class="num">45 分钟</td>
+    <td><b>Naval Base</b></td>
+    <td class="num">13–19</td>
+    <td class="num "><b>+2</b></td>
+    <td>混</td>
+    <td style="font-size:12.4px">Aesthetics</td>
+    <td><span class="soft">—</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+<p class="soft">另：Montfort Secondary（男校）24 分钟、PG3 14–22、余量 +5，也在 MOE 附近列表内。若孩子是男孩，它的位置见 Step 4b。</p>
+
+<div class="note">
+<b>关于 CCA 匹配度的说明仍然成立：</b>MOE SchoolFinder 只列四类核心 CCA（体育、表演艺术、制服团体、Infocomm 技术）。全岛 147 所中学里，含 "Robotics" 的 <b>0 所</b>、含 "Cooking" 的 <b>0 所</b>、含 "Drama" 的 10 所（全是 RGS/RI/Hwa Chong 这类够不着的）。所以孩子列的兴趣里，只有「Computing 类」能通过 <b>Infocomm Technology</b> 这个 CCA 对上，其余只能靠 ALP 项目承接。
+</div>
+</section>
+
+<section>
+<h2><span class="n">STEP 4</span>逐校分析：6 个主选</h2>
+<p class="lead">顺序即推荐志愿顺序。</p>
+
+  <article class="school">
+    <header>
+      <div class="sname">Compassvale Secondary School</div>
+      <div class="sbadges">
+        <span class="tier t-reach">冲刺</span>
+        <span class="badge badge-moe">MOE 附近</span>
+        <span class="badge">Seng Kang</span>
+      </div>
+    </header>
+
+    <div class="kv">
+      <div><span class="k">PG3 非附属区间（2025）</span><span class="v">14–18</span></div>
+      <div><span class="k">你的余量</span><span class="v tight">+1 分</span></div>
+      <div><span class="k">通勤估算</span><span class="v">22 分钟 <span class="ok">步行 693m</span></span></div>
+      <div><span class="k">途经</span><span class="v">NE16 SENGKANG</span></div>
+    </div>
+
+    <p class="why"><b>为什么考虑它</b>全部 20 所可及学校里，ALP 与 Computing 最对口的一所——「Aeronautics, Coding, Engineering and Sustainability (ACES)」，Coding 直接写在项目名称里。22 分钟通勤、最近站步行 693m，也是最短档。</p>
+    <dl class="detail">
+      <dt>ALP 应用学习项目</dt><dd><b>STEM - Future of Transportation</b><br>Applied Learning Programme – Aeronautics, Coding, Engineering and Sustainability (ACES)</dd>
+      <dt>LLP 生活教育项目</dt><dd>Community Youth Leadership<br><span class="soft">Green Compass Programme</span></dd>
+      <dt>CCA（8 项）</dt><dd><span class="chip">Badminton</span><span class="chip">Basketball</span><span class="chip">Choir</span><span class="chip">Concert Band</span><span class="chip">Girl Guides</span><span class="chip">Modern Dance</span><span class="chip">National Police Cadet Corps (NPCC)</span><span class="chip">Netball</span></dd>
+      <dt>与你兴趣重合</dt><dd><span class="soft">无直接对应社团（见 Step 3 末尾关于 MOE 只列四类核心 CCA 的说明）</span></dd>
+      <dt>地址</dt><dd class="soft">51 Compassvale Crescent, S545083</dd>
+    </dl>
+    <p class="caveat"><b>需要注意</b>余量只有 1 分（PG3 14–18，你 17 分），是本次推荐里最紧的一所。若今年报的人多导致下限上移，有落空风险——但它在第 1 志愿，落空不影响后续。CCA 名单里没有科技类社团，编程兴趣只能靠 ALP 课程承接。</p>
+  </article>
+  <article class="school">
+    <header>
+      <div class="sname">North Vista Secondary School</div>
+      <div class="sbadges">
+        <span class="tier t-reach">冲刺</span>
+        <span class="badge badge-moe">MOE 附近</span>
+        <span class="badge">Seng Kang</span>
+      </div>
+    </header>
+
+    <div class="kv">
+      <div><span class="k">PG3 非附属区间（2025）</span><span class="v">11–18</span></div>
+      <div><span class="k">你的余量</span><span class="v tight">+1 分</span></div>
+      <div><span class="k">通勤估算</span><span class="v">25 分钟 <span class="ok">步行 740m</span></span></div>
+      <div><span class="k">途经</span><span class="v">NE15 BUANGKOK</span></div>
+    </div>
+
+    <p class="why"><b>为什么考虑它</b>余量同样是 1 分，但学校侧重点不同：CCA 有 Infocomm Technology（社团层面就有科技出口），11 项 CCA 是候选里最丰富的之一，25 分钟、步行 740m。LLP 是视觉艺术与设计，如果孩子转向设计方向有承接。</p>
+    <dl class="detail">
+      <dt>ALP 应用学习项目</dt><dd><b>STEM - Cities and Urban Landscapes</b><br>Farm-to-Table</dd>
+      <dt>LLP 生活教育项目</dt><dd>Visual Arts &amp; Design<br><span class="soft">Nurture Caring Vistarians through Design and the Arts</span></dd>
+      <dt>CCA（11 项）</dt><dd><span class="chip">Basketball</span><span class="chip">Concert Band</span><span class="chip">Football</span><span class="chip">Girl Guides</span><span class="chip">Infocomm Technology (Media Production)</span><span class="chip">Modern Dance</span><span class="chip">National Cadet Corps (NCC) (Land)</span><span class="chip">National Police Cadet Corps (NPCC)</span><span class="chip">Netball</span><span class="chip">String Ensemble</span><span class="chip">Track and Field</span></dd>
+      <dt>与你兴趣重合</dt><dd><span class="chip hit">Infocomm Technology (Media Production)</span></dd>
+      <dt>地址</dt><dd class="soft">11 Rivervale Link, S545081</dd>
+    </dl>
+    <p class="caveat"><b>需要注意</b>ALP 项目是「Farm-to-Table（农场到餐桌）」，虽归在 STEM - Cities and Urban Landscapes 类，实质是农业与食品，与 Computing 关系很弱。这是它与 Compassvale 最大的差别。</p>
+  </article>
+  <article class="school">
+    <header>
+      <div class="sname">Punggol Secondary School</div>
+      <div class="sbadges">
+        <span class="tier t-match">匹配</span>
+        <span class="badge badge-moe">MOE 附近</span>
+        <span class="badge">Punggol</span>
+      </div>
+    </header>
+
+    <div class="kv">
+      <div><span class="k">PG3 非附属区间（2025）</span><span class="v">13–19</span></div>
+      <div><span class="k">你的余量</span><span class="v ">+2 分</span></div>
+      <div><span class="k">通勤估算</span><span class="v">22 分钟 <span class="soft">步行 841m</span></span></div>
+      <div><span class="k">途经</span><span class="v">NE17 PUNGGOL</span></div>
+    </div>
+
+    <p class="why"><b>为什么考虑它</b>余量 2 分，22 分钟到家门口。CCA 多达 12 项，其中「Shooting（射击）」在全岛中学里不常见。ALP 是环境可持续方向，LLP 是社区青年领袖。</p>
+    <dl class="detail">
+      <dt>ALP 应用学习项目</dt><dd><b>STEM - Sustainability</b><br>Environmental Sustainability</dd>
+      <dt>LLP 生活教育项目</dt><dd>Community Youth Leadership<br><span class="soft">Serving with values, developing a community of confident leaders and learners.</span></dd>
+      <dt>CCA（12 项）</dt><dd><span class="chip">Basketball</span><span class="chip">Choir</span><span class="chip">Concert Band</span><span class="chip">Football</span><span class="chip">Modern Dance</span><span class="chip">National Cadet Corps (NCC) (Land)</span><span class="chip">National Police Cadet Corps (NPCC)</span><span class="chip">Netball</span><span class="chip">Scouts</span><span class="chip">Shooting</span><span class="chip">Table Tennis</span><span class="chip">Volleyball</span></dd>
+      <dt>与你兴趣重合</dt><dd><span class="soft">无直接对应社团（见 Step 3 末尾关于 MOE 只列四类核心 CCA 的说明）</span></dd>
+      <dt>地址</dt><dd class="soft">51 Edgefield Plains, S828870</dd>
+    </dl>
+    <p class="caveat"><b>需要注意</b>ALP 的「Environmental Sustainability」与孩子的 Computing 兴趣基本不相干。最近站 841m，日常要走 10 分钟。</p>
+  </article>
+  <article class="school">
+    <header>
+      <div class="sname">Seng Kang Secondary School</div>
+      <div class="sbadges">
+        <span class="tier t-match">匹配</span>
+        <span class="badge badge-moe">MOE 附近</span>
+        <span class="badge">Seng Kang</span>
+      </div>
+    </header>
+
+    <div class="kv">
+      <div><span class="k">PG3 非附属区间（2025）</span><span class="v">14–19</span></div>
+      <div><span class="k">你的余量</span><span class="v ">+2 分</span></div>
+      <div><span class="k">通勤估算</span><span class="v">22 分钟 <span class="ok">步行 658m</span></span></div>
+      <div><span class="k">途经</span><span class="v">NE16 SENGKANG</span></div>
+    </div>
+
+    <p class="why"><b>为什么考虑它</b>余量 2 分，22 分钟、步行 658m（是几所里步行最短的）。ALP 是「Food for the Future」，LLP 是体育与户外教育。</p>
+    <dl class="detail">
+      <dt>ALP 应用学习项目</dt><dd><b>STEM - Health and Food Science</b><br>Food for the Future</dd>
+      <dt>LLP 生活教育项目</dt><dd>Sports &amp; Outdoor Education<br><span class="soft">TREK for Life</span></dd>
+      <dt>CCA（10 项）</dt><dd><span class="chip">Badminton</span><span class="chip">Basketball</span><span class="chip">Choir</span><span class="chip">Concert Band</span><span class="chip">Football</span><span class="chip">Girl Guides</span><span class="chip">Modern Dance</span><span class="chip">National Cadet Corps (NCC) (Land)</span><span class="chip">National Police Cadet Corps (NPCC)</span><span class="chip">Netball</span></dd>
+      <dt>与你兴趣重合</dt><dd><span class="soft">无直接对应社团（见 Step 3 末尾关于 MOE 只列四类核心 CCA 的说明）</span></dd>
+      <dt>地址</dt><dd class="soft">10 Compassvale Lane, S545090</dd>
+    </dl>
+    <p class="caveat"><b>需要注意</b>ALP 偏食品科技，不是编程。CCA 10 项但没有 Infocomm。</p>
+  </article>
+  <article class="school">
+    <header>
+      <div class="sname">Hougang Secondary School</div>
+      <div class="sbadges">
+        <span class="tier t-match">匹配</span>
+        <span class="badge badge-moe">MOE 附近</span>
+        <span class="badge">Hougang</span>
+      </div>
+    </header>
+
+    <div class="kv">
+      <div><span class="k">PG3 非附属区间（2025）</span><span class="v">14–20</span></div>
+      <div><span class="k">你的余量</span><span class="v ">+3 分</span></div>
+      <div><span class="k">通勤估算</span><span class="v">32 分钟 <span class="warn">步行 1349m·需巴士</span></span></div>
+      <div><span class="k">途经</span><span class="v">NE15 BUANGKOK</span></div>
+    </div>
+
+    <p class="why"><b>为什么考虑它</b>余量 3 分，32 分钟。ALP 是「HS Innovates, For Life!」（STEM 综合创新），CCA 有 Infocomm Technology，是「余量稍大 + 有科技社团」这两个条件同时满足的少数几所。</p>
+    <dl class="detail">
+      <dt>ALP 应用学习项目</dt><dd><b>STEM</b><br>HS Innovates, For Life!</dd>
+      <dt>LLP 生活教育项目</dt><dd>Community Youth Leadership<br><span class="soft">Values in action, a Hougean way of life</span></dd>
+      <dt>CCA（10 项）</dt><dd><span class="chip">Basketball</span><span class="chip">Choir</span><span class="chip">Concert Band</span><span class="chip">Football</span><span class="chip">Girl Guides</span><span class="chip">Infocomm Technology (Media Production)</span><span class="chip">National Cadet Corps (NCC) (Land)</span><span class="chip">National Police Cadet Corps (NPCC)</span><span class="chip">Netball</span><span class="chip">Wushu</span></dd>
+      <dt>与你兴趣重合</dt><dd><span class="chip hit">Infocomm Technology (Media Production)</span></dd>
+      <dt>地址</dt><dd class="soft">2 Hougang Street 93, S534256</dd>
+    </dl>
+    <p class="caveat"><b>需要注意</b>最近站步行 1349m，实际需要巴士接驳，32 分钟的估算偏乐观。CCA 只有 10 项。</p>
+  </article>
+  <article class="school">
+    <header>
+      <div class="sname">Bendemeer Secondary School</div>
+      <div class="sbadges">
+        <span class="tier t-safe">稳妥</span>
+        <span class="badge">扩展范围</span>
+        <span class="badge">Kallang</span>
+      </div>
+    </header>
+
+    <div class="kv">
+      <div><span class="k">PG3 非附属区间（2025）</span><span class="v">11–22</span></div>
+      <div><span class="k">你的余量</span><span class="v ">+5 分</span></div>
+      <div><span class="k">通勤估算</span><span class="v">34 分钟 <span class="ok">步行 533m</span></span></div>
+      <div><span class="k">途经</span><span class="v">NE9 BOON KENG</span></div>
+    </div>
+
+    <p class="why"><b>为什么考虑它</b>余量 5 分，是 20 所可及学校里余量最大的一档，录取安全边际最好。ALP 归在「Emerging Technologies（新兴科技）」类别，CCA 有 Infocomm Technology，34 分钟、步行 533m。</p>
+    <dl class="detail">
+      <dt>ALP 应用学习项目</dt><dd><b>STEM - Emerging Technologies</b><br>EcoGen: Growing Ecostewards for a Greener Community</dd>
+      <dt>LLP 生活教育项目</dt><dd>Community Youth Leadership<br><span class="soft">Level-wide thematic approach to VIA, with skills, values and student ownership spiralling upwards</span></dd>
+      <dt>CCA（8 项）</dt><dd><span class="chip">Choir</span><span class="chip">Concert Band</span><span class="chip">Girl Guides</span><span class="chip">Infocomm Technology (Media Production)</span><span class="chip">Modern Dance</span><span class="chip">National Cadet Corps (NCC) (Land)</span><span class="chip">National Police Cadet Corps (NPCC)</span><span class="chip">Taekwondo</span></dd>
+      <dt>与你兴趣重合</dt><dd><span class="chip hit">Infocomm Technology (Media Production)</span></dd>
+      <dt>地址</dt><dd class="soft">1 St Wilfred Road, S327919</dd>
+    </dl>
+    <p class="caveat"><b>需要注意</b>⚠️ 它不在 MOE 邮编筛选的 17 所「附近学校」列表里（属于扩展范围）。ALP 具体项目是「EcoGen 环保生态」，技术含量不如类别名称听起来硬。</p>
+  </article>
+</section>
+
+<section>
+<h2><span class="n">STEP 4b</span>另外 4 所值得知道</h2>
+<p class="lead">各有明显理由，也各有明显代价。</p>
+<div class="school">
+    <header><div class="sname">Serangoon Secondary School</div>
+      <div class="sbadges">
+        <span class="badge">Hougang</span>
+        <span class="badge">PG3 16–20</span>
+        <span class="badge">余量 +3</span>
+        <span class="badge">32 分钟</span>
+        <span class="badge badge-moe">MOE 附近</span>
+      </div></header>
+    <p class="why"><b>MOE 附近 + 余量 3 分 + ALP 是 ICT</b>ALP「Real-world Explorations in ICT」直接指向信息通信技术，32 分钟。但最近站步行 1198m 需接驳，CCA 8 项无 Infocomm。若你更看重 ALP 的科技属性，可以把它和 Hougang 互换位置。</p>
+  </div><div class="school">
+    <header><div class="sname">Outram Secondary School</div>
+      <div class="sbadges">
+        <span class="badge">Seng Kang</span>
+        <span class="badge">PG3 9–17</span>
+        <span class="badge">余量 0</span>
+        <span class="badge">24 分钟</span>
+        <span class="badge badge-moe">MOE 附近</span>
+      </div></header>
+    <p class="why"><b>唯一「压线」的学校，24 分钟</b>PG3 只有 9–17，你的 17 分正好卡在上限，<b>没有任何余量</b>——这是真正意义上的「冲」。ALP 是商业与创业，与孩子兴趣不符，CCA 只有 6 项。放第 1 志愿可以，但要知道风险。</p>
+  </div><div class="school">
+    <header><div class="sname">Montfort Secondary School</div>
+      <div class="sbadges">
+        <span class="badge">Hougang · 男校</span>
+        <span class="badge">PG3 14–22</span>
+        <span class="badge">余量 +5</span>
+        <span class="badge">24 分钟</span>
+        <span class="badge badge-moe">MOE 附近</span>
+      </div></header>
+    <p class="why"><b>⚠️ 男校 · ALP 是「Design, Code, Make」</b>如果孩子是男孩，这所应该进前 3：余量 5 分（最安全）、24 分钟、步行 548m、ALP 项目就叫「Made In Montfort – Design, Code, Make」，是全部候选里编程匹配度最高的之一。<b>它是男校，女孩不可报</b>——你的资料里性别保密，所以单独列在这里，请按实际性别决定是否启用。</p>
+  </div><div class="school">
+    <header><div class="sname">Serangoon Garden Secondary School</div>
+      <div class="sbadges">
+        <span class="badge">Serangoon</span>
+        <span class="badge">PG3 12–22</span>
+        <span class="badge">余量 +5</span>
+        <span class="badge">44 分钟</span>
+        <span class="badge badge-moe">MOE 附近</span>
+      </div></header>
+    <p class="why"><b>MOE 附近唯一余量 5 分的混校，但通勤被低估</b>44 分钟、步行 1991m，模型没算巴士接驳，实际单程很可能超过 45 分钟。ALP 是人文媒体素养，与 STEM 兴趣不符。列出来是为了说明：MOE 附近 8 所混校里余量最大的就是它，但代价太大。</p>
+  </div>
+</section>
+
+<section>
+<h2><span class="n">STEP 5</span>梯度设计：为什么这题没有「稳妥」</h2>
+<p class="lead">上一版把「余量 10 分」当成稳，本版余量最大只有 5 分，分档标准必须重设。</p>
+
+<table>
+<thead><tr><th>档位</th><th>本报告的定义</th><th>数量（19 所混校中）</th></tr></thead>
+<tbody>
+<tr><td><b>冲刺</b></td><td>余量 0–1 分。压线或勉强够到，年度波动就可能失手</td><td class="num">4 所</td></tr>
+<tr><td><b>匹配</b></td><td>余量 2–3 分。有一定缓冲，但仍不是保险</td><td class="num">7 所</td></tr>
+<tr><td><b>稳妥</b></td><td>余量 4–5 分。是本分数段能拿到的最好安全边际</td><td class="num">8 所</td></tr>
+</tbody>
+</table>
+
+<p><b>为什么只留 1 个真正的保底位：</b>MOE 附近的 8 所混校里，余量最大的是 Serangoon Garden（+5），但 44 分钟 + 步行 1991m，实际通勤超 45 分钟。所以第 6 志愿放 Bendemeer（+5、34 分钟、步行 533m），它<b>不在 MOE 附近列表内</b>，是唯一的取舍点——我选择用「出圈」换一个真实的保底。</p>
+
+<div class="note">
+<b>志愿顺序的两个技术要点（与上一版相同，仍然成立）：</b><br>
+① <b>志愿顺序就是偏好顺序，不存在「浪费第一志愿」。</b>系统按分数处理，被第 1 志愿录取后不再往下看。所以第 1 志愿应该是你真正最想去的——哪怕它也是稳进的。<br>
+② <b>但不要把「肯定进」的堆在前面。</b>一旦被录取，后面全部作废。所以顺序要按真实偏好排，而真实偏好里必须包含「学校本身合不合适」。
+</div>
+</section>
+
+<section>
+<h2><span class="n">STEP 6</span>最终建议</h2>
+
+<h3>完整对比表</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr>
+<th>志愿</th><th>学校</th><th>PG3 区间</th><th>余量</th><th>风险</th><th>通勤</th><th>CCA 匹配</th><th>ALP</th><th>总分</th>
+</tr></thead>
+<tbody>
+<tr>
+    <td class="num"><b>1</b></td>
+    <td><b>Compassvale</b> <span class="soft">★</span></td>
+    <td class="num">14–18</td>
+    <td class="num tight">+1</td>
+    <td><span class="tier t-reach">冲刺</span></td>
+    <td class="num">22min<span class="soft"> 693m</span></td>
+    <td><span class="soft">无</span></td>
+    <td class="num">100</td>
+    <td class="num"><b>75</b></td>
+  </tr><tr>
+    <td class="num"><b>2</b></td>
+    <td><b>North Vista</b> <span class="soft">★</span></td>
+    <td class="num">11–18</td>
+    <td class="num tight">+1</td>
+    <td><span class="tier t-reach">冲刺</span></td>
+    <td class="num">25min<span class="soft"> 740m</span></td>
+    <td>1 项</td>
+    <td class="num">72</td>
+    <td class="num"><b>74</b></td>
+  </tr><tr>
+    <td class="num"><b>3</b></td>
+    <td><b>Punggol</b> <span class="soft">★</span></td>
+    <td class="num">13–19</td>
+    <td class="num ">+2</td>
+    <td><span class="tier t-match">匹配</span></td>
+    <td class="num">22min<span class="soft"> 841m</span></td>
+    <td><span class="soft">无</span></td>
+    <td class="num">71</td>
+    <td class="num"><b>73</b></td>
+  </tr><tr>
+    <td class="num"><b>4</b></td>
+    <td><b>Seng Kang</b> <span class="soft">★</span></td>
+    <td class="num">14–19</td>
+    <td class="num ">+2</td>
+    <td><span class="tier t-match">匹配</span></td>
+    <td class="num">22min<span class="soft"> 658m</span></td>
+    <td><span class="soft">无</span></td>
+    <td class="num">68</td>
+    <td class="num"><b>73</b></td>
+  </tr><tr>
+    <td class="num"><b>5</b></td>
+    <td><b>Hougang</b> <span class="soft">★</span></td>
+    <td class="num">14–20</td>
+    <td class="num ">+3</td>
+    <td><span class="tier t-match">匹配</span></td>
+    <td class="num">32min<span class="soft"> 1349m</span></td>
+    <td>1 项</td>
+    <td class="num">78</td>
+    <td class="num"><b>77</b></td>
+  </tr><tr>
+    <td class="num"><b>6</b></td>
+    <td><b>Bendemeer</b></td>
+    <td class="num">11–22</td>
+    <td class="num ">+5</td>
+    <td><span class="tier t-safe">稳妥</span></td>
+    <td class="num">34min<span class="soft"> 533m</span></td>
+    <td>1 项</td>
+    <td class="num">81</td>
+    <td class="num"><b>81</b></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<h3>五维得分明细</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>学校</th><th>安全性<br><span class="soft">×30%</span></th><th>通勤<br><span class="soft">×25%</span></th><th>学术<br><span class="soft">×15%</span></th><th>CCA<br><span class="soft">×15%</span></th><th>特色<br><span class="soft">×15%</span></th><th>合计</th></tr></thead>
+<tbody>
+<tr>
+    <td>Compassvale</td>
+    <td class="num">50 <span class="soft">(15)</span></td>
+    <td class="num">93 <span class="soft">(23)</span></td>
+    <td class="num">100 <span class="soft">(15)</span></td>
+    <td class="num">62 <span class="soft">(9)</span></td>
+    <td class="num">83 <span class="soft">(12)</span></td>
+    <td class="num"><b>75</b></td>
+  </tr><tr>
+    <td>North Vista</td>
+    <td class="num">50 <span class="soft">(15)</span></td>
+    <td class="num">89 <span class="soft">(22)</span></td>
+    <td class="num">72 <span class="soft">(11)</span></td>
+    <td class="num">85 <span class="soft">(13)</span></td>
+    <td class="num">86 <span class="soft">(13)</span></td>
+    <td class="num"><b>74</b></td>
+  </tr><tr>
+    <td>Punggol</td>
+    <td class="num">58 <span class="soft">(17)</span></td>
+    <td class="num">93 <span class="soft">(23)</span></td>
+    <td class="num">71 <span class="soft">(11)</span></td>
+    <td class="num">62 <span class="soft">(9)</span></td>
+    <td class="num">83 <span class="soft">(12)</span></td>
+    <td class="num"><b>73</b></td>
+  </tr><tr>
+    <td>Seng Kang</td>
+    <td class="num">58 <span class="soft">(17)</span></td>
+    <td class="num">93 <span class="soft">(23)</span></td>
+    <td class="num">68 <span class="soft">(10)</span></td>
+    <td class="num">62 <span class="soft">(9)</span></td>
+    <td class="num">86 <span class="soft">(13)</span></td>
+    <td class="num"><b>73</b></td>
+  </tr><tr>
+    <td>Hougang</td>
+    <td class="num">66 <span class="soft">(20)</span></td>
+    <td class="num">79 <span class="soft">(20)</span></td>
+    <td class="num">78 <span class="soft">(12)</span></td>
+    <td class="num">85 <span class="soft">(13)</span></td>
+    <td class="num">86 <span class="soft">(13)</span></td>
+    <td class="num"><b>77</b></td>
+  </tr><tr>
+    <td>Bendemeer</td>
+    <td class="num">82 <span class="soft">(25)</span></td>
+    <td class="num">76 <span class="soft">(19)</span></td>
+    <td class="num">81 <span class="soft">(12)</span></td>
+    <td class="num">85 <span class="soft">(13)</span></td>
+    <td class="num">86 <span class="soft">(13)</span></td>
+    <td class="num"><b>81</b></td>
+  </tr>
+</tbody>
+</table>
+</div>
+<p class="soft">安全性评分已按实际分布重标定：余量 0 分 → 40 分，1 分 → 50，2 分 → 58，3 分 → 66，4 分 → 74，5 分 → 82。旧的「6 分才起步」标定会让所有候选挤在最低档，失去区分度。</p>
+
+<h3>三个方案</h3>
+<div class="plans">
+<div class="plan rec">
+    <h3>方案 A · 平衡型<span class="pill">推荐</span></h3>
+    <p class="pdesc">前 5 所全在 MOE「附近学校」列表内且 ≤32 分钟，第 6 所出圈换余量</p>
+    <ol><li><b>Compassvale</b> <span class="soft">· 22 分钟 · PG3 14–18 · 余量 +1 · ★</span></li><li><b>North Vista</b> <span class="soft">· 25 分钟 · PG3 11–18 · 余量 +1 · ★</span></li><li><b>Punggol</b> <span class="soft">· 22 分钟 · PG3 13–19 · 余量 +2 · ★</span></li><li><b>Seng Kang</b> <span class="soft">· 22 分钟 · PG3 14–19 · 余量 +2 · ★</span></li><li><b>Hougang</b> <span class="soft">· 32 分钟 · PG3 14–20 · 余量 +3 · ★</span></li><li><b>Bendemeer</b> <span class="soft">· 34 分钟 · PG3 11–22 · 余量 +5</span></li></ol>
+  </div><div class="plan ">
+    <h3>方案 B · 进取型</h3>
+    <p class="pdesc">愿意承担压线风险，优先 ALP 科技属性最强的那几所</p>
+    <ol><li><b>Outram</b> <span class="soft">· 24 分钟 · PG3 9–17 · 余量 0 · ★</span></li><li><b>Compassvale</b> <span class="soft">· 22 分钟 · PG3 14–18 · 余量 +1 · ★</span></li><li><b>North Vista</b> <span class="soft">· 25 分钟 · PG3 11–18 · 余量 +1 · ★</span></li><li><b>Serangoon</b> <span class="soft">· 32 分钟 · PG3 16–20 · 余量 +3 · ★</span></li><li><b>Hougang</b> <span class="soft">· 32 分钟 · PG3 14–20 · 余量 +3 · ★</span></li><li><b>Bendemeer</b> <span class="soft">· 34 分钟 · PG3 11–22 · 余量 +5</span></li></ol>
+  </div><div class="plan ">
+    <h3>方案 C · 稳健型</h3>
+    <p class="pdesc">按余量从大到小排，录取确定性最高，但兴趣匹配要打折扣</p>
+    <ol><li><b>Bendemeer</b> <span class="soft">· 34 分钟 · PG3 11–22 · 余量 +5</span></li><li><b>Serangoon Garden</b> <span class="soft">· 44 分钟 · PG3 12–22 · 余量 +5 · ★</span></li><li><b>Hougang</b> <span class="soft">· 32 分钟 · PG3 14–20 · 余量 +3 · ★</span></li><li><b>Serangoon</b> <span class="soft">· 32 分钟 · PG3 16–20 · 余量 +3 · ★</span></li><li><b>Punggol</b> <span class="soft">· 22 分钟 · PG3 13–19 · 余量 +2 · ★</span></li><li><b>Seng Kang</b> <span class="soft">· 22 分钟 · PG3 14–19 · 余量 +2 · ★</span></li></ol>
+  </div>
+</div>
+
+<h3>如果这是我的孩子，我会这样提交</h3>
+<div class="verdict">
+<p><b>我会交方案 A，但如果孩子是男孩，我会把 Montfort 插到第 3 位。</b></p>
+<p>理由：<b>在 AL 17 这个分数段，「余量」比「名校」值钱得多。</b>你的分数在 PG3 里属于中下段（PG3 覆盖 4–20，17 已经很靠近上限），所以能选的学校全部集中在余量 0–5 分之间。这种情况下把宝贵的志愿位置浪费在 +0 的压线学校上，风险收益并不划算。</p>
+<p>方案 A 的结构是：<b>第 1–2 志愿交给「ALP 最对口」的两所</b>（Compassvale 的 ACES Coding、North Vista 的 Infocomm 社团），它们的余量都只有 1 分，本质上就是「冲」；<b>第 3–5 志愿放余量 2–3 分、通勤 22–32 分钟的学校</b>；<b>第 6 志愿 Bendemeer 余量 5 分兜底</b>。</p>
+<p><b>关于 Montfort：</b>它的 ALP 项目叫「Made In Montfort – Design, Code, Make」，是全部候选中编程匹配度最高的之一，余量 5 分（最安全）、24 分钟、步行 548m。唯一的门槛是「男校」。你的资料里性别保密，所以我把它单列在 Step 4b——如果孩子是男孩，它比 North Vista 更值得放前面；如果是女孩，直接忽略。</p>
+<p><b>我不会选的：</b>Outram。它是 19 所里唯一「压线」的（PG3 9–17，你正好 17），零余量；同时 ALP 是商业与创业、CCA 只有 6 项且无科技类社团，与孩子的兴趣方向完全不符。用零余量去换一个不匹配的学校，不值。</p>
+<p><b>我也不选 Serangoon Garden：</b>虽然它是 MOE 附近余量最大的混校（+5），但 44 分钟 + 步行 1991m，模型没算巴士接驳，实际单程很可能超过 45 分钟。每天往返一个多小时，四年下来是真实的消耗。</p>
+</div>
+
+<h3>四条提醒</h3>
+<div class="note">
+<b>① 余量 1 分不是「稳进」。</b>COP 是上一年度的实际录取结果，年度之间会波动 1–2 分。余量 1 分意味着「今年如果报的人多一点，就可能进不去」。本报告把它标为「冲刺」而不是「匹配」，就是这个原因。<br><br>
+<b>② 正式成绩公布后要重算。</b>现在是 11 月 8 日，官方 PSLE 放榜约 11 月 24–25 日。如果你手上是校内预估分，正式成绩出来后余量数字会变——逻辑不变，但每所学校的 +/- 要重算一遍。<br><br>
+<b>③ 提交窗口只有 7 天。</b>成绩公布当天下午起开放 S1 Portal，最后一天 16:30 关闭。6 个志愿要提前定好顺序，别在系统里现想。<br><br>
+<b>④ 去开放日。</b>本报告所有判断基于 MOE 公开数据：PG3 区间、ALP 名称、CCA 清单、通勤时间。但校风、老师风格、孩子走进校门时的直觉——这些数据里没有，而它们往往比 COP 更能决定这四年过得好不好。上面 6 所里至少看 2–3 所。
+</div>
+</section>
+
+<div class="foot">
+<div style="margin-bottom:14px;font-size:13.5px"><a href="../index.html">← 学校看板</a> ｜ <a href="../map.html">通勤地图</a></div>
+<b>数据来源</b><br>
+· 学校名单 / 类型 / CCA / ALP / LLP / DSA / COP：MOE SchoolFinder，采集于 2026-11；COP 为 <b>2025 年度</b>各 Posting Group 的实际录取区间<br>
+· <b>MOE 附近学校列表</b>：SchoolFinder 页面输入邮编 828765 后前端筛选所得（17 所），采集时间 2026-11-08<br>
+· 录取规则 / Posting Group / tie-breaker / HCL 规则：MOE 官方 S1 Posting 与 PSLE 计分页面<br>
+· 学校坐标：OneMap 地理编码｜MRT 网络：官方线路代号重建（151 站 / 6 线 + 樟宜支线）<br>
+· 通勤时间：自建模型（步行 80m/min + 进站 4 分钟 + 站间 2 分钟 + 换乘 5 分钟），经 4 组 OD 对照校准，偏差 ≤2 分钟<br><br>
+<b>本版相对上一版的修正</b><br>
+· COP 口径：由「所有 PG 档中区间上端最大者」改为「<b>PG3 档的非附属区间</b>」。旧口径实际取到 PG1 行，门槛低估 8–10 分<br>
+· 候选池：由自算通勤扩展为「MOE 邮编筛选 + 45 分钟通勤」双口径，并标注每所是否在 MOE 附近列表内<br>
+· 安全性评分按实际余量分布（0–5 分）重新标定<br><br>
+<b>免责</b>：个人研究工具输出，非 MOE 官方建议。COP 仅供参考，不构成录取保证。通勤时间为模型估算，未含巴士接驳与等车波动。<br><br>
+<span class="soft">生成于 2026/11/8 23:51:59 SGT · 基于 AL 17 / PG3 / 邮编 828765</span>
+</div>
+
+</div>
+</body>
+</html>

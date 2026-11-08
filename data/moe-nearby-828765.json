@@ -1,0 +1,26 @@
+{
+ "source": "MOE SchoolFinder — 输入邮编 828765 后的「附近学校」列表",
+ "method": "浏览器操作 input[placeholder=\"Enter your postal code\"] 触发前端筛选（非 URL 参数）",
+ "collectedAt": "2026-11-08T15:48:00.721Z",
+ "postal": "828765",
+ "count": 17,
+ "schools": [
+  "Bowen Secondary School",
+  "CHIJ St. Joseph's Convent",
+  "Compassvale Secondary School",
+  "Edgefield Secondary School",
+  "Greendale Secondary School",
+  "Holy Innocents' High School",
+  "Hougang Secondary School",
+  "Montfort Secondary School",
+  "North Vista Secondary School",
+  "Outram Secondary School",
+  "Pei Hwa Secondary School",
+  "Punggol Secondary School",
+  "Seng Kang Secondary School",
+  "Serangoon Garden Secondary School",
+  "Serangoon Secondary School",
+  "Xinmin Secondary School",
+  "Yusof Ishak Secondary School"
+ ]
+}

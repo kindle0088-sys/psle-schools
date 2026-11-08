@@ -15,6 +15,10 @@ const BASE = path.join(__dirname, '..');
 const net = JSON.parse(fs.readFileSync(path.join(BASE, 'data/network.json'), 'utf8'));
 const schools = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/schools.json'), 'utf8')).schools;
 const graph = Iso.buildGraph(net);
+const MOE_NEARBY = (() => {
+  const f = path.join(BASE, 'data/moe-nearby-828765.json');
+  return fs.existsSync(f) ? new Set(JSON.parse(fs.readFileSync(f, 'utf8')).schools) : new Set();
+})();
 
 const SCORE = 17;
 const POSTAL = '828765';
@@ -23,14 +27,19 @@ const MAX_MIN = 45;
 /* ── 五维评分 ───────────────────────────────────────────── */
 
 /** 录取安全性：margin = COP(非附属最宽松档) max − 学生分数 */
+/**
+ * 录取安全性：margin = 该校 PG3 非附属区间上端 − 学生分数。
+ *
+ * AL 17 在 PG3（4–20）里属于中下段，可及学校余量只有 0–5 分，
+ * 因此沿用「6 分起步」的旧标定会让所有候选都挤在最低档、失去区分度。
+ * 这里按实际分布重新标定：0 分=压线、5 分=相对最稳。
+ */
 function scoreSafety(margin) {
-  if (margin == null) return 50;
-  if (margin >= 12) return 100;
-  if (margin >= 8) return 88 + (margin - 8) * 3;      // 88–100
-  if (margin >= 5) return 70 + (margin - 5) * 6;      // 70–88
-  if (margin >= 2) return 50 + (margin - 2) * 7;      // 50–71
-  if (margin >= 0) return 25 + margin * 12;           // 25–49
-  return Math.max(0, 25 + margin * 8);
+  if (margin == null) return 40;
+  if (margin >= 6) return 90;                          // 理论上的余裕档
+  const table = { 0: 40, 1: 50, 2: 58, 3: 66, 4: 74, 5: 82 };
+  if (margin in table) return table[margin];
+  return 40;
 }
 
 /** 通勤：17 分钟内满分，45 分钟 60 分 */
@@ -104,15 +113,19 @@ function scoreFeature(sc, alpCats, llpCats) {
 }
 
 /* ── 主流程 ─────────────────────────────────────────────── */
+/**
+ * 取该校 **Posting Group 3** 的非附属区间。
+ *
+ * ⚠️ 这里曾经取"所有档里 max 最大的那个"，结果取到了 PG1 行
+ *    （PG1 区间是 25-30，永远最大），把门槛系统性低估 8-10 分。
+ *    PG3 学生只能竞争该校 PG3 档的名额，因此必须只看 PG3 行。
+ */
 function gate(sc) {
   if (!sc.cop?.rows?.length) return null;
-  let b = null;
-  for (const r of sc.cop.rows) {
-    const v = r.nonAff;
-    if (!v) continue;
-    if (!b || v.max > b.max) b = { ...v, label: r.label, kind: r.kind };
-  }
-  return b;
+  const r = sc.cop.rows.find(x => x.label === 'Posting Group 3');
+  if (!r) return null;                 // 纯 IP 校没有 PG3 行
+  const v = r.nonAff || r.aff;
+  return v ? { ...v, label: r.label, kind: r.kind } : null;
 }
 
 (async () => {
@@ -153,6 +166,7 @@ function gate(sc) {
       cca: sc.cca || [],
       alpCats, alpItems, llpCats, llpItems,
       dsaAreas: sc.dsaAreas || [],
+      moeNearby: MOE_NEARBY.has(sc.name),
       scores: s, total,
     };
   });
@@ -160,7 +174,7 @@ function gate(sc) {
   // 池子：45 分钟内 + 有 COP + 混校 + 分数够得着（margin >= 4，保守一点）
   const pool = all
     .filter(x => x.minutes != null && x.minutes <= MAX_MIN)
-    .filter(x => x.cop && x.margin >= 4)
+    .filter(x => x.cop && x.margin >= 0)
     .filter(x => x.nature !== 'Boys School' && x.nature !== 'Girls School')
     .sort((a, b) => b.total - a.total);
 
@@ -181,7 +195,7 @@ function gate(sc) {
       String(i + 1).padStart(3) + '  ' + String(x.total).padStart(4) + '  ' +
       String(x.minutes).padStart(3) + 'm  ' + String(x.margin).padStart(4) + '  ' +
       (x.cop.min + '-' + x.cop.max + (x.cop.markMax || '')).padEnd(9) + ' ' +
-      x.name.replace(/ Secondary School| \(Secondary\)/, '') +
+      (x.moeNearby ? '*' : ' ') + x.name.replace(/ Secondary School| \(Secondary\)/, '') +
       '  『' + (x.alpCats[0] || '—') + '』'
     );
   });
