@@ -90,6 +90,17 @@ t('无未替换模板变量', !/\$\{/.test(html));
 t('含 6 个志愿行', (html.match(/<td class="num"><b>[1-6]<\/b><\/td>/g) || []).length === 6);
 t('含 3 个方案', (html.match(/class="plan(?!s)/g) || []).length === 3);
 t('含 COP 口径说明', html.includes('Posting Group 3 行的非附属区间'));
+
+// 单校深度报告入口：数量应与索引一致，且指向真实存在的文件
+const REPORTS = (() => {
+  try { return JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/school-reports.json'), 'utf8')).reports || {}; }
+  catch (_) { return {}; }
+})();
+const linked = [...html.matchAll(/class="deeplink" href="([^"]+)"/g)].map(m => m[1]);
+t('深度报告入口数与索引一致', linked.length === Object.keys(REPORTS).length,
+  `${linked.length} / ${Object.keys(REPORTS).length}`);
+const broken = linked.filter(f => !fs.existsSync(path.join(BASE, 'docs', f)));
+t('深度报告链接均指向存在的文件', broken.length === 0, broken.join(', ') || '全部有效');
 t('不含与 v1 的对比总结', !/上一版|本版修正了什么|旧口径/.test(html));
 t('v1 已加废弃提示',
   fs.readFileSync(path.join(BASE, 'docs/reports/abc1-s1-choice-2026.html'), 'utf8').includes('本版已作废'));

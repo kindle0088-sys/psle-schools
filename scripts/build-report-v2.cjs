@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * PSLE 志愿规划报告 v2 —— COP 口径修正版
+ * PSLE 志愿规划报告 v2 —— 按 PG3 口径计算
  *
  * v1 的错误：取「所有 Posting Group 档里 max 最大的那个」作为门槛，
  *   实际取到了 PG1 行（PG1 区间 25–30，永远最大），把门槛系统性低估 8–10 分。
@@ -14,6 +14,12 @@ const path = require('path');
 const BASE = path.join(__dirname, '..');
 const R = JSON.parse(fs.readFileSync(path.join(BASE, 'data/_recommend.json'), 'utf8'));
 const NEARBY = JSON.parse(fs.readFileSync(path.join(BASE, 'data/moe-nearby-828765.json'), 'utf8'));
+// 单校深度报告索引（存在则在校卡片里加跳转入口）
+const REPORT_IDX = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/school-reports.json'), 'utf8')).reports || {};
+  } catch (_) { return {}; }
+})();
 const byName = new Map(R.pool.map(x => [x.name, x]));
 const byNameAll = new Map([...R.pool, ...R.singleSex, ...R.outOfReach].map(x => [x.name, x]));
 
@@ -102,6 +108,7 @@ const ccaMatchOf = x => (x.cca || []).filter(c =>
 
 function card(x, opts = {}) {
   const m = ccaMatchOf(x);
+  const rep = REPORT_IDX[x.slug];
   return `
   <article class="school">
     <header>
@@ -129,6 +136,7 @@ function card(x, opts = {}) {
       <dt>地址</dt><dd class="soft">${esc(x.address)}</dd>
     </dl>
     ${opts.caveat ? `<p class="caveat"><b>需要注意</b>${esc(opts.caveat)}</p>` : ''}
+    ${rep ? `<a class="deeplink" href="${esc(rep.file)}"><span>阅读《${esc(x.name)}》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>` : ''}
   </article>`;
 }
 
@@ -143,7 +151,7 @@ const html = `<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>PSLE 志愿规划 v2 · AL ${S.score} · COP 口径修正版</title>
+<title>PSLE 志愿规划 v2 · AL ${S.score} 分 · 6 个志愿排序</title>
 <style>
 :root{
   --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
@@ -217,6 +225,10 @@ tbody tr:hover{background:#f6f6f3}
 .why{background:var(--accent-bg);color:#1c4a3f}
 .why b{color:var(--accent)}
 .caveat{background:var(--warm-bg);color:#6b4a0e}
+.deeplink{display:block;margin:14px 0 2px;padding:11px 15px;background:var(--accent-bg);border:1px solid #cfe4dc;border-radius:9px;text-decoration:none;transition:background .15s,border-color .15s}
+.deeplink span{display:block;font-size:13.6px;font-weight:600;color:var(--accent)}
+.deeplink em{display:block;font-style:normal;font-size:11.6px;color:#5c7a71;margin-top:3px}
+.deeplink:hover{background:#e2f0ea;border-color:#a9cfc2}
 .caveat b{color:var(--warm)}
 
 dl.detail{margin:12px 0 0;font-size:13.2px}
@@ -250,7 +262,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 <div class="hero">
   <div class="wrap">
     <a class="backlink" href="../index.html">← 返回学校看板</a>
-    <div class="eyebrow">2026 S1 Posting · 志愿规划 v2 · COP 口径修正版</div>
+    <div class="eyebrow">2026 S1 Posting · 志愿规划 v2</div>
     <h1>AL ${S.score} 分，6 个志愿怎么排</h1>
     <div class="sub">用 <b>Posting Group 3 档</b>的正确口径重算，并以 MOE SchoolFinder 输入邮编 ${esc(S.postal)} 的「附近学校」列表为候选池。</div>
     <div class="profile">
@@ -265,16 +277,12 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 
 <div class="wrap">
 
-<div class="fixbox">
-  <h3>本版修正了什么（上一版是错的，必须说明）</h3>
-  <p><b>上一版取错了 COP 列。</b>当时用「该校所有 Posting Group 档里区间上端最大的那个」作为门槛——而 PG1 行的区间是 25–30，永远最大，所以实际取到的一直是 <b>PG1 行</b>，把每所学校的门槛系统性<b>低估了 8–10 分</b>。</p>
-  <p>以 Punggol Secondary 为例，上一版判定「25–27，余量 10 分，非常安全」，但它真实的 PG3 区间是 <b>13–19</b>，余量只有 <b>+2 分</b>。</p>
-  <p><b>正确口径</b>：PG3 学生只竞争该校 PG3 档的名额，必须只看 PG3 行的非附属区间。</p>
-  <p><b>后果</b>：上一版推荐的三所里，<b>Edgefield（17 分钟）、Yusof Ishak（20 分钟）、Pei Hwa（ALP 最对口）其实全部够不着</b>——它们的 PG3 上限分别只有 14、15、14，你 17 分高出 2–3 分。本版已全部剔除。</p>
+<div class="note">
+<b>数据口径</b>　所有 COP 数字取自各校 <b>Posting Group 3 行的非附属区间</b>。AL ${S.score} 属 PG3，只与 PG3 学生竞争同一批名额，PG2 / PG1 两行不适用。
 </div>
 
 <div class="verdict">
-  <h3>修正后的三个结论</h3>
+  <h3>三个关键结论</h3>
   <ul>
     <li><b>AL ${S.score} 不是「很安全」，而是「刚好够得着」。</b>全国 130 所有 PG3 档的学校里，够得着的只有 68 所；在 MOE 邮编筛出的 ${NEARBY.count} 所附近学校中，只有 <b>9 所</b>（8 混校 + 1 男校）。且这 8 所的余量全部落在 <b>+0 到 +5</b> 之间。</li>
     <li><b>没有真正的「稳妥」档。</b>MOE 附近余量最大的混校是 Serangoon Garden（+5），但它 44 分钟 + 步行 1991m，实际通勤很可能超 45 分钟。要真保底，只能接受 1 所「不在 MOE 附近列表、但通勤可接受」的学校。</li>
@@ -284,7 +292,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 
 <section>
 <h2><span class="n">STEP 1</span>录取规则：PG 与 COP 的对应关系</h2>
-<p class="lead">这一节是整份报告的地基。上一版就是在这里错的。</p>
+<p class="lead">这一节是整份报告的地基。</p>
 
 <h3>你的孩子是 PG3，只能看 PG3 那一行</h3>
 <p>MOE SchoolFinder 每所学校的「PSLE score range」表都是按 <b>Posting Group 分行</b>的，每行有「附属 / 非附属」两列。以 Punggol Secondary 为例：</p>
@@ -293,7 +301,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 <tbody>
 <tr><td>Posting Group 3</td><td class="num">—</td><td class="num"><b>13 – 19</b></td><td><b>✅ 看这一行</b>（AL ${S.score} 在 4–20，属 PG3）</td></tr>
 <tr><td>Posting Group 2</td><td class="num">—</td><td class="num">21 – 24</td><td>❌ 不适用</td></tr>
-<tr><td>Posting Group 1</td><td class="num">—</td><td class="num">25 – 27</td><td>❌ 不适用（上一版错取的就是这一行）</td></tr>
+<tr><td>Posting Group 1</td><td class="num">—</td><td class="num">25 – 27</td><td>❌ 不适用</td></tr>
 </tbody>
 </table>
 <p><b>为什么不能混着看</b>：PG 决定你的孩子进入哪一档名额池。PG3 学生与 PG3 学生竞争，不与 PG1 学生抢同一批座位。所以判断「够不够得着」，只能用 PG3 行。</p>
@@ -344,7 +352,7 @@ ${R.outOfReach.filter(x => NEARBY.schools.includes(x.name)).sort((a, b) => b.mar
   .map(x => `<tr><td>${esc(x.name.replace(/ Secondary School| \(Secondary\)/, ''))}</td><td class="num">${fmtCop(x)}</td><td class="num">${x.margin} 分</td><td class="num">${x.minutes} 分钟</td></tr>`).join('')}
 </tbody>
 </table>
-<p class="soft">其中 Edgefield（17 分钟）、Yusof Ishak（20 分钟）、Pei Hwa（23 分钟）是上一版误推的三所。它们的 PG3 上限分别是 14、15、14，与你的 17 分差 2–3 分——不是「差一点」，是<b>超出录取范围</b>。</p>
+<p class="soft">其中 Edgefield（17 分钟）、Yusof Ishak（20 分钟）、Pei Hwa（23 分钟）通勤最近，但 PG3 上限分别是 14、15、14，与 ${S.score} 分差 2–3 分——不是「差一点」，是<b>超出录取范围</b>。</p>
 
 <h3>为什么要用「扩展范围」补充</h3>
 <p>MOE 的邮编筛选给的是「附近」，但「附近」不等于「45 分钟内」。比如 Bartley（33 分钟、最近站步行仅 401m）通勤完全在你能接受的范围，却不在那 ${NEARBY.count} 所里。</p>
@@ -417,13 +425,14 @@ ${ALT.map(a => {
         ${x.moeNearby ? '<span class="badge badge-moe">MOE 附近</span>' : ''}
       </div></header>
     <p class="why"><b>${esc(a.tag)}</b>${a.note.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</p>
+    ${REPORT_IDX[x.slug] ? `<a class="deeplink" href="${esc(REPORT_IDX[x.slug].file)}"><span>阅读《${esc(x.name)}》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>` : ''}
   </div>`;
 }).join('')}
 </section>
 
 <section>
 <h2><span class="n">STEP 5</span>梯度设计：为什么这题没有「稳妥」</h2>
-<p class="lead">上一版把「余量 10 分」当成稳，本版余量最大只有 5 分，分档标准必须重设。</p>
+<p class="lead">候选学校余量最大只有 5 分，分档标准按实际余量分布标定。</p>
 
 <table>
 <thead><tr><th>档位</th><th>本报告的定义</th><th>数量（19 所混校中）</th></tr></thead>
@@ -437,7 +446,7 @@ ${ALT.map(a => {
 <p><b>为什么只留 1 个真正的保底位：</b>MOE 附近的 8 所混校里，余量最大的是 Serangoon Garden（+5），但 44 分钟 + 步行 1991m，实际通勤超 45 分钟。所以第 6 志愿放 Bendemeer（+5、34 分钟、步行 533m），它<b>不在 MOE 附近列表内</b>，是唯一的取舍点——我选择用「出圈」换一个真实的保底。</p>
 
 <div class="note">
-<b>志愿顺序的两个技术要点（与上一版相同，仍然成立）：</b><br>
+<b>志愿顺序的两个技术要点：</b><br>
 ① <b>志愿顺序就是偏好顺序，不存在「浪费第一志愿」。</b>系统按分数处理，被第 1 志愿录取后不再往下看。所以第 1 志愿应该是你真正最想去的——哪怕它也是稳进的。<br>
 ② <b>但不要把「肯定进」的堆在前面。</b>一旦被录取，后面全部作废。所以顺序要按真实偏好排，而真实偏好里必须包含「学校本身合不合适」。
 </div>
@@ -539,10 +548,10 @@ ${['A', 'B', 'C'].map(k => {
 · 录取规则 / Posting Group / tie-breaker / HCL 规则：MOE 官方 S1 Posting 与 PSLE 计分页面<br>
 · 学校坐标：OneMap 地理编码｜MRT 网络：官方线路代号重建（151 站 / 6 线 + 樟宜支线）<br>
 · 通勤时间：自建模型（步行 80m/min + 进站 4 分钟 + 站间 2 分钟 + 换乘 5 分钟），经 4 组 OD 对照校准，偏差 ≤2 分钟<br><br>
-<b>本版相对上一版的修正</b><br>
-· COP 口径：由「所有 PG 档中区间上端最大者」改为「<b>PG3 档的非附属区间</b>」。旧口径实际取到 PG1 行，门槛低估 8–10 分<br>
-· 候选池：由自算通勤扩展为「MOE 邮编筛选 + 45 分钟通勤」双口径，并标注每所是否在 MOE 附近列表内<br>
-· 安全性评分按实际余量分布（0–5 分）重新标定<br><br>
+<b>口径说明</b><br>
+· COP：各校 <b>PG3 行非附属区间</b>（2025 年度实际录取区间）<br>
+· 候选池：MOE 邮编 ${esc(S.postal)} 筛选 + 45 分钟通勤双口径，逐所标注是否在 MOE 附近列表内<br>
+· 安全性评分：按实际余量分布（0–5 分）标定<br><br>
 <b>免责</b>：个人研究工具输出，非 MOE 官方建议。COP 仅供参考，不构成录取保证。通勤时间为模型估算，未含巴士接驳与等车波动。<br><br>
 <span class="soft">生成于 ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Singapore' })} SGT · 基于 AL ${S.score} / PG3 / 邮编 ${esc(S.postal)}</span>
 </div>
