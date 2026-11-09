@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>康柏中学 Compassvale Secondary · 单校深度报告</title>
+<style>
+:root{
+  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
+  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
+  --accent:#0f5c4e; --accent-bg:#eef6f3;
+  --warm:#8a5a00; --warm-bg:#fdf6e7;
+  --risk:#8c2f2f; --risk-bg:#fbf0ef;
+  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.78 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:#fff}
+.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.hero h1{margin:10px 0 4px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.3}
+.hero h1 small{display:block;font-size:15px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:5px}
+.hero .sub{opacity:.84;font-size:14px;max-width:680px;margin-top:12px}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
+.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
+.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+section{margin:0 0 10px}
+h2{font-size:18px;font-weight:640;margin:40px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:16px}
+h2 .n{font-size:11.5px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 14px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+.warnbox{background:var(--warm-bg);border:1px solid #ecdfc0;border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.panel h4{margin:0 0 8px;font-size:13.5px;color:var(--accent);letter-spacing:.2px}
+.panel ul{margin:0;padding-left:18px;font-size:13.6px}
+.panel li{margin:5px 0}
+.panel.muted h4{color:var(--tx3)}
+
+table{width:100%;border-collapse:collapse;font-size:13.3px;margin:14px 0}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:11.5px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.mid{text-align:center}
+tbody tr:hover{background:#f6f6f3}
+.soft{color:var(--tx3)}
+
+.bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;font-size:13px;margin:5px 0}
+.bar-row .lbl{color:var(--tx2)}
+.bar-track{background:#eeeeea;border-radius:4px;height:15px;overflow:hidden}
+.bar-fill{height:100%;background:#4f8f7d;border-radius:4px}
+.bar-fill.hi{background:var(--accent)}
+.bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
+
+.tl{border-left:2px solid var(--line);margin:16px 0 0 6px;padding-left:20px}
+.tl .ev{position:relative;margin:0 0 16px}
+.tl .ev::before{content:"";position:absolute;left:-26px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600}
+.tl .d{font-size:14px;margin-top:1px}
+
+.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid #c9c9c3;border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
+.voice .who{font-size:12.3px;color:var(--tx3);margin-bottom:6px;letter-spacing:.2px}
+.voice q{quotes:"「" "」";font-style:italic;color:var(--tx)}
+.voice p{margin:8px 0}
+
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:#f7f7f4;margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:#cfe4dc;background:var(--accent-bg);color:var(--accent)}
+.tag.c{border-color:#ecdfc0;background:var(--warm-bg);color:var(--warm)}
+
+.checklist{counter-reset:c;list-style:none;padding:0;margin:14px 0}
+.checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
+.checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+.foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
+.foot b{color:var(--tx2)}
+.foot a{color:var(--accent)}
+
+@media(max-width:600px){
+  .hero h1{font-size:21px}
+  .grid2{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:110px 1fr 42px;font-size:12.3px}
+  table{font-size:12.3px}
+  th,td{padding:7px 6px}
+}
+@media print{
+  .hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .voice,.panel,.note{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">单校深度报告 · Sengkang · 政府混校</div>
+    <h1>康柏中学<small>Compassvale Secondary School（CVSS）</small></h1>
+    <div class="sub">一所 2000 年随盛港新镇一起长大的社区中学。它的辨识度不在分数线，而在两件事：<b>把航空、编程、工程塞进每个低年级学生的课表</b>，以及一支在官方报道里留下真实课堂细节的教师队伍。</div>
+    <div class="profile">
+      <div><div class="k">PG3 区间（2025）</div><div class="v">14 – 18</div></div>
+      <div><div class="k">AL 17 余量</div><div class="v">+1 分</div></div>
+      <div><div class="k">通勤（自 828765）</div><div class="v">约 22 分钟</div></div>
+      <div><div class="k">建校</div><div class="v">2000 年</div></div>
+      <div><div class="k">学生规模</div><div class="v">1,400+</div></div>
+      <div><div class="k">IP / SAP</div><div class="v">否 / 否</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 30 秒判断</a>
+  <a href="#s2">② 学校底色与校史</a>
+  <a href="#s3">③ 学业与升学出路</a>
+  <a href="#s4">④ 两个旗舰项目</a>
+  <a href="#s5">⑤ CCA 全解析</a>
+  <a href="#s6">⑥ 真实声音</a>
+  <a href="#s7">⑦ 开放日必问清单</a>
+  <a href="#s8">⑧ 数据来源与可信度</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>先说清楚这份报告怎么写的。</b>所有硬数据（COP、O-Level 成绩、CCA、科目、地址）来自 <b>MOE SchoolFinder 与学校官网</b>；教师与学生的具体言行来自 <b>MOE 官方平台 Schoolbag 的报道</b>；家长视角来自 <b>学校家长信 PDF 与家长支持小组（PSG）页面</b>；网络评论单独标注并标明样本量。<b>凡是查不到、或官网自己没写全的，我直接标出来，不用二手软文填空。</b>
+</div>
+
+<!-- ============ 1 ============ -->
+<section>
+<h2 id="s1"><span class="n">01</span>30 秒判断</h2>
+<p class="lead">如果只看一句话：这所学校适合「动手型、喜欢把东西拆开再装回去」的孩子，不适合靠艺术或水上运动立身的孩子。</p>
+
+<div class="grid2">
+  <div class="panel">
+    <h4>值得优先考虑，如果孩子…</h4>
+    <ul>
+      <li>对<b>飞行、机械、编程、工程</b>有真实兴趣（不是家长觉得有用）</li>
+      <li>喜欢<b>做东西</b>多于背东西，愿意为一个模型反复改</li>
+      <li>能接受<b>偏严格的校规</b>：手机违规要家长到校领回，严重违纪有鞭刑条款</li>
+      <li>目标是 <b>Poly 工程类</b>，或 JC 理科</li>
+      <li>家住盛港／榜鹅一带，22 分钟通勤能换来每天多睡一会儿</li>
+    </ul>
+  </div>
+  <div class="panel muted">
+    <h4>要慎重，如果孩子…</h4>
+    <ul>
+      <li>主兴趣是<b>游泳</b>——学校没有游泳 CCA，这是硬缺口</li>
+      <li>主兴趣是<b>戏剧</b>——English Drama 疑似有，但 MOE 官方登记里没有，需现场确认</li>
+      <li>目标是<b>顶尖 JC</b>——JC 资格率 67%，且英文科目 Distinction 仅 19%</li>
+      <li>需要<b>宽松自主</b>的氛围，对统一管理敏感</li>
+      <li>想走 <b>IP 直通车</b>——本校无 IP，只能考 O-Level</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verdict">
+  <h3>对 AL 17 这个分数，它的位置</h3>
+  <ul>
+    <li><b>余量只有 +1 分</b>（PG3 区间 14–18，孩子 17）。这意味着它是「够得着但没缓冲」的一档——放进志愿表要算好顺序，不能当保底。</li>
+    <li><b>它不是「低分学校」</b>。PG3 上端 18 在盛港一带属中位，2024 年 Sec 4 Express 五科及格率 89.7%、Poly 资格率 96.3%，出口不算弱。</li>
+    <li><b>真正的匹配点在课程而不是分数</b>：ACES 的航空／编程／工程是<b>全校低年级在课时内必修</b>，不是选拔出来的尖子班。这一点在同类学校里少见。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section>
+<h2 id="s2"><span class="n">02</span>学校底色与校史</h2>
+<p class="lead">理解这所学校，得先理解盛港。它是一个 1990 年代末才大规模开发的新镇，学校是跟着组屋一起长出来的。</p>
+
+<h3>一条时间线</h3>
+<div class="tl">
+  <div class="ev"><div class="yr">2000 年 1 月 2 日</div><div class="d">建校。首批学生<b>暂借盛港中学（Sengkang Secondary School）的校舍</b>上课——新镇开发速度快过校舍建设速度，这在当年是常态。</div></div>
+  <div class="ev"><div class="yr">2000 年 6 月 27 日</div><div class="d">迁入现址 Compassvale Crescent 51 号。从「借住」到「有自己家」只用了半年。</div></div>
+  <div class="ev"><div class="yr">2016 年</div><div class="d">O-Level 成绩高点：<b>82.7%</b> 的 Sec 4 Express 学生获 JC 资格，Poly 资格率 100%。这是后文趋势分析的重要对照基线。</div></div>
+  <div class="ev"><div class="yr">2021–2023 年</div><div class="d">配合 MOE 改革，2023 年起实施<b>全科目编班（Full SBB）</b>，Express／Normal 的分流标签逐步取消，学生按 G1／G2／G3 科目层级修读。这让「Express 及格率」这类历史指标与今天的口径不再完全可比。</div></div>
+  <div class="ev"><div class="yr">2025 年</div><div class="d"><b>建校 25 周年</b>。学习空间翻新，加入太阳能板与绿化；家长支持小组做了 CVSS25 气球雕塑庆祝。</div></div>
+</div>
+
+<h3>它把自己说成什么样</h3>
+<table>
+<thead><tr><th style="width:88px">项目</th><th>原文（官网）</th><th style="width:150px">怎么读</th></tr></thead>
+<tbody>
+<tr><td><b>愿景</b></td><td>World-Ready Youth —— 适应力强、有创新力、有辨识力的领导者</td><td>关键词是「领导者」，不是「学者」</td></tr>
+<tr><td><b>使命</b></td><td>Building a Vibrant and Uplifting Community where we Learn, Grow and Lead</td><td>Learn / Grow / Lead 三段式，对应三层学生发展</td></tr>
+<tr><td><b>校训</b></td><td>Realising the Star Within（点亮内在的那颗星）</td><td>—</td></tr>
+<tr><td><b>价值观</b></td><td>Confidence ｜ Commitment ｜ Creativity ｜ Compassion</td><td>4C，前三个偏能力、最后一个偏品格</td></tr>
+<tr><td><b>对学生的称呼</b></td><td>「<b>North Stars</b>」（北极星）</td><td>不是「学生」而是「北极星」，全校话术统一</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>一个细节值得注意：</b>学校有一套《North Stars' Pledge》，四句话——<i>I will learn and find my compass / I will excel and strive to go far / I will grow and live a life of purpose / I will shine as I am a North Star</i>。把校训（Star）、校名（Compassvale 的 compass）、使命（learn / grow / lead）全部缝合进一段学生每天要念的话里。<b>这种程度的话术自洽，通常意味着管理层对文化落地是真投入的，不只是写在墙上。</b>
+</div>
+
+<h3>规模与基本配置</h3>
+<table>
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>学校类型</td><td>政府学校（Government School）｜<b>混校</b>｜单班制（Single session）</td></tr>
+<tr><td>特殊身份</td><td><b>非</b> IP｜<b>非</b> SAP｜<b>非</b> 自主／自治学校</td></tr>
+<tr><td>规模</td><td>约 1,400+ 学生、100+ 教职员（校长 Mr Chia Chor Yann）</td></tr>
+<tr><td>附属小学</td><td><b>无</b>。毕业自任何小学都没有优先权，纯按分数与志愿排序</td></tr>
+<tr><td>地址／联系</td><td>51 Compassvale Crescent, S545083 ｜ 6881 5047 ｜ cvss@moe.edu.sg</td></tr>
+<tr><td>最近地铁</td><td>Sengkang（NE16，东北线），步行可达</td></tr>
+<tr><td>授课语言</td><td>英文；母语提供华文（含高级华文）、马来文（含高级）、泰米尔文（需放学后到最近的泰米尔语中心上课）</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ============ 3 ============ -->
+<section>
+<h2 id="s3"><span class="n">03</span>学业与升学出路</h2>
+<p class="lead">这是全篇数据最硬的一节——学校官网逐年公布 O-Level 成绩，包括及格率、JC／Poly 资格率和每科 Distinction 比例。多数学校不公开到这个粒度。</p>
+
+<h3>四年成绩对照</h3>
+<table>
+<thead><tr>
+<th>年份</th><th>Sec 4E<br>5 科及格</th><th>Sec 4E<br>3 科及格</th><th>Sec 5NA<br>5 科及格</th><th>JC 资格</th><th>Poly 资格<br>（4E / 5NA）</th>
+</tr></thead>
+<tbody>
+<tr><td class="num">2024</td><td class="num">89.7%</td><td class="num">98.1%</td><td class="num">55.6%</td><td class="num">67%</td><td class="num">96.3% / 66.7%</td></tr>
+<tr><td class="num">2023</td><td class="num">93%</td><td class="num">99%</td><td class="num">57%</td><td class="num">67%</td><td class="num">98% / 86%</td></tr>
+<tr><td class="num">2022</td><td class="num">92.8%</td><td class="num">—</td><td class="num">39.1%</td><td class="num">60.3%</td><td class="num">94.3% / 69.6%</td></tr>
+<tr><td class="num">2016</td><td class="num">98.4%</td><td class="num">99%</td><td class="num">49.2%</td><td class="num">82.7%</td><td class="num">100% / 75.4%</td></tr>
+</tbody>
+</table>
+<p class="soft" style="font-size:12.6px">注：2023 年官网页面把「3 科及格 99%」与「5 科及格 93%」两行都标成了 5 科，按上下文应为 3 科 / 5 科，此处已按逻辑还原。2022 年 3 科及格率官网未公布。</p>
+
+<h3>趋势：JC 资格率八年掉了 15 个百分点</h3>
+<p>把 2016 年的 82.7% 和 2022 年的 60.3% 放在一起看，落差很明显；2023、2024 回升并稳定在 <b>67%</b>。但要注意<b>这组数字不能直接当「学校变差了」的证据</b>：</p>
+<table>
+<thead><tr><th style="width:170px">影响因素</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>分流口径变了</td><td>2016 年的 Express 是选拔性学制，学生构成与今天不同。2023 年起 Full SBB 全面落地，PG1／2／3 学生在同一课程体系内按科目层级修读，统计基数已经换了。</td></tr>
+<tr><td>JC 名额竞争加剧</td><td>同期全岛 JC 学额与报考结构都在变化，单校的 JC 资格率不完全由教学质量决定。</td></tr>
+<tr><td>Poly 成为主流出口</td><td>更关键的是：<b>Poly 资格率常年维持在 94–98%</b>。这所学校的出口结构本来就是「绝大多数能进 Poly，约三分之二能进 JC」。</td></tr>
+</tbody>
+</table>
+
+<div class="verdict">
+  <h3>这对一个想读 STEM 的孩子意味着什么</h3>
+  <ul>
+    <li><b>出口以 Poly 为主，而且这不一定是坏事。</b>Poly 资格率 96.3%，意味着只要正常读完，进 Poly 基本没有悬念。对想读工程、航空、计算机的孩子，Poly → 大学是一条成熟且更省时间的路径。</li>
+    <li><b>想冲 JC 需要自己有驱动力。</b>67% 的 JC 资格率意味着大约三分之一的学生拿不到。孩子若以 JC 理科为目标，从 Sec 1 就得盯住英文和文科，不能只靠数理。</li>
+    <li><b>2024 年成绩实际是四年里最稳的一年</b>：5 科及格率虽从 93% 微降到 89.7%，但 3 科及格率与 Poly 资格率同时改善，说明「底部被托住了」。</li>
+  </ul>
+</div>
+
+<h3>2024 年各科 Distinction 率（Sec 4 Express）</h3>
+<p>这张表比总分更有信息量——它告诉你这所学校的老师在哪几科真正教出了东西。</p>
+
+<div style="margin:16px 0">
+  <div class="bar-row"><span class="lbl">Science (Phy, Chem)</span><div class="bar-track"><div class="bar-fill hi" style="width:100%"></div></div><span class="val">52%</span></div>
+  <div class="bar-row"><span class="lbl">Chinese</span><div class="bar-track"><div class="bar-fill hi" style="width:88%"></div></div><span class="val">46%</span></div>
+  <div class="bar-row"><span class="lbl">Biology</span><div class="bar-track"><div class="bar-fill hi" style="width:79%"></div></div><span class="val">41%</span></div>
+  <div class="bar-row"><span class="lbl">Chemistry</span><div class="bar-track"><div class="bar-fill" style="width:69%"></div></div><span class="val">36%</span></div>
+  <div class="bar-row"><span class="lbl">Mathematics</span><div class="bar-track"><div class="bar-fill" style="width:65%"></div></div><span class="val">34%</span></div>
+  <div class="bar-row"><span class="lbl">Physics</span><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div><span class="val">31%</span></div>
+  <div class="bar-row"><span class="lbl">Nutrition &amp; Food Sci</span><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div><span class="val">31%</span></div>
+  <div class="bar-row"><span class="lbl">History</span><div class="bar-track"><div class="bar-fill" style="width:58%"></div></div><span class="val">30%</span></div>
+  <div class="bar-row"><span class="lbl">Humanities (SS, Geo)</span><div class="bar-track"><div class="bar-fill" style="width:58%"></div></div><span class="val">30%</span></div>
+  <div class="bar-row"><span class="lbl">Additional Maths</span><div class="bar-track"><div class="bar-fill" style="width:56%"></div></div><span class="val">29%</span></div>
+  <div class="bar-row"><span class="lbl">Geography</span><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><span class="val">23%</span></div>
+  <div class="bar-row"><span class="lbl">Humanities (SS, His)</span><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div><span class="val">21%</span></div>
+  <div class="bar-row"><span class="lbl">English Language</span><div class="bar-track"><div class="bar-fill" style="width:37%"></div></div><span class="val">19%</span></div>
+  <div class="bar-row"><span class="lbl">Electronics</span><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div><span class="val">17%</span></div>
+  <div class="bar-row"><span class="lbl">Humanities (SS, Lit)</span><div class="bar-track"><div class="bar-fill" style="width:31%"></div></div><span class="val">16%</span></div>
+</div>
+
+<h3>从这张表能读出三件事</h3>
+<table>
+<thead><tr><th style="width:150px">观察</th><th>解读</th></tr></thead>
+<tbody>
+<tr><td><b>理科是明显强项</b></td><td>Phy+Chem 组合 52%、Bio 41%、Chem 36%、Phy 31%，全线高于英文（19%）和文学（16%）。这所学校的教学优势集中在理科，与 ACES 的定位一致。</td></tr>
+<tr><td><b>英文是全校性弱项</b></td><td>19% 的 Distinction 率偏低，且连续多年如此（2022 年 11.3%、2023 年 19%）。<b>反过来说：如果孩子英文本来就不错，在这所学校里会是相对优势而不是被平均掉。</b></td></tr>
+<tr><td><b>有一门罕见的科目</b></td><td><b>Electronics（电子学）</b>——全岛开设这门 O-Level 科目的中学不多。它与 ACES 的航空、工程方向直接呼应，是这所学校「动手基因」的实证。</td></tr>
+</tbody>
+</table>
+
+<h3>科目开设范围</h3>
+<p>可修读：英文、数学、附加数学（A-Math）、物理、化学、生物、综合科学（Phy+Chem / Chem+Bio）、地理、历史、社会学、英国文学、华文（含高级）、马来文（含高级）、基础华文／马来文、艺术、设计与技术（D&amp;T）、营养与食品科学、电子学、计算机应用、体育。</p>
+<p class="soft" style="font-size:13.2px">对孩子的意义：<b>A-Math 有开</b>（走 JC 理科必需）、<b>三门理科齐全</b>、<b>Computing 相关有 CPA／Electronics</b>。兴趣里的 Science、Computing、Math 都有对应的科目纵深。</p>
+</section>
+
+<!-- ============ 4 ============ -->
+<section>
+<h2 id="s4"><span class="n">04</span>两个旗舰项目</h2>
+<p class="lead">新加坡每所中学都有一个 ALP（应用学习项目）和一个 LLP（终身学习项目）。这两项才是学校真正的「性格」，比 COP 更能说明孩子四年会过成什么样。</p>
+
+<h3>ALP：ACES —— 航空、编程、工程与可持续</h3>
+<table>
+<thead><tr><th style="width:130px">项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td><b>全称</b></td><td>Applied Learning Programme – <b>A</b>eronautics, <b>C</b>oding, <b>E</b>ngineering and <b>S</b>ustainability</td></tr>
+<tr><td><b>MOE 归类</b></td><td>STEM – Future of Transportation（未来交通）</td></tr>
+<tr><td><b>覆盖范围</b></td><td><b>全部低年级学生在课时内修读</b>，不是课外选拔班。这一点很关键——意味着不是「有兴趣才玩得到」。</td></tr>
+<tr><td><b>学科交叉</b></td><td>把物理、设计与技术（D&amp;T）、数学三门课串起来做实体项目</td></tr>
+<tr><td><b>公开的项目样例</b></td><td>马达驱动玩具车 ｜ 桌面收纳架 ｜ 便携太阳能充电器</td></tr>
+</tbody>
+</table>
+
+<div class="warnbox">
+<b>需要现场核实的落差：</b>「Aeronautics（航空）」这个名字听起来很重，但学校公开的低年级项目样例是<b>玩具车、收纳架、太阳能充电器</b>——这些更接近通用工程设计，航空只是切入口。真正的飞行相关深度内容（飞行模拟、无人机、气动实验）多半在高年级或 CCA 层面。<b>如果孩子是冲「航空」两个字去的，务必在开放日问清楚：低年级到底做不做飞行相关的内容。</b>
+</div>
+
+<h3>LLP：Green Compass —— 从习惯走到服务</h3>
+<p>以「社区青年领导力」为主题，按年级逐年升级，从个人行为一路推到对他人产生影响：</p>
+<table>
+<thead><tr><th style="width:80px">年级</th><th>主题</th><th>公开的活动样例</th></tr></thead>
+<tbody>
+<tr><td class="num">Sec 1</td><td>废弃物（Waste）</td><td rowspan="4">瓶盖升级再造（upcycling bottle caps）<br>土壤种植 / 水培（hydroponics）/ 气雾培（aeroponics）<br>可持续赠礼项目</td></tr>
+<tr><td class="num">Sec 2</td><td>食物来源（Food sources）</td></tr>
+<tr><td class="num">Sec 3</td><td>可持续习惯 <b>＋ 服务</b></td></tr>
+<tr><td class="num">Sec 4</td><td>可持续赠礼（Sustainable gifting）</td></tr>
+</tbody>
+</table>
+<p>这个设计的用意是：<b>Sec 1–2 先改自己的行为，Sec 3 开始服务他人，Sec 4 把成果转化为对他人的馈赠。</b>对喜欢动手做实事的孩子，这条线比纯课堂的品格教育有效得多。</p>
+
+<h3>另外两块拼图</h3>
+<div class="grid2">
+  <div class="panel">
+    <h4>数字媒体素养（Digital Media Literacy）</h4>
+    <ul>
+      <li>与 ACES 并列的特色项目</li>
+      <li>配合 2021 年起的混合学习（BL）与个人化数码学习计划（PDLP）</li>
+      <li>全校每学年设 <b>7 个居家学习日（HBL）</b>，学生当天不必到校</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h4>海外学习体验（Overseas Learning Experiences）</h4>
+    <ul>
+      <li>学校单列的特色项目之一</li>
+      <li>具体目的地与选拔方式官网未公开明细</li>
+      <li>需在开放日确认：是否与 ACES／Green Compass 绑定、名额多少</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section>
+<h2 id="s5"><span class="n">05</span>CCA 全解析</h2>
+<p class="lead">这一节我必须先讲一个调研中发现的问题，因为它直接影响你怎么用这份清单。</p>
+
+<div class="warnbox">
+<b>官网的 CCA 页面是空的。</b>学校官网的 Co-Curricular Activities 页面写了 CCA 的五大目标、然后一句「The CCAs offered in CVSS are:」——<b>后面没有任何内容</b>（我抓了完整 HTML 确认，不是显示问题，是页面本身没填）。所以任何声称「有 20+ 个 CCA」的网站，都不是从官方拿到的。
+</div>
+
+<h3>MOE 官方登记（可靠）</h3>
+<p>MOE SchoolFinder 上由学校申报的 CCA 共 <b>8 项</b>：</p>
+<table>
+<thead><tr><th style="width:120px">类别</th><th>CCA</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><b>运动</b></td><td>Badminton 羽毛球（男女）<br>Basketball 篮球（男女）<br><b>Netball 无板篮球（女）</b></td><td>Netball 是女子项目，与羽毛球、篮球构成本校三大球类</td></tr>
+<tr><td><b>表演艺术</b></td><td>Choir 合唱团（男女）<br>Concert Band 管乐团（男女）<br>Modern Dance 现代舞（男女）</td><td>音乐类配置完整（声乐＋器乐），舞蹈为现代舞</td></tr>
+<tr><td><b>制服团体</b></td><td>Girl Guides 女童军（女）<br>NPCC 国家警察少年团（男女）</td><td>NPCC 是男女同招，含纪律训练与社区服务</td></tr>
+</tbody>
+</table>
+
+<h3>学校另有的 CCA（来自第三方整理，需现场核实）</h3>
+<p>多个择校资料站列出了更长的清单。我逐条比对后，<b>剔除了明显错误</b>（例如把 Netball 译成「网球」、把地址写成 Compassvale Lane），保留与 DSA 项目能对上的部分：</p>
+<table>
+<thead><tr><th style="width:120px">类别</th><th>可能有的 CCA</th><th>可信度</th></tr></thead>
+<tbody>
+<tr><td>运动</td><td>Floorball 地板球、Softball 垒球（男）</td><td><span class="tag a">高</span>两者都在 DSA 招生项目里</td></tr>
+<tr><td>制服团体</td><td>Boys' Brigade、Red Cross Youth、NCC (Air) 空军少年团</td><td><span class="tag c">中</span>多源一致，但无官方页面</td></tr>
+<tr><td>表演艺术</td><td>English Drama 英语戏剧</td><td><span class="tag c">中</span>同上</td></tr>
+<tr><td>俱乐部</td><td>Robotics 机器人、Environmental Science 环境科学、<b>STEM-Aeronautics 航空</b>、Aero-modelling 航空模型、Media Resource Library、AV &amp; IT Club</td><td><span class="tag a">高</span>前三项在 DSA 招生项目里</td></tr>
+</tbody>
+</table>
+
+<h3>用 DSA 名单反推「真正的强项」</h3>
+<p>这是本节最有用的一个方法。<b>学校只会为自己真正有训练体系的项目开 DSA 通道</b>——没有教练、没有梯队，招进来也带不动。2026 年 DSA 招生项目是：</p>
+<p style="font-size:14.4px">
+<span class="tag a">Badminton 羽毛球</span>
+<span class="tag a">Environmental Science 环境科学</span>
+<span class="tag a">Floorball 地板球</span>
+<span class="tag a">Netball 无板篮球（女）</span>
+<span class="tag a">Robotics 机器人</span>
+<span class="tag a">Softball 垒球（男）</span>
+<span class="tag a">STEM-Aeronautics 航空</span>
+</p>
+<p>七个项目里，<b>三个是 STEM 类</b>（环境科学、机器人、航空），四个是球类。这个比例很说明问题：<b>这所学校的资源明显往「动手做技术」倾斜，而不是往学术竞赛或艺术倾斜。</b></p>
+
+<div class="verdict">
+  <h3>对照孩子的四个 CCA 兴趣</h3>
+  <ul>
+    <li><b>Robotics —— 强匹配。</b>既是 CCA，又是 DSA 招生项目，还与 ACES 的编程模块直接打通。这是全校对孩子最友好的一条线。</li>
+    <li><b>AI —— 间接匹配。</b>没有独立的 AI CCA，但 ACES 的 Coding 模块＋Robotics CCA 是当前最接近的载体。若孩子想深入，需要自己在校外补。</li>
+    <li><b>Drama —— 不确定。</b>English Drama 出现在第三方清单但不在 MOE 登记里。必须现场确认是否仍活跃。</li>
+    <li><b>Swimming —— 无匹配。</b>这所学校<b>没有游泳 CCA</b>，也没有泳池。若游泳是孩子坚持要走的路，这是需要认真权衡的硬缺口（最近的公共泳池是 Sengkang Swimming Complex）。</li>
+    <li><b>Cooking —— 部分匹配。</b>没有烹饪 CCA，但有 <b>Nutrition &amp; Food Science</b> 这门 O-Level 科目（2024 年 Distinction 31%），可作为兴趣的学术出口。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section>
+<h2 id="s6"><span class="n">06</span>真实声音</h2>
+<p class="lead">这一节全部是我能从公开来源<b>核到出处</b>的内容。教师部分是 MOE 官方平台的深度报道，学生与家长部分样本量小，我标了数量——请不要把它当作系统性调研。</p>
+
+<h3>老师：两个被 MOE 官方报道的课堂</h3>
+
+<div class="voice">
+  <div class="who">Mrs Preeti Kulkarni ｜ 生物科主任（Subject Head, Biology）｜ 来源：MOE Schoolbag</div>
+  <p>她让学生用<b>气球、塑料瓶、吸管和橡皮泥</b>搭出一个装置，模拟「冠状动脉被堵塞后如何用球囊撑开」。这不是放视频看手术，是让每个学生自己动手复现手术的力学难点。</p>
+  <p><q>很多学生用气球去撑开管子，结果发现很难做到。也出过意外，比如气球突然爆掉。但正是在遇到这些挑战的过程中，他们理解了医生在清除动脉斑块时要面对多复杂的情况。</q></p>
+  <p class="soft" style="font-size:13.2px">为什么这条值得采信：它出现在 MOE 自己的教学案例平台，有具体做法、具体失败、具体老师的解释，而不是「我校注重 STEM」这种空话。</p>
+</div>
+
+<div class="voice">
+  <div class="who">Mr Andrea Brendan Ang Chin Wei ｜ 地理科主任 ｜ <b>2024 年 Outstanding Youth in Education Award 入围者</b> ｜ 来源：MOE Schoolbag</div>
+  <p>他把泰勒丝（Taylor Swift）新加坡演唱会变成一堂旅游经济课，让学生用自己身边的现象解释经济影响。还带学生去双溪布洛湿地（Sungei Buloh）做实地地理调查——画标注草图、拍照、提问。</p>
+  <p>课堂上的真实对话：</p>
+  <p><q>老师，你知道吗，Taylor Swift 一个人就把新加坡的手工店救活了！所有手工材料都被 Swifties 买光了，我一点都没抢到。</q>　—— 学生 Shirlene</p>
+  <p><q>但至少手工店从这个热潮里赚到更多钱了。</q>　—— 学生 Daniel</p>
+  <p class="soft" style="font-size:13.2px">这位老师的原话是：「原本这堂课讲的是旅游的影响，但这个转折把讨论带向了更深的地方——经济影响到底长什么样。」<b>一个能接住学生跑题并把跑题变成教材的老师，通常也是学生愿意开口的老师。</b></p>
+</div>
+
+<h3>学生：Google 评论（4.1 分，仅 5 条）</h3>
+<div class="voice">
+  <div class="who">来源：Google Maps 公开评论（经 OpenGovSG 镜像）｜ 样本量 5 条，参考价值有限</div>
+  <p><q>Pleasant students.</q>（4★）　<q>Not bad....better than other secondary schools.</q>（5★）　<q>Good</q>（4★ ×2）　<q>hey ol school</q>（3★）</p>
+  <p class="soft" style="font-size:13.2px">实话：这五条基本没有信息量。放上来只为说明一件事——<b>这所学校在网络上几乎没有成规模的学生评价。</b>社区型中学大多如此，不是坏信号，但意味着你必须靠实地考察补上这块。</p>
+</div>
+
+<div class="voice">
+  <div class="who">一位毕业生（较长的一条评论，来自第三方评选站收录）｜ 单一样本，谨慎参考</div>
+  <p><q>在这里读到毕业，我的经历是值得记住的。我确实认为这里的老师在我进步的过程中起了关键作用。当然，有些班的学生偶尔会幼稚一点，但那是可以预料的。手机政策？在我的经历里不算很严，休息时间可以在食堂玩。说到底这都是为了帮我们保持专注。他们的开放日办得很好。</q></p>
+  <p><b>这条评论和官方校规之间有一个值得注意的张力</b>（见下），恰好是这份报告最想提示家长的地方。</p>
+</div>
+
+<h3>家长：从官方文件看学校的「家校边界」</h3>
+<p>学校 2022 年发给全体家长的第一学期家长信（PDF，官方一手）里有几条很硬的约定，比任何宣传都更能说明日常体验：</p>
+<table>
+<thead><tr><th style="width:180px">事项</th><th>学校明确写的</th></tr></thead>
+<tbody>
+<tr><td><b>老师回复时限</b></td><td>「老师<b>不预期</b>在周末回复家长／学生的询问，紧急情况除外」；「老师<b>不预期</b>向家长提供私人手机号」</td></tr>
+<tr><td><b>家校沟通渠道</b></td><td>家长门户 Parents Gateway ＋ 学校官网；可通过总办公室联系老师</td></tr>
+<tr><td><b>面谈机制</b></td><td>每年 5 月下旬有 Meet-the-Form-Teachers（MTFT），与班主任／副班主任面谈进度</td></tr>
+<tr><td><b>家长支持小组</b></td><td>所有家长<b>自动成为 PSG 会员</b>。做过的事：农历新年为 Bethesda 护理中心的老人准备礼包、青年节给学生准备气球雕塑、25 周年做 CVSS25 气球装置</td></tr>
+<tr><td><b>新生首选率</b></td><td>2022 年入学的一届中，<b>82.6% 的学生把 CVSS 填在前三个志愿</b>——说明它在本地家长心里是有主动选择度的，不是「没得选才来」</td></tr>
+</tbody>
+</table>
+<p class="soft" style="font-size:13.2px">这几条合起来描绘出一种校风：<b>边界清晰、流程规范、鼓励参与但不鼓励随时打扰。</b>对习惯高频沟通的家长，需要适应；对不希望被群消息淹没的家长，反而是好事。</p>
+
+<h3>纪律：这所学校比多数学校严</h3>
+<p>官网校规页面把惩戒措施逐条列出，其中几条值得家长提前知道：</p>
+<table>
+<thead><tr><th style="width:170px">情形</th><th>明文规定的处理</th></tr></thead>
+<tbody>
+<tr><td>手机违规使用</td><td><b>没收，并要求家长到校领回</b></td></tr>
+<tr><td>严重违纪（男生）</td><td><b>鞭刑</b>（caning）；女生以停学替代</td></tr>
+<tr><td>搜查</td><td>校方可在有合理理由时搜查学生物品（书包、文件夹、校服口袋、电子设备）；<b>也可随机搜查</b></td></tr>
+<tr><td>作弊</td><td>该题或整份试卷<b>记零分</b></td></tr>
+<tr><td>吸烟／电子烟</td><td>上报卫生科学局／健康促进局</td></tr>
+<tr><td>打架、毒品、性不当行为、帮派</td><td><b>报警</b>；惯犯可开除（公民／PR）或终止学生准证（国际生）</td></tr>
+<tr><td>行为表现</td><td>表现不佳会在 Holistic Development Profile（成绩单）上记 <b>Fair 或 Poor</b></td></tr>
+</tbody>
+</table>
+
+<div class="warnbox">
+<b>这里有个真实的矛盾，值得你在开放日当面问。</b>官方校规写着手机违规要没收并请家长到校领回、可随机搜查；而那位毕业生的体感是「手机政策不算很严，休息时间可以在食堂玩」。<br><br>
+两种可能：① 规则写得严、执行有弹性；② 这几年收紧了，老学生的经验已过时。<b>无论哪种，都建议你直接问：Sec 1 学生平时手机怎么管？放学后等家长时能不能用？</b>这直接影响孩子的日常体验。
+</div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section>
+<h2 id="s7"><span class="n">07</span>开放日必问清单</h2>
+<p class="lead">下面每一条都来自我调研时<b>真实撞到的信息缺口或矛盾</b>，不是通用模板。带着这张纸去，问完你就比 90% 的家长更清楚这所学校。</p>
+
+<ol class="checklist">
+  <li><b>官网的 CCA 页面是空的，完整 CCA 到底有哪些？</b>能不能给我一张当年度的完整清单，并说明 Sec 1 怎么分配 CCA（志愿优先还是指定）？</li>
+  <li><b>学校有游泳相关的 CCA 或校队吗？</b>如果没有，喜欢游泳的学生通常怎么安排（校外俱乐部？）</li>
+  <li><b>English Drama 还是活跃的 CCA 吗？</b>为什么 MOE 的 CCA 清单里没有登记？</li>
+  <li><b>ACES 在低年级具体做什么？</b>公开样例是玩具车、收纳架、太阳能充电器——有真正的飞行相关内容吗（飞行模拟、无人机、气动实验）？什么时候开始？</li>
+  <li><b>Robotics CCA 和 ACES 是同一套体系还是两套？</b>参加哪些比赛（VEX／First Lego League／NRC）？近三年成绩如何？</li>
+  <li><b>孩子 AL 17 进来，落在什么位置？</b>Sec 1 怎么编班——PG3 的学生会和 PG2／PG1 混班吗？</li>
+  <li><b>JC 资格率 67%，学校怎么帮想冲 JC 的学生？</b>有没有针对英文的加强班？英文 Distinction 只有 19%，学校怎么解释、怎么应对？</li>
+  <li><b>手机政策实际怎么执行？</b>校规写的是没收＋家长到校领回、可随机搜查，日常是这样吗？</li>
+  <li><b>Nutrition &amp; Food Science 这门课，孩子喜欢烹饪能从中学到什么？</b>有没有配套的实践活动？</li>
+  <li><b>海外学习体验的名额和门槛是什么？</b>是全校开放还是项目选拔？费用大概多少？</li>
+</ol>
+
+<div class="note">
+<b>还有一件事：去看走廊和食堂。</b>这所学校官网反复强调「community」「uplifting」「North Stars」，这类文化词最容易停留在墙上。走一趟，看学生在课间怎么相处、老师叫学生名字还是叫学号、公告栏贴的是获奖名单还是学生作品——<b>这些比任何数据都更能判断你的孩子会不会在这里被看见。</b>
+</div>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与可信度</h2>
+<p class="lead">写单校报告最大的风险不是数据不够，是把内容农场当资料。这一节把每条信息的出处和我的判断都摊开。</p>
+
+<table>
+<thead><tr><th style="width:64px">等级</th><th>来源</th><th>用在了哪里</th></tr></thead>
+<tbody>
+<tr><td><span class="tag a">A</span></td><td><b>MOE SchoolFinder</b>（2026-11 采集）</td><td>学校类型、COP 三档、CCA 8 项、DSA 项目、科目清单、ALP／LLP 名称、地址电话</td></tr>
+<tr><td><span class="tag a">A</span></td><td><b>学校官网</b> compassvalesec.moe.edu.sg</td><td>愿景／使命／校训／价值观、North Stars 文化、六大学生发展集群、ACES／Green Compass 结构、校规与惩戒条款、PSG 活动</td></tr>
+<tr><td><span class="tag a">A</span></td><td><b>官网 O-Level 成绩页</b>（2022／2023／2024）</td><td>全部及格率、JC／Poly 资格率、各科 Distinction 率</td></tr>
+<tr><td><span class="tag a">A</span></td><td><b>2022 年第一学期家长信 PDF</b></td><td>82.6% 前三志愿率、DSA 录取 11 人、Full SBB 时间表、两周制课表、HBL 日安排、老师周末回复政策</td></tr>
+<tr><td><span class="tag a">A</span></td><td><b>MOE Schoolbag</b>（官方教学案例平台）</td><td>Mrs Preeti Kulkarni 与 Mr Andrea Brendan Ang 的课堂案例、学生原话、OYEA 入围</td></tr>
+<tr><td><span class="tag b">B</span></td><td><b>Wikipedia</b>（引用《The New Paper》2000-06-27 报道与学校 2016 手册）</td><td>建校日期、借校舍与迁址日期、校长姓名、规模</td></tr>
+<tr><td><span class="tag c">C</span></td><td><b>第三方择校站 / 补习机构博客</b></td><td>仅用于「扩增 CCA 清单」的线索，且已剔除明显错误（见下）</td></tr>
+<tr><td><span class="tag c">C</span></td><td><b>Google 评论（5 条）</b></td><td>仅作氛围参考，已标注样本量</td></tr>
+</tbody>
+</table>
+
+<h3>我剔除掉的错误信息</h3>
+<table>
+<thead><tr><th style="width:230px">流传的说法</th><th>问题</th></tr></thead>
+<tbody>
+<tr><td>校址在「11 Compassvale Lane, S797123」</td><td><b>错</b>。真实地址是 51 Compassvale Crescent, S545083（MOE 与官网一致）。Compassvale Lane 是盛港中学的地址。</td></tr>
+<tr><td>「师生比约 40:1」</td><td><b>错得离谱</b>。1,400+ 学生 / 100+ 教职员，实际远优于 40:1。这个数字是模板套出来的。</td></tr>
+<tr><td>「Netball 网球（女）」</td><td><b>译错</b>。Netball 是<b>无板篮球</b>，与网球（Tennis）是两项运动。</td></tr>
+<tr><td>「有 20+ 个 CCA」</td><td><b>无法核实</b>。官网 CCA 页是空的，MOE 登记 8 项。真实数量可能超过 8，但没有任何官方清单支持「20+」这个具体数字。</td></tr>
+<tr><td>「ALP 是环境科学与可持续」</td><td><b>不准确</b>。ALP 主体是 ACES（航空／编程／工程／可持续），可持续是其中一环，不是全部。</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>口径提醒：</b>本报告的 COP（PG3 14–18）是 <b>2025 年度</b>实际录取区间。孩子 AL 17 属 PG3，且<b>无附属小学</b>，只能看 PG3 行的非附属区间。余量 = 18 − 17 = <b>+1 分</b>。COP 每年随报考情况浮动，不构成录取保证。
+</div>
+</section>
+
+<div class="foot">
+<div style="margin-bottom:14px"><a href="../index.html">← 学校看板</a> ｜ <a href="abc1-s1-choice-2026-v2.html">志愿规划报告 v2</a> ｜ <a href="../map.html">通勤地图</a></div>
+<b>本报告的定位</b><br>
+这是一份<b>单校深度报告模板</b>，为 PSLE 择校决策服务。它刻意做了两件多数择校内容不做的事：① 把所有数字标出出处与可信度等级；② 明确写出查不到的信息和自相矛盾之处，而不是用通用描述填满页面。<br><br>
+<b>生成信息</b><br>
+· 学校数据采集：MOE SchoolFinder ＋ 学校官网，2026-11<br>
+· 外部报道与家长信：MOE Schoolbag、官网 O-Level 成绩页、官网 2022 Term 1 Letter to Parents（PDF）<br>
+· 生成日期：2026/11/9<br><br>
+<span class="soft">个人研究工具输出，非 MOE 官方建议。所有判断基于公开资料，不构成录取保证。评论样本量小，请以实地考察为准。</span>
+</div>
+
+</div>
+</body>
+</html>
