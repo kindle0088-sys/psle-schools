@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>后港中学 Hougang Secondary School · 单校深度报告</title>
+<style>
+:root{
+  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
+  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
+  --accent:#0f5c4e; --accent-bg:#eef6f3;
+  --warm:#8a5a00; --warm-bg:#fdf6e7;
+  --risk:#8c2f2f; --risk-bg:#fbf0ef;
+  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.78 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:#fff}
+.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.hero h1{margin:10px 0 4px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.3}
+.hero h1 small{display:block;font-size:15px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:5px}
+.hero .sub{opacity:.84;font-size:14px;max-width:680px;margin-top:12px}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
+.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
+.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+.addr{font-size:12.6px;opacity:.72;margin-top:12px;font-variant-numeric:tabular-nums}
+
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+section{margin:0 0 10px}
+h2{font-size:18px;font-weight:640;margin:40px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:16px}
+h2 .n{font-size:11.5px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 14px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+.warnbox{background:var(--warm-bg);border:1px solid #ecdfc0;border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.panel h4{margin:0 0 8px;font-size:13.5px;color:var(--accent);letter-spacing:.2px}
+.panel ul{margin:0;padding-left:18px;font-size:13.6px}
+.panel li{margin:5px 0}
+.panel.muted h4{color:var(--tx3)}
+
+table{width:100%;border-collapse:collapse;font-size:13.3px;margin:14px 0}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:11.5px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.mid{text-align:center}
+tbody tr:hover{background:#f6f6f3}
+.soft{color:var(--tx3)}
+
+.bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;font-size:13px;margin:5px 0}
+.bar-row .lbl{color:var(--tx2)}
+.bar-track{background:#eeeeea;border-radius:4px;height:15px;overflow:hidden}
+.bar-fill{height:100%;background:#4f8f7d;border-radius:4px}
+.bar-fill.hi{background:var(--accent)}
+.bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
+
+.tl{border-left:2px solid var(--line);margin:16px 0 0 6px;padding-left:20px}
+.tl .ev{position:relative;margin:0 0 16px}
+.tl .ev::before{content:"";position:absolute;left:-26px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600}
+.tl .d{font-size:14px;margin-top:1px}
+
+.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid #c9c9c3;border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
+.voice .who{font-size:12.3px;color:var(--tx3);margin-bottom:6px;letter-spacing:.2px}
+.voice q{quotes:"「" "」";font-style:italic;color:var(--tx)}
+.voice p{margin:8px 0}
+
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:#f7f7f4;margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:#cfe4dc;background:var(--accent-bg);color:var(--accent)}
+.tag.c{border-color:#ecdfc0;background:var(--warm-bg);color:var(--warm)}
+.tag.b{border-color:#d8d8d2;background:#f2f2ee;color:#5a5a52}
+
+.checklist{counter-reset:c;list-style:none;padding:0;margin:14px 0}
+.checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
+.checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+.foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
+.foot b{color:var(--tx2)}
+.foot a{color:var(--accent)}
+
+@media(max-width:600px){
+  .hero h1{font-size:21px}
+  .grid2{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:110px 1fr 42px;font-size:12.3px}
+  table{font-size:12.3px}
+  th,td{padding:7px 6px}
+}
+@media print{
+  .hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .voice,.panel,.note{break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">单校深度报告 · Hougang · 政府混校</div>
+    <h1>后港中学<small>Hougang Secondary School（HS）</small></h1>
+    <div class="sub">这所学校身上挂着一个别的候选都没有的东西：<b>2016 年 MOE 的 School Distinction Award</b>——官方认证它在学生全面发展、品格教育、教与学三方面有最佳实践。它的 DSA 名单有 <b>11 个项目</b>，是十所里最多的。代价是通勤：地铁站下来要走 <b>1.3 公里</b>。</div>
+    <div class="profile">
+      <div><div class="k">PG3 区间（2025）</div><div class="v">14 – 20</div></div>
+      <div><div class="k">AL 17 余量</div><div class="v">+3 分</div></div>
+      <div><div class="k">通勤（自 828765）</div><div class="v">约 32 分钟</div></div>
+      <div><div class="k">建校</div><div class="v">2001 年</div></div>
+      <div><div class="k">学生规模</div><div class="v">约 1,100</div></div>
+      <div><div class="k">IP / SAP</div><div class="v">否 / 否</div></div>
+    </div>
+    <div class="addr">2 Hougang Street 93, S534256　·　最近站 NE15 BUANGKOK，步行约 1349m</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 30 秒判断</a>
+  <a href="#s2">② 学校底色与校史</a>
+  <a href="#s3">③ 学业与升学出路</a>
+  <a href="#s4">④ 旗舰项目</a>
+  <a href="#s5">⑤ CCA 全解析</a>
+  <a href="#s6">⑥ 真实声音</a>
+  <a href="#s7">⑦ 开放日必问清单</a>
+  <a href="#s8">⑧ 数据来源与可信度</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>先说清楚这份报告怎么写的。</b>COP、DSA、科目来自 <b>MOE SchoolFinder</b>；校史、里程碑、办学理念来自<b>学校官网</b>。这所学校有一处<b>官方文件自相矛盾</b>（核心价值观在两页写法不同），我在第 2 节原文并列，不做调和。<b>不公布 O-Level 成绩</b>。
+</div>
+
+<!-- ============ 1 ============ -->
+<section>
+<h2 id="s1"><span class="n">01</span>30 秒判断</h2>
+<p class="lead">如果只看一句话：这是十所里<b>「制度认可度最高、兴趣通道最宽」的一所</b>——DSA 11 项、有官方卓越奖背书；但它也是<b>通勤最麻烦的一所</b>，1.3 公里步行距离没办法回避。</p>
+
+<div class="grid2">
+  <div class="panel">
+    <h4>值得优先考虑，如果孩子…</h4>
+    <ul>
+      <li>想走 <b>STEM</b>——DSA 单列 STEM 通道，与 Seng Kang 并列是十所里仅有的两所</li>
+      <li>喜欢<b>辩论或演讲</b>——DSA 有 Debating，社团是 ELDDS（英文·戏剧·辩论·演讲）</li>
+      <li>想演<b>戏</b>——DSA 有 English Drama，但注意戏剧是与辩论合并的社团</li>
+      <li>家里看重<b>制度性认可</b>——2016 年获 MOE School Distinction Award，2017 年获总统志愿服务奖</li>
+    </ul>
+  </div>
+  <div class="panel muted">
+    <h4>要慎重，如果孩子…</h4>
+    <ul>
+      <li><b>讨厌长通勤</b>——地铁站步行 1349m，32 分钟是「站台到校门」的乐观估算，实际门到门更久</li>
+      <li><b>游泳是刚需</b>——没有游泳 CCA，没有泳池</li>
+      <li>希望<b>戏剧是独立社团</b>——这里戏剧、辩论、演讲共用一个社团名额和时间</li>
+      <li>需要<b>安静的周边环境</b>——校址在后港组屋区深处，放学人流与交通都依赖巴士</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verdict">
+  <h3>三个需要记住的数字</h3>
+  <ul>
+    <li><b>PG3 14–20</b>：孩子 17 分，余量 <b>+3 分</b>。比前四所都宽，是「有余地」的第一档。</li>
+    <li><b>DSA 11 项</b>：十所里最多。而且<b>三项直接对孩子</b>——STEM、Debating、English Drama。</li>
+    <li><b>步行 1349m</b>：十所里最差的接驳条件。这一段走路要 17 分钟，实际必须坐巴士。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section>
+<h2 id="s2"><span class="n">02</span>学校底色与校史</h2>
+<p class="lead">后港中学很年轻（2001 年），但它拿奖的密度在十所里最高——尤其是 2016 年那个 School Distinction Award，性质上和「自己说好」完全不同。</p>
+
+<h3>一条时间线</h3>
+<div class="tl">
+  <div class="ev"><div class="yr">2001</div><div class="d">作为政府混校在 <b>Lowland Road</b> 成立。同年 <b>12 月 20 日</b>迁入现址后港 93 街。</div></div>
+  <div class="ev"><div class="yr">2003</div><div class="d">正式启用，主宾为时任教育部长兼国防部第二部长<b>张志贤</b>。</div></div>
+  <div class="ev"><div class="yr">2009</div><div class="d">参与<b>亚洲青年运动会</b>火炬传递。</div></div>
+  <div class="ev"><div class="yr">2014</div><div class="d">获颁 LLP，主题为「GRC in Action」（Gratitude 感恩、Respect 尊重、Compassion 关怀）——<b>注意这是三个词</b>，2018 年改名为「Values in Action」。</div></div>
+  <div class="ev"><div class="yr">2015</div><div class="d">获颁 ALP，主题为「<b>English Communication Skills through Authentic Learning</b>」（通过真实情境学英语沟通），2018 年改名为「Promoting Communication Skills through Authentic Learning」。</div></div>
+  <div class="ev"><div class="yr">2016</div><div class="d">🔑 <b>获 School Distinction Award（SDA）</b>，同时被认定在<b>学生全面发展、品格与公民教育（CCE）、教与学</b>三方面具备最佳实践。这是 MOE 的正式评鉴，不是自我宣传。</div></div>
+  <div class="ev"><div class="yr">2017</div><div class="d">获 <b>President's Award for Volunteerism &amp; Philanthropy（总统志愿服务与慈善奖）</b>，教育机构组别得主。</div></div>
+  <div class="ev"><div class="yr">现在</div><div class="d">校长 Mr Brandon Lee（2023 年至今）。校训 <b>Make The Difference</b>。</div></div>
+</div>
+
+<h3>⚠️ 一处官方文件的自相矛盾</h3>
+<p>这所学校的核心价值观在两处页面写法不同，我原文并列，你能看出问题：</p>
+<table>
+<thead><tr><th style="width:130px">出处</th><th>核心价值观</th></tr></thead>
+<tbody>
+<tr><td><b>About HS 页</b></td><td>Gratitude（感恩）· Respect（尊重）· <b>Empathy（同理心）</b>· <b>Adaptability（适应性）</b>· Trustworthiness（诚信）</td></tr>
+<tr><td><b>School History 页</b></td><td>称为 <b>GRIT</b>：Gratitude · Respect · <b>Ingenuity（巧思）</b>· Trustworthiness · <b>Grit（毅力）</b></td></tr>
+</tbody>
+</table>
+<p>三个词重合（Gratitude、Respect、Trustworthiness），另两个完全不同。一个叫 GRIT 并特意凑成缩写，另一个是五个普通词。</p>
+<div class="note">
+<b>怎么理解这件事？</b>最可能是<b>价值观迭代过，但旧页面没同步</b>——2014 年 LLP 主题是 GRC（Gratitude/Respect/Compassion），2018 年改名，中间某次调整过核心价值观。<b>对一个家长来说，这不是丑闻，但它是一个测谎器</b>：如果连官网两页都统一不了，开放日问「贵校最核心的价值观是哪五个词」时，看对方答得顺不顺，就知道这套东西在老师心里有多深。
+</div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section>
+<h2 id="s3"><span class="n">03</span>学业与升学出路</h2>
+<p class="lead">和前面几所一样，<b>这所学校不公布 O-Level 成绩</b>。但它是十所里<b>唯一拿过 MOE 教学类最佳实践认定</b>的一所——这是关于「教学质量」最接近第三方证据的东西。</p>
+
+<h3>关于 2016 年 School Distinction Award 的分量</h3>
+<p>SDA 是 MOE 的学校评鉴体系奖项，评的不是某一年的考试成绩，而是<b>学校整体运作的成熟度</b>。后港中学被认定的三项里，<b>「Teaching &amp; Learning（教与学）」和「Student All-Round Development（学生全面发展）」都是直接指向课堂质量和育人效果的</b>。</p>
+<p>这是一个重要参照：十所候选里，其他学校都在用「我们注重 XX」这类自我描述，<b>只有这所拿出一张第三方评鉴单</b>。它不证明成绩好，但它证明<b>学校的教学管理被人检查过并且通过了</b>。</p>
+<div class="warnbox">
+<b>但要说清两点限制：</b>① 这是 <b>2016 年</b>的事，距今 10 年，现任校长 2023 年才上任，团队已经换过一轮；② SDA 评的是「是否有最佳实践」，不是「学生考得好不好」。<b>把它当作「这所学校曾经被认真管过」的证据，而不是「它今天一定好」的保证。</b>
+</div>
+
+<h3>生源结构与科目</h3>
+<p>PG3 区间 <b>14–20</b>，跨度 6 分。孩子 17 分落在<b>中段偏上</b>——这是本次候选里他位置最舒服的一所。</p>
+<p>科目覆盖（MOE SchoolFinder）：英文与文学、高级华文／华文／马来文／淡米尔文及基础班、数学与附加数学、物理／化学／生物（含组合）、社会学科与地理／历史／文学、设计与工艺、食品与消费教育、艺术、音乐、体育。<b>STEM 主线（附加数学 + 物理 + 化学）齐全。</b></p>
+
+<div class="verdict">
+  <h3>毕业生去向怎么判断</h3>
+  <ul>
+    <li><b>直接证据：没有。</b>不公布升学分布。</li>
+    <li><b>间接判断：Poly 为主，头部能上 JC。</b>PG3 14–20 比前几所松，学生 L1R5 分布的上端会更好一些。</li>
+    <li><b>开放日要问：</b>「2016 年拿到 SDA 之后，这几年还有没有参加类似的评鉴？」「上一届 Express 班 JC 资格率多少？」——第一问能试出学校对荣誉的态度。
+    </li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section>
+<h2 id="s4"><span class="n">04</span>两个旗舰项目</h2>
+<p class="lead">这所学校的 ALP 有一个值得注意的地方：<b>它换过方向</b>。校史里记的是「沟通技能」，现在 MOE 登记的是「HS Innovates」——从语言转向创新。这个转变本身是信息。</p>
+
+<h3>ALP：HS Innovates, For Life!</h3>
+<p>现行 ALP 名称是「<b>HS Innovates, For Life!</b>」，归类在 STEM 下。但<b>官网没有对应的详情页</b>——我检查了 sitemap，找不到这个项目的具体内容。</p>
+<div class="warnbox">
+<b>一段被覆盖的历史：</b>校史页明确记载，学校 2015 年获颁的 ALP 是「<b>Effective Communication Skills through Authentic Learning</b>」（通过真实情境学习有效沟通），2018 年改名为「Promoting Communication Skills through Authentic Learning」。<b>项目内容包括广播、公众演讲、辩论、戏剧、新闻。</b>
+<br><br>
+而今天 MOE 登记的是「HS Innovates, For Life!」（STEM）。<b>也就是说 ALP 从「语言沟通」整体换成了「创新科技」。</b>校史页保留了旧记录，新项目的说明却没有补上——这是典型的「改了方向、没改材料」。
+</div>
+<p><b>这对你意味着什么：</b>如果孩子想走 STEM，ALP 名义上对口，但<b>你无法从公开资料判断这个项目现在做得怎么样</b>；如果孩子喜欢演讲辩论，那套曾经是 ALP 的东西现在还在不在、以什么形式存在，也只能去问。</p>
+<p class="soft" style="font-size:13.2px">一个间接线索：DSA 名单里同时有 <b>Debating</b> 和 <b>English Drama</b> 两个独立项目——<b>说明沟通表达这条线并没有随 ALP 改名而消失，它转到了 CCA 和 DSA 里</b>。这是好事：招生通道还在，就说明还有教练和梯队。</p>
+
+<h3>LLP：Values in Action, a Hougean way of life</h3>
+<p>这是十所里<b>说明写得最具体</b>的 LLP 之一。学校原文描述：</p>
+<ul>
+  <li>以 <b>Service Learning（服务学习）</b>为方法，<b>贯穿 4–5 年持续推进</b>，不是一次性活动</li>
+  <li>学生<b>自己拥有</b>所参与的 VIA（Values in Action）项目</li>
+  <li>先理解社区需求，再<b>与同伴共同建构、并互相指导</b></li>
+  <li>最终在所选领域实现<b>认知（awareness）、行动（action）、倡议（advocacy）三层推进</b></li>
+</ul>
+<p><b>「awareness → action → advocacy」这个三段式是这套设计里最实的部分。</b>大多数学校的服务学习停在「去做一件好事」，这里要求走到「为某事发声」——<b>倡议需要先理解结构性问题，这比扫街难度高一个量级</b>。</p>
+<div class="note">
+<b>和 Punggol 的 LLP 对比：</b>两所都是「社区与青年领导力」，做法不同。Punggol 是<b>点位式</b>（去幼儿园、去 Willing Hearts 备餐、中四向学弟妹倡议）；后港是<b>项目式</b>（4–5 年一个学生自己拥有的项目，走到倡议层）。<b>项目式更深，但也更考验师资能不能带得住。</b>
+</div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section>
+<h2 id="s5"><span class="n">05</span>CCA 全解析</h2>
+<p class="lead">这一节的关键词是「<b>合并</b>」。孩子的戏剧兴趣在这里有落点，但它不是一个独立的戏剧社。</p>
+
+<h3>官网完整清单</h3>
+<table>
+<thead><tr><th style="width:110px">类别</th><th>CCA</th></tr></thead>
+<tbody>
+<tr><td><b>体育</b></td><td>Basketball 篮球 · <b>Floorball 地板球</b> · Football 足球（Hougang Warriors 后港勇士）· <b>Judo 柔道</b> · Netball 无板篮球 · Wushu 武术</td></tr>
+<tr><td><b>表演艺术</b></td><td><b>Angklung | Kulintang &amp; Gamelan Ensemble</b>（印尼竹乐／锣群／甘美兰）· Choir 合唱（Voices of Joy）· <b>ELDDS</b>（英文·戏剧·辩论·演讲）· Guzheng Ensemble 古筝 · Modern Dance 现代舞 · Symphonic Band 交响管乐团</td></tr>
+<tr><td><b>俱乐部</b></td><td>Media Resource Club 媒体资源社（音视频制作、摄影、摄像）</td></tr>
+<tr><td><b>制服团体</b></td><td class="soft">官网分类页为空，MOE 登记为 Girl Guides、NCC（陆）、NPCC 三项</td></tr>
+</tbody>
+</table>
+
+<h3>关键结构：ELDDS</h3>
+<div class="verdict">
+  <h3>戏剧、辩论、演讲共用一个社团</h3>
+  <ul>
+    <li><b>ELDDS</b> 是 English Language, Drama, Debating and Speech 的缩写——<b>英文、戏剧、辩论、演讲合并成一个 CCA</b>。这是英华学校体系的传统做法。</li>
+    <li><b>好处：</b>四个方向共享资源，孩子能在同一个社团里既演又辩，表达能力的训练是完整的。</li>
+    <li><b>代价：</b><b>它不是「专门的戏剧社」。</b>每周的训练时间里，戏剧只占四分之一。如果孩子只想演戏，这里会有一半时间在做辩论和演讲准备。</li>
+    <li><b>如何判断：</b>问「ELDDS 内部怎么分组？戏剧组每周训练几次？一年公演几次？」——如果答案是「大家一起做」，那戏剧就只是活动；如果是「按方向分组、各配有指导老师」，那就是真的。</li>
+  </ul>
+</div>
+
+<h3>用 DSA 名单反推「真正的强项」</h3>
+<p><b>11 个项目，十所里最多。</b>这个数量本身就说明学校在主动争取特长生：</p>
+<p style="font-size:14.4px">
+<span class="tag a">Angklung/Kulintang 竹乐</span>
+<span class="tag a">Debating 辩论</span>
+<span class="tag a">English Drama 英语戏剧</span>
+<span class="tag a">Floorball 地板球</span>
+<span class="tag a">Football 足球</span>
+<span class="tag a">Guzheng 古筝</span>
+<span class="tag a">Judo 柔道</span>
+<span class="tag a">Leadership 领导力</span>
+<span class="tag a">Modern Dance 现代舞</span>
+<span class="tag a">Netball 无板篮球</span>
+<span class="tag a">STEM 科技</span>
+</p>
+<p><b>读这份名单能看出两件事：</b></p>
+<p>① <b>它是「广度型」招生，不是「尖子型」。</b>11 项里没有一项是传统的学术竞赛方向，全是需要长期训练的体艺与素养类。这说明学校靠「项目多、通道多」吸引学生，而不是靠某一两个王牌。</p>
+<p>② <b>Leadership 作为 DSA 项目非常少见。</b>把「领导力」当成可招生的特长，意味着学校有结构化的学生领导力培养体系（学生会、班级干部、CCA 组长都可能纳入）。这对性格外向、愿意承担责任的孩子是好消息。</p>
+
+<div class="verdict">
+  <h3>对照孩子的五个兴趣</h3>
+  <ul>
+    <li><b>AI / Computing —— 中等偏强。</b>DSA 有 <b>STEM</b>，ALP 是「HS Innovates」，Media Resource Club 有音视频技术。但<b>没有编程类 CCA</b>，STEM 具体含不含编程必须问。</li>
+    <li><b>Drama —— 中等偏强，但有条件。</b>DSA 单列 English Drama，说明有梯队；但社团是合并的 ELDDS，戏剧只占四分之一时间。<b>这是本报告最需要你去现场确认的一条。</b></li>
+    <li><b>Cooking —— 弱。</b>有食品与消费教育科目，但没有烹饪 CCA，ALP/LLP 也不涉及食物主题。</li>
+    <li><b>Robotics —— 不确定。</b>没有 Robotics CCA，DSA 的 STEM 是否含机器人方向未知。</li>
+    <li><b>Swimming —— 无匹配。</b>没有游泳 CCA，没有泳池。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section>
+<h2 id="s6"><span class="n">06</span>真实声音</h2>
+<p class="lead">这所学校没有校长的公开致辞，也没有教师报道。但它有三样别的学校没有的东西：<b>一张第三方评鉴单、一个总统奖、和一套写得很细的服务学习设计</b>。</p>
+
+<h3>第三方评鉴：这是最硬的一条</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 School History（里程碑记录）</div>
+  <p>「2016 年，学校被认定在<b>学生全面发展（Student All-Round Development）、品格与公民教育（CCE）、教与学（Teaching &amp; Learning）</b>方面具备最佳实践，并获颁 <b>School Distinction Award（SDA）</b>。」</p>
+  <p class="soft" style="font-size:13.2px">为什么这条值得单独放大：其他九所的报告里，你能看到的都是学校自己写的「我们注重 XX」。<b>这是唯一一条「别人来检查过、并且给了认定」的证据。</b>它不能替代成绩数据，但在成绩缺失的情况下，这是次优的证据类型。</p>
+</div>
+
+<h3>一个关于「学生真的在做事」的奖</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 School History</div>
+  <p>2017 年获 <b>President's Award for Volunteerism &amp; Philanthropy — Educational Institution Winner</b>（总统志愿服务与慈善奖·教育机构组别得主）。</p>
+  <p class="soft" style="font-size:13.2px">这是国家级奖项，评的是<b>机构层面推动志愿服务的实际成效</b>，不是单次活动。它和 LLP 的「服务学习」设计是同一件事的两面——<b>学校把服务学习做成了制度，才会被提名这类奖。</b></p>
+</div>
+
+<h3>一句能看出校风的规则</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 School History（办学理念段）</div>
+  <p>学校认为品格与价值观教育至关重要，并明确用两句话引导学生：<b>「Respect Yourself, Respect Others」（尊重自己，尊重他人）</b>和<b>「Choose Wisely, Face Consequences Squarely」（谨慎选择，坦然承担后果）</b>。</p>
+  <p class="soft" style="font-size:13.2px">第二句特别值得琢磨。它没有说「不要犯错」，而是说「<b>选了就承担</b>」——这是一种承认学生会犯错、但要求其为选择负责的教育立场。<b>比单纯的禁令式校规成熟，也更考验老师的执行分寸。</b></p>
+</div>
+
+<h3>家长与学生的公开评价：查不到</h3>
+<div class="note">
+Reddit、KiasuParents、Google 评论均无成规模讨论。后港是成熟组屋区，学校周边生活气息浓，但网络讨论少。
+<br><br>
+<b>一个可操作的替代方案：</b>这所学校离后港 21 街熟食中心不远，<b>放学时段（下午 2:30–3:30）在校门口或附近小贩中心，很容易遇到接孩子的家长</b>。这是十所里最容易做「非正式访谈」的一所。
+</div>
+</section>
+
+
+<!-- ============ 7 ============ -->
+<section>
+<h2 id="s7"><span class="n">07</span>开放日必问清单</h2>
+<p class="lead">这所学校信息缺口集中在「新 ALP 做了什么」和「ELDDS 内部结构」，清单以前两者为核心。</p>
+<ol class="checklist">
+<li><b>ELDDS 内部怎么分组？戏剧组每周训练几次？</b>——全篇最关键一问。决定孩子是「真的在演戏」还是「在辩论社里偶尔演一次」。</li>
+<li><b>HS Innovates 具体做什么？</b>——ALP 换了方向但官网无说明。问清是设计思维、创客、还是编程。</li>
+<li><b>STEM DSA 招什么方向？有没有对应的社团承接？</b>——DSA 开了通道，但 CCA 里看不到 STEM 社团，这个缺口要问明。</li>
+<li><b>Leadership DSA 怎么评？学校有哪些学生领导岗位？</b>——把领导力当特长招生很少见，值得了解结构。</li>
+<li><b>2016 年拿 SDA 之后，这几年还参加过类似评鉴吗？</b>——试探学校对荣誉的坦诚度。</li>
+<li><b>核心价值观到底是哪五个词？</b>——官网两页写法不同（GRIT vs Empathy/Adaptability）。看对方能否立刻答出、答得一致。</li>
+<li><b>从 Buangkok 地铁站有没有接驳巴士？几路？班次密吗？</b>——步行 1349m 是硬伤，这一条决定每天的真实通勤时间。</li>
+<li><b>上一届 Express 班拿 JC 资格的比例？</b>——不公布，只能问。</li>
+<li><b>孩子 17 分进校分到哪个班？</b>——PG3 14–20，他落在中段偏上。</li>
+<li><b>Media Resource Club 有多少设备？中一能上手吗？</b>——如果孩子对影像技术有兴趣，这是本校唯一的技术类社团。</li>
+</ol>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与可信度</h2>
+<p class="lead">A 级＝官方一手（MOE、学校官网、官方文件）；B 级＝权威二手（主流媒体、官方平台报道）；C 级＝网络整理，需现场核实。</p>
+<table>
+<thead><tr><th style="width:34%">内容</th><th>来源</th><th style="width:52px">可信度</th></tr></thead>
+<tbody>
+<tr><td><b>PG3 录取区间 14–20</b></td><td>MOE SchoolFinder（2025 年度 S1 Posting）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>校史与全部里程碑（2001–2018）</b></td><td>学校官网 School History</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>办学理念 / 愿景 / 使命 / 价值观</b></td><td>学校官网 About HS</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>2016 年 School Distinction Award</b></td><td>学校官网校史里程碑记录</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td><b>2017 年总统志愿服务与慈善奖</b></td><td>学校官网校史里程碑记录</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td><b>LLP 服务学习三段式设计</b></td><td>学校官网 School History（办学理念段）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>13 项 CCA 完整清单</b></td><td>学校官网 CCA 四个分类页</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>DSA 11 个招生项目</b></td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>ALP「HS Innovates」内容</b></td><td><b>仅项目名，官网无详情页</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>O-Level 成绩 / 升学分布</b></td><td><b>官网未公布</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>学生规模（约 1,100）</b></td><td>估算值</td><td class="mid"><span class="tag c">C</span></td></tr>
+</tbody>
+</table>
+<h3>我剔除掉的错误信息</h3>
+<p>网上流传的择校资料里，这所学校有几条被反复抄错的数字。我逐条回到一手来源核对过：</p>
+<table>
+<thead><tr><th style="width:34%">流传的说法</th><th>实际情况</th></tr></thead>
+<tbody>
+<tr><td>「Hougang Secondary 的 ALP 是英语沟通技能」</td><td>那是 <b>2015 年获颁的旧 ALP</b>（2018 年曾改名）。现行 MOE 登记为 <b>HS Innovates, For Life!</b>，归在 STEM 下。<b>校史页保留了旧记录，容易误导。</b></td></tr>
+<tr><td>「学校核心价值观是 GRIT：Gratitude/Respect/Ingenuity/Trustworthiness/Grit」</td><td>这是<b>校史页</b>的写法。<b>About HS 页</b>写的是 Gratitude / Respect / <b>Empathy</b> / <b>Adaptability</b> / Trustworthiness。<b>官方两页自相矛盾，本报告并列不做调和。</b></td></tr>
+<tr><td>「学校有独立的 English Drama 社」</td><td>戏剧是与英文、辩论、演讲合并的 <b>ELDDS</b> 社团。DSA 里 English Drama 单列，是招生方向，不等于独立社团。</td></tr>
+<tr><td>「通勤 32 分钟」</td><td>32 分钟是<b>站台到校门</b>的模型估算，且最近站步行 1349m。实际门到门时间需加等车与巴士接驳，<b>建议按 45 分钟规划</b>。</td></tr>
+<tr><td>「学校 2001 年创办并在后港 93 街开学」</td><td>2001 年在 <b>Lowland Road</b> 成立，同年 12 月 20 日才迁到后港 93 街现址。</td></tr>
+</tbody>
+</table>
+</section>
+
+<div class="foot">
+<b>报告生成：</b>2026-11-09　·　数据口径：COP 为 2025 年度 S1 Posting 结果，AL 17 属 PG3，只与同档学生竞争<br>
+<b>通勤模型：</b>MRT 站间 2 分钟、换乘 5 分钟、进站等车 4 分钟、步行 80m/min；不含巴士接驳，最近站步行 &gt;800m 的学校实际耗时更长<br>
+<b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
+</div>
+
+</div>
+</body>
+</html>

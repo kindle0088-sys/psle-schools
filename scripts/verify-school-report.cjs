@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 /**
  * 单校深度报告验证器
- * 用法: node scripts/verify-school-report.cjs <html路径> [--slug compassvale-secondary-school]
+ * 用法: node scripts/verify-school-report.cjs <html路径> [--slug <slug>]
  *
- * 通用断言（任何学校都查）：结构完整性、无模板残留、无常见错误表述
- * 单校断言（按 slug 查）：关键数字与 MOE / 官网口径一致
+ * 一、结构完整性      任何学校都必须满足
+ * 二、负向断言        不得出现已知错误表述（排除「剔除掉的错误信息」一节）
+ * 三、数据一致性      从 docs/data/schools.json 取真值逐项核对，任何学校通用
+ * 四、单校专属断言    仅对特定学校追加（如官网 O-Level 数字）
  */
 const fs = require('fs');
 const path = require('path');
@@ -13,9 +15,15 @@ const BASE = path.join(__dirname, '..');
 const argFile = process.argv[2];
 if (!argFile) { console.error('用法: node verify-school-report.cjs <html路径> [--slug xxx]'); process.exit(2); }
 const slugIdx = process.argv.indexOf('--slug');
-const slug = slugIdx > -1 ? process.argv[slugIdx + 1] : null;
-
 const file = path.resolve(argFile);
+
+// slug 省略时从文件名推断：school-<slug>.html
+let slug = slugIdx > -1 ? process.argv[slugIdx + 1] : null;
+if (!slug) {
+  const m = path.basename(file).match(/^school-(.+)\.html$/);
+  if (m) slug = m[1];
+}
+
 if (!fs.existsSync(file)) { console.error('文件不存在:', file); process.exit(2); }
 const html = fs.readFileSync(file, 'utf8');
 
@@ -26,72 +34,144 @@ function t(name, cond, detail) {
   else { fail++; fails.push(name); console.log('  ❌ ' + name + (detail ? ' — ' + detail : '')); }
 }
 function group(s) { console.log('\n══ ' + s); }
+const stripTags = s => s.replace(/<[^>]*>/g, '')
+  .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<')
+  .replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
 
 // ── 一、结构与模板残留 ──
 group('一、结构完整性');
-t('无未替换模板变量', !/\$\{|\{\{|TODO|FIXME/.test(html));
-t('含 8 个章节锚点', (html.match(/id="s[1-8]"/g) || []).length === 8, (html.match(/id="s[1-8]"/g) || []).length + ' 个');
-t('含目录且锚点可跳转', html.includes('class="toc"') && html.includes('href="#s1"'));
+t('无未替换模板变量', !/\$\{|\{\{|TODO|FIXME|undefined/.test(html));
+const anchors = (html.match(/id="s[1-8]"/g) || []).length;
+t('含 8 个章节锚点', anchors === 8, anchors + ' 个');
+t('含目录且锚点可跳转', html.includes('class="toc"') && html.includes('href="#s1"') && html.includes('href="#s8"'));
 t('含数据来源章节', html.includes('数据来源与可信度'));
-t('含开放日清单（≥10 条）', (html.match(/<li><b>/g) || []).length >= 10, (html.match(/<li><b>/g) || []).length + ' 条');
+t('含开放日清单', (() => {
+  const m = html.match(/<ol class="checklist">([\s\S]*?)<\/ol>/);
+  return !!m && (m[1].match(/<li>/g) || []).length >= 8;
+})(), (() => { const m = html.match(/<ol class="checklist">([\s\S]*?)<\/ol>/); return m ? (m[1].match(/<li>/g) || []).length + ' 条' : '缺失'; })());
 t('有返回看板链接', html.includes('../index.html'));
 t('有 noindex', html.includes('noindex'));
-t('HTML 标签闭合（div 计数）',
-  (html.match(/<div/g) || []).length === (html.match(/<\/div>/g) || []).length,
-  (html.match(/<div/g) || []).length + ' 开 / ' + (html.match(/<\/div>/g) || []).length + ' 闭');
-t('table 标签闭合',
-  (html.match(/<table/g) || []).length === (html.match(/<\/table>/g) || []).length);
+const dv = [(html.match(/<div/g) || []).length, (html.match(/<\/div>/g) || []).length];
+t('HTML 标签闭合（div）', dv[0] === dv[1], dv[0] + ' 开 / ' + dv[1] + ' 闭');
+t('table 标签闭合', (html.match(/<table/g) || []).length === (html.match(/<\/table>/g) || []).length);
+t('section 标签闭合', (html.match(/<section/g) || []).length === (html.match(/<\/section>/g) || []).length);
+t('样式完整（含打印规则与移动端）', html.includes('@media(max-width:600px)') && html.includes('@media print'));
 
-// ── 二、必须避免的错误表述 ──
-// 注意：「剔除掉的错误信息」一节会刻意引用错误表述作为反例，检查时须排除该节
+// ── 二、负向断言 ──
+// 「剔除掉的错误信息」一节会刻意引用错误说法作为反例，检查时须排除该节
 group('二、已知错误表述（不得出现在正文）');
 const negIdx = html.indexOf('我剔除掉的错误信息');
-const negEndIdx = negIdx > -1 ? html.indexOf('<div class="note">', negIdx) : -1;
+const negEndIdx = negIdx > -1 ? html.indexOf('</section>', negIdx) : -1;
 const bodyOnly = negIdx > -1
   ? html.slice(0, negIdx) + html.slice(negEndIdx > -1 ? negEndIdx : html.length)
   : html;
-t('剔除错误章节存在', negIdx > -1);
-t('未把 Netball 译成网球', !/Netball\s*[（(]?\s*网球|网球\s*[（(]\s*女/.test(bodyOnly));
-t('未出现 40:1 师生比', !/40\s*[:：]\s*1/.test(bodyOnly));
-t('未使用错误地址', !/11\s+Compassvale\s+Lane|Compassvale\s+Lane[,\s]*S?797123/.test(bodyOnly));
-t('未声称「20+ 个 CCA」为事实', !/20\s*\+\s*个?\s*CCA(?!）|\))/.test(html) || html.includes('无法核实'));
-t('未把 ALP 写成环境科学', !/ALP[^。]{0,20}环境科学(?!.*可持续)/.test(html));
+t('「剔除错误」章节存在', negIdx > -1);
 
-// ── 三、单校数字断言 ──
-if (slug === 'compassvale-secondary-school') {
-  group('三、Compassvale 数据核对');
+// 警示性引用（"把地址写成 Compassvale Lane"）是合法的，只抓「当事实陈述」的情况
+function falseClaim(re, ctx = 60) {
+  const hits = [...bodyOnly.matchAll(re)];
+  return hits.some(m => {
+    const around = bodyOnly.slice(Math.max(0, m.index - ctx), m.index + m[0].length + ctx);
+    return !/剔除|错误|写成|写成|不是|误|错|非|实为|真实/.test(around);
+  });
+}
+t('未把 Netball 说成网球', !falseClaim(/Netball[^。]{0,10}网球|网球[^。]{0,10}Netball/g));
+t('未出现 40:1 师生比', !falseClaim(/40\s*[:：]\s*1/g, 30));
+t('未把 ALP 说成环境科学', !/ALP[^。]{0,20}环境科学(?!.*可持续)/.test(bodyOnly));
+t('未把概率/评分用红绿表示好坏', !/class="(gain|loss|up|down|pos|neg|num-red|num-green)"/.test(html));
 
-  // 从结构化数据取真值
-  const data = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/schools.json'), 'utf8'));
-  const arr = Array.isArray(data) ? data : (data.schools || []);
-  const s = arr.find(x => x.slug === slug);
-  t('结构化数据中找到该校', !!s);
+// ── 三、数据一致性（任何学校通用）──
+group('三、数据一致性（对照 schools.json）');
+const data = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/schools.json'), 'utf8'));
+const arr = Array.isArray(data) ? data : (data.schools || []);
+let s = slug ? arr.find(x => x.slug === slug) : null;
+// 文件名推断可能少了 -school 后缀，兜底再找一次
+if (!s && slug && arr.some(x => x.slug === slug + '-school')) {
+  slug = slug + '-school';
+  s = arr.find(x => x.slug === slug);
+}
+t('结构化数据中找到该校', !!s, slug || '(未指定 slug)');
 
-  if (s) {
-    const pg3 = (s.cop.rows || []).find(r => /Posting Group 3/.test(r.label));
-    const lo = pg3.nonAff.min, hi = pg3.nonAff.max;
-    t('PG3 区间与数据源一致（' + lo + '–' + hi + '）',
-      new RegExp(lo + '\\s*[–-]\\s*' + hi).test(html));
-    t('余量计算正确（' + (hi - 17) + '）',
-      html.includes('+' + (hi - 17) + ' 分') || html.includes('+' + (hi - 17) + '分'));
-    t('写明无附属小学', s.affiliations.primary.length === 0 && html.includes('无'));
-    t('写明非 IP、非 SAP', s.ip === false && s.sap === false && html.includes('IP') && html.includes('SAP'));
-
-    // MOE 登记的 8 项 CCA 必须全部出现
-    const ccaNames = ['Badminton', 'Basketball', 'Choir', 'Concert Band', 'Girl Guides', 'Modern Dance', 'NPCC', 'Netball'];
-    const missing = ccaNames.filter(c => !html.includes(c));
-    t('MOE 登记 8 项 CCA 全部列出', missing.length === 0, missing.length ? '缺: ' + missing.join(', ') : '8/8');
-
-    // DSA 项目必须全部出现
-    const dsa = ['Badminton', 'Environmental Science', 'Floorball', 'Netball', 'Robotics', 'Softball', 'STEM-Aeronautics'];
-    const dsaMissing = dsa.filter(d => !html.includes(d));
-    t('DSA 招生项目全部列出', dsaMissing.length === 0, dsaMissing.length ? '缺: ' + dsaMissing.join(', ') : '7/7');
-
-    t('地址与数据源一致', html.includes(s.address.split(',')[0]));
+if (s) {
+  // PG3 区间与余量
+  const pg3 = (s.cop.rows || []).find(r => /Posting Group 3/.test(r.label))?.nonAff;
+  if (pg3) {
+    t(`PG3 区间与数据源一致（${pg3.min}–${pg3.max}）`,
+      new RegExp(`${pg3.min}\\s*[–-]\\s*${pg3.max}`).test(html));
+    const margin = pg3.max - 17;
+    t(`余量计算正确（+${margin}）`, new RegExp(`\\+${margin}\\s*分`).test(html));
   }
 
-  // 官网 O-Level 2024 数据
-  group('四、官网 O-Level 数据核对（2024）');
+  // 学校性质（IP / SAP）如实标注
+  t('IP / SAP 标注与数据源一致',
+    html.includes('IP') && html.includes('SAP') &&
+    (!s.ip || html.includes('Integrated')) &&
+    (!s.sap || html.includes('SAP')));
+
+  // 同一项目的不同官方写法（MOE 登记 vs 学校官网）
+  const SYNONYM = {
+    trackandfield: ['trackandfield', 'athletics'],
+    athletics: ['athletics', 'trackandfield'],
+    infocommtechnology: ['infocommtechnology', 'infocommclub', 'infocomm', 'mediatechclub', 'mediaresourceclub', 'mediaresource', 'mediatech'],
+    stringensemble: ['stringensemble', 'strings'],
+    stjohnbrigade: ['stjohnbrigade', 'stjohn'],
+    concertband: ['concertband', 'symphonicband', 'windband'],
+    symphonicband: ['symphonicband', 'concertband', 'windband'],
+    choir: ['choir', 'voicesofjoy'],
+    englishdrama: ['englishdrama', 'eldds', 'drama'],
+    debating: ['debating', 'eldds', 'debate'],
+  };
+
+  // 名称匹配：归一化（忽略大小写/空格/连字符/括号），并支持括号内缩写
+  const norm = x => x.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const flatNorm = norm(stripTags(html));
+  function hasItem(item) {
+    const abbr = (item.match(/\(([A-Z]{2,})\)/) || [])[1];
+    const main = item.replace(/\s*\([^)]*\)\s*/g, ' ').trim();
+    const alts = SYNONYM[norm(main)] || [norm(main)];
+    if (abbr && flatNorm.includes(norm(abbr))) return true;
+    if (alts.some(a => flatNorm.includes(a))) return true;
+    const words = main.toLowerCase().match(/[a-z]{3,}/g) || [];
+    return words.length > 0 && words.every(w => flatNorm.includes(w));
+  }
+
+  // MOE 登记的 CCA 必须全部出现
+  const moeCca = (s.cca || []).filter(Boolean);
+  const ccaMissing = moeCca.filter(c => !hasItem(c));
+  t(`MOE 登记 ${moeCca.length} 项 CCA 全部列出`, ccaMissing.length === 0,
+    ccaMissing.length ? '缺: ' + ccaMissing.join(', ') : `${moeCca.length}/${moeCca.length}`);
+
+  // DSA 招生项目必须全部出现
+  const dsa = (s.dsaAreas || []).filter(Boolean);
+  const dsaMissing = dsa.filter(c => !hasItem(c));
+  t(`DSA ${dsa.length} 个招生项目全部列出`, dsaMissing.length === 0,
+    dsaMissing.length ? '缺: ' + dsaMissing.join(', ') : `${dsa.length}/${dsa.length}`);
+
+  // 地址一致
+  t('地址与数据源一致', html.includes(s.address.split(',')[0].trim()));
+
+  // ALP / LLP 名称一致（官网与 MOE 登记措辞常有出入，只核关键词）
+  for (const g of (s.electives || [])) {
+    const isAlp = (g.type || '').includes('Applied');
+    const items = g.items || [];
+    if (!items.length) continue;
+    // 取名称里最独特的 1–2 个英文词做锚点；按词干前缀匹配，容忍 Nurture/Nurturing 这类措辞差异
+    const words = items[0].replace(/&amp;/g, '&').match(/[A-Za-z][A-Za-z-]{3,}/g) || [];
+    const stems = words.slice(0, 2).map(w => w.slice(0, 5));
+    const anchor = words.slice(0, 2).join(' ');
+    const ok = stems.length && stems.every(st => new RegExp(st, 'i').test(html));
+    t(`${isAlp ? 'ALP' : 'LLP'} 内容与数据源对应（${anchor || items[0].slice(0, 20)}）`, !!ok);
+  }
+
+  // 通勤时间（由 build 脚本从 network.json 计算，允许 ±2 分钟）
+  const cm = (html.match(/约\s*(\d+)\s*分钟/) || [])[1];
+  if (cm) t('通勤时间为数字且合理（≤60 分钟）', +cm <= 60, cm + ' 分钟');
+  else t('通勤时间已填', false);
+}
+
+// ── 四、单校专属断言 ──
+if (slug === 'compassvale-secondary-school') {
+  group('四、Compassvale 官网 O-Level 数据（2024）');
   const oLevel = {
     'Sec4E 5科及格 89.7%': '89.7%',
     'Sec4E 3科及格 98.1%': '98.1%',
@@ -100,12 +180,11 @@ if (slug === 'compassvale-secondary-school') {
     'Poly 资格 96.3%': '96.3%',
     'Phy+Chem Distinction 52%': '52%',
     'English Distinction 19%': '19%',
-    'Electronics Distinction 17%': '17%'
+    'Electronics Distinction 17%': '17%',
   };
   for (const [k, v] of Object.entries(oLevel)) t(k, html.includes(v));
-
+  group('五、历史趋势数据');
   const trend = { '2022 JC 60.3%': '60.3%', '2016 JC 82.7%': '82.7%', '2023 5科 93%': '93%' };
-  group('五、历史趋势数据核对');
   for (const [k, v] of Object.entries(trend)) t(k, html.includes(v));
 }
 

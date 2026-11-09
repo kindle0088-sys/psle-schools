@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>实龙岗花园中学 Serangoon Garden Secondary School · 单校深度报告</title>
+<style>
+:root{
+  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
+  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
+  --accent:#0f5c4e; --accent-bg:#eef6f3;
+  --warm:#8a5a00; --warm-bg:#fdf6e7;
+  --risk:#8c2f2f; --risk-bg:#fbf0ef;
+  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.78 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:#fff}
+.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.hero h1{margin:10px 0 4px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.3}
+.hero h1 small{display:block;font-size:15px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:5px}
+.hero .sub{opacity:.84;font-size:14px;max-width:680px;margin-top:12px}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
+.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
+.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+.addr{font-size:12.6px;opacity:.72;margin-top:12px;font-variant-numeric:tabular-nums}
+
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+section{margin:0 0 10px}
+h2{font-size:18px;font-weight:640;margin:40px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:16px}
+h2 .n{font-size:11.5px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 14px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+.warnbox{background:var(--warm-bg);border:1px solid #ecdfc0;border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.panel h4{margin:0 0 8px;font-size:13.5px;color:var(--accent);letter-spacing:.2px}
+.panel ul{margin:0;padding-left:18px;font-size:13.6px}
+.panel li{margin:5px 0}
+.panel.muted h4{color:var(--tx3)}
+
+table{width:100%;border-collapse:collapse;font-size:13.3px;margin:14px 0}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:11.5px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.mid{text-align:center}
+tbody tr:hover{background:#f6f6f3}
+.soft{color:var(--tx3)}
+
+.bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;font-size:13px;margin:5px 0}
+.bar-row .lbl{color:var(--tx2)}
+.bar-track{background:#eeeeea;border-radius:4px;height:15px;overflow:hidden}
+.bar-fill{height:100%;background:#4f8f7d;border-radius:4px}
+.bar-fill.hi{background:var(--accent)}
+.bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
+
+.tl{border-left:2px solid var(--line);margin:16px 0 0 6px;padding-left:20px}
+.tl .ev{position:relative;margin:0 0 16px}
+.tl .ev::before{content:"";position:absolute;left:-26px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600}
+.tl .d{font-size:14px;margin-top:1px}
+
+.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid #c9c9c3;border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
+.voice .who{font-size:12.3px;color:var(--tx3);margin-bottom:6px;letter-spacing:.2px}
+.voice q{quotes:"「" "」";font-style:italic;color:var(--tx)}
+.voice p{margin:8px 0}
+
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:#f7f7f4;margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:#cfe4dc;background:var(--accent-bg);color:var(--accent)}
+.tag.c{border-color:#ecdfc0;background:var(--warm-bg);color:var(--warm)}
+.tag.b{border-color:#d8d8d2;background:#f2f2ee;color:#5a5a52}
+
+.checklist{counter-reset:c;list-style:none;padding:0;margin:14px 0}
+.checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
+.checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+.foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
+.foot b{color:var(--tx2)}
+.foot a{color:var(--accent)}
+
+@media(max-width:600px){
+  .hero h1{font-size:21px}
+  .grid2{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:110px 1fr 42px;font-size:12.3px}
+  table{font-size:12.3px}
+  th,td{padding:7px 6px}
+}
+@media print{
+  .hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .voice,.panel,.note{break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">单校深度报告 · Serangoon · 政府混校</div>
+    <h1>实龙岗花园中学<small>Serangoon Garden Secondary School（SGS）</small></h1>
+    <div class="sub">兴趣匹配这件事上它其实很强：<b>DSA 有 Robotics、CCA 有 Infocomm、分级课程里还有糕点制作与编程</b>。但它有一个数字很难绕过去——<b>通勤 44 分钟，其中 25 分钟是步行 1,991 米</b>，是十所里最差的一所。它曾经是<b>全岛规模最大的中学</b>：1976 年 3,000 名学生、78 个班。</div>
+    <div class="profile">
+      <div><div class="k">PG3 区间（2025）</div><div class="v">12 – 22</div></div>
+      <div><div class="k">AL 17 余量</div><div class="v">+5 分</div></div>
+      <div><div class="k">通勤（自 828765）</div><div class="v">约 44 分钟</div></div>
+      <div><div class="k">建校</div><div class="v">1959 年</div></div>
+      <div><div class="k">学生规模</div><div class="v">约 1,100</div></div>
+      <div><div class="k">IP / SAP</div><div class="v">否 / 否</div></div>
+    </div>
+    <div class="addr">21 Serangoon North Avenue 1, S555889　·　最近站 NE13 KOVAN，步行约 1991m</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 30 秒判断</a>
+  <a href="#s2">② 学校底色与校史</a>
+  <a href="#s3">③ 学业与升学出路</a>
+  <a href="#s4">④ 旗舰项目</a>
+  <a href="#s5">⑤ CCA 全解析</a>
+  <a href="#s6">⑥ 真实声音</a>
+  <a href="#s7">⑦ 开放日必问清单</a>
+  <a href="#s8">⑧ 数据来源与可信度</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>先说清楚这份报告怎么写的。</b>COP、CCA、DSA、科目来自 <b>MOE SchoolFinder</b>；校史与办学理念来自<b>学校官网</b>；分级特色课程（LSP）的具体内容来自<b>学校官网的活动报道</b>。<b>ALP 与 LLP 官网无独立详情页</b>，只有活动记录可供推断，我做了标注。<b>不公布 O-Level 成绩。</b>
+</div>
+
+<!-- ============ 1 ============ -->
+<section>
+<h2 id="s1"><span class="n">01</span>30 秒判断</h2>
+<p class="lead">如果只看一句话：<b>这所学校的「兴趣覆盖」在十所里排前列，但它的通勤在十所里排最后。</b>要不要选它，基本取决于你能否接受每天 44 分钟（其中一段是 2 公里步行）。</p>
+
+<div class="warnbox">
+<b>先把最硬的数字摊开：44 分钟。</b>这是模型算出的最短时间，构成是——<b>乘车 19 分钟 + 步行 25 分钟</b>。最近的地铁站是 <b>Kovan（NE13）</b>，但距离学校 <b>1,991 米</b>，几乎 2 公里。<b>这不是「走一走就到」的距离，是必须坐巴士的一段路。</b>
+<br><br>
+换句话说：<b>44 分钟是「假设你全程步行」的结果。真实施加巴士等车时间，很可能超过 50 分钟。</b>而 v2 报告设的上限是 45 分钟。<b>它正好卡在线上。</b>
+</div>
+
+<div class="grid2">
+  <div class="panel">
+    <h4>值得优先考虑，如果孩子…</h4>
+    <ul>
+      <li>想搞<b>机器人</b>——DSA 有 <b>Robotics</b> 项目，是十所里少数开设机器人招生通道的学校</li>
+      <li>喜欢<b>信息技术</b>——CCA 有 Infocomm Technology（媒体制作）</li>
+      <li>喜欢<b>做吃的</b>——分级课程里有<b>糕点与甜品制作</b>模块，加上食品与消费教育科目</li>
+      <li>需要有<b>安全边际</b>——PG3 12–22，余量 <b>+5 分</b></li>
+    </ul>
+  </div>
+  <div class="panel muted">
+    <h4>要慎重，如果家里…</h4>
+    <ul>
+      <li><b>不能接受长通勤</b>——44 分钟起，步行 2 公里。这是十所里最差的</li>
+      <li>孩子<b>游泳是刚需</b>——没有游泳 CCA</li>
+      <li>孩子想<b>演戏</b>——没有戏剧社</li>
+      <li>希望<b>学校信息透明</b>——ALP/LLP 都没有详情页，官网以活动报道为主</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verdict">
+  <h3>三个需要记住的数字</h3>
+  <ul>
+    <li><b>44 分钟 / 步行 1,991m</b>：<b>十所里通勤最差。</b>其余九所在 22–34 分钟之间，这一所高出整整一档。</li>
+    <li><b>PG3 12–22</b>：孩子 17 分，余量 <b>+5 分</b>。录取安全，与 Bendemeer、Montfort 并列最稳。</li>
+    <li><b>3,000 人 / 78 班（1976）</b>：史上最大规模。今天约 1,100 人，但「办过大校」的组织能力会留下来。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section>
+<h2 id="s2"><span class="n">02</span>学校底色与校史</h2>
+<p class="lead">这所学校的历史主线是<b>一连串的合并</b>——它由至少四所学校先后并成，这也是它科目门类齐全的原因。</p>
+
+<h3>一条时间线</h3>
+<div class="tl">
+  <div class="ev"><div class="yr">1959</div><div class="d">以 <b>Lichfield Secondary School</b> 之名创办，是一所<b>英文源流</b>学校。</div></div>
+  <div class="ev"><div class="yr">1960</div><div class="d">改名 <b>Serangoon Garden Government High School</b>，成为<b>英华双语混合学校</b>（integrated school）。</div></div>
+  <div class="ev"><div class="yr">1964</div><div class="d">后来的合并伙伴 <b>Serangoon Garden Technical School</b> 由时任总理<b>李光耀</b>于 7 月 18 日正式启用。校址在 Burghley Drive，同时开设技术与学术课程、英华双语。1973 年推行集中技术教育后，<b>附近学校的学生都来这里上技术科目</b>。</div></div>
+  <div class="ev"><div class="yr">1965</div><div class="d">被指定为<b>大学先修班中心</b>，开设文科与理科先修课程，持续到 1974 年。</div></div>
+  <div class="ev"><div class="yr">1969</div><div class="d">与邻校 <b>Hwi Yoh Vocational School（惠耀职业学校）</b>合并，<b>Serangoon Garden Secondary School 正式成立</b>。合并后设施扩充，能同时提供<b>学术、技术、商业</b>三类科目。</div></div>
+  <div class="ev"><div class="yr">1976</div><div class="d">🔑 <b>史上最高招生：3,000 名学生、78 个班。</b>同年正式采用校训 <b>Integrity and Diligence</b>。</div></div>
+  <div class="ev"><div class="yr">1980–1991</div><div class="d">重新开设三年制大学先修班。</div></div>
+  <div class="ev"><div class="yr">1984</div><div class="d">转为纯英文源流学校，<b>最后一批华文源流学生于同年毕业</b>。</div></div>
+  <div class="ev"><div class="yr">2003</div><div class="d">与 <b>Serangoon Garden Technical School</b> 合并，形成今天的学校。</div></div>
+  <div class="ev"><div class="yr">2004.3</div><div class="d">迁入现址 <b>Serangoon North Avenue 1</b>。</div></div>
+</div>
+
+<div class="note">
+<b>「合并四次」这件事留下了两个可观察的痕迹：</b>
+<br>① <b>科目门类特别全</b>——学术、技术、商业三条血脉都在。这解释了为什么它的应用学习模块能开出糕点制作、室内设计、法证科学、汽车工程这么杂的内容。
+<br>② <b>学校有「大校」的组织基因</b>——78 个班、3,000 人的管理经验不是每所学校都有。对一个在扩张期或资源紧张时更需要制度而非人情的环境，这是资产。
+</div>
+
+<h3>愿景与价值观</h3>
+<table>
+<thead><tr><th style="width:110px">项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td><b>愿景</b></td><td><b>Learners with Grit, Leaders with Heart</b>（有毅力的学习者，有心的领导者）</td></tr>
+<tr><td><b>使命</b></td><td>培育并赋能每个人，去过有目的的人生</td></tr>
+<tr><td><b>校训</b></td><td><b>Integrity（正直）· Diligence（勤勉）</b>——1976 年采用，沿用至今 50 年</td></tr>
+<tr><td><b>价值观</b></td><td>Perseverance 坚持 · Respect 尊重 · Integrity 正直 · Diligence 勤勉 · Empathy 同理</td></tr>
+</tbody>
+</table>
+<div class="warnbox">
+<b>一个值得注意的细节：</b>学校的<b>校训只有两个词</b>（Integrity、Diligence），但<b>价值观有五个词</b>，且校训的两个词都在价值观里。这在本次十所里是唯一的结构——<b>多数学校校训是一个短语（如 Make The Difference、Breakthrough），这里是两个名词。</b>
+<br><br>
+两个名词的好处是<b>可执行</b>：正直与勤勉都是能被观察的行为标准，不是模糊的方向。缺点是<b>没有「关怀」这一维</b>——而愿景里偏偏写了 Leaders with <b>Heart</b>。<b>开放日可以问：Heart 落在哪条价值观上？</b>
+</div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section>
+<h2 id="s3"><span class="n">03</span>学业与升学出路</h2>
+<p class="lead">这所学校<b>不公布 O-Level 成绩</b>。但它有一条别的学校少有的东西：<b>分级特色课程（Level Signature Programmes），每个年级有一整套校外体验</b>。</p>
+
+<h3>分级特色课程（LSP）：按年级铺开的体验课</h3>
+<p>这是学校官网用活动报道形式记录的一套课程，内容很具体：</p>
+<table>
+<thead><tr><th style="width:80px">年级</th><th>做什么</th></tr></thead>
+<tbody>
+<tr><td><b>中一</b></td><td>会话母语课程学一门新语言 · <b>体育体验：试打 Tchoukball（反弹球）</b> · 到各个公园做学习之旅（认识自然与可持续）· 科学增益工作坊动手实验 · <b>自我领导力工作坊</b>（反思强项、建立为自己成长负责的自信）</td></tr>
+<tr><td><b>中二</b></td><td>国家博物馆与新加坡发现中心学习之旅 · <b>理财素养工作坊</b> · 朋辈领导力工作坊 · <b>应用学习模块</b>：糕点与甜品制作、室内设计、商业、医疗、<b>法证科学</b>、<b>汽车工程</b></td></tr>
+<tr><td><b>中四 / 中五</b></td><td>探索中学后升学路径 · 到 <b>PCF Sparkle Care 活跃乐龄中心</b>做 VIA 项目（组织活动、陪伴长者）· 参访新加坡发现中心（理解国家韧性的意义）</td></tr>
+</tbody>
+</table>
+<p>学校对这套课程的总结是：「<b>从编程与现场管弦乐，到糕点制作、汽车工程与职业探索</b>，中一到中三的学生在 LSP2 中享受了一连串真实的、动手的体验……<b>学生不只是学习这个世界，他们走进了这个世界。</b>」</p>
+<div class="verdict">
+  <h3>这套东西对孩子的价值</h3>
+  <ul>
+    <li><b>中二的「糕点与甜品制作」模块，是对孩子烹饪兴趣最直接的一次回应。</b>不是「有 FCE 科目」这种间接承接，是<b>真的动手做糕点</b>。</li>
+    <li><b>法证科学与汽车工程</b>这两个模块很不寻常——多数中学的应用学习模块到「商业、医疗、设计」为止，这两项需要真正的设备与合作机构。</li>
+    <li><b>但要注意它的性质：</b>LSP 是<b>体验式课程</b>（一次性或短期），不是长期社团。它能点燃兴趣，但<b>不能让孩子持续深耕</b>。<b>真正的深耕要靠 CCA，而它的 CCA 里没有烹饪。</b></li>
+  </ul>
+</div>
+
+<h3>生源结构</h3>
+<p>PG3 区间 <b>12–22</b>，跨度 <b>10 分</b>。孩子 17 分落在<b>中段略偏上</b>，余量 +5 分让录取相对安全。</p>
+<p>跨度大意味着学校必须做分层。结合它「合并四次、科目门类全」的背景，<b>这所学校在照顾不同层次学生上有先天条件</b>——它本来就有技术、商业、学术三条路径的师资。</p>
+
+<div class="verdict">
+  <h3>毕业生去向怎么判断</h3>
+  <ul>
+    <li><b>直接证据：没有。</b>不公布升学分布。</li>
+    <li><b>间接判断：出口多元。</b>它有技术教育血脉，<b>ITE 与 Poly 的衔接路径可能比纯学术型学校更成熟</b>。中四中五的「探索中学后路径」活动也印证这一点。</li>
+    <li><b>开放日要问：</b>「应用学习模块（糕点、汽车工程那批）是和哪家机构合办的？每年都能开吗？」「上一届 Express 班 JC 资格率？」</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section>
+<h2 id="s4"><span class="n">04</span>两个旗舰项目</h2>
+<p class="lead">这一节要坦白：<b>这所学校的 ALP 与 LLP 在官网都没有独立详情页</b>，只有名称与散落在活动报道里的线索。我按能给到的信息写，并说清哪些是推断。</p>
+
+<h3>ALP：Researching Society through Media Literacy（通过媒介素养研究社会）</h3>
+<p>MOE 登记的项目名是这个。<b>官网没有对应页面</b>，我检查了完整 sitemap，找不到专门的 ALP 介绍。</p>
+<p><b>从名字能读出什么：</b>这不是技术项目，是<b>人文 + 媒介</b>的组合。「Media Literacy（媒介素养）」指辨别信息真伪、理解媒体如何建构观点；「Researching Society（研究社会）」说明落点是社会学式的调查。<b>合起来，这是一门「教孩子不被信息骗」的课。</b></p>
+<div class="note">
+<b>为什么这个方向在今天特别有价值：</b>孩子将来面对的信息环境里，AI 生成内容、算法推荐、假新闻是默认背景。<b>一个中学生如果做过「怎么判断一条信息可不可信」的系统训练，这个能力比多学一门编程语言更耐用。</b>
+<br><br>
+<b>但要看清它的局限：</b>它<b>不是 STEM</b>。如果孩子想走编程方向，这个 ALP 帮不上忙——那条线要靠 CCA 的 Infocomm 与 LSP 里的 coding 模块。
+</div>
+
+<h3>LLP：Nurturing Confident and Compassionate Leaders（培育自信而有关怀的领袖）</h3>
+<p>同样只有名称。但从 LSP 的活动记录里能看到落地形态：</p>
+<ul>
+  <li><b>中一</b>：自我领导力工作坊——反思强项，建立「为自己的成长负责」的自信</li>
+  <li><b>中二</b>：朋辈领导力工作坊</li>
+  <li><b>中四 / 五</b>：到 <b>PCF Sparkle Care 活跃乐龄中心</b>组织活动、陪伴长者（VIA 项目）</li>
+</ul>
+<p>这条路径设计得清楚：<b>先对自己（自我领导）→ 再对同伴（朋辈领导）→ 最后对社区（VIA 服务）</b>。和愿景「Learners with Grit, Leaders with Heart」里的 Heart 是对得上的。</p>
+<p class="soft" style="font-size:13.2px">与 Bendemeer 的「Level-wide thematic approach + spiralling upwards」相比，这套设计在概念表述上不如它专业，但<b>在活动层面更具体</b>——它真的说清了中一做什么、中二做什么、中四做什么。</p>
+</section>
+
+<!-- ============ 5 ============ -->
+<section>
+<h2 id="s5"><span class="n">05</span>CCA 全解析</h2>
+<p class="lead">11 项 CCA，其中<b>包含孩子想要的 Infocomm Technology</b>。而 DSA 里还有 <b>Robotics</b>——这条线在 CCA 清单里看不到。</p>
+
+<h3>MOE 登记（11 项）</h3>
+<table>
+<thead><tr><th style="width:110px">类别</th><th>CCA</th></tr></thead>
+<tbody>
+<tr><td><b>体育</b></td><td>Badminton 羽毛球 · Basketball 篮球（男）· Football 足球（男）· Netball 无板篮球（女）· Table Tennis 乒乓球（男）</td></tr>
+<tr><td><b>表演艺术</b></td><td>Choir 合唱 · Concert Band 管乐团 · Modern Dance 现代舞</td></tr>
+<tr><td><b>制服团体</b></td><td>National Cadet Corps（NCC 陆，男）· National Police Cadet Corps（NPCC）</td></tr>
+<tr><td><b>俱乐部</b></td><td><b>Infocomm Technology（媒体制作）</b></td></tr>
+</tbody>
+</table>
+
+<h3>用 DSA 名单反推「真正的强项」</h3>
+<p>2026 年 DSA 开 <b>8 个项目</b>，其中三项不在 CCA 登记表里：</p>
+<table>
+<thead><tr><th style="width:170px">DSA 项目</th><th>是否在 CCA 清单</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>Choir 合唱</td><td>✅ 在</td><td></td></tr>
+<tr><td>Concert Band 管乐团</td><td>✅ 在</td><td></td></tr>
+<tr><td>Modern Dance 现代舞</td><td>✅ 在</td><td></td></tr>
+<tr><td>Football 足球</td><td>✅ 在</td><td></td></tr>
+<tr><td>Netball 无板篮球</td><td>✅ 在</td><td></td></tr>
+<tr><td><b>Floorball 地板球（女）</b></td><td>❌ 不在</td><td>有球队但未登记为 CCA</td></tr>
+<tr><td><b>Guzheng Ensemble 古筝</b></td><td>❌ 不在</td><td>有乐团但未登记为 CCA</td></tr>
+<tr><td><b>Robotics 机器人</b></td><td>❌ 不在</td><td>🔑 <b>有机器人队，但不在 CCA 清单里</b></td></tr>
+</tbody>
+</table>
+<div class="verdict">
+  <h3>Robotics 这一条要重点说</h3>
+  <ul>
+    <li><b>DSA 开 Robotics，意味着学校有教练、有梯队、有比赛安排</b>——否则招进来带不动。</li>
+    <li><b>但它不在 CCA 清单上。</b>两种可能：① 机器人队是「选拔制校队」，不占用常规 CCA 名额；② 机器人活动挂在 Infocomm 或科学组下面。</li>
+    <li><b>对孩子意味着：</b>机器人这条路<b>存在，但可能是精英通道</b>，不是人人可选的社团。<b>这是全篇最需要当面问清的一条。</b></li>
+  </ul>
+</div>
+
+<div class="verdict">
+  <h3>对照孩子的五个兴趣</h3>
+  <ul>
+    <li><b>Robotics —— 强匹配（但要确认）。</b>DSA 明确有 Robotics，是十所里少有的。需确认普通学生能否参与。</li>
+    <li><b>AI / Computing —— 中等偏强。</b>有 <b>Infocomm Technology（媒体制作）</b>CCA，LSP 里有 coding 模块。但 ALP 是媒介素养，不是编程。</li>
+    <li><b>Cooking —— 中等偏强。</b>LSP 中二有<b>糕点与甜品制作</b>模块，科目有 FCE。但<b>没有烹饪 CCA</b>，所以是「体验过」而不是「持续做」。</li>
+    <li><b>Drama —— 无匹配。</b>没有戏剧社，表演艺术是合唱、管乐、现代舞。</li>
+    <li><b>Swimming —— 无匹配。</b>没有游泳 CCA，没有泳池。</li>
+  </ul>
+</div>
+<p><b>综合：五个兴趣里接住三个（机器人、编程、烹饪），是十所里覆盖数最多的一所。</b>如果通勤不是问题，它的匹配度会排在前三。</p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section>
+<h2 id="s6"><span class="n">06</span>真实声音</h2>
+<p class="lead">这所学校官网没有校长致辞，但它的活动报道写得比其他学校详细，能读到学生实际在做什么。</p>
+
+<h3>一段关于「一堂课应该长什么样」的描述</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 LSP2 活动报道（2026-07-03）</div>
+  <p>「从编程与现场管弦乐，到糕点制作、汽车工程与职业探索，我们中一到中三的学生在 LSP2 中享受了一连串真实的、动手的体验。无论他们是在<b>破解代码、擀面团、发现新加坡的故事、获得理财素养，还是想象未来的自己</b>，每一个活动都点燃了好奇心、建立了真实世界的技能，并加深了连接——与他们的兴趣、他们的社区、以及彼此之间。」</p>
+  <p>「在整个三个年级中，当学习活了起来，<b>学生不只是学习这个世界，他们走进了这个世界（stepped into it）</b>，用心领导，并以任何教科书都无法提供的方式一起成长。」</p>
+  <p class="soft" style="font-size:13.2px">这段文案写得不错，但更值得注意的是它列的动作全是动宾结构：<b>破解代码、擀面团、发现故事、获得素养、想象未来</b>。<b>写得出这么多具体动作，说明这些课真的上过。</b></p>
+</div>
+
+<h3>一条可以验证「学生真的在服务」的记录</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 LSP1 活动报道（2026-03-16）</div>
+  <p>「4 Gratitude 班与 4 Wisdom 班的学生在 <b>PCF Sparkle Care 活跃乐龄中心</b>开展 Values-in-Action（VIA）项目，他们<b>组织有意义的活动、与受益者互动</b>，同时学习关怀社区的需求。」</p>
+  <p class="soft" style="font-size:13.2px">这条的价值在于它给了<b>具体班级名（4 Gratitude、4 Wisdom）与具体机构名（PCF Sparkle Care）</b>——可以核。顺带透露了班级命名方式：<b>用价值观命名班级</b>（Gratitude 感恩、Wisdom 智慧），这是很多教会或传统学校的做法，说明学校在班级文化上有意经营。</p>
+</div>
+
+<h3>家长与学生的公开评价：查不到</h3>
+<div class="note">
+Reddit、KiasuParents、Google 评论均无成规模讨论。
+<br><br>
+<b>这一所有一个特别的考察建议：</b>它的通勤是全十所最差，<b>所以最该问的人其实是「怎么来上学的学生」</b>。开放日找两三个学生问「你每天几点出门、坐什么车」——<b>这个答案比任何宣传都直接决定你家的日常。</b>
+</div>
+</section>
+
+
+<!-- ============ 7 ============ -->
+<section>
+<h2 id="s7"><span class="n">07</span>开放日必问清单</h2>
+<p class="lead">这所学校的关键是「通勤能不能接受」与「Robotics 到底怎么进」，清单以这两件为核心。</p>
+<ol class="checklist">
+<li><b>学生每天怎么来上学？有校车吗？从 Punggol 到校门实际多久？</b>——全篇第一问。44 分钟是步行口径，真实时间要问学生。</li>
+<li><b>Robotics 队怎么进？是选拔制还是所有学生都能参加？</b>——它不在 CCA 清单里但在 DSA 里，这是最需要搞清的结构问题。</li>
+<li><b>Infocomm Technology（媒体制作）具体做什么？有编程吗？</b>——孩子的技术兴趣主要落点。</li>
+<li><b>中二的糕点与甜品制作模块，一年几次？中三中四还有吗？</b>——确认烹饪只是「体验一次」还是能有延续。</li>
+<li><b>应用学习模块（法证科学、汽车工程等）是和哪些机构合办的？</b>——这些模块的质量取决于合作方。</li>
+<li><b>ALP「媒介素养研究社会」具体做什么？有产出吗？</b>——官网无详情页，只能问。</li>
+<li><b>孩子 17 分进校分到哪个班？班级是按价值观命名的吗？</b>——PG3 12–22 跨 10 分，分层方式很重要。</li>
+<li><b>上一届 Express 班拿 JC 资格、进 Poly 的比例？</b>——它有技术教育血脉，出口可能多元，值得问清。</li>
+<li><b>愿景说 Leaders with Heart，但校训只有 Integrity 和 Diligence，Heart 落在哪条价值观上？</b>——这个问题能试出学校对自家理念的思考深度。</li>
+<li><b>学校合并过四次，现在的校园文化更接近哪一支血脉？</b>——学术型、技术型、还是商业型？这决定孩子的同侪氛围。</li>
+</ol>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与可信度</h2>
+<p class="lead">A 级＝官方一手（MOE、学校官网、官方文件）；B 级＝权威二手（主流媒体、官方平台报道）；C 级＝网络整理，需现场核实。</p>
+<table>
+<thead><tr><th style="width:34%">内容</th><th>来源</th><th style="width:52px">可信度</th></tr></thead>
+<tbody>
+<tr><td><b>PG3 录取区间 12–22</b></td><td>MOE SchoolFinder（2025 年度 S1 Posting）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>校史（1959 Lichfield → 四次合并 → 2004 迁现址）</b></td><td>学校官网 Our Rich Heritage</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>1976 年 3,000 人 / 78 班 / 校训确立</b></td><td>学校官网 Our Rich Heritage</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>愿景 / 使命 / 校训 / 价值观</b></td><td>学校官网 Our Motto, Vision, Mission, Values</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>分级特色课程 LSP 各年级内容</b></td><td>学校官网 2026 Level Signature Programmes 1 & 2 报道</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td><b>11 项 CCA（含 Infocomm Technology）</b></td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>DSA 8 个项目（含 Robotics / Floorball / Guzheng）</b></td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>ALP Researching Society through Media Literacy 内容</b></td><td><b>官网无独立页面</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>LLP 落地形态（自我→朋辈→社区）</b></td><td>由 LSP 活动报道推断</td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>O-Level 成绩 / 升学分布</b></td><td><b>官网未公布</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>学生规模（约 1,100）</b></td><td>估算值</td><td class="mid"><span class="tag c">C</span></td></tr>
+</tbody>
+</table>
+<h3>我剔除掉的错误信息</h3>
+<p>网上流传的择校资料里，这所学校有几条被反复抄错的数字。我逐条回到一手来源核对过：</p>
+<table>
+<thead><tr><th style="width:34%">流传的说法</th><th>实际情况</th></tr></thead>
+<tbody>
+<tr><td>「Serangoon Garden Secondary 创办于 1969 年」</td><td>前身 <b>Lichfield Secondary School 1959 年</b>已创办，1960 年改名 Serangoon Garden Government High School。<b>1969 年是与惠耀职业学校合并、定名的一年。</b></td></tr>
+<tr><td>「学校没有机器人社团」</td><td>MOE 的 11 项 CCA 里确实没有 Robotics，<b>但 DSA 开了 Robotics 项目</b>——说明有队伍与教练。<b>不能因为 CCA 清单没有就判断学校没有机器人。</b></td></tr>
+<tr><td>「通勤约 32 分钟」</td><td><b>44 分钟</b>。最近站 Kovan（NE13）距校 <b>1,991 米</b>，其中步行 25 分钟。<b>这是十所候选里通勤最差的一所</b>，且 44 分钟已是乐观口径。</td></tr>
+<tr><td>「学校在实龙岗花园（Serangoon Garden）」</td><td>校名保留旧地名，<b>但 2004 年 3 月起校址在 Serangoon North Avenue 1</b>，离 Kovan 地铁站约 2 公里。</td></tr>
+<tr><td>「校训包含关怀（Care）」</td><td>校训只有 <b>Integrity 与 Diligence</b> 两个词。「Heart（心）」出现在愿景「Leaders with Heart」与价值观的 Empathy 里，<b>但不在校训中</b>。</td></tr>
+</tbody>
+</table>
+</section>
+
+<div class="foot">
+<b>报告生成：</b>2026-11-09　·　数据口径：COP 为 2025 年度 S1 Posting 结果，AL 17 属 PG3，只与同档学生竞争<br>
+<b>通勤模型：</b>MRT 站间 2 分钟、换乘 5 分钟、进站等车 4 分钟、步行 80m/min；不含巴士接驳，最近站步行 &gt;800m 的学校实际耗时更长<br>
+<b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
+</div>
+
+</div>
+</body>
+</html>

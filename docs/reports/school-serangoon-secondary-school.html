@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>实龙岗中学 Serangoon Secondary School · 单校深度报告</title>
+<style>
+:root{
+  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
+  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
+  --accent:#0f5c4e; --accent-bg:#eef6f3;
+  --warm:#8a5a00; --warm-bg:#fdf6e7;
+  --risk:#8c2f2f; --risk-bg:#fbf0ef;
+  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.78 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:#fff}
+.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.hero h1{margin:10px 0 4px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.3}
+.hero h1 small{display:block;font-size:15px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:5px}
+.hero .sub{opacity:.84;font-size:14px;max-width:680px;margin-top:12px}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
+.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
+.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+.addr{font-size:12.6px;opacity:.72;margin-top:12px;font-variant-numeric:tabular-nums}
+
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+section{margin:0 0 10px}
+h2{font-size:18px;font-weight:640;margin:40px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:16px}
+h2 .n{font-size:11.5px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 14px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+.warnbox{background:var(--warm-bg);border:1px solid #ecdfc0;border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.panel h4{margin:0 0 8px;font-size:13.5px;color:var(--accent);letter-spacing:.2px}
+.panel ul{margin:0;padding-left:18px;font-size:13.6px}
+.panel li{margin:5px 0}
+.panel.muted h4{color:var(--tx3)}
+
+table{width:100%;border-collapse:collapse;font-size:13.3px;margin:14px 0}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:11.5px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.mid{text-align:center}
+tbody tr:hover{background:#f6f6f3}
+.soft{color:var(--tx3)}
+
+.bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;font-size:13px;margin:5px 0}
+.bar-row .lbl{color:var(--tx2)}
+.bar-track{background:#eeeeea;border-radius:4px;height:15px;overflow:hidden}
+.bar-fill{height:100%;background:#4f8f7d;border-radius:4px}
+.bar-fill.hi{background:var(--accent)}
+.bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
+
+.tl{border-left:2px solid var(--line);margin:16px 0 0 6px;padding-left:20px}
+.tl .ev{position:relative;margin:0 0 16px}
+.tl .ev::before{content:"";position:absolute;left:-26px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600}
+.tl .d{font-size:14px;margin-top:1px}
+
+.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid #c9c9c3;border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
+.voice .who{font-size:12.3px;color:var(--tx3);margin-bottom:6px;letter-spacing:.2px}
+.voice q{quotes:"「" "」";font-style:italic;color:var(--tx)}
+.voice p{margin:8px 0}
+
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:#f7f7f4;margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:#cfe4dc;background:var(--accent-bg);color:var(--accent)}
+.tag.c{border-color:#ecdfc0;background:var(--warm-bg);color:var(--warm)}
+.tag.b{border-color:#d8d8d2;background:#f2f2ee;color:#5a5a52}
+
+.checklist{counter-reset:c;list-style:none;padding:0;margin:14px 0}
+.checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
+.checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+.foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
+.foot b{color:var(--tx2)}
+.foot a{color:var(--accent)}
+
+@media(max-width:600px){
+  .hero h1{font-size:21px}
+  .grid2{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:110px 1fr 42px;font-size:12.3px}
+  table{font-size:12.3px}
+  th,td{padding:7px 6px}
+}
+@media print{
+  .hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .voice,.panel,.note{break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">单校深度报告 · Hougang · 政府混校</div>
+    <h1>实龙岗中学<small>Serangoon Secondary School（SGS）</small></h1>
+    <div class="sub">这所学校有一个被自己的数据表藏起来的强项：<b>DSA 只有两个项目，其中一个是「Programming and 3D Modelling」</b>——十所里唯一把编程写进招生项目名的学校。它的 ALP 实质是<b>无人机编程</b>，虽然 MOE 登记表上写的是另一个名字。它还曾是<b>全岛唯一的政府男女同校</b>，也是莱佛士书院的 feeder school。</div>
+    <div class="profile">
+      <div><div class="k">PG3 区间（2025）</div><div class="v">16 – 20</div></div>
+      <div><div class="k">AL 17 余量</div><div class="v">+3 分</div></div>
+      <div><div class="k">通勤（自 828765）</div><div class="v">约 32 分钟</div></div>
+      <div><div class="k">建校</div><div class="v">1928 年</div></div>
+      <div><div class="k">学生规模</div><div class="v">约 900</div></div>
+      <div><div class="k">IP / SAP</div><div class="v">否 / 否</div></div>
+    </div>
+    <div class="addr">11 Upper Serangoon View, S534237　·　最近站 NE14 HOUGANG，步行约 1198m</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 30 秒判断</a>
+  <a href="#s2">② 学校底色与校史</a>
+  <a href="#s3">③ 学业与升学出路</a>
+  <a href="#s4">④ 旗舰项目</a>
+  <a href="#s5">⑤ CCA 全解析</a>
+  <a href="#s6">⑥ 真实声音</a>
+  <a href="#s7">⑦ 开放日必问清单</a>
+  <a href="#s8">⑧ 数据来源与可信度</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>先说清楚这份报告怎么写的。</b>COP、CCA、DSA、科目来自 <b>MOE SchoolFinder</b>；校史、ALP 实际内容、学生支持体系、办学理念来自<b>学校官网的校史长页</b>（这一页写得极详细，是本次十所里信息量最大的一份）。<b>不公布 O-Level 成绩。</b>
+</div>
+
+<!-- ============ 1 ============ -->
+<section>
+<h2 id="s1"><span class="n">01</span>30 秒判断</h2>
+<p class="lead">如果只看一句话：<b>这是十所里对「编程」这条线表态最直接的一所</b>——DSA 项目名就叫 Programming and 3D Modelling，ALP 是无人机编程。代价是通勤：地铁站下来要走 <b>1.2 公里</b>。</p>
+
+<div class="warnbox">
+<b>先说一个数据陷阱。</b>如果你只看 MOE SchoolFinder，这所学校的 ALP 会显示为「<b>Real-world Explorations in ICT</b>」——听起来像泛泛的信息技术。但学校自己的校史页写得很清楚：<b>ALP 的主题是「Future of Transportation（交通的未来）」，核心活动是「把无人机编程的学习与真实世界的情境连接起来」</b>。
+<br><br>
+<b>同一个项目，两个名字，含金量差了一个量级。</b>这份报告以官网内容为准。
+</div>
+
+<div class="grid2">
+  <div class="panel">
+    <h4>值得优先考虑，如果孩子…</h4>
+    <ul>
+      <li>想学<b>编程 + 3D 建模</b>——DSA 单列这个方向，是十所里唯一</li>
+      <li>对<b>无人机</b>有兴趣——ALP 的核心就是无人机编程</li>
+      <li>想读 <b>Computing 或 Mobile Robotics 科目</b>——学校 ICT 部门两科都开</li>
+      <li>需要<b>细致的学生支持</b>——它的三级支持体系是十所里写得最具体的</li>
+    </ul>
+  </div>
+  <div class="panel muted">
+    <h4>要慎重，如果孩子…</h4>
+    <ul>
+      <li>怕长通勤——<b>后港站步行 1,198m</b>，实际需要巴士接驳</li>
+      <li><b>游泳是刚需</b>——没有游泳 CCA</li>
+      <li>喜欢<b>演戏</b>——没有戏剧社</li>
+      <li>想要<b>社团选择多</b>——只有 8 项，且没有科技类社团</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verdict">
+  <h3>三个需要记住的数字</h3>
+  <ul>
+    <li><b>PG3 16–20</b>：孩子 17 分，余量 <b>+3 分</b>。但注意这个区间<b>只有 4 分宽</b>——是十所里最窄的之一，说明这所学校的生源高度集中。</li>
+    <li><b>DSA 只有 2 项</b>：十所里最少。但两项都很特别——<b>Community Youth Leadership</b> 和 <b>Programming and 3D Modelling</b>。</li>
+    <li><b>步行 1,198m</b>：十所里第二差（仅次于 Hougang 的 1,349m）。32 分钟的通勤估算偏乐观。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section>
+<h2 id="s2"><span class="n">02</span>学校底色与校史</h2>
+<p class="lead">这所学校的校史里藏着两个「全岛唯一」：<b>它曾经是新加坡唯一的政府男女同校</b>，也曾经是<b>莱佛士书院的 feeder school</b>。还有一段日占时期的特殊经历。</p>
+
+<h3>一条时间线</h3>
+<div class="tl">
+  <div class="ev"><div class="yr">1928</div><div class="d">以 <b>Serangoon English School</b> 之名创办，校址在 <b>Simon Road</b> 的两层楼建筑。当时它是<b>新加坡唯一的政府男女同校（government co-educational school）</b>，同时担任<b>莱佛士书院的 feeder school</b>。</div></div>
+  <div class="ev"><div class="yr">1937</div><div class="d">增设三个年级，办学延伸到 <b>Standard Eight</b>（相当于今天的中三）。读完的学生按性别分别升入 <b>Raffles Institution（男）</b>与 <b>Raffles Girls' School（女）</b>去考学校证书——<b>相当于今天的 O-Level</b>。</div></div>
+  <div class="ev"><div class="yr">1942–1945</div><div class="d">日占时期，学校被改称 <b>Japanese Higher Normal School（日本高等师范学校）</b>，用来<b>在日式教育体系下培训政府官员</b>。这是本次十所里唯一有这段历史的一所学校。</div></div>
+  <div class="ev"><div class="yr">1949</div><div class="d">成为完整学校，第一届学校证书班开课，办学范围从小学一年级一直到剑桥学校证书（O-Level 同等）。</div></div>
+  <div class="ev"><div class="yr">1957</div><div class="d">停办小学班级，正式成为<b>上实龙岗区的中学</b>。</div></div>
+  <div class="ev"><div class="yr">1965</div><div class="d">开设首届大学先修班，<b>并开始在这些班级招收女生</b>。</div></div>
+  <div class="ev"><div class="yr">1967</div><div class="d">迁至 <b>Lowland Road</b>，改名 <b>Serangoon Secondary School</b>。同年校徽修改、<b>校训从「Play the Game」改为「Knowledge is Power」</b>，现行校歌也在这一年引入。</div></div>
+  <div class="ev"><div class="yr">1976 / 1989</div><div class="d">1976 年停办先修班；<b>1989 年校训再次改为「Seek, Strive, Serve」</b>——这句用到现在。</div></div>
+  <div class="ev"><div class="yr">2001</div><div class="d">迁入现址 <b>11 Upper Serangoon View</b>。2018 年庆祝 90 周年。</div></div>
+</div>
+
+<div class="note">
+<b>一个有趣的巧合：</b>这所学校 1967–2001 年在 <b>Lowland Road</b>——而<b>后港中学（Hougang Secondary）2001 年创办时的第一个校址，正是 Lowland Road</b>。换句话说，后港中学很可能接手了实龙岗中学搬走后的旧校舍。<b>两所学校在同一块地上先后办学</b>，这是读多份报告才能发现的连接。
+<br><br>
+<b>校训改过三次</b>也是少见的事：Play the Game（体育精神）→ Knowledge is Power（知识）→ Seek, Strive, Serve（求索、奋斗、服务）。<b>三次改动本身就是一部教育观念变迁史。</b>
+</div>
+
+<h3>愿景与 SHINE 价值观</h3>
+<table>
+<thead><tr><th style="width:120px">项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td><b>愿景</b></td><td>Resilient Individuals · Passionate Learners · Active Contributors</td></tr>
+<tr><td><b>使命</b></td><td>Moulding Character · Igniting Passion · Building Community</td></tr>
+<tr><td><b>价值观 SHINE</b></td><td><b>S</b>elf-Directedness 自主 · <b>H</b>armony 和谐 · <b>I</b>ntegrity 正直 · Resilie<b>N</b>ce 韧性 · <b>E</b>xcellence 卓越</td></tr>
+<tr><td><b>学生称谓</b></td><td><b>Serangoon StaRs</b>（注意大小写：StaR 呼应 Resilient）</td></tr>
+</tbody>
+</table>
+<p>学校还有一套 <b>5-4-3-2-1</b> 框架：5 个全人发展领域（德智体群美）、4 种教师角色（关怀型班主任、投入的 CCA 老师、反思型科任老师、有伦理的 CCE 老师）、3 个教学引擎、2 支核心团队、1 个「实龙岗大家庭」。</p>
+<p class="soft" style="font-size:13.2px">这套框架的价值不在名字好听，而在于<b>它把「每个老师要扮演四种角色」写成了明文</b>——尤其「关怀型班主任」与「投入的 CCA 老师」并列，说明学校认为<b>课外时间的人格影响和课堂同等重要</b>。</p>
+</section>
+
+<!-- ============ 3 ============ -->
+<section>
+<h2 id="s3"><span class="n">03</span>学业与升学出路</h2>
+<p class="lead">这所学校<b>不公布 O-Level 成绩</b>。但它的校史页写了一整套学生支持体系，<b>那个比成绩数据更能说明「学校怎么对待落后的孩子」。</b></p>
+
+<h3>三级支持体系（十所里写得最细）</h3>
+<table>
+<thead><tr><th style="width:150px">机制</th><th>学校原文要点</th></tr></thead>
+<tbody>
+<tr><td><b>每周一对一</b></td><td>每周<b>专门留出时间</b>，让班主任与学生进行高质量的一对一对话。</td></tr>
+<tr><td><b>社交网络分析</b></td><td>班级层面使用<b>社交网络分析</b>来了解班内的同伴关系——找出被孤立的学生。</td></tr>
+<tr><td><b>个案管理团队（CMT）</b></td><td>2019 年底正式成立，由校领导带领，为 <b>Tier 2 / Tier 3 学生</b>（需要较多支持的学生）制定跨部门协作的支持计划，由个案经理定期检讨更新。</td></tr>
+<tr><td><b>Orion StaRs 课后计划</b></td><td>与社区伙伴 <b>Bethesda Care</b> 与 <b>The Astronauts Collective</b> 合作，为需要额外支持的学生提供课后陪伴与辅导。</td></tr>
+<tr><td><b>数据监测</b></td><td>每学期一次的 check-in 调查、每年两次的 <b>SWBD（学生福祉与发展）</b>调查，加上年级会议与班主任交流的反馈。</td></tr>
+<tr><td><b>校领导直接对话</b></td><td>校领导定期与学生对话，并在校园巡视时进行<b>非正式的小组交谈</b>。</td></tr>
+</tbody>
+</table>
+<div class="verdict">
+  <h3>为什么这套东西值得单独列出来</h3>
+  <ul>
+    <li>其他九份报告里，「学生支持」通常只有一句「我们关怀每个学生」。<b>这一所给出了六层机制、合作机构名称、以及「Tier 2/3」这样的专业分级。</b></li>
+    <li><b>社交网络分析</b>这一条尤其少见——它意味着学校在<b>主动找「没人一起吃饭的孩子」</b>，而不是等出问题再处理。</li>
+    <li>对家长的含义：<b>如果你的孩子属于安静型、不主动求助的类型，这种学校比「放养型」学校安全得多。</b></li>
+  </ul>
+</div>
+
+<h3>生源结构：最窄的一档</h3>
+<p>PG3 区间 <b>16–20</b>，<b>只有 4 分宽</b>。孩子 17 分落在<b>下四分之一</b>——这跟前面几所「跨 6–11 分」的学校完全不同。</p>
+<p><b>窄区间意味着两件事：</b>① 同届学生水平非常接近，教学进度好安排；② <b>但 17 分在这里接近底部</b>，如果孩子需要拔尖，压力会更大。而余量 +3 分说明录取本身不危险。</p>
+
+<h3>科目与一条罕见的配置</h3>
+<p>标准科目（语言、数学与附加数学、三科科学及组合、人文、D&amp;T、FCE、艺术、音乐、体育）齐全。<b>真正特别的是 ICT 部门开设的两门课：</b></p>
+<ul>
+  <li><b>Computing（计算机）</b></li>
+  <li><b>Mobile Robotics（移动机器人）</b></li>
+</ul>
+<p>学校原文说这两科「给学生重要的真实世界问题解决能力，<b>并为将来在 Computing 领域深造打下良好基础</b>」。</p>
+<div class="note">
+<b>注意这个区别：</b>十所候选里，多数学校的「科技」只体现在 CCA 或 ALP 里。<b>这一所把 Computing 与 Mobile Robotics 做成了正式科目。</b>对想学编程的孩子，这是「有课可上」而不是「只有社团可玩」——<b>差别在于前者有课表、有考核、有连贯的四年课程。</b>
+</div>
+
+<div class="verdict">
+  <h3>毕业生去向怎么判断</h3>
+  <ul>
+    <li><b>直接证据：没有。</b>不公布升学分布。</li>
+    <li><b>间接判断：Poly 为主，头部能上 JC。</b>PG3 16–20 区间偏紧，下限 16 分说明生源质量在本次候选中属中上。</li>
+    <li><b>一个可用的线索：</b>学校与<b>「STEM 产业界人士组成的小组」</b>合作，用来改进教育与职业辅导（ECG）流程。说明它在认真做升学与职业衔接，不只是喊口号。</li>
+    <li><b>开放日要问：</b>「Computing 和 Mobile Robotics 是中几开的选修？多少人能选上？」「上一届 Express 班 JC 资格率？」</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section>
+<h2 id="s4"><span class="n">04</span>两个旗舰项目</h2>
+<p class="lead">这一节是这份报告的核心。<b>它的 ALP 是十所里唯一明确以「编程」为教学载体的项目</b>——只不过 MOE 的表上写的是另一个名字。</p>
+
+<h3>ALP：从「ICT 探索」到「无人机编程」</h3>
+<p>先看两个名字的差距：</p>
+<table>
+<thead><tr><th style="width:180px">出处</th><th>名称</th></tr></thead>
+<tbody>
+<tr><td><b>MOE SchoolFinder</b></td><td>Real-world Explorations in ICT（真实世界的信息通信技术探索）</td></tr>
+<tr><td><b>学校官网校史页</b></td><td>Applied Learning Programme on the <b>Future of Transportation（交通的未来）</b>，聚焦 STEM，<b>核心是「把无人机编程（drone programming）的学习与真实世界的情境与议题连接起来」</b></td></tr>
+</tbody>
+</table>
+<p>学校对它的评价写得也很直白：「<b>这是学生学习体验中极受喜爱的一部分（a much beloved part of our students' learning experiences）</b>。」</p>
+<div class="verdict">
+  <h3>为什么这条对你的孩子特别重要</h3>
+  <ul>
+    <li><b>无人机编程</b>是本次十所里唯一一个「写代码控制真实飞行器」的项目。它同时覆盖了编程、控制、物理（飞行力学）与安全规范——<b>比纯软件项目更能抓住动手型的孩子</b>。</li>
+    <li>它和 <b>DSA 的 Programming and 3D Modelling</b>、<b>ICT 科目的 Computing + Mobile Robotics</b> 是同一条线。<b>三者叠加，说明这不是一个孤立项目，是一条从课表到招生的完整通道。</b></li>
+    <li>对比参考：Montfort 的「Design, Code, Make」也很强，但它是<b>静态作品</b>（设计＋编程＋制作）；Serangoon 的无人机是<b>动态系统</b>（编程→起飞→调参）。<b>对喜欢「看到东西动起来」的孩子，后者更过瘾。</b></li>
+  </ul>
+</div>
+
+<h3>LLP：Project Ablaze —— 学生领导力服务社区</h3>
+<p>项目全名 <b>Project Ablaze: Harnessing Student Leadership in the Service of Community</b>（点燃计划：把学生领导力用于服务社区）。</p>
+<p>设计是<b>两层结构</b>：</p>
+<table>
+<thead><tr><th style="width:150px">层级</th><th>对象与内容</th></tr></thead>
+<tbody>
+<tr><td><b>第一层</b></td><td><b>全体学生</b>的领导力训练——人人都有</td></tr>
+<tr><td><b>第二层</b></td><td>学生领袖（<b>学长团、CCA 领袖、班委、朋辈支持领袖</b>）按角色接受进阶训练</td></tr>
+</tbody>
+</table>
+<p>落地形式是 <b>VIA（Values in Action）项目</b>：学生要参与、设计并执行社区项目。学校还引入社区伙伴与家长，共同搭建一个「<b>希望延伸到毕业之后</b>」的领导力与志愿服务生态。</p>
+<div class="note">
+<b>和 Montfort 的 LLP 对比很有意思：</b>Montfort 走「体育 → 户外冒险 → 领导力」，练的是<b>带队与冒险能力</b>；Serangoon 走「领导力 → 社区项目 → 服务」，练的是<b>组织与影响他人</b>。前者偏「自我挑战」，后者偏「社会责任」。<b>如果孩子偏内向、想练表达与组织，后者更对症。</b>
+</div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section>
+<h2 id="s5"><span class="n">05</span>CCA 全解析</h2>
+<p class="lead">8 项 CCA，数量偏少，而且<b>一个科技类社团都没有</b>——这跟它的 ALP 主题形成了奇怪的错位。</p>
+
+<h3>MOE 登记（8 项）</h3>
+<table>
+<thead><tr><th style="width:110px">类别</th><th>CCA</th></tr></thead>
+<tbody>
+<tr><td><b>体育</b></td><td>Basketball 篮球（男）· Football 足球（男）· Netball 无板篮球（女）</td></tr>
+<tr><td><b>表演艺术</b></td><td>Choir 合唱 · Concert Band 管乐团</td></tr>
+<tr><td><b>制服团体</b></td><td>Girl Guides 女童军（女）· National Police Cadet Corps（NPCC）· Scouts 童军（男）</td></tr>
+</tbody>
+</table>
+
+<div class="warnbox">
+<b>一个明显的错位必须点出来。</b>这所学校的 ALP 是无人机编程、DSA 有 3D 建模、ICT 部门开 Computing 与 Mobile Robotics 科目——<b>但它的 8 个 CCA 里，没有一个科技类社团</b>。没有 Robotics，没有 Infocomm，没有媒体社。
+<br><br>
+<b>怎么理解：</b>说明它的科技教育<b>全部在正课里发生</b>，不靠社团。好处是「人人有份」；坏处是<b>没有可以自己钻研的课外空间</b>。如果孩子学了编程想找同好一起做项目，这里没有那样的社团。
+</div>
+
+<h3>用 DSA 名单反推「真正的强项」</h3>
+<p><b>只有 2 个项目——十所里最少。</b></p>
+<p style="font-size:14.4px">
+<span class="tag a">Community Youth Leadership 社区青年领导力</span>
+<span class="tag a">Programming and 3D Modelling 编程与三维建模</span>
+</p>
+<div class="verdict">
+  <h3>这个「两项」名单说明什么</h3>
+  <ul>
+    <li><b>它不靠体艺招生。</b>别的学校动辄 6–11 项，全是体育与表演艺术；这一所<b>完全放弃那条路</b>，只留领导力与编程。</li>
+    <li><b>「Programming and 3D Modelling」是全十所唯一的编程类 DSA。</b>这不是「STEM」这种笼统说法，而是<b>点名两个具体技能</b>——说明学校知道自己要招什么样的人，并且有课程能接住。</li>
+    <li><b>但风险也要看清：</b>DSA 只有 2 项，说明学校对特长生的吸纳能力有限。<b>常规 S1 Posting 是绝大多数学生的入口</b>，这对不打算走 DSA 的孩子没有影响。</li>
+  </ul>
+</div>
+
+<div class="verdict">
+  <h3>对照孩子的五个兴趣</h3>
+  <ul>
+    <li><b>AI / Computing —— 十所里最强匹配之一。</b>三重叠加：ALP 无人机编程 + DSA 编程与 3D 建模 + 正式科目 Computing 与 Mobile Robotics。<b>这是唯一一所在「课表、项目、招生」三层都有编程的学校。</b></li>
+    <li><b>Robotics —— 中等。</b>没有机器人 CCA，但 <b>Mobile Robotics 是正式科目</b>——想学机器人得靠上课，不是靠社团。</li>
+    <li><b>Drama —— 无匹配。</b>没有戏剧社，表演艺术只有合唱与管乐。</li>
+    <li><b>Cooking —— 弱。</b>有食品与消费教育科目，无烹饪社团。</li>
+    <li><b>Swimming —— 无匹配。</b>没有游泳 CCA，没有泳池。</li>
+  </ul>
+</div>
+<p><b>一句话总结：</b>如果孩子最看重的是编程，这所学校的匹配度不输 Montfort，而且在「有课可上」这一点上更强。<b>但如果他同时想演戏或搞机器人社团，这里只有课，没有社团。</b></p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section>
+<h2 id="s6"><span class="n">06</span>真实声音</h2>
+<p class="lead">这所学校没有校长致辞，也没有教师报道。但它的校史页写了一句话，把「极端细节」和「教育目标」连在了一起。</p>
+
+<h3>那句写在学生支持章节开头的话</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 School History → 2024 and Beyond 章节</div>
+  <p>「学校采用一系列流程来监测与支持学生的福祉，并以<b>「多手共举（a many-hands approach）」</b>的方式，培养一种关怀、信任与尊重的氛围。」</p>
+  <p class="soft" style="font-size:13.2px">「Many-hands approach」这个词用得准确。紧接着它列了六层机制——每周一对一、社交网络分析、个案管理团队、课后陪伴计划、两次年度福祉调查、校领导非正式交谈。<b>这不是形容词，是可以被检查的结构。</b>
+  <br><br>
+值得并读的还有一句：<b>「时间是被保护起来的（Time is protected weekly）」</b>——为了让班主任能做一对一对话。<b>「保护时间」意味着有人想占用它，而学校选择挡住。</b>这比「我们重视师生关系」可信得多。</p>
+</div>
+
+<h3>学校对「为什么这样设计课程」的解释</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 School History</div>
+  <p>「英文与文学、母语科通过<b>学习之旅、讨论与辩论</b>等互动、创造、体验式活动，让学生有机会在真实情境中应用语言与文学技能。人文科采用<b>探究式学习</b>，学生通过历史与地理考察走出教室。」</p>
+  <p>「为发展学生在科学方面的强项与兴趣，<b>被选中的学生</b>有机会参加各类学术竞赛（如年度 ignITE Challenge、奥林匹克竞赛等）。<b>年度数学学习日</b>则为低年级学生提供平台，以有趣而有意义的方式探索数学概念。」</p>
+  <p class="soft" style="font-size:13.2px">注意「<b>被选中的学生</b>」这个措辞——学校没有假装「人人参加竞赛」，而是诚实地说明了选拔机制。<b>这种坦白在读学校材料时很少见，值得记一笔。</b></p>
+</div>
+
+<h3>一个关于「我们曾经是什么」的坦白</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 School History（日占时期段）</div>
+  <p>「在日占时期，学校被称为 <b>Japanese Higher Normal School（日本高等师范学校）</b>，被用来<b>在日式教育体系下培训政府官员</b>。」</p>
+  <p class="soft" style="font-size:13.2px">这段历史在本地学校官网上极少被主动提起。一所愿意写「我们曾被用来做别的事」的学校，<b>在校史叙述上是诚实的</b>——这种诚实通常会延伸到其他方面。</p>
+</div>
+
+<h3>家长与学生的公开评价：查不到</h3>
+<div class="note">
+Reddit、KiasuParents、Google 评论均无成规模讨论。
+<br><br>
+<b>这所有一个具体的观察点：</b>它强调「每周一对一谈话」和「社交网络分析」。开放日可以问学生志愿者一个问题：<b>「你班主任这学期跟你单独聊过几次？」</b>——如果学生能说出具体次数和内容，说明那套体系是真的；如果答不上来，就只是文件。<b>这是全篇最容易验证的一件事。</b>
+</div>
+</section>
+
+
+<!-- ============ 7 ============ -->
+<section>
+<h2 id="s7"><span class="n">07</span>开放日必问清单</h2>
+<p class="lead">这所学校的核心是「编程到底能学到什么程度」，加上通勤的硬伤。清单按此排列。</p>
+<ol class="checklist">
+<li><b>无人机编程是中几的课？全校还是选拔？飞什么机型？</b>——ALP 的核心，必须问到底。</li>
+<li><b>Programming and 3D Modelling 的 DSA 怎么选？要交作品吗？</b>——十所里唯一的编程 DSA，标准值得了解。</li>
+<li><b>Computing 与 Mobile Robotics 是中几的选修？多少人能选上？</b>——确认「有课可上」不是「只给少数人」。</li>
+<li><b>学了编程的孩子，有没有社团或课外时间可以继续做？</b>——8 个 CCA 里没有科技类，这是明确的空白。</li>
+<li><b>你班主任这学期跟你单独聊过几次？</b>（问学生志愿者）——验证「每周一对一」是真是假，一问就知道。</li>
+<li><b>Orion StaRs 课后计划是给哪些学生的？怎么被选中？</b>——了解学校的支持机制怎么启动。</li>
+<li><b>从后港站到学校有接驳巴士吗？几路？</b>——步行 1,198m 是硬伤，这决定每天真实通勤时间。</li>
+<li><b>孩子 17 分在 PG3 16–20 的区间里算什么位置？</b>——区间只有 4 分宽，他靠下。要问学校的支持安排。</li>
+<li><b>上一届 Express 班拿 JC 资格的比例？</b>——不公布，只能问。</li>
+<li><b>有没有校车到 Punggol Walk？</b>——32 分钟是模型估算，实际需实测。</li>
+</ol>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与可信度</h2>
+<p class="lead">A 级＝官方一手（MOE、学校官网、官方文件）；B 级＝权威二手（主流媒体、官方平台报道）；C 级＝网络整理，需现场核实。</p>
+<table>
+<thead><tr><th style="width:34%">内容</th><th>来源</th><th style="width:52px">可信度</th></tr></thead>
+<tbody>
+<tr><td><b>PG3 录取区间 16–20</b></td><td>MOE SchoolFinder（2025 年度 S1 Posting）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>校史（1928 建校 / 日占时期 / 三次改校训）</b></td><td>学校官网 School History</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>ALP 实际内容：Future of Transportation + 无人机编程</b></td><td>学校官网 School History（2024 and Beyond 章节）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>ALP 登记名称 Real-world Explorations in ICT</b></td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>愿景 / 使命 / SHINE 价值观 / 5-4-3-2-1 框架</b></td><td>学校官网 VMV 页</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>三级学生支持体系（CMT / Orion StaRs / 社交网络分析）</b></td><td>学校官网 School History</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>Computing 与 Mobile Robotics 科目</b></td><td>学校官网 School History</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>8 项 CCA</b></td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>DSA 2 个招生项目</b></td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>O-Level 成绩 / 升学分布</b></td><td><b>官网未公布</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>学生规模（约 900）</b></td><td>估算值</td><td class="mid"><span class="tag c">C</span></td></tr>
+</tbody>
+</table>
+<h3>我剔除掉的错误信息</h3>
+<p>网上流传的择校资料里，这所学校有几条被反复抄错的数字。我逐条回到一手来源核对过：</p>
+<table>
+<thead><tr><th style="width:34%">流传的说法</th><th>实际情况</th></tr></thead>
+<tbody>
+<tr><td>「Serangoon Secondary 的 ALP 是泛泛的 ICT 探索」</td><td>MOE 登记名是 Real-world Explorations in ICT，但<b>官网明确写 ALP 主题为「交通的未来」，核心是无人机编程（drone programming）</b>。<b>两个名字，含金量差一个量级。</b></td></tr>
+<tr><td>「学校 DSA 项目很少，说明没有特长方向」</td><td>DSA 只有 2 项，但其中 <b>Programming and 3D Modelling 是全十所唯一的编程类招生项目</b>。数量少不等于质量低——<b>它是不靠体艺招生，只押科技与领导力。</b></td></tr>
+<tr><td>「学校有机器人或科技类 CCA」</td><td><b>8 个 CCA 里没有科技类社团。</b>科技教育全部在正课（Computing / Mobile Robotics）与 ALP 里发生。<b>没有课外钻研的空间。</b></td></tr>
+<tr><td>「学校 1967 年创办」</td><td>1928 年创办为 Serangoon English School。<b>1967 年只是迁校改名</b>，同年在 Lowland Road。</td></tr>
+<tr><td>「校训是 Knowledge is Power」</td><td>那是 1967–1989 年的校训。<b>1989 年起改为「Seek, Strive, Serve」</b>，另有更早的「Play the Game」（1928–1967）。<b>三次改动。</b></td></tr>
+</tbody>
+</table>
+</section>
+
+<div class="foot">
+<b>报告生成：</b>2026-11-09　·　数据口径：COP 为 2025 年度 S1 Posting 结果，AL 17 属 PG3，只与同档学生竞争<br>
+<b>通勤模型：</b>MRT 站间 2 分钟、换乘 5 分钟、进站等车 4 分钟、步行 80m/min；不含巴士接驳，最近站步行 &gt;800m 的学校实际耗时更长<br>
+<b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>培道中学 Punggol Secondary School · 单校深度报告</title>
+<style>
+:root{
+  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
+  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
+  --accent:#0f5c4e; --accent-bg:#eef6f3;
+  --warm:#8a5a00; --warm-bg:#fdf6e7;
+  --risk:#8c2f2f; --risk-bg:#fbf0ef;
+  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.78 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:#fff}
+.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.hero h1{margin:10px 0 4px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.3}
+.hero h1 small{display:block;font-size:15px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:5px}
+.hero .sub{opacity:.84;font-size:14px;max-width:680px;margin-top:12px}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
+.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
+.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+.addr{font-size:12.6px;opacity:.72;margin-top:12px;font-variant-numeric:tabular-nums}
+
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+section{margin:0 0 10px}
+h2{font-size:18px;font-weight:640;margin:40px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:16px}
+h2 .n{font-size:11.5px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 14px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+.warnbox{background:var(--warm-bg);border:1px solid #ecdfc0;border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.panel h4{margin:0 0 8px;font-size:13.5px;color:var(--accent);letter-spacing:.2px}
+.panel ul{margin:0;padding-left:18px;font-size:13.6px}
+.panel li{margin:5px 0}
+.panel.muted h4{color:var(--tx3)}
+
+table{width:100%;border-collapse:collapse;font-size:13.3px;margin:14px 0}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:11.5px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.mid{text-align:center}
+tbody tr:hover{background:#f6f6f3}
+.soft{color:var(--tx3)}
+
+.bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;font-size:13px;margin:5px 0}
+.bar-row .lbl{color:var(--tx2)}
+.bar-track{background:#eeeeea;border-radius:4px;height:15px;overflow:hidden}
+.bar-fill{height:100%;background:#4f8f7d;border-radius:4px}
+.bar-fill.hi{background:var(--accent)}
+.bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
+
+.tl{border-left:2px solid var(--line);margin:16px 0 0 6px;padding-left:20px}
+.tl .ev{position:relative;margin:0 0 16px}
+.tl .ev::before{content:"";position:absolute;left:-26px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600}
+.tl .d{font-size:14px;margin-top:1px}
+
+.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid #c9c9c3;border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
+.voice .who{font-size:12.3px;color:var(--tx3);margin-bottom:6px;letter-spacing:.2px}
+.voice q{quotes:"「" "」";font-style:italic;color:var(--tx)}
+.voice p{margin:8px 0}
+
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:#f7f7f4;margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:#cfe4dc;background:var(--accent-bg);color:var(--accent)}
+.tag.c{border-color:#ecdfc0;background:var(--warm-bg);color:var(--warm)}
+.tag.b{border-color:#d8d8d2;background:#f2f2ee;color:#5a5a52}
+
+.checklist{counter-reset:c;list-style:none;padding:0;margin:14px 0}
+.checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
+.checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+.foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
+.foot b{color:var(--tx2)}
+.foot a{color:var(--accent)}
+
+@media(max-width:600px){
+  .hero h1{font-size:21px}
+  .grid2{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:110px 1fr 42px;font-size:12.3px}
+  table{font-size:12.3px}
+  th,td{padding:7px 6px}
+}
+@media print{
+  .hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .voice,.panel,.note{break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">单校深度报告 · Punggol · 政府混校</div>
+    <h1>培道中学<small>Punggol Secondary School（PSS）</small></h1>
+    <div class="sub">一所 1957 年由几位女教育家创办的<b>女子职业学校</b>，两次改名后落到榜鹅。它保留了两个东西：中文名「<b>培道</b>」，和一套今天的中学里很少见的价值观——<b>礼、义、廉、耻</b>。学术招牌是「智能水培」：学生用积木式编程管一座真实的农场。</div>
+    <div class="profile">
+      <div><div class="k">PG3 区间（2025）</div><div class="v">13 – 19</div></div>
+      <div><div class="k">AL 17 余量</div><div class="v">+2 分</div></div>
+      <div><div class="k">通勤（自 828765）</div><div class="v">约 22 分钟</div></div>
+      <div><div class="k">建校</div><div class="v">1957 年</div></div>
+      <div><div class="k">学生规模</div><div class="v">约 1,000</div></div>
+      <div><div class="k">IP / SAP</div><div class="v">否 / 否</div></div>
+    </div>
+    <div class="addr">51 Edgefield Plains, S828870　·　最近站 NE17 PUNGGOL，步行约 841m</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 30 秒判断</a>
+  <a href="#s2">② 学校底色与校史</a>
+  <a href="#s3">③ 学业与升学出路</a>
+  <a href="#s4">④ 旗舰项目</a>
+  <a href="#s5">⑤ CCA 全解析</a>
+  <a href="#s6">⑥ 真实声音</a>
+  <a href="#s7">⑦ 开放日必问清单</a>
+  <a href="#s8">⑧ 数据来源与可信度</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>先说清楚这份报告怎么写的。</b>硬数据（COP、CCA、DSA、科目、地址）来自 <b>MOE SchoolFinder 与学校官网</b>；校史、价值观、ALP/LLP 细节来自<b>学校官网原文</b>；校长致辞为官网原文摘译。<b>官网没有公布任何年度 O-Level 成绩</b>，我如实标注，不用第三方站点的估算数字填空。
+</div>
+
+<!-- ============ 1 ============ -->
+<section>
+<h2 id="s1"><span class="n">01</span>30 秒判断</h2>
+<p class="lead">如果只看一句话：这是十所候选里<b>「价值观最中式、科技项目最实」的一所</b>——但它的兴趣覆盖面对你孩子来说<b>偏窄</b>，戏剧、机器人、游泳三条线全都没有。</p>
+
+<div class="grid2">
+  <div class="panel">
+    <h4>值得优先考虑，如果孩子…</h4>
+    <ul>
+      <li>喜欢<b>真的写代码控制一个东西</b>——ALP 与科学馆合作，用积木式编程管一座智能水培农场</li>
+      <li>喜欢<b>球类</b>——排球是这所学校 40 多年的传统强项，还因此开了 DSA</li>
+      <li>家里看重<b>中式品格教育</b>——礼义廉耻四维，中文校名「培道」保留至今</li>
+      <li>对<b>射击</b>有兴趣——这是全岛极少数设有 Shooting CCA 的中学之一</li>
+    </ul>
+  </div>
+  <div class="panel muted">
+    <h4>要慎重，如果孩子…</h4>
+    <ul>
+      <li><b>喜欢演戏</b>——没有 Drama，也没有任何戏剧相关项目</li>
+      <li><b>想搞机器人竞赛</b>——没有 Robotics CCA，DSA 三个项目里也没有 STEM 竞赛方向</li>
+      <li><b>游泳是刚需</b>——没有游泳 CCA，没有泳池</li>
+      <li>希望<b>社团选择多</b>——12 项 CCA，在本次候选里属于偏少的一档</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verdict">
+  <h3>三个需要记住的数字</h3>
+  <ul>
+    <li><b>PG3 13–19</b>：孩子 17 分，余量 <b>+2 分</b>。比 Compassvale 和 North Vista 略宽，但仍在「一场波动就可能滑档」的区间。</li>
+    <li><b>DSA 只有 3 项</b>：合唱、环境科学、排球。十所候选里最少——<b>招生渠道越少，说明学校对外部特长生越不依赖，也说明它的强项非常集中</b>。</li>
+    <li><b>步行 841m 到 Punggol 站</b>：比 Compassvale（693m）和 North Vista（740m）都远，下雨天这一段路要走 10 分钟以上。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section>
+<h2 id="s2"><span class="n">02</span>学校底色与校史</h2>
+<p class="lead">这所学校的起点几乎是全岛独一份：<b>它不是政府办的，是一群女教育家自己办起来的</b>，而且最初只教女生一门手艺——打字、簿记、家政。</p>
+
+<h3>一条时间线</h3>
+<div class="tl">
+  <div class="ev"><div class="yr">1956</div><div class="d">本地一批女教育家（包括王玉婵女士、洪白雲女士）发现新加坡<b>缺少职业训练课程，尤其是给适龄女生的</b>，于是筹备办校。</div></div>
+  <div class="ev"><div class="yr">1957</div><div class="d">5 月 8 日，<b>Singapore Girls' Vocational High School 女子职业中学</b>在<b>乌节路 45–47 号的一排民房</b>里开学。王玉婵任校长，全校只有 4 位教师 + 1 位职员、3 个班、108 名学生。课程：华文、商业簿记、会计、缝纫、家政、英文。</div></div>
+  <div class="ev"><div class="yr">1959</div><div class="d">两年内课程转向更贴合就业，报读人数上升，班级扩到 <b>12 个</b>。</div></div>
+  <div class="ev"><div class="yr">1972</div><div class="d">迁往大巴窑东，改名 <b>Pei Dao Secondary School（培道中学）</b>——「培道」二字由此而来。建校经费来自董事会、李氏基金与教育部拨款三方。</div></div>
+  <div class="ev"><div class="yr">1978</div><div class="d">配合教育部语言源流整合政策，开始收英文源流学生，<b>由女校转为男女混校</b>。</div></div>
+  <div class="ev"><div class="yr">1982 起</div><div class="d">排球崛起，B 组与 C 组在本地与全国赛拿过多次冠军——<b>这是今天排球 DSA 的历史根源</b>。</div></div>
+  <div class="ev"><div class="yr">1986</div><div class="d">放弃补助学校（aided）身份，转为政府学校。</div></div>
+  <div class="ev"><div class="yr">1993 / 1995 / 2000</div><div class="d">三次获得 GCE O / N 水准 Express 与 Normal 课程的<b>增值奖（value-added award）</b>——奖励的是「学生进步幅度超过入学水平应有的预期」，不是绝对成绩。</div></div>
+  <div class="ev"><div class="yr">2001</div><div class="d">改名 <b>Punggol Secondary School</b>，迁入榜鹅新镇。中文名「培道」<b>再次被保留</b>，官方理由写得很直白：因为学校重视品格培养。</div></div>
+  <div class="ev"><div class="yr">2003</div><div class="d">8 月 1 日由刘梦琳议员主持正式启用。</div></div>
+</div>
+
+<h3>它的价值观：礼 义 廉 耻</h3>
+<p>这是本次十所里最特别的一处。四维直接取用<b>管子的「国之四维」</b>，并且给了英文对照：</p>
+<table>
+<thead><tr><th style="width:110px">四维</th><th style="width:130px">英文</th><th>学校给的解释</th></tr></thead>
+<tbody>
+<tr><td><b>礼</b></td><td>Propriety</td><td>言行合度，尊重他人与场合</td></tr>
+<tr><td><b>义</b></td><td>Righteousness</td><td>做该做的事，而非方便的事</td></tr>
+<tr><td><b>廉</b></td><td>Integrity</td><td>廉洁正直，不取不当之利</td></tr>
+<tr><td><b>耻</b></td><td>Self-respect</td><td>知道什么不该做——<b>「耻」在这里是自尊，不是羞耻</b></td></tr>
+</tbody>
+</table>
+<p>此外还有：<b>办学理念</b>「教育是一段自我发现的旅程」；<b>愿景</b>「面向未来的榜鹅人，积极贡献者」；<b>校训</b>「Achievers with Character」。</p>
+<div class="note">
+<b>为什么这个细节值得注意：</b>绝大多数新加坡中学的价值观是英文抽象名词（Care、Respect、Resilience）。用「礼义廉耻」四个字，意味着这套价值体系<b>有现成的中文语境和解释资源</b>——对习惯中文家庭教育的家长，接续成本低得多。尤其「耻＝自尊」这个译法，是把传统概念做了现代转译，看得出是认真想过的，不是抄口号。
+</div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section>
+<h2 id="s3"><span class="n">03</span>学业与升学出路</h2>
+<p class="lead">和 North Vista 一样，<b>这所学校不公布年度 O-Level 成绩</b>。它官网的「O Level Results Release 2025」页面是给家长的<b>放榜日指引</b>——怎么陪孩子面对成绩、怎么预约教育职业辅导，一个数字都没有。</p>
+
+<div class="warnbox">
+<b>一个值得留意的反差。</b>这所学校官网上关于「成绩」的沟通，重点全在<b>「分数不定义你是谁」</b>。放榜页原文写：「让我们记得为他们的努力庆祝，无论结果如何。我们可以通过言语和行动让孩子知道，<b>成绩不定义他们是谁</b>。」这不是敷衍——配合礼义廉耻的价值观，是同一套逻辑。
+<br><br>
+对家长的含义：<b>这所学校的自我定位明确不在「拼升学率」上。</b>如果你期待学校对学业施加高压，会失望；如果你希望孩子在一个「不把分数当唯一标尺」的环境里长大，这反而是加分项。
+</div>
+
+<h3>历史上有过的学术证据</h3>
+<p>虽然不公布具体数字，但校史页明确记载：<b>1993、1995、2000 三次获得 GCE O / N 水准的增值奖</b>。增值奖评的是「学生实际进步 vs 按入学成绩应有的预期」，连续拿三次说明<b>历史上这所学校是能把中下段学生往上拉的</b>。</p>
+<p class="soft" style="font-size:13.2px">提醒：这是 20 多年前的荣誉，不能直接推断今天。但它至少证明这所学校的<b>教学加工能力曾经被官方认定过</b>，不是空口自夸。</p>
+
+<h3>开设科目</h3>
+<p>从 MOE SchoolFinder 的科目清单看，覆盖完整：语言（英文、高级华文、华文、马来文、淡米尔文及基础班）、数学与附加数学、物理化学与生物（含三种组合）、人文（社会学科 / 地理 / 历史 / 英文文学及多种组合）、设计与工艺、食品与消费教育、艺术、音乐、体育。</p>
+<p>对孩子的意义：<b>附加数学 + 物理 + 化学</b>这条 STEM 主线是完整的；走 JC 理科路径不缺科目基础。</p>
+
+<div class="verdict">
+  <h3>毕业生去向怎么判断</h3>
+  <ul>
+    <li><b>直接证据：没有。</b>学校不公布 JC / Poly / ITE 的分布。</li>
+    <li><b>间接判断：Poly 为主的出口结构。</b>PG3 区间 13–19，与 North Vista（11–18）同档偏松，学生 L1R5 分布集中在 Poly 段。</li>
+    <li><b>开放日要问：</b>「上一届 Express 班拿到 JC 资格的比例是多少？」「增值奖这几年还拿过吗？」——第二问能试探学校是否还保留那种「拉中下段」的能力。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section>
+<h2 id="s4"><span class="n">04</span>两个旗舰项目</h2>
+<p class="lead">这所学校的 ALP 是本次十所里<b>唯一一个明确把「写代码」写进项目内容的</b>。这一点对你的孩子很重要。</p>
+
+<h3>ALP：环境永续 —— 用积木式编程管一座农场</h3>
+<p>学校自己给这个项目的定位是「<b>培养自适应思维（adaptive thinking）</b>」，做法分三块：</p>
+<table>
+<thead><tr><th style="width:140px">模块</th><th>具体内容</th></tr></thead>
+<tbody>
+<tr><td><b>智能水培</b></td><td>与<b>新加坡科学馆（Science Centre）合作设计课程包</b>，教学生用<b>积木式编程（block programming）</b>为校园水培农场做一套「智能」系统，用技术监测植物生长。</td></tr>
+<tr><td><b>蚯蚓堆肥</b></td><td>学习厨余如何转化为蚯蚓生长条件，产出堆肥用于校内种植。</td></tr>
+<tr><td><b>实地生态</b></td><td>到双溪布洛湿地（Sungei Buloh）学习本地动植物。</td></tr>
+</tbody>
+</table>
+<div class="verdict">
+  <h3>为什么这一条比 North Vista 的同类项目更贴你的孩子</h3>
+  <ul>
+    <li>两所学校的 ALP 都是「水培 + 堆肥 + 可持续」，看起来很相似。</li>
+    <li>但 North Vista 的核心动作是<b>测量</b>（测 EC 值、校准湿度）；Punggol 的核心动作是<b>编程</b>（用积木式语言让系统自动运行）。</li>
+    <li>对一个想走 <b>Computing / AI</b> 方向的孩子，<b>「我写的逻辑让一个真实物理系统动起来」</b>是比「我测了一个数据」更强的启蒙。这是两所学校最关键的一条差异。</li>
+  </ul>
+</div>
+<p>另外，学生组队参加 <b>SIT Community Challenge（新加坡理工大学社区挑战赛）</b>，为社区共创新加坡理工式永续方案，一届拿下「最投入奖」「最具影响力奖」「最鼓舞人心奖」三个奖。</p>
+
+<h3>LLP：社区与青年领导力</h3>
+<p>项目全称在 MOE 登记为「Serving with values, developing a community of confident leaders and learners」，核心是让学生<b>真的走进社区</b>：</p>
+<ul>
+  <li><b>中四学生向低年级「倡议」社会议题</b>——不是听讲座，是自己选题、自己讲</li>
+  <li>与<b>幼儿园小朋友</b>互动，做幼教陪伴</li>
+  <li>到 <b>Willing Hearts</b>（本地知名免费膳食慈善厨房）为弱势家庭备餐</li>
+</ul>
+<p class="soft" style="font-size:13.2px">注意最后一条：<b>在慈善厨房备餐</b>是孩子「烹饪」兴趣的一个真实落点——虽然它不以烹饪为名，但切菜、分装、出品是实打实的厨房劳动，而且有明确的服务对象。这比单独一个烹饪社更接近「做饭这件事的社会意义」。</p>
+
+<div class="note">
+<b>两条项目线的共同点：</b>都有<b>外部真实对象</b>——ALP 的对象是科学馆和一座农场，LLP 的对象是社区和慈善厨房。这比「校内模拟项目」更能留下记忆，也更容易在面试和自述里讲成故事。
+</div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section>
+<h2 id="s5"><span class="n">05</span>CCA 全解析</h2>
+<p class="lead">12 项 CCA，数量在十所里偏少，但有两项是全岛不多见的：<b>射击</b>和<b>排球</b>。</p>
+
+<h3>完整清单（12 项）</h3>
+<table>
+<thead><tr><th style="width:110px">类别</th><th>CCA</th></tr></thead>
+<tbody>
+<tr><td><b>体育</b></td><td>Basketball 篮球（男）· Football 足球（男）· Netball 无板篮球（女）· <b>Shooting 射击</b>（男女）· Table Tennis 乒乓球（男）· <b>Volleyball 排球</b>（男女）</td></tr>
+<tr><td><b>表演艺术</b></td><td>Choir 合唱 · Concert Band 管乐团 · Modern Dance 现代舞</td></tr>
+<tr><td><b>制服团体</b></td><td>National Cadet Corps（NCC 陆，男）· National Police Cadet Corps（NPCC）· <b>Scouts 童军</b>（男）</td></tr>
+<tr><td><b>俱乐部</b></td><td class="soft">官网未在 CCA 总页列出具体社团，需开放日确认</td></tr>
+</tbody>
+</table>
+
+<div class="warnbox">
+<b>两个缺口必须说清楚。</b>
+<br>① <b>没有俱乐部类（Clubs &amp; Societies）的 CCA。</b>MOE 登记的 12 项里，体育 6、表演艺术 3、制服团体 3，<b>俱乐部一项都没有</b>——也就是没有 Robotics、没有 Infocomm、没有媒体社、没有艺术社。这一块是空的。
+<br>② <b>学校官网的 CCA 总页只有「Pages in ...」四个分类入口，子页需逐个点开</b>，我在抓取时确认分类页内容为空壳，因此完整名单以 MOE 登记为准。
+</div>
+
+<h3>用 DSA 名单反推「真正的强项」</h3>
+<p>2026 年 DSA 只开 <b>3 个项目</b>：</p>
+<p style="font-size:14.4px">
+<span class="tag a">Choir 合唱</span>
+<span class="tag a">Environmental Science 环境科学</span>
+<span class="tag a">Volleyball 排球</span>
+</p>
+<p>这是十所候选里最精简的 DSA 名单。<b>三项刚好对应三条历史积淀</b>：合唱（表演艺术）、环境科学（ALP 主题）、排球（1982 年起的校队传统）。<b>没有一项是学校现开项目之外的东西</b>——说明这份名单不是「招人凑数」，是「招人续命」。</p>
+<p>反过来看也值得警惕：<b>如果你的孩子在这三项之外有特长，这所学校没有专门的招生通道</b>，只能走常规 S1 Posting。</p>
+
+<div class="verdict">
+  <h3>对照孩子的五个兴趣</h3>
+  <ul>
+    <li><b>AI / Computing —— 中等偏强。</b>没有编程 CCA，但 ALP 的积木式编程是<b>课程内全员覆盖</b>的（不像 North Vista 的传感器项目只给社团成员）。想学编程，这所学校的路是「在正课里学」，不是「在社团里学」。</li>
+    <li><b>Cooking —— 中等。</b>没有烹饪 CCA，但有 <b>食品与消费教育（FCE）</b>科目，加上 LLP 的 Willing Hearts 备餐与 ALP 的水培种植，构成一条「从种到煮到送」的完整体验链。</li>
+    <li><b>Drama —— 无匹配。</b>没有戏剧社，也没有戏剧类 DSA。这是硬缺口。</li>
+    <li><b>Robotics —— 无匹配。</b>没有机器人 CCA，也没有俱乐部类社团。</li>
+    <li><b>Swimming —— 无匹配。</b>没有游泳 CCA，没有泳池。</li>
+  </ul>
+</div>
+<p>五个兴趣里接住两个（AI、烹饪），这在本次候选里属于中等水平——比 North Vista 少（戏剧那一条），比 Bendemeer 多。</p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section>
+<h2 id="s6"><span class="n">06</span>真实声音</h2>
+<p class="lead">这所学校官网的文案质量在本次十所里属于上乘——它敢写具体的、可被检验的东西。下面是能核到出处的部分。</p>
+
+<h3>校长：一篇把「为什么」讲清楚的致辞</h3>
+<div class="voice">
+  <div class="who">Ms Valerie Tng ｜ 校长 ｜ 来源：学校官网 Principal's Message</div>
+  <p>「中学是学生更了解自己的关键时期，包括他们的强项、兴趣、天赋、热情，以及需要成长的领域。希望透过这个探索与反思的过程，学生能<b>在礼义廉耻的支撑下定义自己的道德罗盘</b>，并对人生的目的有更清晰的认识。」</p>
+  <p>「学生从来没有让我们失望——<b>只要我们对他们有高期待，并提供必要的支持，他们就能迎上来。</b>」</p>
+  <p class="soft" style="font-size:13.2px">这句话是整篇致辞里最有分量的一句：<b>「高期待 + 必要支持 → 学生能迎上来」</b>，这是对「增值」这件事最朴素的表述。配合历史上三次增值奖，逻辑是自洽的。</p>
+</div>
+
+<h3>一个可以说清「学生做了什么」的项目</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 ALP 页面（含现场照片说明）</div>
+  <p>学生组队参加 <b>SIT Community Challenge</b>，任务是为社区共创永续的 STEM 方案。这一届拿了 <b>「Most Engaging Award」「Most Impactful Award」「Most Inspiring Award」</b> 三个奖。</p>
+  <p>同页还有三张照片的说明文字：<b>「学生探索智能水培系统的积木式编程」「学生学习蚯蚓堆肥」「学生在双溪布洛湿地认识动植物」</b>。</p>
+  <p class="soft" style="font-size:13.2px">为什么这条可信度高：它给了<b>比赛名 + 具体奖项名 + 照片对应的活动</b>，三样都能对上。对比很多学校只写「屡获佳绩」，这是可核的。</p>
+</div>
+
+<h3>学生主导的一件事：Student Learning Festival</h3>
+<div class="voice">
+  <div class="who">来源：校长致辞</div>
+  <p>「<b>Student Learning Festival</b> 给了学生一个平台，去展示他们<b>自主学习</b>的收获、互相激发，并<b>在向同学和老师展示学习成果的过程中建立自信</b>。」</p>
+  <p class="soft" style="font-size:13.2px">这个活动的设计有意思：它不是「优秀作业展」，而是「<b>自主学习</b>成果展」——学生自己选题、自己研究、自己讲。这类平台对有好奇心但不擅长考试的孩子特别友好。</p>
+</div>
+
+<h3>家长与学生的公开评价：查不到</h3>
+<div class="note">
+我搜索了 Reddit、KiasuParents 与 Google 评论，<b>没有找到关于这所学校的成规模讨论</b>。榜鹅一带的社区型中学普遍如此。
+<br><br>
+<b>一个替代办法：</b>榜鹅是新加坡近年人口增长最快的新镇之一，邻里家长社群（如 Punggol 各社区的家长群）比网络论坛活跃得多。<b>在开放日现场找两三个在读学生的家长聊十分钟，比读一百条网上评论有用。</b>
+</div>
+</section>
+
+
+<!-- ============ 7 ============ -->
+<section>
+<h2 id="s7"><span class="n">07</span>开放日必问清单</h2>
+<p class="lead">这所学校的强项和缺口都很清楚，清单重点放在「确认缺口是否是硬伤」和「确认项目是否还活着」上。</p>
+<ol class="checklist">
+<li><b>智能水培系统现在还在跑吗？</b>——ALP 的核心资产。如果荒废了，这个项目的说服力就少一半。可以要求看一眼种植区和控制设备。</li>
+<li><b>积木式编程是中几上的课？上多少课时？</b>——确认它是「全员课程」还是「少数人活动」。官网说全员，值得当面核实。</li>
+<li><b>上一届 Express 班拿到 JC 资格的比例？</b>——学校不公布，只能当面问。</li>
+<li><b>增值奖这几年还拿过吗？</b>——试探学校是否还保留「把中下段学生往上拉」的能力。</li>
+<li><b>孩子 17 分进校，按成绩会分到哪个班？</b>——PG3 区间 13–19 跨度 6 分，分班方式直接决定同班同学的水平。</li>
+<li><b>射击 CCA 怎么选拔？需要什么条件？</b>——全岛罕见项目，但射击对纪律和专注要求高，也有安全规程，值得问清楚。</li>
+<li><b>排球校队选拔有多难？没基础的孩子能进普通训练组吗？</b>——学校排球是传统强项，通常只收有底子的。</li>
+<li><b>真的没有机器人或编程类社团吗？</b>——如果孩子最想要这条线，这题必须问死。</li>
+<li><b>礼义廉耻在课堂里怎么落地？有没有具体的课程或活动？</b>——价值观容易停在墙上，问落地方式是检验真伪最快的办法。</li>
+<li><b>有没有校车到 Punggol Walk？</b>——步行 841m 到地铁站，雨天这段路是真实的每日成本。</li>
+</ol>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与可信度</h2>
+<p class="lead">A 级＝官方一手（MOE、学校官网、官方文件）；B 级＝权威二手（主流媒体、官方平台报道）；C 级＝网络整理，需现场核实。</p>
+<table>
+<thead><tr><th style="width:34%">内容</th><th>来源</th><th style="width:52px">可信度</th></tr></thead>
+<tbody>
+<tr><td><b>PG3 录取区间 13–19</b></td><td>MOE SchoolFinder（2025 年度 S1 Posting 结果）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>校史（1957 女子职校 → 培道 → 榜鹅）</b></td><td>学校官网 School Crest, History and Song</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>价值观 礼义廉耻 / 愿景 / 校训</b></td><td>学校官网 School Identity</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>ALP 智能水培 + 积木式编程</b></td><td>学校官网 ALP in Environmental Sustainability 页</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>LLP 社区与青年领导力</b></td><td>学校官网 LLP 页 + 校长致辞</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>12 项 CCA 清单</b></td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>DSA 3 个招生项目</b></td><td>MOE SchoolFinder + 学校官网 DSA 页</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>开设科目</b></td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>学生规模（约 1,000）</b></td><td>估算值，官网未公布确切数字</td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>O-Level 成绩 / 升学分布</b></td><td><b>官网未公布；只有放榜日指引，无数字</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>家长 / 学生评价</b></td><td><b>Reddit、KiasuParents、Google 评论均无成规模讨论</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+</tbody>
+</table>
+<h3>我剔除掉的错误信息</h3>
+<p>网上流传的择校资料里，这所学校有几条被反复抄错的数字。我逐条回到一手来源核对过：</p>
+<table>
+<thead><tr><th style="width:34%">流传的说法</th><th>实际情况</th></tr></thead>
+<tbody>
+<tr><td>「Punggol Secondary 建于 2001 年」</td><td>2001 年只是<b>改名与迁校</b>的年份。学校实体创办于 <b>1957 年 5 月 8 日</b>（Singapore Girls' Vocational High School），1972 年改名培道，2001 年才改称 Punggol Secondary。</td></tr>
+<tr><td>「学校一直是一所男女混校」</td><td>创办时是<b>女子职业学校</b>，1978 年才开始收男生转为混校。</td></tr>
+<tr><td>「ALP 是社区青年领导力」</td><td>ALP 是 <b>Environmental Sustainability（环境永续）</b>——智能水培与堆肥；<b>社区与青年领导力是 LLP</b>。两者常被写反。</td></tr>
+<tr><td>「有 20 多个 CCA 可供选择」</td><td>MOE 登记为 <b>12 项</b>，且<b>没有任何俱乐部类社团</b>（无 Robotics、无 Infocomm、无媒体社）。</td></tr>
+<tr><td>「校训是 Viva La Vista」</td><td>校训是 <b>Achievers with Character</b>。Viva La Vista 是 North Vista 的旧称，两所学校被混淆了。</td></tr>
+</tbody>
+</table>
+</section>
+
+<div class="foot">
+<b>报告生成：</b>2026-11-09　·　数据口径：COP 为 2025 年度 S1 Posting 结果，AL 17 属 PG3，只与同档学生竞争<br>
+<b>通勤模型：</b>MRT 站间 2 分钟、换乘 5 分钟、进站等车 4 分钟、步行 80m/min；不含巴士接驳，最近站步行 &gt;800m 的学校实际耗时更长<br>
+<b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
+</div>
+
+</div>
+</body>
+</html>

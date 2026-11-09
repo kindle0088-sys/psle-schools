@@ -1,9 +1,54 @@
 {
   "_note": "单校深度报告索引：slug -> 报告文件。新增一份报告只需在此登记一行，看板卡片会自动出现「深度报告」入口。",
-  "generatedAt": "2026-11-09T09:00:00+08:00",
+  "generatedAt": "2026-11-09T18:00:00+08:00",
   "reports": {
+    "bendemeer-secondary-school": {
+      "file": "reports/school-bendemeer-secondary-school.html",
+      "date": "2026-11-09",
+      "version": "v1"
+    },
     "compassvale-secondary-school": {
       "file": "reports/school-compassvale-secondary.html",
+      "date": "2026-11-09",
+      "version": "v1"
+    },
+    "hougang-secondary-school": {
+      "file": "reports/school-hougang-secondary-school.html",
+      "date": "2026-11-09",
+      "version": "v1"
+    },
+    "montfort-secondary-school": {
+      "file": "reports/school-montfort-secondary-school.html",
+      "date": "2026-11-09",
+      "version": "v1"
+    },
+    "north-vista-secondary-school": {
+      "file": "reports/school-north-vista-secondary-school.html",
+      "date": "2026-11-09",
+      "version": "v1"
+    },
+    "outram-secondary-school": {
+      "file": "reports/school-outram-secondary-school.html",
+      "date": "2026-11-09",
+      "version": "v1"
+    },
+    "punggol-secondary-school": {
+      "file": "reports/school-punggol-secondary-school.html",
+      "date": "2026-11-09",
+      "version": "v1"
+    },
+    "seng-kang-secondary-school": {
+      "file": "reports/school-seng-kang-secondary-school.html",
+      "date": "2026-11-09",
+      "version": "v1"
+    },
+    "serangoon-garden-secondary-school": {
+      "file": "reports/school-serangoon-garden-secondary-school.html",
+      "date": "2026-11-09",
+      "version": "v1"
+    },
+    "serangoon-secondary-school": {
+      "file": "reports/school-serangoon-secondary-school.html",
       "date": "2026-11-09",
       "version": "v1"
     }
