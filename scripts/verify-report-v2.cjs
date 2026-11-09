@@ -89,7 +89,8 @@ console.log('\n══ 八、结构完整性');
 t('无未替换模板变量', !/\$\{/.test(html));
 t('含 6 个志愿行', (html.match(/<td class="num"><b>[1-6]<\/b><\/td>/g) || []).length === 6);
 t('含 3 个方案', (html.match(/class="plan(?!s)/g) || []).length === 3);
-t('含修正说明', html.includes('本版修正了什么'));
+t('含 COP 口径说明', html.includes('Posting Group 3 行的非附属区间'));
+t('不含与 v1 的对比总结', !/上一版|本版修正了什么|旧口径/.test(html));
 t('v1 已加废弃提示',
   fs.readFileSync(path.join(BASE, 'docs/reports/abc1-s1-choice-2026.html'), 'utf8').includes('本版已作废'));
 t('导航已指向 v2',
