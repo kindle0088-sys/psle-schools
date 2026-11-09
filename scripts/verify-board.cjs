@@ -64,6 +64,28 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
   const mono = maxes.every((v, i) => i === 0 || v >= maxes[i - 1]);
   t('门槛从严到松单调递增', mono, `max 序列 ${maxes.join(',')}`);
 
+  // 回归检查：非 IP 校的卡头必须等于该校 PG3 非附属区间。
+  // 历史 bug —— 曾取「所有档中 max 最大者」，实际恒为 PG1 行，门槛被低估 8–10 分。
+  const pg3raw = await ev(`JSON.stringify((()=>{
+    const bad=[]; let checked=0;
+    for (const sc of SCHOOLS) {
+      if (!sc.cop || !sc.cop.rows) continue;
+      if (sc.cop.type === 'IP' || sc.cop.rows.length === 1) continue;
+      const r = sc.cop.rows.find(x=>x.label==='Posting Group 3');
+      if (!r || !r.nonAff) continue;
+      const card=[...document.querySelectorAll('.card')].find(c=>c.dataset.slug===sc.slug);
+      if(!card) continue;
+      const v=card.querySelector('.cop-main .v').textContent.trim();
+      const want=(r.nonAff.min===r.nonAff.max ? String(r.nonAff.min) : r.nonAff.min+'\\u2013'+r.nonAff.max)+(r.nonAff.markMax?'('+r.nonAff.markMax+')':'');
+      checked++;
+      if(v!==want) bad.push(sc.slug+':'+v+'\\u2260'+want);
+    }
+    return {checked, bad};
+  })())`);
+  const PG3 = JSON.parse(pg3raw);
+  t('全部非 IP 校卡头取自 PG3 行（回归）', PG3.bad.length === 0,
+    PG3.bad.length ? PG3.bad.slice(0, 3).join(' | ') : `${PG3.checked} 所全部正确`);
+
   console.log('\n【三】搜索');
   await ev(`(()=>{const i=document.getElementById('q'); i.value='Raffles'; i.dispatchEvent(new Event('input',{bubbles:true}));})()`);
   await sleep(400);
@@ -131,6 +153,25 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
   t('RI(4-6) 对 8 分判为分数不足', /差 \d+ 分/.test(SP.ri), SP.ri);
   t('Catholic(6-8) 对 8 分判为压线', /压线|余量/.test(SP.ch), SP.ch);
 
+  console.log('\n【五之二】17 分口径（本项目基准）');
+  await ev(`(()=>{const i=document.getElementById('score'); i.value='17'; i.dispatchEvent(new Event('input',{bubbles:true}));})()`);
+  await sleep(600);
+  const s17raw = await ev(`JSON.stringify({
+    stat: document.getElementById('statline').innerText.replace(/\\s+/g,' '),
+    cv: (()=>{const c=[...document.querySelectorAll('.card')].find(x=>x.querySelector('.card-name').textContent.includes('Compassvale'));
+      if(!c) return '未找到';
+      return c.querySelector('.cop-main .v').textContent.trim()+' | '+(c.querySelector('.fit')?.textContent.trim()||'无徽标');})(),
+    kc: (()=>{const c=[...document.querySelectorAll('.card')].find(x=>x.querySelector('.card-name').textContent.includes('Kuo Chuan'));
+      if(!c) return '未找到';
+      return c.querySelector('.cop-main .l').textContent.trim()+' | '+(c.querySelector('.fit')?.textContent.trim()||'无徽标');})()
+  })`);
+  const S17 = JSON.parse(s17raw);
+  console.log('     ', S17.stat.slice(-34));
+  t('17 分可报 68 所（与志愿报告口径一致）', /PSLE 17 分可报 68/.test(S17.stat), S17.stat.slice(-34));
+  t('Compassvale 卡头取 PG3 行且余量 1 分', /14–18/.test(S17.cv) && /余量 1 分/.test(S17.cv), S17.cv);
+  // 回归：PG3 只有附属区间的学校，无附属关系的学生不可报
+  t('Kuo Chuan（PG3 仅附属）判为不招本档', /不招本档/.test(S17.kc), S17.kc);
+
   console.log('\n【六】展开详情');
   await ev(`document.getElementById('reset').click()`);
   await sleep(300);
@@ -157,6 +198,23 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
   const resetOk = await ev(`JSON.stringify({cards:document.querySelectorAll('.card').length, sort:document.getElementById('sort').value, tags:document.querySelectorAll('#tags .chip.on').length, score:document.getElementById('score').value})`);
   const R = JSON.parse(resetOk);
   t('重置恢复初始状态', R.cards === 147 && R.sort === 'cop' && R.tags === 0 && R.score === '', JSON.stringify(R));
+
+  console.log('\n【七之二】单校深度报告入口');
+  await ev(`document.getElementById('reset').click()`);
+  await sleep(400);
+  const repRaw = await ev(`JSON.stringify({
+    withBtn: [...document.querySelectorAll('.card')].filter(c=>c.querySelector('.deeplink')).length,
+    slugs: [...document.querySelectorAll('.card')].filter(c=>c.querySelector('.deeplink')).map(c=>c.dataset.slug),
+    tagDeep: document.querySelectorAll('.tag-deep').length,
+    bigBtn: document.querySelectorAll('.deeplink-lg').length,
+    href: document.querySelector('.deeplink')?.getAttribute('href') || '',
+    hrefOk: (()=>{const a=document.querySelector('.deeplink'); return a ? !!a.href : false;})()
+  })`);
+  const RP = JSON.parse(repRaw);
+  t('报告入口数量与索引一致', RP.withBtn === 1, `${RP.withBtn} 个 · ${RP.slugs.join(',')}`);
+  t('深度报告标签出现', RP.tagDeep === 1, `${RP.tagDeep} 个`);
+  t('详情区大按钮出现', RP.bigBtn === 1, `${RP.bigBtn} 个`);
+  t('入口指向正确文件', /school-compassvale-secondary\.html$/.test(RP.href), RP.href);
 
   console.log('\n【八】JS 异常检查');
   const errs = await ev(`JSON.stringify(window.__errs || [])`);

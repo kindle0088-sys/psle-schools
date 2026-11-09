@@ -82,6 +82,7 @@
    ──────────────────────────────────────────────── */
 const S = { q: '', area: '', sort: 'cop', tags: new Set(), score: null };
 let DATA = null, SCHOOLS = [];
+let REPORTS = {};   // slug -> { file, date }，来自 data/school-reports.json
 
 /* ────────────────────────────────────────────────
    工具
@@ -90,23 +91,64 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 /** 取"最宽松"的非附属档（门槛值 = max） */
-function gate(sc) {
+/** 分数 -> 可报的 Posting Group 列表（21–22 与 25 存在跨档重叠）；null = 未指定分数 */
+function pgCandidates(score) {
+  if (score == null) return null;
+  if (score <= 20) return [3];
+  if (score <= 22) return [3, 2];   // PG2/3 重叠
+  if (score <= 24) return [2];
+  if (score === 25) return [2, 1];  // PG1/2 重叠
+  return [1];
+}
+
+/**
+ * 取该校「适用档位」的录取区间。
+ * ❗ 不能取「所有档里 max 最大的那行」——PG1 行的上端永远最大，
+ *    那样会恒取 PG1，把门槛系统性低估 8–10 分。
+ * 正确做法：按分数定 PG，只取对应那一行；该校无该档 → 学生不可报（返回 null）。
+ * 未指定分数时默认 PG3（与卡片标签一致），无 PG3 档则回退到最宽档仅作展示。
+ */
+function gate(sc, score) {
   const cop = sc.cop;
   if (!cop || !cop.rows?.length) return null;
-  let best = null;
-  for (const r of cop.rows) {
-    const v = r.nonAff || r.aff;          // 无附属信息时退回附属区间
-    if (!v) continue;
-    if (!best || v.max > best.max) best = { ...v, label: r.label, kind: r.kind, isAff: !r.nonAff };
+
+  const pick = (r, allowAff) => {
+    const v = r.nonAff || (allowAff ? r.aff : null);
+    return v ? { ...v, label: r.label, kind: r.kind, isAff: !r.nonAff } : null;
+  };
+
+  // 只有一行、且该行是 Integrated Programme 才是纯 IP 校（不分 PG）
+  // ❗ 注意：Catholic High 这类学校同时有 IP 行和 PG3 行，
+  //    不能因 cop.type==='IP' 就返回 IP 行，否则 PG3 学生会被带去错误门槛。
+  const onlyIp = cop.rows.length === 1 &&
+    (cop.rows[0].kind === 'IP' || /Integrated Programme/i.test(cop.rows[0].label || ''));
+  if (onlyIp) return pick(cop.rows[0], true);
+
+  const cands = pgCandidates(score);
+  if (cands) {
+    // ❺ 已指定分数：只看非附属区间。nonAff 为空 = 该档不招非附属生，不可报。
+    for (const p of cands) {
+      const row = cop.rows.find(r => r.label === 'Posting Group ' + p);
+      if (row && row.nonAff) return pick(row, false);
+    }
+    return null;
   }
-  return best;
+
+  // 未指定分数：优先 PG3（允许回退到附属区间，仅作展示）
+  const pg3 = cop.rows.find(r => r.label === 'Posting Group 3');
+  if (pg3 && (pg3.nonAff || pg3.aff)) return pick(pg3, true);
+  const widest = [...cop.rows]
+    .filter(r => r.nonAff || r.aff)
+    .sort((a, b) => (b.nonAff || b.aff).max - (a.nonAff || a.aff).max)[0];
+  return widest ? pick(widest, true) : null;
 }
 
 /** 分数匹配：返回 {status, delta} */
 function fitOf(sc, score) {
   if (score == null) return null;
-  const g = gate(sc);
-  if (!g) return { status: 'na', delta: null };
+  const g = gate(sc, score);
+  // 有 COP 数据但取不到学生所属档位 → 该校不招这一档（与「无 COP 数据」区分）
+  if (!g) return { status: sc.cop?.rows?.length ? 'norow' : 'na', delta: null };
   const delta = g.max - score;
   if (delta < 0) return { status: 'out', delta };
   if (delta <= 1) return { status: 'edge', delta };
@@ -118,6 +160,7 @@ const FIT_LABEL = {
   edge: d => d === 0 ? '压线' : `余量 ${d} 分`,
   out: d => `差 ${-d} 分`,
   na: () => '无区间',
+  norow: () => '不招本档',
 };
 
 function fmtRange(v) {
@@ -148,7 +191,7 @@ function sortList(list) {
   if (S.sort === 'cca') return list.sort((a, b) => (b.cca.length || 0) - (a.cca.length || 0));
   const dir = S.sort === 'cop-asc' ? 1 : -1;
   return list.sort((a, b) => {
-    const ga = gate(a), gb = gate(b);
+    const ga = gate(a, S.score), gb = gate(b, S.score);
     // 无 COP 的排最后
     if (!ga && !gb) return a.name.localeCompare(b.name);
     if (!ga) return 1;
@@ -159,7 +202,7 @@ function sortList(list) {
 }
 
 function cardHtml(sc) {
-  const g = gate(sc);
+  const g = gate(sc, S.score);
   const fit = fitOf(sc, S.score);
 
   // 标签
@@ -169,6 +212,8 @@ function cardHtml(sc) {
   if (sc.independent) tags.push('<span class="tag tag-indep">独立</span>');
   else if (sc.autonomous) tags.push('<span class="tag tag-auto">自主</span>');
   if (sc.specialised) tags.push('<span class="tag tag-spec">专科</span>');
+  const rep = REPORTS[sc.slug];
+  if (rep) tags.push('<span class="tag tag-deep">深度报告</span>');
   if (!tags.length) tags.push('<span class="tag tag-none">政府</span>');
 
   // COP 分档
@@ -202,7 +247,7 @@ function cardHtml(sc) {
       </div>
       <div class="cop-main">
         <div class="v">${g ? fmtRange(g) : '—'}</div>
-        <div class="l">${g ? (g.kind === 'IP' ? 'IP 录取区间' : 'PG3 最低线') : 'N/A'}</div>
+        <div class="l">${g ? (g.kind === 'IP' ? 'IP 录取区间' : g.label.replace('Posting Group ', 'PG') + ' 最低线' + (g.isAff ? '（附属）' : '')) : 'N/A'}</div>
       </div>
     </div>
 
@@ -217,7 +262,10 @@ function cardHtml(sc) {
 
     <div class="card-foot">
       ${mrtTxt}
-      <button class="expand-btn" data-act="toggle">详情 ›</button>
+      <span class="foot-actions">
+        ${rep ? `<a class="deeplink" href="${esc(rep.file)}">解读 →</a>` : ''}
+        <button class="expand-btn" data-act="toggle">详情 ›</button>
+      </span>
     </div>
 
     <div class="detail">
@@ -234,6 +282,10 @@ function cardHtml(sc) {
       ${sc.contact ? `<h4>联系</h4><div class="addr">
         ${sc.contact.phone ? '电话 ' + esc(sc.contact.phone) : ''}
         ${sc.contact.website ? ' · <a href="' + esc(sc.contact.website) + '" target="_blank" rel="noopener">官网</a>' : ''}
+      </div>` : ''}
+      ${rep ? `<div style="margin-top:12px">
+        <a class="deeplink-lg" href="${esc(rep.file)}">阅读《${esc(sc.name)}》单校深度报告 →</a>
+        <div style="margin-top:6px;font-size:11px;color:var(--tx3)">历史背景 / 升学数据 / CCA 解析 / 师生真实声音 / 开放日必问清单</div>
       </div>` : ''}
       <div style="margin-top:9px;font-size:11px;color:var(--tx3)">
         录取区间来源 MOE SchoolFinder · 采集于 2026-11
@@ -307,9 +359,16 @@ $('#reset').addEventListener('click', () => {
    ──────────────────────────────────────────────── */
 (async function init() {
   try {
-    const res = await fetch('data/schools.json', { cache: 'no-cache' });
+    const [res, repRes] = await Promise.all([
+      fetch('data/schools.json', { cache: 'no-cache' }),
+      fetch('data/school-reports.json', { cache: 'no-cache' }).catch(() => null)
+    ]);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     DATA = await res.json();
+    // 报告索引属于增强项：加载失败不影响看板主体
+    if (repRes && repRes.ok) {
+      try { REPORTS = (await repRes.json()).reports || {}; } catch (_) { REPORTS = {}; }
+    }
   } catch (err) {
     $('#grid').innerHTML = `<div class="empty">数据加载失败：${esc(err.message)}<br>
       <span style="font-size:12px">若用 file:// 直接打开会因浏览器安全策略失败，请用本地服务器访问。</span></div>`;

@@ -1,0 +1,11 @@
+{
+  "_note": "单校深度报告索引：slug -> 报告文件。新增一份报告只需在此登记一行，看板卡片会自动出现「深度报告」入口。",
+  "generatedAt": "2026-11-09T09:00:00+08:00",
+  "reports": {
+    "compassvale-secondary-school": {
+      "file": "reports/school-compassvale-secondary.html",
+      "date": "2026-11-09",
+      "version": "v1"
+    }
+  }
+}
