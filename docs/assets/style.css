@@ -149,6 +149,19 @@ select:focus, .num-in:focus { outline: none; border-color: var(--accent-dim); }
 .chip:hover { border-color: var(--accent-dim); color: var(--tx); }
 .chip.on { background: var(--accent-soft); border-color: var(--accent-dim); color: var(--accent); }
 
+/* 深度报告筛选：与学校属性类 chip 区分开，用报告自己的青绿色 */
+.chip-sep { width: 1px; align-self: stretch; background: var(--line); margin: 2px 5px; }
+.chip-deep { border-color: rgba(52,211,153,.32); color: #6ee7b7; background: rgba(52,211,153,.07); }
+.chip-deep:hover { border-color: rgba(52,211,153,.55); color: #a7f3d0; }
+.chip-deep.on { background: rgba(52,211,153,.2); border-color: rgba(52,211,153,.62); color: #a7f3d0; }
+.chip-deep .cnt {
+  display: inline-block; margin-left: 5px; padding: 0 5px;
+  border-radius: 6px; background: rgba(52,211,153,.18);
+  font-variant-numeric: tabular-nums; font-weight: 600; font-size: 11.5px;
+}
+.chip-deep.on .cnt { background: rgba(52,211,153,.32); }
+.chip-deep.off { display: none; }
+
 .btn {
   padding: 8px 15px;
   border: 1px solid var(--line);

@@ -52,6 +52,8 @@
         <span class="chip" data-tag="autonomous">自主学校</span>
         <span class="chip" data-tag="independent">独立学校</span>
         <span class="chip" data-tag="specialised">专科学校</span>
+        <span class="chip-sep"></span>
+        <span class="chip chip-deep off" data-tag="deep" id="deepChip" title="只看已经发布单校深度报告的学校">深度报告<b class="cnt" id="deepCnt">0</b></span>
       </div>
       <span style="flex:1"></span>
       <label style="font-size:12.5px;color:var(--tx2);display:flex;align-items:center;gap:7px">
@@ -176,7 +178,12 @@ function applyFilter() {
   const q = S.q.trim().toLowerCase();
   return SCHOOLS.filter(sc => {
     if (S.area && sc.area !== S.area) return false;
-    for (const t of S.tags) if (!sc[t]) return false;
+    // deep 不是学校字段，而是「是否已有深度报告」，单独判
+    for (const t of S.tags) {
+      if (t === 'deep') continue;
+      if (!sc[t]) return false;
+    }
+    if (S.tags.has('deep') && !REPORTS[sc.slug]) return false;
     if (q) {
       const hay = [sc.name, sc.area, sc.postal, sc.address, sc.nearStation?.name]
         .filter(Boolean).join(' ').toLowerCase();
@@ -308,12 +315,19 @@ function render() {
   const ip = list.filter(x => x.ip).length;
   const sap = list.filter(x => x.sap).length;
   const withCop = list.filter(x => x.cop).length;
-  let extra = '';
+  const deepN = list.filter(x => REPORTS[x.slug]).length;
+  const parts = [`共 <b>${list.length}</b> 所`];
   if (S.score != null) {
     const ok = list.filter(x => { const f = fitOf(x, S.score); return f && (f.status === 'ok' || f.status === 'edge'); }).length;
-    extra = ` · <span class="hint">PSLE ${S.score} 分可报 <b>${ok}</b> 所</span>`;
+    parts.push(`<span class="hint">PSLE ${S.score} 分可报 <b>${ok}</b> 所</span>`);
   }
-  $('#statline').innerHTML = `共 <b>${list.length}</b> 所${extra} · IP <b>${ip}</b> · SAP <b>${sap}</b> · 有录取区间 <b>${withCop}</b>`;
+  if (S.tags.has('deep')) parts.push(`<span class="hint">仅看深度报告</span>`);
+  else if (deepN) parts.push(`<span class="hint">有深度报告 <b>${deepN}</b> 所</span>`);
+  // 计数为 0 的维度不展示，避免「IP 0 · SAP 0」这类噪音
+  if (ip) parts.push(`IP <b>${ip}</b>`);
+  if (sap) parts.push(`SAP <b>${sap}</b>`);
+  parts.push(`有录取区间 <b>${withCop}</b>`);
+  $('#statline').innerHTML = parts.join(' · ');
 }
 
 /* ────────────────────────────────────────────────
@@ -368,6 +382,12 @@ $('#reset').addEventListener('click', () => {
     // 报告索引属于增强项：加载失败不影响看板主体
     if (repRes && repRes.ok) {
       try { REPORTS = (await repRes.json()).reports || {}; } catch (_) { REPORTS = {}; }
+    }
+    // 有报告才露出「深度报告」筛选；索引挂了也不影响主体
+    const nDeep = Object.keys(REPORTS).length;
+    if (nDeep) {
+      $('#deepCnt').textContent = nDeep;
+      $('#deepChip').classList.remove('off');
     }
   } catch (err) {
     $('#grid').innerHTML = `<div class="empty">数据加载失败：${esc(err.message)}<br>

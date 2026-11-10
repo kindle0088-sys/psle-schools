@@ -3,6 +3,9 @@
  * 用真实浏览器断言：数据加载、卡片渲染、排序、筛选、分数定位
  */
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+const fs = require('fs');
+const path = require('path');
+const BASE = path.join(__dirname, '..');
 const PORT = process.env.CDP_PORT || 9231;
 const SITE = process.env.SITE || 'http://127.0.0.1:8901';
 
@@ -211,10 +214,62 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
     hrefOk: (()=>{const a=document.querySelector('.deeplink'); return a ? !!a.href : false;})()
   })`);
   const RP = JSON.parse(repRaw);
-  t('报告入口数量与索引一致', RP.withBtn === 1, `${RP.withBtn} 个 · ${RP.slugs.join(',')}`);
-  t('深度报告标签出现', RP.tagDeep === 1, `${RP.tagDeep} 个`);
-  t('详情区大按钮出现', RP.bigBtn === 1, `${RP.bigBtn} 个`);
-  t('入口指向正确文件', /school-compassvale-secondary\.html$/.test(RP.href), RP.href);
+  // 以索引为准，不写死份数
+  const REPORT_IDX = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/school-reports.json'), 'utf8')).reports || {};
+  const repSlugs = Object.keys(REPORT_IDX);
+  const nRep = repSlugs.length;
+  t('报告入口数量与索引一致', RP.withBtn === nRep, `${RP.withBtn} 个 / 索引 ${nRep} 个`);
+  t('有报告的卡片全覆盖', repSlugs.every(s => RP.slugs.includes(s)), repSlugs.filter(s => !RP.slugs.includes(s)).join(',') || '无遗漏');
+  t('深度报告标签数量正确', RP.tagDeep === nRep, `${RP.tagDeep} 个`);
+  t('详情区大按钮数量正确', RP.bigBtn === nRep, `${RP.bigBtn} 个`);
+  t('入口指向存在的文件', Object.values(REPORT_IDX).every(r => fs.existsSync(path.join(BASE, 'docs', r.file))),
+    Object.values(REPORT_IDX).filter(r => !fs.existsSync(path.join(BASE, 'docs', r.file))).map(r => r.file).join(',') || '全部有效');
+
+  console.log('\n【七之三】深度报告筛选');
+  await ev(`document.getElementById('reset').click()`);
+  await sleep(400);
+  const deepMeta = JSON.parse(await ev(`JSON.stringify({
+    visible: !document.getElementById('deepChip').classList.contains('off'),
+    cnt: document.getElementById('deepCnt').textContent,
+    stat: document.getElementById('statline').textContent
+  })`));
+  t('筛选器已显示（有报告时）', deepMeta.visible);
+  t('角标数量与索引一致', deepMeta.cnt === String(nRep), `${deepMeta.cnt} / ${nRep}`);
+  t('默认统计行提示报告数', deepMeta.stat.includes(`有深度报告 ${nRep} 所`), deepMeta.stat.slice(0, 60));
+
+  await ev(`document.getElementById('deepChip').click()`);
+  await sleep(500);
+  const deepOn = JSON.parse(await ev(`JSON.stringify({
+    cards: document.querySelectorAll('.card').length,
+    slugs: [...document.querySelectorAll('.card')].map(c=>c.dataset.slug),
+    allHaveEntry: [...document.querySelectorAll('.card')].every(c=>!!c.querySelector('.deeplink')),
+    chipOn: document.getElementById('deepChip').classList.contains('on'),
+    stat: document.getElementById('statline').textContent
+  })`));
+  t('筛选后只剩有报告的学校', deepOn.cards === nRep && deepOn.slugs.every(s => repSlugs.includes(s)), `${deepOn.cards} 张`);
+  t('筛选后每张卡都有报告入口', deepOn.allHaveEntry);
+  t('筛选 chip 进入选中态', deepOn.chipOn);
+  t('统计行标注「仅看深度报告」', deepOn.stat.includes('仅看深度报告'), deepOn.stat.slice(0, 60));
+  t('零计数的 IP/SAP 维度不显示', !/IP 0|SAP 0/.test(deepOn.stat), deepOn.stat.slice(0, 60));
+
+  await ev(`document.getElementById('deepChip').click()`);
+  await sleep(400);
+  const deepOff = JSON.parse(await ev(`JSON.stringify({
+    cards: document.querySelectorAll('.card').length,
+    chipOn: document.getElementById('deepChip').classList.contains('on')
+  })`));
+  t('再次点击恢复全部学校', deepOff.cards === 147 && !deepOff.chipOn, `${deepOff.cards} 张`);
+
+  // 与其它 chip 组合：深报告 ∩ IP 应为空（这 10 所里没有 IP 校）
+  await ev(`document.getElementById('deepChip').click(); document.querySelector('[data-tag="ip"]').click()`);
+  await sleep(500);
+  const combo = JSON.parse(await ev(`JSON.stringify({
+    cards: document.querySelectorAll('.card').length,
+    empty: !!document.querySelector('.empty')
+  })`));
+  t('与其它标签组合筛选生效', combo.cards === 0 && combo.empty, `${combo.cards} 张`);
+  await ev(`document.getElementById('reset').click()`);
+  await sleep(400);
 
   console.log('\n【八】JS 异常检查');
   const errs = await ev(`JSON.stringify(window.__errs || [])`);
