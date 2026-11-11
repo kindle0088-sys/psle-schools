@@ -80,6 +80,28 @@ const ALT = [
   },
 ];
 
+/* STEP 4c：PG3 上限低于 17 分的三所，兴趣匹配极高但不可报 */
+const UNREACHABLE = [
+  {
+    name: 'Greendale Secondary School',
+    tag: '差 1 分 · Robotics 技术最深 + 戏剧社连续三届 SYF',
+    note: 'Robotics Club 是全部候选里技术描述最深的一个：<b>4 年进阶课程，SolidWorks／Fusion 360 建模 → 3D 打印与激光切割 → Arduino 与 AI → 手机 App 控制</b>。戏剧社 <b>Theatricks!</b> 教灯光、音效与舞台调度，<b>2021／2023／2025 连续三届</b> SYF 获认可。ODAC 还拿过 2025 年 NORS 定向越野 B 组男子冠军。',
+    gap: '<b>为什么它值得赌一次：</b>PG3 上限 16，你 17 分<b>只差 1 分</b>。COP 年际浮动通常 1–2 分，若今年报考降温或整体分数偏低，上限有上移到 17 的可能。<b>放第 1 志愿，落空不影响后续志愿。</b>',
+  },
+  {
+    name: 'Yusof Ishak Secondary School',
+    tag: '差 2 分 · STEM 战绩最密集 + Robotics 写明 Python 与无人机',
+    note: '2024 年拿了 <b>IDE 机器人全国第 1 与第 2 名</b>、<b>Drone Odyssey 最佳策略 + 最佳知识</b>、氢能赛车全国前五、World Robot Olympiad 参赛。社团分两条线：<b>Robotics Club（机器人 + 无人机 + Python）</b>与<b>Infocomm Club（AI + AR + 视频新闻）</b>。它是全岛唯一以总统命名的学校。',
+    gap: '<b>差距评估：</b>PG3 上限 15，差 2 分。浮动覆盖 2 分的可能性较小——<b>不建议占用志愿位置</b>，但如果你判断今年报考会明显降温，可以把它作为第 1 志愿的备选思路。',
+  },
+  {
+    name: 'Edgefield Secondary School',
+    tag: '差 3 分 · 通勤 17 分钟最快 · ALP 是整套未来情景模拟',
+    note: 'ALP 的第一个情景就是<b>「用编程部署无人机，在 8 分钟内搜完 8,000 平方米找地震受困者」</b>，另有都市农业、漂浮城市、FPSP 国际赛。学生自己办 <b>ARTasFEST——一场 5,000 人的嘉年华</b>。注意：<b>中一中二跆拳道全员必修，每周 1 小时</b>。',
+    gap: '<b>差距评估：</b>PG3 上限 14，差 3 分——<b>基本没有可能</b>。它的通勤 17 分钟是十三所里最快的，但这一点无法弥补 3 分的差距。列出来主要是作为参照：知道 14 分能买到什么，才知道 17 分买到的值不值。',
+  },
+];
+
 const PLANS = {
   A: {
     title: '方案 A · 平衡型', desc: '前 5 所全在 MOE「附近学校」列表内且 ≤32 分钟，第 6 所出圈换余量',
@@ -210,6 +232,8 @@ tbody tr:hover{background:#f6f6f3}
 .sbadges{display:flex;gap:6px;flex-wrap:wrap}
 .badge{font-size:11px;padding:2px 8px;border-radius:5px;background:#f1f1ee;color:var(--tx2);border:1px solid var(--line)}
 .badge-moe{background:var(--accent-bg);color:var(--accent);border-color:#cfe4dc;font-weight:600}
+.badge-over{background:var(--risk-bg);color:var(--risk);border-color:#e6c9c6;font-weight:600}
+.gap-line{font-size:13px;color:var(--tx2);margin:10px 0 0;padding-left:12px;border-left:2px solid var(--risk);line-height:1.7}
 .tier{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:600}
 .t-reach{background:var(--warm-bg);color:var(--warm);border:1px solid #ecd9b0}
 .t-match{background:var(--accent-bg);color:var(--accent);border:1px solid #cfe4dc}
@@ -221,7 +245,10 @@ tbody tr:hover{background:#f6f6f3}
 .kv .v{display:block;font-size:14px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
 
 .why,.caveat{font-size:13.7px;margin:10px 0;padding:10px 13px;border-radius:8px}
-.why b,.caveat b{display:block;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+/* 只有段落首个 <b> 当小标题用；正文内的 <b> 保持内联加粗，
+   否则每个加粗词都会变成独立的大写块（曾导致 STEP 4c 排版炸裂） */
+.why>b:first-child,.caveat>b:first-child{display:block;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.why b,.caveat b{font-weight:600}
 .why{background:var(--accent-bg);color:#1c4a3f}
 .why b{color:var(--accent)}
 .caveat{background:var(--warm-bg);color:#6b4a0e}
@@ -428,6 +455,46 @@ ${ALT.map(a => {
     ${REPORT_IDX[x.slug] ? `<a class="deeplink" href="${esc(REPORT_IDX[x.slug].file)}"><span>阅读《${esc(x.name)}》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>` : ''}
   </div>`;
 }).join('')}
+</section>
+
+<section>
+<h2><span class="n">STEP 4c</span>够不着的三所（供参照）</h2>
+<p class="lead">这三所的 PG3 上限都在你之上，<b>不能填进志愿</b>。但它们值得知道——因为它们的兴趣匹配度是全部候选里最高的一批，正好用来回答一个问题：<b>17 分买不到的东西，长什么样。</b></p>
+
+<div class="warnbox">
+<b>三所都超出录取范围，但差得不一样。</b>
+<span style="display:block;margin-top:6px">
+· <b>Greendale</b>：差 <b>1 分</b>——COP 年际浮动通常 1–2 分，理论上存在上移可能，<b>可作为第 1 志愿尝试</b>（落空不影响后续）<br>
+· <b>Yusof Ishak</b>：差 2 分——浮动覆盖的可能性较小<br>
+· <b>Edgefield</b>：差 3 分——基本没有可能
+</span>
+</div>
+
+${UNREACHABLE.map(u => {
+  const x = byNameAll.get(u.name);
+  if (!x) return '';
+  const rep = REPORT_IDX[x.slug];
+  return `<article class="school">
+    <header>
+      <div class="sname">${esc(x.name)}</div>
+      <div class="sbadges">
+        <span class="badge badge-over">PG3 上限 ${x.cop.max} · 超出 ${Math.abs(x.margin)} 分</span>
+        <span class="badge">PG3 ${fmtCop(x)}</span>
+        <span class="badge">${x.minutes} 分钟</span>
+        <span class="badge">${esc(x.area || '')}</span>
+      </div>
+    </header>
+    <p class="why"><b>${esc(u.tag)}</b>${u.note}</p>
+    <p class="gap-line">${u.gap}</p>
+    ${rep ? `<a class="deeplink" href="${esc(rep.file)}"><span>阅读《${esc(x.name)}》单校深度报告</span><em>校史 · 升学 · CCA 全解析 · 真实声音 · 开放日必问 →</em></a>` : ''}
+  </article>`;
+}).join('')}
+
+<div class="note">
+<b>把这三所和前面六所放在一起看，结论会清楚很多。</b>你 17 分能买到的学校（Compassvale、North Vista、Punggol、Seng Kang、Hougang、Bendemeer），<b>社团数量、科技资源、项目深度整体比这三所低一档</b>。这不是说前面六所不好——而是说明<b>分数在 15–17 这一档，边际收益特别陡</b>：差 1–2 分，可能就是「有 18 个社团」与「有 8 个社团」的差别。
+<br><br>
+所以如果你现在的排序里，<b>把「科技与编程」放在第一位</b>，那么 Greendale 值得占用第 1 志愿的位置赌一次；如果不是，就按 Step 5 的梯度设计走常规方案。
+</div>
 </section>
 
 <section>

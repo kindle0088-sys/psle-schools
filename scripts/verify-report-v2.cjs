@@ -89,6 +89,20 @@ console.log('\n══ 八、结构完整性');
 t('无未替换模板变量', !/\$\{/.test(html));
 t('含 6 个志愿行', (html.match(/<td class="num"><b>[1-6]<\/b><\/td>/g) || []).length === 6);
 t('含 3 个方案', (html.match(/class="plan(?!s)/g) || []).length === 3);
+
+// STEP 4c：够不着的三所（供参照），必须明确标注超出分数，不能被误读为可报
+t('含 STEP 4c 参照章节', html.includes('STEP 4c') && html.includes('够不着的三所'));
+const UNREACH = [
+  ['Greendale Secondary School', 1],
+  ['Yusof Ishak Secondary School', 2],
+  ['Edgefield Secondary School', 3],
+];
+for (const [name, gap] of UNREACH) {
+  const hasName = html.includes(name);
+  const hasGap = new RegExp(`超出\\s*${gap}\\s*分`).test(html) || html.includes(`差 ${gap} 分`);
+  t(`STEP 4c 含 ${name}（差 ${gap} 分）`, hasName && hasGap);
+}
+t('STEP 4c 明确写出不可填志愿', /不能填进志愿|基本没有可能|不建议占用志愿位置/.test(html));
 t('含 COP 口径说明', html.includes('Posting Group 3 行的非附属区间'));
 
 // 单校深度报告入口：数量应与索引一致，且指向真实存在的文件
