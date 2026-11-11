@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>绿苑中学 Greendale Secondary School · 单校深度报告</title>
+<style>
+:root{
+  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
+  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
+  --accent:#0f5c4e; --accent-bg:#eef6f3;
+  --warm:#8a5a00; --warm-bg:#fdf6e7;
+  --risk:#8c2f2f; --risk-bg:#fbf0ef;
+  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.78 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:#fff}
+.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.hero h1{margin:10px 0 4px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.3}
+.hero h1 small{display:block;font-size:15px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:5px}
+.hero .sub{opacity:.84;font-size:14px;max-width:680px;margin-top:12px}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
+.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
+.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+.addr{font-size:12.6px;opacity:.72;margin-top:12px;font-variant-numeric:tabular-nums}
+
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+section{margin:0 0 10px}
+h2{font-size:18px;font-weight:640;margin:40px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:16px}
+h2 .n{font-size:11.5px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 14px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+.warnbox{background:var(--warm-bg);border:1px solid #ecdfc0;border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.panel h4{margin:0 0 8px;font-size:13.5px;color:var(--accent);letter-spacing:.2px}
+.panel ul{margin:0;padding-left:18px;font-size:13.6px}
+.panel li{margin:5px 0}
+.panel.muted h4{color:var(--tx3)}
+
+table{width:100%;border-collapse:collapse;font-size:13.3px;margin:14px 0}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:11.5px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.mid{text-align:center}
+tbody tr:hover{background:#f6f6f3}
+.soft{color:var(--tx3)}
+
+.bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;font-size:13px;margin:5px 0}
+.bar-row .lbl{color:var(--tx2)}
+.bar-track{background:#eeeeea;border-radius:4px;height:15px;overflow:hidden}
+.bar-fill{height:100%;background:#4f8f7d;border-radius:4px}
+.bar-fill.hi{background:var(--accent)}
+.bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
+
+.tl{border-left:2px solid var(--line);margin:16px 0 0 6px;padding-left:20px}
+.tl .ev{position:relative;margin:0 0 16px}
+.tl .ev::before{content:"";position:absolute;left:-26px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600}
+.tl .d{font-size:14px;margin-top:1px}
+
+.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid #c9c9c3;border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
+.voice .who{font-size:12.3px;color:var(--tx3);margin-bottom:6px;letter-spacing:.2px}
+.voice q{quotes:"「" "」";font-style:italic;color:var(--tx)}
+.voice p{margin:8px 0}
+
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:#f7f7f4;margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:#cfe4dc;background:var(--accent-bg);color:var(--accent)}
+.tag.c{border-color:#ecdfc0;background:var(--warm-bg);color:var(--warm)}
+.tag.b{border-color:#d8d8d2;background:#f2f2ee;color:#5a5a52}
+
+.checklist{counter-reset:c;list-style:none;padding:0;margin:14px 0}
+.checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
+.checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+.foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
+.foot b{color:var(--tx2)}
+.foot a{color:var(--accent)}
+
+@media(max-width:600px){
+  .hero h1{font-size:21px}
+  .grid2{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:110px 1fr 42px;font-size:12.3px}
+  table{font-size:12.3px}
+  th,td{padding:7px 6px}
+}
+@media print{
+  .hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .voice,.panel,.note{break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">单校深度报告 · Punggol · 政府混校</div>
+    <h1>绿苑中学<small>Greendale Secondary School（GDLS）</small></h1>
+    <div class="sub">⚠️ <b>这是三所榜鹅学校里唯一「只差 1 分」的一所</b>（PG3 11–16，17 分超出 1 分）——COP 年际浮动通常在 1–2 分，理论上不是零概率。而且它的 Robotics Club 是全部十三所里技术描述最硬的一个：<b>SolidWorks、Fusion 360、3D 打印、激光切割、Arduino、AI</b>。它还有连续三年获 SYF 认可的戏剧社。</div>
+    <div class="profile">
+      <div><div class="k">PG3 区间（2025）</div><div class="v">11 – 16</div></div>
+      <div><div class="k">AL 17 余量</div><div class="v">-1 分</div></div>
+      <div><div class="k">通勤（自 828765）</div><div class="v">约 28 分钟</div></div>
+      <div><div class="k">建校</div><div class="v">2006 年</div></div>
+      <div><div class="k">学生规模</div><div class="v">约 1,000</div></div>
+      <div><div class="k">IP / SAP</div><div class="v">否 / 否</div></div>
+    </div>
+    <div class="addr">51 Edgedale Plains, S828866　·　最近站 NE17 PUNGGOL，步行约 1363m</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 30 秒判断</a>
+  <a href="#s2">② 学校底色与校史</a>
+  <a href="#s3">③ 学业与升学出路</a>
+  <a href="#s4">④ 旗舰项目</a>
+  <a href="#s5">⑤ CCA 全解析</a>
+  <a href="#s6">⑥ 真实声音</a>
+  <a href="#s7">⑦ 开放日必问清单</a>
+  <a href="#s8">⑧ 数据来源与可信度</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>先说清楚这份报告怎么写的。</b>COP、CCA、DSA、科目来自 <b>MOE SchoolFinder</b>；校史、办学理念、各 CCA 详情来自<b>学校官网</b>。这所学校的差异最大：<b>官网列出 18 项 CCA，MOE 只登记 7 项</b>——漏掉的包括孩子最想要的 <b>Robotics</b> 和 <b>Theatricks 戏剧社</b>。ALP/LLP 没有独立介绍页，内容从 DSA-DTE 页与各 CCA 页还原，我在文中标注了推断部分。
+</div>
+
+<!-- ============ 1 ============ -->
+<section>
+<h2 id="s1"><span class="n">01</span>30 秒判断</h2>
+<p class="lead">如果只看一句话：<b>三所榜鹅学校里，这所是唯一值得认真考虑放进志愿的</b>——差 1 分，而且兴趣匹配（机器人 + 戏剧）是十三所里最好的之一。</p>
+
+<div class="warnbox">
+<b>差 1 分是什么概念？</b>PG3 非附属区间 <b>11–16</b>，最后一名录取的是 16 分，你 17 分，<b>高出 1 分</b>。
+<br><br>
+COP 每年浮动通常 <b>1–2 分</b>（取决于当年报读人数与整体成绩）。这意味着：
+<br>· 如果今年报的人少一点，或整体分数偏低，<b>上限有可能上移到 17，你就进得去</b>；
+<br>· 如果报的人多，可能反而收紧到 15。
+<br><br>
+<b>结论：不能当保底，但可以当「第 1 志愿」</b>——落空不影响后续志愿。这是三所里唯一有这种资格的。
+</div>
+
+<div class="grid2">
+  <div class="panel">
+    <h4>它的两个强匹配</h4>
+    <ul>
+      <li><b>Robotics Club 是十三所里技术最硬的</b>：4 年进阶课程，从 SolidWorks／Fusion 360 建模到 3D 打印、激光切割，再到 Arduino 与 AI</li>
+      <li><b>Theatricks! 戏剧社</b>：教灯光、音效、舞台调度，<b>2021／2023／2025 连续三年获 SYF 认可</b></li>
+      <li>ALP 是 <b>DTE（设计·技术·工程）</b>，与 DSA 的 DTE 通道、Robotics Club 三者打通</li>
+      <li><b>ODAC 户外社</b>：2025 年 NORS 定向越野 B 组男子冠军，完成过 40 公里海上皮划艇远征</li>
+    </ul>
+  </div>
+  <div class="panel muted">
+    <h4>现实约束</h4>
+    <ul>
+      <li><b>通勤 28 分钟，步行 1,363m</b>——地铁站出来要走 17 分钟，实际必须坐巴士</li>
+      <li><b>没有游泳</b>——无游泳 CCA、无泳池（但有皮划艇）</li>
+      <li>ALP/LLP <b>官网无独立介绍页</b>，信息要靠 DSA 与 CCA 页面拼</li>
+      <li><b>不公布 O-Level 成绩</b></li>
+    </ul>
+  </div>
+</div>
+
+<div class="verdict">
+  <h3>三个需要记住的数字</h3>
+  <ul>
+    <li><b>PG3 11–16</b>：<b>17 分差 1 分。</b>三所里最接近的一所，也是唯一有可能靠浮动进来的。</li>
+    <li><b>18 项 CCA（登记 7 项）</b>：MOE 清单漏掉了 <b>Robotics、Theatricks、Fencing、Floorball、GBC 广播社、ODAC、Red Cross</b> 等 11 项。<b>只看 MOE 数据会完全错判这所学校。</b></li>
+    <li><b>1,363m 步行</b>：三所里最远。Edgefield 是 445m、YI 是 697m，这一所差了一倍多。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section>
+<h2 id="s2"><span class="n">02</span>学校底色与校史</h2>
+<p class="lead">这所学校 2006 年建校，是三所榜鹅学校里资历中间的一所（Edgefield 2011、YI 1965）。它的校名本身就是地理说明。</p>
+
+<h3>校名是怎么来的</h3>
+<div class="note">
+学校官网原文：校名里的「<b>green</b>」取自榜鹅（Punggol）<b>乡土、绿意与水岸生活</b>的环境设定，「<b>dale</b>」则对应它所在的 <b>Edgedale Plains</b>。<b>两个词合起来 = 「绿意之谷」。</b>
+<br><br>
+这个命名方式很诚实——没有硬编一个拉丁词根或人名，而是直接描述所处的地方。它也和学校的价值观隐喻对上了：<b>官网用「一株扎根的幼苗」来解释自己的教育观</b>。
+</div>
+
+<h3>一条时间线</h3>
+<div class="tl">
+  <div class="ev"><div class="yr">2005</div><div class="d">首任校长 <b>Mrs Mary Koh</b> 带领一批资深部门主任与教师筹备建校。</div></div>
+  <div class="ev"><div class="yr">2006.1.2</div><div class="d">开学，首批 <b>320 名中一学生</b>。</div></div>
+  <div class="ev"><div class="yr">2007</div><div class="d">由时任国防部长、公共服务主管部长、白沙—榜鹅集选区议员<b>张志贤</b>主持正式启用。</div></div>
+  <div class="ev"><div class="yr">2008.12</div><div class="d">Mr Mark Gerard Minjoot 接任校长。学校提出「成为东北部首选学校」的目标。</div></div>
+  <div class="ev"><div class="yr">2014.12</div><div class="d">Ms Amy Ng 接任，把定位收敛为「<b>School of Choice that Makes a Difference：Home of Committed Learners, Critical Thinkers and Confident Leaders</b>」。</div></div>
+  <div class="ev"><div class="yr">2021.12</div><div class="d">现任校长 <b>Mr Sulaiman Mohamad Yusof</b> 到任。</div></div>
+</div>
+
+<h3>愿景与 R³ISE 价值观</h3>
+<table>
+<thead><tr><th style="width:120px">项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td><b>愿景</b></td><td>Every Greendale Student a <b>Lifelong Learner, Critical Thinker and Servant Leader</b><br><span class="soft">终身学习者、批判性思考者、仆人式领导者</span></td></tr>
+<tr><td><b>使命</b></td><td><b>Growing Hearts, Growing Minds</b>（育心育智）</td></tr>
+<tr><td><b>价值观</b></td><td><b>R³ISE</b>：<b>R</b>espect 尊重 · <b>R</b>esponsibility 责任 · <b>R</b>esilience 韧性 · <b>I</b>ntegrity 正直 · <b>S</b>elf-discipline 自律 · <b>E</b>mpathy 同理</td></tr>
+<tr><td><b>校园口号</b></td><td><b>Grow and Glow @ Greendale</b>（在绿苑成长并发光）</td></tr>
+</tbody>
+</table>
+<div class="note">
+<b>两个值得留意的点。</b>
+<br><br>
+① <b>「Servant Leader（仆人式领导者）」</b>——这个提法比「Leader」更克制：它把领导定义为<b>服务</b>，而不是影响或统领。在中学愿景里不常见。
+<br><br>
+② <b>R³ISE 的写法</b>——三个 R（Respect / Responsibility / Resilience）加上 ISE，做成「R 的三次方」。<b>和 Edgefield 的 E=mc² 一样，这是把价值观做成了可记忆的符号。</b>两所学校在这件事上撞了思路，但手法不同：一个用物理方程，一个用指数。
+</div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section>
+<h2 id="s3"><span class="n">03</span>学业与升学出路</h2>
+<p class="lead">这所学校<b>不公布 O-Level 成绩</b>。它的官网有一整套写得很细的「教与学框架（TLF）」，但那是方法论述，没有数字。</p>
+
+<h3>生源结构：三所里最宽松</h3>
+<p>PG3 区间 <b>11–16</b>，跨度 5 分。三所榜鹅学校对比：</p>
+<table>
+<thead><tr><th style="width:200px">学校</th><th>PG3 区间</th><th>17 分余量</th><th>性质</th></tr></thead>
+<tbody>
+<tr><td>Edgefield</td><td class="num">5 – 14</td><td class="num">−3</td><td>门槛最严</td></tr>
+<tr><td>Yusof Ishak</td><td class="num">7 – 15</td><td class="num">−2</td><td>次严</td></tr>
+<tr><td><b>Greendale</b></td><td class="num"><b>11 – 16</b></td><td class="num"><b>−1</b></td><td><b>最接近可及</b></td></tr>
+</tbody>
+</table>
+<p>17 分在 Greendale 会落在<b>同届的下段但不算垫底</b>——下限 11 说明班里也有分数明显更高的学生，但 16 分的上限意味着<b>你和「最后一名」只差 1 分</b>。</p>
+
+<h3>它的教学框架写了什么</h3>
+<p>学校有一套 2021 年更新的「教与学框架（TLF）」，核心主张很朴素：</p>
+<ul>
+  <li><b>「所有学生都能学会并成功」</b>——明确引用新加坡课程理念「每个孩子都想学、也都能学」</li>
+  <li>教师有<b>自主权</b>去调整「教什么」和「怎么教」，基于学生的学习需求与强项做差异化</li>
+  <li>把 <b>Study Skills（学习技能）</b>做成正式课程：记笔记、思维导图、概念图</li>
+  <li>评估要「为学习」与「对学习」平衡——<b>给反馈是为了补差距，不只是打分</b></li>
+</ul>
+<p class="soft" style="font-size:13.2px">这段里最有价值的是一个细节：学校承认<b>「有些学生自己记笔记学得更好，有些用老师的笔记做底再加自己的标注更有效」</b>，并据此让学生探索自己的学习偏好。<b>这是把「因材施教」落到了具体动作上，不是口号。</b></p>
+
+<h3>科目覆盖</h3>
+<p>官网的学科页面覆盖英文、母语、数学、科学、人文、美术、<b>设计与工艺（D&amp;T）</b>、<b>食品与消费教育（FCE）</b>、<b>会计与商业基础（EBS/CPA）</b>、体育与运动科学（SET）。MOE 科目清单显示附加数学、物理／化学／生物及组合齐全。<b>STEM 主线完整。</b></p>
+<p>特别留意 <b>D&amp;T 与 FCE 都有独立教研组页面</b>——这和它的 DTE ALP 与 ODAC 的野外炊事是对得上的，说明「动手做东西」在这所学校是有课程支撑的，不只是社团活动。</p>
+
+<div class="verdict">
+  <h3>毕业生去向怎么判断</h3>
+  <ul>
+    <li><b>直接证据：没有。</b>不公布升学分布。</li>
+    <li><b>间接判断：Poly 为主。</b>PG3 11–16 的生源结构，中位数学生的 L1R5 大概率落在 Poly 段。</li>
+    <li><b>一个有价值的问法：</b>它的 DTE 与 ODAC 都有很强的技能属性，<b>问「有多少毕业生进 Poly 的工程类或体育科学类课程」</b>，比问笼统的升学率更能看出特色是否转化成出口。</li>
+    <li><b>开放日要问：</b>「上一届 Express 班 JC 资格率？」「D&amp;T 和 FCE 在中三中四有多少人选？」</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section>
+<h2 id="s4"><span class="n">04</span>两个旗舰项目</h2>
+<p class="lead">这所学校的 ALP 和 LLP 在官网上都没有独立介绍页。但它的 <b>DSA 页与各 CCA 页把内容写得很细</b>，可以完整还原——而且还原出来的东西，比多数有介绍页的学校更实。</p>
+
+<h3>ALP：Design, Technology and Engineering（DTE）</h3>
+<p>ALP 的官方名称是 <b>Design, Technology and Engineering ALP Programme</b>。它的真实内容，从 <b>DSA-DTE 页面</b>能看清：</p>
+<div class="voice">
+  <div class="who">来源：学校官网 DSA → Design, Technology &amp; Engineering 页</div>
+  <p>「通过 <b>DSA-DTE</b> 计划录取的学生，可以期待丰富的项目与活动，<b>提升他们在编程、机器人技术（coding, robotics）与技术方面的技能与能力</b>。也会有<b>与高等教育机构和产业界合作</b>的机会。学生将获得全面、整体而丰富的体验。」</p>
+  <p class="soft" style="font-size:13.2px">这段话有三个信息点值得记住：<b>① 明确点名 coding 与 robotics</b>（不是笼统的「科技」）；<b>② 与高等教育机构与产业合作</b>；<b>③ 它是 DSA 的招生方向</b>——意味着这不是一门课，而是一条从招生、课程到社团的完整通道。</p>
+</div>
+
+<p>选拔标准也写得很具体，反过来说明学校要什么样的学生：</p>
+<ul>
+  <li>对 <b>STEM 领域（coding、robotics、engineering design）有强烈兴趣</b></li>
+  <li>有<b>相关经验或接触</b>：参加过编程比赛、机器人社团、STEM 工作坊或项目</li>
+  <li>展现<b>问题解决、批判性思维、创新</b>的能力</li>
+  <li>操行良好、性格有韧性、有团队合作能力</li>
+</ul>
+<p>并且明确写了「<b>学校会评估申请者的潜力</b>」——和 Edgefield 一样，没有经验也不是绝对的门槛。</p>
+
+<div class="note">
+<b>ALP 与 Robotics Club 的关系（这是本节最重要的一句）：</b>ALP 是「课程层」，Robotics Club 是「社团层」，<b>两者共用同一套技能栈</b>。所以看这所学校的 DTE 强不强，最直接的证据不是 ALP 页（它没有），而是 Robotics Club 页——那一页写得比很多学校的 ALP 介绍还详细。
+</div>
+
+<h3>LLP：以户外与冒险教育育品格</h3>
+<p>LLP 全名 <b>Character Development through Outdoor and Adventure Education</b>。同样没有独立页面，但它的载体很清楚——<b>就是 ODAC（户外探险社）</b>，而且 ODAC 页写得非常细：</p>
+<table>
+<thead><tr><th style="width:150px">维度</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td><b>技能训练</b></td><td>露营（搭帐篷、<b>野外炊事</b>）、绳结、攀岩、定向越野、皮划艇、导航、<b>远征规划</b></td></tr>
+<tr><td><b>推进方式</b></td><td>每周训练 → 户外模块 → 领导力营 → 全国比赛，逐级递进</td></tr>
+<tr><td><b>特色项目</b></td><td><b>户外炊事挑战</b>、攀岩课程、<b>海上远征</b>、冒险营</td></tr>
+<tr><td><b>2025 战绩</b></td><td><b>NORS（全国定向越野）B 组男子冠军</b>、C 组男子第 3；<b>G.A.R.A.N.G 女子组第一</b>；攀岩与定向赛事名列前茅</td></tr>
+<tr><td><b>里程碑</b></td><td><b>40 公里海上皮划艇远征</b>、<b>1-Star 皮划艇认证</b>、年度 ODAC 领导力营</td></tr>
+</tbody>
+</table>
+<p>学校对它的定位是「<b>真实的户外学习体验，培养韧性、领导力与对自然的深切尊重</b>」，并明确走「体验式教育（experiential education）」路线——学生在<b>身体、心理、道德三个层面</b>被挑战。</p>
+
+<div class="verdict">
+  <h3>两个项目合起来看，这所学校的性格很清楚</h3>
+  <ul>
+    <li><b>它是一所「用双手和身体学习」的学校</b>：DTE 是动手设计制造，ODAC 是动手在野外生存。两者都对「坐不住」的孩子友好。</li>
+    <li><b>「户外炊事挑战」这一条值得单独说</b>——孩子对烹饪有兴趣的话，这是全部十三所里最接近「真刀真枪做饭」的场景：野外环境、有限器材、要喂饱一队人。<b>比课堂里的烘焙模块硬核得多。</b></li>
+    <li><b>但代价也要看清：</b>ODAC 的训练强度不低（40 公里海上划艇），<b>不适合怕水或体能偏弱的孩子</b>。它不是「轻松版露营社」。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section>
+<h2 id="s5"><span class="n">05</span>CCA 全解析</h2>
+<p class="lead">这一节是整份报告最需要仔细看的地方：<b>MOE 登记 7 项，官网列出 18 项</b>。差距是本次所有报告里最大的（MOE 只覆盖了 39%）。</p>
+
+<h3>MOE 登记（7 项）</h3>
+<table>
+<thead><tr><th style="width:110px">类别</th><th>CCA</th></tr></thead>
+<tbody>
+<tr><td><b>体育</b></td><td><b>Canoeing 皮划艇</b> · Football 足球（男）· Softball 垒球</td></tr>
+<tr><td><b>表演艺术</b></td><td>Chinese Orchestra 华乐团 · Modern Dance 现代舞</td></tr>
+<tr><td><b>制服团体</b></td><td>National Cadet Corps（NCC 陆，男）· National Police Cadet Corps（NPCC）</td></tr>
+</tbody>
+</table>
+
+<h3>官网完整清单（18 项）</h3>
+<table>
+<thead><tr><th style="width:110px">类别</th><th>CCA</th></tr></thead>
+<tbody>
+<tr><td><b>俱乐部</b><br><span class="soft" style="font-size:11.5px">5 项</span></td><td><b>Robotics 机器人社</b> · <b>ODAC 户外探险社</b> · <b>GBC 广播社</b>（Greendale Broadcasting Corporation）· Art &amp; Culture Club 美术与文化社 · Green Club 环保社</td></tr>
+<tr><td><b>体育</b><br><span class="soft" style="font-size:11.5px">5 项</span></td><td><b>Canoeing 皮划艇</b> · <b>Fencing 击剑</b> · Floorball 地板球 · Football 足球 · Softball 垒球</td></tr>
+<tr><td><b>表演艺术</b><br><span class="soft" style="font-size:11.5px">5 项</span></td><td><b>Theatricks! 戏剧社</b> · Angklung Ensemble 昂格隆 · Dance Ensemble 舞蹈 · Greendale Chorale 合唱 · Greendale Orchestra 管弦乐团</td></tr>
+<tr><td><b>制服团体</b><br><span class="soft" style="font-size:11.5px">3 项</span></td><td>NCC（陆）· NPCC · <b>Singapore Red Cross Youth 红十字青年团</b></td></tr>
+</tbody>
+</table>
+
+<div class="verdict">
+  <h3>被 MOE 漏掉的 11 项里，有两项是孩子最想要的</h3>
+  <ul>
+    <li><b>Robotics 机器人社</b>——而且它的技术深度是十三所里最高的（下一节详细说）</li>
+    <li><b>Theatricks! 戏剧社</b>——是<b>独立的戏剧社</b>，不是 ELDDS 那种「英文+戏剧+辩论」合并社团</li>
+    <li>另外还有 <b>Fencing 击剑</b>、<b>GBC 广播社</b>、<b>ODAC 户外</b>、<b>Red Cross</b> 等</li>
+    <li><b>结论：如果只看 MOE SchoolFinder，你会以为这所学校只有 7 个普通社团，从而完全错判它。</b></li>
+  </ul>
+</div>
+
+<h3>Robotics Club：十三所里技术最硬的一个</h3>
+<p>它的官方描述开头就划清了界限：「<b>在 GDLS Robotics，我们不只是一个「编程社」。我们是下一代工程师、设计师与创新者的孵化器。</b>」</p>
+<p>课程是 <b>4 年进阶制</b>，三大支柱：</p>
+<table>
+<thead><tr><th style="width:180px">支柱</th><th>具体内容</th></tr></thead>
+<tbody>
+<tr><td><b>① 设计与制造</b></td><td>用<b>工业级 CAD 软件（SolidWorks、Autodesk Fusion 360）</b>设计定制零件，通过 <b>3D 打印与激光切割</b>做出来</td></tr>
+<tr><td><b>② 编程与智能</b></td><td>超越基础逻辑，探索 <b>AI（人工智能）与微电子</b>——使用 <b>Arduino</b> 与 Anniken Andee 做<b>手机 App 控制</b>的机器人</td></tr>
+<tr><td><b>③ 敏捷问题解决</b></td><td>用 <b>Design Thinking</b> 框架，为新加坡相关的议题（可持续、智慧城市）做原型方案</td></tr>
+</tbody>
+</table>
+<div class="verdict">
+  <h3>为什么这个社团值得单独一段</h3>
+  <ul>
+    <li><b>SolidWorks 与 Fusion 360 是工业界真的在用的软件</b>，不是教学简版。中学生接触这两样，等于提前进入工程实践的语言。</li>
+    <li><b>3D 打印 + 激光切割 + Arduino</b> 是三件配套的实体能力：能设计、能制造、能控制。<b>这个组合在中学科创社团里属于顶配。</b></li>
+    <li><b>「AI + 微电子 + App 控制」</b>——这三样连起来，孩子做的是「一个能被手机操控的智能装置」，而不是「一个会走线的机器人套件」。</li>
+    <li>横向对比：<b>YI 的 Robotics 是「机器人 + 无人机 + Python」</b>（偏软件与飞行），<b>Greendale 的是「CAD + 制造 + Arduino + AI」</b>（偏硬件与工程）。<b>两条路线不同，没有高下——但如果孩子喜欢「自己造出实体东西」，这所更对味。</b></li>
+  </ul>
+</div>
+
+<h3>Theatricks! 戏剧社</h3>
+<p>名字本身就有意思——Theatre + Tricks。官网说明它教的是<b>戏剧制作的全链条</b>：</p>
+<ul>
+  <li><b>技术层</b>：灯光、音效、<b>舞台调度</b>（stage direction）</li>
+  <li><b>表演层</b>：用身体创造角色、舞台动作、视觉构图</li>
+  <li><b>创作层</b>：学生与导师、老师<b>共同创作</b>演出元素</li>
+  <li><b>反思层</b>：训练中嵌入<b>结构化反思</b>，帮学生看见自己的成长</li>
+  <li><b>视野层</b>：职业讲座 + 到专业剧场观摩</li>
+</ul>
+<p><b>成绩：2021、2023、2025 连续三届 SYF 获 Certificate of Accomplishment。</b></p>
+<p class="soft" style="font-size:13.2px">「连续三届」这个节奏很关键——中间隔着疫情，仍然保持参赛并获认可，说明这不是靠某一届学生撑起来的社团，而是有稳定的指导力量。</p>
+
+<h3>用 DSA 名单反推「真正的强项」</h3>
+<p>DSA 只开 <b>3 项</b>——是十三所里最少的一所：</p>
+<p style="font-size:14.4px">
+<span class="tag a">Design, Technology and Engineering（DTE）</span>
+<span class="tag a">Leadership 领导力</span>
+<span class="tag a">Outdoor Adventure 户外探险</span>
+</p>
+<p><b>三项正好对应三条主线</b>：DTE → ALP 与 Robotics，Leadership → LLP，Outdoor Adventure → ODAC。<b>这是本次所有报告里 DSA 与校内项目咬得最紧的一份名单</b>——没有一项是「为了凑数」。</p>
+<p>反过来也要看清代价：<b>没有体育 DSA、没有表演艺术 DSA</b>。如果孩子的特长在羽毛球或合唱，这所学校没有专门通道，只能走常规 S1 Posting。</p>
+
+<div class="verdict">
+  <h3>对照孩子的五个兴趣</h3>
+  <ul>
+    <li><b>AI / Computing —— 强匹配。</b>Robotics Club 明确含 <b>AI、Arduino、App 控制</b>；另有 GBC 广播社（媒体制作）。<b>但注意：它的 AI 是「嵌入式 AI」，不是写软件或模型训练。</b></li>
+    <li><b>Robotics —— 十三所里最强。</b>4 年进阶课程、工业级 CAD、3D 打印、激光切割、DSA 有 DTE 通道。</li>
+    <li><b>Drama —— 强匹配。</b>Theatricks! 是独立戏剧社，教灯光音效舞台调度，连续三届 SYF 获认可。<b>比 ELDDS 类型的合并社团专门得多。</b></li>
+    <li><b>Cooking —— 中等偏强。</b>没有烹饪 CCA，但有 <b>FCE 科目</b>＋ <b>ODAC 的野外炊事挑战</b>——后者是真正的户外做饭，比课堂烘焙更有挑战。</li>
+    <li><b>Swimming —— 无匹配。</b>没有游泳 CCA，但有 <b>Canoeing 皮划艇</b>——同样是水上项目，但要求完全不同（不怕水、能翻船自救）。</li>
+  </ul>
+</div>
+<p><b>五个兴趣里接住四个（AI、机器人、戏剧、烹饪），是三所榜鹅学校里覆盖最全的一所，也是十三所里最全的之一。</b></p>
+</section>
+
+<!-- ==== 6 ==== -->
+<section>
+<h2 id="s6"><span class="n">06</span>真实声音</h2>
+<p class="lead">这所学校没有校长致辞、没有学生证言。但它的 CCA 页面里有一句自我定位，比大多数宣传都敢说。</p>
+
+<h3>「我们不只是一个编程社」</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 Robotics Club 页开头</div>
+  <p>「在 GDLS Robotics，<b>我们不只是一个「编程社」</b>。我们是下一代<b>工程师、设计师与创新者的孵化器</b>。我们赋能学生，把抽象的想法转化为应对真实世界挑战的<b>具体解决方案</b>。」</p>
+  <p class="soft" style="font-size:13.2px">这句话之所以值得引，是因为它<b>主动划清了一条界线</b>：编程社 vs 工程师孵化器。<b>敢这么写，通常意味着内容撑得住——否则家长一进社团就穿帮了。</b>而它后面的三大支柱（CAD 制造、Arduino 与 AI、Design Thinking）确实撑住了这个说法。</p>
+</div>
+
+<h3>一段关于「怎么教学生」的描述</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 Theatricks! 页</div>
+  <p>「社团的学习<b>高度协作</b>——学生与导师、老师<b>共同创造</b>演出的各个元素，培养团队合作与创作上的主人翁意识。<b>结构化的反思贯穿整个课程</b>，帮助学生觉察自己的成长过程。」</p>
+  <p class="soft" style="font-size:13.2px">「创作上的主人翁意识（creative ownership）」+「结构化反思」——这两个词是<b>课程设计语言，不是社团宣传语</b>。它说明这个戏剧社有教学法，不只是「排一出戏」。</p>
+</div>
+
+<h3>一个可以验证的强度指标</h3>
+<div class="voice">
+  <div class="who">来源：学校官网 ODAC 页（2025 赛季）</div>
+  <p>「2025 年，ODAC 学生在 <b>NORS 拿下 B 组男子冠军与 C 组男子第三名</b>，在 <b>G.A.R.A.N.G 女子组第一</b>，并在定向越野与攀岩项目中取得顶尖成绩。学生也完成了<b>40 公里海上皮划艇远征</b>、<b>1-Star 皮划艇认证</b>，以及年度 ODAC 领导力营。」</p>
+  <p class="soft" style="font-size:13.2px">「40 公里海上皮划艇远征」是一个很具体的门槛——它不是校内活动，是需要真实体能、海上安全训练与团队协作才能完成的事。<b>如果你的孩子怕水或体能偏弱，这条线要慎重；如果他能吃苦，这是极好的成长经历。</b></p>
+</div>
+
+<h3>家长与学生的公开评价：查不到</h3>
+<div class="note">
+Reddit、KiasuParents、Google 评论均无成规模讨论。
+<br><br>
+<b>一个针对这所学校的建议：</b>它离地铁站 1,363 米，<b>学生大多要坐巴士或家长接送</b>。开放日可以专门问「早上从 Punggol 站怎么过来」，顺便观察回答的老师是否清楚——<b>连通勤都说不清的学校，通常对学生的日常体验关注不够。</b>
+</div>
+</section>
+
+
+<!-- ============ 7 ============ -->
+<section>
+<h2 id="s7"><span class="n">07</span>开放日必问清单</h2>
+<p class="lead">这所学校是三所里唯一值得认真考虑放进志愿的（差 1 分），清单按「能不能进」和「进了之后学什么」两条线排列。</p>
+<ol class="checklist">
+<li><b>今年 PG3 上限有没有可能到 17？</b>——差 1 分，这题决定它能不能进志愿。问招生老师对今年报考热度与分数线的判断。</li>
+<li><b>Robotics Club 有多少人？中一能直接进吗？需要选拔吗？</b>——它的技术含量最高，但也可能门槛最高。</li>
+<li><b>Robotics 的 4 年课程，中一具体学什么？</b>——确认是真按 4 年递进，还是「名义 4 年、实际每年重复」。</li>
+<li><b>SolidWorks 和 Fusion 360 是学生自己上手，还是老师演示？</b>——工业软件对中学生偏难，这题能试出课程的真实深度。</li>
+<li><b>3D 打印机和激光切割机有多少台？学生能自由使用吗？</b>——设备数量决定「人人有机会」还是「少数人玩」。</li>
+<li><b>Theatricks! 一年公演几次？中一新生能上台吗？</b>——连续三届 SYF 获认可，但新人机会要问清。</li>
+<li><b>ODAC 的训练强度有多大？怕水的孩子能参加吗？</b>——40 公里海上划艇是真实门槛。</li>
+<li><b>「户外炊事挑战」具体怎么做？</b>——孩子对烹饪有兴趣，这是最接近真实做饭的场景。</li>
+<li><b>从 Punggol 站到学校，早上实际要多久？有没有校车或接驳巴士？</b>——1,363 米步行，这是每天的真实成本。</li>
+<li><b>上一届 Express 班 JC 资格率？进 Poly 工程类的有多少？</b>——第二问能验证 DTE 特色有没有转化成出口。</li>
+</ol>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与可信度</h2>
+<p class="lead">A 级＝官方一手（MOE、学校官网、官方文件）；B 级＝权威二手（主流媒体、官方平台报道）；C 级＝网络整理，需现场核实。</p>
+<table>
+<thead><tr><th style="width:34%">内容</th><th>来源</th><th style="width:52px">可信度</th></tr></thead>
+<tbody>
+<tr><td><b>PG3 录取区间 11–16（17 分差 1 分）</b></td><td>MOE SchoolFinder（2025 年度 S1 Posting）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>校史（2005 筹备 / 2006 开学 / 校名由来）</b></td><td>学校官网 School History</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>愿景 / 使命 / R³ISE 价值观</b></td><td>学校官网 Vision, Mission & Values</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>教学框架 TLF 与 Study Skills</b></td><td>学校官网 Instructional Programme</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>ALP DTE 内容（coding / robotics / 产业合作）</b></td><td>学校官网 DSA-DTE 页</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>Robotics Club 4 年课程与三大支柱</b></td><td>学校官网 CCA → Clubs → Robotics</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>Theatricks! 内容与三年 SYF 记录</b></td><td>学校官网 CCA → Performing Arts → Theatricks!</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>ODAC 技能、2025 战绩与 40km 远征</b></td><td>学校官网 CCA → Clubs → ODAC</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>18 项 CCA 完整清单</b></td><td>学校官网 CCA 四个分类页 + sitemap</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>MOE 登记 7 项 CCA</b></td><td>MOE SchoolFinder（<b>仅覆盖 39%</b>）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>DSA 3 个项目</b></td><td>学校官网 DSA 各子页 + MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>LLP 内容</b></td><td>由 ODAC 页面与 DSA-Outdoor Adventure 推断（<b>官网无独立页</b>）</td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>O-Level 成绩 / 升学分布</b></td><td><b>官网未公布</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>学生规模（约 1,000）</b></td><td>估算值</td><td class="mid"><span class="tag c">C</span></td></tr>
+</tbody>
+</table>
+<h3>我剔除掉的错误信息</h3>
+<p>网上流传的择校资料里，这所学校有几条被反复抄错的数字。我逐条回到一手来源核对过：</p>
+<table>
+<thead><tr><th style="width:34%">流传的说法</th><th>实际情况</th></tr></thead>
+<tbody>
+<tr><td>「Greendale 只有 7 个 CCA，选择很少」</td><td>MOE 登记 7 项，<b>官网列出 18 项</b>——多出 <b>Robotics、Theatricks!、Fencing、Floorball、GBC 广播社、ODAC、Red Cross Youth、Angklung、Chorale、Orchestra、Art &amp; Culture、Green Club</b>。<b>MOE 只覆盖了 39%，是本批报告里失真最严重的一所。</b></td></tr>
+<tr><td>「学校没有机器人社团」</td><td>有，而且 <b>Robotics Club 是十三所里技术描述最深的</b>：4 年课程、SolidWorks／Fusion 360、3D 打印、激光切割、Arduino、AI、App 控制。</td></tr>
+<tr><td>「学校没有戏剧社」</td><td>有 <b>Theatricks!</b>，是<b>独立戏剧社</b>（非合并社团），教灯光、音效、舞台调度，<b>2021／2023／2025 连续三届 SYF 获 Certificate of Accomplishment</b>。</td></tr>
+<tr><td>「17 分完全没机会」</td><td>PG3 上限 <b>16</b>，17 分<b>只差 1 分</b>。COP 年际浮动通常 1–2 分，<b>理论上存在上移到 17 的可能</b>——不能当保底，但可以作为第 1 志愿尝试。这是三所榜鹅学校里唯一有这种余地的。</td></tr>
+<tr><td>「学校 ALP 是户外教育」</td><td>ALP 是 <b>Design, Technology and Engineering（DTE）</b>——设计、技术与工程；<b>户外教育是 LLP</b>（Character Development through Outdoor and Adventure Education）。两者常被写反。</td></tr>
+</tbody>
+</table>
+</section>
+
+<div class="foot">
+<b>报告生成：</b>2026-11-11　·　数据口径：COP 为 2025 年度 S1 Posting 结果，AL 17 属 PG3，只与同档学生竞争<br>
+<b>通勤模型：</b>MRT 站间 2 分钟、换乘 5 分钟、进站等车 4 分钟、步行 80m/min；不含巴士接驳，最近站步行 &gt;800m 的学校实际耗时更长<br>
+<b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
+</div>
+
+</div>
+</body>
+</html>

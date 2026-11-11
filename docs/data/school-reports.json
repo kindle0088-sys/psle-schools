@@ -1,6 +1,6 @@
 {
   "_note": "单校深度报告索引：slug -> 报告文件。新增一份报告只需在此登记一行，看板卡片会自动出现「深度报告」入口。",
-  "generatedAt": "2026-11-09T18:00:00+08:00",
+  "generatedAt": "2026-11-11T11:45:05.310Z",
   "reports": {
     "bendemeer-secondary-school": {
       "file": "reports/school-bendemeer-secondary-school.html",
@@ -50,6 +50,21 @@
     "serangoon-secondary-school": {
       "file": "reports/school-serangoon-secondary-school.html",
       "date": "2026-11-09",
+      "version": "v1"
+    },
+    "edgefield-secondary-school": {
+      "file": "reports/school-edgefield-secondary-school.html",
+      "date": "2026-11-11",
+      "version": "v1"
+    },
+    "yusof-ishak-secondary-school": {
+      "file": "reports/school-yusof-ishak-secondary-school.html",
+      "date": "2026-11-11",
+      "version": "v1"
+    },
+    "greendale-secondary-school": {
+      "file": "reports/school-greendale-secondary-school.html",
+      "date": "2026-11-11",
       "version": "v1"
     }
   }

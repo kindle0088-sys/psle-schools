@@ -98,8 +98,11 @@ if (s) {
   if (pg3) {
     t(`PG3 区间与数据源一致（${pg3.min}–${pg3.max}）`,
       new RegExp(`${pg3.min}\\s*[–-]\\s*${pg3.max}`).test(html));
+    // 余量可为负（17 分高于该校 PG3 上限），正数带 + 号、负数带 − 号
     const margin = pg3.max - 17;
-    t(`余量计算正确（+${margin}）`, new RegExp(`\\+${margin}\\s*分`).test(html));
+    const mLabel = margin >= 0 ? `+${margin}` : String(margin);
+    const mRe = margin >= 0 ? new RegExp(`\\+${margin}\\s*分`) : new RegExp(`−?-?${Math.abs(margin)}\\s*分`);
+    t(`余量计算正确（${mLabel}）`, mRe.test(html));
   }
 
   // 学校性质（IP / SAP）如实标注

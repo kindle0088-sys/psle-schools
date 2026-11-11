@@ -97,8 +97,11 @@ const REPORTS = (() => {
   catch (_) { return {}; }
 })();
 const linked = [...html.matchAll(/class="deeplink" href="([^"]+)"/g)].map(m => m[1]);
-t('深度报告入口数与索引一致', linked.length === Object.keys(REPORTS).length,
-  `${linked.length} / ${Object.keys(REPORTS).length}`);
+// 索引里可能有「够不着、因此不在 v2 候选池」的学校，所以入口数只需 ≤ 索引总数，
+// 真正的约束是「不重复」+「不超集」+「文件真实存在」。
+t('深度报告入口无重复', new Set(linked).size === linked.length, `${linked.length} 个`);
+t('入口数不超过索引总数', linked.length <= Object.keys(REPORTS).length,
+  `${linked.length} ≤ ${Object.keys(REPORTS).length}`);
 const broken = linked.filter(f => !fs.existsSync(path.join(BASE, 'docs', f)));
 t('深度报告链接均指向存在的文件', broken.length === 0, broken.join(', ') || '全部有效');
 t('不含与 v1 的对比总结', !/上一版|本版修正了什么|旧口径/.test(html));
