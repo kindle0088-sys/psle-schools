@@ -115,6 +115,27 @@ for (const [name, gap] of UNREACH) {
 t('STEP 4c 明确写出不可填志愿', /不能填进志愿|基本没有可能|不建议占用志愿位置/.test(html));
 t('含 COP 口径说明', html.includes('Posting Group 3 行的非附属区间'));
 
+/* ── 通勤两列（2026-11-12）：步行来自 OSM 步行路网，地铁来自 MRT 模型，
+      计分取两者最快。这里核对报告是否真的把两路都摆出来、并写明争议口径。 ── */
+const rec = (() => {
+  const f = path.join(BASE, `data/_recommend-${(function(){ try { return JSON.parse(fs.readFileSync(path.join(BASE,'data/students/active.json'),'utf8')).id; } catch(_) { return 'abc1'; } })()}.json`);
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
+})();
+t('报告含「步行 / 地铁」双列', html.includes('步行 / 地铁') || (html.includes('>步行<') && html.includes('>地铁<')));
+t('通勤口径写明「取最快」', html.includes('取最快者进入通勤评分') || html.includes('取最快者参与'));
+if (rec) {
+  const pool = rec.pool || [];
+  const disp = pool.filter(x => x.walkDisputed);
+  t('候选池里有争议项', disp.length > 0, disp.map(x => x.name.replace(/ Secondary School/, '')).join('、') || '无');
+  if (disp.length) {
+    // 争议项必须显式挂标，不能只印一个数字
+    const marked = disp.filter(x => new RegExp(`${x.walkRange ? x.walkRange[0] + '–' + x.walkRange[1] : x.walkMinutes}[^<]{0,12}(争议)`).test(html));
+    t('争议项在报告里标注「争议」', marked.length === disp.length, `${marked.length}/${disp.length}`);
+  }
+  const walkFaster = pool.filter(x => x.commuteMode === 'walk');
+  t('步行更快的学校在报告里可识别', walkFaster.length > 0, walkFaster.map(x => x.name.replace(/ Secondary School/, '')).join('、'));
+}
+
 // 单校深度报告入口：数量应与索引一致，且指向真实存在的文件
 const REPORTS = (() => {
   try { return JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/school-reports.json'), 'utf8')).reports || {}; }

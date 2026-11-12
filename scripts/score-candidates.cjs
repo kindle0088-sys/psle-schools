@@ -21,6 +21,10 @@ const graph = Iso.buildGraph(net);
 
 const Stu = require('../lib/student.cjs');
 const STU = Stu.load();
+const Walk = require('../lib/walk.cjs');
+
+/* 步行路网数据（data/walk-<id>.json）。没有就只用地铁单源，不报错。 */
+const WALK = Walk.load(STU.id);
 
 // MOE 邮编筛选结果按邮编天然区分学生；缺失时降级为「未做附近筛选」
 const MOE_NEARBY = (() => {
@@ -237,6 +241,8 @@ function gate(sc) {
   const all = schools.map(sc => {
     const g = gate(sc);
     const t = tmap.get(sc.slug);
+    // 通勤：步行 / 地铁取最快者（争议项步行取区间上端，见 lib/walk.cjs）
+    const cm = Walk.merge(WALK ? WALK.bySlug.get(sc.slug) : null, t ? t.minutes : null);
     const alpCats = (sc.electives || []).filter(x => x.type.startsWith('Applied Learning')).map(x => x.category || '');
     const llpCats = (sc.electives || []).filter(x => x.type.startsWith('Learning for Life')).map(x => x.category || '');
     const alpItems = (sc.electives || []).filter(x => x.type.startsWith('Applied Learning')).flatMap(x => x.items || []);
@@ -244,7 +250,9 @@ function gate(sc) {
     const margin = g ? g.max - SCORE : null;
     const s = {
       safety: scoreSafety(margin),
-      commute: scoreCommute(t ? t.minutes : null),
+      // ⚠️ 口径变更（2026-11-12）：原来只吃地铁模型，现在吃 min(步行, 地铁)。
+      //    Punggol 这批学校其实走路上学比坐地铁快 7–12 分钟，只看地铁会系统性低估。
+      commute: scoreCommute(cm ? cm.minutes : null),
       academic: scoreAcademic(alpCats, alpItems),
       // ⚠️ 用 ccaFull（官网核实过的完整清单），不是 sc.cca（MOE 登记，常年漏登）。
       //    否则 Greendale 这种「MOE 只登记 7 项、实际 19 项」的学校会被系统性低估。
@@ -260,9 +268,17 @@ function gate(sc) {
       autonomous: sc.autonomous, independent: sc.independent,
       cop: g ? { min: g.min, max: g.max, markMax: g.markMax, kind: g.kind, year: sc.cop.year } : null,
       margin,
-      minutes: t ? t.minutes : null,
+      // minutes = 参与评分的最快通勤（步行 or 地铁）；mrtMinutes / walkMinutes 分开留给展示
+      minutes: cm ? cm.minutes : null,
+      commuteMode: cm ? cm.best : null,
+      mrtMinutes: cm ? cm.mrtMin : null,
+      walkMinutes: cm ? cm.walkMin : null,
+      walkUpperMinutes: cm ? cm.walkUpperMin : null,
+      walkMeters: cm ? cm.walkM : null,
+      walkDisputed: cm ? cm.walkDisputed : false,
+      walkRange: cm ? cm.walkRange : null,
       rideMinutes: t ? t.rideMinutes : null,
-      walkMinutes: t ? t.walkMinutes : null,
+      walkMinutesToStation: t ? t.walkMinutes : null,
       via: t ? `${t.viaStation} ${t.viaStationName}` : null,
       accessWalkM: t ? t.accessWalkM : null,
       cca: sc.cca || [],
@@ -306,11 +322,12 @@ function gate(sc) {
   console.log('▸ 起点:', origin.label, origin.lat.toFixed(5), origin.lon.toFixed(5));
   console.log(`▸ 候选池（${wantSex === 'any' ? '混校' : wantSex === 'boys' ? '混校+男校' : '混校+女校'} / ${MAX_MIN}min / margin≥0）:`, pool.length, '所');
   console.log('');
-  console.log('排名  总分  分钟  余量  COP       校名 / ALP');
+  console.log('排名  总分  通勤  余量  COP       校名 / ALP   （通勤 = 步行/地铁取最快，带 * 为争议项）');
   pool.forEach((x, i) => {
     console.log(
       String(i + 1).padStart(3) + '  ' + String(x.total).padStart(4) + '  ' +
-      String(x.minutes).padStart(3) + 'm  ' + String(x.margin).padStart(4) + '  ' +
+      (String(x.minutes).padStart(2) + (x.commuteMode === 'walk' ? 'W' : 'M') +
+        (x.walkDisputed ? '*' : ' ')).padStart(6) + ' ' + String(x.margin).padStart(4) + '  ' +
       (x.cop.min + '-' + x.cop.max + (x.cop.markMax || '')).padEnd(9) + ' ' +
       (x.moeNearby ? '*' : ' ') + x.name.replace(/ Secondary School| \(Secondary\)/, '') +
       '  『' + (x.alpCats[0] || '—') + '』'
@@ -341,6 +358,11 @@ function gate(sc) {
     poolMixed: pool.length,
     poolSingleSex: singleSex.length,
     outOfReach: outOfReach.length,
+    // 通勤口径：步行 vs 地铁的分工，报告里引用这些数字而非写死
+    walkDataUsed: !!WALK,
+    walkFasterTotal: all.filter(x => x.commuteMode === 'walk').length,
+    walkFasterInPool: pool.filter(x => x.commuteMode === 'walk').length,
+    walkDisputedInPool: pool.filter(x => x.walkDisputed).length,
     // MOE 邮编筛选
     nearbyUsed: MOE_NEARBY.size > 0,
     nearbyCount: MOE_NEARBY.size,
@@ -378,6 +400,13 @@ function gate(sc) {
       pgShort: STU.postingGroup, pgLabel: PG,
       gender: STU.gender, hasAffiliation: STU.hasAffiliation,
       moeNearbyUsed: MOE_NEARBY.size > 0,
+      walkData: WALK ? {
+        generatedAt: WALK.generatedAt,
+        schoolCount: WALK.bySlug.size,
+        walkMetersPerMin: WALK.walkMetersPerMin,
+        source: WALK.source,
+        rule: '步行与地铁取最快者参与通勤评分；两家引擎分歧 >1.4× 的标为争议项，展示区间并按上端计分',
+      } : null,
     },
     origin, pool, singleSex, outOfReach, stats,
     weights: W,

@@ -1,0 +1,1243 @@
+{
+ "generatedAt": "2026-11-12T15:06:44.910Z",
+ "studentId": "abc1",
+ "postal": "828765",
+ "origin": {
+  "lat": 1.402186278027678,
+  "lon": 103.8972807400701
+ },
+ "walkMetersPerMin": 80,
+ "source": {
+  "primary": "FOSSGIS OSRM foot (routing.openstreetmap.de/routed-foot), OSM 步行路网",
+  "crossCheck": "Valhalla pedestrian (valhalla1.openstreetmap.de)",
+  "policy": "无需 API key；FOSSGIS 条款限 1 请求/秒、禁止抓取",
+  "attribution": "© OpenStreetMap contributors, ODbL"
+ },
+ "method": {
+  "distance": "真实步行路网最短路（非直线距离估算）",
+  "minutes": "walkM / 80 m/min，向上取整到分钟",
+  "confidence": "两引擎比值 > 1.4 标记 low —— 说明 OSM 路网可通行性存在争议，建议实地核实"
+ },
+ "summary": {
+  "total": 147,
+  "within500m": 0,
+  "within1000m": 2,
+  "within2000m": 6,
+  "within15min": 4,
+  "lowConfidence": 3
+ },
+ "schools": [
+  {
+   "slug": "yusof-ishak-secondary-school",
+   "name": "Yusof Ishak Secondary School",
+   "straightM": 540,
+   "walkM": 667,
+   "walkMin": 8,
+   "detour": 1.24,
+   "valhallaM": 1631,
+   "ratio": 2.45,
+   "confidence": "low"
+  },
+  {
+   "slug": "edgefield-secondary-school",
+   "name": "Edgefield Secondary School",
+   "straightM": 627,
+   "walkM": 829,
+   "walkMin": 10,
+   "detour": 1.32,
+   "valhallaM": 1090,
+   "ratio": 1.31,
+   "confidence": "ok"
+  },
+  {
+   "slug": "compassvale-secondary-school",
+   "name": "Compassvale Secondary School",
+   "straightM": 730,
+   "walkM": 1114,
+   "walkMin": 14,
+   "detour": 1.53,
+   "valhallaM": 1977,
+   "ratio": 1.77,
+   "confidence": "low"
+  },
+  {
+   "slug": "outram-secondary-school",
+   "name": "Outram Secondary School",
+   "straightM": 834,
+   "walkM": 1166,
+   "walkMin": 15,
+   "detour": 1.4,
+   "valhallaM": 1991,
+   "ratio": 1.71,
+   "confidence": "low"
+  },
+  {
+   "slug": "punggol-secondary-school",
+   "name": "Punggol Secondary School",
+   "straightM": 1327,
+   "walkM": 1936,
+   "walkMin": 24,
+   "detour": 1.46,
+   "valhallaM": 2019,
+   "ratio": 1.04,
+   "confidence": "ok"
+  },
+  {
+   "slug": "chij-st-josephs-convent",
+   "name": "CHIJ St. Joseph's Convent",
+   "straightM": 1295,
+   "walkM": 1960,
+   "walkMin": 24,
+   "detour": 1.51,
+   "valhallaM": 2530,
+   "ratio": 1.29,
+   "confidence": "ok"
+  },
+  {
+   "slug": "greendale-secondary-school",
+   "name": "Greendale Secondary School",
+   "straightM": 1705,
+   "walkM": 2143,
+   "walkMin": 27,
+   "detour": 1.26,
+   "valhallaM": 2232,
+   "ratio": 1.04,
+   "confidence": "ok"
+  },
+  {
+   "slug": "nan-chiau-high-school",
+   "name": "Nan Chiau High School",
+   "straightM": 1694,
+   "walkM": 2164,
+   "walkMin": 27,
+   "detour": 1.28,
+   "valhallaM": 2983,
+   "ratio": 1.38,
+   "confidence": "ok"
+  },
+  {
+   "slug": "seng-kang-secondary-school",
+   "name": "Seng Kang Secondary School",
+   "straightM": 1746,
+   "walkM": 2668,
+   "walkMin": 33,
+   "detour": 1.53,
+   "valhallaM": 3535,
+   "ratio": 1.32,
+   "confidence": "ok"
+  },
+  {
+   "slug": "north-vista-secondary-school",
+   "name": "North Vista Secondary School",
+   "straightM": 2351,
+   "walkM": 3032,
+   "walkMin": 38,
+   "detour": 1.29,
+   "valhallaM": 3845,
+   "ratio": 1.27,
+   "confidence": "ok"
+  },
+  {
+   "slug": "pei-hwa-secondary-school",
+   "name": "Pei Hwa Secondary School",
+   "straightM": 2470,
+   "walkM": 3446,
+   "walkMin": 43,
+   "detour": 1.4,
+   "valhallaM": 4196,
+   "ratio": 1.22,
+   "confidence": "ok"
+  },
+  {
+   "slug": "montfort-secondary-school",
+   "name": "Montfort Secondary School",
+   "straightM": 3273,
+   "walkM": 3751,
+   "walkMin": 47,
+   "detour": 1.15,
+   "valhallaM": 4659,
+   "ratio": 1.24,
+   "confidence": "ok"
+  },
+  {
+   "slug": "hougang-secondary-school",
+   "name": "Hougang Secondary School",
+   "straightM": 3185,
+   "walkM": 3784,
+   "walkMin": 47,
+   "detour": 1.19
+  },
+  {
+   "slug": "serangoon-secondary-school",
+   "name": "Serangoon Secondary School",
+   "straightM": 3109,
+   "walkM": 4069,
+   "walkMin": 51,
+   "detour": 1.31
+  },
+  {
+   "slug": "holy-innocents-high-school",
+   "name": "Holy Innocents' High School",
+   "straightM": 3409,
+   "walkM": 4315,
+   "walkMin": 54,
+   "detour": 1.27
+  },
+  {
+   "slug": "xinmin-secondary-school",
+   "name": "Xinmin Secondary School",
+   "straightM": 3654,
+   "walkM": 4459,
+   "walkMin": 56,
+   "detour": 1.22
+  },
+  {
+   "slug": "bowen-secondary-school",
+   "name": "Bowen Secondary School",
+   "straightM": 4157,
+   "walkM": 5052,
+   "walkMin": 63,
+   "detour": 1.22
+  },
+  {
+   "slug": "serangoon-garden-secondary-school",
+   "name": "Serangoon Garden Secondary School",
+   "straightM": 4801,
+   "walkM": 6032,
+   "walkMin": 75,
+   "detour": 1.26
+  },
+  {
+   "slug": "yuying-secondary-school",
+   "name": "Yuying Secondary School",
+   "straightM": 5071,
+   "walkM": 6312,
+   "walkMin": 79,
+   "detour": 1.24
+  },
+  {
+   "slug": "peicai-secondary-school",
+   "name": "Peicai Secondary School",
+   "straightM": 5630,
+   "walkM": 6899,
+   "walkMin": 86,
+   "detour": 1.23
+  },
+  {
+   "slug": "paya-lebar-methodist-girls-school-secondary",
+   "name": "Paya Lebar Methodist Girls' School (Secondary)",
+   "straightM": 5853,
+   "walkM": 7234,
+   "walkMin": 90,
+   "detour": 1.24
+  },
+  {
+   "slug": "anderson-secondary-school",
+   "name": "Anderson Secondary School",
+   "straightM": 5952,
+   "walkM": 7427,
+   "walkMin": 93,
+   "detour": 1.25
+  },
+  {
+   "slug": "zhonghua-secondary-school",
+   "name": "Zhonghua Secondary School",
+   "straightM": 6734,
+   "walkM": 7927,
+   "walkMin": 99,
+   "detour": 1.18
+  },
+  {
+   "slug": "st-gabriels-secondary-school",
+   "name": "St. Gabriel's Secondary School",
+   "straightM": 6626,
+   "walkM": 8080,
+   "walkMin": 101,
+   "detour": 1.22
+  },
+  {
+   "slug": "deyi-secondary-school",
+   "name": "Deyi Secondary School",
+   "straightM": 6397,
+   "walkM": 8160,
+   "walkMin": 102,
+   "detour": 1.28
+  },
+  {
+   "slug": "hai-sing-catholic-school",
+   "name": "Hai Sing Catholic School",
+   "straightM": 7079,
+   "walkM": 8339,
+   "walkMin": 104,
+   "detour": 1.18
+  },
+  {
+   "slug": "meridian-secondary-school",
+   "name": "Meridian Secondary School",
+   "straightM": 6936,
+   "walkM": 8350,
+   "walkMin": 104,
+   "detour": 1.2
+  },
+  {
+   "slug": "yio-chu-kang-secondary-school",
+   "name": "Yio Chu Kang Secondary School",
+   "straightM": 6695,
+   "walkM": 8502,
+   "walkMin": 106,
+   "detour": 1.27
+  },
+  {
+   "slug": "presbyterian-high-school",
+   "name": "Presbyterian High School",
+   "straightM": 6512,
+   "walkM": 8633,
+   "walkMin": 108,
+   "detour": 1.33
+  },
+  {
+   "slug": "bartley-secondary-school",
+   "name": "Bartley Secondary School",
+   "straightM": 7105,
+   "walkM": 8799,
+   "walkMin": 110,
+   "detour": 1.24
+  },
+  {
+   "slug": "junyuan-secondary-school",
+   "name": "Junyuan Secondary School",
+   "straightM": 6762,
+   "walkM": 9021,
+   "walkMin": 113,
+   "detour": 1.33
+  },
+  {
+   "slug": "loyang-view-secondary-school",
+   "name": "Loyang View Secondary School",
+   "straightM": 7724,
+   "walkM": 9021,
+   "walkMin": 113,
+   "detour": 1.17
+  },
+  {
+   "slug": "maris-stella-high-school-secondary",
+   "name": "Maris Stella High School (Secondary)",
+   "straightM": 7100,
+   "walkM": 9032,
+   "walkMin": 113,
+   "detour": 1.27
+  },
+  {
+   "slug": "ang-mo-kio-secondary-school",
+   "name": "Ang Mo Kio Secondary School",
+   "straightM": 7250,
+   "walkM": 9072,
+   "walkMin": 113,
+   "detour": 1.25
+  },
+  {
+   "slug": "pasir-ris-crest-secondary-school",
+   "name": "Pasir Ris Crest Secondary School",
+   "straightM": 7670,
+   "walkM": 9343,
+   "walkMin": 117,
+   "detour": 1.22
+  },
+  {
+   "slug": "chij-st-nicholas-girls-school-secondary",
+   "name": "CHIJ St. Nicholas Girls' School (Secondary)",
+   "straightM": 7699,
+   "walkM": 9501,
+   "walkMin": 119,
+   "detour": 1.23
+  },
+  {
+   "slug": "northbrooks-secondary-school",
+   "name": "Northbrooks Secondary School",
+   "straightM": 6154,
+   "walkM": 9621,
+   "walkMin": 120,
+   "detour": 1.56
+  },
+  {
+   "slug": "mayflower-secondary-school",
+   "name": "Mayflower Secondary School",
+   "straightM": 7848,
+   "walkM": 9742,
+   "walkMin": 122,
+   "detour": 1.24
+  },
+  {
+   "slug": "springfield-secondary-school",
+   "name": "Springfield Secondary School",
+   "straightM": 6910,
+   "walkM": 9743,
+   "walkMin": 122,
+   "detour": 1.41
+  },
+  {
+   "slug": "st-hildas-secondary-school",
+   "name": "St. Hilda's Secondary School",
+   "straightM": 7356,
+   "walkM": 9851,
+   "walkMin": 123,
+   "detour": 1.34
+  },
+  {
+   "slug": "dunman-secondary-school",
+   "name": "Dunman Secondary School",
+   "straightM": 8015,
+   "walkM": 9916,
+   "walkMin": 124,
+   "detour": 1.24
+  },
+  {
+   "slug": "st-andrews-school-secondary",
+   "name": "St Andrew's School (Secondary)",
+   "straightM": 8666,
+   "walkM": 9956,
+   "walkMin": 124,
+   "detour": 1.15
+  },
+  {
+   "slug": "pasir-ris-secondary-school",
+   "name": "Pasir Ris Secondary School",
+   "straightM": 7839,
+   "walkM": 10060,
+   "walkMin": 126,
+   "detour": 1.28
+  },
+  {
+   "slug": "northland-secondary-school",
+   "name": "Northland Secondary School",
+   "straightM": 7373,
+   "walkM": 10159,
+   "walkMin": 127,
+   "detour": 1.38
+  },
+  {
+   "slug": "beatty-secondary-school",
+   "name": "Beatty Secondary School",
+   "straightM": 8374,
+   "walkM": 10197,
+   "walkMin": 127,
+   "detour": 1.22
+  },
+  {
+   "slug": "whitley-secondary-school",
+   "name": "Whitley Secondary School",
+   "straightM": 8030,
+   "walkM": 10219,
+   "walkMin": 128,
+   "detour": 1.27
+  },
+  {
+   "slug": "temasek-junior-college-secondary",
+   "name": "Temasek Junior College (Secondary)",
+   "straightM": 8235,
+   "walkM": 10227,
+   "walkMin": 128,
+   "detour": 1.24
+  },
+  {
+   "slug": "yishun-town-secondary-school",
+   "name": "Yishun Town Secondary School",
+   "straightM": 7383,
+   "walkM": 10257,
+   "walkMin": 128,
+   "detour": 1.39
+  },
+  {
+   "slug": "kuo-chuan-presbyterian-secondary-school",
+   "name": "Kuo Chuan Presbyterian Secondary School",
+   "straightM": 7454,
+   "walkM": 10308,
+   "walkMin": 129,
+   "detour": 1.38
+  },
+  {
+   "slug": "cedar-girls-secondary-school",
+   "name": "Cedar Girls' Secondary School",
+   "straightM": 8039,
+   "walkM": 10352,
+   "walkMin": 129,
+   "detour": 1.29
+  },
+  {
+   "slug": "catholic-high-school-secondary",
+   "name": "Catholic High School (Secondary)",
+   "straightM": 7940,
+   "walkM": 10357,
+   "walkMin": 129,
+   "detour": 1.3
+  },
+  {
+   "slug": "chung-cheng-high-school-yishun",
+   "name": "Chung Cheng High School (Yishun)",
+   "straightM": 6922,
+   "walkM": 10385,
+   "walkMin": 130,
+   "detour": 1.5
+  },
+  {
+   "slug": "orchid-park-secondary-school",
+   "name": "Orchid Park Secondary School",
+   "straightM": 6765,
+   "walkM": 10404,
+   "walkMin": 130,
+   "detour": 1.54
+  },
+  {
+   "slug": "manjusri-secondary-school",
+   "name": "Manjusri Secondary School",
+   "straightM": 8323,
+   "walkM": 10453,
+   "walkMin": 131,
+   "detour": 1.26
+  },
+  {
+   "slug": "tampines-secondary-school",
+   "name": "Tampines Secondary School",
+   "straightM": 7868,
+   "walkM": 10507,
+   "walkMin": 131,
+   "detour": 1.34
+  },
+  {
+   "slug": "guangyang-secondary-school",
+   "name": "Guangyang Secondary School",
+   "straightM": 8286,
+   "walkM": 10570,
+   "walkMin": 132,
+   "detour": 1.28
+  },
+  {
+   "slug": "raffles-institution-secondary",
+   "name": "Raffles Institution (Secondary)",
+   "straightM": 8615,
+   "walkM": 10704,
+   "walkMin": 134,
+   "detour": 1.24
+  },
+  {
+   "slug": "ngee-ann-secondary-school",
+   "name": "Ngee Ann Secondary School",
+   "straightM": 8476,
+   "walkM": 10718,
+   "walkMin": 134,
+   "detour": 1.26
+  },
+  {
+   "slug": "east-spring-secondary-school",
+   "name": "East Spring Secondary School",
+   "straightM": 8702,
+   "walkM": 10764,
+   "walkMin": 135,
+   "detour": 1.24
+  },
+  {
+   "slug": "peirce-secondary-school",
+   "name": "Peirce Secondary School",
+   "straightM": 8437,
+   "walkM": 10922,
+   "walkMin": 137,
+   "detour": 1.29
+  },
+  {
+   "slug": "naval-base-secondary-school",
+   "name": "Naval Base Secondary School",
+   "straightM": 7606,
+   "walkM": 11200,
+   "walkMin": 140,
+   "detour": 1.47
+  },
+  {
+   "slug": "bendemeer-secondary-school",
+   "name": "Bendemeer Secondary School",
+   "straightM": 9524,
+   "walkM": 11213,
+   "walkMin": 140,
+   "detour": 1.18
+  },
+  {
+   "slug": "raffles-girls-school-secondary",
+   "name": "Raffles Girls' School (Secondary)",
+   "straightM": 8987,
+   "walkM": 11318,
+   "walkMin": 141,
+   "detour": 1.26
+  },
+  {
+   "slug": "ahmad-ibrahim-secondary-school",
+   "name": "Ahmad Ibrahim Secondary School",
+   "straightM": 8402,
+   "walkM": 11581,
+   "walkMin": 145,
+   "detour": 1.38
+  },
+  {
+   "slug": "yishun-secondary-school",
+   "name": "Yishun Secondary School",
+   "straightM": 8145,
+   "walkM": 11660,
+   "walkMin": 146,
+   "detour": 1.43
+  },
+  {
+   "slug": "geylang-methodist-school-secondary",
+   "name": "Geylang Methodist School (Secondary)",
+   "straightM": 9540,
+   "walkM": 11665,
+   "walkMin": 146,
+   "detour": 1.22
+  },
+  {
+   "slug": "changkat-changi-secondary-school",
+   "name": "Changkat Changi Secondary School",
+   "straightM": 9342,
+   "walkM": 11843,
+   "walkMin": 148,
+   "detour": 1.27
+  },
+  {
+   "slug": "bedok-green-secondary-school",
+   "name": "Bedok Green Secondary School",
+   "straightM": 8615,
+   "walkM": 11938,
+   "walkMin": 149,
+   "detour": 1.39
+  },
+  {
+   "slug": "damai-secondary-school",
+   "name": "Damai Secondary School",
+   "straightM": 7977,
+   "walkM": 12054,
+   "walkMin": 151,
+   "detour": 1.51
+  },
+  {
+   "slug": "northlight-school",
+   "name": "Northlight School",
+   "straightM": 10328,
+   "walkM": 12154,
+   "walkMin": 152,
+   "detour": 1.18
+  },
+  {
+   "slug": "tanjong-katong-secondary-school",
+   "name": "Tanjong Katong Secondary School",
+   "straightM": 10391,
+   "walkM": 12393,
+   "walkMin": 155,
+   "detour": 1.19
+  },
+  {
+   "slug": "chij-secondary-toa-payoh",
+   "name": "CHIJ Secondary (Toa Payoh)",
+   "straightM": 9806,
+   "walkM": 12486,
+   "walkMin": 156,
+   "detour": 1.27
+  },
+  {
+   "slug": "tanjong-katong-girls-school",
+   "name": "Tanjong Katong Girls' School",
+   "straightM": 10522,
+   "walkM": 12529,
+   "walkMin": 157,
+   "detour": 1.19
+  },
+  {
+   "slug": "st-anthonys-canossian-secondary-school",
+   "name": "St. Anthony's Canossian Secondary School",
+   "straightM": 9003,
+   "walkM": 12652,
+   "walkMin": 158,
+   "detour": 1.41
+  },
+  {
+   "slug": "broadrick-secondary-school",
+   "name": "Broadrick Secondary School",
+   "straightM": 10641,
+   "walkM": 12874,
+   "walkMin": 161,
+   "detour": 1.21
+  },
+  {
+   "slug": "chung-cheng-high-school-main",
+   "name": "Chung Cheng High School (Main)",
+   "straightM": 10815,
+   "walkM": 13082,
+   "walkMin": 164,
+   "detour": 1.21
+  },
+  {
+   "slug": "anglican-high-school",
+   "name": "Anglican High School",
+   "straightM": 9333,
+   "walkM": 13104,
+   "walkMin": 164,
+   "detour": 1.4
+  },
+  {
+   "slug": "chij-katong-convent",
+   "name": "CHIJ Katong Convent",
+   "straightM": 10873,
+   "walkM": 13495,
+   "walkMin": 169,
+   "detour": 1.24
+  },
+  {
+   "slug": "st-patricks-school",
+   "name": "St. Patrick's School",
+   "straightM": 10727,
+   "walkM": 13525,
+   "walkMin": 169,
+   "detour": 1.26
+  },
+  {
+   "slug": "sembawang-secondary-school",
+   "name": "Sembawang Secondary School",
+   "straightM": 10146,
+   "walkM": 13780,
+   "walkMin": 172,
+   "detour": 1.36
+  },
+  {
+   "slug": "bedok-south-secondary-school",
+   "name": "Bedok South Secondary School",
+   "straightM": 10443,
+   "walkM": 13879,
+   "walkMin": 173,
+   "detour": 1.33
+  },
+  {
+   "slug": "bedok-view-secondary-school",
+   "name": "Bedok View Secondary School",
+   "straightM": 10099,
+   "walkM": 13960,
+   "walkMin": 174,
+   "detour": 1.38
+  },
+  {
+   "slug": "dunman-high-school-secondary",
+   "name": "Dunman High School (Secondary)",
+   "straightM": 11478,
+   "walkM": 14000,
+   "walkMin": 175,
+   "detour": 1.22
+  },
+  {
+   "slug": "canberra-secondary-school",
+   "name": "Canberra Secondary School",
+   "straightM": 10837,
+   "walkM": 14086,
+   "walkMin": 176,
+   "detour": 1.3
+  },
+  {
+   "slug": "school-of-the-arts-singapore",
+   "name": "School of the Arts, Singapore",
+   "straightM": 12645,
+   "walkM": 14202,
+   "walkMin": 178,
+   "detour": 1.12
+  },
+  {
+   "slug": "victoria-school",
+   "name": "Victoria School",
+   "straightM": 10940,
+   "walkM": 14330,
+   "walkMin": 179,
+   "detour": 1.31
+  },
+  {
+   "slug": "st-josephs-institution-secondary",
+   "name": "St. Joseph's Institution (Secondary)",
+   "straightM": 11607,
+   "walkM": 15042,
+   "walkMin": 188,
+   "detour": 1.3
+  },
+  {
+   "slug": "anglo-chinese-school-barker-road",
+   "name": "Anglo-Chinese School (Barker Road)",
+   "straightM": 11448,
+   "walkM": 15102,
+   "walkMin": 189,
+   "detour": 1.32
+  },
+  {
+   "slug": "admiralty-secondary-school",
+   "name": "Admiralty Secondary School",
+   "straightM": 11613,
+   "walkM": 15292,
+   "walkMin": 191,
+   "detour": 1.32
+  },
+  {
+   "slug": "temasek-secondary-school",
+   "name": "Temasek Secondary School",
+   "straightM": 11102,
+   "walkM": 15419,
+   "walkMin": 193,
+   "detour": 1.39
+  },
+  {
+   "slug": "spectra-secondary-school",
+   "name": "Spectra Secondary School",
+   "straightM": 11059,
+   "walkM": 15476,
+   "walkMin": 193,
+   "detour": 1.4
+  },
+  {
+   "slug": "singapore-chinese-girls-school",
+   "name": "Singapore Chinese Girls' School",
+   "straightM": 11885,
+   "walkM": 15515,
+   "walkMin": 194,
+   "detour": 1.31
+  },
+  {
+   "slug": "evergreen-secondary-school",
+   "name": "Evergreen Secondary School",
+   "straightM": 12270,
+   "walkM": 16263,
+   "walkMin": 203,
+   "detour": 1.33
+  },
+  {
+   "slug": "woodgrove-secondary-school",
+   "name": "Woodgrove Secondary School",
+   "straightM": 11622,
+   "walkM": 16730,
+   "walkMin": 209,
+   "detour": 1.44
+  },
+  {
+   "slug": "st-margarets-school-secondary",
+   "name": "St. Margaret's School (Secondary)",
+   "straightM": 13327,
+   "walkM": 16797,
+   "walkMin": 210,
+   "detour": 1.26
+  },
+  {
+   "slug": "riverside-secondary-school",
+   "name": "Riverside Secondary School",
+   "straightM": 12863,
+   "walkM": 17110,
+   "walkMin": 214,
+   "detour": 1.33
+  },
+  {
+   "slug": "christ-church-secondary-school",
+   "name": "Christ Church Secondary School",
+   "straightM": 11905,
+   "walkM": 17131,
+   "walkMin": 214,
+   "detour": 1.44
+  },
+  {
+   "slug": "hwa-chong-institution-secondary",
+   "name": "Hwa Chong Institution (Secondary)",
+   "straightM": 13269,
+   "walkM": 17132,
+   "walkMin": 214,
+   "detour": 1.29
+  },
+  {
+   "slug": "singapore-sports-school",
+   "name": "Singapore Sports School",
+   "straightM": 12286,
+   "walkM": 17500,
+   "walkMin": 219,
+   "detour": 1.42
+  },
+  {
+   "slug": "national-junior-college-secondary",
+   "name": "National Junior College (Secondary)",
+   "straightM": 13083,
+   "walkM": 17743,
+   "walkMin": 222,
+   "detour": 1.36
+  },
+  {
+   "slug": "nanyang-girls-high-school",
+   "name": "Nanyang Girls' High School",
+   "straightM": 13213,
+   "walkM": 18195,
+   "walkMin": 227,
+   "detour": 1.38
+  },
+  {
+   "slug": "gan-eng-seng-school",
+   "name": "Gan Eng Seng School",
+   "straightM": 15002,
+   "walkM": 18214,
+   "walkMin": 228,
+   "detour": 1.21
+  },
+  {
+   "slug": "woodlands-ring-secondary-school",
+   "name": "Woodlands Ring Secondary School",
+   "straightM": 13674,
+   "walkM": 18323,
+   "walkMin": 229,
+   "detour": 1.34
+  },
+  {
+   "slug": "crescent-girls-school",
+   "name": "Crescent Girls' School",
+   "straightM": 15004,
+   "walkM": 18380,
+   "walkMin": 230,
+   "detour": 1.23
+  },
+  {
+   "slug": "woodlands-secondary-school",
+   "name": "Woodlands Secondary School",
+   "straightM": 14244,
+   "walkM": 18706,
+   "walkMin": 234,
+   "detour": 1.31
+  },
+  {
+   "slug": "marsiling-secondary-school",
+   "name": "Marsiling Secondary School",
+   "straightM": 14015,
+   "walkM": 18823,
+   "walkMin": 235,
+   "detour": 1.34
+  },
+  {
+   "slug": "queenstown-secondary-school",
+   "name": "Queenstown Secondary School",
+   "straightM": 15277,
+   "walkM": 19126,
+   "walkMin": 239,
+   "detour": 1.25
+  },
+  {
+   "slug": "queensway-secondary-school",
+   "name": "Queensway Secondary School",
+   "straightM": 15500,
+   "walkM": 19279,
+   "walkMin": 241,
+   "detour": 1.24
+  },
+  {
+   "slug": "bukit-merah-secondary-school",
+   "name": "Bukit Merah Secondary School",
+   "straightM": 15958,
+   "walkM": 19570,
+   "walkMin": 245,
+   "detour": 1.23
+  },
+  {
+   "slug": "chij-st-theresas-convent",
+   "name": "CHIJ St. Theresa's Convent",
+   "straightM": 16374,
+   "walkM": 19599,
+   "walkMin": 245,
+   "detour": 1.2
+  },
+  {
+   "slug": "methodist-girls-school-secondary",
+   "name": "Methodist Girls' School (Secondary)",
+   "straightM": 14835,
+   "walkM": 20423,
+   "walkMin": 255,
+   "detour": 1.38
+  },
+  {
+   "slug": "fairfield-methodist-school-secondary",
+   "name": "Fairfield Methodist School (Secondary)",
+   "straightM": 16832,
+   "walkM": 21134,
+   "walkMin": 264,
+   "detour": 1.26
+  },
+  {
+   "slug": "zhenghua-secondary-school",
+   "name": "Zhenghua Secondary School",
+   "straightM": 14728,
+   "walkM": 21317,
+   "walkMin": 266,
+   "detour": 1.45
+  },
+  {
+   "slug": "anglo-chinese-school-independent-secondary",
+   "name": "Anglo-Chinese School (Independent) (Secondary)",
+   "straightM": 16995,
+   "walkM": 21544,
+   "walkMin": 269,
+   "detour": 1.27
+  },
+  {
+   "slug": "school-of-science-and-technology-singapore",
+   "name": "School of Science and Technology, Singapore",
+   "straightM": 16920,
+   "walkM": 22009,
+   "walkMin": 275,
+   "detour": 1.3
+  },
+  {
+   "slug": "regent-secondary-school",
+   "name": "Regent Secondary School",
+   "straightM": 16287,
+   "walkM": 22219,
+   "walkMin": 278,
+   "detour": 1.36
+  },
+  {
+   "slug": "new-town-secondary-school",
+   "name": "New Town Secondary School",
+   "straightM": 17201,
+   "walkM": 22227,
+   "walkMin": 278,
+   "detour": 1.29
+  },
+  {
+   "slug": "unity-secondary-school",
+   "name": "Unity Secondary School",
+   "straightM": 16816,
+   "walkM": 22355,
+   "walkMin": 279,
+   "detour": 1.33
+  },
+  {
+   "slug": "nan-hua-high-school",
+   "name": "Nan Hua High School",
+   "straightM": 17726,
+   "walkM": 22792,
+   "walkMin": 285,
+   "detour": 1.29
+  },
+  {
+   "slug": "nus-high-school-of-mathematics-and-science",
+   "name": "NUS High School of Mathematics and Science",
+   "straightM": 17723,
+   "walkM": 22837,
+   "walkMin": 285,
+   "detour": 1.29
+  },
+  {
+   "slug": "clementi-town-secondary-school",
+   "name": "Clementi Town Secondary School",
+   "straightM": 17858,
+   "walkM": 23242,
+   "walkMin": 291,
+   "detour": 1.3
+  },
+  {
+   "slug": "chua-chu-kang-secondary-school",
+   "name": "Chua Chu Kang Secondary School",
+   "straightM": 15943,
+   "walkM": 23249,
+   "walkMin": 291,
+   "detour": 1.46
+  },
+  {
+   "slug": "west-spring-secondary-school",
+   "name": "West Spring Secondary School",
+   "straightM": 15330,
+   "walkM": 23346,
+   "walkMin": 292,
+   "detour": 1.52
+  },
+  {
+   "slug": "kranji-secondary-school",
+   "name": "Kranji Secondary School",
+   "straightM": 17404,
+   "walkM": 23633,
+   "walkMin": 295,
+   "detour": 1.36
+  },
+  {
+   "slug": "kent-ridge-secondary-school",
+   "name": "Kent Ridge Secondary School",
+   "straightM": 18510,
+   "walkM": 23894,
+   "walkMin": 299,
+   "detour": 1.29
+  },
+  {
+   "slug": "bukit-view-secondary-school",
+   "name": "Bukit View Secondary School",
+   "straightM": 17303,
+   "walkM": 24304,
+   "walkMin": 304,
+   "detour": 1.4
+  },
+  {
+   "slug": "assumption-pathway-school",
+   "name": "Assumption Pathway School",
+   "straightM": 15039,
+   "walkM": 24647,
+   "walkMin": 308,
+   "detour": 1.64
+  },
+  {
+   "slug": "greenridge-secondary-school",
+   "name": "Greenridge Secondary School",
+   "straightM": 15108,
+   "walkM": 24687,
+   "walkMin": 309,
+   "detour": 1.63
+  },
+  {
+   "slug": "hillgrove-secondary-school",
+   "name": "Hillgrove Secondary School",
+   "straightM": 16956,
+   "walkM": 24739,
+   "walkMin": 309,
+   "detour": 1.46
+  },
+  {
+   "slug": "bukit-panjang-govt-high-school",
+   "name": "Bukit Panjang Govt. High School",
+   "straightM": 17804,
+   "walkM": 24827,
+   "walkMin": 310,
+   "detour": 1.39
+  },
+  {
+   "slug": "assumption-english-school",
+   "name": "Assumption English School",
+   "straightM": 14840,
+   "walkM": 24924,
+   "walkMin": 312,
+   "detour": 1.68
+  },
+  {
+   "slug": "commonwealth-secondary-school",
+   "name": "Commonwealth Secondary School",
+   "straightM": 19217,
+   "walkM": 25622,
+   "walkMin": 320,
+   "detour": 1.33
+  },
+  {
+   "slug": "bukit-batok-secondary-school",
+   "name": "Bukit Batok Secondary School",
+   "straightM": 18383,
+   "walkM": 25834,
+   "walkMin": 323,
+   "detour": 1.41
+  },
+  {
+   "slug": "crest-secondary-school",
+   "name": "Crest Secondary School",
+   "straightM": 18404,
+   "walkM": 25907,
+   "walkMin": 324,
+   "detour": 1.41
+  },
+  {
+   "slug": "swiss-cottage-secondary-school",
+   "name": "Swiss Cottage Secondary School",
+   "straightM": 16851,
+   "walkM": 26258,
+   "walkMin": 328,
+   "detour": 1.56
+  },
+  {
+   "slug": "dunearn-secondary-school",
+   "name": "Dunearn Secondary School",
+   "straightM": 17494,
+   "walkM": 26607,
+   "walkMin": 333,
+   "detour": 1.52
+  },
+  {
+   "slug": "jurongville-secondary-school",
+   "name": "Jurongville Secondary School",
+   "straightM": 19554,
+   "walkM": 27799,
+   "walkMin": 347,
+   "detour": 1.42
+  },
+  {
+   "slug": "fuhua-secondary-school",
+   "name": "Fuhua Secondary School",
+   "straightM": 19949,
+   "walkM": 28154,
+   "walkMin": 352,
+   "detour": 1.41
+  },
+  {
+   "slug": "yuhua-secondary-school",
+   "name": "Yuhua Secondary School",
+   "straightM": 20349,
+   "walkM": 28272,
+   "walkMin": 353,
+   "detour": 1.39
+  },
+  {
+   "slug": "yuan-ching-secondary-school",
+   "name": "Yuan Ching Secondary School",
+   "straightM": 20718,
+   "walkM": 28624,
+   "walkMin": 358,
+   "detour": 1.38
+  },
+  {
+   "slug": "hua-yi-secondary-school",
+   "name": "Hua Yi Secondary School",
+   "straightM": 20276,
+   "walkM": 28641,
+   "walkMin": 358,
+   "detour": 1.41
+  },
+  {
+   "slug": "jurong-secondary-school",
+   "name": "Jurong Secondary School",
+   "straightM": 20872,
+   "walkM": 28843,
+   "walkMin": 361,
+   "detour": 1.38
+  },
+  {
+   "slug": "river-valley-high-school-secondary",
+   "name": "River Valley High School (Secondary)",
+   "straightM": 21974,
+   "walkM": 30209,
+   "walkMin": 378,
+   "detour": 1.37
+  },
+  {
+   "slug": "boon-lay-secondary-school",
+   "name": "Boon Lay Secondary School",
+   "straightM": 22704,
+   "walkM": 31008,
+   "walkMin": 388,
+   "detour": 1.37
+  },
+  {
+   "slug": "jurong-west-secondary-school",
+   "name": "Jurong West Secondary School",
+   "straightM": 22938,
+   "walkM": 31034,
+   "walkMin": 388,
+   "detour": 1.35
+  },
+  {
+   "slug": "westwood-secondary-school",
+   "name": "Westwood Secondary School",
+   "straightM": 22391,
+   "walkM": 31445,
+   "walkMin": 393,
+   "detour": 1.4
+  },
+  {
+   "slug": "juying-secondary-school",
+   "name": "Juying Secondary School",
+   "straightM": 24384,
+   "walkM": 32887,
+   "walkMin": 411,
+   "detour": 1.35
+  }
+ ]
+}

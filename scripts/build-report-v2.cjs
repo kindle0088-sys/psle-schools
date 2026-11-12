@@ -40,7 +40,15 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 const PICK = [
   {
     name: 'Compassvale Secondary School', slot: 1, tier: '冲刺',
-    why: `全部 ${S2.withinCommuteReachable} 所可及学校里，ALP 与 Computing 最对口的一所——「Aeronautics, Coding, Engineering and Sustainability (ACES)」，Coding 直接写在项目名称里。22 分钟通勤、最近站步行 693m，也是最短档。`,
+    // 通勤文案不写死：步行路网接入后（2026-11-12）同一所学校的步行/地铁关系会变
+    why: (() => {
+      const x = byName.get('Compassvale Secondary School');
+      const t = !x ? '22 分钟通勤'
+        : x.commuteMode === 'walk'
+          ? (x.walkRange ? `步行 ${x.walkRange[0]}–${x.walkRange[1]} 分钟（争议）` : `步行 ${x.minutes} 分钟`)
+          : `地铁 ${x.minutes} 分钟`;
+      return `全部 ${S2.withinCommuteReachable} 所可及学校里，ALP 与 Computing 最对口的一所——「Aeronautics, Coding, Engineering and Sustainability (ACES)」，Coding 直接写在项目名称里。${t}、最近站步行 693m，也是最短档。`;
+    })(),
     caveat: '余量只有 1 分（PG3 14–18，你 17 分），是本次推荐里最紧的一所。若今年报的人多导致下限上移，有落空风险——但它在第 1 志愿，落空不影响后续。MOE 登记的 8 项里没有科技类社团，而且它官网的 CCA 页面是空的（抓过完整 HTML 确认不是渲染问题），真实社团数无法核实——所以编程兴趣主要还是靠 ALP 课程承接。',
   },
   {
@@ -135,6 +143,25 @@ const fmtCop = x => x.cop ? `${x.cop.min}–${x.cop.max}` : '—';
 const walkTag = m => m == null ? '' : m > 1200 ? `<span class="warn">步行 ${m}m·需巴士</span>`
   : m > 800 ? `<span class="soft">步行 ${m}m</span>` : `<span class="ok">步行 ${m}m</span>`;
 
+/* ── 通勤两列（2026-11-12 起）──────────────────────────────
+   步行 = OSM 步行路网最短路径（OSRM foot，Valhalla 交叉校验）
+   地铁 = MRT 模型（站间 2 分 / 换乘 5 分 / 进站 4 分 + 站到校步行）
+   计分取两者最快；两家引擎分歧 >1.4× 的标「争议」并显示区间，不取平均。 */
+const walkCol = x => {
+  if (x.walkMinutes == null) return '—';
+  if (x.walkRange) return `${x.walkRange[0]}–${x.walkRange[1]}<sup class="warn">争议</sup>`;
+  return String(x.walkMinutes);
+};
+const mrtCol = x => x.mrtMinutes == null ? '—' : String(x.mrtMinutes);
+/** 计分用的是步行还是地铁（用来加粗对应那一列） */
+const isWalk = x => x.commuteMode === 'walk';
+/** 表格里的两个通勤单元格，计分那一列加粗 */
+const cellWalk = x => `<td class="num">${isWalk(x) ? '<b>' + walkCol(x) + '</b>' : walkCol(x)}</td>`;
+const cellMrt = x => `<td class="num">${isWalk(x) ? mrtCol(x) : '<b>' + mrtCol(x) + '</b>'}</td>`;
+const fastTxt = x => isWalk(x)
+  ? (x.walkRange ? `步行 ${x.walkRange[0]}–${x.walkRange[1]} 分（路网争议）` : `步行 ${x.minutes} 分`)
+  : `地铁 ${x.minutes} 分`;
+
 const ccaMatchOf = x => (x.cca || []).filter(c =>
   /infocomm|comput|program|robotic|maker|science|swim|water polo|drama|theatre|cook|culinary|food|nutrition/i.test(c));
 
@@ -157,7 +184,8 @@ function card(x, opts = {}) {
     <div class="kv">
       <div><span class="k">PG3 非附属区间（2025）</span><span class="v">${fmtCop(x)}</span></div>
       <div><span class="k">你的余量</span><span class="v ${x.margin <= 1 ? 'tight' : ''}">${x.margin > 0 ? '+' : ''}${x.margin} 分</span></div>
-      <div><span class="k">通勤估算</span><span class="v">${x.minutes} 分钟 ${walkTag(x.accessWalkM)}</span></div>
+      <div><span class="k">步行（路网实测）</span><span class="v">${isWalk(x) ? '<b>' + walkCol(x) + '</b>' : walkCol(x)} 分 ${walkTag(x.walkMeters ?? x.accessWalkM)}</span></div>
+      <div><span class="k">地铁（模型）</span><span class="v">${isWalk(x) ? mrtCol(x) : '<b>' + mrtCol(x) + '</b>'} 分</span></div>
       <div><span class="k">途经</span><span class="v">${esc(x.via || '—')}</span></div>
     </div>
 
@@ -391,10 +419,10 @@ ${NEARBY.schools.map(n => esc(n.replace(/ Secondary School| \(Secondary\)/, ''))
 
 <h4>够不着的 ${S2.nearbyOutOfReachNames.length} 所，差多少</h4>
 <table>
-<thead><tr><th>学校</th><th>${S.pgShort} 区间</th><th>与你相差</th><th>通勤</th></tr></thead>
+<thead><tr><th>学校</th><th>${S.pgShort} 区间</th><th>与你相差</th><th>步行</th><th>地铁</th></tr></thead>
 <tbody>
 ${R.outOfReach.filter(x => NEARBY.schools.includes(x.name)).sort((a, b) => b.margin - a.margin)
-  .map(x => `<tr><td>${esc(x.name.replace(/ Secondary School| \(Secondary\)/, ''))}</td><td class="num">${fmtCop(x)}</td><td class="num">${x.margin} 分</td><td class="num">${x.minutes} 分钟</td></tr>`).join('')}
+  .map(x => `<tr><td>${esc(x.name.replace(/ Secondary School| \(Secondary\)/, ''))}</td><td class="num">${fmtCop(x)}</td><td class="num">${x.margin} 分</td>${cellWalk(x)}${cellMrt(x)}</tr>`).join('')}
 </tbody>
 </table>` : `<p class="lead">这个邮编还没有跑过 MOE SchoolFinder 的「附近学校」筛选，所以候选池直接按通勤上限在全岛计算，没有「官方附近」这一层。</p>
 <p class="soft">要补上这一层：运行 <code>scripts/sf-filter.cjs</code>（会在浏览器里操作 SchoolFinder），生成 <code>data/moe-nearby-${S.postal}.json</code> 后重跑本脚本即可，报告会自动切换成「先附近、再扩展」的结构。</p>`}
@@ -420,12 +448,12 @@ ${NEARBY ? `<tr><td>其中同时在 MOE 邮编「附近」列表内</td><td clas
 <p class="lead">★ = 同时在 MOE 邮编 ${esc(S.postal)} 的「附近学校」列表内。下表为 19 所混校；另有 1 所男校 Montfort 见脚注。</p>
 <div style="overflow-x:auto">
 <table>
-<thead><tr><th>通勤</th><th>学校</th><th>PG3 非附属</th><th>余量</th><th>性别</th><th>ALP 方向</th><th>MOE 附近</th></tr></thead>
+<thead><tr><th>步行</th><th>地铁</th><th>学校</th><th>PG3 非附属</th><th>余量</th><th>性别</th><th>ALP 方向</th><th>MOE 附近</th></tr></thead>
 <tbody>
 ${R.pool.map(x => {
   const gd = x.nature === 'Boys School' ? '男' : x.nature === 'Girls School' ? '女' : '混';
   return `<tr>
-    <td class="num">${x.minutes} 分钟</td>
+    ${cellWalk(x)}${cellMrt(x)}
     <td><b>${esc(x.name.replace(/ Secondary School| \(Secondary\)/, ''))}</b></td>
     <td class="num">${fmtCop(x)}</td>
     <td class="num ${x.margin <= 1 ? 'tight' : ''}"><b>${x.margin > 0 ? '+' : ''}${x.margin}</b></td>
@@ -450,8 +478,8 @@ ${R.pool.map(x => {
 <div class="note">
 <b>先说清一件事</b>　下面每张卡都标了「综合第 N」和「CCA N 分」。这两个数字来自五维加权总分，
 CCA 那一维是按<b>你的兴趣</b>加权的——它衡量的是「这所学校的社团对不对你的胃口」，<b>不是学校好坏</b>。
-所以 Compassvale 综合第 14、CCA 45 分，不代表它差：它官网的 CCA 页面是空的（抓过完整 HTML 确认），
-我们无法核实它到底有哪些社团，只能按「未确认」给基准分。它排在第 1 志愿的理由是 ALP 与 Coding 最对口、通勤 22 分钟，
+所以 Compassvale 综合第 ${byName.get('Compassvale Secondary School')?.rank ?? '—'}、CCA 45 分，不代表它差：它官网的 CCA 页面是空的（抓过完整 HTML 确认），
+我们无法核实它到底有哪些社团，只能按「未确认」给基准分。它排在第 1 志愿的理由是 ALP 与 Coding 最对口、${byName.get('Compassvale Secondary School') ? fastTxt(byName.get('Compassvale Secondary School')) : '通勤 22 分钟'}，
 跟 CCA 无关。<b>当排名与推荐顺序不一致时，以每张卡的「为什么考虑它」为准。</b>
 </div>
 ${PICK.map(p => {
@@ -473,7 +501,7 @@ ${ALT.map(a => {
         <span class="badge">${esc(x.area || '')}${gd}</span>
         <span class="badge">PG3 ${fmtCop(x)}</span>
         <span class="badge">余量 ${x.margin > 0 ? '+' : ''}${x.margin}</span>
-        <span class="badge">${x.minutes} 分钟</span>
+        <span class="badge">步行 ${walkCol(x)} · 地铁 ${mrtCol(x)} 分</span>
         ${x.moeNearby ? '<span class="badge badge-moe">MOE 附近</span>' : ''}
       </div></header>
     <p class="why"><b>${esc(a.tag)}</b>${a.note.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</p>
@@ -505,7 +533,7 @@ ${UNREACHABLE.map(u => {
       <div class="sbadges">
         <span class="badge badge-over">PG3 上限 ${x.cop.max} · 超出 ${Math.abs(x.margin)} 分</span>
         <span class="badge">PG3 ${fmtCop(x)}</span>
-        <span class="badge">${x.minutes} 分钟</span>
+        <span class="badge">步行 ${walkCol(x)} · 地铁 ${mrtCol(x)} 分</span>
         <span class="badge">${esc(x.area || '')}</span>
       </div>
     </header>
@@ -551,7 +579,7 @@ ${UNREACHABLE.map(u => {
 <div style="overflow-x:auto">
 <table>
 <thead><tr>
-<th>志愿</th><th>学校</th><th>PG3 区间</th><th>余量</th><th>风险</th><th>通勤</th><th>CCA 匹配</th><th>ALP</th><th>总分</th>
+<th>志愿</th><th>学校</th><th>PG3 区间</th><th>余量</th><th>风险</th><th>步行 / 地铁</th><th>CCA 匹配</th><th>ALP</th><th>总分</th>
 </tr></thead>
 <tbody>
 ${PICK.map(p => {
@@ -564,7 +592,7 @@ ${PICK.map(p => {
     <td class="num">${fmtCop(x)}</td>
     <td class="num ${x.margin <= 1 ? 'tight' : ''}">${x.margin > 0 ? '+' : ''}${x.margin}</td>
     <td><span class="tier t-${p.tier === '冲刺' ? 'reach' : p.tier === '匹配' ? 'match' : 'safe'}">${p.tier}</span></td>
-    <td class="num">${x.minutes}min<span class="soft"> ${x.accessWalkM}m</span></td>
+    <td class="num">${walkCol(x)}<span class="soft"> / </span>${mrtCol(x)}<span class="soft"> ${x.accessWalkM}m</span></td>
     <td>${m.length ? m.length + ' 项' : '<span class="soft">无</span>'}</td>
     <td class="num">${x.scores.academic}</td>
     <td class="num"><b>${x.total}</b></td>
@@ -607,7 +635,7 @@ ${['A', 'B', 'C'].map(k => {
     <p class="pdesc">${pl.desc}</p>
     <ol>${pl.list.map(n => {
       const x = byNameAll.get(n);
-      return x ? `<li><b>${esc(n.replace(/ Secondary School| \(Secondary\)/, ''))}</b> <span class="soft">· ${x.minutes} 分钟 · PG3 ${fmtCop(x)} · 余量 ${x.margin > 0 ? '+' : ''}${x.margin}${x.moeNearby ? ' · ★' : ''}</span></li>` : `<li>${esc(n)}</li>`;
+      return x ? `<li><b>${esc(n.replace(/ Secondary School| \(Secondary\)/, ''))}</b> <span class="soft">· ${fastTxt(x)} · PG3 ${fmtCop(x)} · 余量 ${x.margin > 0 ? '+' : ''}${x.margin}${x.moeNearby ? ' · ★' : ''}</span></li>` : `<li>${esc(n)}</li>`;
     }).join('')}</ol>
   </div>`;
 }).join('')}
@@ -639,7 +667,7 @@ ${['A', 'B', 'C'].map(k => {
 ${NEARBY ? `· <b>MOE 附近学校列表</b>：SchoolFinder 页面输入邮编 ${esc(S.postal)} 后前端筛选所得（${S2.nearbyCount} 所），采集时间 ${esc(String(NEARBY.collectedAt || '').slice(0, 10))}<br>` : `· <b>MOE 附近学校列表</b>：本邮编未采集（候选池为全岛自算通勤）<br>`}
 · 录取规则 / Posting Group / tie-breaker / HCL 规则：MOE 官方 S1 Posting 与 PSLE 计分页面<br>
 · 学校坐标：OneMap 地理编码｜MRT 网络：官方线路代号重建（151 站 / 6 线 + 樟宜支线）<br>
-· 通勤时间：自建模型（步行 80m/min + 进站 4 分钟 + 站间 2 分钟 + 换乘 5 分钟），经 4 组 OD 对照校准，偏差 ≤2 分钟<br><br>
+· 通勤时间（两路取最快）：<b>步行</b> = 自 828765 出发的 OSM 步行路网最短路径（OSRM foot profile，80m/min；Valhalla pedestrian 交叉校验，两引擎分歧 &gt;1.4× 标「争议」并显示区间）；<b>地铁</b> = 自建模型（站间 2 分钟 + 换乘 5 分钟 + 进站 4 分钟 + 站到校步行），经 4 组 OD 对照校准，偏差 ≤2 分钟。两路取最快者进入通勤评分<br><br>
 <b>口径说明</b><br>
 · COP：各校 <b>PG3 行非附属区间</b>（2025 年度实际录取区间）<br>
 · 候选池：MOE 邮编 ${esc(S.postal)} 筛选 + 45 分钟通勤双口径，逐所标注是否在 MOE 附近列表内<br>

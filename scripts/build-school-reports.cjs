@@ -43,6 +43,14 @@ const stationMin = Iso.solveFrom(graph, ORIGIN).stationMin;
 const commutes = Iso.timeToSchools(graph, stationMin, SCHOOLS);
 const COMMUTE = Object.fromEntries(commutes.map(c => [c.school.slug, c]));
 
+/* 步行路网数据（scripts/walk-dist.cjs 产出）。缺失时降级为地铁单源。 */
+const Walk = require('../lib/walk.cjs');
+const WALK = Walk.load(STU.id);
+if (!WALK) {
+  console.warn('\n⚠️ 未找到 data/walk-' + STU.id + '.json，报告只显示地铁通勤。' +
+    '\n   需要步行数据请先跑：node scripts/walk-dist.cjs\n');
+}
+
 const esc = s => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -72,12 +80,21 @@ function render(pf) {
   const pg = pf.pg || 3;
   const g = pgRow(sc, pg);
   const cm = COMMUTE[pf.slug] || {};
+  const cmx = Walk.merge(WALK ? WALK.bySlug.get(pf.slug) : null, cm.minutes);
   const margin = g && g.max != null ? g.max - SCORE : null;
+
+  /* 步行 / 地铁两列：争议项给区间并注明两家引擎分歧，不取平均 */
+  const walkText = !cmx || cmx.walkMin == null ? '—'
+    : (cmx.walkRange ? `${cmx.walkRange[0]}–${cmx.walkRange[1]} 分钟（争议）` : `${cmx.walkMin} 分钟`);
+  const mrtText = !cmx || cmx.mrtMin == null ? '—' : `${cmx.mrtMin} 分钟`;
+  const fastest = !cmx ? '—' : (cmx.best === 'walk' ? '步行' : '地铁');
 
   const profileCells = [
     { k: g?.kind === 'IP' ? 'IP 录取区间' : `PG${pg} 区间（${sc.cop?.year || 2025}）`, v: fmtRange(g) },
     { k: `AL ${SCORE} 余量`, v: margin == null ? '—' : (margin >= 0 ? `+${margin} 分` : `${margin} 分`) },
-    { k: `通勤（自 ${STU.home.postal}）`, v: cm.minutes != null ? `约 ${cm.minutes} 分钟` : '—' },
+    { k: `步行（自 ${STU.home.postal}）`, v: walkText },
+    { k: '地铁', v: mrtText },
+    { k: '通勤计分', v: cmx && cmx.minutes != null ? `${cmx.minutes} 分钟（${fastest}）` : '—' },
     ...(pf.profileExtra || []),
   ];
 
@@ -112,6 +129,8 @@ ${pf.corrections.map(c => `<tr><td>${c.claim}</td><td>${c.truth}</td></tr>`).joi
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
+<!-- 生成器标记：验证器据此区分本模板产物与 v1 手写报告，避免对老报告套新断言 -->
+<meta name="generator" content="psle-school-report/v2">
 <title>${esc(pf.nameZh)} ${esc(sc.name)} · 单校深度报告</title>
 <style>
 ${CSS}
@@ -174,7 +193,7 @@ ${corrections}
 
 <div class="foot">
 <b>报告生成：</b>${pf.generatedAt || new Date().toISOString().slice(0, 10)}　·　数据口径：COP 为 ${sc.cop?.year || 2025} 年度 S1 Posting 结果，AL ${SCORE} 属 PG${pg}，只与同档学生竞争<br>
-<b>通勤模型：</b>MRT 站间 ${NET.params.rideMinPerStop} 分钟、换乘 ${NET.params.transferMin} 分钟、进站等车 ${NET.params.accessOverheadMin} 分钟、步行 80m/min；不含巴士接驳，最近站步行 &gt;800m 的学校实际耗时更长<br>
+<b>通勤模型：</b>步行 = 自 ${STU.home.postal} 出发的 <b>OSM 步行路网最短路径</b>（${WALK ? WALK.walkMetersPerMin : 80}m/min，OSRM foot profile；Valhalla pedestrian 交叉校验，两引擎分歧 &gt;1.4× 标「争议」并显示区间）；地铁 = MRT 站间 ${NET.params.rideMinPerStop} 分钟、换乘 ${NET.params.transferMin} 分钟、进站等车 ${NET.params.accessOverheadMin} 分钟 + 站到校步行；<b>两者取最快者用于通勤评分</b>。不含巴士接驳，故步行路网不通、必须坐车的学校实际更慢<br>
 <b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
 </div>
 
@@ -209,8 +228,11 @@ for (const f of files) {
     const out = P('docs/reports', `school-${slug}.html`);
     fs.writeFileSync(out, html);
     const cm = COMMUTE[slug] || {};
+    const cmx = Walk.merge(WALK ? WALK.bySlug.get(slug) : null, cm.minutes);
     const g = pgRow(SCHOOLS.find(s => s.slug === slug) || {}, pf.pg || 3);
-    console.log(`✓ ${slug.padEnd(34)} ${(html.length / 1024).toFixed(0)}KB  PG3 ${fmtRange(g)}  通勤 ${cm.minutes ?? '—'}min`);
+    const label = !cmx ? '—'
+      : `${cmx.minutes ?? '—'}min(${cmx.best === 'walk' ? '步行' : '地铁'}${cmx.walkDisputed ? '·争议' : ''})`;
+    console.log(`✓ ${slug.padEnd(34)} ${(html.length / 1024).toFixed(0)}KB  PG3 ${fmtRange(g)}  通勤 ${label}`);
     built++;
   } catch (e) {
     console.error(`✗ ${slug}: ${e.message}`);

@@ -27,6 +27,7 @@
     <b>口径说明</b> · COP 是 <b id="copYear">2025</b> 年<b>实际录取区间</b>（非本年度门槛），每年随报考热度浮动；
     分数越小越好，区间右端（较大值）为该校该档<b>最低录取分</b>。
     本页按<b>非附属生</b>口径展示（无兄姐在读、非校友子女）；有附属关系的学校另列附属生区间。
+    <br><b>通勤</b> · <span id="commuteNote">步行 / 地铁取最快者参与评分</span>
   </div>
 
   <div class="filters">
@@ -362,6 +363,25 @@ function cardHtml(sc) {
     ? `<span class="mrt"><span class="code">${esc(mrt.codes.join('/'))}</span> ${esc(mrt.name)} · ${mrt.distM}m</span>`
     : '<span style="color:var(--tx3)">无坐标</span>';
 
+  /* 通勤两列：步行（OSM 路网实测）/ 地铁（模型估算），最快的那档加亮。
+     争议项（两家引擎差 >1.4×）显示区间并标「争议」，不取平均。 */
+  const cm = sc.commute;
+  let commuteRows = '';
+  if (cm && (cm.walkMin != null || cm.mrtMin != null)) {
+    /* 步行超过 60 分钟时不必给精确值：这个时长已不构成通勤选项，
+       只显示 >60 让读者一眼跳过（精确值仍在 cards 数据的 walkMin 里）。 */
+    const walkTxt = cm.walkMin == null ? '—'
+      : (cm.walkRange ? `${cm.walkRange[0]}–${cm.walkRange[1]}` : (cm.walkMin > 60 ? '>60' : String(cm.walkMin)));
+    const mrtVal = cm.mrtMin == null ? '—' : String(cm.mrtMin);
+    const walkFast = cm.best === 'walk';
+    const flag = cm.walkDisputed
+      ? `<i class="flag" title="两家步行路由引擎分歧 ${cm.walkRange ? cm.walkRange[0] + '–' + cm.walkRange[1] : ''} 分钟，已按最快值计分">争议</i>`
+      : '';
+    commuteRows = `
+      <div class="r"><span class="k">步行</span><span class="val${walkFast ? ' fast' : ''}">${walkTxt} 分钟${walkFast ? '<em>最快</em>' : ''}${flag}</span></div>
+      <div class="r"><span class="k">地铁</span><span class="val${!walkFast ? ' fast' : ''}">${mrtVal} 分钟${!walkFast ? '<em>最快</em>' : ''}</span></div>`;
+  }
+
   const fitHtml = fit
     ? `<span class="fit fit-${fit.status}">${fit.status === 'na' ? '无区间' : FIT_LABEL[fit.status](fit.delta)}</span>`
     : '';
@@ -382,6 +402,7 @@ function cardHtml(sc) {
     <div class="tags">${tags.join('')}${fitHtml}</div>
 
     <div class="rows">
+      ${commuteRows}
       <div class="r"><span class="k">CCA</span><span class="val">${cv.total} 项${cv.full && cv.onlyWebsite ? `<span style="font-weight:400;color:var(--tx3)"> · MOE 登记 ${cv.moeCount}</span>` : ''}</span></div>
       <div class="r"><span class="k">DSA</span><span class="val">${sc.dsaAreas.length ? sc.dsaAreas.length + ' 项（' + sc.dsaYear + '）' : '未列'}</span></div>
     </div>
@@ -572,6 +593,14 @@ function syncPlanNav() {
   SCHOOLS = DATA.schools;
   $('#totalN').textContent = DATA.meta.total;
   $('#copYear').textContent = DATA.meta.copYear || '—';
+  // 通勤口径：起点来自学生画像，写清楚读者才知道「步行 8 分钟」是从哪走
+  const cmeta = DATA.meta.commute;
+  if (cmeta && $('#commuteNote')) {
+    const p = DATA.meta.params || {};
+    $('#commuteNote').innerHTML = cmeta.walkDataUsed
+      ? `自 <b>${esc(cmeta.originPostal)}</b> 出发 · 步行 = OSM 步行路网实测（${cmeta.walkMetersPerMin || 80}m/min，${cmeta.walkVerifiedSchools} 所全岛覆盖）· 地铁 = MRT 模型（站间 ${p.rideMinPerStop} 分 / 换乘 ${p.transferMin} 分 / 进站 ${p.accessOverheadMin} 分）· 两者<b>取最快</b>参与评分，两家引擎分歧 &gt;1.4× 标「争议」并显示区间`
+      : '步行路网数据未生成（跑 scripts/walk-dist.cjs），当前仅按地铁模型计分';
+  }
   $('#built').textContent = '构建于 ' + new Date(DATA.meta.generatedAt).toLocaleString('zh-CN', { timeZone: 'Asia/Singapore' }) + ' SGT';
 
   // 区域下拉

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-12T13:41:23.837Z",
+  "generatedAt": "2026-11-12T15:32:52.867Z",
   "total": 147,
   "copYear": 2025,
   "ipCount": 17,
@@ -34,7 +34,17 @@
    "walkMPerMin": 80,
    "accessOverheadMin": 4
   },
-  "disclaimer": "COP 为上一年度实际录取区间，仅供参考，非本年度录取门槛。等时圈仅计 MRT，不含巴士。"
+  "commute": {
+   "originPostal": "828765",
+   "originLabel": "110 Punggol Walk Twin Waterfalls Singapore 828765",
+   "walkDataUsed": true,
+   "walkVerifiedSchools": 147,
+   "walkMetersPerMin": 80,
+   "rule": "步行 / 地铁取最快者；两家引擎分歧 >1.4× 的标为争议项，显示区间（按最快值呈现，脚注给保守值）",
+   "walkSource": "FOSSGIS OSRM foot (routing.openstreetmap.de/routed-foot), OSM 步行路网",
+   "walkCheck": "Valhalla pedestrian (valhalla1.openstreetmap.de)"
+  },
+  "disclaimer": "COP 为上一年度实际录取区间，仅供参考，非本年度录取门槛。等时圈仅计 MRT，不含巴士；步行时间为 OSM 步行路网实测最短路径。"
  },
  "schools": [
   {
@@ -149,6 +159,19 @@
      "NS"
     ],
     "distM": 610
+   },
+   "commute": {
+    "minutes": 57,
+    "best": "mrt",
+    "mrtMin": 57,
+    "walkMin": 191,
+    "walkUpperMin": 191,
+    "walkM": 15292,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 57,
+    "accessWalkM": 610,
+    "viaStation": "NS10"
    }
   },
   {
@@ -270,6 +293,19 @@
      "NS"
     ],
     "distM": 780
+   },
+   "commute": {
+    "minutes": 55,
+    "best": "mrt",
+    "mrtMin": 55,
+    "walkMin": 145,
+    "walkUpperMin": 145,
+    "walkM": 11581,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 55,
+    "accessWalkM": 780,
+    "viaStation": "NS12"
    }
   },
   {
@@ -382,6 +418,19 @@
      "NS"
     ],
     "distM": 538
+   },
+   "commute": {
+    "minutes": 44,
+    "best": "mrt",
+    "mrtMin": 44,
+    "walkMin": 93,
+    "walkUpperMin": 93,
+    "walkM": 7427,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 44,
+    "accessWalkM": 538,
+    "viaStation": "NS16"
    }
   },
   {
@@ -501,6 +550,19 @@
      "TE"
     ],
     "distM": 772
+   },
+   "commute": {
+    "minutes": 48,
+    "best": "mrt",
+    "mrtMin": 48,
+    "walkMin": 113,
+    "walkUpperMin": 113,
+    "walkM": 9072,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 48,
+    "accessWalkM": 872,
+    "viaStation": "NS16"
    }
   },
   {
@@ -602,6 +664,19 @@
      "EW"
     ],
     "distM": 697
+   },
+   "commute": {
+    "minutes": 56,
+    "best": "mrt",
+    "mrtMin": 56,
+    "walkMin": 164,
+    "walkUpperMin": 164,
+    "walkM": 13104,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 56,
+    "accessWalkM": 697,
+    "viaStation": "EW4"
    }
   },
   {
@@ -748,6 +823,19 @@
      "NS"
     ],
     "distM": 823
+   },
+   "commute": {
+    "minutes": 49,
+    "best": "mrt",
+    "mrtMin": 49,
+    "walkMin": 189,
+    "walkUpperMin": 189,
+    "walkM": 15102,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 49,
+    "accessWalkM": 823,
+    "viaStation": "DT11/NS21"
    }
   },
   {
@@ -913,6 +1001,19 @@
      "EW"
     ],
     "distM": 878
+   },
+   "commute": {
+    "minutes": 58,
+    "best": "mrt",
+    "mrtMin": 58,
+    "walkMin": 269,
+    "walkUpperMin": 269,
+    "walkM": 21544,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 58,
+    "accessWalkM": 902,
+    "viaStation": "CC23"
    }
   },
   {
@@ -1024,6 +1125,19 @@
      "DT"
     ],
     "distM": 410
+   },
+   "commute": {
+    "minutes": 62,
+    "best": "mrt",
+    "mrtMin": 62,
+    "walkMin": 312,
+    "walkUpperMin": 312,
+    "walkM": 24924,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 62,
+    "accessWalkM": 410,
+    "viaStation": "DT2"
    }
   },
   {
@@ -1071,6 +1185,19 @@
      "DT"
     ],
     "distM": 184
+   },
+   "commute": {
+    "minutes": 59,
+    "best": "mrt",
+    "mrtMin": 59,
+    "walkMin": 308,
+    "walkUpperMin": 308,
+    "walkM": 24647,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 59,
+    "accessWalkM": 184,
+    "viaStation": "DT2"
    }
   },
   {
@@ -1172,6 +1299,19 @@
      "CC"
     ],
     "distM": 401
+   },
+   "commute": {
+    "minutes": 33,
+    "best": "mrt",
+    "mrtMin": 33,
+    "walkMin": 110,
+    "walkUpperMin": 110,
+    "walkM": 8799,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 33,
+    "accessWalkM": 401,
+    "viaStation": "CC12"
    }
   },
   {
@@ -1294,6 +1434,19 @@
      "NS"
     ],
     "distM": 642
+   },
+   "commute": {
+    "minutes": 44,
+    "best": "mrt",
+    "mrtMin": 44,
+    "walkMin": 127,
+    "walkUpperMin": 127,
+    "walkM": 10197,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 44,
+    "accessWalkM": 1056,
+    "viaStation": "NS17/CC15"
    }
   },
   {
@@ -1394,6 +1547,19 @@
      "DT"
     ],
     "distM": 388
+   },
+   "commute": {
+    "minutes": 50,
+    "best": "mrt",
+    "mrtMin": 50,
+    "walkMin": 149,
+    "walkUpperMin": 149,
+    "walkM": 11938,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 50,
+    "accessWalkM": 388,
+    "viaStation": "DT30"
    }
   },
   {
@@ -1500,6 +1666,19 @@
      "EW"
     ],
     "distM": 564
+   },
+   "commute": {
+    "minutes": 54,
+    "best": "mrt",
+    "mrtMin": 54,
+    "walkMin": 173,
+    "walkUpperMin": 173,
+    "walkM": 13879,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 54,
+    "accessWalkM": 564,
+    "viaStation": "EW4"
    }
   },
   {
@@ -1618,6 +1797,19 @@
      "EW"
     ],
     "distM": 442
+   },
+   "commute": {
+    "minutes": 53,
+    "best": "mrt",
+    "mrtMin": 53,
+    "walkMin": 174,
+    "walkUpperMin": 174,
+    "walkM": 13960,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 53,
+    "accessWalkM": 442,
+    "viaStation": "EW4"
    }
   },
   {
@@ -1838,6 +2030,19 @@
      "NE"
     ],
     "distM": 533
+   },
+   "commute": {
+    "minutes": 34,
+    "best": "mrt",
+    "mrtMin": 34,
+    "walkMin": 140,
+    "walkUpperMin": 140,
+    "walkM": 11213,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 34,
+    "accessWalkM": 533,
+    "viaStation": "NE9"
    }
   },
   {
@@ -1947,6 +2152,19 @@
      "EW"
     ],
     "distM": 652
+   },
+   "commute": {
+    "minutes": 70,
+    "best": "mrt",
+    "mrtMin": 70,
+    "walkMin": 388,
+    "walkUpperMin": 388,
+    "walkM": 31008,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 70,
+    "accessWalkM": 652,
+    "viaStation": "EW27"
    }
   },
   {
@@ -2062,6 +2280,19 @@
      "NE"
     ],
     "distM": 1389
+   },
+   "commute": {
+    "minutes": 37,
+    "best": "mrt",
+    "mrtMin": 37,
+    "walkMin": 63,
+    "walkUpperMin": 63,
+    "walkM": 5052,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 37,
+    "accessWalkM": 1389,
+    "viaStation": "NE13"
    }
   },
   {
@@ -2162,6 +2393,19 @@
      "CC"
     ],
     "distM": 303
+   },
+   "commute": {
+    "minutes": 40,
+    "best": "mrt",
+    "mrtMin": 40,
+    "walkMin": 161,
+    "walkUpperMin": 161,
+    "walkM": 12874,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 40,
+    "accessWalkM": 303,
+    "viaStation": "CC8"
    }
   },
   {
@@ -2280,6 +2524,19 @@
      "NS"
     ],
     "distM": 968
+   },
+   "commute": {
+    "minutes": 72,
+    "best": "mrt",
+    "mrtMin": 72,
+    "walkMin": 323,
+    "walkUpperMin": 323,
+    "walkM": 25834,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 72,
+    "accessWalkM": 1146,
+    "viaStation": "EW25"
    }
   },
   {
@@ -2385,6 +2642,19 @@
      "EW"
     ],
     "distM": 572
+   },
+   "commute": {
+    "minutes": 56,
+    "best": "mrt",
+    "mrtMin": 56,
+    "walkMin": 245,
+    "walkUpperMin": 245,
+    "walkM": 19570,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 56,
+    "accessWalkM": 572,
+    "viaStation": "EW18"
    }
   },
   {
@@ -2496,6 +2766,19 @@
      "NS"
     ],
     "distM": 725
+   },
+   "commute": {
+    "minutes": 68,
+    "best": "mrt",
+    "mrtMin": 68,
+    "walkMin": 310,
+    "walkUpperMin": 310,
+    "walkM": 24827,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 68,
+    "accessWalkM": 725,
+    "viaStation": "NS4"
    }
   },
   {
@@ -2614,6 +2897,19 @@
      "NS"
     ],
     "distM": 471
+   },
+   "commute": {
+    "minutes": 68,
+    "best": "mrt",
+    "mrtMin": 68,
+    "walkMin": 304,
+    "walkUpperMin": 304,
+    "walkM": 24304,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 68,
+    "accessWalkM": 471,
+    "viaStation": "NS2"
    }
   },
   {
@@ -2725,6 +3021,19 @@
      "NS"
     ],
     "distM": 796
+   },
+   "commute": {
+    "minutes": 57,
+    "best": "mrt",
+    "mrtMin": 57,
+    "walkMin": 176,
+    "walkUpperMin": 176,
+    "walkM": 14086,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 57,
+    "accessWalkM": 796,
+    "viaStation": "NS11"
    }
   },
   {
@@ -2883,6 +3192,19 @@
      "CC"
     ],
     "distM": 750
+   },
+   "commute": {
+    "minutes": 40,
+    "best": "mrt",
+    "mrtMin": 40,
+    "walkMin": 129,
+    "walkUpperMin": 129,
+    "walkM": 10357,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 40,
+    "accessWalkM": 750,
+    "viaStation": "NS17/CC15"
    }
   },
   {
@@ -2993,6 +3315,19 @@
      "NE"
     ],
     "distM": 573
+   },
+   "commute": {
+    "minutes": 33,
+    "best": "mrt",
+    "mrtMin": 33,
+    "walkMin": 129,
+    "walkUpperMin": 129,
+    "walkM": 10352,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 33,
+    "accessWalkM": 573,
+    "viaStation": "NE10"
    }
   },
   {
@@ -3096,6 +3431,19 @@
      "EW"
     ],
     "distM": 411
+   },
+   "commute": {
+    "minutes": 55,
+    "best": "mrt",
+    "mrtMin": 55,
+    "walkMin": 148,
+    "walkUpperMin": 148,
+    "walkM": 11843,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 55,
+    "accessWalkM": 411,
+    "viaStation": "EW3"
    }
   },
   {
@@ -3213,6 +3561,19 @@
      "TE"
     ],
     "distM": 228
+   },
+   "commute": {
+    "minutes": 64,
+    "best": "mrt",
+    "mrtMin": 64,
+    "walkMin": 169,
+    "walkUpperMin": 169,
+    "walkM": 13495,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 64,
+    "accessWalkM": 228,
+    "viaStation": "TE27"
    }
   },
   {
@@ -3332,6 +3693,19 @@
      "NS"
     ],
     "distM": 471
+   },
+   "commute": {
+    "minutes": 43,
+    "best": "mrt",
+    "mrtMin": 43,
+    "walkMin": 156,
+    "walkUpperMin": 156,
+    "walkM": 12486,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 43,
+    "accessWalkM": 683,
+    "viaStation": "TE9/CC17"
    }
   },
   {
@@ -3458,6 +3832,19 @@
      "NE"
     ],
     "distM": 776
+   },
+   "commute": {
+    "minutes": 23,
+    "best": "mrt",
+    "mrtMin": 23,
+    "walkMin": 24,
+    "walkUpperMin": 24,
+    "walkM": 1960,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 23,
+    "accessWalkM": 776,
+    "viaStation": "NE16"
    }
   },
   {
@@ -3588,6 +3975,19 @@
      "TE"
     ],
     "distM": 341
+   },
+   "commute": {
+    "minutes": 50,
+    "best": "mrt",
+    "mrtMin": 50,
+    "walkMin": 119,
+    "walkUpperMin": 119,
+    "walkM": 9501,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 50,
+    "accessWalkM": 341,
+    "viaStation": "TE6"
    }
   },
   {
@@ -3707,6 +4107,19 @@
      "CC"
     ],
     "distM": 1047
+   },
+   "commute": {
+    "minutes": 56,
+    "best": "mrt",
+    "mrtMin": 56,
+    "walkMin": 245,
+    "walkUpperMin": 245,
+    "walkM": 19599,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 56,
+    "accessWalkM": 1136,
+    "viaStation": "NE1/CC29"
    }
   },
   {
@@ -3817,6 +4230,19 @@
      "TE"
     ],
     "distM": 100
+   },
+   "commute": {
+    "minutes": 53,
+    "best": "mrt",
+    "mrtMin": 53,
+    "walkMin": 214,
+    "walkUpperMin": 214,
+    "walkM": 17131,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 53,
+    "accessWalkM": 100,
+    "viaStation": "TE3"
    }
   },
   {
@@ -3932,6 +4358,19 @@
      "DT"
     ],
     "distM": 796
+   },
+   "commute": {
+    "minutes": 68,
+    "best": "mrt",
+    "mrtMin": 68,
+    "walkMin": 291,
+    "walkUpperMin": 291,
+    "walkM": 23249,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 68,
+    "accessWalkM": 796,
+    "viaStation": "DT1"
    }
   },
   {
@@ -4030,6 +4469,19 @@
      "CC"
     ],
     "distM": 456
+   },
+   "commute": {
+    "minutes": 42,
+    "best": "mrt",
+    "mrtMin": 42,
+    "walkMin": 164,
+    "walkUpperMin": 164,
+    "walkM": 13082,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 42,
+    "accessWalkM": 456,
+    "viaStation": "CC8"
    }
   },
   {
@@ -4144,6 +4596,19 @@
      "NS"
     ],
     "distM": 531
+   },
+   "commute": {
+    "minutes": 48,
+    "best": "mrt",
+    "mrtMin": 48,
+    "walkMin": 130,
+    "walkUpperMin": 130,
+    "walkM": 10385,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 48,
+    "accessWalkM": 531,
+    "viaStation": "NS14"
    }
   },
   {
@@ -4265,6 +4730,19 @@
      "EW"
     ],
     "distM": 356
+   },
+   "commute": {
+    "minutes": 58,
+    "best": "mrt",
+    "mrtMin": 58,
+    "walkMin": 291,
+    "walkUpperMin": 291,
+    "walkM": 23242,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 58,
+    "accessWalkM": 356,
+    "viaStation": "EW23"
    }
   },
   {
@@ -4381,6 +4859,19 @@
      "NS"
     ],
     "distM": 1579
+   },
+   "commute": {
+    "minutes": 75,
+    "best": "mrt",
+    "mrtMin": 75,
+    "walkMin": 320,
+    "walkUpperMin": 320,
+    "walkM": 25622,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 75,
+    "accessWalkM": 1579,
+    "viaStation": "EW24/NS1"
    }
   },
   {
@@ -4567,6 +5058,22 @@
      "NE"
     ],
     "distM": 693
+   },
+   "commute": {
+    "minutes": 14,
+    "best": "walk",
+    "mrtMin": 22,
+    "walkMin": 14,
+    "walkUpperMin": 25,
+    "walkM": 1114,
+    "walkDisputed": true,
+    "walkRange": [
+     14,
+     25
+    ],
+    "worstMinutes": 22,
+    "accessWalkM": 693,
+    "viaStation": "NE16"
    }
   },
   {
@@ -4660,6 +5167,19 @@
      "EW"
     ],
     "distM": 419
+   },
+   "commute": {
+    "minutes": 54,
+    "best": "mrt",
+    "mrtMin": 54,
+    "walkMin": 230,
+    "walkUpperMin": 230,
+    "walkM": 18380,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 54,
+    "accessWalkM": 419,
+    "viaStation": "EW18"
    }
   },
   {
@@ -4712,6 +5232,19 @@
      "NS"
     ],
     "distM": 1014
+   },
+   "commute": {
+    "minutes": 69,
+    "best": "mrt",
+    "mrtMin": 69,
+    "walkMin": 324,
+    "walkUpperMin": 324,
+    "walkM": 25907,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 69,
+    "accessWalkM": 1123,
+    "viaStation": "EW24/NS1"
    }
   },
   {
@@ -4813,6 +5346,19 @@
      "DT"
     ],
     "distM": 573
+   },
+   "commute": {
+    "minutes": 53,
+    "best": "mrt",
+    "mrtMin": 53,
+    "walkMin": 151,
+    "walkUpperMin": 151,
+    "walkM": 12054,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 53,
+    "accessWalkM": 573,
+    "viaStation": "DT30"
    }
   },
   {
@@ -4920,6 +5466,19 @@
      "NS"
     ],
     "distM": 549
+   },
+   "commute": {
+    "minutes": 44,
+    "best": "mrt",
+    "mrtMin": 44,
+    "walkMin": 102,
+    "walkUpperMin": 102,
+    "walkM": 8160,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 44,
+    "accessWalkM": 549,
+    "viaStation": "NS16"
    }
   },
   {
@@ -5020,6 +5579,19 @@
      "NS"
     ],
     "distM": 961
+   },
+   "commute": {
+    "minutes": 73,
+    "best": "mrt",
+    "mrtMin": 73,
+    "walkMin": 333,
+    "walkUpperMin": 333,
+    "walkM": 26607,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 73,
+    "accessWalkM": 961,
+    "viaStation": "NS3"
    }
   },
   {
@@ -5130,6 +5702,19 @@
      "TE"
     ],
     "distM": 431
+   },
+   "commute": {
+    "minutes": 47,
+    "best": "mrt",
+    "mrtMin": 47,
+    "walkMin": 175,
+    "walkUpperMin": 175,
+    "walkM": 14000,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 47,
+    "accessWalkM": 689,
+    "viaStation": "CC7"
    }
   },
   {
@@ -5231,6 +5816,19 @@
      "DT"
     ],
     "distM": 526
+   },
+   "commute": {
+    "minutes": 58,
+    "best": "mrt",
+    "mrtMin": 58,
+    "walkMin": 124,
+    "walkUpperMin": 124,
+    "walkM": 9916,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 58,
+    "accessWalkM": 526,
+    "viaStation": "DT33"
    }
   },
   {
@@ -5337,6 +5935,19 @@
      "DT"
     ],
     "distM": 668
+   },
+   "commute": {
+    "minutes": 60,
+    "best": "mrt",
+    "mrtMin": 60,
+    "walkMin": 135,
+    "walkUpperMin": 135,
+    "walkM": 10764,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 60,
+    "accessWalkM": 668,
+    "viaStation": "DT33"
    }
   },
   {
@@ -5627,6 +6238,19 @@
      "NE"
     ],
     "distM": 445
+   },
+   "commute": {
+    "minutes": 10,
+    "best": "walk",
+    "mrtMin": 17,
+    "walkMin": 10,
+    "walkUpperMin": 10,
+    "walkM": 829,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 10,
+    "accessWalkM": 445,
+    "viaStation": "NE17"
    }
   },
   {
@@ -5744,6 +6368,19 @@
      "NS"
     ],
     "distM": 768
+   },
+   "commute": {
+    "minutes": 59,
+    "best": "mrt",
+    "mrtMin": 59,
+    "walkMin": 203,
+    "walkUpperMin": 203,
+    "walkM": 16263,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 59,
+    "accessWalkM": 768,
+    "viaStation": "NS10"
    }
   },
   {
@@ -5859,6 +6496,19 @@
      "CC"
     ],
     "distM": 427
+   },
+   "commute": {
+    "minutes": 52,
+    "best": "mrt",
+    "mrtMin": 52,
+    "walkMin": 264,
+    "walkUpperMin": 264,
+    "walkM": 21134,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 52,
+    "accessWalkM": 427,
+    "viaStation": "CC23"
    }
   },
   {
@@ -5975,6 +6625,19 @@
      "EW"
     ],
     "distM": 691
+   },
+   "commute": {
+    "minutes": 68,
+    "best": "mrt",
+    "mrtMin": 68,
+    "walkMin": 352,
+    "walkUpperMin": 352,
+    "walkM": 28154,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 68,
+    "accessWalkM": 691,
+    "viaStation": "EW26"
    }
   },
   {
@@ -6082,6 +6745,19 @@
      "EW"
     ],
     "distM": 484
+   },
+   "commute": {
+    "minutes": 52,
+    "best": "mrt",
+    "mrtMin": 52,
+    "walkMin": 228,
+    "walkUpperMin": 228,
+    "walkM": 18214,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 52,
+    "accessWalkM": 484,
+    "viaStation": "EW17"
    }
   },
   {
@@ -6198,6 +6874,19 @@
      "EW"
     ],
     "distM": 138
+   },
+   "commute": {
+    "minutes": 43,
+    "best": "mrt",
+    "mrtMin": 43,
+    "walkMin": 146,
+    "walkUpperMin": 146,
+    "walkM": 11665,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 43,
+    "accessWalkM": 138,
+    "viaStation": "EW9"
    }
   },
   {
@@ -6457,6 +7146,19 @@
      "NE"
     ],
     "distM": 1363
+   },
+   "commute": {
+    "minutes": 27,
+    "best": "walk",
+    "mrtMin": 28,
+    "walkMin": 27,
+    "walkUpperMin": 27,
+    "walkM": 2143,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 27,
+    "accessWalkM": 1363,
+    "viaStation": "NE17"
    }
   },
   {
@@ -6566,6 +7268,19 @@
      "DT"
     ],
     "distM": 540
+   },
+   "commute": {
+    "minutes": 64,
+    "best": "mrt",
+    "mrtMin": 64,
+    "walkMin": 309,
+    "walkUpperMin": 309,
+    "walkM": 24687,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 64,
+    "accessWalkM": 641,
+    "viaStation": "DT2"
    }
   },
   {
@@ -6665,6 +7380,19 @@
      "NS"
     ],
     "distM": 614
+   },
+   "commute": {
+    "minutes": 40,
+    "best": "mrt",
+    "mrtMin": 40,
+    "walkMin": 132,
+    "walkUpperMin": 132,
+    "walkM": 10570,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 40,
+    "accessWalkM": 735,
+    "viaStation": "NS17/CC15"
    }
   },
   {
@@ -6781,6 +7509,19 @@
      "EW"
     ],
     "distM": 602
+   },
+   "commute": {
+    "minutes": 61,
+    "best": "mrt",
+    "mrtMin": 61,
+    "walkMin": 104,
+    "walkUpperMin": 104,
+    "walkM": 8339,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 61,
+    "accessWalkM": 602,
+    "viaStation": "EW1"
    }
   },
   {
@@ -6896,6 +7637,19 @@
      "NS"
     ],
     "distM": 560
+   },
+   "commute": {
+    "minutes": 69,
+    "best": "mrt",
+    "mrtMin": 69,
+    "walkMin": 309,
+    "walkUpperMin": 309,
+    "walkM": 24739,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 69,
+    "accessWalkM": 560,
+    "viaStation": "NS2"
    }
   },
   {
@@ -7031,6 +7785,19 @@
      "NE"
     ],
     "distM": 479
+   },
+   "commute": {
+    "minutes": 23,
+    "best": "mrt",
+    "mrtMin": 23,
+    "walkMin": 54,
+    "walkUpperMin": 54,
+    "walkM": 4315,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 23,
+    "accessWalkM": 479,
+    "viaStation": "NE14"
    }
   },
   {
@@ -7280,6 +8047,19 @@
      "NE"
     ],
     "distM": 1349
+   },
+   "commute": {
+    "minutes": 32,
+    "best": "mrt",
+    "mrtMin": 32,
+    "walkMin": 47,
+    "walkUpperMin": 47,
+    "walkM": 3784,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 32,
+    "accessWalkM": 1349,
+    "viaStation": "NE15"
    }
   },
   {
@@ -7404,6 +8184,19 @@
      "EW"
     ],
     "distM": 904
+   },
+   "commute": {
+    "minutes": 71,
+    "best": "mrt",
+    "mrtMin": 71,
+    "walkMin": 358,
+    "walkUpperMin": 358,
+    "walkM": 28641,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 71,
+    "accessWalkM": 904,
+    "viaStation": "EW26"
    }
   },
   {
@@ -7537,6 +8330,19 @@
      "DT"
     ],
     "distM": 125
+   },
+   "commute": {
+    "minutes": 46,
+    "best": "mrt",
+    "mrtMin": 46,
+    "walkMin": 214,
+    "walkUpperMin": 214,
+    "walkM": 17132,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 46,
+    "accessWalkM": 125,
+    "viaStation": "DT8"
    }
   },
   {
@@ -7649,6 +8455,19 @@
      "EW"
     ],
     "distM": 1029
+   },
+   "commute": {
+    "minutes": 60,
+    "best": "mrt",
+    "mrtMin": 60,
+    "walkMin": 113,
+    "walkUpperMin": 113,
+    "walkM": 9021,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 60,
+    "accessWalkM": 1033,
+    "viaStation": "DT31"
    }
   },
   {
@@ -7763,6 +8582,19 @@
      "EW"
     ],
     "distM": 1618
+   },
+   "commute": {
+    "minutes": 78,
+    "best": "mrt",
+    "mrtMin": 78,
+    "walkMin": 361,
+    "walkUpperMin": 361,
+    "walkM": 28843,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 78,
+    "accessWalkM": 1674,
+    "viaStation": "EW25"
    }
   },
   {
@@ -7886,6 +8718,19 @@
      "EW"
     ],
     "distM": 577
+   },
+   "commute": {
+    "minutes": 69,
+    "best": "mrt",
+    "mrtMin": 69,
+    "walkMin": 388,
+    "walkUpperMin": 388,
+    "walkM": 31034,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 69,
+    "accessWalkM": 577,
+    "viaStation": "EW27"
    }
   },
   {
@@ -8004,6 +8849,19 @@
      "EW"
     ],
     "distM": 1075
+   },
+   "commute": {
+    "minutes": 71,
+    "best": "mrt",
+    "mrtMin": 71,
+    "walkMin": 347,
+    "walkUpperMin": 347,
+    "walkM": 27799,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 71,
+    "accessWalkM": 1075,
+    "viaStation": "EW25"
    }
   },
   {
@@ -8106,6 +8964,19 @@
      "EW"
     ],
     "distM": 1120
+   },
+   "commute": {
+    "minutes": 77,
+    "best": "mrt",
+    "mrtMin": 77,
+    "walkMin": 411,
+    "walkUpperMin": 411,
+    "walkM": 32887,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 77,
+    "accessWalkM": 1120,
+    "viaStation": "EW28"
    }
   },
   {
@@ -8204,6 +9075,19 @@
      "EW"
     ],
     "distM": 1545
+   },
+   "commute": {
+    "minutes": 73,
+    "best": "mrt",
+    "mrtMin": 73,
+    "walkMin": 299,
+    "walkUpperMin": 299,
+    "walkM": 23894,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 73,
+    "accessWalkM": 1545,
+    "viaStation": "EW23"
    }
   },
   {
@@ -8321,6 +9205,19 @@
      "NS"
     ],
     "distM": 612
+   },
+   "commute": {
+    "minutes": 67,
+    "best": "mrt",
+    "mrtMin": 67,
+    "walkMin": 295,
+    "walkUpperMin": 295,
+    "walkM": 23633,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 67,
+    "accessWalkM": 612,
+    "viaStation": "NS4"
    }
   },
   {
@@ -8447,6 +9344,19 @@
      "CC"
     ],
     "distM": 556
+   },
+   "commute": {
+    "minutes": 37,
+    "best": "mrt",
+    "mrtMin": 37,
+    "walkMin": 129,
+    "walkUpperMin": 129,
+    "walkM": 10308,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 37,
+    "accessWalkM": 556,
+    "viaStation": "NS17/CC15"
    }
   },
   {
@@ -8548,6 +9458,19 @@
      "EW"
     ],
     "distM": 1114
+   },
+   "commute": {
+    "minutes": 66,
+    "best": "mrt",
+    "mrtMin": 66,
+    "walkMin": 113,
+    "walkUpperMin": 113,
+    "walkM": 9021,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 66,
+    "accessWalkM": 1184,
+    "viaStation": "DT33"
    }
   },
   {
@@ -8674,6 +9597,19 @@
      "DT"
     ],
     "distM": 393
+   },
+   "commute": {
+    "minutes": 44,
+    "best": "mrt",
+    "mrtMin": 44,
+    "walkMin": 131,
+    "walkUpperMin": 131,
+    "walkM": 10453,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 44,
+    "accessWalkM": 393,
+    "viaStation": "DT27"
    }
   },
   {
@@ -8797,6 +9733,19 @@
      "CC"
     ],
     "distM": 297
+   },
+   "commute": {
+    "minutes": 32,
+    "best": "mrt",
+    "mrtMin": 32,
+    "walkMin": 113,
+    "walkUpperMin": 113,
+    "walkM": 9032,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 32,
+    "accessWalkM": 297,
+    "viaStation": "CC12"
    }
   },
   {
@@ -8904,6 +9853,19 @@
      "NS"
     ],
     "distM": 506
+   },
+   "commute": {
+    "minutes": 60,
+    "best": "mrt",
+    "mrtMin": 60,
+    "walkMin": 235,
+    "walkUpperMin": 235,
+    "walkM": 18823,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 60,
+    "accessWalkM": 506,
+    "viaStation": "NS8"
    }
   },
   {
@@ -9027,6 +9989,19 @@
      "TE"
     ],
     "distM": 379
+   },
+   "commute": {
+    "minutes": 50,
+    "best": "mrt",
+    "mrtMin": 50,
+    "walkMin": 122,
+    "walkUpperMin": 122,
+    "walkM": 9742,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 50,
+    "accessWalkM": 379,
+    "viaStation": "TE6"
    }
   },
   {
@@ -9144,6 +10119,19 @@
      "EW"
     ],
     "distM": 645
+   },
+   "commute": {
+    "minutes": 61,
+    "best": "mrt",
+    "mrtMin": 61,
+    "walkMin": 104,
+    "walkUpperMin": 104,
+    "walkM": 8350,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 61,
+    "accessWalkM": 645,
+    "viaStation": "EW1"
    }
   },
   {
@@ -9263,6 +10251,19 @@
      "DT"
     ],
     "distM": 334
+   },
+   "commute": {
+    "minutes": 53,
+    "best": "mrt",
+    "mrtMin": 53,
+    "walkMin": 255,
+    "walkUpperMin": 255,
+    "walkM": 20423,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 53,
+    "accessWalkM": 334,
+    "viaStation": "DT6"
    }
   },
   {
@@ -9474,6 +10475,19 @@
      "NE"
     ],
     "distM": 548
+   },
+   "commute": {
+    "minutes": 24,
+    "best": "mrt",
+    "mrtMin": 24,
+    "walkMin": 47,
+    "walkUpperMin": 47,
+    "walkM": 3751,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 24,
+    "accessWalkM": 548,
+    "viaStation": "NE14"
    }
   },
   {
@@ -9582,6 +10596,19 @@
      "NE"
     ],
     "distM": 661
+   },
+   "commute": {
+    "minutes": 22,
+    "best": "mrt",
+    "mrtMin": 22,
+    "walkMin": 27,
+    "walkUpperMin": 27,
+    "walkM": 2164,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 22,
+    "accessWalkM": 689,
+    "viaStation": "NE16"
    }
   },
   {
@@ -9683,6 +10710,19 @@
      "EW"
     ],
     "distM": 866
+   },
+   "commute": {
+    "minutes": 64,
+    "best": "mrt",
+    "mrtMin": 64,
+    "walkMin": 285,
+    "walkUpperMin": 285,
+    "walkM": 22792,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 64,
+    "accessWalkM": 866,
+    "viaStation": "EW23"
    }
   },
   {
@@ -9789,6 +10829,19 @@
      "DT"
     ],
     "distM": 614
+   },
+   "commute": {
+    "minutes": 53,
+    "best": "mrt",
+    "mrtMin": 53,
+    "walkMin": 227,
+    "walkUpperMin": 227,
+    "walkM": 18195,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 53,
+    "accessWalkM": 654,
+    "viaStation": "DT8"
    }
   },
   {
@@ -9897,6 +10950,19 @@
      "DT"
     ],
     "distM": 511
+   },
+   "commute": {
+    "minutes": 51,
+    "best": "mrt",
+    "mrtMin": 51,
+    "walkMin": 222,
+    "walkUpperMin": 222,
+    "walkM": 17743,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 51,
+    "accessWalkM": 511,
+    "viaStation": "DT8"
    }
   },
   {
@@ -10016,6 +11082,19 @@
      "NS"
     ],
     "distM": 309
+   },
+   "commute": {
+    "minutes": 45,
+    "best": "mrt",
+    "mrtMin": 45,
+    "walkMin": 140,
+    "walkUpperMin": 140,
+    "walkM": 11200,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 45,
+    "accessWalkM": 309,
+    "viaStation": "NS14"
    }
   },
   {
@@ -10126,6 +11205,19 @@
      "EW"
     ],
     "distM": 632
+   },
+   "commute": {
+    "minutes": 59,
+    "best": "mrt",
+    "mrtMin": 59,
+    "walkMin": 278,
+    "walkUpperMin": 278,
+    "walkM": 22227,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 59,
+    "accessWalkM": 632,
+    "viaStation": "EW22"
    }
   },
   {
@@ -10249,6 +11341,19 @@
      "DT"
     ],
     "distM": 303
+   },
+   "commute": {
+    "minutes": 55,
+    "best": "mrt",
+    "mrtMin": 55,
+    "walkMin": 134,
+    "walkUpperMin": 134,
+    "walkM": 10718,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 55,
+    "accessWalkM": 303,
+    "viaStation": "DT33"
    }
   },
   {
@@ -10512,6 +11617,19 @@
      "NE"
     ],
     "distM": 740
+   },
+   "commute": {
+    "minutes": 25,
+    "best": "mrt",
+    "mrtMin": 25,
+    "walkMin": 38,
+    "walkUpperMin": 38,
+    "walkM": 3032,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 25,
+    "accessWalkM": 740,
+    "viaStation": "NE15"
    }
   },
   {
@@ -10626,6 +11744,19 @@
      "NS"
     ],
     "distM": 1405
+   },
+   "commute": {
+    "minutes": 59,
+    "best": "mrt",
+    "mrtMin": 59,
+    "walkMin": 120,
+    "walkUpperMin": 120,
+    "walkM": 9621,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 59,
+    "accessWalkM": 1405,
+    "viaStation": "NS14"
    }
   },
   {
@@ -10738,6 +11869,19 @@
      "NS"
     ],
     "distM": 906
+   },
+   "commute": {
+    "minutes": 55,
+    "best": "mrt",
+    "mrtMin": 55,
+    "walkMin": 127,
+    "walkUpperMin": 127,
+    "walkM": 10159,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 55,
+    "accessWalkM": 906,
+    "viaStation": "NS13"
    }
   },
   {
@@ -10785,6 +11929,19 @@
      "NE"
     ],
     "distM": 672
+   },
+   "commute": {
+    "minutes": 36,
+    "best": "mrt",
+    "mrtMin": 36,
+    "walkMin": 152,
+    "walkUpperMin": 152,
+    "walkM": 12154,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 36,
+    "accessWalkM": 706,
+    "viaStation": "NE9"
    }
   },
   {
@@ -10842,6 +11999,19 @@
      "EW"
     ],
     "distM": 1118
+   },
+   "commute": {
+    "minutes": 65,
+    "best": "mrt",
+    "mrtMin": 65,
+    "walkMin": 285,
+    "walkUpperMin": 285,
+    "walkM": 22837,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 65,
+    "accessWalkM": 1118,
+    "viaStation": "EW22"
    }
   },
   {
@@ -10965,6 +12135,19 @@
      "NS"
     ],
     "distM": 589
+   },
+   "commute": {
+    "minutes": 49,
+    "best": "mrt",
+    "mrtMin": 49,
+    "walkMin": 130,
+    "walkUpperMin": 130,
+    "walkM": 10404,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 49,
+    "accessWalkM": 589,
+    "viaStation": "NS14"
    }
   },
   {
@@ -11137,6 +12320,22 @@
      "NE"
     ],
     "distM": 823
+   },
+   "commute": {
+    "minutes": 15,
+    "best": "walk",
+    "mrtMin": 24,
+    "walkMin": 15,
+    "walkUpperMin": 25,
+    "walkM": 1166,
+    "walkDisputed": true,
+    "walkRange": [
+     15,
+     25
+    ],
+    "worstMinutes": 24,
+    "accessWalkM": 823,
+    "viaStation": "NE16"
    }
   },
   {
@@ -11242,6 +12441,19 @@
      "EW"
     ],
     "distM": 1161
+   },
+   "commute": {
+    "minutes": 68,
+    "best": "mrt",
+    "mrtMin": 68,
+    "walkMin": 117,
+    "walkUpperMin": 117,
+    "walkM": 9343,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 68,
+    "accessWalkM": 1161,
+    "viaStation": "EW1"
    }
   },
   {
@@ -11350,6 +12562,19 @@
      "DT"
     ],
     "distM": 667
+   },
+   "commute": {
+    "minutes": 58,
+    "best": "mrt",
+    "mrtMin": 58,
+    "walkMin": 126,
+    "walkUpperMin": 126,
+    "walkM": 10060,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 58,
+    "accessWalkM": 670,
+    "viaStation": "DT32/EW2"
    }
   },
   {
@@ -11457,6 +12682,19 @@
      "NE"
     ],
     "distM": 996
+   },
+   "commute": {
+    "minutes": 32,
+    "best": "mrt",
+    "mrtMin": 32,
+    "walkMin": 90,
+    "walkUpperMin": 90,
+    "walkM": 7234,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 32,
+    "accessWalkM": 996,
+    "viaStation": "NE13"
    }
   },
   {
@@ -11570,6 +12808,19 @@
      "NE"
     ],
     "distM": 1784
+   },
+   "commute": {
+    "minutes": 37,
+    "best": "mrt",
+    "mrtMin": 37,
+    "walkMin": 43,
+    "walkUpperMin": 43,
+    "walkM": 3446,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 37,
+    "accessWalkM": 1898,
+    "viaStation": "NE16"
    }
   },
   {
@@ -11675,6 +12926,19 @@
      "NE"
     ],
     "distM": 1034
+   },
+   "commute": {
+    "minutes": 34,
+    "best": "mrt",
+    "mrtMin": 34,
+    "walkMin": 86,
+    "walkUpperMin": 86,
+    "walkM": 6899,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 34,
+    "accessWalkM": 1034,
+    "viaStation": "CC13/NE12"
    }
   },
   {
@@ -11773,6 +13037,19 @@
      "TE"
     ],
     "distM": 479
+   },
+   "commute": {
+    "minutes": 49,
+    "best": "mrt",
+    "mrtMin": 49,
+    "walkMin": 137,
+    "walkUpperMin": 137,
+    "walkM": 10922,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 49,
+    "accessWalkM": 479,
+    "viaStation": "TE7"
    }
   },
   {
@@ -11886,6 +13163,19 @@
      "NS"
     ],
     "distM": 285
+   },
+   "commute": {
+    "minutes": 43,
+    "best": "mrt",
+    "mrtMin": 43,
+    "walkMin": 108,
+    "walkUpperMin": 108,
+    "walkM": 8633,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 43,
+    "accessWalkM": 285,
+    "viaStation": "NS15"
    }
   },
   {
@@ -12100,6 +13390,19 @@
      "NE"
     ],
     "distM": 841
+   },
+   "commute": {
+    "minutes": 22,
+    "best": "mrt",
+    "mrtMin": 22,
+    "walkMin": 24,
+    "walkUpperMin": 24,
+    "walkM": 1936,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 22,
+    "accessWalkM": 841,
+    "viaStation": "NE17"
    }
   },
   {
@@ -12206,6 +13509,19 @@
      "EW"
     ],
     "distM": 585
+   },
+   "commute": {
+    "minutes": 56,
+    "best": "mrt",
+    "mrtMin": 56,
+    "walkMin": 239,
+    "walkUpperMin": 239,
+    "walkM": 19126,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 56,
+    "accessWalkM": 585,
+    "viaStation": "EW18"
    }
   },
   {
@@ -12319,6 +13635,19 @@
      "EW"
     ],
     "distM": 510
+   },
+   "commute": {
+    "minutes": 58,
+    "best": "mrt",
+    "mrtMin": 58,
+    "walkMin": 241,
+    "walkUpperMin": 241,
+    "walkM": 19279,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 58,
+    "accessWalkM": 510,
+    "viaStation": "EW20"
    }
   },
   {
@@ -12417,6 +13746,19 @@
      "NS"
     ],
     "distM": 464
+   },
+   "commute": {
+    "minutes": 43,
+    "best": "mrt",
+    "mrtMin": 43,
+    "walkMin": 141,
+    "walkUpperMin": 141,
+    "walkM": 11318,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 43,
+    "accessWalkM": 669,
+    "viaStation": "TE9/CC17"
    }
   },
   {
@@ -12542,6 +13884,19 @@
      "CC"
     ],
     "distM": 538
+   },
+   "commute": {
+    "minutes": 39,
+    "best": "mrt",
+    "mrtMin": 39,
+    "walkMin": 134,
+    "walkUpperMin": 134,
+    "walkM": 10704,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 39,
+    "accessWalkM": 538,
+    "viaStation": "CC16"
    }
   },
   {
@@ -12645,6 +14000,19 @@
      "NS"
     ],
     "distM": 622
+   },
+   "commute": {
+    "minutes": 65,
+    "best": "mrt",
+    "mrtMin": 65,
+    "walkMin": 278,
+    "walkUpperMin": 278,
+    "walkM": 22219,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 65,
+    "accessWalkM": 622,
+    "viaStation": "NS5"
    }
   },
   {
@@ -12749,6 +14117,19 @@
      "EW"
     ],
     "distM": 707
+   },
+   "commute": {
+    "minutes": 70,
+    "best": "mrt",
+    "mrtMin": 70,
+    "walkMin": 378,
+    "walkUpperMin": 378,
+    "walkM": 30209,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 70,
+    "accessWalkM": 707,
+    "viaStation": "EW27"
    }
   },
   {
@@ -12874,6 +14255,19 @@
      "TE"
     ],
     "distM": 537
+   },
+   "commute": {
+    "minutes": 58,
+    "best": "mrt",
+    "mrtMin": 58,
+    "walkMin": 214,
+    "walkUpperMin": 214,
+    "walkM": 17110,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 58,
+    "accessWalkM": 537,
+    "viaStation": "NS9/TE2"
    }
   },
   {
@@ -12926,6 +14320,19 @@
      "EW"
     ],
     "distM": 541
+   },
+   "commute": {
+    "minutes": 58,
+    "best": "mrt",
+    "mrtMin": 58,
+    "walkMin": 275,
+    "walkUpperMin": 275,
+    "walkM": 22009,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 58,
+    "accessWalkM": 541,
+    "viaStation": "EW22"
    }
   },
   {
@@ -13006,6 +14413,19 @@
      "DT"
     ],
     "distM": 192
+   },
+   "commute": {
+    "minutes": 37,
+    "best": "mrt",
+    "mrtMin": 37,
+    "walkMin": 178,
+    "walkUpperMin": 178,
+    "walkM": 14202,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 37,
+    "accessWalkM": 271,
+    "viaStation": "CC1/NE6/NS24"
    }
   },
   {
@@ -13106,6 +14526,19 @@
      "NS"
     ],
     "distM": 547
+   },
+   "commute": {
+    "minutes": 54,
+    "best": "mrt",
+    "mrtMin": 54,
+    "walkMin": 172,
+    "walkUpperMin": 172,
+    "walkM": 13780,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 54,
+    "accessWalkM": 547,
+    "viaStation": "NS11"
    }
   },
   {
@@ -13357,6 +14790,19 @@
      "NE"
     ],
     "distM": 658
+   },
+   "commute": {
+    "minutes": 22,
+    "best": "mrt",
+    "mrtMin": 22,
+    "walkMin": 33,
+    "walkUpperMin": 33,
+    "walkM": 2668,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 22,
+    "accessWalkM": 658,
+    "viaStation": "NE16"
    }
   },
   {
@@ -13589,6 +15035,19 @@
      "NE"
     ],
     "distM": 1991
+   },
+   "commute": {
+    "minutes": 44,
+    "best": "mrt",
+    "mrtMin": 44,
+    "walkMin": 75,
+    "walkUpperMin": 75,
+    "walkM": 6032,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 44,
+    "accessWalkM": 1991,
+    "viaStation": "NE13"
    }
   },
   {
@@ -13770,6 +15229,19 @@
      "NE"
     ],
     "distM": 1198
+   },
+   "commute": {
+    "minutes": 32,
+    "best": "mrt",
+    "mrtMin": 32,
+    "walkMin": 51,
+    "walkUpperMin": 51,
+    "walkM": 4069,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 32,
+    "accessWalkM": 1198,
+    "viaStation": "NE14"
    }
   },
   {
@@ -13898,6 +15370,19 @@
      "TE"
     ],
     "distM": 246
+   },
+   "commute": {
+    "minutes": 44,
+    "best": "mrt",
+    "mrtMin": 44,
+    "walkMin": 194,
+    "walkUpperMin": 194,
+    "walkM": 15515,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 44,
+    "accessWalkM": 246,
+    "viaStation": "DT10/TE11"
    }
   },
   {
@@ -13940,6 +15425,19 @@
      "TE"
     ],
     "distM": 438
+   },
+   "commute": {
+    "minutes": 57,
+    "best": "mrt",
+    "mrtMin": 57,
+    "walkMin": 219,
+    "walkUpperMin": 219,
+    "walkM": 17500,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 57,
+    "accessWalkM": 438,
+    "viaStation": "TE3"
    }
   },
   {
@@ -13992,6 +15490,19 @@
      "NS"
     ],
     "distM": 525
+   },
+   "commute": {
+    "minutes": 56,
+    "best": "mrt",
+    "mrtMin": 56,
+    "walkMin": 193,
+    "walkUpperMin": 193,
+    "walkM": 15476,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 56,
+    "accessWalkM": 525,
+    "viaStation": "NS10"
    }
   },
   {
@@ -14088,6 +15599,19 @@
      "DT"
     ],
     "distM": 1005
+   },
+   "commute": {
+    "minutes": 60,
+    "best": "mrt",
+    "mrtMin": 60,
+    "walkMin": 122,
+    "walkUpperMin": 122,
+    "walkM": 9743,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 60,
+    "accessWalkM": 1005,
+    "viaStation": "DT31"
    }
   },
   {
@@ -14222,6 +15746,19 @@
      "NE"
     ],
     "distM": 354
+   },
+   "commute": {
+    "minutes": 30,
+    "best": "mrt",
+    "mrtMin": 30,
+    "walkMin": 124,
+    "walkUpperMin": 124,
+    "walkM": 9956,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 30,
+    "accessWalkM": 354,
+    "viaStation": "NE10"
    }
   },
   {
@@ -14332,6 +15869,19 @@
      "EW"
     ],
     "distM": 963
+   },
+   "commute": {
+    "minutes": 59,
+    "best": "mrt",
+    "mrtMin": 59,
+    "walkMin": 158,
+    "walkUpperMin": 158,
+    "walkM": 12652,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 59,
+    "accessWalkM": 1104,
+    "viaStation": "DT30"
    }
   },
   {
@@ -14471,6 +16021,19 @@
      "NE"
     ],
     "distM": 591
+   },
+   "commute": {
+    "minutes": 29,
+    "best": "mrt",
+    "mrtMin": 29,
+    "walkMin": 101,
+    "walkUpperMin": 101,
+    "walkM": 8080,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 29,
+    "accessWalkM": 591,
+    "viaStation": "CC13/NE12"
    }
   },
   {
@@ -14596,6 +16159,19 @@
      "DT"
     ],
     "distM": 479
+   },
+   "commute": {
+    "minutes": 53,
+    "best": "mrt",
+    "mrtMin": 53,
+    "walkMin": 123,
+    "walkUpperMin": 123,
+    "walkM": 9851,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 53,
+    "accessWalkM": 479,
+    "viaStation": "DT31"
    }
   },
   {
@@ -14740,6 +16316,19 @@
      "TE"
     ],
     "distM": 485
+   },
+   "commute": {
+    "minutes": 46,
+    "best": "mrt",
+    "mrtMin": 46,
+    "walkMin": 188,
+    "walkUpperMin": 188,
+    "walkM": 15042,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 46,
+    "accessWalkM": 485,
+    "viaStation": "DT10/TE11"
    }
   },
   {
@@ -14865,6 +16454,19 @@
      "CC"
     ],
     "distM": 409
+   },
+   "commute": {
+    "minutes": 46,
+    "best": "mrt",
+    "mrtMin": 46,
+    "walkMin": 210,
+    "walkUpperMin": 210,
+    "walkM": 16797,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 46,
+    "accessWalkM": 409,
+    "viaStation": "CC20"
    }
   },
   {
@@ -15010,6 +16612,19 @@
      "TE"
     ],
     "distM": 312
+   },
+   "commute": {
+    "minutes": 63,
+    "best": "mrt",
+    "mrtMin": 63,
+    "walkMin": 169,
+    "walkUpperMin": 169,
+    "walkM": 13525,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 63,
+    "accessWalkM": 1553,
+    "viaStation": "EW6"
    }
   },
   {
@@ -15125,6 +16740,19 @@
      "NS"
     ],
     "distM": 696
+   },
+   "commute": {
+    "minutes": 70,
+    "best": "mrt",
+    "mrtMin": 70,
+    "walkMin": 328,
+    "walkUpperMin": 328,
+    "walkM": 26258,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 70,
+    "accessWalkM": 696,
+    "viaStation": "NS3"
    }
   },
   {
@@ -15239,6 +16867,19 @@
      "EW"
     ],
     "distM": 670
+   },
+   "commute": {
+    "minutes": 57,
+    "best": "mrt",
+    "mrtMin": 57,
+    "walkMin": 131,
+    "walkUpperMin": 131,
+    "walkM": 10507,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 57,
+    "accessWalkM": 770,
+    "viaStation": "DT31"
    }
   },
   {
@@ -15330,6 +16971,19 @@
      "CC"
     ],
     "distM": 766
+   },
+   "commute": {
+    "minutes": 46,
+    "best": "mrt",
+    "mrtMin": 46,
+    "walkMin": 157,
+    "walkUpperMin": 157,
+    "walkM": 12529,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 46,
+    "accessWalkM": 766,
+    "viaStation": "CC8"
    }
   },
   {
@@ -15425,6 +17079,19 @@
      "CC"
     ],
     "distM": 885
+   },
+   "commute": {
+    "minutes": 47,
+    "best": "mrt",
+    "mrtMin": 47,
+    "walkMin": 155,
+    "walkUpperMin": 155,
+    "walkM": 12393,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 47,
+    "accessWalkM": 885,
+    "viaStation": "CC8"
    }
   },
   {
@@ -15523,6 +17190,19 @@
      "DT"
     ],
     "distM": 211
+   },
+   "commute": {
+    "minutes": 54,
+    "best": "mrt",
+    "mrtMin": 54,
+    "walkMin": 128,
+    "walkUpperMin": 128,
+    "walkM": 10227,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 54,
+    "accessWalkM": 211,
+    "viaStation": "DT33"
    }
   },
   {
@@ -15622,6 +17302,19 @@
      "TE"
     ],
     "distM": 212
+   },
+   "commute": {
+    "minutes": 63,
+    "best": "mrt",
+    "mrtMin": 63,
+    "walkMin": 193,
+    "walkUpperMin": 193,
+    "walkM": 15419,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 63,
+    "accessWalkM": 1260,
+    "viaStation": "EW4"
    }
   },
   {
@@ -15730,6 +17423,19 @@
      "NS"
     ],
     "distM": 316
+   },
+   "commute": {
+    "minutes": 61,
+    "best": "mrt",
+    "mrtMin": 61,
+    "walkMin": 279,
+    "walkUpperMin": 279,
+    "walkM": 22355,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 61,
+    "accessWalkM": 316,
+    "viaStation": "NS5"
    }
   },
   {
@@ -15867,6 +17573,19 @@
      "TE"
     ],
     "distM": 269
+   },
+   "commute": {
+    "minutes": 67,
+    "best": "mrt",
+    "mrtMin": 67,
+    "walkMin": 179,
+    "walkUpperMin": 179,
+    "walkM": 14330,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 67,
+    "accessWalkM": 269,
+    "viaStation": "TE28"
    }
   },
   {
@@ -15980,6 +17699,19 @@
      "DT"
     ],
     "distM": 926
+   },
+   "commute": {
+    "minutes": 70,
+    "best": "mrt",
+    "mrtMin": 70,
+    "walkMin": 292,
+    "walkUpperMin": 292,
+    "walkM": 23346,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 70,
+    "accessWalkM": 926,
+    "viaStation": "DT1"
    }
   },
   {
@@ -16100,6 +17832,19 @@
      "EW"
     ],
     "distM": 1749
+   },
+   "commute": {
+    "minutes": 83,
+    "best": "mrt",
+    "mrtMin": 83,
+    "walkMin": 393,
+    "walkUpperMin": 393,
+    "walkM": 31445,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 83,
+    "accessWalkM": 1749,
+    "viaStation": "EW27"
    }
   },
   {
@@ -16198,6 +17943,19 @@
      "CC"
     ],
     "distM": 787
+   },
+   "commute": {
+    "minutes": 42,
+    "best": "mrt",
+    "mrtMin": 42,
+    "walkMin": 128,
+    "walkUpperMin": 128,
+    "walkM": 10219,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 42,
+    "accessWalkM": 787,
+    "viaStation": "CC16"
    }
   },
   {
@@ -16308,6 +18066,19 @@
      "TE"
     ],
     "distM": 326
+   },
+   "commute": {
+    "minutes": 55,
+    "best": "mrt",
+    "mrtMin": 55,
+    "walkMin": 209,
+    "walkUpperMin": 209,
+    "walkM": 16730,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 55,
+    "accessWalkM": 326,
+    "viaStation": "TE3"
    }
   },
   {
@@ -16424,6 +18195,19 @@
      "NS"
     ],
     "distM": 443
+   },
+   "commute": {
+    "minutes": 59,
+    "best": "mrt",
+    "mrtMin": 59,
+    "walkMin": 229,
+    "walkUpperMin": 229,
+    "walkM": 18323,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 59,
+    "accessWalkM": 443,
+    "viaStation": "NS8"
    }
   },
   {
@@ -16537,6 +18321,19 @@
      "NS"
     ],
     "distM": 736
+   },
+   "commute": {
+    "minutes": 63,
+    "best": "mrt",
+    "mrtMin": 63,
+    "walkMin": 234,
+    "walkUpperMin": 234,
+    "walkM": 18706,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 63,
+    "accessWalkM": 736,
+    "viaStation": "NS8"
    }
   },
   {
@@ -16639,6 +18436,19 @@
      "NE"
     ],
     "distM": 1053
+   },
+   "commute": {
+    "minutes": 31,
+    "best": "mrt",
+    "mrtMin": 31,
+    "walkMin": 56,
+    "walkUpperMin": 56,
+    "walkM": 4459,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 31,
+    "accessWalkM": 1053,
+    "viaStation": "NE14"
    }
   },
   {
@@ -16748,6 +18558,19 @@
      "NS"
     ],
     "distM": 524
+   },
+   "commute": {
+    "minutes": 46,
+    "best": "mrt",
+    "mrtMin": 46,
+    "walkMin": 106,
+    "walkUpperMin": 106,
+    "walkM": 8502,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 46,
+    "accessWalkM": 524,
+    "viaStation": "NS15"
    }
   },
   {
@@ -16869,6 +18692,19 @@
      "NS"
     ],
     "distM": 709
+   },
+   "commute": {
+    "minutes": 52,
+    "best": "mrt",
+    "mrtMin": 52,
+    "walkMin": 146,
+    "walkUpperMin": 146,
+    "walkM": 11660,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 52,
+    "accessWalkM": 709,
+    "viaStation": "NS13"
    }
   },
   {
@@ -16975,6 +18811,19 @@
      "NS"
     ],
     "distM": 469
+   },
+   "commute": {
+    "minutes": 49,
+    "best": "mrt",
+    "mrtMin": 49,
+    "walkMin": 128,
+    "walkUpperMin": 128,
+    "walkM": 10257,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 49,
+    "accessWalkM": 469,
+    "viaStation": "NS13"
    }
   },
   {
@@ -17083,6 +18932,19 @@
      "EW"
     ],
     "distM": 251
+   },
+   "commute": {
+    "minutes": 63,
+    "best": "mrt",
+    "mrtMin": 63,
+    "walkMin": 358,
+    "walkUpperMin": 358,
+    "walkM": 28624,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 63,
+    "accessWalkM": 251,
+    "viaStation": "EW26"
    }
   },
   {
@@ -17198,6 +19060,19 @@
      "EW"
     ],
     "distM": 379
+   },
+   "commute": {
+    "minutes": 64,
+    "best": "mrt",
+    "mrtMin": 64,
+    "walkMin": 353,
+    "walkUpperMin": 353,
+    "walkM": 28272,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 64,
+    "accessWalkM": 379,
+    "viaStation": "EW26"
    }
   },
   {
@@ -17445,6 +19320,22 @@
      "NE"
     ],
     "distM": 697
+   },
+   "commute": {
+    "minutes": 8,
+    "best": "walk",
+    "mrtMin": 20,
+    "walkMin": 8,
+    "walkUpperMin": 21,
+    "walkM": 667,
+    "walkDisputed": true,
+    "walkRange": [
+     8,
+     21
+    ],
+    "worstMinutes": 20,
+    "accessWalkM": 697,
+    "viaStation": "NE17"
    }
   },
   {
@@ -17557,6 +19448,19 @@
      "NE"
     ],
     "distM": 704
+   },
+   "commute": {
+    "minutes": 28,
+    "best": "mrt",
+    "mrtMin": 28,
+    "walkMin": 79,
+    "walkUpperMin": 79,
+    "walkM": 6312,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 28,
+    "accessWalkM": 704,
+    "viaStation": "NE13"
    }
   },
   {
@@ -17669,6 +19573,19 @@
      "DT"
     ],
     "distM": 1091
+   },
+   "commute": {
+    "minutes": 72,
+    "best": "mrt",
+    "mrtMin": 72,
+    "walkMin": 266,
+    "walkUpperMin": 266,
+    "walkM": 21317,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 72,
+    "accessWalkM": 1091,
+    "viaStation": "DT1"
    }
   },
   {
@@ -17780,6 +19697,19 @@
      "NE"
     ],
     "distM": 446
+   },
+   "commute": {
+    "minutes": 27,
+    "best": "mrt",
+    "mrtMin": 27,
+    "walkMin": 99,
+    "walkUpperMin": 99,
+    "walkM": 7927,
+    "walkDisputed": false,
+    "walkRange": null,
+    "worstMinutes": 27,
+    "accessWalkM": 446,
+    "viaStation": "CC13/NE12"
    }
   }
  ]

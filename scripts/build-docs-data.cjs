@@ -19,6 +19,22 @@ const schools = JSON.parse(fs.readFileSync(path.join(BASE, 'data/schools.json'),
 const net = JSON.parse(fs.readFileSync(path.join(BASE, 'data/network.json'), 'utf8'));
 const ccaCat = JSON.parse(fs.readFileSync(path.join(BASE, 'data/cca-catalog.json'), 'utf8'));
 
+/* ── 通勤：地铁模型 + 真实步行路网，取最快 ────────────────────────
+   看板是单一学生的个人工具，起点就是 data/students/<id>.json 的家。
+   没有坐标或缺步行数据时逐级降级，不让整条构建链挂掉。 */
+const STU = require('../lib/student.cjs').load();
+const Walk = require('../lib/walk.cjs');
+const WALK = Walk.load(STU.id);
+let COMMUTE = new Map();
+if (STU.home.coords) {
+  const graph = Iso.buildGraph(net);
+  const stationMin = Iso.solveFrom(graph, STU.home.coords).stationMin;
+  for (const t of Iso.timeToSchools(graph, stationMin, schools.filter(s => s.lat && s.lon))) {
+    const c = Walk.merge(WALK ? WALK.bySlug.get(t.school.slug) : null, t.minutes);
+    COMMUTE.set(t.school.slug, { ...c, accessWalkM: t.accessWalkM, viaStation: t.viaStation, viaStationName: t.viaStationName });
+  }
+}
+
 /**
  * 组装某校的完整 CCA 信息（前端直接可渲染）。
  * 数据源是 data/cca-catalog.json —— 官网逐页核实过的清单，MOE 登记只是其中一部分。
@@ -124,6 +140,24 @@ for (const s of schools) {
     affiliations: s.affiliations || null,
     contact: s.contact || null,
     nearStation: nearestStation(s),
+    // 通勤（自该学生家出发）：步行与地铁两路，minutes = 参与比较的最快值
+    commute: (() => {
+      const c = COMMUTE.get(s.slug);
+      if (!c) return null;
+      return {
+        minutes: c.minutes ? Math.round(c.minutes) : null,
+        best: c.best,
+        mrtMin: c.mrtMin,
+        walkMin: c.walkMin,
+        walkUpperMin: c.walkUpperMin,
+        walkM: c.walkM,
+        walkDisputed: !!c.walkDisputed,
+        walkRange: c.walkRange,
+        worstMinutes: c.worstMinutes,
+        accessWalkM: c.accessWalkM ?? null,
+        viaStation: c.viaStation ?? null,
+      };
+    })(),
   });
 }
 
@@ -148,7 +182,17 @@ const payload = {
       mrt: 'OneMap elastic/search + 官方线路代号',
     },
     params: net.params,
-    disclaimer: 'COP 为上一年度实际录取区间，仅供参考，非本年度录取门槛。等时圈仅计 MRT，不含巴士。',
+    commute: {
+      originPostal: STU.home.postal,
+      originLabel: STU.home.address || STU.home.postal,
+      walkDataUsed: !!WALK,
+      walkVerifiedSchools: WALK ? WALK.bySlug.size : 0,
+      walkMetersPerMin: WALK ? WALK.walkMetersPerMin : null,
+      rule: '步行 / 地铁取最快者；两家引擎分歧 >1.4× 的标为争议项，显示区间（按最快值呈现，脚注给保守值）',
+      walkSource: WALK ? WALK.source.primary : null,
+      walkCheck: WALK ? WALK.source.crossCheck : null,
+    },
+    disclaimer: 'COP 为上一年度实际录取区间，仅供参考，非本年度录取门槛。等时圈仅计 MRT，不含巴士；步行时间为 OSM 步行路网实测最短路径。',
   },
   schools: out.sort((a, b) => a.name.localeCompare(b.name)),
 };

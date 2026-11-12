@@ -93,6 +93,29 @@ if (!s && slug && arr.some(x => x.slug === slug + '-school')) {
 t('结构化数据中找到该校', !!s, slug || '(未指定 slug)');
 
 if (s) {
+  /* 通勤两列（2026-11-12 起）：步行来自 OSM 步行路网，地铁来自 MRT 模型，
+     计分取最快。这里从 schools.json 的 commute 字段反查报告里的三个格子，
+     防止生成器换了数据源但报告还印着旧值。 */
+  /* 仅在现行模板产物上校验：靠生成器标记判断。
+     v1 手写报告（如 Compassvale）结构完全不同，套新断言必然是假阳性。 */
+  const isV2Template = /name="generator" content="psle-school-report\//.test(html);
+  if (s.commute && isV2Template) {
+    const c = s.commute;
+    const walkCell = (html.match(/步行（自 \d{6}）<\/div><div class="v">([^<]*)/) || [])[1] || '';
+    const mrtCell = (html.match(/<div class="k">地铁<\/div><div class="v">([^<]*)/) || [])[1] || '';
+    const scoreCell = (html.match(/<div class="k">通勤计分<\/div><div class="v">([^<]*)/) || [])[1] || '';
+    const wantWalk = c.walkRange ? `${c.walkRange[0]}–${c.walkRange[1]} 分钟（争议）`
+      : (c.walkMin != null ? `${c.walkMin} 分钟` : '—');
+    t('步行列与数据源一致', walkCell.trim() === wantWalk, `${walkCell.trim()} / 期望 ${wantWalk}`);
+    t('地铁列与数据源一致', mrtCell.trim() === (c.mrtMin != null ? `${c.mrtMin} 分钟` : '—'), mrtCell.trim());
+    t('通勤计分格标明采用哪一档',
+      scoreCell.includes('步行') || scoreCell.includes('地铁'), scoreCell.trim());
+    t('计分分钟数等于两路最快值',
+      scoreCell.trim().startsWith(String(c.minutes)), `${scoreCell.trim()} / min=${c.minutes}`);
+    // 争议项必须显式标注，不能只给一个数字让读者以为精确
+    t('争议项显式标注「争议」', c.walkDisputed ? walkCell.includes('争议') : !walkCell.includes('争议'), walkCell.trim());
+  }
+
   // PG3 区间与余量
   const pg3 = (s.cop.rows || []).find(r => /Posting Group 3/.test(r.label))?.nonAff;
   if (pg3) {
@@ -201,8 +224,9 @@ if (s) {
     t(`${isAlp ? 'ALP' : 'LLP'} 内容与数据源对应（${anchor || items[0].slice(0, 20)}）`, !!ok);
   }
 
-  // 通勤时间（由 build 脚本从 network.json 计算，允许 ±2 分钟）
-  const cm = (html.match(/约\s*(\d+)\s*分钟/) || [])[1];
+  /* 通勤时间（由 build 脚本计算，允许 ±2 分钟）
+     现行模板给的是「通勤计分 N 分钟」；v1 老报告写「约 N 分钟」，两种都认。 */
+  const cm = (html.match(/约\s*(\d+)\s*分钟/) || html.match(/通勤计分<\/div><div class="v">(\d+)\s*分钟/) || [])[1];
   if (cm) t('通勤时间为数字且合理（≤60 分钟）', +cm <= 60, cm + ' 分钟');
   else t('通勤时间已填', false);
 }

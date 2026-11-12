@@ -355,7 +355,12 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
       head: head ? head.textContent.trim() : '',
       hasRobot: /Robotics/.test(d.textContent),
       hasDrama: /Theatricks/.test(d.textContent),
-      moeCountRow: (card.querySelector('.rows .val') || {}).textContent || ''
+      // ⚠️ 按 label 取 CCA 行，不能按下标：通勤两列（步行/地铁）插在 CCA 之前，
+      //    按下标取会拿到「27 分钟最快」这种通勤文本。
+      moeCountRow: ((() => {
+        const r = [...card.querySelectorAll('.rows .r')].find(x => (x.querySelector('.k') || {}).textContent === 'CCA');
+        return r ? (r.querySelector('.val') || {}).textContent || '' : '';
+      })())
     };
   })())`));
   t('Greendale 卡片存在', ccaUI.found);
@@ -373,13 +378,44 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
     if (!card) return { found: false };
     card.querySelector('[data-act="toggle"]').click();
     const d = card.querySelector('.detail');
-    const row = card.querySelector('.rows .val');
+    const ccaRow = [...card.querySelectorAll('.rows .r')].find(x => (x.querySelector('.k') || {}).textContent === 'CCA');
+    const row = ccaRow ? ccaRow.querySelector('.val') : null;
     return { found: true, groups: d.querySelectorAll('.cca-group').length, row: row ? row.textContent.trim() : '' };
   })())`));
   t('无 ccaFull 的学校回退为单一列表', fallback.found && fallback.groups === 0);
   t('回退时仍显示 MOE 项数', /22 项/.test(fallback.row), fallback.row);
 
-  console.log('\n【七之六】志愿方案入口跟随学生索引');
+  console.log('\n【七之六】通勤两列（步行 / 地铁）');
+  const cmUI = JSON.parse(await ev(`JSON.stringify((() => {
+    const all = [...document.querySelectorAll('.card')];
+    const rowsOf = c => [...c.querySelectorAll('.rows .r')].map(r => ({
+      k: (r.querySelector('.k') || {}).textContent.trim(),
+      v: ((r.querySelector('.val') || {}).textContent || '').replace(/\\s+/g, ' ').trim(),
+      fast: !!((r.querySelector('.val') || {}).classList || {}).contains && r.querySelector('.val').classList.contains('fast'),
+      flag: !!r.querySelector('.flag'),
+    }));
+    const withTwo = all.filter(c => {
+      const ks = rowsOf(c).map(r => r.k);
+      return ks.includes('步行') && ks.includes('地铁');
+    }).length;
+    const cs = all.find(c => c.dataset.slug === 'compassvale-secondary-school');
+    const yi = all.find(c => c.dataset.slug === 'yusof-ishak-secondary-school');
+    return { total: all.length, withTwo, cs: cs ? rowsOf(cs) : [], yi: yi ? rowsOf(yi) : [] };
+  })())`));
+  t('每张卡都有步行 / 地铁两列', cmUI.withTwo === cmUI.total, `${cmUI.withTwo}/${cmUI.total}`);
+  const csWalk = cmUI.cs.find(r => r.k === '步行') || {};
+  const csMrt = cmUI.cs.find(r => r.k === '地铁') || {};
+  t('Compassvale 步行列为区间（争议项不用单值）', /^\d+–\d+ 分钟/.test(csWalk.v), csWalk.v);
+  t('Compassvale 争议项挂「争议」小标', csWalk.flag === true);
+  t('Compassvale 地铁列为单值', /^\d+ 分钟/.test(csMrt.v), csMrt.v);
+  // 最快的那一档必须正好一个高亮：14 分钟步行 vs 22 分钟地铁 → 步行
+  const fastRows = cmUI.cs.filter(r => r.fast).map(r => r.k);
+  t('最快通勤那列唯一且为步行', fastRows.length === 1 && fastRows[0] === '步行', fastRows.join(','));
+  const yiWalk = cmUI.yi.find(r => r.k === '步行') || {};
+  t('Yusof Ishak 步行 8–21 分钟（两家引擎分歧）', /^8–21 分钟/.test(yiWalk.v), yiWalk.v);
+  t('通勤口径说明写在页面顶部', (await ev(`(document.getElementById('commuteNote')||{}).textContent||''`)).includes('取最快'));
+
+  console.log('\n【七之七】志愿方案入口跟随学生索引');
   const navInfo = JSON.parse(await ev(`JSON.stringify((() => {
     const a = document.getElementById('planNav');
     if (!a) return { found: false };
