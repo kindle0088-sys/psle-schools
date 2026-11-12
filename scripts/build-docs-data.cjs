@@ -116,7 +116,10 @@ for (const s of schools) {
     ccaFull: buildCcaFull(s.slug, s.cca || []),
     dsaYear: s.dsa?.year || null,
     dsaAreas: s.dsa?.areas || [],
-    subjects: s.subjects || [],
+    // subjects 刻意不输出：前端 0 处使用，却占 95KB（整份 JSON 的 26%）。
+    // 源数据仍在 data/schools.json 里，需要时再取。
+    // ⚠️ electives 必须保留 —— 它前端也不用，但 score-candidates 靠它算 ALP/LLP 匹配
+    //    （这是技术债：脚本不应依赖前端产物，两套 schema 合并后再解）
     electives: s.electives || [],
     affiliations: s.affiliations || null,
     contact: s.contact || null,

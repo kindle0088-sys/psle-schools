@@ -35,6 +35,34 @@ const PG = STU.postingGroupLabel;      // 'Posting Group 3'，用于匹配 rows.
 // 通勤评分满分线 —— 与学生分数无关，过去写成 17 只是巧合
 const FULL_MARK = STU.commuteFullMarkMin;
 
+/* 评分权重：学生可覆盖，默认值保持不变。
+   之前 30/25/15/15/15 硬编码在算式里，配置里写什么都不影响 —— 
+   而 _recommend.json 还输出了一份 weights，看起来像是可配的。 */
+const DEFAULT_WEIGHTS = { safety: .30, commute: .25, academic: .15, cca: .15, feature: .15 };
+const W = (() => {
+  const raw = STU.weights || {};
+  const out = { ...DEFAULT_WEIGHTS };
+  let sum = 0;
+  for (const k of Object.keys(DEFAULT_WEIGHTS)) {
+    if (typeof raw[k] === 'number' && raw[k] >= 0) out[k] = raw[k];
+    sum += out[k];
+  }
+  // 权重必须能归一；否则按比例缩放，避免总分溢出 100
+  if (Math.abs(sum - 1) > 1e-6) {
+    if (sum <= 0) return { ...DEFAULT_WEIGHTS };
+    for (const k of Object.keys(out)) out[k] = out[k] / sum;
+  }
+  return out;
+})();
+
+/** 取某校的完整 CCA 名称集合（优先 ccaFull，回退 MOE 登记） */
+function ccaNamesOf(sc) {
+  if (sc.ccaFull && sc.ccaFull.categories) {
+    return Object.values(sc.ccaFull.categories).flat().map(i => i.name);
+  }
+  return sc.cca || [];
+}
+
 /* ── 五维评分 ───────────────────────────────────────────── */
 
 /** 录取安全性：margin = COP(非附属最宽松档) max − 学生分数 */
@@ -96,7 +124,29 @@ function scoreAcademic(alpCats, alpItems) {
 }
 
 /** CCA 匹配 */
-function scoreCca(ccaList) {
+/**
+ * 兴趣 → CCA 匹配规则。
+ *
+ * ⚠️ 这里的 score 是「命中**这个学生**的兴趣」时的分值，不是通用好坏。
+ *    改造前所有分值都是硬编码的通用偏好（合唱 58、戏剧 78），
+ *    学生配置里的 interests 字段写了却完全不参与计算——典型的「看着能用」。
+ *
+ * keys 用中文和英文都认，配置里写 "Robotics" 或 "机器人" 都能命中。
+ */
+const CCA_INTEREST_RULES = [
+  { keys: ['robotics', '机器人'],           re: /robot|mechatron/i, score: 95 },
+  { keys: ['ai', 'artificial intelligence'], re: /infocomm|comput|program|maker|electronic|coding/i, score: 94 },
+  { keys: ['computing', 'computing', 'programming', '编程'], re: /infocomm|comput|program|maker|electronic|coding/i, score: 92 },
+  { keys: ['drama', '戏剧'],                re: /drama|theatr|eldds/i, score: 90 },
+  { keys: ['swimming', '游泳'],             re: /swim|water polo|lifesaving/i, score: 88 },
+  { keys: ['cooking', '烹饪'],              re: /cook|culinary|food|nutrition/i, score: 88 },
+  { keys: ['music', '音乐'],                re: /choir|chorale|band|orchestra|ensemble|guzheng|angklung|harmonica|drum/i, score: 80 },
+  { keys: ['sports', '体育'],               re: /basketball|football|netball|volleyball|badminton|table tennis|track|wushu|sailing|canoe|floorball|hockey|softball|fencing|shooting/i, score: 70 },
+  { keys: ['uniformed', '制服团体'],         re: /ncc|npcc|ncdcc|scout|guide|brigade|red cross|st john/i, score: 60 },
+];
+
+/** 没有配置兴趣时的通用评分（与改造前完全一致，保证向后兼容） */
+function scoreCcaGeneric(ccaList) {
   const has = re => ccaList.some(c => re.test(c));
   let s = 45;
   if (has(/infocomm|comput|program|robotic|maker|science/i)) s = Math.max(s, 85);
@@ -105,8 +155,30 @@ function scoreCca(ccaList) {
   if (has(/basketball|football|netball|volleyball|badminton|table tennis|track|wushu|sailing|canoe/i)) s = Math.max(s, 62);
   if (has(/dance|choir|band|orchestra/i)) s = Math.max(s, 58);
   if (has(/ncc|npcc|scouts|guides|red cross/i)) s = Math.max(s, 52);
-  // 项目丰富度微调
   if (ccaList.length >= 14) s = Math.min(100, s + 4);
+  return s;
+}
+
+/**
+ * 按学生兴趣给 CCA 打分。
+ * 命中的兴趣项取最高分；一个都不命中时给 45（不能因为「有 30 个社团」就当成匹配）。
+ */
+function scoreCca(ccaList, interests) {
+  const wanted = (interests || []).map(x => String(x).toLowerCase().trim()).filter(Boolean);
+  if (!wanted.length) return scoreCcaGeneric(ccaList);
+
+  const has = re => ccaList.some(c => re.test(c));
+  const matched = [];
+  let best = 0;
+  for (const rule of CCA_INTEREST_RULES) {
+    const isWanted = rule.keys.some(k => wanted.some(w => w.includes(k) || k.includes(w)));
+    if (!isWanted) continue;
+    if (has(rule.re)) { best = Math.max(best, rule.score); matched.push(rule.keys[0]); }
+  }
+  let s = best || 45;
+  // 命中越多，说明学校在这个学生关心的方向上越全面
+  if (matched.length >= 2) s = Math.min(100, s + 3);
+  if (ccaList.length >= 14) s = Math.min(100, s + 2);
   return s;
 }
 
@@ -174,10 +246,14 @@ function gate(sc) {
       safety: scoreSafety(margin),
       commute: scoreCommute(t ? t.minutes : null),
       academic: scoreAcademic(alpCats, alpItems),
-      cca: scoreCca(sc.cca || []),
+      // ⚠️ 用 ccaFull（官网核实过的完整清单），不是 sc.cca（MOE 登记，常年漏登）。
+      //    否则 Greendale 这种「MOE 只登记 7 项、实际 19 项」的学校会被系统性低估。
+      cca: scoreCca(ccaNamesOf(sc), STU.interests.cca),
       feature: scoreFeature(sc, alpCats, llpCats),
     };
-    const total = Math.round(s.safety * .30 + s.commute * .25 + s.academic * .15 + s.cca * .15 + s.feature * .15);
+    const total = Math.round(
+      s.safety * W.safety + s.commute * W.commute + s.academic * W.academic +
+      s.cca * W.cca + s.feature * W.feature);
     return {
       slug: sc.slug, name: sc.name, area: sc.area, address: sc.address, postal: sc.postal,
       nature: sc.nature, type: sc.type, ip: sc.ip, sap: sc.sap,
@@ -214,6 +290,8 @@ function gate(sc) {
     .filter(x => x.cop && x.margin >= 0)
     .filter(x => sexOk(x))
     .sort((a, b) => b.total - a.total);
+  // 落盘具体名次，报告里直接显示，读者不必自己数
+  pool.forEach((x, i) => { x.rank = i + 1; });
 
   // 因性别被「排除」的单性别学校 —— 必须是 !sexOk，否则会与主池重叠重复计数
   // （gender=boys 时男校已进主池，这里只应剩女校）
@@ -298,11 +376,11 @@ function gate(sc) {
       id: STU.id, label: STU.label, score: SCORE, pg: PG,
       postal: POSTAL, maxCommute: MAX_MIN, commuteFullMarkMin: FULL_MARK,
       pgShort: STU.postingGroup, pgLabel: PG,
-      gender: STU.gender, hasAffiliation: STU.hasAffiliation, dsaApplicant: STU.dsaApplicant,
+      gender: STU.gender, hasAffiliation: STU.hasAffiliation,
       moeNearbyUsed: MOE_NEARBY.size > 0,
     },
     origin, pool, singleSex, outOfReach, stats,
-    weights: { safety: .30, commute: .25, academic: .15, cca: .15, feature: .15 },
+    weights: W,
   }, null, 1);
   // 按学生分文件，多学生共存互不覆盖；同时写一份 _recommend.json 指向当前学生
   fs.writeFileSync(path.join(BASE, `data/_recommend-${STU.id}.json`), payload);

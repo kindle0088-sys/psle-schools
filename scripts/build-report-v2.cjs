@@ -149,6 +149,8 @@ function card(x, opts = {}) {
         ${opts.tier ? `<span class="tier t-${opts.tier === '冲刺' ? 'reach' : opts.tier === '匹配' ? 'match' : 'safe'}">${opts.tier}</span>` : ''}
         ${x.moeNearby ? '<span class="badge badge-moe">MOE 附近</span>' : '<span class="badge">扩展范围</span>'}
         <span class="badge">${esc(x.area || '')}</span>
+        ${x.rank ? `<span class="badge" title="五维加权总分排名（含 CCA ${x.scores.cca} 分）">综合第 ${x.rank}</span>` : ''}
+        <span class="badge" title="按学生的 CCA 兴趣加权；用官网核实的完整清单，不是 MOE 登记">CCA ${x.scores.cca} 分</span>
       </div>
     </header>
 
@@ -445,6 +447,13 @@ ${R.pool.map(x => {
 <section>
 <h2><span class="n">STEP 4</span>逐校分析：6 个主选</h2>
 <p class="lead">顺序即推荐志愿顺序。</p>
+<div class="note">
+<b>先说清一件事</b>　下面每张卡都标了「综合第 N」和「CCA N 分」。这两个数字来自五维加权总分，
+CCA 那一维是按<b>你的兴趣</b>加权的——它衡量的是「这所学校的社团对不对你的胃口」，<b>不是学校好坏</b>。
+所以 Compassvale 综合第 14、CCA 45 分，不代表它差：它官网的 CCA 页面是空的（抓过完整 HTML 确认），
+我们无法核实它到底有哪些社团，只能按「未确认」给基准分。它排在第 1 志愿的理由是 ALP 与 Coding 最对口、通勤 22 分钟，
+跟 CCA 无关。<b>当排名与推荐顺序不一致时，以每张卡的「为什么考虑它」为准。</b>
+</div>
 ${PICK.map(p => {
   const x = byName.get(p.name);
   return x ? card(x, p) : `<p class="soft">（${esc(p.name)} 数据缺失）</p>`;

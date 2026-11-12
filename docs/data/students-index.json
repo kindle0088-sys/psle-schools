@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-12T13:25:41.839Z",
+ "generatedAt": "2026-11-12T13:42:15.599Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -11,7 +11,7 @@
    "postal": "828765",
    "maxCommuteMin": 45,
    "planSlug": "abc1-s1-choice-2026-v2",
-   "updatedAt": "2026-11-12T13:25:41.838Z"
+   "updatedAt": "2026-11-12T13:42:15.598Z"
   }
  ]
 }

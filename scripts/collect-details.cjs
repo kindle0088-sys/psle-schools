@@ -246,7 +246,7 @@ async function fetchOne(slug) {
 
   // 全量模式才覆盖；测试/限量模式写单独文件避免污染
   const full = !arg('test') && !arg('limit');
-  const outFile = full ? OUT : path.join(ROOT, 'data/_sample.json');
+  const outFile = full ? OUT : path.join(ROOT, '.tmp/sample-details.json');
   fs.writeFileSync(outFile, JSON.stringify(results, null, 1), 'utf8');
 
   console.log('\n=== 汇总 ===');

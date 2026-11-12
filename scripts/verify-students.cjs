@@ -81,6 +81,34 @@ for (const s of loaded) {
   }
 }
 
+console.log('\n【三之二】配置字段都有明确归属');
+// 每个字段要么参与计算，要么明确标为「只供人读」。不允许存在第三种：
+// 写了但谁都不看 —— 那才是最坑人的「看着能用」。
+const ACTIVE = new Set([
+  'psle.al',
+  'home.postal', 'home.lat', 'home.lon',
+  'constraints.maxCommuteMin', 'constraints.commuteFullMarkMin',
+  'constraints.gender', 'constraints.hasAffiliation', 'constraints.weights',
+  'interests.cca',
+  'outputs.planSlug',
+]);
+const READONLY = new Set([
+  'id', 'label', 'createdAt', 'notes', 'home.address',
+  'interests.academic', '_note', '_生效说明',
+]);
+const leafPaths = (o, pre = '') => Object.entries(o).flatMap(([k, v]) => {
+  if (k.startsWith('_')) return [];
+  const path = pre ? pre + '.' + k : k;
+  if (v && typeof v === 'object' && !Array.isArray(v)) return leafPaths(v, path);
+  return [path];
+});
+for (const id of ids) {
+  const raw = JSON.parse(fs.readFileSync(path.join(BASE, 'data/students', id + '.json'), 'utf8'));
+  const unknown = leafPaths(raw).filter(k => !ACTIVE.has(k) && !READONLY.has(k));
+  t(`${id} 配置字段都有归属`, unknown.length === 0,
+    unknown.length ? '未归类: ' + unknown.join(', ') : `${leafPaths(raw).length} 个字段`);
+}
+
 console.log('\n【四】代码里没有残留硬编码');
 const scripts = fs.readdirSync(path.join(BASE, 'scripts'))
   .filter(f => f.endsWith('.cjs'))

@@ -118,5 +118,6 @@ over800.slice(0, 6).forEach(r => console.log('     %s  %dm  (%s)', r.name.padEnd
 console.log('   最近的 5 所（步行 400m 内）:');
 reach.slice(-5).reverse().forEach(r => console.log('     %s  %dm  (%s)', r.name.padEnd(40).slice(0, 40), r.distM, r.station));
 
-fs.writeFileSync(path.join(BASE, 'data/_reach-audit.json'), JSON.stringify(reach, null, 1));
-console.log('\n   明细已存 data/_reach-audit.json');
+fs.mkdirSync(path.join(BASE, '.tmp'), { recursive: true });
+fs.writeFileSync(path.join(BASE, '.tmp/reach-audit.json'), JSON.stringify(reach, null, 1));
+console.log('\n   明细已存 .tmp/reach-audit.json');

@@ -4,7 +4,6 @@
   "createdAt": "2026-11-08",
   "psle": {
     "al": 17,
-    "year": 2026,
     "_note": "AL 4–30，越小越好。PG3 = 4–20。"
   },
   "home": {
@@ -19,8 +18,7 @@
     "commuteFullMarkMin": 17,
     "gender": "any",
     "hasAffiliation": false,
-    "dsaApplicant": false,
-    "_note": "commuteFullMarkMin 是「通勤评分满分线」，与 PSLE 分数无关——两者曾同为 17 纯属巧合。gender: any | boys | girls。hasAffiliation=false 表示按非附属生口径看录取区间。"
+    "_note": "maxCommuteMin = 通勤上限；commuteFullMarkMin = 通勤评分满分线（与 PSLE 分数无关）；gender: any|boys|girls；hasAffiliation = 有无兄姐/父母在读（决定看 COP 哪一列）；weights 可选，覆盖默认的 safety/commute/academic/cca/feature = 30/25/15/15/15，会自动归一"
   },
   "interests": {
     "academic": [
@@ -43,5 +41,6 @@
     "planSlug": "abc1-s1-choice-2026-v2",
     "_note": "报告落地为 docs/reports/<planSlug>.html。多学生共存时各自用不同 slug。"
   },
-  "notes": "性别保密，分析时按「混校为主、单性别校另列」处理。"
+  "notes": "性别保密，分析时按「混校为主、单性别校另列」处理。",
+  "_生效说明": "以下字段参与计算：psle.al、home.postal、home.lat/lon、constraints.maxCommuteMin / commuteFullMarkMin / gender / hasAffiliation / weights、interests.cca、outputs.planSlug。label / notes / createdAt 只供人读，不影响任何结果。"
 }
