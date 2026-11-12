@@ -219,9 +219,11 @@ function cardHtml(sc) {
   if (sc.independent) tags.push('<span class="tag tag-indep">独立</span>');
   else if (sc.autonomous) tags.push('<span class="tag tag-auto">自主</span>');
   if (sc.specialised) tags.push('<span class="tag tag-spec">专科</span>');
+  // ⚠️ 「政府」兜底必须在「深度报告」之前判：否则普通政府学校一旦有报告，
+  //    tags 已非空，「政府」就不会被补上，看起来像被「深度报告」顶掉了。
+  if (!tags.length) tags.push('<span class="tag tag-none">政府</span>');
   const rep = REPORTS[sc.slug];
   if (rep) tags.push('<span class="tag tag-deep">深度报告</span>');
-  if (!tags.length) tags.push('<span class="tag tag-none">政府</span>');
 
   // COP 分档
   let copBlock = '';

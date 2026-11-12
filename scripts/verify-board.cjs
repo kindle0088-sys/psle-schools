@@ -225,6 +225,17 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
   t('入口指向存在的文件', Object.values(REPORT_IDX).every(r => fs.existsSync(path.join(BASE, 'docs', r.file))),
     Object.values(REPORT_IDX).filter(r => !fs.existsSync(path.join(BASE, 'docs', r.file))).map(r => r.file).join(',') || '全部有效');
 
+  // 标签必须并排，不能「深度报告」把学校属性标签（政府 / IP / SAP …）顶掉
+  const tagRaw = await ev(`JSON.stringify([...document.querySelectorAll('.card')]
+    .filter(c => c.querySelector('.tag-deep'))
+    .map(c => ({ slug: c.dataset.slug,
+                 tags: [...c.querySelectorAll('.tags .tag')].map(t => t.textContent.trim()) })))`);
+  const TAG = JSON.parse(tagRaw);
+  t('「深度报告」未顶掉学校属性标签', TAG.every(x => x.tags.length >= 2),
+    TAG.filter(x => x.tags.length < 2).map(x => `${x.slug}:${x.tags.join('/')}`).join(', ') || `${TAG.length} 张卡均有 2+ 标签`);
+  t('「深度报告」排在属性标签之后', TAG.every(x => x.tags[x.tags.length - 1] === '深度报告'),
+    TAG.filter(x => x.tags[x.tags.length - 1] !== '深度报告').map(x => x.slug).join(', ') || '顺序正确');
+
   console.log('\n【七之三】深度报告筛选');
   await ev(`document.getElementById('reset').click()`);
   await sleep(400);
