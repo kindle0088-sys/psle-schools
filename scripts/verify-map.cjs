@@ -185,6 +185,43 @@ let nodeTop = [], nodeCounts = {};
   const ES = JSON.parse(errShown);
   t('无效地址显示提示', ES.shown === true, ES.msg);
 
+  console.log('\n【七之二】起点与学校的视觉区分');
+  /* 用户反馈过：起点和「≤30 分钟」的学校都是 #38bdf8，地图上分不出哪个是家。
+     这里锁死「起点颜色不出现在任何学校色阶里」，并且起点必须压在图层最上。 */
+  const vis = JSON.parse(await ev(`JSON.stringify((() => {
+    const o = { bands: [], here: null, hereType: null, legend: [], schoolColors: [] };
+    [20, 40, 55, 90].forEach(m => o.bands.push(band(m).color));
+    if (hereMarker) {
+      // Leaflet 压缩后 constructor.name 不可靠（实测是 'e'），改判能力
+      o.hereType = typeof hereMarker.bringToFront === 'function' ? 'has-bringToFront' : 'no-bringToFront';
+      o.here = hereMarker.getLayers ? hereMarker.getLayers().map(l => ({
+        r: l.options.radius, fill: l.options.fillColor, stroke: l.options.color,
+      })) : null;
+    }
+    const lg = document.querySelector('.legend');
+    if (lg) o.legend = [...lg.querySelectorAll('span')].map(s => s.textContent.trim());
+    if (schoolLayer) {
+      const set = new Set();
+      schoolLayer.eachLayer(l => { if (l.options && l.options.fillColor) set.add(l.options.fillColor); });
+      o.schoolColors = [...set];
+    }
+    return o;
+  })())`));
+  const HERE_YELLOW = '#fbbf24';
+  t('起点标记存在', !!vis.here && vis.here.length === 2, vis.here ? vis.here.length + ' 层' : '缺');
+  t('起点是琥珀黄', !!vis.here && vis.here.every(l => l.fill === HERE_YELLOW), JSON.stringify(vis.here && vis.here.map(l => l.fill)));
+  t('起点支持 bringToFront（能压在学校层之上）', vis.hereType === 'has-bringToFront', vis.hereType);
+  t('学校色阶不含起点的黄色', !vis.bands.includes(HERE_YELLOW) && !vis.schoolColors.includes(HERE_YELLOW),
+    '学校: ' + vis.schoolColors.join(','));
+  // 动态比色：不管以后把起点改成什么色，都不许和学校撞
+  const hereColor = vis.here && vis.here[1] ? vis.here[1].fill : null;
+  t('起点颜色与学校色阶无交集',
+    !!hereColor && !vis.bands.includes(hereColor) && !vis.schoolColors.includes(hereColor),
+    `起点 ${hereColor} vs 学校 ${vis.bands.join(',')}`);
+  t('学校色阶是蓝色系梯度', vis.bands.length === 4 && vis.bands[0] !== vis.bands[3], vis.bands.join(' → '));
+  t('图例含「起点」一行', vis.legend.length === 5 && vis.legend[0] === '起点', vis.legend.join(' | '));
+  t('图例四档时间齐全', ['≤30 分钟', '31–45 分钟', '46–60 分钟', '>60 分钟'].every(x => vis.legend.includes(x)));
+
   console.log('\n【八】JS 异常');
   t('无未捕获异常', errs.length === 0, errs.length ? errs[0] : '');
 

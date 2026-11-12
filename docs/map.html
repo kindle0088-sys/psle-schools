@@ -46,7 +46,9 @@
     display: flex; gap: 5px; margin-top: 10px; flex-wrap: wrap;
   }
   .side-tabs .chip { padding: 4px 10px; font-size: 12px; }
-  .side-body { overflow-y: auto; flex: 1; }
+  /* min-height:0 不能省：flex 子元素默认 min-height:auto，内容一多就不肯收缩，
+     会把固定在底部的图例挤出容器（旁边是 overflow:hidden，于是图例直接看不见） */
+  .side-body { overflow-y: auto; flex: 1; min-height: 0; }
   .side-body::-webkit-scrollbar { width: 7px; }
   .side-body::-webkit-scrollbar-thumb { background: #22314a; border-radius: 4px; }
 
@@ -72,15 +74,16 @@
   .hit .meta { font-size: 11px; color: var(--tx3); margin-top: 3px; font-family: var(--mono); }
   .hit .meta .code { color: var(--accent); }
 
-  .t30 { color: #38bdf8; } .t45 { color: #818cf8; }
-  .t60 { color: #a78bfa; } .t99 { color: #64748b; }
+  /* 学校时间档用蓝色系梯度（越远越深），起点单独用琥珀黄 —— 两者不再撞色 */
+  .t30 { color: #7dd3fc; } .t45 { color: #38bdf8; }
+  .t60 { color: #0ea5e9; } .t99 { color: #64748b; }
 
+  /* 图例放在侧栏头部：列表很长时底部条会被滚出视口，颜色含义就看不到了 */
   .legend {
-    display: flex; gap: 14px; flex-wrap: wrap;
-    padding: 9px 14px;
-    border-top: 1px solid var(--line);
-    font-size: 11.5px; color: var(--tx3);
-    background: var(--bg-soft);
+    display: flex; gap: 12px; flex-wrap: wrap;
+    padding-top: 9px; margin-top: 9px;
+    border-top: 1px solid var(--line-soft);
+    font-size: 11px; color: var(--tx3);
   }
   .legend i {
     display: inline-block; width: 9px; height: 9px;
@@ -190,17 +193,18 @@
           <span class="chip" data-b="45">≤45 分钟</span>
           <span class="chip" data-b="60">≤60 分钟</span>
         </div>
+        <div class="legend">
+          <span style="color:var(--tx2)"><i style="background:#fbbf24;box-shadow:0 0 0 1.5px #fff"></i><b>起点</b></span>
+          <span><i style="background:#7dd3fc"></i>≤30 分钟</span>
+          <span><i style="background:#38bdf8"></i>31–45 分钟</span>
+          <span><i style="background:#0ea5e9"></i>46–60 分钟</span>
+          <span><i style="background:#64748b"></i>&gt;60 分钟</span>
+        </div>
       </div>
       <div class="side-body" id="hits">
         <div style="padding:40px 20px;text-align:center;color:var(--tx3);font-size:13px">
           选择起点后，这里会列出可达学校
         </div>
-      </div>
-      <div class="legend">
-        <span><i style="background:#38bdf8"></i>≤30 分钟</span>
-        <span><i style="background:#818cf8"></i>31–45 分钟</span>
-        <span><i style="background:#a78bfa"></i>46–60 分钟</span>
-        <span><i style="background:#64748b"></i>&gt;60 分钟</span>
       </div>
     </aside>
   </div>
@@ -226,9 +230,9 @@ let lastResult = null, curBucket = 999;
 
 /* ── 颜色分档（表示通勤时间，不表示学校好坏）── */
 function band(min) {
-  if (min <= 30) return { cls: 't30', color: '#38bdf8' };
-  if (min <= 45) return { cls: 't45', color: '#818cf8' };
-  if (min <= 60) return { cls: 't60', color: '#a78bfa' };
+  if (min <= 30) return { cls: 't30', color: '#7dd3fc' };
+  if (min <= 45) return { cls: 't45', color: '#38bdf8' };
+  if (min <= 60) return { cls: 't60', color: '#0ea5e9' };
   return { cls: 't99', color: '#64748b' };
 }
 
@@ -267,9 +271,6 @@ function drawMap(origin, result) {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
-    L.circleMarker([origin.lat, origin.lon], {
-      radius: 8, color: '#0a0f1a', weight: 3, fillColor: '#38bdf8', fillOpacity: 1,
-    }).addTo(map).bindPopup('起点');
     map.on('click', e => {
       runAt({ lat: e.latlng.lat, lon: e.latlng.lng, label: '地图选点', addr: '', postal: '' });
     });
@@ -280,11 +281,19 @@ function drawMap(origin, result) {
   if (schoolLayer) map.removeLayer(schoolLayer);
   if (stationLayer) map.removeLayer(stationLayer);
 
-  // 起点
+  /* 起点：琥珀黄 + 半透明光晕。
+     改造前起点和「≤30 分钟」的学校都是 #38bdf8，完全分不出来。 */
   if (hereMarker) map.removeLayer(hereMarker);
-  hereMarker = L.circleMarker([origin.lat, origin.lon], {
-    radius: 9, color: '#0a0f1a', weight: 3, fillColor: '#38bdf8', fillOpacity: 1,
-  }).addTo(map).bindTooltip('起点', { permanent: false, direction: 'top' });
+  // 用 FeatureGroup 而非 LayerGroup：只有前者有 bringToFront()，
+  // 而起点必须压在学校图层之上，否则近处的学校点会把黄点盖住
+  hereMarker = L.featureGroup();
+  L.circleMarker([origin.lat, origin.lon], {
+    radius: 20, stroke: false, fillColor: '#fbbf24', fillOpacity: .22,
+  }).addTo(hereMarker);
+  L.circleMarker([origin.lat, origin.lon], {
+    radius: 9, color: '#ffffff', weight: 2.5, fillColor: '#fbbf24', fillOpacity: 1,
+  }).addTo(hereMarker).bindTooltip('起点', { direction: 'top' });
+  hereMarker.addTo(map);
 
   // 最近站
   stationLayer = L.layerGroup();
@@ -314,6 +323,11 @@ function drawMap(origin, result) {
     m.addTo(schoolLayer);
   }
   schoolLayer.addTo(map);
+
+  /* 学校图层是后加的，DOM 层级压在起点之上 —— 近处的学校点会把黄点盖住。
+     每帧重绘后都要把起点提到最前，否则「标了起点却看不见」。
+     ⚠️ 别用 setZIndex：CircleMarker 走 Canvas/SVG 渲染，稳定的是 bringToFront。 */
+  hereMarker.bringToFront();
 
   // 视野聚焦到起点 + 60 分钟内的学校（避免一开始显示到柔佛去）
   if (focusPts.length > 1) {
