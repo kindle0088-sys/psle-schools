@@ -464,5 +464,26 @@ window.addEventListener('hashchange', () => {
   }
 })();
 </script>
+<script>
+/* 「我的志愿方案」入口跟随学生索引（与 index.html 保持一致）。
+   独立成段，不侵入地图本身的初始化逻辑。 */
+(function () {
+  var nav = document.getElementById('planNav');
+  if (!nav) return;
+  fetch('data/students-index.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (idx) {
+      var list = (idx && idx.students) || [];
+      if (!list.length) return;
+      var act = list.filter(function (s) { return s.id === idx.activeId; })[0]
+        || list.filter(function (s) { return s.id === idx.defaultId; })[0]
+        || list[0];
+      if (!act || !act.planSlug) return;
+      nav.href = 'reports/' + act.planSlug + '.html';
+      if (list.length > 1) nav.textContent = '志愿方案（' + (act.label || act.id) + '）';
+    })
+    .catch(function () { /* 索引缺失时保持默认链接 */ });
+})();
+</script>
 </body>
 </html>
