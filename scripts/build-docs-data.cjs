@@ -17,6 +17,40 @@ const Iso = require('../lib/iso.cjs');
 const BASE = path.join(__dirname, '..');
 const schools = JSON.parse(fs.readFileSync(path.join(BASE, 'data/schools.json'), 'utf8'));
 const net = JSON.parse(fs.readFileSync(path.join(BASE, 'data/network.json'), 'utf8'));
+const ccaCat = JSON.parse(fs.readFileSync(path.join(BASE, 'data/cca-catalog.json'), 'utf8'));
+
+/**
+ * 组装某校的完整 CCA 信息（前端直接可渲染）。
+ * 数据源是 data/cca-catalog.json —— 官网逐页核实过的清单，MOE 登记只是其中一部分。
+ * 之所以要单独一份：MOE SchoolFinder 会漏登官网已有的社团（实测 12 所中 8 所漏登，
+ * Greendale 只覆盖 37%，漏掉的正是机器人社与戏剧社）。
+ */
+function buildCcaFull(slug, moeList) {
+  const e = ccaCat.schools[slug];
+  if (!e) return null;
+  const cats = { sport: [], arts: [], uniformed: [], club: [] };
+  for (const it of e.items) {
+    const groom = {
+      name: it.name, zh: it.zh || null, moe: !!it.moe,
+      sex: it.sex || null, note: it.note || null,
+    };
+    (cats[it.cat] || cats.club).push(groom);
+  }
+  const total = e.items.length;
+  const moeCount = moeList.length;
+  return {
+    source: e.source,
+    note: e.note || null,
+    gaps: e.gaps || null,
+    moeCount,
+    total,
+    onlyWebsite: e.items.filter(i => !i.moe).length,
+    coveragePct: total ? Math.round(moeCount / total * 100) : 0,
+    categories: cats,
+    dsaOnly: e.dsaOnly || [],
+  };
+}
+
 
 const hasItem = (s, kw) => (s.electives || []).some(g => (g.items || []).some(i => i.includes(kw)));
 
@@ -79,6 +113,7 @@ for (const s of schools) {
     ip, sap, autonomous, independent, specialised,
     cop,
     cca: s.cca || [],
+    ccaFull: buildCcaFull(s.slug, s.cca || []),
     dsaYear: s.dsa?.year || null,
     dsaAreas: s.dsa?.areas || [],
     subjects: s.subjects || [],
@@ -97,6 +132,12 @@ const payload = {
     ipCount, sapCount,
     noCopCount: noCop.length,
     noCopList: noCop,
+    cca: {
+      note: 'cca = MOE SchoolFinder 登记项；ccaFull = 官网核实后的完整清单（含 MOE 未登记项）。择校请以 ccaFull 为准。',
+      verifiedSchools: out.filter(x => x.ccaFull).length,
+      totalItems: out.reduce((a, x) => a + (x.ccaFull?.total || 0), 0),
+      websiteOnlyItems: out.reduce((a, x) => a + (x.ccaFull?.onlyWebsite || 0), 0),
+    },
     sources: {
       schools: 'MOE SchoolFinder (https://www.moe.gov.sg/schoolfinder)',
       cop: 'MOE SchoolFinder — PSLE score range（上一年度实际录取区间）',

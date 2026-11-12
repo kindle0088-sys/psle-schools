@@ -62,6 +62,12 @@
       </label>
       <button class="btn" id="reset">重置</button>
     </div>
+    <div class="filter-row filter-row-interest">
+      <span class="fr-label">按 CCA 兴趣筛<b class="fr-note" id="intMode" title="点击切换：同时具备 / 任一满足">同时具备</b></span>
+      <div class="chip-group" id="interests"></div>
+      <span style="flex:1"></span>
+      <span class="interest-hint" id="interestHint"></span>
+    </div>
   </div>
 
   <div class="statline" id="statline"></div>
@@ -82,7 +88,7 @@
 /* ────────────────────────────────────────────────
    状态
    ──────────────────────────────────────────────── */
-const S = { q: '', area: '', sort: 'cop', tags: new Set(), score: null };
+const S = { q: '', area: '', sort: 'cop', tags: new Set(), interests: new Set(), intMode: 'all', score: null };
 let DATA = null, SCHOOLS = [];
 let REPORTS = {};   // slug -> { file, date }，来自 data/school-reports.json
 
@@ -165,16 +171,84 @@ const FIT_LABEL = {
   norow: () => '不招本档',
 };
 
+/**
+ * CCA 的统一视图。
+ * ccaFull = 官网核实过的完整清单；cca = MOE SchoolFinder 登记项。
+ * 实测 12 所学校里 8 所 MOE 登记不全，最严重的只覆盖 37%，
+ * 所以展示与排序一律以 ccaFull 为准，cca 仅作「是否 MOE 也认可」的标记。
+ */
+function ccaView(sc) {
+  const f = sc.ccaFull;
+  if (!f) {
+    return { total: (sc.cca || []).length, full: false, moeCount: (sc.cca || []).length, pct: 100, groups: null };
+  }
+  const CATS = [['sport', '体育'], ['arts', '表演艺术'], ['uniformed', '制服团体'], ['club', '俱乐部']];
+  const groups = CATS
+    .map(([k, label]) => ({ key: k, label, items: f.categories?.[k] || [] }))
+    .filter(g => g.items.length);
+  return {
+    total: f.total, full: true, moeCount: f.moeCount,
+    onlyWebsite: f.onlyWebsite, pct: f.coveragePct,
+    source: f.source, note: f.note, gaps: f.gaps,
+    dsaOnly: f.dsaOnly || [], groups,
+  };
+}
+
+function ccaCount(sc) {
+  const v = ccaView(sc);
+  return v.total;
+}
+
+/* 兴趣维度：按关键词匹配 CCA 名称 + DSA 招生项目。
+   刻意不匹配 subjects —— 那是课程不是社团，混进来会失真
+   （几乎每校都开 Computing 科目，用它判「有编程」等于没判）。
+   DSA 项目要纳入：学校只会为自己真有教练和梯队的项目开招生通道。 */
+const INTERESTS = [
+  { key: 'robot',   label: '机器人',       kw: /robot|mechatron/i },
+  { key: 'code',    label: '编程',         kw: /programming|comput(ing|ational)|electronic|maker|software|coding/i },
+  { key: 'media',   label: '资讯 / 媒体',  kw: /infocomm|media|journalism|film|photograph/i },
+  { key: 'drama',   label: '戏剧',         kw: /drama|theatr|eldds|debate|speaking/i },
+  { key: 'water',   label: '游泳 / 水上',  kw: /swim|water polo|canoe|kayak|sailing|dragon boat|rowing/i },
+  { key: 'music',   label: '音乐',         kw: /choir|chorale|band|orchestra|ensemble|guzheng|angklung|harmonica|drum|pipa|erhu|string|piano/i },
+  { key: 'sport',   label: '体育',         kw: /badminton|basketball|football|netball|volleyball|softball|floorball|hockey|tennis|shooting|wushu|taekwondo|judo|fencing|athletic|track|cross country|golf|squash|tchoukball|canoe|sailing|swim|water polo/i },
+  { key: 'uniform', label: '制服团体',     kw: /cadet|ncc|npcc|scout|guide|brigade|red cross|st john/i },
+  { key: 'cook',    label: '烹饪 / 食品',  kw: /cook|culinary|food|nutrition/i },
+];
+
+const _ccaText = new Map();
+function ccaText(sc) {
+  if (_ccaText.has(sc.slug)) return _ccaText.get(sc.slug);
+  const v = ccaView(sc);
+  const parts = [];
+  if (v.groups) {
+    v.groups.forEach(g => g.items.forEach(i => parts.push(`${i.name} ${i.zh || ''}`)));
+    (v.dsaOnly || []).forEach(d => parts.push(`${d.name} ${d.zh || ''}`));
+  } else {
+    (sc.cca || []).forEach(c => parts.push(c));
+  }
+  // DSA 项目也算 —— 有招生通道说明有梯队
+  (sc.dsaAreas || []).forEach(d => parts.push(d));
+  const text = parts.join(' | ');
+  _ccaText.set(sc.slug, text);
+  return text;
+}
+
+function interestHits(sc) {
+  const text = ccaText(sc);
+  return INTERESTS.filter(it => it.kw.test(text)).map(it => it.key);
+}
+
 function fmtRange(v) {
   if (!v) return '—';
   const suffix = v.markMax ? `(${v.markMax})` : '';
   return v.min === v.max ? `${v.min}${suffix}` : `${v.min}–${v.max}${suffix}`;
 }
 
+
 /* ────────────────────────────────────────────────
    渲染
    ──────────────────────────────────────────────── */
-function applyFilter() {
+function applyFilter(skipInterests) {
   const q = S.q.trim().toLowerCase();
   return SCHOOLS.filter(sc => {
     if (S.area && sc.area !== S.area) return false;
@@ -184,6 +258,15 @@ function applyFilter() {
       if (!sc[t]) return false;
     }
     if (S.tags.has('deep') && !REPORTS[sc.slug]) return false;
+    // 兴趣筛选：默认「同时具备」(AND)；切到「任一」可做并集查询
+    if (!skipInterests && S.interests.size) {
+      const hits = interestHits(sc);
+      const want = [...S.interests];
+      const ok = S.intMode === 'any'
+        ? want.some(k => hits.includes(k))
+        : want.every(k => hits.includes(k));
+      if (!ok) return false;
+    }
     if (q) {
       const hay = [sc.name, sc.area, sc.postal, sc.address, sc.nearStation?.name]
         .filter(Boolean).join(' ').toLowerCase();
@@ -193,9 +276,44 @@ function applyFilter() {
   });
 }
 
+/** 兴趣 chip 的计数：在当前「其他」筛选条件下，勾上这一项还能剩几所 */
+function renderInterests() {
+  const box = $('#interests');
+  if (!box) return;
+  if (!box.dataset.ready) {
+    box.innerHTML = INTERESTS.map(it =>
+      `<span class="chip chip-int" data-int="${it.key}">${it.label}<b class="cnt">0</b></span>`).join('');
+    box.dataset.ready = '1';
+  }
+  const base = applyFilter(true);
+  INTERESTS.forEach(it => {
+    const el = box.querySelector(`[data-int="${it.key}"]`);
+    if (!el) return;
+    const n = base.filter(sc => interestHits(sc).includes(it.key)).length;
+    el.querySelector('.cnt').textContent = n;
+    el.classList.toggle('zero', n === 0);
+    el.classList.toggle('on', S.interests.has(it.key));
+  });
+  // 选中多项时，提示实际结果数（AND 下可能骤降，要让人看得见）
+  const hint = $('#interestHint');
+  if (hint) {
+    if (S.interests.size >= 2) {
+      const want = [...S.interests];
+      const n = base.filter(sc => {
+        const h = interestHits(sc);
+        return S.intMode === 'any' ? want.some(k => h.includes(k)) : want.every(k => h.includes(k));
+      }).length;
+      const rel = S.intMode === 'any' ? '任一满足' : '同时具备';
+      hint.innerHTML = `${rel}这 ${S.interests.size} 项：<b>${n}</b> 所`;
+    } else {
+      hint.innerHTML = '';
+    }
+  }
+}
+
 function sortList(list) {
   if (S.sort === 'name') return list.sort((a, b) => a.name.localeCompare(b.name));
-  if (S.sort === 'cca') return list.sort((a, b) => (b.cca.length || 0) - (a.cca.length || 0));
+  if (S.sort === 'cca') return list.sort((a, b) => ccaCount(b) - ccaCount(a));
   const dir = S.sort === 'cop-asc' ? 1 : -1;
   return list.sort((a, b) => {
     const ga = gate(a, S.score), gb = gate(b, S.score);
@@ -211,6 +329,7 @@ function sortList(list) {
 function cardHtml(sc) {
   const g = gate(sc, S.score);
   const fit = fitOf(sc, S.score);
+  const cv = ccaView(sc);
 
   // 标签
   const tags = [];
@@ -263,7 +382,7 @@ function cardHtml(sc) {
     <div class="tags">${tags.join('')}${fitHtml}</div>
 
     <div class="rows">
-      <div class="r"><span class="k">CCA</span><span class="val">${sc.cca.length} 项</span></div>
+      <div class="r"><span class="k">CCA</span><span class="val">${cv.total} 项${cv.full && cv.onlyWebsite ? `<span style="font-weight:400;color:var(--tx3)"> · MOE 登记 ${cv.moeCount}</span>` : ''}</span></div>
       <div class="r"><span class="k">DSA</span><span class="val">${sc.dsaAreas.length ? sc.dsaAreas.length + ' 项（' + sc.dsaYear + '）' : '未列'}</span></div>
     </div>
 
@@ -280,7 +399,19 @@ function cardHtml(sc) {
     <div class="detail">
       ${sc.address ? `<h4>地址</h4><div class="addr">${esc(sc.address)}</div>` : ''}
       ${sc.type ? `<h4>学校类型</h4><div class="addr">${esc(sc.type)}${sc.nature ? ' · ' + esc(sc.nature) : ''}${sc.mode ? ' · ' + esc(sc.mode) : ''}</div>` : ''}
-      ${sc.cca.length ? `<h4>CCA（${sc.cca.length}）</h4><div class="list">${sc.cca.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : ''}
+      ${cv.groups ? `
+        <h4>CCA（${cv.total} 项${cv.onlyWebsite ? ` · MOE 仅登记 ${cv.moeCount} 项` : ''}）</h4>
+        ${cv.groups.map(gr => `<div class="cca-group">
+          <b>${gr.label}（${gr.items.length}）</b>
+          <div class="list">${gr.items.map(it => `<span class="${it.moe ? '' : 'only'}">${esc(it.name)}${it.zh ? ' ' + esc(it.zh) : ''}${it.sex === 'boys' ? '（男）' : it.sex === 'girls' ? '（女）' : ''}</span>`).join('')}</div>
+        </div>`).join('')}
+        ${cv.onlyWebsite ? `<div class="cca-legend">
+          <span><i></i>MOE 也登记</span>
+          <span><i class="dash"></i>仅官网列出，MOE 未登记</span>
+        </div>` : ''}
+        ${cv.dsaOnly && cv.dsaOnly.length ? `<div class="cca-warn"><b>另有 ${cv.dsaOnly.length} 项有队伍但未登记为 CCA：</b>${cv.dsaOnly.map(d => esc(d.name) + (d.zh ? ' ' + esc(d.zh) : '')).join('、')}。DSA 招生时算数，但社团清单里看不到。</div>` : ''}
+        ${cv.gaps ? `<div class="cca-warn"><b>清单有缺口：</b>${esc(cv.gaps)}</div>` : ''}
+      ` : (sc.cca.length ? `<h4>CCA（${sc.cca.length}）</h4><div class="list">${sc.cca.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : '')}
       ${sc.dsaAreas.length ? `<h4>DSA 才能领域（${sc.dsaYear}）</h4><div class="list">${sc.dsaAreas.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : ''}
       ${sc.affiliations && (sc.affiliations.primary?.length || sc.affiliations.jc?.length) ? `
         <h4>附属学校</h4>
@@ -330,6 +461,7 @@ function render() {
   if (sap) parts.push(`SAP <b>${sap}</b>`);
   parts.push(`有录取区间 <b>${withCop}</b>`);
   $('#statline').innerHTML = parts.join(' · ');
+  renderInterests();
 }
 
 /* ────────────────────────────────────────────────
@@ -355,6 +487,18 @@ $('#tags').addEventListener('click', e => {
   else { S.tags.add(t); c.classList.add('on'); }
   render();
 });
+$('#intMode').addEventListener('click', () => {
+  S.intMode = S.intMode === 'all' ? 'any' : 'all';
+  $('#intMode').textContent = S.intMode === 'all' ? '同时具备' : '任一满足';
+  render();
+});
+$('#interests').addEventListener('click', e => {
+  const c = e.target.closest('.chip');
+  if (!c) return;
+  const k = c.dataset.int;
+  if (S.interests.has(k)) S.interests.delete(k); else S.interests.add(k);
+  render();
+});
 $('#score').addEventListener('input', e => {
   const v = e.target.value.trim();
   if (!v) { S.score = null; render(); return; }
@@ -364,8 +508,9 @@ $('#score').addEventListener('input', e => {
   render();
 });
 $('#reset').addEventListener('click', () => {
-  S.q = ''; S.area = ''; S.sort = 'cop'; S.tags.clear(); S.score = null;
+  S.q = ''; S.area = ''; S.sort = 'cop'; S.tags.clear(); S.interests.clear(); S.score = null;
   $('#q').value = ''; $('#area').value = ''; $('#sort').value = 'cop'; $('#score').value = '';
+  S.intMode = 'all'; $('#intMode').textContent = '同时具备';
   document.querySelectorAll('#tags .chip').forEach(c => c.classList.remove('on'));
   render();
 });

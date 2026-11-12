@@ -162,6 +162,31 @@ select:focus, .num-in:focus { outline: none; border-color: var(--accent-dim); }
 .chip-deep.on .cnt { background: rgba(52,211,153,.32); }
 .chip-deep.off { display: none; }
 
+/* 兴趣筛选：与属性 chip（蓝）、深度报告 chip（绿）区分，用紫色 */
+.filter-row-interest { padding-top: 3px; }
+.fr-label {
+  font-size: 12px; color: var(--tx3); white-space: nowrap;
+  display: flex; align-items: center; gap: 6px;
+}
+.fr-note {
+  font-size: 10px; font-weight: 400; padding: 1px 5px;
+  border-radius: 4px; background: var(--slate-soft); color: var(--tx3);
+}
+.chip-int { border-color: rgba(167,139,250,.28); }
+.chip-int:hover { border-color: rgba(167,139,250,.55); color: var(--tx); }
+.chip-int.on { background: var(--violet-soft); border-color: rgba(167,139,250,.62); color: var(--violet); }
+.chip-int .cnt {
+  display: inline-block; margin-left: 5px; padding: 0 5px;
+  border-radius: 6px; background: var(--slate-soft);
+  font-variant-numeric: tabular-nums; font-size: 11px;
+}
+.chip-int.on .cnt { background: rgba(167,139,250,.22); }
+/* 零结果不隐藏：点开能看到「确实是 0 所」本身就是结论 */
+.chip-int.zero { opacity: .42; }
+.chip-int.zero.on { opacity: 1; }
+.interest-hint { font-size: 11.5px; color: var(--tx3); }
+.interest-hint b { color: var(--violet); }
+
 .btn {
   padding: 8px 15px;
   border: 1px solid var(--line);
@@ -336,6 +361,35 @@ select:focus, .num-in:focus { outline: none; border-color: var(--accent-dim); }
   border-radius: 4px; color: var(--tx2);
 }
 .detail .addr { color: var(--tx2); line-height: 1.6; }
+
+/* CCA 按类别分组 */
+.cca-group { margin-bottom: 8px; }
+.cca-group:last-of-type { margin-bottom: 0; }
+.cca-group > b {
+  display: block; font-size: 11px; font-weight: 600; color: var(--tx3);
+  letter-spacing: .3px; margin-bottom: 4px;
+}
+/* 虚线 = 仅官网列出、MOE 未登记。这是信息来源差异，不是好坏评价 */
+.detail .list span.only {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--accent-dim);
+  color: var(--tx2);
+}
+.cca-legend {
+  margin-top: 8px; font-size: 10.5px; color: var(--tx3);
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+}
+.cca-legend i {
+  display: inline-block; width: 9px; height: 9px; border-radius: 2px;
+  border: 1px solid var(--line-soft); margin-right: 4px; vertical-align: -1px;
+}
+.cca-legend i.dash { border-style: dashed; border-color: var(--accent-dim); background: transparent; }
+.cca-warn {
+  margin-top: 7px; padding: 6px 9px; font-size: 11px; line-height: 1.55;
+  background: var(--bg-soft); border-left: 2px solid var(--accent-dim);
+  border-radius: 0 4px 4px 0; color: var(--tx2);
+}
 
 .empty {
   grid-column: 1 / -1;

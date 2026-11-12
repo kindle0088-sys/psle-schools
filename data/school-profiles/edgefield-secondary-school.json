@@ -1,66 +1,132 @@
 {
-  "slug": "edgefield-secondary-school",
-  "nameZh": "埃奇菲尔德中学",
-  "nameEn": "Edgefield Secondary School",
-  "abbr": "EFSS",
-  "kindLabel": "政府混校",
-  "heroSub": "⚠️ <b>先说结论：17 分够不着这所学校</b>（PG3 区间 5–14，差 3 分）。但它值得单独了解——<b>通勤 17 分钟是全部候选里最快的</b>，ALP 是一整套「未来情景模拟」（含无人机编程），学生会自己办一场 5,000 人的嘉年华。如果你的分数在 14 分以内，它可能是最优选之一。",
-  "profileExtra": [
-    { "k": "建校", "v": "2011 年" },
-    { "k": "学生规模", "v": "约 1,200" },
-    { "k": "IP / SAP", "v": "否 / 否" }
-  ],
-  "howWritten": "COP、CCA、DSA、科目来自 <b>MOE SchoolFinder</b>；校史、办学理念、ALP/LLP 细节、CCA 完整清单来自<b>学校官网</b>。这所学校有一处需要说明：<b>官网列出的 CCA 约 19 项，MOE 只登记 12 项</b>，两处差异我在第 5 节逐项对照。<b>不公布 O-Level 成绩。</b>",
-
-  "s1": "<!-- ============ 1 ============ -->\n<section>\n<h2 id=\"s1\"><span class=\"n\">01</span>30 秒判断</h2>\n<p class=\"lead\">如果只看一句话：<b>这是十三所里「条件最好、但门槛最高」的一所</b>——通勤最快、项目最实、社团最全，但 PG3 上限只有 14，比你的 17 分低 3 分。</p>\n\n<div class=\"warnbox\">\n<b>把话说在前面：17 分报这所学校，录取概率极低。</b>PG3 的非附属区间是 <b>5–14</b>，意味着最后一名被录取的学生是 14 分。<b>你高出 3 分——不是「差一点」，是超出录取范围。</b>\n<br><br>\nCOP 每年会浮动 1–2 分，理论上存在「今年大爆冷」的可能，但<b>不能把志愿押在这种可能性上</b>。\n<br><br>\n<b>那为什么还做这份报告？</b>两个理由：① 它是判断其他学校的<b>参照基准</b>——知道「14 分能买到什么样的学校」，才知道自己那 17 分买到的值不值；② 如果家里有更小的孩子、或者分数后续有变化，这份档案能直接用。\n</div>\n\n<div class=\"grid2\">\n  <div class=\"panel\">\n    <h4>它的条件好在哪里</h4>\n    <ul>\n      <li><b>通勤 17 分钟、步行 445m</b>——全部候选里最快，地铁站出来走 6 分钟就到</li>\n      <li><b>ALP 是一整套情景模拟</b>：用无人机编程做地震救援、在 8 分钟内搜完 8,000 平方米</li>\n      <li><b>学生自己办 5,000 人的嘉年华</b>（ARTasFEST），中一到中三各管一块</li>\n      <li><b>社团约 19 项</b>，含机器人社、青年飞行俱乐部、英语戏剧辩论演讲社</li>\n    </ul>\n  </div>\n  <div class=\"panel muted\">\n    <h4>现实约束</h4>\n    <ul>\n      <li><b>分数不够</b>——PG3 5–14，17 分超出 3 分。这是唯一的、也是决定性的问题</li>\n      <li>学校 <b>2011 年才建校</b>，没有老校的文化沉淀</li>\n      <li><b>不公布成绩</b>，学术水平只能靠开放日问</li>\n      <li>跆拳道是全员必修，<b>不喜欢武术的孩子要练两年</b></li>\n    </ul>\n  </div>\n</div>\n\n<div class=\"verdict\">\n  <h3>三个需要记住的数字</h3>\n  <ul>\n    <li><b>PG3 5–14</b>：<b>17 分差 3 分。</b>上限 14 意味着它录取的学生里最好的是 5 分、最差是 14 分——是一所生源相当整齐的学校。</li>\n    <li><b>17 分钟 / 445m</b>：十三所里通勤最快。这个数字比很多人的「同区学校」还短。</li>\n    <li><b>19 项 CCA（登记 12 项）</b>：官网列出 Art、New Media、Robotics、SYFC 飞行、ELDDS、节令鼓、古筝、口琴、NCDCC、NPCC(Sea) 等，MOE 的清单少了近一半。</li>\n  </ul>\n</div>\n</section>\n",
-
-  "s2": "<!-- ============ 2 ============ -->\n<section>\n<h2 id=\"s2\"><span class=\"n\">02</span>学校底色与校史</h2>\n<p class=\"lead\">这所学校很年轻——<b>2011 年建校，到今天 15 年</b>。但它用这 15 年做了一件同龄学校很少做到的事：把「未来」变成了可操作的课程结构，而不只是宣传词。</p>\n\n<h3>它对自己的定位</h3>\n<table>\n<thead><tr><th style=\"width:130px\">项目</th><th>内容</th></tr></thead>\n<tbody>\n<tr><td><b>愿景</b></td><td><b>Collaborative Innovators, Compassionate Leaders</b><br><span class=\"soft\">协作型创新者，有同情心的领导者</span></td></tr>\n<tr><td><b>使命</b></td><td><b>Growing Minds, Glowing Hearts</b><br><span class=\"soft\">成长的心智，发光的心</span></td></tr>\n<tr><td><b>校训</b></td><td><b>Sincerity and Honour</b>（真诚与荣誉）</td></tr>\n<tr><td><b>格言</b></td><td><b>Wisdom Begins With Wonder</b>（智慧始于好奇）——引自苏格拉底</td></tr>\n<tr><td><b>价值观</b></td><td><b>E = mc²</b>：<b>E</b>nterprising 进取 · <b>M</b>oral Courage 道德勇气 · <b>C</b>ompassion 关怀</td></tr>\n</tbody>\n</table>\n\n<div class=\"note\">\n<b>值得单独说一句「E = mc²」。</b>这三个词的英文首字母 <b>E、M、C</b> 正好拼成爱因斯坦的质能方程。<b>在全部十三所候选里，这是唯一一个把价值观做成了「可记忆的公式」的学校。</b>\n<br><br>\n学校自己的解释是：这个公式帮助学生把心态聚焦在「做正确的事」以及「为身边的人带来正面改变」上。不管你有没有被这个设计说服，<b>它至少证明这所学校在设计理念时是动过脑子的</b>——而不是从一份价值观词库里随手挑五个词。\n</div>\n\n<h3>建校背景</h3>\n<p>学校 2011 年成立于榜鹅，是这一带较新的中学之一。官网对自己的描述很实在：「尽管历史相对较短，Edgefield 已经因几个关键优势而为人所知——<b>敬业的教师、活跃的学习环境、多元的 CCA 体验，以及创新的文化</b>。」</p>\n<p>它同时是 <b>Full SBB（全面科目编班）</b>学校——学生按科目能力分班而不是按整体源流分班，官方说法是「让学生在没有标签的环境里一起学习」。</p>\n<p class=\"soft\" style=\"font-size:13.2px\">Full SBB 这件事值得留意：它意味着<b>同一个班里会有不同科目组合的学生</b>，学校的教学组织比传统分班复杂。好处是标签淡化，代价是老师要同时照顾不同的进度。</p>\n</section>\n",
-
-  "s3": "<!-- ============ 3 ============ -->\n<section>\n<h2 id=\"s3\"><span class=\"n\">03</span>学业与升学出路</h2>\n<p class=\"lead\">这所学校<b>不公布 O-Level 成绩</b>。但它的 PG3 区间本身就透露了很多——<b>5 到 14，跨度 9 分，上限只有 14</b>。</p>\n\n<h3>生源结构说明了什么</h3>\n<p>PG3 上限 14 是一个非常关键的数字。它意味着：</p>\n<ul>\n  <li><b>这所学校录取的最差学生是 14 分</b>——比绝大多数邻里中学严格</li>\n  <li>下限 5 分说明它也能收到接近满分的学生</li>\n  <li><b>整体生源质量在本次十三所候选里属于第一梯队</b>（对比：Compassvale 14–18、North Vista 11–18、Bendemeer 11–22）</li>\n</ul>\n<p>换句话说：<b>17 分在这里会是全班最靠后的那一档</b>。这也是为什么学校的门槛卡在 14——它不是「不想收」，是报名的人太多，只能按分数往下切。</p>\n\n<h3>科目覆盖</h3>\n<p>MOE SchoolFinder 显示标准配置齐全：语言（英文与文学、高级华文／华文／马来文／淡米尔文及基础班）、数学与附加数学、物理／化学／生物（含组合）、社会学科与地理／历史／文学、设计与工艺、食品与消费教育、艺术、音乐、体育。<b>STEM 主线（附加数学 + 物理 + 化学）完整。</b></p>\n<p>配合 Full SBB，学生可以在不同科目上处于不同 band——<b>「数学在 G3、华文在 G2」这种组合是允许的</b>，不必整体降档。</p>\n\n<div class=\"verdict\">\n  <h3>毕业生去向怎么判断</h3>\n  <ul>\n    <li><b>直接证据：没有。</b>不公布升学分布。</li>\n    <li><b>间接判断：生源整齐，出口应该不差。</b>PG3 5–14 的生源结构，通常对应「半数以上能上 JC 或较好的 Poly 课程」这一档。</li>\n    <li><b>一个观察：</b>学校的对外沟通重心全在 ALP/LLP 与 ARTasFEST，<b>几乎不谈升学</b>。这和它的「创新文化」定位是一致的。</li>\n    <li><b>开放日要问：</b>「上一届 Express 班 JC 资格率？」「Full SBB 下，不同 band 的学生怎么安排课时与考试？」</li>\n  </ul>\n</div>\n</section>\n",
-
-  "s4": "<!-- ============ 4 ============ -->\n<section>\n<h2 id=\"s4\"><span class=\"n\">04</span>两个旗舰项目</h2>\n<p class=\"lead\">这一节是这所学校最有价值的部分。<b>它的 ALP 不是一门课，是一整套「未来情景模拟」（Future Ready Programme）</b>，而且有配套的国际竞赛与年会级活动。</p>\n\n<h3>ALP：Growing the Edgefield Mindset（G.E.M）+ 未来准备计划</h3>\n<p>ALP 由两层构成：<b>G.E.M</b> 教创业思维，<b>Future Ready Programme（FRP）</b>给情景任务去练。</p>\n\n<div class=\"voice\">\n  <div class=\"who\">学校原文举的第一个情景（FRP 开场案例）</div>\n  <p>「地震发生了。一片混乱。有消息说有人失踪，可能被困在某处。<b>他们只有 8 分钟疏散，否则可能活不下来。</b>Edgefield 的搜救队立刻开始勘察周围环境、定位受困者。但这个小组怎么在这么短的时间里搜完 <b>8,000 平方米</b>？<b>靠编程并部署无人机！</b>无人机会给他们空中视角，帮助观察生命迹象、取得关键信息，指引救援队前往正确位置。」</p>\n  <p class=\"soft\" style=\"font-size:13.2px\">这个案例的写法值得注意：它先给约束（8 分钟、8000 平方米、小队），再给手段（编程 + 无人机）。<b>这是真实工程问题的结构——先有约束，才谈方案。</b>比起「我们教无人机」，这种叙述方式说明课程设计者想清楚了「为什么要用无人机」。</p>\n</div>\n\n<p>其余情景同样是有约束的真实议题：</p>\n<table>\n<thead><tr><th style=\"width:190px\">情景</th><th>学生要解决的问题</th></tr></thead>\n<tbody>\n<tr><td><b>全国粮食与水源短缺</b></td><td>通过<b>都市农业</b>与<b>雨水收集</b>方法组建专项小组应对</td></tr>\n<tr><td><b>多元社会实验</b></td><td>设计一个创新的社会实验，让新加坡人<b>亲身体验</b>多元社会的影响</td></tr>\n<tr><td><b>海平面上升</b></td><td>建造一座<b>漂浮城市</b>的实体模型，可在临界海平面时实施</td></tr>\n</tbody>\n</table>\n\n<h3>它的课程依据不是拍脑袋</h3>\n<p>学校明确写了 FRP 的设计来源：<b>总理公署策略组（Strategy Group, PMO）、世界经济论坛（WEF）、新加坡政策研究所（IPS）</b>。并且把当前的技术、地缘政治、社会趋势<b>投射到 20–30 年后</b>，训练学生解决「他们成年后会面对的问题」。</p>\n<p>学生能参与的对外平台包括：<b>MOE Innovation Programme（IvP）、SIT Community Challenge、Future Skills Day、以及 Future Problem Solving Programme（FPSP，国际赛）</b>。</p>\n\n<h3>G.E.M 的成果：一场 5,000 人的学生自办嘉年华</h3>\n<div class=\"voice\">\n  <div class=\"who\">来源：学校官网 ARTasFEST 2025 报道（2025-05-23）</div>\n  <p><b>ARTasFEST</b> 是学校两年一度的嘉年华，作为 ALP 的标志性展示平台，主题「Ignite the Spark, Illuminate the Future」。<b>活动主要由学生主导</b>：</p>\n  <p>· <b>中一</b>：与供应商合作策划商品摊位<br>\n     · <b>中二</b>：协调餐饮供应<br>\n     · <b>中三</b>：设计并运营原创嘉年华游戏<br>\n     · <b>学长团与朋辈支持领袖</b>：负责特色摊位</p>\n  <p>同一晚还有户外演唱会，学生表演者、司仪、音视频团队全部上场。<b>活动吸引超过 5,000 人参与</b>，家长、校友、社区伙伴都在。</p>\n  <p class=\"soft\" style=\"font-size:13.2px\">有一个细节很说明问题：学生用课程里的 <b>Content Creator 与 Game Design 模块</b>，为视障人士制作宣传视频和游戏，然后<b>办一场募款活动</b>把成果变成实际支持。<b>这就是「学的东西真的用出去了」——从技能到作品到社会影响，链条是完整的。</b></p>\n</div>\n\n<h3>LLP：以跆拳道为锚的品格教育</h3>\n<p>项目全名 <b>Character Education through Sports（Anchored on Taekwondo）</b>。这条和多数学校不同——<b>它把一项武术做成了全员必修课</b>：</p>\n<table>\n<thead><tr><th style=\"width:140px\">年级</th><th>安排</th></tr></thead>\n<tbody>\n<tr><td><b>中一、中二</b></td><td><b>全员</b>在正课时间上跆拳道，<b>每周两节、共 1 小时</b></td></tr>\n<tr><td><b>中三、中四</b></td><td>鼓励继续，采取选修（opt-in）方式深化</td></tr>\n<tr><td><b>分级考试</b></td><td>中一／中三／中四在上学期两次；中二在下学期一次</td></tr>\n</tbody>\n</table>\n<p>学校对它的说明是：培养自律、尊重他人与自己、韧性——「<b>这些品质会延伸到训练馆之外</b>」。</p>\n\n<div class=\"voice\">\n  <div class=\"who\">Germaine Tan Xin Jie（中二）｜ 2025 年第 55 届 SSSC Colours Awards 最佳女子跆拳道运动员</div>\n  <p>她在 2025 年代表新加坡参加<b>台湾 National Formosa Cup</b> 与<b>釜山 Kimunyong Cup 国际公开赛</b>，<b>两站都拿金牌</b>；在国内拿下 NSG 跆拳道（品势）C 组女子第一。</p>\n  <p>学校对她的描述是：「除了竞技成就，Germaine 还是<b>国家跆拳道训练队</b>成员，是身边人的榜样。她体现了卓越、韧性与谦逊，以包容的精神和对队友毫不动摇的支持而为人所知。」</p>\n  <p class=\"soft\" style=\"font-size:13.2px\">这个奖的性质要说清：<b>SSSC Best Sportsgirl 是每个运动项目年度唯一的最佳女运动员奖</b>，评的是本地与海外比赛的综合表现，还要看品格。一个中二学生拿到它，说明这所学校的跆拳道训练体系是真有东西的——而不是「全员练一练」的水平。</p>\n</div>\n\n<div class=\"note\">\n<b>如果孩子不喜欢武术怎么办？</b>这是选这所学校前必须想清楚的一件事。<b>中一中二每周 1 小时的跆拳道是必修，不是选修。</b>对喜欢的孩子是福利（免费学一门武术、有分级认证）；对不喜欢的孩子是两年的负担。<b>开放日建议让孩子亲自去看看训练课。</b>\n</div>\n</section>\n",
-
-  "s5": "<!-- ============ 5 ============ -->\n<section>\n<h2 id=\"s5\"><span class=\"n\">05</span>CCA 全解析</h2>\n<p class=\"lead\">这是十三所里 CCA 最丰富的一所——<b>官网列出约 19 项，MOE 只登记 12 项</b>。而且它有一项别处没有的：<b>青年飞行俱乐部</b>。</p>\n\n<h3>MOE 登记（12 项）</h3>\n<table>\n<thead><tr><th style=\"width:110px\">类别</th><th>CCA</th></tr></thead>\n<tbody>\n<tr><td><b>体育</b></td><td>Badminton 羽毛球 · Basketball 篮球 · <b>Shooting 射击</b> · Taekwondo 跆拳道 · Volleyball 排球（男）· Wushu 武术</td></tr>\n<tr><td><b>表演艺术</b></td><td>Choir 合唱 · Concert Band 管乐团 · Modern Dance 现代舞</td></tr>\n<tr><td><b>制服团体</b></td><td>Girl Guides 女童军 · Scouts 童军</td></tr>\n<tr><td><b>俱乐部</b></td><td>Infocomm Technology（媒体制作）</td></tr>\n</tbody>\n</table>\n\n<h3>官网另有、MOE 未登记的（约 7 项）</h3>\n<table>\n<thead><tr><th style=\"width:110px\">类别</th><th>CCA</th><th>说明</th></tr></thead>\n<tbody>\n<tr><td><b>俱乐部</b></td><td><b>Robotics Club 机器人社</b></td><td>🔑 <b>孩子最想要的那一条，官网有独立页面</b></td></tr>\n<tr><td><b>俱乐部</b></td><td><b>SYFC 新加坡青年飞行俱乐部</b></td><td>🔑 全岛少数设 SYFC 的中学，与「航空」方向对得上</td></tr>\n<tr><td><b>俱乐部</b></td><td>Art Club 美术社 · New Media Club 新媒体社</td><td>新媒体社与 ALP 的 Content Creator 模块衔接</td></tr>\n<tr><td><b>表演艺术</b></td><td><b>ELDDS</b>（英文·戏剧·辩论·演讲）</td><td>🔑 <b>孩子想要戏剧，这条能接住</b>——但注意是合并社团</td></tr>\n<tr><td><b>表演艺术</b></td><td>Guzheng 古筝 · Festive Drums 节令鼓 · Harmonica 口琴</td><td>音乐类配置异常丰富（管乐、古筝、口琴、节令鼓四套）</td></tr>\n<tr><td><b>制服团体</b></td><td><b>NCDCC 民防少年团</b> · <b>NPCC (Sea) 警察海岸少年团</b></td><td>制服团体共 4 个，比多数学校多</td></tr>\n</tbody>\n</table>\n\n<div class=\"verdict\">\n  <h3>这份清单对孩子的意义</h3>\n  <ul>\n    <li><b>Robotics —— 有。</b>Robotics Club 有独立页面。这是十三所里少数真正设机器人社的学校。</li>\n    <li><b>Drama —— 有，但要看结构。</b>ELDDS 是英文、戏剧、辩论、演讲合并的社团（与 Hougang 同样的模式）。<b>值得问内部怎么分组。</b></li>\n    <li><b>Aviation —— 有。</b>SYFC 在中学里是稀缺资源，如果孩子对飞行有兴趣，这条独一无二。</li>\n    <li><b>Swimming —— 没有。</b>没有游泳 CCA，也没有泳池。</li>\n    <li><b>Cooking —— 部分。</b>没有烹饪 CCA，有食品与消费教育科目；ARTasFEST 里中二要协调餐饮供应，算是一次实战。</li>\n  </ul>\n</div>\n\n<h3>用 DSA 名单反推「真正的强项」</h3>\n<p>DSA 开 <b>8 项</b>，分三块：</p>\n<p style=\"font-size:14.4px\">\n<span class=\"tag a\">Taekwondo 跆拳道</span>\n<span class=\"tag a\">Volleyball 排球（男）</span>\n<span class=\"tag a\">Badminton 羽毛球</span>\n<span class=\"tag a\">Basketball 篮球</span>\n<span class=\"tag a\">Softball 垒球（女）</span>\n<span class=\"tag a\">Wushu 武术</span>\n<span class=\"tag a\">Innovation 创新</span>\n<span class=\"tag a\">Student Leadership 学生领导力</span>\n</p>\n<p><b>6 项体育 + 2 项素养类。</b>值得注意的是<b>没有一项 STEM</b>——尽管它的 ALP 是无人机编程。「Innovation（创新）」这个方向可能就是 STEM 的入口，但名字上看不出来，必须问。</p>\n<div class=\"note\">\n<b>一条对没有竞赛经验的孩子很友好的政策：</b>学校 DSA 页面原文写着「<b>没有相关经验的学生也可以申请</b>，学校将根据选拔标准评估申请者，可能包括评估其潜力」。同时要求 P5、P6 的操行等级为 Excellent 或 Very Good。\n<br><br>\n这在 DSA 里并不常见——多数学校的体育 DSA 默认要求有比赛成绩。<b>如果你家孩子在某项运动上有兴趣但没系统训练过，这所学校给了一扇门。</b>\n</div>\n</section>\n",
-
-  "s6": "<!-- ============ 6 ============ -->\n<section>\n<h2 id=\"s6\"><span class=\"n\">06</span>真实声音</h2>\n<p class=\"lead\">这所学校的官网有一个别处少见的东西：<b>CCA 页面上直接挂了学生队长的第一人称证言</b>，署了名和班级。</p>\n\n<h3>两个学生队长怎么描述自己的队伍</h3>\n<div class=\"voice\">\n  <div class=\"who\">Janelle Tan Wen Xi ｜ 2026 年羽毛球女队队长 ｜ 来源：学校官网 CCA Sports 页</div>\n  <p>「参加羽毛球 CCA 是一段有收获的经历，它帮助我作为一个人成长。通过规律训练和比赛，我学到了纪律、韧性与坚持的重要。<b>每一次训练都在挑战我提升技术，也提醒我持续努力才是达成目标的关键。</b>」</p>\n  <p>「这个 CCA 也让我和队友建立了深厚的友谊。我们在训练中互相鼓励，一起从错误中学习，也为彼此的成就庆祝。<b>作为队长，我还学会了为团队负责，在队友需要鼓励和指引时随时支持他们。</b>这些经历强化了我的领导力、沟通与团队协作能力。」</p>\n  <p>「我也学到了球场之外的功课。它把我塑造成一个更自信、更坚定的人。」</p>\n</div>\n\n<div class=\"voice\">\n  <div class=\"who\">Chia Xin Hui Adoncia ｜ 3ED ｜ 2026–2027 篮球女队队长 ｜ 来源：学校官网 CCA Sports 页</div>\n  <p>「加入 Edgefield 篮球 CCA 教会我很多关于团队协作、纪律和领导力的事。每一次训练和比赛都让我们作为一支队伍更靠近，<b>当队长让我明白什么叫「用心领导」，即使在我们最艰难的日子里。</b>」</p>\n  <p>「<b>每一天我们都努力为团队变得比昨天好 1%。</b>我真的很为我和队友共同达成的一切感到骄傲。我感激在 CCA 里经历的友谊、教训和机会！」</p>\n  <p class=\"soft\" style=\"font-size:13.2px\">这两段值得一起读，因为它们<b>不像学校宣传稿，像学生自己写的</b>——有具体的方法（「每天好 1%」）、有具体的困难（「最艰难的日子」）、有具体的角色（「作为队长」）。<b>学校愿意把这种带个人口吻的文字原样放上来，说明它对自己队伍的日常是有底气的。</b></p>\n</div>\n\n<h3>一个拿全国最佳的中二学生</h3>\n<div class=\"voice\">\n  <div class=\"who\">Germaine Tan Xin Jie ｜ 中二 ｜ 2025 年 SSSC 最佳女子跆拳道运动员</div>\n  <p>2025 年代表新加坡出征<b>台湾 Formosa Cup</b> 与<b>釜山 Kimunyong Cup</b>，<b>两站金牌</b>；NSG 品势 C 组女子第一；<b>国家跆拳道训练队成员</b>。</p>\n  <p class=\"soft\" style=\"font-size:13.2px\">这条不是「荣誉墙」式的罗列——它证明了一件事：<b>这所学校的跆拳道不是「全员练一练」的体育课，是能培养出国家队苗子的训练体系。</b>对一个把 TKD 设为全员必修的学校来说，这个证据很关键。</p>\n</div>\n\n<h3>家长与学生的公开评价：查不到</h3>\n<div class=\"note\">\n我搜索了 Reddit、KiasuParents 与 Google 评论，<b>没有找到关于这所学校的成规模讨论</b>。榜鹅一带的新校普遍如此。\n<br><br>\n<b>但这一所有个方便之处：</b>它离 Punggol 地铁站只有 445 米，<b>放学时段（下午 2:30 左右）在校门口或水滨坊（Waterway Point）一带很容易遇到学生和家长</b>。想了解真实体验，这是成本最低的一所。\n</div>\n</section>\n",
-
-  "checklistLead": "前提：<b>17 分报这所录取概率很低</b>，以下清单更适合「分数在 14 分以内」或「作为参照基准」时使用。",
-  "checklist": [
-    "<b>今年 PG3 上限有没有可能上移？</b>——直接问招生老师对今年分数线的判断，虽然答案未必准，但能听出他们的预期。",
-    "<b>Robotics Club 有多少人？参加什么比赛？</b>——孩子的核心兴趣，官网有独立页面但没写细节。",
-    "<b>ELDDS 内部怎么分组？戏剧组每周训练几次？</b>——确认戏剧是「真的在演」还是「在辩论社里偶尔演」。",
-    "<b>SYFC 青年飞行俱乐部怎么运作？有实际飞行体验吗？</b>——稀缺资源，值得了解到底做什么。",
-    "<b>Innovation DSA 具体招什么？含不含编程或工程？</b>——DSA 里唯一可能与 STEM 相关的方向，名字看不出内容。",
-    "<b>跆拳道两年必修，孩子如果有伤病或不愿意练，有替代方案吗？</b>——这是硬性安排，必须提前问清。",
-    "<b>ARTasFEST 是每个学生都能参与，还是选拔？</b>——5,000 人的活动如果全员参与，是极好的锻炼；如果只有少数人，价值就不同。",
-    "<b>Full SBB 下，17 分的孩子各科大概落在哪个 band？</b>——决定他实际的课程难度与同班同学。",
-    "<b>上一届 Express 班 JC 资格率？</b>——不公布，只能问。",
-    "<b>从 Punggol 站走到学校的那 445 米好走吗？有没有遮雨棚？</b>——通勤最短的一所，但新加坡的雨很实在。"
-  ],
-
-  "sources": [
-    { "label": "PG3 录取区间 5–14（17 分差 3 分）", "value": "MOE SchoolFinder（2025 年度 S1 Posting）", "grade": "A" },
-    { "label": "建校年份 2011 / 学校定位", "value": "学校官网 About Edgefield", "grade": "A" },
-    { "label": "愿景 / 使命 / 校训 / E=mc² 价值观", "value": "学校官网 Mission, Vision, Motto & Core Values", "grade": "A" },
-    { "label": "ALP G.E.M + Future Ready Programme 全部情景", "value": "学校官网 Applied Learning Programme 页", "grade": "A" },
-    { "label": "ARTasFEST 2025 详细分工与规模", "value": "学校官网 ALP 页活动报道", "grade": "A" },
-    { "label": "LLP 跆拳道课时安排与分级考试", "value": "学校官网 Learning for Life Programme 页", "grade": "A" },
-    { "label": "Germaine Tan 获 SSSC 最佳女运动员", "value": "学校官网 LLP 页", "grade": "B" },
-    { "label": "约 19 项 CCA 完整清单", "value": "学校官网 CCA 四个分类页 + sitemap", "grade": "A" },
-    { "label": "MOE 登记 12 项 CCA", "value": "MOE SchoolFinder（<b>不完整</b>）", "grade": "A" },
-    { "label": "DSA 8 个项目与「零经验可申请」政策", "value": "学校官网 DSA 页 + MOE SchoolFinder", "grade": "A" },
-    { "label": "两名学生队长的第一人称证言", "value": "学校官网 CCA Sports 页", "grade": "A" },
-    { "label": "O-Level 成绩 / 升学分布", "value": "<b>官网未公布</b>", "grade": "C" },
-    { "label": "学生规模（约 1,200）", "value": "估算值", "grade": "C" }
-  ],
-
-  "corrections": [
-    { "claim": "「Edgefield 只有 12 个 CCA」", "truth": "MOE 登记 12 项，<b>官网列出约 19 项</b>——多出 Robotics Club、SYFC 青年飞行俱乐部、Art Club、New Media Club、ELDDS、Guzheng、Festive Drums、Harmonica、NCDCC、NPCC(Sea)。<b>仅看 MOE 数据会漏掉孩子最想要的机器人社与戏剧社。</b>" },
-    { "claim": "「学校 ALP 重点是创业，与技术无关」", "truth": "ALP 的 G.E.M 部分确实是创业思维，<b>但配套的 Future Ready Programme 核心情景是「用编程部署无人机做地震搜救」</b>，另含都市农业、漂浮城市等 STEM 议题。两者是互补关系。" },
-    { "claim": "「跆拳道是社团活动，可以自由参加」", "truth": "<b>中一、中二全员必修</b>，在正课时间每周两节共 1 小时，并参加分级考试。中三中四才是选修。" },
-    { "claim": "「学校历史较长」", "truth": "<b>2011 年建校</b>，2026 年才 15 年——是本次十三所候选里最年轻的之一。" },
-    { "claim": "「17 分大概率能进」", "truth": "PG3 上限 <b>14</b>，17 分<b>高出 3 分，超出录取范围</b>。COP 年际浮动通常 1–2 分，不足以覆盖 3 分差距。" }
-  ],
-
-  "generatedAt": "2026-11-11"
+ "slug": "edgefield-secondary-school",
+ "nameZh": "埃奇菲尔德中学",
+ "nameEn": "Edgefield Secondary School",
+ "abbr": "EFSS",
+ "kindLabel": "政府混校",
+ "heroSub": "⚠️ <b>先说结论：17 分够不着这所学校</b>（PG3 区间 5–14，差 3 分）。但它值得单独了解——<b>通勤 17 分钟是全部候选里最快的</b>，ALP 是一整套「未来情景模拟」（含无人机编程），学生会自己办一场 5,000 人的嘉年华。如果你的分数在 14 分以内，它可能是最优选之一。",
+ "profileExtra": [
+  {
+   "k": "建校",
+   "v": "2011 年"
+  },
+  {
+   "k": "学生规模",
+   "v": "约 1,200"
+  },
+  {
+   "k": "IP / SAP",
+   "v": "否 / 否"
+  }
+ ],
+ "howWritten": "COP、CCA、DSA、科目来自 <b>MOE SchoolFinder</b>；校史、办学理念、ALP/LLP 细节、CCA 完整清单来自<b>学校官网</b>。这所学校有一处需要说明：<b>官网列出的 CCA 约 19 项，MOE 只登记 12 项</b>，两处差异我在第 5 节逐项对照。<b>不公布 O-Level 成绩。</b>",
+ "s1": "<!-- ============ 1 ============ -->\n<section>\n<h2 id=\"s1\"><span class=\"n\">01</span>30 秒判断</h2>\n<p class=\"lead\">如果只看一句话：<b>这是十三所里「条件最好、但门槛最高」的一所</b>——通勤最快、项目最实、社团最全，但 PG3 上限只有 14，比你的 17 分低 3 分。</p>\n\n<div class=\"warnbox\">\n<b>把话说在前面：17 分报这所学校，录取概率极低。</b>PG3 的非附属区间是 <b>5–14</b>，意味着最后一名被录取的学生是 14 分。<b>你高出 3 分——不是「差一点」，是超出录取范围。</b>\n<br><br>\nCOP 每年会浮动 1–2 分，理论上存在「今年大爆冷」的可能，但<b>不能把志愿押在这种可能性上</b>。\n<br><br>\n<b>那为什么还做这份报告？</b>两个理由：① 它是判断其他学校的<b>参照基准</b>——知道「14 分能买到什么样的学校」，才知道自己那 17 分买到的值不值；② 如果家里有更小的孩子、或者分数后续有变化，这份档案能直接用。\n</div>\n\n<div class=\"grid2\">\n  <div class=\"panel\">\n    <h4>它的条件好在哪里</h4>\n    <ul>\n      <li><b>通勤 17 分钟、步行 445m</b>——全部候选里最快，地铁站出来走 6 分钟就到</li>\n      <li><b>ALP 是一整套情景模拟</b>：用无人机编程做地震救援、在 8 分钟内搜完 8,000 平方米</li>\n      <li><b>学生自己办 5,000 人的嘉年华</b>（ARTasFEST），中一到中三各管一块</li>\n      <li><b>社团约 19 项</b>，含机器人社、青年飞行俱乐部、英语戏剧辩论演讲社</li>\n    </ul>\n  </div>\n  <div class=\"panel muted\">\n    <h4>现实约束</h4>\n    <ul>\n      <li><b>分数不够</b>——PG3 5–14，17 分超出 3 分。这是唯一的、也是决定性的问题</li>\n      <li>学校 <b>2011 年才建校</b>，没有老校的文化沉淀</li>\n      <li><b>不公布成绩</b>，学术水平只能靠开放日问</li>\n      <li>跆拳道是全员必修，<b>不喜欢武术的孩子要练两年</b></li>\n    </ul>\n  </div>\n</div>\n\n<div class=\"verdict\">\n  <h3>三个需要记住的数字</h3>\n  <ul>\n    <li><b>PG3 5–14</b>：<b>17 分差 3 分。</b>上限 14 意味着它录取的学生里最好的是 5 分、最差是 14 分——是一所生源相当整齐的学校。</li>\n    <li><b>17 分钟 / 445m</b>：十三所里通勤最快。这个数字比很多人的「同区学校」还短。</li>\n    <li><b>19 项 CCA（登记 12 项）</b>：官网列出 Art、New Media、Robotics、SYFC 飞行、ELDDS、节令鼓、古筝、口琴、NCDCC、NPCC(Sea) 等，MOE 的清单少了近一半。</li>\n  </ul>\n</div>\n</section>\n",
+ "s2": "<!-- ============ 2 ============ -->\n<section>\n<h2 id=\"s2\"><span class=\"n\">02</span>学校底色与校史</h2>\n<p class=\"lead\">这所学校很年轻——<b>2011 年建校，到今天 15 年</b>。但它用这 15 年做了一件同龄学校很少做到的事：把「未来」变成了可操作的课程结构，而不只是宣传词。</p>\n\n<h3>它对自己的定位</h3>\n<table>\n<thead><tr><th style=\"width:130px\">项目</th><th>内容</th></tr></thead>\n<tbody>\n<tr><td><b>愿景</b></td><td><b>Collaborative Innovators, Compassionate Leaders</b><br><span class=\"soft\">协作型创新者，有同情心的领导者</span></td></tr>\n<tr><td><b>使命</b></td><td><b>Growing Minds, Glowing Hearts</b><br><span class=\"soft\">成长的心智，发光的心</span></td></tr>\n<tr><td><b>校训</b></td><td><b>Sincerity and Honour</b>（真诚与荣誉）</td></tr>\n<tr><td><b>格言</b></td><td><b>Wisdom Begins With Wonder</b>（智慧始于好奇）——引自苏格拉底</td></tr>\n<tr><td><b>价值观</b></td><td><b>E = mc²</b>：<b>E</b>nterprising 进取 · <b>M</b>oral Courage 道德勇气 · <b>C</b>ompassion 关怀</td></tr>\n</tbody>\n</table>\n\n<div class=\"note\">\n<b>值得单独说一句「E = mc²」。</b>这三个词的英文首字母 <b>E、M、C</b> 正好拼成爱因斯坦的质能方程。<b>在全部十三所候选里，这是唯一一个把价值观做成了「可记忆的公式」的学校。</b>\n<br><br>\n学校自己的解释是：这个公式帮助学生把心态聚焦在「做正确的事」以及「为身边的人带来正面改变」上。不管你有没有被这个设计说服，<b>它至少证明这所学校在设计理念时是动过脑子的</b>——而不是从一份价值观词库里随手挑五个词。\n</div>\n\n<h3>建校背景</h3>\n<p>学校 2011 年成立于榜鹅，是这一带较新的中学之一。官网对自己的描述很实在：「尽管历史相对较短，Edgefield 已经因几个关键优势而为人所知——<b>敬业的教师、活跃的学习环境、多元的 CCA 体验，以及创新的文化</b>。」</p>\n<p>它同时是 <b>Full SBB（全面科目编班）</b>学校——学生按科目能力分班而不是按整体源流分班，官方说法是「让学生在没有标签的环境里一起学习」。</p>\n<p class=\"soft\" style=\"font-size:13.2px\">Full SBB 这件事值得留意：它意味着<b>同一个班里会有不同科目组合的学生</b>，学校的教学组织比传统分班复杂。好处是标签淡化，代价是老师要同时照顾不同的进度。</p>\n</section>\n",
+ "s3": "<!-- ============ 3 ============ -->\n<section>\n<h2 id=\"s3\"><span class=\"n\">03</span>学业与升学出路</h2>\n<p class=\"lead\">这所学校<b>不公布 O-Level 成绩</b>。但它的 PG3 区间本身就透露了很多——<b>5 到 14，跨度 9 分，上限只有 14</b>。</p>\n\n<h3>生源结构说明了什么</h3>\n<p>PG3 上限 14 是一个非常关键的数字。它意味着：</p>\n<ul>\n  <li><b>这所学校录取的最差学生是 14 分</b>——比绝大多数邻里中学严格</li>\n  <li>下限 5 分说明它也能收到接近满分的学生</li>\n  <li><b>整体生源质量在本次十三所候选里属于第一梯队</b>（对比：Compassvale 14–18、North Vista 11–18、Bendemeer 11–22）</li>\n</ul>\n<p>换句话说：<b>17 分在这里会是全班最靠后的那一档</b>。这也是为什么学校的门槛卡在 14——它不是「不想收」，是报名的人太多，只能按分数往下切。</p>\n\n<h3>科目覆盖</h3>\n<p>MOE SchoolFinder 显示标准配置齐全：语言（英文与文学、高级华文／华文／马来文／淡米尔文及基础班）、数学与附加数学、物理／化学／生物（含组合）、社会学科与地理／历史／文学、设计与工艺、食品与消费教育、艺术、音乐、体育。<b>STEM 主线（附加数学 + 物理 + 化学）完整。</b></p>\n<p>配合 Full SBB，学生可以在不同科目上处于不同 band——<b>「数学在 G3、华文在 G2」这种组合是允许的</b>，不必整体降档。</p>\n\n<div class=\"verdict\">\n  <h3>毕业生去向怎么判断</h3>\n  <ul>\n    <li><b>直接证据：没有。</b>不公布升学分布。</li>\n    <li><b>间接判断：生源整齐，出口应该不差。</b>PG3 5–14 的生源结构，通常对应「半数以上能上 JC 或较好的 Poly 课程」这一档。</li>\n    <li><b>一个观察：</b>学校的对外沟通重心全在 ALP/LLP 与 ARTasFEST，<b>几乎不谈升学</b>。这和它的「创新文化」定位是一致的。</li>\n    <li><b>开放日要问：</b>「上一届 Express 班 JC 资格率？」「Full SBB 下，不同 band 的学生怎么安排课时与考试？」</li>\n  </ul>\n</div>\n</section>\n",
+ "s4": "<!-- ============ 4 ============ -->\n<section>\n<h2 id=\"s4\"><span class=\"n\">04</span>两个旗舰项目</h2>\n<p class=\"lead\">这一节是这所学校最有价值的部分。<b>它的 ALP 不是一门课，是一整套「未来情景模拟」（Future Ready Programme）</b>，而且有配套的国际竞赛与年会级活动。</p>\n\n<h3>ALP：Growing the Edgefield Mindset（G.E.M）+ 未来准备计划</h3>\n<p>ALP 由两层构成：<b>G.E.M</b> 教创业思维，<b>Future Ready Programme（FRP）</b>给情景任务去练。</p>\n\n<div class=\"voice\">\n  <div class=\"who\">学校原文举的第一个情景（FRP 开场案例）</div>\n  <p>「地震发生了。一片混乱。有消息说有人失踪，可能被困在某处。<b>他们只有 8 分钟疏散，否则可能活不下来。</b>Edgefield 的搜救队立刻开始勘察周围环境、定位受困者。但这个小组怎么在这么短的时间里搜完 <b>8,000 平方米</b>？<b>靠编程并部署无人机！</b>无人机会给他们空中视角，帮助观察生命迹象、取得关键信息，指引救援队前往正确位置。」</p>\n  <p class=\"soft\" style=\"font-size:13.2px\">这个案例的写法值得注意：它先给约束（8 分钟、8000 平方米、小队），再给手段（编程 + 无人机）。<b>这是真实工程问题的结构——先有约束，才谈方案。</b>比起「我们教无人机」，这种叙述方式说明课程设计者想清楚了「为什么要用无人机」。</p>\n</div>\n\n<p>其余情景同样是有约束的真实议题：</p>\n<table>\n<thead><tr><th style=\"width:190px\">情景</th><th>学生要解决的问题</th></tr></thead>\n<tbody>\n<tr><td><b>全国粮食与水源短缺</b></td><td>通过<b>都市农业</b>与<b>雨水收集</b>方法组建专项小组应对</td></tr>\n<tr><td><b>多元社会实验</b></td><td>设计一个创新的社会实验，让新加坡人<b>亲身体验</b>多元社会的影响</td></tr>\n<tr><td><b>海平面上升</b></td><td>建造一座<b>漂浮城市</b>的实体模型，可在临界海平面时实施</td></tr>\n</tbody>\n</table>\n\n<h3>它的课程依据不是拍脑袋</h3>\n<p>学校明确写了 FRP 的设计来源：<b>总理公署策略组（Strategy Group, PMO）、世界经济论坛（WEF）、新加坡政策研究所（IPS）</b>。并且把当前的技术、地缘政治、社会趋势<b>投射到 20–30 年后</b>，训练学生解决「他们成年后会面对的问题」。</p>\n<p>学生能参与的对外平台包括：<b>MOE Innovation Programme（IvP）、SIT Community Challenge、Future Skills Day、以及 Future Problem Solving Programme（FPSP，国际赛）</b>。</p>\n\n<h3>G.E.M 的成果：一场 5,000 人的学生自办嘉年华</h3>\n<div class=\"voice\">\n  <div class=\"who\">来源：学校官网 ARTasFEST 2025 报道（2025-05-23）</div>\n  <p><b>ARTasFEST</b> 是学校两年一度的嘉年华，作为 ALP 的标志性展示平台，主题「Ignite the Spark, Illuminate the Future」。<b>活动主要由学生主导</b>：</p>\n  <p>· <b>中一</b>：与供应商合作策划商品摊位<br>\n     · <b>中二</b>：协调餐饮供应<br>\n     · <b>中三</b>：设计并运营原创嘉年华游戏<br>\n     · <b>学长团与朋辈支持领袖</b>：负责特色摊位</p>\n  <p>同一晚还有户外演唱会，学生表演者、司仪、音视频团队全部上场。<b>活动吸引超过 5,000 人参与</b>，家长、校友、社区伙伴都在。</p>\n  <p class=\"soft\" style=\"font-size:13.2px\">有一个细节很说明问题：学生用课程里的 <b>Content Creator 与 Game Design 模块</b>，为视障人士制作宣传视频和游戏，然后<b>办一场募款活动</b>把成果变成实际支持。<b>这就是「学的东西真的用出去了」——从技能到作品到社会影响，链条是完整的。</b></p>\n</div>\n\n<h3>LLP：以跆拳道为锚的品格教育</h3>\n<p>项目全名 <b>Character Education through Sports（Anchored on Taekwondo）</b>。这条和多数学校不同——<b>它把一项武术做成了全员必修课</b>：</p>\n<table>\n<thead><tr><th style=\"width:140px\">年级</th><th>安排</th></tr></thead>\n<tbody>\n<tr><td><b>中一、中二</b></td><td><b>全员</b>在正课时间上跆拳道，<b>每周两节、共 1 小时</b></td></tr>\n<tr><td><b>中三、中四</b></td><td>鼓励继续，采取选修（opt-in）方式深化</td></tr>\n<tr><td><b>分级考试</b></td><td>中一／中三／中四在上学期两次；中二在下学期一次</td></tr>\n</tbody>\n</table>\n<p>学校对它的说明是：培养自律、尊重他人与自己、韧性——「<b>这些品质会延伸到训练馆之外</b>」。</p>\n\n<div class=\"voice\">\n  <div class=\"who\">Germaine Tan Xin Jie（中二）｜ 2025 年第 55 届 SSSC Colours Awards 最佳女子跆拳道运动员</div>\n  <p>她在 2025 年代表新加坡参加<b>台湾 National Formosa Cup</b> 与<b>釜山 Kimunyong Cup 国际公开赛</b>，<b>两站都拿金牌</b>；在国内拿下 NSG 跆拳道（品势）C 组女子第一。</p>\n  <p>学校对她的描述是：「除了竞技成就，Germaine 还是<b>国家跆拳道训练队</b>成员，是身边人的榜样。她体现了卓越、韧性与谦逊，以包容的精神和对队友毫不动摇的支持而为人所知。」</p>\n  <p class=\"soft\" style=\"font-size:13.2px\">这个奖的性质要说清：<b>SSSC Best Sportsgirl 是每个运动项目年度唯一的最佳女运动员奖</b>，评的是本地与海外比赛的综合表现，还要看品格。一个中二学生拿到它，说明这所学校的跆拳道训练体系是真有东西的——而不是「全员练一练」的水平。</p>\n</div>\n\n<div class=\"note\">\n<b>如果孩子不喜欢武术怎么办？</b>这是选这所学校前必须想清楚的一件事。<b>中一中二每周 1 小时的跆拳道是必修，不是选修。</b>对喜欢的孩子是福利（免费学一门武术、有分级认证）；对不喜欢的孩子是两年的负担。<b>开放日建议让孩子亲自去看看训练课。</b>\n</div>\n</section>\n",
+ "s5": "<!-- ============ 5 ============ -->\n<section>\n<h2 id=\"s5\"><span class=\"n\">05</span>CCA 全解析</h2>\n<p class=\"lead\">这是十三所里 CCA 最丰富的一所——<b>官网列出 22 项，MOE 只登记 12 项</b>。而且它有一项别处没有的：<b>青年飞行俱乐部</b>。</p>\n\n<h3>MOE 登记（12 项）</h3>\n<table>\n<thead><tr><th style=\"width:110px\">类别</th><th>CCA</th></tr></thead>\n<tbody>\n<tr><td><b>体育</b></td><td>Badminton 羽毛球 · Basketball 篮球 · <b>Shooting 射击</b> · Taekwondo 跆拳道 · Volleyball 排球（男）· Wushu 武术</td></tr>\n<tr><td><b>表演艺术</b></td><td>Choir 合唱 · Concert Band 管乐团 · Modern Dance 现代舞</td></tr>\n<tr><td><b>制服团体</b></td><td>Girl Guides 女童军 · Scouts 童军</td></tr>\n<tr><td><b>俱乐部</b></td><td>Infocomm Technology（媒体制作）</td></tr>\n</tbody>\n</table>\n\n<h3>官网另有、MOE 未登记的（10 项）</h3>\n<table>\n<thead><tr><th style=\"width:110px\">类别</th><th>CCA</th><th>说明</th></tr></thead>\n<tbody>\n<tr><td><b>俱乐部</b></td><td><b>Robotics Club 机器人社</b></td><td>🔑 <b>孩子最想要的那一条，官网有独立页面</b></td></tr>\n<tr><td><b>俱乐部</b></td><td><b>SYFC 新加坡青年飞行俱乐部</b></td><td>🔑 全岛少数设 SYFC 的中学，与「航空」方向对得上</td></tr>\n<tr><td><b>俱乐部</b></td><td>Art Club 美术社 · New Media Club 新媒体社</td><td>新媒体社与 ALP 的 Content Creator 模块衔接</td></tr>\n<tr><td><b>表演艺术</b></td><td><b>ELDDS</b>（英文·戏剧·辩论·演讲）</td><td>🔑 <b>孩子想要戏剧，这条能接住</b>——但注意是合并社团</td></tr>\n<tr><td><b>表演艺术</b></td><td>Guzheng 古筝 · Festive Drums 节令鼓 · Harmonica 口琴</td><td>音乐类配置异常丰富（管乐、古筝、口琴、节令鼓四套）</td></tr>\n<tr><td><b>制服团体</b></td><td><b>NCDCC 民防少年团</b> · <b>NPCC (Sea) 警察海岸少年团</b></td><td>制服团体共 4 个，比多数学校多</td></tr>\n</tbody>\n</table>\n\n<div class=\"verdict\">\n  <h3>这份清单对孩子的意义</h3>\n  <ul>\n    <li><b>Robotics —— 有。</b>Robotics Club 有独立页面。这是十三所里少数真正设机器人社的学校。</li>\n    <li><b>Drama —— 有，但要看结构。</b>ELDDS 是英文、戏剧、辩论、演讲合并的社团（与 Hougang 同样的模式）。<b>值得问内部怎么分组。</b></li>\n    <li><b>Aviation —— 有。</b>SYFC 在中学里是稀缺资源，如果孩子对飞行有兴趣，这条独一无二。</li>\n    <li><b>Swimming —— 没有。</b>没有游泳 CCA，也没有泳池。</li>\n    <li><b>Cooking —— 部分。</b>没有烹饪 CCA，有食品与消费教育科目；ARTasFEST 里中二要协调餐饮供应，算是一次实战。</li>\n  </ul>\n</div>\n\n<h3>用 DSA 名单反推「真正的强项」</h3>\n<p>DSA 开 <b>8 项</b>，分三块：</p>\n<p style=\"font-size:14.4px\">\n<span class=\"tag a\">Taekwondo 跆拳道</span>\n<span class=\"tag a\">Volleyball 排球（男）</span>\n<span class=\"tag a\">Badminton 羽毛球</span>\n<span class=\"tag a\">Basketball 篮球</span>\n<span class=\"tag a\">Softball 垒球（女）</span>\n<span class=\"tag a\">Wushu 武术</span>\n<span class=\"tag a\">Innovation 创新</span>\n<span class=\"tag a\">Student Leadership 学生领导力</span>\n</p>\n<p><b>6 项体育 + 2 项素养类。</b>值得注意的是<b>没有一项 STEM</b>——尽管它的 ALP 是无人机编程。「Innovation（创新）」这个方向可能就是 STEM 的入口，但名字上看不出来，必须问。</p>\n<div class=\"note\">\n<b>一条对没有竞赛经验的孩子很友好的政策：</b>学校 DSA 页面原文写着「<b>没有相关经验的学生也可以申请</b>，学校将根据选拔标准评估申请者，可能包括评估其潜力」。同时要求 P5、P6 的操行等级为 Excellent 或 Very Good。\n<br><br>\n这在 DSA 里并不常见——多数学校的体育 DSA 默认要求有比赛成绩。<b>如果你家孩子在某项运动上有兴趣但没系统训练过，这所学校给了一扇门。</b>\n</div>\n</section>\n",
+ "s6": "<!-- ============ 6 ============ -->\n<section>\n<h2 id=\"s6\"><span class=\"n\">06</span>真实声音</h2>\n<p class=\"lead\">这所学校的官网有一个别处少见的东西：<b>CCA 页面上直接挂了学生队长的第一人称证言</b>，署了名和班级。</p>\n\n<h3>两个学生队长怎么描述自己的队伍</h3>\n<div class=\"voice\">\n  <div class=\"who\">Janelle Tan Wen Xi ｜ 2026 年羽毛球女队队长 ｜ 来源：学校官网 CCA Sports 页</div>\n  <p>「参加羽毛球 CCA 是一段有收获的经历，它帮助我作为一个人成长。通过规律训练和比赛，我学到了纪律、韧性与坚持的重要。<b>每一次训练都在挑战我提升技术，也提醒我持续努力才是达成目标的关键。</b>」</p>\n  <p>「这个 CCA 也让我和队友建立了深厚的友谊。我们在训练中互相鼓励，一起从错误中学习，也为彼此的成就庆祝。<b>作为队长，我还学会了为团队负责，在队友需要鼓励和指引时随时支持他们。</b>这些经历强化了我的领导力、沟通与团队协作能力。」</p>\n  <p>「我也学到了球场之外的功课。它把我塑造成一个更自信、更坚定的人。」</p>\n</div>\n\n<div class=\"voice\">\n  <div class=\"who\">Chia Xin Hui Adoncia ｜ 3ED ｜ 2026–2027 篮球女队队长 ｜ 来源：学校官网 CCA Sports 页</div>\n  <p>「加入 Edgefield 篮球 CCA 教会我很多关于团队协作、纪律和领导力的事。每一次训练和比赛都让我们作为一支队伍更靠近，<b>当队长让我明白什么叫「用心领导」，即使在我们最艰难的日子里。</b>」</p>\n  <p>「<b>每一天我们都努力为团队变得比昨天好 1%。</b>我真的很为我和队友共同达成的一切感到骄傲。我感激在 CCA 里经历的友谊、教训和机会！」</p>\n  <p class=\"soft\" style=\"font-size:13.2px\">这两段值得一起读，因为它们<b>不像学校宣传稿，像学生自己写的</b>——有具体的方法（「每天好 1%」）、有具体的困难（「最艰难的日子」）、有具体的角色（「作为队长」）。<b>学校愿意把这种带个人口吻的文字原样放上来，说明它对自己队伍的日常是有底气的。</b></p>\n</div>\n\n<h3>一个拿全国最佳的中二学生</h3>\n<div class=\"voice\">\n  <div class=\"who\">Germaine Tan Xin Jie ｜ 中二 ｜ 2025 年 SSSC 最佳女子跆拳道运动员</div>\n  <p>2025 年代表新加坡出征<b>台湾 Formosa Cup</b> 与<b>釜山 Kimunyong Cup</b>，<b>两站金牌</b>；NSG 品势 C 组女子第一；<b>国家跆拳道训练队成员</b>。</p>\n  <p class=\"soft\" style=\"font-size:13.2px\">这条不是「荣誉墙」式的罗列——它证明了一件事：<b>这所学校的跆拳道不是「全员练一练」的体育课，是能培养出国家队苗子的训练体系。</b>对一个把 TKD 设为全员必修的学校来说，这个证据很关键。</p>\n</div>\n\n<h3>家长与学生的公开评价：查不到</h3>\n<div class=\"note\">\n我搜索了 Reddit、KiasuParents 与 Google 评论，<b>没有找到关于这所学校的成规模讨论</b>。榜鹅一带的新校普遍如此。\n<br><br>\n<b>但这一所有个方便之处：</b>它离 Punggol 地铁站只有 445 米，<b>放学时段（下午 2:30 左右）在校门口或水滨坊（Waterway Point）一带很容易遇到学生和家长</b>。想了解真实体验，这是成本最低的一所。\n</div>\n</section>\n",
+ "checklistLead": "前提：<b>17 分报这所录取概率很低</b>，以下清单更适合「分数在 14 分以内」或「作为参照基准」时使用。",
+ "checklist": [
+  "<b>今年 PG3 上限有没有可能上移？</b>——直接问招生老师对今年分数线的判断，虽然答案未必准，但能听出他们的预期。",
+  "<b>Robotics Club 有多少人？参加什么比赛？</b>——孩子的核心兴趣，官网有独立页面但没写细节。",
+  "<b>ELDDS 内部怎么分组？戏剧组每周训练几次？</b>——确认戏剧是「真的在演」还是「在辩论社里偶尔演」。",
+  "<b>SYFC 青年飞行俱乐部怎么运作？有实际飞行体验吗？</b>——稀缺资源，值得了解到底做什么。",
+  "<b>Innovation DSA 具体招什么？含不含编程或工程？</b>——DSA 里唯一可能与 STEM 相关的方向，名字看不出内容。",
+  "<b>跆拳道两年必修，孩子如果有伤病或不愿意练，有替代方案吗？</b>——这是硬性安排，必须提前问清。",
+  "<b>ARTasFEST 是每个学生都能参与，还是选拔？</b>——5,000 人的活动如果全员参与，是极好的锻炼；如果只有少数人，价值就不同。",
+  "<b>Full SBB 下，17 分的孩子各科大概落在哪个 band？</b>——决定他实际的课程难度与同班同学。",
+  "<b>上一届 Express 班 JC 资格率？</b>——不公布，只能问。",
+  "<b>从 Punggol 站走到学校的那 445 米好走吗？有没有遮雨棚？</b>——通勤最短的一所，但新加坡的雨很实在。"
+ ],
+ "sources": [
+  {
+   "label": "PG3 录取区间 5–14（17 分差 3 分）",
+   "value": "MOE SchoolFinder（2025 年度 S1 Posting）",
+   "grade": "A"
+  },
+  {
+   "label": "建校年份 2011 / 学校定位",
+   "value": "学校官网 About Edgefield",
+   "grade": "A"
+  },
+  {
+   "label": "愿景 / 使命 / 校训 / E=mc² 价值观",
+   "value": "学校官网 Mission, Vision, Motto & Core Values",
+   "grade": "A"
+  },
+  {
+   "label": "ALP G.E.M + Future Ready Programme 全部情景",
+   "value": "学校官网 Applied Learning Programme 页",
+   "grade": "A"
+  },
+  {
+   "label": "ARTasFEST 2025 详细分工与规模",
+   "value": "学校官网 ALP 页活动报道",
+   "grade": "A"
+  },
+  {
+   "label": "LLP 跆拳道课时安排与分级考试",
+   "value": "学校官网 Learning for Life Programme 页",
+   "grade": "A"
+  },
+  {
+   "label": "Germaine Tan 获 SSSC 最佳女运动员",
+   "value": "学校官网 LLP 页",
+   "grade": "B"
+  },
+  {
+   "label": "约 19 项 CCA 完整清单",
+   "value": "学校官网 CCA 四个分类页 + sitemap",
+   "grade": "A"
+  },
+  {
+   "label": "MOE 登记 12 项 CCA",
+   "value": "MOE SchoolFinder（<b>不完整</b>）",
+   "grade": "A"
+  },
+  {
+   "label": "DSA 8 个项目与「零经验可申请」政策",
+   "value": "学校官网 DSA 页 + MOE SchoolFinder",
+   "grade": "A"
+  },
+  {
+   "label": "两名学生队长的第一人称证言",
+   "value": "学校官网 CCA Sports 页",
+   "grade": "A"
+  },
+  {
+   "label": "O-Level 成绩 / 升学分布",
+   "value": "<b>官网未公布</b>",
+   "grade": "C"
+  },
+  {
+   "label": "学生规模（约 1,200）",
+   "value": "估算值",
+   "grade": "C"
+  }
+ ],
+ "corrections": [
+  {
+   "claim": "「Edgefield 只有 12 个 CCA」",
+   "truth": "MOE 登记 12 项，<b>官网列出约 19 项</b>——多出 Robotics Club、SYFC 青年飞行俱乐部、Art Club、New Media Club、ELDDS、Guzheng、Festive Drums、Harmonica、NCDCC、NPCC(Sea)。<b>仅看 MOE 数据会漏掉孩子最想要的机器人社与戏剧社。</b>"
+  },
+  {
+   "claim": "「学校 ALP 重点是创业，与技术无关」",
+   "truth": "ALP 的 G.E.M 部分确实是创业思维，<b>但配套的 Future Ready Programme 核心情景是「用编程部署无人机做地震搜救」</b>，另含都市农业、漂浮城市等 STEM 议题。两者是互补关系。"
+  },
+  {
+   "claim": "「跆拳道是社团活动，可以自由参加」",
+   "truth": "<b>中一、中二全员必修</b>，在正课时间每周两节共 1 小时，并参加分级考试。中三中四才是选修。"
+  },
+  {
+   "claim": "「学校历史较长」",
+   "truth": "<b>2011 年建校</b>，2026 年才 15 年——是本次十三所候选里最年轻的之一。"
+  },
+  {
+   "claim": "「17 分大概率能进」",
+   "truth": "PG3 上限 <b>14</b>，17 分<b>高出 3 分，超出录取范围</b>。COP 年际浮动通常 1–2 分，不足以覆盖 3 分差距。"
+  }
+ ],
+ "generatedAt": "2026-11-11"
 }

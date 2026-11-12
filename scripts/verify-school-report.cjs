@@ -123,6 +123,12 @@ if (s) {
     choir: ['choir', 'voicesofjoy'],
     englishdrama: ['englishdrama', 'eldds', 'drama'],
     debating: ['debating', 'eldds', 'debate'],
+    // 报告里常用缩写，catalog 用全称；两边都要能互认
+    nationalcadetcorps: ['nationalcadetcorps', 'ncc'],
+    nationalpolicecadetcorps: ['nationalpolicecadetcorps', 'npcc'],
+    // 学校官网原文拼作 Taekwando（学校与 MOE 都这么写），不是 Taekwondo
+    taekwondo: ['taekwondo', 'taekwando'],
+    taekwando: ['taekwando', 'taekwondo'],
   };
 
   // 名称匹配：归一化（忽略大小写/空格/连字符/括号），并支持括号内缩写
@@ -143,6 +149,35 @@ if (s) {
   const ccaMissing = moeCca.filter(c => !hasItem(c));
   t(`MOE 登记 ${moeCca.length} 项 CCA 全部列出`, ccaMissing.length === 0,
     ccaMissing.length ? '缺: ' + ccaMissing.join(', ') : `${moeCca.length}/${moeCca.length}`);
+
+  /* ── 双向断言：catalog 是权威完整清单，两个方向都要查 ──
+     方向一（下面第一条）：catalog 里每一项都必须出现在报告中 → 防报告漏写
+     方向二（第二条）：报告声称的总项数必须等于 catalog 的项数 → 防数字写错
+     之所以需要方向二：过去只查方向一时，报告把「13 项」写成「14 项」、
+     把「22 项」写成「约 19 项」，全部通过验证。单向断言查不出「数错」。 */
+  const cat = JSON.parse(fs.readFileSync(path.join(BASE, 'data/cca-catalog.json'), 'utf8'));
+  const entry = cat.schools[slug];
+  if (entry) {
+    const catMissing = entry.items.filter(it => {
+      const names = [it.name, ...(it.aliases || [])];
+      return !names.some(n => hasItem(n));
+    });
+    t(`目录 ${entry.items.length} 项 CCA 全部出现在报告`, catMissing.length === 0,
+      catMissing.length ? '缺: ' + catMissing.map(x => x.name).join(', ') : `${entry.items.length}/${entry.items.length}`);
+
+    // 报告「05 CCA 全解析」章节里必须出现正确的总项数
+    const sec5 = (html.match(/<h2[^>]*id="s5"[\s\S]*?<h2[^>]*id="s6"/) || [''])[0];
+    const total = entry.items.length;
+    const claim = new RegExp(`${total}\\s*项`);
+    t(`报告 CCA 总项数正确（${total} 项）`, claim.test(stripTags(sec5)),
+      `章节内未见「${total} 项」`);
+
+    // 反向：若报告写明了 MOE 登记数，必须准确（不强制每份都写，但写了不能错）
+    const moeClaim = stripTags(sec5).match(/MOE\s*(?:仅)?登记\s*(\d+)\s*项/);
+    t(`MOE 登记数无误（${entry.moeCount} 项）`,
+      !moeClaim || Number(moeClaim[1]) === entry.moeCount,
+      moeClaim ? `报告写 ${moeClaim[1]} 项，实际 ${entry.moeCount} 项` : '未提及（允许）');
+  }
 
   // DSA 招生项目必须全部出现
   const dsa = (s.dsaAreas || []).filter(Boolean);

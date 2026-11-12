@@ -282,6 +282,103 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
   await ev(`document.getElementById('reset').click()`);
   await sleep(400);
 
+  console.log('\n【七之四】CCA 兴趣筛选');
+  await ev(`document.getElementById('reset').click()`);
+  await sleep(450);
+  const intMeta = JSON.parse(await ev(`JSON.stringify({
+    chips: [...document.querySelectorAll('.chip-int')].map(c => ({
+      key: c.dataset.int, cnt: Number(c.querySelector('.cnt').textContent)
+    })),
+    mode: document.getElementById('intMode').textContent
+  })`));
+  t('兴趣 chip 共 9 项', intMeta.chips.length === 9, String(intMeta.chips.length));
+  t('每个 chip 都有数字角标', intMeta.chips.every(c => Number.isFinite(c.cnt)));
+  t('默认模式为「同时具备」', intMeta.mode === '同时具备', intMeta.mode);
+  const robotN = (intMeta.chips.find(c => c.key === 'robot') || {}).cnt;
+  t('机器人维度有结果', robotN > 0, `${robotN} 所`);
+  // 烹饪为 0 是真实结论（全岛无中学设烹饪 CCA），不是 bug
+  t('烹饪维度为 0 所', (intMeta.chips.find(c => c.key === 'cook') || {}).cnt === 0);
+
+  await ev(`document.querySelector('[data-int="robot"]').click()`);
+  await sleep(500);
+  const intA = JSON.parse(await ev(`JSON.stringify({
+    cards: document.querySelectorAll('.card').length,
+    on: document.querySelector('[data-int="robot"]').classList.contains('on')
+  })`));
+  t('选中机器人后卡片数等于角标计数', intA.cards === robotN, `${intA.cards} / ${robotN}`);
+  t('chip 进入选中态', intA.on);
+
+  await ev(`document.querySelector('[data-int="drama"]').click()`);
+  await sleep(500);
+  const intB = JSON.parse(await ev(`JSON.stringify({
+    cards: document.querySelectorAll('.card').length,
+    hint: document.getElementById('interestHint').textContent,
+    allMatch: [...document.querySelectorAll('.card')].length > 0
+  })`));
+  t('加戏剧后为 AND 交集（结果收窄）', intB.cards > 0 && intB.cards < intA.cards,
+    `${intA.cards} → ${intB.cards}`);
+  t('提示行写明「同时具备」并给出数量', /同时具备/.test(intB.hint) && /\d/.test(intB.hint), intB.hint.trim());
+
+  await ev(`document.getElementById('intMode').click()`);
+  await sleep(500);
+  const intC = JSON.parse(await ev(`JSON.stringify({
+    cards: document.querySelectorAll('.card').length,
+    hint: document.getElementById('interestHint').textContent,
+    mode: document.getElementById('intMode').textContent
+  })`));
+  t('切「任一满足」后为并集（结果变宽）', intC.cards > intB.cards, `${intB.cards} → ${intC.cards}`);
+  t('模式标签同步为「任一满足」', intC.mode === '任一满足', intC.mode);
+  t('提示行同步为「任一满足」', /任一满足/.test(intC.hint), intC.hint.trim());
+
+  await ev(`document.getElementById('reset').click()`);
+  await sleep(500);
+  const intReset = JSON.parse(await ev(`JSON.stringify({
+    cards: document.querySelectorAll('.card').length,
+    mode: document.getElementById('intMode').textContent,
+    on: document.querySelectorAll('.chip-int.on').length
+  })`));
+  t('重置清空兴趣筛选', intReset.cards === 147 && intReset.on === 0, `${intReset.cards} 张`);
+  t('重置恢复默认模式', intReset.mode === '同时具备', intReset.mode);
+
+  console.log('\n【七之五】卡片 CCA 展示');
+  const ccaUI = JSON.parse(await ev(`JSON.stringify((() => {
+    const card = [...document.querySelectorAll('.card')].find(c => c.dataset.slug === 'greendale-secondary-school');
+    if (!card) return { found: false };
+    card.querySelector('[data-act="toggle"]').click();
+    const d = card.querySelector('.detail');
+    const head = [...d.querySelectorAll('h4')].find(h => /CCA/.test(h.textContent));
+    return {
+      found: true,
+      groups: d.querySelectorAll('.cca-group').length,
+      dashed: d.querySelectorAll('.list span.only').length,
+      legend: !!d.querySelector('.cca-legend'),
+      head: head ? head.textContent.trim() : '',
+      hasRobot: /Robotics/.test(d.textContent),
+      hasDrama: /Theatricks/.test(d.textContent),
+      moeCountRow: (card.querySelector('.rows .val') || {}).textContent || ''
+    };
+  })())`));
+  t('Greendale 卡片存在', ccaUI.found);
+  t('CCA 按类别分组（4 组）', ccaUI.groups === 4, `${ccaUI.groups} 组`);
+  t('CCA 标题写明完整项数与 MOE 覆盖', /19 项/.test(ccaUI.head) && /7/.test(ccaUI.head), ccaUI.head);
+  t('MOE 未登记的项有虚线标记', ccaUI.dashed >= 10, `${ccaUI.dashed} 项`);
+  t('虚线含义有图例说明', ccaUI.legend);
+  // 这两条是整个改动的核心：MOE 漏登的机器人社与戏剧社必须在看板上可见
+  t('看板能看到 Robotics（MOE 未登记）', ccaUI.hasRobot);
+  t('看板能看到 Theatricks 戏剧社（MOE 未登记）', ccaUI.hasDrama);
+  t('卡片概要行显示完整项数与 MOE 数', /19/.test(ccaUI.moeCountRow) && /7/.test(ccaUI.moeCountRow), ccaUI.moeCountRow);
+
+  const fallback = JSON.parse(await ev(`JSON.stringify((() => {
+    const card = [...document.querySelectorAll('.card')].find(c => c.dataset.slug === 'raffles-institution-secondary');
+    if (!card) return { found: false };
+    card.querySelector('[data-act="toggle"]').click();
+    const d = card.querySelector('.detail');
+    const row = card.querySelector('.rows .val');
+    return { found: true, groups: d.querySelectorAll('.cca-group').length, row: row ? row.textContent.trim() : '' };
+  })())`));
+  t('无 ccaFull 的学校回退为单一列表', fallback.found && fallback.groups === 0);
+  t('回退时仍显示 MOE 项数', /22 项/.test(fallback.row), fallback.row);
+
   console.log('\n【八】JS 异常检查');
   const errs = await ev(`JSON.stringify(window.__errs || [])`);
   t('无未捕获异常', JSON.parse(errs).length === 0);

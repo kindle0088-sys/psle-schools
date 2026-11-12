@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-08T13:39:05.727Z",
+  "generatedAt": "2026-11-12T12:31:48.540Z",
   "total": 147,
   "copYear": 2025,
   "ipCount": 17,
@@ -16,6 +16,12 @@
    "Singapore Sports School",
    "Spectra Secondary School"
   ],
+  "cca": {
+   "note": "cca = MOE SchoolFinder 登记项；ccaFull = 官网核实后的完整清单（含 MOE 未登记项）。择校请以 ccaFull 为准。",
+   "verifiedSchools": 13,
+   "totalItems": 175,
+   "websiteOnlyItems": 54
+  },
   "sources": {
    "schools": "MOE SchoolFinder (https://www.moe.gov.sg/schoolfinder)",
    "cop": "MOE SchoolFinder — PSLE score range（上一年度实际录取区间）",
@@ -95,6 +101,7 @@
     "Track and Field (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Community Youth Leadership (Girls and Boys)",
@@ -248,6 +255,7 @@
     "Shooting (Girls and Boys)",
     "Track and Field (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls)",
@@ -397,6 +405,7 @@
     "Volleyball (Girls)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -540,6 +549,7 @@
     "Table Tennis (Girls)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -661,6 +671,7 @@
     "Scouts (Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -823,6 +834,7 @@
     "Tennis (Boys)",
     "Water Polo (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -994,6 +1006,7 @@
     "Volleyball (Boys)",
     "Water Polo (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -1175,6 +1188,7 @@
     "Modern Dance (Girls and Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls and Boys)",
@@ -1283,6 +1297,7 @@
     "Infocomm Technology (Media Production) (Girls and Boys)",
     "Modern Dance (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": null,
    "dsaAreas": [],
    "subjects": [
@@ -1371,6 +1386,7 @@
     "Table Tennis (Boys)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Chemical and Applied Sciences (Fragrance) (Girls and Boys)",
@@ -1518,6 +1534,7 @@
     "Volleyball (Girls)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -1660,6 +1677,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Choir (Girls and Boys)",
@@ -1799,6 +1817,7 @@
     "Netball (Girls)",
     "Scouts (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -1948,6 +1967,7 @@
     "Netball (Girls)",
     "Track and Field (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -2101,6 +2121,117 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Taekwondo (Girls and Boys)"
    ],
+   "ccaFull": {
+    "source": "website",
+    "note": "全岛少数公开每个社团训练日的学校，清单可信度最高",
+    "gaps": null,
+    "moeCount": 8,
+    "total": 13,
+    "onlyWebsite": 5,
+    "coveragePct": 62,
+    "categories": {
+     "sport": [
+      {
+       "name": "Cross Country",
+       "zh": "越野跑",
+       "moe": false,
+       "sex": null,
+       "note": "周二、周四"
+      },
+      {
+       "name": "Football",
+       "zh": "足球",
+       "moe": false,
+       "sex": null,
+       "note": "周一/周三/周四，训练最频繁"
+      },
+      {
+       "name": "Tchoukball",
+       "zh": "反弹球",
+       "moe": false,
+       "sex": null,
+       "note": "男女分开训练；全岛开设此项目的中学不多"
+      },
+      {
+       "name": "Taekwondo",
+       "zh": "跆拳道",
+       "moe": true,
+       "sex": null,
+       "note": "周二、周三"
+      }
+     ],
+     "arts": [
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": "周一、周二"
+      },
+      {
+       "name": "Concert Band",
+       "zh": "管乐团",
+       "moe": true,
+       "sex": null,
+       "note": "周一、周四"
+      },
+      {
+       "name": "English Drama",
+       "zh": "英语戏剧",
+       "moe": false,
+       "sex": null,
+       "note": "周一、周四；独立社团，非合并式"
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "现代舞",
+       "moe": true,
+       "sex": null,
+       "note": "周三、周四"
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "Girl Guides",
+       "zh": "女童军",
+       "moe": true,
+       "sex": "girls",
+       "note": "周四"
+      },
+      {
+       "name": "National Cadet Corps",
+       "zh": "NCC 陆",
+       "moe": true,
+       "sex": "boys",
+       "note": "周四"
+      },
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": "周四"
+      },
+      {
+       "name": "Red Cross Youth",
+       "zh": "红十字青年团",
+       "moe": false,
+       "sex": null,
+       "note": "周四"
+      }
+     ],
+     "club": [
+      {
+       "name": "Media & Tech Club",
+       "zh": "媒体与科技社",
+       "moe": true,
+       "sex": null,
+       "note": "周四；MOE 登记名为 Infocomm Technology"
+      }
+     ]
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Choir (Girls and Boys)",
@@ -2233,6 +2364,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -2392,6 +2524,7 @@
     "Table Tennis (Boys)",
     "Taekwondo (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -2526,6 +2659,7 @@
     "Shooting (Girls and Boys)",
     "Taekwondo (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -2673,6 +2807,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Shooting (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -2815,6 +2950,7 @@
     "Infocomm Technology (Media Production) (Girls and Boys)",
     "Modern Dance (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls and Boys)",
@@ -2962,6 +3098,7 @@
     "St John Brigade (Boys)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -3103,6 +3240,7 @@
     "Track and Field (Girls and Boys)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -3260,6 +3398,7 @@
     "Taekwondo (Girls and Boys)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -3395,6 +3534,7 @@
     "Volleyball (Boys)",
     "Wushu (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -3570,6 +3710,7 @@
     "FAQ",
     "Sitemap"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -3707,6 +3848,7 @@
     "Netball (Girls)",
     "Track and Field (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -3850,6 +3992,7 @@
     "Girl Guides (Girls)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -4000,6 +4143,7 @@
     "Girl Guides (Girls)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -4150,6 +4294,7 @@
     "Table Tennis (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Choir (Girls)",
@@ -4279,6 +4424,7 @@
     "Netball (Girls)",
     "Table Tennis (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Artistic Gymnastics (Girls)",
@@ -4451,6 +4597,7 @@
     "Girl Guides (Girls)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "English Drama (Girls)",
@@ -4600,6 +4747,7 @@
     "Netball (Girls)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls and Boys)",
@@ -4743,6 +4891,7 @@
     "Taekwondo (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Community Youth Leadership (Girls and Boys)",
@@ -4871,6 +5020,7 @@
     "Volleyball (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -5011,6 +5161,7 @@
     "Volleyball (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -5159,6 +5310,7 @@
     "Volleyball (Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -5316,6 +5468,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -5462,6 +5615,81 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": {
+    "source": "unverifiable",
+    "note": "官网 CCA 页面只有一句「The CCAs offered in CVSS are:」后面没有内容，已抓取完整 HTML 确认不是渲染问题",
+    "gaps": "官网 CCA 页面为空，网上流传的「20+ 个 CCA」无官方依据，需开放日确认",
+    "moeCount": 8,
+    "total": 8,
+    "onlyWebsite": 0,
+    "coveragePct": 100,
+    "categories": {
+     "sport": [
+      {
+       "name": "Badminton",
+       "zh": "羽毛球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Netball",
+       "zh": "无板篮球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "arts": [
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Concert Band",
+       "zh": "管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "现代舞",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "Girl Guides",
+       "zh": "女童军",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "club": []
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -5585,6 +5813,7 @@
     "Girl Guides (Girls)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -5680,6 +5909,7 @@
     "Modern Dance (Girls and Boys)",
     "Track and Field (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Football (Boys)"
@@ -5779,6 +6009,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Canoeing (Girls)",
@@ -5905,6 +6136,7 @@
     "Track and Field (Girls and Boys)",
     "Volleyball (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls)",
@@ -6059,6 +6291,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Scouts (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Community Youth Leadership (Girls and Boys)"
@@ -6172,6 +6405,7 @@
     "Volleyball (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys) - IP",
@@ -6338,6 +6572,7 @@
     "Netball (Girls)",
     "Volleyball (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -6472,6 +6707,7 @@
     "Netball (Girls)",
     "Scouts (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Leadership (Girls and Boys)"
@@ -6617,6 +6853,180 @@
     "Volleyball (Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": {
+    "source": "website",
+    "note": "CCA 数量在全部候选校中最多的之一，且独有青年飞行俱乐部",
+    "gaps": null,
+    "moeCount": 12,
+    "total": 22,
+    "onlyWebsite": 10,
+    "coveragePct": 55,
+    "categories": {
+     "sport": [
+      {
+       "name": "Badminton",
+       "zh": "羽毛球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Shooting",
+       "zh": "射击",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Taekwondo",
+       "zh": "跆拳道",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Volleyball",
+       "zh": "排球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Wushu",
+       "zh": "武术",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "arts": [
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Concert Band",
+       "zh": "管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "现代舞",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "ELDDS",
+       "zh": "英文·戏剧·辩论·演讲",
+       "moe": false,
+       "sex": null,
+       "note": "合并社团，戏剧只占其中一部分"
+      },
+      {
+       "name": "Guzheng",
+       "zh": "古筝",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Festive Drums",
+       "zh": "节令鼓",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Harmonica",
+       "zh": "口琴",
+       "moe": false,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "Girl Guides",
+       "zh": "女童军",
+       "moe": true,
+       "sex": "girls",
+       "note": null
+      },
+      {
+       "name": "Scouts",
+       "zh": "童军",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "NCDCC",
+       "zh": "民防少年团",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "NPCC (Sea)",
+       "zh": "警察海岸少年团",
+       "moe": false,
+       "sex": null,
+       "note": "海军版 NPCC，制服团体中较少见"
+      }
+     ],
+     "club": [
+      {
+       "name": "Infocomm Technology",
+       "zh": "资讯科技（媒体制作）",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Robotics Club",
+       "zh": "机器人社",
+       "moe": false,
+       "sex": null,
+       "note": "官网有独立页面"
+      },
+      {
+       "name": "SYFC",
+       "zh": "新加坡青年飞行俱乐部",
+       "moe": false,
+       "sex": null,
+       "note": "全岛少数设 SYFC 的中学"
+      },
+      {
+       "name": "Art Club",
+       "zh": "美术社",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "New Media Club",
+       "zh": "新媒体社",
+       "moe": false,
+       "sex": null,
+       "note": "与 ALP 的 Content Creator 模块衔接"
+      }
+     ]
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -6762,6 +7172,7 @@
     "Netball (Girls)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -6923,6 +7334,7 @@
     "Netball (Girls)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -7052,6 +7464,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Shooting (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Applied Sciences - Forensic Science (Girls and Boys)",
@@ -7191,6 +7604,7 @@
    "cca": [
     "National Police Cadet Corps (NPCC) (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -7348,6 +7762,7 @@
     "Track and Field (Girls and Boys)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -7480,6 +7895,159 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Softball (Girls and Boys)"
    ],
+   "ccaFull": {
+    "source": "website",
+    "note": "MOE 覆盖率在全部候选校中最低，且漏掉的正是机器人社与戏剧社",
+    "gaps": null,
+    "moeCount": 7,
+    "total": 19,
+    "onlyWebsite": 12,
+    "coveragePct": 37,
+    "categories": {
+     "sport": [
+      {
+       "name": "Canoeing",
+       "zh": "皮划艇",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Fencing",
+       "zh": "击剑",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Floorball",
+       "zh": "地板球",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Football",
+       "zh": "足球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Softball",
+       "zh": "垒球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "arts": [
+      {
+       "name": "Theatricks!",
+       "zh": "戏剧社",
+       "moe": false,
+       "sex": null,
+       "note": "2021/2023/2025 连续三届 SYF 获认可"
+      },
+      {
+       "name": "Angklung Ensemble",
+       "zh": "昂格隆",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Dance Ensemble",
+       "zh": "舞蹈团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Greendale Chorale",
+       "zh": "合唱团",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Greendale Orchestra",
+       "zh": "管弦乐团",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Chinese Orchestra",
+       "zh": "华乐团",
+       "moe": true,
+       "sex": null,
+       "note": "MOE 有登记，官网 CCA 页未列出"
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "National Cadet Corps",
+       "zh": "NCC 陆",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Red Cross Youth",
+       "zh": "红十字青年团",
+       "moe": false,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "club": [
+      {
+       "name": "Robotics",
+       "zh": "机器人社",
+       "moe": false,
+       "sex": null,
+       "note": "4 年进阶：SolidWorks/Fusion 360 + 3D 打印 + 激光切割 + Arduino + AI"
+      },
+      {
+       "name": "ODAC",
+       "zh": "户外探险社",
+       "moe": false,
+       "sex": null,
+       "note": "2025 NORS B 组男子冠军；40km 海上皮划艇远征"
+      },
+      {
+       "name": "GBC",
+       "zh": "广播社",
+       "moe": false,
+       "sex": null,
+       "note": "Greendale Broadcasting Corporation"
+      },
+      {
+       "name": "Art & Culture Club",
+       "zh": "美术与文化社",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Green Club",
+       "zh": "环保社",
+       "moe": false,
+       "sex": null,
+       "note": null
+      }
+     ]
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Design, Technology and Engineering (DTE) (Girls and Boys)",
@@ -7620,6 +8188,7 @@
     "Netball (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Community Youth Leadership (Girls and Boys)",
@@ -7751,6 +8320,7 @@
     "National Cadet Corps (NCC) (Land) (Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -7898,6 +8468,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -8043,6 +8614,7 @@
     "Netball (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -8208,6 +8780,7 @@
     "Scouts (Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -8357,6 +8930,138 @@
     "Netball (Girls)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": {
+    "source": "website",
+    "note": "官网制服团体分类页为空，该类别沿用 MOE 登记",
+    "gaps": "制服团体官网分类页为空，3 项来自 MOE 登记；俱乐部一栏官网只列了 1 项",
+    "moeCount": 10,
+    "total": 16,
+    "onlyWebsite": 6,
+    "coveragePct": 63,
+    "categories": {
+     "sport": [
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Floorball",
+       "zh": "地板球",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Football",
+       "zh": "足球",
+       "moe": true,
+       "sex": "boys",
+       "note": "校队名 Hougang Warriors"
+      },
+      {
+       "name": "Judo",
+       "zh": "柔道",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Netball",
+       "zh": "无板篮球",
+       "moe": true,
+       "sex": "girls",
+       "note": null
+      },
+      {
+       "name": "Wushu",
+       "zh": "武术",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "arts": [
+      {
+       "name": "Angklung / Kulintang & Gamelan",
+       "zh": "印尼竹乐／锣群／甘美兰",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": "团名 Voices of Joy"
+      },
+      {
+       "name": "ELDDS",
+       "zh": "英文·戏剧·辩论·演讲",
+       "moe": false,
+       "sex": null,
+       "note": "戏剧与辩论合并在同一社团，演戏约占四分之一时间"
+      },
+      {
+       "name": "Guzheng",
+       "zh": "古筝",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "现代舞",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Symphonic Band",
+       "zh": "交响管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "Girl Guides",
+       "zh": "女童军",
+       "moe": true,
+       "sex": "girls",
+       "note": null
+      },
+      {
+       "name": "National Cadet Corps",
+       "zh": "NCC 陆",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "club": [
+      {
+       "name": "Media Resource Club",
+       "zh": "媒体资源社",
+       "moe": true,
+       "sex": null,
+       "note": "音视频制作、摄影、摄像"
+      }
+     ]
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Angklung/Kulintang Ensemble (Girls and Boys)",
@@ -8516,6 +9221,7 @@
     "Track and Field (Girls and Boys)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -8668,6 +9374,7 @@
     "Water Polo (Boys)",
     "Wushu (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Art Elective Programme (Boys) - IP",
@@ -8827,6 +9534,7 @@
     "Track and Field (Girls and Boys)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -8973,6 +9681,7 @@
     "Scouts (Boys)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -9120,6 +9829,7 @@
     "Netball (Girls)",
     "Volleyball (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -9279,6 +9989,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -9413,6 +10124,7 @@
     "Netball (Girls)",
     "Softball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Chinese Dance (Girls and Boys)",
@@ -9548,6 +10260,7 @@
     "National Cadet Corps (NCC) (Land) (Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -9691,6 +10404,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Table Tennis (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -9845,6 +10559,7 @@
     "Netball (Girls)",
     "Shooting (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Chinese and Modern Dance (Girls)",
@@ -9977,6 +10692,7 @@
     "Netball (Girls)",
     "Shooting (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -10130,6 +10846,7 @@
     "Table Tennis (Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Chinese Calligraphy (Girls and Boys)",
@@ -10257,6 +10974,7 @@
     "Table Tennis (Boys)",
     "Wushu (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -10420,6 +11138,7 @@
     "Modern Dance (Girls and Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -10569,6 +11288,7 @@
     "Netball (Girls)",
     "Taekwondo (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -10721,6 +11441,7 @@
     "National Cadet Corps (NCC) (Land) (Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Angklung/Kulintang Ensemble (Girls and Boys)",
@@ -10851,6 +11572,7 @@
     "Girl Guides (Girls)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Artistic Swimming (Girls)",
@@ -11022,6 +11744,89 @@
     "Scouts (Boys)",
     "Wushu (Boys)"
    ],
+   "ccaFull": {
+    "source": "website",
+    "note": "男校；官网清单与 MOE 登记完全一致，无漏登",
+    "gaps": null,
+    "moeCount": 9,
+    "total": 9,
+    "onlyWebsite": 0,
+    "coveragePct": 100,
+    "categories": {
+     "sport": [
+      {
+       "name": "Badminton",
+       "zh": "羽毛球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Football",
+       "zh": "足球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Wushu",
+       "zh": "武术",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "arts": [
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "National Cadet Corps",
+       "zh": "NCC 陆",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Scouts",
+       "zh": "童军",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "club": [
+      {
+       "name": "Audio Visual Aid",
+       "zh": "视听器材组",
+       "moe": true,
+       "sex": null,
+       "note": "AVA"
+      }
+     ]
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -11146,6 +11951,7 @@
     "Track and Field (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -11278,6 +12084,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -11400,6 +12207,7 @@
     "Table Tennis (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls) - IP",
@@ -11529,6 +12337,7 @@
     "String Ensemble (Girls and Boys)",
     "Track and Field (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Art Elective Programme (Girls and Boys) - IP",
@@ -11679,6 +12488,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Choir (Girls and Boys)",
@@ -11823,6 +12633,7 @@
     "Netball (Girls)",
     "Table Tennis (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -11984,6 +12795,7 @@
     "Volleyball (Girls)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -12124,6 +12936,152 @@
     "String Ensemble (Girls and Boys)",
     "Track and Field (Girls and Boys)"
    ],
+   "ccaFull": {
+    "source": "website",
+    "note": "官网 18 项，MOE 登记 11 项",
+    "gaps": null,
+    "moeCount": 11,
+    "total": 18,
+    "onlyWebsite": 7,
+    "coveragePct": 61,
+    "categories": {
+     "sport": [
+      {
+       "name": "Athletics",
+       "zh": "田径",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Golf",
+       "zh": "高尔夫",
+       "moe": false,
+       "sex": null,
+       "note": "全岛开设高尔夫 CCA 的中学不多"
+      },
+      {
+       "name": "Netball",
+       "zh": "无板篮球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Football",
+       "zh": "足球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "ODAC",
+       "zh": "户外探险社",
+       "moe": false,
+       "sex": null,
+       "note": "皮划艇、攀岩、定向越野、年度远征"
+      }
+     ],
+     "arts": [
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Chinese Dance",
+       "zh": "华族舞",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "现代舞",
+       "moe": true,
+       "sex": null,
+       "note": "团名 Boogie Crew"
+      },
+      {
+       "name": "Drama Club",
+       "zh": "戏剧社",
+       "moe": false,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "String Ensemble",
+       "zh": "弦乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Symphonic Band",
+       "zh": "交响管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "National Cadet Corps",
+       "zh": "NCC 陆",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Girl Guides",
+       "zh": "女童军",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "St John Brigade",
+       "zh": "圣约翰救伤队",
+       "moe": false,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "club": [
+      {
+       "name": "Infocomm Club",
+       "zh": "信息社",
+       "moe": true,
+       "sex": null,
+       "note": "摄影、摄像、技术、媒体"
+      },
+      {
+       "name": "Service Learning Club",
+       "zh": "服务学习社",
+       "moe": false,
+       "sex": null,
+       "note": null
+      }
+     ]
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls and Boys)",
@@ -12273,6 +13231,7 @@
     "Modern Dance (Girls and Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Aerospace (Girls and Boys)",
@@ -12423,6 +13382,7 @@
     "Netball (Girls)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -12528,6 +13488,7 @@
     "Modern Dance (Girls and Boys)",
     "Track and Field (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": null,
    "dsaAreas": [],
    "subjects": [
@@ -12593,6 +13554,7 @@
    "specialised": true,
    "cop": null,
    "cca": [],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Mathematics (Girls and Boys) - IP",
@@ -12717,6 +13679,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls and Boys)",
@@ -12870,6 +13833,67 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Water Polo (Boys)"
    ],
+   "ccaFull": {
+    "source": "moe-only",
+    "note": "官网未提供完整 CCA 清单，仅有 MOE 登记数据；实际社团数可能更多",
+    "gaps": "官网未给出完整 CCA 清单，需在开放日确认",
+    "moeCount": 6,
+    "total": 6,
+    "onlyWebsite": 0,
+    "coveragePct": 100,
+    "categories": {
+     "sport": [
+      {
+       "name": "Badminton",
+       "zh": "羽毛球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Water Polo",
+       "zh": "水球",
+       "moe": true,
+       "sex": "boys",
+       "note": "需泳池，全岛开设此项目的中学不多"
+      }
+     ],
+     "arts": [
+      {
+       "name": "Concert Band",
+       "zh": "管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "现代舞",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "club": []
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls and Boys)",
@@ -13009,6 +14033,7 @@
     "Netball (Girls)",
     "Volleyball (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Chinese Language (Girls and Boys)",
@@ -13165,6 +14190,7 @@
     "Netball (Girls)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Chinese Orchestra (Girls and Boys)",
@@ -13300,6 +14326,7 @@
     "Table Tennis (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -13438,6 +14465,7 @@
     "Taekwondo (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Chinese and Modern Dance (Girls and Boys)",
@@ -13571,6 +14599,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -13710,6 +14739,7 @@
     "Netball (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Concert Band (Girls and Boys)",
@@ -13852,6 +14882,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -14003,6 +15034,109 @@
     "Table Tennis (Boys)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": {
+    "source": "moe-only",
+    "note": "官网 CCA 总页按类别列出，但俱乐部一栏留空",
+    "gaps": "俱乐部一栏官网未列具体社团，需开放日确认",
+    "moeCount": 12,
+    "total": 12,
+    "onlyWebsite": 0,
+    "coveragePct": 100,
+    "categories": {
+     "sport": [
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Football",
+       "zh": "足球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Netball",
+       "zh": "无板篮球",
+       "moe": true,
+       "sex": "girls",
+       "note": null
+      },
+      {
+       "name": "Shooting",
+       "zh": "射击",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Table Tennis",
+       "zh": "乒乓球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Volleyball",
+       "zh": "排球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "arts": [
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Concert Band",
+       "zh": "管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "现代舞",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "National Cadet Corps",
+       "zh": "NCC 陆",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Scouts",
+       "zh": "童军",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      }
+     ],
+     "club": []
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Choir (Girls and Boys)",
@@ -14141,6 +15275,7 @@
     "Volleyball (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls and Boys)",
@@ -14288,6 +15423,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -14404,6 +15540,7 @@
     "Netball (Girls)",
     "Table Tennis (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls) - IP",
@@ -14544,6 +15681,7 @@
     "Track and Field (Boys)",
     "Water Polo (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys) - IP",
@@ -14677,6 +15815,7 @@
     "Netball (Girls)",
     "Taekwondo (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Boys&#x27; Brigade (Boys)",
@@ -14797,6 +15936,7 @@
     "Volleyball (Girls)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys) - IP",
@@ -14950,6 +16090,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Choir (Girls and Boys)",
@@ -15069,6 +16210,7 @@
     "Taekwondo (Girls and Boys)",
     "Track and Field (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Steam (Science, Technology, Engineering, Aesthetics and Mathematics) (Girls and Boys)"
@@ -15134,6 +16276,7 @@
    "specialised": true,
    "cop": null,
    "cca": [],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Art (Girls and Boys) - IP",
@@ -15262,6 +16405,7 @@
     "Netball (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Leadership (Girls and Boys)"
@@ -15394,6 +16538,145 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": {
+    "source": "website",
+    "note": "MOE 登记 10 项，官网获奖记录另外暴露出 6 项真实存在的社团",
+    "gaps": null,
+    "moeCount": 10,
+    "total": 17,
+    "onlyWebsite": 7,
+    "coveragePct": 59,
+    "categories": {
+     "sport": [
+      {
+       "name": "Badminton",
+       "zh": "羽毛球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Football",
+       "zh": "足球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Netball",
+       "zh": "无板篮球",
+       "moe": true,
+       "sex": "girls",
+       "note": null
+      },
+      {
+       "name": "Hockey",
+       "zh": "曲棍球",
+       "moe": false,
+       "sex": null,
+       "note": "2024 年 B 组女子 League 1 冠军、C 组男子 League 1 冠军；2026 年 B 组男第 2"
+      },
+      {
+       "name": "Taekwondo",
+       "zh": "跆拳道",
+       "moe": false,
+       "sex": null,
+       "note": "2023 年 NSG B 组男子亚军"
+      }
+     ],
+     "arts": [
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Concert Band",
+       "zh": "管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "现代舞",
+       "moe": true,
+       "sex": null,
+       "note": "团队名 AMPLIFY；2025 SYF Certificate of Distinction"
+      },
+      {
+       "name": "English Drama",
+       "zh": "英语戏剧",
+       "moe": false,
+       "sex": null,
+       "note": "2025 SYF 演出《The Book Riot》获 Certificate of Accomplishment"
+      },
+      {
+       "name": "Guzheng",
+       "zh": "古筝团",
+       "moe": false,
+       "sex": null,
+       "note": "2025 SYF Certificate of Distinction（最高档）"
+      },
+      {
+       "name": "Symphonic Band",
+       "zh": "交响管乐团",
+       "moe": false,
+       "sex": null,
+       "note": "2025 SYF Certificate of Accomplishment；与 Concert Band 为不同团队"
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "Girl Guides",
+       "zh": "女童军",
+       "moe": true,
+       "sex": "girls",
+       "note": null
+      },
+      {
+       "name": "National Cadet Corps",
+       "zh": "NCC 陆",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Red Cross Youth",
+       "zh": "红十字青年团",
+       "moe": false,
+       "sex": null,
+       "note": "2023 年 Unit Gold Award 与 Director's Award"
+      }
+     ],
+     "club": [
+      {
+       "name": "Art Club",
+       "zh": "美术社",
+       "moe": false,
+       "sex": null,
+       "note": "2024、2026 连续在 SYF Art Exhibition 获 Special Mention／Recognition"
+      }
+     ]
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -15542,6 +16825,123 @@
     "Netball (Girls)",
     "Table Tennis (Boys)"
    ],
+   "ccaFull": {
+    "source": "website",
+    "note": "MOE 登记 11 项；DSA 另有 3 项有队伍但未登记为 CCA",
+    "gaps": null,
+    "moeCount": 11,
+    "total": 11,
+    "onlyWebsite": 0,
+    "coveragePct": 100,
+    "categories": {
+     "sport": [
+      {
+       "name": "Badminton",
+       "zh": "羽毛球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Football",
+       "zh": "足球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Netball",
+       "zh": "无板篮球",
+       "moe": true,
+       "sex": "girls",
+       "note": null
+      },
+      {
+       "name": "Table Tennis",
+       "zh": "乒乓球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      }
+     ],
+     "arts": [
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Concert Band",
+       "zh": "管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "现代舞",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "National Cadet Corps",
+       "zh": "NCC 陆",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "club": [
+      {
+       "name": "Infocomm Technology",
+       "zh": "资讯科技（媒体制作）",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ]
+    },
+    "dsaOnly": [
+     {
+      "name": "Floorball",
+      "zh": "地板球",
+      "cat": "sport",
+      "sex": "girls",
+      "note": "有球队，但不在 CCA 清单里"
+     },
+     {
+      "name": "Guzheng Ensemble",
+      "zh": "古筝",
+      "cat": "arts",
+      "note": "有乐团，但不在 CCA 清单里"
+     },
+     {
+      "name": "Robotics",
+      "zh": "机器人",
+      "cat": "club",
+      "note": "有机器人队，但不在 CCA 清单里；DSA 有此项目"
+     }
+    ]
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Choir (Girls and Boys)",
@@ -15689,6 +17089,81 @@
     "Netball (Girls)",
     "Scouts (Boys)"
    ],
+   "ccaFull": {
+    "source": "moe-only",
+    "note": "官网未提供完整 CCA 清单，仅有 MOE 登记数据",
+    "gaps": "官网未给出完整 CCA 清单，需在开放日确认",
+    "moeCount": 8,
+    "total": 8,
+    "onlyWebsite": 0,
+    "coveragePct": 100,
+    "categories": {
+     "sport": [
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Football",
+       "zh": "足球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Netball",
+       "zh": "无板篮球",
+       "moe": true,
+       "sex": "girls",
+       "note": null
+      }
+     ],
+     "arts": [
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Concert Band",
+       "zh": "管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "Girl Guides",
+       "zh": "女童军",
+       "moe": true,
+       "sex": "girls",
+       "note": null
+      },
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Scouts",
+       "zh": "童军",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      }
+     ],
+     "club": []
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Community Youth Leadership (Girls and Boys)",
@@ -15817,6 +17292,7 @@
     "Feedback",
     "FAQ"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Artistic Gymnastics (Girls)",
@@ -15931,6 +17407,7 @@
    "specialised": true,
    "cop": null,
    "cca": [],
+   "ccaFull": null,
    "dsaYear": null,
    "dsaAreas": [],
    "subjects": [],
@@ -15983,6 +17460,7 @@
     "FAQ",
     "Sitemap"
    ],
+   "ccaFull": null,
    "dsaYear": null,
    "dsaAreas": [],
    "subjects": [
@@ -16070,6 +17548,7 @@
     "Netball (Girls)",
     "Taekwondo (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Floorball (Girls and Boys)",
@@ -16232,6 +17711,7 @@
     "Track and Field (Boys)",
     "Water Polo (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Concert Band (Boys)",
@@ -16381,6 +17861,7 @@
     "Girl Guides (Girls)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Angklung/Kulintang Ensemble (Girls)",
@@ -16531,6 +18012,7 @@
     "National Police Cadet Corps (NPCC) (Boys)",
     "Scouts (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -16697,6 +18179,7 @@
     "Netball (Girls)",
     "Volleyball (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -16840,6 +18323,7 @@
     "Tennis (Boys)",
     "Track and Field (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -17015,6 +18499,7 @@
     "Girl Guides (Girls)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -17178,6 +18663,7 @@
     "Tennis (Boys)",
     "Track and Field (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -17339,6 +18825,7 @@
     "Infocomm Technology (Media Production) (Girls and Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -17492,6 +18979,7 @@
     "Modern Dance (Girls and Boys)",
     "National Cadet Corps (NCC) (Land) (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Chinese and Modern Dance (Girls)",
@@ -17626,6 +19114,7 @@
     "Girl Guides (Girls)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -17750,6 +19239,7 @@
     "Shooting (Girls and Boys)",
     "Track and Field (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -17867,6 +19357,7 @@
     "Taekwondo (Girls and Boys)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys) - IP",
@@ -18016,6 +19507,7 @@
     "Track and Field (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Choir (Girls and Boys)",
@@ -18142,6 +19634,7 @@
     "Track and Field (Girls and Boys)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls and Boys)",
@@ -18277,6 +19770,7 @@
     "Volleyball (Boys)",
     "Wushu (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Art Elective Programme (Boys)",
@@ -18472,6 +19966,7 @@
     "Shooting (Girls and Boys)",
     "Volleyball (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -18611,6 +20106,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -18756,6 +20252,7 @@
     "National Cadet Corps (NCC) (Land) (Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Debating and Public Speaking (Girls and Boys)",
@@ -18895,6 +20392,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Community Youth Leadership (Girls and Boys)",
@@ -19036,6 +20534,7 @@
     "Netball (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Boys)",
@@ -19191,6 +20690,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Boys)",
@@ -19333,6 +20833,7 @@
     "Shooting (Girls and Boys)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -19467,6 +20968,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",
@@ -19618,6 +21120,7 @@
     "Netball (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -19769,6 +21272,7 @@
     "Shooting (Girls and Boys)",
     "Volleyball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Basketball (Girls and Boys)",
@@ -19906,6 +21410,7 @@
     "National Police Cadet Corps (NPCC) (Boys)",
     "Netball (Girls)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Community Youth Leadership (Girls and Boys)",
@@ -20047,6 +21552,7 @@
     "Volleyball (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Choir (Girls)",
@@ -20196,6 +21702,138 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": {
+    "source": "website",
+    "note": "MOE 登记 9 项，官网另有 7 项；两个技术社团分工明确",
+    "gaps": null,
+    "moeCount": 9,
+    "total": 16,
+    "onlyWebsite": 7,
+    "coveragePct": 56,
+    "categories": {
+     "sport": [
+      {
+       "name": "Badminton",
+       "zh": "羽毛球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Basketball",
+       "zh": "篮球",
+       "moe": true,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Wushu",
+       "zh": "武术",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Fencing",
+       "zh": "击剑",
+       "moe": false,
+       "sex": null,
+       "note": "花剑（Foil）与重剑（Épée），从入门到竞技，参加 NSG"
+      }
+     ],
+     "arts": [
+      {
+       "name": "Chinese Orchestra",
+       "zh": "华乐团",
+       "moe": true,
+       "sex": null,
+       "note": "团名 YICO"
+      },
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Concert Band",
+       "zh": "管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "现代舞",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "English Drama",
+       "zh": "英语戏剧",
+       "moe": false,
+       "sex": null,
+       "note": "参加 SYF、校内演出、交流计划"
+      }
+     ],
+     "uniformed": [
+      {
+       "name": "National Police Cadet Corps",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Boys' Brigade",
+       "zh": "男少年旅",
+       "moe": false,
+       "sex": "boys",
+       "note": null
+      },
+      {
+       "name": "Girls' Brigade",
+       "zh": "女少年旅",
+       "moe": false,
+       "sex": "girls",
+       "note": null
+      },
+      {
+       "name": "National Cadet Corps",
+       "zh": "NCC 陆",
+       "moe": false,
+       "sex": null,
+       "note": "制服团体共 4 个，比多数学校多"
+      }
+     ],
+     "club": [
+      {
+       "name": "Robotics Club",
+       "zh": "机器人社",
+       "moe": false,
+       "sex": null,
+       "note": "机器人技术、无人机飞行、Python 编程"
+      },
+      {
+       "name": "Infocomm Technology",
+       "zh": "资讯科技（媒体制作）",
+       "moe": true,
+       "sex": null,
+       "note": "含 AI 与 AR"
+      },
+      {
+       "name": "Art Club",
+       "zh": "美术社",
+       "moe": false,
+       "sex": null,
+       "note": "传统与数字艺术并重"
+      }
+     ]
+    },
+    "dsaOnly": []
+   },
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls and Boys)",
@@ -20342,6 +21980,7 @@
     "Volleyball (Girls)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Community Youth Leadership (Girls and Boys)",
@@ -20482,6 +22121,7 @@
     "Netball (Girls)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Leadership (Girls and Boys)",
@@ -20623,6 +22263,7 @@
     "Table Tennis (Boys)",
     "Volleyball (Boys)"
    ],
+   "ccaFull": null,
    "dsaYear": 2026,
    "dsaAreas": [
     "Badminton (Girls)",

@@ -31,11 +31,11 @@ const PICK = [
   {
     name: 'Compassvale Secondary School', slot: 1, tier: '冲刺',
     why: '全部 20 所可及学校里，ALP 与 Computing 最对口的一所——「Aeronautics, Coding, Engineering and Sustainability (ACES)」，Coding 直接写在项目名称里。22 分钟通勤、最近站步行 693m，也是最短档。',
-    caveat: '余量只有 1 分（PG3 14–18，你 17 分），是本次推荐里最紧的一所。若今年报的人多导致下限上移，有落空风险——但它在第 1 志愿，落空不影响后续。CCA 名单里没有科技类社团，编程兴趣只能靠 ALP 课程承接。',
+    caveat: '余量只有 1 分（PG3 14–18，你 17 分），是本次推荐里最紧的一所。若今年报的人多导致下限上移，有落空风险——但它在第 1 志愿，落空不影响后续。MOE 登记的 8 项里没有科技类社团，而且它官网的 CCA 页面是空的（抓过完整 HTML 确认不是渲染问题），真实社团数无法核实——所以编程兴趣主要还是靠 ALP 课程承接。',
   },
   {
     name: 'North Vista Secondary School', slot: 2, tier: '冲刺',
-    why: '余量同样是 1 分，但学校侧重点不同：CCA 有 Infocomm Technology（社团层面就有科技出口），11 项 CCA 是候选里最丰富的之一，25 分钟、步行 740m。LLP 是视觉艺术与设计，如果孩子转向设计方向有承接。',
+    why: '余量同样是 1 分，但学校侧重点不同：官网核实 CCA 共 18 项，其中 Infocomm Club 与 Service Learning Club 是科技/服务出口，社团数量在候选里排前列，25 分钟、步行 740m。LLP 是视觉艺术与设计，如果孩子转向设计方向有承接。',
     caveat: 'ALP 项目是「Farm-to-Table（农场到餐桌）」，虽归在 STEM - Cities and Urban Landscapes 类，实质是农业与食品，与 Computing 关系很弱。这是它与 Compassvale 最大的差别。',
   },
   {
@@ -46,12 +46,12 @@ const PICK = [
   {
     name: 'Seng Kang Secondary School', slot: 4, tier: '匹配',
     why: '余量 2 分，22 分钟、步行 658m（是几所里步行最短的）。ALP 是「Food for the Future」，LLP 是体育与户外教育。',
-    caveat: 'ALP 偏食品科技，不是编程。CCA 10 项但没有 Infocomm。',
+    caveat: 'ALP 偏食品科技，不是编程。官网核实 CCA 17 项（MOE 只登记 10 项），但确实没有 Infocomm；科技类只有 Art Club，且偏美术。',
   },
   {
     name: 'Hougang Secondary School', slot: 5, tier: '匹配',
     why: '余量 3 分，32 分钟。ALP 是「HS Innovates, For Life!」（STEM 综合创新），CCA 有 Infocomm Technology，是「余量稍大 + 有科技社团」这两个条件同时满足的少数几所。',
-    caveat: '最近站步行 1349m，实际需要巴士接驳，32 分钟的估算偏乐观。CCA 只有 10 项。',
+    caveat: '最近站步行 1349m，实际需要巴士接驳，32 分钟的估算偏乐观。官网核实 CCA 16 项（MOE 只登记 10 项）。',
   },
   {
     name: 'Bendemeer Secondary School', slot: 6, tier: '稳妥',
