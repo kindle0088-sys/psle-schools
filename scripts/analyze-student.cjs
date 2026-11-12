@@ -2,10 +2,8 @@
 /**
  * 为特定学生生成候选学校池（不写报告，只出分析数据）
  *
- * 学生画像：AL 17 / PG3 / 邮编 828765 / 无 affiliation / 无 DSA
- * 兴趣：Science > Computing > Math > Languages > Humanities
- * CCA：Robotics > AI > Drama > Swimming > Cooking
- * 偏好：混校优先，可接受 SAP / IP
+ * 学生画像来自 data/students/<id>.json（见 lib/student.cjs）。
+ * 默认学生 abc1；换人用 STUDENT=<id> 环境变量，无需改代码。
  */
 const fs = require('fs');
 const path = require('path');
@@ -16,9 +14,12 @@ const net = JSON.parse(fs.readFileSync(path.join(BASE, 'data/network.json'), 'ut
 const schools = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/schools.json'), 'utf8')).schools;
 const graph = Iso.buildGraph(net);
 
-const SCORE = 17;
-const POSTAL = '828765';
-const MAX_COMMUTE = 45;
+const Stu = require('../lib/student.cjs');
+const STU = Stu.load();
+const SCORE = STU.al;
+const POSTAL = STU.home.postal;
+const MAX_COMMUTE = STU.maxCommuteMin;
+const PG = STU.postingGroupLabel;      // 'Posting Group 3'，用于匹配 rows.label
 
 async function geocode(q) {
   const url = 'https://www.onemap.gov.sg/api/common/elastic/search?searchVal=' +
@@ -29,16 +30,19 @@ async function geocode(q) {
   return { lat: +r.LATITUDE, lon: +r.LONGITUDE, label: r.SEARCHVAL, addr: r.ADDRESS };
 }
 
-/** 取学校"非附属口径"的最宽松门槛（max） */
+/**
+ * 取学生**所属档位**的非附属区间上端。
+ *
+ * ⚠️ 这里曾经取「所有档里 max 最大的那个」，实际永远取到 PG1 行
+ *    （25–30 永远最大），把门槛系统性低估 8–10 分。与报告和看板
+ *    犯的是同一个错，这里是第三处残留。
+ */
 function gate(sc) {
   if (!sc.cop?.rows?.length) return null;
-  let best = null;
-  for (const r of sc.cop.rows) {
-    const v = r.nonAff;
-    if (!v) continue;
-    if (!best || v.max > best.max) best = { ...v, label: r.label, kind: r.kind };
-  }
-  return best;
+  const r = sc.cop.rows.find(x => x.label === PG);
+  if (!r) return null;                 // 该校不开学生所属档位
+  const v = r.nonAff;
+  return v ? { ...v, label: r.label, kind: r.kind } : null;
 }
 
 const hasItem = (sc, type, kw) =>
@@ -68,7 +72,10 @@ function ccaMatch(sc) {
 }
 
 (async () => {
-  const origin = await geocode(POSTAL);
+  const origin = STU.home.coords
+    ? { ...STU.home.coords, label: STU.home.address || POSTAL, addr: STU.home.address || '' }
+    : await geocode(POSTAL);
+  if (!origin) { console.error('✗ 邮编 ' + POSTAL + ' 地理编码失败'); process.exit(1); }
   console.log('▸ 起点:', origin.label);
   console.log('  坐标:', origin.lat, origin.lon);
 
@@ -139,10 +146,12 @@ function ccaMatch(sc) {
     console.log(`  ${String(r.minutes).padStart(2)}min m=${r.margin} ${g} ${r.name}`);
   });
 
-  fs.writeFileSync(path.join(BASE, 'data/_student-pool.json'), JSON.stringify({
-    student: { score: SCORE, pg: 'PG3', postal: POSTAL, maxCommute: MAX_COMMUTE },
+  const poolPayload = JSON.stringify({
+    student: { id: STU.id, score: SCORE, pg: PG, postal: POSTAL, maxCommute: MAX_COMMUTE },
     origin,
     pool, reach, match, safe, verySafe,
-  }, null, 1));
-  console.log('\n▸ 已存 data/_student-pool.json');
+  }, null, 1);
+  fs.writeFileSync(path.join(BASE, `data/_student-pool-${STU.id}.json`), poolPayload);
+  fs.writeFileSync(path.join(BASE, 'data/_student-pool.json'), poolPayload);
+  console.log(`\n▸ 已存 data/_student-pool-${STU.id}.json（并同步 data/_student-pool.json）`);
 })();

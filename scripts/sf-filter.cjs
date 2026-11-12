@@ -8,7 +8,8 @@
  *
  * React 受控组件必须用原生 setter + input/change 事件才能生效。
  */
-const POSTAL = process.env.POSTAL || '828765';
+// 邮编来源优先级：POSTAL 环境变量 > 学生配置
+const POSTAL = process.env.POSTAL || require('../lib/student.cjs').load().home.postal;
 const SCORE = process.env.SCORE || '17';
 const CDP = process.env.CDP_PORT || 9235;
 const sleep = ms => new Promise(r => setTimeout(r, ms));

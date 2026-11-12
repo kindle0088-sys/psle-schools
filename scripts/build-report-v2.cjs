@@ -12,8 +12,18 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE = path.join(__dirname, '..');
-const R = JSON.parse(fs.readFileSync(path.join(BASE, 'data/_recommend.json'), 'utf8'));
-const NEARBY = JSON.parse(fs.readFileSync(path.join(BASE, 'data/moe-nearby-828765.json'), 'utf8'));
+const Stu = require('../lib/student.cjs');
+const STU = Stu.load();
+const REC_FILE = path.join(BASE, `data/_recommend-${STU.id}.json`);
+const R = JSON.parse(fs.readFileSync(
+  fs.existsSync(REC_FILE) ? REC_FILE : path.join(BASE, 'data/_recommend.json'), 'utf8'));
+const S2 = R.stats;                     // 全国口径统计，报告里所有「N 所」都从这里取
+
+// MOE 邮编筛选结果按邮编天然区分学生；缺失时整节降级，不阻断出报告
+const NEARBY_PATH = Stu.nearbyFile(STU);
+const NEARBY = fs.existsSync(NEARBY_PATH)
+  ? JSON.parse(fs.readFileSync(NEARBY_PATH, 'utf8'))
+  : null;
 // 单校深度报告索引（存在则在校卡片里加跳转入口）
 const REPORT_IDX = (() => {
   try {
@@ -30,7 +40,7 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 const PICK = [
   {
     name: 'Compassvale Secondary School', slot: 1, tier: '冲刺',
-    why: '全部 20 所可及学校里，ALP 与 Computing 最对口的一所——「Aeronautics, Coding, Engineering and Sustainability (ACES)」，Coding 直接写在项目名称里。22 分钟通勤、最近站步行 693m，也是最短档。',
+    why: `全部 ${S2.withinCommuteReachable} 所可及学校里，ALP 与 Computing 最对口的一所——「Aeronautics, Coding, Engineering and Sustainability (ACES)」，Coding 直接写在项目名称里。22 分钟通勤、最近站步行 693m，也是最短档。`,
     caveat: '余量只有 1 分（PG3 14–18，你 17 分），是本次推荐里最紧的一所。若今年报的人多导致下限上移，有落空风险——但它在第 1 志愿，落空不影响后续。MOE 登记的 8 项里没有科技类社团，而且它官网的 CCA 页面是空的（抓过完整 HTML 确认不是渲染问题），真实社团数无法核实——所以编程兴趣主要还是靠 ALP 课程承接。',
   },
   {
@@ -55,7 +65,7 @@ const PICK = [
   },
   {
     name: 'Bendemeer Secondary School', slot: 6, tier: '稳妥',
-    why: '余量 5 分，是 20 所可及学校里余量最大的一档，录取安全边际最好。ALP 归在「Emerging Technologies（新兴科技）」类别，CCA 有 Infocomm Technology，34 分钟、步行 533m。',
+    why: `余量 5 分，是 ${S2.withinCommuteReachable} 所可及学校里余量最大的一档，录取安全边际最好。ALP 归在「Emerging Technologies（新兴科技）」类别，CCA 有 Infocomm Technology，34 分钟、步行 533m。`,
     caveat: '⚠️ 它不在 MOE 邮编筛选的 17 所「附近学校」列表里（属于扩展范围）。ALP 具体项目是「EcoGen 环保生态」，技术含量不如类别名称听起来硬。',
   },
 ];
@@ -289,14 +299,20 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 <div class="hero">
   <div class="wrap">
     <a class="backlink" href="../index.html">← 返回学校看板</a>
-    <div class="eyebrow">2026 S1 Posting · 志愿规划 v2</div>
+    <div class="eyebrow">2026 S1 Posting · 志愿规划 v2 · ${esc(S.label || STU.id)}</div>
     <h1>AL ${S.score} 分，6 个志愿怎么排</h1>
-    <div class="sub">用 <b>Posting Group 3 档</b>的正确口径重算，并以 MOE SchoolFinder 输入邮编 ${esc(S.postal)} 的「附近学校」列表为候选池。</div>
+    <div class="sub">用 <b>${S.pgLabel} 档</b>的正确口径重算${NEARBY ? `，并以 MOE SchoolFinder 输入邮编 ${esc(S.postal)} 的「附近学校」列表为候选池` : `。本邮编未做 MOE SchoolFinder 筛选，候选池为全岛自算通勤（${S.maxCommute} 分钟上限）`}。</div>
+    ${STU.id !== 'abc1' ? `<div class="note" style="margin-top:14px">
+      <b>关于本报告</b>　数据层（候选池、漏斗统计、五维评分、录取口径）已按 <b>${esc(S.label || STU.id)}</b> 的配置完全重算。
+      但 STEP 4–5 的志愿排序与方案对比属于人工分析，撰写时依据的是 abc1 的画像，<b>没有随配置自动改写</b>——请以数据层为准，排序结论需重新评估。
+    </div>` : ''}
     <div class="profile">
       <div><div class="k">PSLE 总分</div><div class="v">AL ${S.score}</div></div>
-      <div><div class="k">Posting Group</div><div class="v">PG3</div></div>
-      <div><div class="k">适用 COP 档</div><div class="v">PG3 行</div></div>
-      <div><div class="k">MOE 附近学校</div><div class="v">${NEARBY.count} 所</div></div>
+      <div><div class="k">Posting Group</div><div class="v">${S.pgShort}</div></div>
+      <div><div class="k">适用 COP 档</div><div class="v">${S.pgShort} 行</div></div>
+      ${NEARBY
+        ? `<div><div class="k">MOE 附近学校</div><div class="v">${S2.nearbyCount} 所</div></div>`
+        : `<div><div class="k">通勤上限</div><div class="v">${S.maxCommute} 分钟</div></div>`}
       <div><div class="k">够得着</div><div class="v">${R.pool.length + R.singleSex.length} 所</div></div>
     </div>
   </div>
@@ -305,13 +321,13 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 <div class="wrap">
 
 <div class="note">
-<b>数据口径</b>　所有 COP 数字取自各校 <b>Posting Group 3 行的非附属区间</b>。AL ${S.score} 属 PG3，只与 PG3 学生竞争同一批名额，PG2 / PG1 两行不适用。
+<b>数据口径</b>　所有 COP 数字取自各校 <b>${S.pgLabel} 行的非附属区间</b>。AL ${S.score} 属 ${S.pgShort}，只与同档学生竞争同一批名额，其他档位的区间不适用。
 </div>
 
 <div class="verdict">
   <h3>三个关键结论</h3>
   <ul>
-    <li><b>AL ${S.score} 不是「很安全」，而是「刚好够得着」。</b>全国 130 所有 PG3 档的学校里，够得着的只有 68 所；在 MOE 邮编筛出的 ${NEARBY.count} 所附近学校中，只有 <b>9 所</b>（8 混校 + 1 男校）。且这 8 所的余量全部落在 <b>+0 到 +5</b> 之间。</li>
+    <li><b>AL ${S.score} 不是「很安全」，而是「刚好够得着」。</b>全国 ${S2.withStudentPG} 所有 ${S.pgShort} 档的学校里，够得着的只有 ${S2.reachableNationwide} 所${NEARBY ? `；在 MOE 邮编筛出的 ${S2.nearbyCount} 所附近学校中，只有 <b>${S2.nearbyReachable} 所</b>（${S2.nearbyReachableMixed} 混校 + ${S2.nearbyReachableSingle} ${S2.nearbySingleSexType === 'girls' ? '女' : '男'}校）` : ''}。</li>
     <li><b>没有真正的「稳妥」档。</b>MOE 附近余量最大的混校是 Serangoon Garden（+5），但它 44 分钟 + 步行 1991m，实际通勤很可能超 45 分钟。要真保底，只能接受 1 所「不在 MOE 附近列表、但通勤可接受」的学校。</li>
     <li><b>兴趣与门槛在这个分数段是冲突的。</b>ALP 与 Computing 最对口的 Compassvale 余量只有 1 分；余量 5 分的那几所，ALP 多是环保/食品/人文方向。</li>
   </ul>
@@ -354,45 +370,45 @@ Punggol：19 − 17 = <b>+2</b>。Compassvale：18 − 17 = <b>+1</b>。Outram�
 
 <section>
 <h2><span class="n">STEP 2</span>候选池：先用 MOE 邮编筛选，再算分数</h2>
-<p class="lead">按你的要求，先以 MOE SchoolFinder 输入邮编 ${esc(S.postal)} 的结果为池子。</p>
+${NEARBY ? `<p class="lead">按你的要求，先以 MOE SchoolFinder 输入邮编 ${esc(S.postal)} 的结果为池子。</p>
 
-<p>SchoolFinder 的邮编筛选是前端交互（URL 参数无效），我在浏览器里操作「Enter your postal code」输入框触发的，返回 <b>${NEARBY.count} 所</b>附近中学：</p>
+<p>SchoolFinder 的邮编筛选是前端交互（URL 参数无效），我在浏览器里操作「Enter your postal code」输入框触发的，返回 <b>${S2.nearbyCount} 所</b>附近中学：</p>
 <p style="font-size:13px;color:var(--tx2);line-height:2">
-${NEARBY.schools.map(s => esc(s.replace(/ Secondary School| \(Secondary\)/, ''))).join(' · ')}
+${NEARBY.schools.map(n => esc(n.replace(/ Secondary School| \(Secondary\)/, ''))).join(' · ')}
 </p>
 
-<h3>这 ${NEARBY.count} 所里，分数够得着几所？</h3>
+<h3>这 ${S2.nearbyCount} 所里，分数够得着几所？</h3>
 <table>
 <thead><tr><th>筛法</th><th>剩余</th><th>说明</th></tr></thead>
 <tbody>
-<tr><td>MOE 邮编 ${esc(S.postal)} 筛选</td><td class="num">${NEARBY.count}</td><td>官方「附近学校」口径</td></tr>
-<tr><td>其中 PG3 够得着（区间右端 ≥ ${S.score}）</td><td class="num"><b>9</b></td><td>8 所混校 + 1 所男校（Montfort）</td></tr>
-<tr><td>其中 PG3 够不着</td><td class="num">8</td><td>Bowen、Greendale、Yusof Ishak、CHIJ St. Joseph's、Edgefield、Holy Innocents、Pei Hwa、Xinmin</td></tr>
+<tr><td>MOE 邮编 ${esc(S.postal)} 筛选</td><td class="num">${S2.nearbyCount}</td><td>官方「附近学校」口径</td></tr>
+<tr><td>其中 ${S.pgShort} 够得着（区间右端 ≥ ${S.score}）</td><td class="num"><b>${S2.nearbyReachable}</b></td><td>${S2.nearbyReachableMixed} 所混校 + ${S2.nearbyReachableSingle} 所${S2.nearbySingleSexType === 'girls' ? '女' : '男'}校（${esc(S2.nearbySingleSexName || '—')}）</td></tr>
+<tr><td>其中 ${S.pgShort} 够不着</td><td class="num">${S2.nearbyOutOfReachNames.length}</td><td>${S2.nearbyOutOfReachNames.map(esc).join('、')}</td></tr>
 </tbody>
 </table>
 
-<h4>够不着的 8 所，差多少</h4>
+<h4>够不着的 ${S2.nearbyOutOfReachNames.length} 所，差多少</h4>
 <table>
-<thead><tr><th>学校</th><th>PG3 区间</th><th>与你相差</th><th>通勤</th></tr></thead>
+<thead><tr><th>学校</th><th>${S.pgShort} 区间</th><th>与你相差</th><th>通勤</th></tr></thead>
 <tbody>
 ${R.outOfReach.filter(x => NEARBY.schools.includes(x.name)).sort((a, b) => b.margin - a.margin)
   .map(x => `<tr><td>${esc(x.name.replace(/ Secondary School| \(Secondary\)/, ''))}</td><td class="num">${fmtCop(x)}</td><td class="num">${x.margin} 分</td><td class="num">${x.minutes} 分钟</td></tr>`).join('')}
 </tbody>
-</table>
-<p class="soft">其中 Edgefield（17 分钟）、Yusof Ishak（20 分钟）、Pei Hwa（23 分钟）通勤最近，但 PG3 上限分别是 14、15、14，与 ${S.score} 分差 2–3 分——不是「差一点」，是<b>超出录取范围</b>。</p>
+</table>` : `<p class="lead">这个邮编还没有跑过 MOE SchoolFinder 的「附近学校」筛选，所以候选池直接按通勤上限在全岛计算，没有「官方附近」这一层。</p>
+<p class="soft">要补上这一层：运行 <code>scripts/sf-filter.cjs</code>（会在浏览器里操作 SchoolFinder），生成 <code>data/moe-nearby-${S.postal}.json</code> 后重跑本脚本即可，报告会自动切换成「先附近、再扩展」的结构。</p>`}
 
 <h3>为什么要用「扩展范围」补充</h3>
-<p>MOE 的邮编筛选给的是「附近」，但「附近」不等于「45 分钟内」。比如 Bartley（33 分钟、最近站步行仅 401m）通勤完全在你能接受的范围，却不在那 ${NEARBY.count} 所里。</p>
-<p>所以我按你原本的 45 分钟上限，另算了一遍全岛：<b>45 分钟内可达 47 所</b>，其中 PG3 够得着 <b>20 所</b>（19 所混校 + 1 所男校）。这 20 所里，9 所在 MOE 附近列表内，11 所在列表外。</p>
+<p>MOE 的邮编筛选给的是「附近」，但「附近」不等于「${S2.withinCommute > 0 ? S.maxCommute : S.maxCommute} 分钟内」。通勤完全可接受、却不在那 ${S2.nearbyCount} 所里，这种情况很常见。</p>
+<p>所以我按你原本的 ${S.maxCommute} 分钟上限，另算了一遍全岛：<b>${S.maxCommute} 分钟内可达 ${S2.withinCommute} 所</b>，其中 ${S.pgShort} 够得着 <b>${S2.withinCommuteReachable} 所</b>（${S2.poolMixed} 所混校 + ${S2.poolSingleSex} 所单性别校）。这 ${S2.withinCommuteReachable} 所里，${S2.nearbyReachable} 所在 MOE 附近列表内，${S2.withinCommuteReachable - S2.nearbyReachable} 所在列表外。</p>
 
 <table>
 <thead><tr><th>层级</th><th>数量</th></tr></thead>
 <tbody>
-<tr><td>全岛中学</td><td class="num">147</td></tr>
-<tr><td>有 PG3 招生档</td><td class="num">130</td></tr>
-<tr><td>全国范围内分数够得着</td><td class="num">68</td></tr>
-<tr><td>其中 45 分钟通勤可达</td><td class="num"><b>20</b>（19 混校 + 1 男校）</td></tr>
-<tr><td>其中同时在 MOE 邮编「附近」列表内</td><td class="num"><b>9</b>（8 混校 + 1 男校）</td></tr>
+<tr><td>全岛中学</td><td class="num">${S2.totalSchools}</td></tr>
+<tr><td>有 ${S.pgShort} 招生档</td><td class="num">${S2.withStudentPG}</td></tr>
+<tr><td>全国范围内分数够得着</td><td class="num">${S2.reachableNationwide}</td></tr>
+<tr><td>其中 ${S.maxCommute} 分钟通勤可达</td><td class="num"><b>${S2.withinCommuteReachable}</b>（${S2.poolMixed} 混校 + ${S2.poolSingleSex} 单性别）</td></tr>
+${NEARBY ? `<tr><td>其中同时在 MOE 邮编「附近」列表内</td><td class="num"><b>${S2.nearbyReachable}</b>（${S2.nearbyReachableMixed} 混校 + ${S2.nearbyReachableSingle} 单性别）</td></tr>` : ''}
 </tbody>
 </table>
 </section>
@@ -611,7 +627,7 @@ ${['A', 'B', 'C'].map(k => {
 <div style="margin-bottom:14px;font-size:13.5px"><a href="../index.html">← 学校看板</a> ｜ <a href="../map.html">通勤地图</a></div>
 <b>数据来源</b><br>
 · 学校名单 / 类型 / CCA / ALP / LLP / DSA / COP：MOE SchoolFinder，采集于 2026-11；COP 为 <b>2025 年度</b>各 Posting Group 的实际录取区间<br>
-· <b>MOE 附近学校列表</b>：SchoolFinder 页面输入邮编 ${esc(S.postal)} 后前端筛选所得（${NEARBY.count} 所），采集时间 ${esc(String(NEARBY.collectedAt).slice(0, 10))}<br>
+${NEARBY ? `· <b>MOE 附近学校列表</b>：SchoolFinder 页面输入邮编 ${esc(S.postal)} 后前端筛选所得（${S2.nearbyCount} 所），采集时间 ${esc(String(NEARBY.collectedAt || '').slice(0, 10))}<br>` : `· <b>MOE 附近学校列表</b>：本邮编未采集（候选池为全岛自算通勤）<br>`}
 · 录取规则 / Posting Group / tie-breaker / HCL 规则：MOE 官方 S1 Posting 与 PSLE 计分页面<br>
 · 学校坐标：OneMap 地理编码｜MRT 网络：官方线路代号重建（151 站 / 6 线 + 樟宜支线）<br>
 · 通勤时间：自建模型（步行 80m/min + 进站 4 分钟 + 站间 2 分钟 + 换乘 5 分钟），经 4 组 OD 对照校准，偏差 ≤2 分钟<br><br>
@@ -620,15 +636,52 @@ ${['A', 'B', 'C'].map(k => {
 · 候选池：MOE 邮编 ${esc(S.postal)} 筛选 + 45 分钟通勤双口径，逐所标注是否在 MOE 附近列表内<br>
 · 安全性评分：按实际余量分布（0–5 分）标定<br><br>
 <b>免责</b>：个人研究工具输出，非 MOE 官方建议。COP 仅供参考，不构成录取保证。通勤时间为模型估算，未含巴士接驳与等车波动。<br><br>
-<span class="soft">生成于 ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Singapore' })} SGT · 基于 AL ${S.score} / PG3 / 邮编 ${esc(S.postal)}</span>
+<span class="soft">生成于 ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Singapore' })} SGT · 基于 AL ${S.score} / ${S.pgShort} / 邮编 ${esc(S.postal)} / 通勤上限 ${S.maxCommute} 分钟</span>
 </div>
 
 </div>
 </body>
 </html>`;
 
-const out = path.join(BASE, 'docs/reports/abc1-s1-choice-2026-v2.html');
+const out = path.join(BASE, 'docs/reports', STU.planSlug + '.html');
 fs.mkdirSync(path.dirname(out), { recursive: true });
 fs.writeFileSync(out, html);
 console.log('▸ 输出', out);
 console.log('  大小', Math.round(html.length / 1024) + 'KB');
+
+/* 登记到学生索引，供看板导航读取。
+   多学生共存时，看板按 activeId 决定「我的志愿方案」指向哪一份。 */
+const IDX_FILE = path.join(BASE, 'docs/data/students-index.json');
+let idx = { students: [] };
+try { idx = JSON.parse(fs.readFileSync(IDX_FILE, 'utf8')); } catch (_) { /* 首次生成 */ }
+// 只保留配置文件仍存在的学生 —— 索引是派生结果，删掉 students/<id>.json 就该消失
+const alive = (idx.students || []).filter(x => fs.existsSync(path.join(Stu.DIR, x.id + '.json')));
+const list = alive.filter(x => x.id !== STU.id);
+list.push({
+  id: STU.id,
+  label: STU.label,
+  al: STU.al,
+  pgShort: S.pgShort,
+  postal: STU.home.postal,
+  maxCommuteMin: STU.maxCommuteMin,
+  planSlug: STU.planSlug,
+  updatedAt: new Date().toISOString(),
+});
+list.sort((a, b) => (a.id === Stu.DEFAULT_ID ? -1 : b.id === Stu.DEFAULT_ID ? 1 : a.id.localeCompare(b.id)));
+fs.mkdirSync(path.dirname(IDX_FILE), { recursive: true });
+fs.writeFileSync(IDX_FILE, JSON.stringify({
+  generatedAt: new Date().toISOString(),
+  defaultId: Stu.DEFAULT_ID,
+  // activeId 不是「最后生成的那个」，而是显式指针：
+  // 优先 data/students/active.json，其次默认学生。否则给另一个学生出报告
+  // 会把看板入口悄悄抢走。
+  activeId: (() => {
+    try {
+      const a = JSON.parse(fs.readFileSync(path.join(Stu.DIR, 'active.json'), 'utf8'));
+      if (a.active && list.some(x => x.id === a.active)) return a.active;
+    } catch (_) { /* 无指针 */ }
+    return list.some(x => x.id === Stu.DEFAULT_ID) ? Stu.DEFAULT_ID : list[0].id;
+  })(),
+  students: list,
+}, null, 1));
+console.log('  索引：docs/data/students-index.json（%d 个学生，当前 %s）', list.length, STU.id);

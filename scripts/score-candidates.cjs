@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 /**
- * 学生择校评分模型（AL 17 / PG3 / Punggol 828765 / 45 分钟上限）
+ * 学生择校评分模型
+ *
+ * 学生画像来自 data/students/<id>.json（见 lib/student.cjs）。
+ * 默认 abc1；换人用 STUDENT=<id> 环境变量，无需改代码。
  *
  * 五维加权，权重为用户指定：
  *   录取安全性 30% ｜ 距离/通勤 25% ｜ 学术课程匹配 15% ｜ CCA 匹配 15% ｜ ALP/LLP 特色 15%
@@ -15,14 +18,22 @@ const BASE = path.join(__dirname, '..');
 const net = JSON.parse(fs.readFileSync(path.join(BASE, 'data/network.json'), 'utf8'));
 const schools = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/schools.json'), 'utf8')).schools;
 const graph = Iso.buildGraph(net);
+
+const Stu = require('../lib/student.cjs');
+const STU = Stu.load();
+
+// MOE 邮编筛选结果按邮编天然区分学生；缺失时降级为「未做附近筛选」
 const MOE_NEARBY = (() => {
-  const f = path.join(BASE, 'data/moe-nearby-828765.json');
+  const f = Stu.nearbyFile(STU);
   return fs.existsSync(f) ? new Set(JSON.parse(fs.readFileSync(f, 'utf8')).schools) : new Set();
 })();
 
-const SCORE = 17;
-const POSTAL = '828765';
-const MAX_MIN = 45;
+const SCORE = STU.al;
+const POSTAL = STU.home.postal;
+const MAX_MIN = STU.maxCommuteMin;
+const PG = STU.postingGroupLabel;      // 'Posting Group 3'，用于匹配 rows.label
+// 通勤评分满分线 —— 与学生分数无关，过去写成 17 只是巧合
+const FULL_MARK = STU.commuteFullMarkMin;
 
 /* ── 五维评分 ───────────────────────────────────────────── */
 
@@ -42,11 +53,12 @@ function scoreSafety(margin) {
   return 40;
 }
 
-/** 通勤：17 分钟内满分，45 分钟 60 分 */
+/** 通勤：FULL_MARK 分钟内满分，到 MAX_MIN 时约 60 分，下限 30 */
 function scoreCommute(min) {
   if (min == null) return 0;
-  if (min <= 17) return 100;
-  return Math.max(30, Math.round(100 - (min - 17) * 1.43));
+  if (min <= FULL_MARK) return 100;
+  const span = Math.max(1, MAX_MIN - FULL_MARK);
+  return Math.max(30, Math.round(100 - (min - FULL_MARK) * (40 / span)));
 }
 
 /**
@@ -122,16 +134,30 @@ function scoreFeature(sc, alpCats, llpCats) {
  */
 function gate(sc) {
   if (!sc.cop?.rows?.length) return null;
-  const r = sc.cop.rows.find(x => x.label === 'Posting Group 3');
-  if (!r) return null;                 // 纯 IP 校没有 PG3 行
-  const v = r.nonAff || r.aff;
-  return v ? { ...v, label: r.label, kind: r.kind } : null;
+  const r = sc.cop.rows.find(x => x.label === PG);
+  if (!r) return null;                 // 该校不开学生所属档位
+
+  /* ⚠️ 这里曾经写 `r.nonAff || r.aff`，会让「该档只招附属生」的学校
+     回退到附属区间，被误判为可报。
+     实例：Kuo Chuan Presbyterian 的 PG3 只有附属区间（8–20），
+     非附属生根本不在名额池里，却因回退被算成 margin +3、排进主池第 17 位。
+     正确做法：按学生的附属身份选列。无附属关系时 nonAff 为空 = 不可报。 */
+  const v = STU.hasAffiliation ? (r.aff || r.nonAff) : r.nonAff;
+  return v ? { ...v, label: r.label, kind: r.kind, isAff: STU.hasAffiliation && !r.nonAff } : null;
 }
 
 (async () => {
-  const j = await (await fetch('https://www.onemap.gov.sg/api/common/elastic/search?searchVal=' +
-    POSTAL + '&returnGeom=Y&getAddrDetails=Y&pageNum=1')).json();
-  const origin = { lat: +j.results[0].LATITUDE, lon: +j.results[0].LONGITUDE, label: j.results[0].SEARCHVAL };
+  // 配置里有坐标就直接用，省一次网络请求（也避免 OneMap 限速拖慢整条链）
+  let origin;
+  if (STU.home.coords) {
+    origin = { ...STU.home.coords, label: STU.home.address || POSTAL };
+  } else {
+    const j = await (await fetch('https://www.onemap.gov.sg/api/common/elastic/search?searchVal=' +
+      encodeURIComponent(POSTAL) + '&returnGeom=Y&getAddrDetails=Y&pageNum=1')).json();
+    const r = (j.results || [])[0];
+    if (!r) { console.error('✗ 邮编 ' + POSTAL + ' 地理编码失败'); process.exit(1); }
+    origin = { lat: +r.LATITUDE, lon: +r.LONGITUDE, label: r.SEARCHVAL };
+  }
   const stationMin = Iso.solveFrom(graph, origin).stationMin;
   const tmap = new Map(Iso.timeToSchools(graph, stationMin, schools.filter(s => s.lat && s.lon))
     .map(t => [t.school.slug, t]));
@@ -171,23 +197,36 @@ function gate(sc) {
     };
   });
 
-  // 池子：45 分钟内 + 有 COP + 混校 + 分数够得着（margin >= 4，保守一点）
+  // 性别口径：any=只看混校（单性别另列）；boys/girls=混校 + 对应单性别校
+  const wantSex = STU.gender;              // any | boys | girls
+  const sexOk = sc => {
+    const isBoy = sc.nature === 'Boys School';
+    const isGirl = sc.nature === 'Girls School';
+    if (!isBoy && !isGirl) return true;    // 混校恒可
+    if (wantSex === 'boys') return isBoy;
+    if (wantSex === 'girls') return isGirl;
+    return false;                          // any → 单性别校不进主池
+  };
+
+  // 池子：通勤上限内 + 有 COP + 性别符合 + 分数够得着
   const pool = all
     .filter(x => x.minutes != null && x.minutes <= MAX_MIN)
     .filter(x => x.cop && x.margin >= 0)
-    .filter(x => x.nature !== 'Boys School' && x.nature !== 'Girls School')
+    .filter(x => sexOk(x))
     .sort((a, b) => b.total - a.total);
 
-  // 同时保留单性别学校信息（供说明为什么排除）
+  // 因性别被「排除」的单性别学校 —— 必须是 !sexOk，否则会与主池重叠重复计数
+  // （gender=boys 时男校已进主池，这里只应剩女校）
   const singleSex = all.filter(x => x.minutes != null && x.minutes <= MAX_MIN &&
-    (x.nature === 'Boys School' || x.nature === 'Girls School') && x.cop && x.margin >= 4);
+    (x.nature === 'Boys School' || x.nature === 'Girls School') && x.cop && x.margin >= 0 &&
+    !sexOk(x));
 
   // 够不着的名校（margin < 0）
   const outOfReach = all.filter(x => x.minutes != null && x.minutes <= MAX_MIN && x.cop && x.margin < 0)
     .sort((a, b) => b.margin - a.margin);
 
   console.log('▸ 起点:', origin.label, origin.lat.toFixed(5), origin.lon.toFixed(5));
-  console.log('▸ 候选池（混校 / 45min / margin≥4）:', pool.length, '所');
+  console.log(`▸ 候选池（${wantSex === 'any' ? '混校' : wantSex === 'boys' ? '混校+男校' : '混校+女校'} / ${MAX_MIN}min / margin≥0）:`, pool.length, '所');
   console.log('');
   console.log('排名  总分  分钟  余量  COP       校名 / ALP');
   pool.forEach((x, i) => {
@@ -208,10 +247,65 @@ function gate(sc) {
   console.log('── 45 分钟内但分数够不着（margin<0）:', outOfReach.length, '所');
   outOfReach.slice(0, 12).forEach(x => console.log('   ' + String(x.minutes).padStart(2) + 'm ' + String(x.margin).padStart(3) + ' ' + x.name + ' [' + x.cop.min + '-' + x.cop.max + (x.cop.markMax || '') + ']'));
 
-  fs.writeFileSync(path.join(BASE, 'data/_recommend.json'), JSON.stringify({
-    student: { score: SCORE, pg: 'PG3', postal: POSTAL, maxCommute: MAX_MIN },
-    origin, pool, singleSex, outOfReach,
+  /* 全国口径统计 —— 报告里所有「N 所」都从这里取，避免换学生后数字失真。
+     过去这些数字是硬编码在报告模板里的（130/68/47/20/19/1），
+     换一个分数或邮编就全错。 */
+  const stats = {
+    totalSchools: schools.length,
+    // 有「学生所属档位」的学校（纯 IP 校没有这一行，学生报不了）
+    withStudentPG: all.filter(x => x.cop).length,
+    // 全国够得着（不限通勤）
+    reachableNationwide: all.filter(x => x.cop && x.margin >= 0).length,
+    // 通勤上限内可达
+    withinCommute: all.filter(x => x.minutes != null && x.minutes <= MAX_MIN).length,
+    // 通勤内 + 够得着（= 主池 + 单性别）
+    withinCommuteReachable: all.filter(x => x.minutes != null && x.minutes <= MAX_MIN && x.cop && x.margin >= 0).length,
+    poolMixed: pool.length,
+    poolSingleSex: singleSex.length,
+    outOfReach: outOfReach.length,
+    // MOE 邮编筛选
+    nearbyUsed: MOE_NEARBY.size > 0,
+    nearbyCount: MOE_NEARBY.size,
+    nearbyReachable: MOE_NEARBY.size
+      ? all.filter(x => MOE_NEARBY.has(x.name) && x.cop && x.margin >= 0).length
+      : null,
+    nearbyReachableMixed: MOE_NEARBY.size
+      ? all.filter(x => MOE_NEARBY.has(x.name) && x.cop && x.margin >= 0 && x.nature !== 'Boys School' && x.nature !== 'Girls School').length
+      : null,
+    nearbyReachableSingle: MOE_NEARBY.size
+      ? all.filter(x => MOE_NEARBY.has(x.name) && x.cop && x.margin >= 0 && (x.nature === 'Boys School' || x.nature === 'Girls School')).length
+      : null,
+    // 名单也给出去，报告里不写死校名
+    nearbyOutOfReachNames: MOE_NEARBY.size
+      ? all.filter(x => MOE_NEARBY.has(x.name) && x.cop && x.margin < 0)
+          .sort((a, b) => b.margin - a.margin)
+          .map(x => x.name.replace(/ Secondary School| \(Secondary\)/, ''))
+      : [],
+    nearbySingleSexName: MOE_NEARBY.size
+      ? (all.find(x => MOE_NEARBY.has(x.name) && x.cop && x.margin >= 0 &&
+          (x.nature === 'Boys School' || x.nature === 'Girls School')) || {}).name?.replace(/ Secondary School| \(Secondary\)/, '') || null
+      : null,
+    nearbySingleSexType: (() => {
+      if (!MOE_NEARBY.size) return null;
+      const x = all.find(y => MOE_NEARBY.has(y.name) && y.cop && y.margin >= 0 &&
+        (y.nature === 'Boys School' || y.nature === 'Girls School'));
+      return x ? (x.nature === 'Boys School' ? 'boys' : 'girls') : null;
+    })(),
+  };
+
+  const payload = JSON.stringify({
+    student: {
+      id: STU.id, label: STU.label, score: SCORE, pg: PG,
+      postal: POSTAL, maxCommute: MAX_MIN, commuteFullMarkMin: FULL_MARK,
+      pgShort: STU.postingGroup, pgLabel: PG,
+      gender: STU.gender, hasAffiliation: STU.hasAffiliation, dsaApplicant: STU.dsaApplicant,
+      moeNearbyUsed: MOE_NEARBY.size > 0,
+    },
+    origin, pool, singleSex, outOfReach, stats,
     weights: { safety: .30, commute: .25, academic: .15, cca: .15, feature: .15 },
-  }, null, 1));
-  console.log('\n▸ 已存 data/_recommend.json');
+  }, null, 1);
+  // 按学生分文件，多学生共存互不覆盖；同时写一份 _recommend.json 指向当前学生
+  fs.writeFileSync(path.join(BASE, `data/_recommend-${STU.id}.json`), payload);
+  fs.writeFileSync(path.join(BASE, 'data/_recommend.json'), payload);
+  console.log(`\n▸ 已存 data/_recommend-${STU.id}.json（并同步 data/_recommend.json）`);
 })();

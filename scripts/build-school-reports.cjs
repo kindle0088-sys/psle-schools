@@ -26,10 +26,17 @@ const P = (...a) => path.join(BASE, ...a);
 const CSS = fs.readFileSync(P('scripts/tpl/school.css'), 'utf8');
 const SCHOOLS = JSON.parse(fs.readFileSync(P('docs/data/schools.json'), 'utf8')).schools;
 const NET = JSON.parse(fs.readFileSync(P('data/network.json'), 'utf8'));
-const POOL = JSON.parse(fs.readFileSync(P('data/_student-pool.json'), 'utf8'));
+// 学生画像统一从配置读，不再依赖 analyze-student 的中间产物
+const STU = require('../lib/student.cjs').load();
 
-const SCORE = POOL.student.score;          // 17
-const ORIGIN = POOL.origin;                // 邮编 828765 的坐标
+const SCORE = STU.al;
+const ORIGIN = STU.home.coords;
+if (!ORIGIN) {
+  console.error(`\n✗ data/students/${STU.id}.json 缺少 home.lat/lon。\n` +
+    '  单校报告的通勤时间按学生家出发计算，必须有坐标。\n' +
+    '  填上坐标，或先跑 scripts/analyze-student.cjs 让 OneMap 地理编码一次。\n');
+  process.exit(1);
+}
 
 const graph = Iso.buildGraph(NET);
 const stationMin = Iso.solveFrom(graph, ORIGIN).stationMin;
@@ -70,7 +77,7 @@ function render(pf) {
   const profileCells = [
     { k: g?.kind === 'IP' ? 'IP 录取区间' : `PG${pg} 区间（${sc.cop?.year || 2025}）`, v: fmtRange(g) },
     { k: `AL ${SCORE} 余量`, v: margin == null ? '—' : (margin >= 0 ? `+${margin} 分` : `${margin} 分`) },
-    { k: `通勤（自 ${POOL.student.postal}）`, v: cm.minutes != null ? `约 ${cm.minutes} 分钟` : '—' },
+    { k: `通勤（自 ${STU.home.postal}）`, v: cm.minutes != null ? `约 ${cm.minutes} 分钟` : '—' },
     ...(pf.profileExtra || []),
   ];
 

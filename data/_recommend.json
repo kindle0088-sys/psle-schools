@@ -1,14 +1,23 @@
 {
  "student": {
+  "id": "abc1",
+  "label": "abc1",
   "score": 17,
-  "pg": "PG3",
+  "pg": "Posting Group 3",
   "postal": "828765",
-  "maxCommute": 45
+  "maxCommute": 45,
+  "commuteFullMarkMin": 17,
+  "pgShort": "PG3",
+  "pgLabel": "Posting Group 3",
+  "gender": "any",
+  "hasAffiliation": false,
+  "dsaApplicant": false,
+  "moeNearbyUsed": true
  },
  "origin": {
   "lat": 1.402186278027678,
   "lon": 103.8972807400701,
-  "label": "TWIN WATERFALLS"
+  "label": "110 Punggol Walk Twin Waterfalls Singapore 828765"
  },
  "pool": [
   {
@@ -1086,77 +1095,6 @@
     "feature": 86
    },
    "total": 70
-  },
-  {
-   "slug": "kuo-chuan-presbyterian-secondary-school",
-   "name": "Kuo Chuan Presbyterian Secondary School",
-   "area": "Bishan",
-   "address": "10 Bishan Street 13, S579795",
-   "postal": "579795",
-   "nature": "Co-Ed School",
-   "type": "Government-Aided School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 8,
-    "max": 20,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "margin": 3,
-   "minutes": 37,
-   "rideMinutes": 30,
-   "walkMinutes": 7,
-   "via": "NS17/CC15 BISHAN",
-   "accessWalkM": 556,
-   "cca": [
-    "Badminton (Boys)",
-    "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Girl Guides (Girls)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "Shooting (Girls and Boys)"
-   ],
-   "alpCats": [
-    "Languages"
-   ],
-   "alpItems": [
-    "(P.A.C.E) Participate, Access/Analyse, Create, Evaluate in KCPSS Media Literacy Programme"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "It’s B.a.S.i.C! – Being a Servant Leader in the Community"
-   ],
-   "dsaAreas": [
-    "Chinese and Modern Dance (Girls)",
-    "Choir (Girls and Boys)",
-    "Community Youth Leadership (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "English Drama (Girls and Boys)",
-    "Guzheng Ensemble (Girls and Boys)",
-    "Media Arts / Film / Photography (Girls and Boys)",
-    "Media/Journalism (Girls and Boys)",
-    "Shooting (Girls and Boys)",
-    "Table Tennis (Girls and Boys)"
-   ],
-   "moeNearby": false,
-   "scores": {
-    "safety": 66,
-    "commute": 71,
-    "academic": 50,
-    "cca": 85,
-    "feature": 76
-   },
-   "total": 69
   },
   {
    "slug": "outram-secondary-school",
@@ -2928,6 +2866,33 @@
    "total": 55
   }
  ],
+ "stats": {
+  "totalSchools": 147,
+  "withStudentPG": 130,
+  "reachableNationwide": 68,
+  "withinCommute": 47,
+  "withinCommuteReachable": 19,
+  "poolMixed": 18,
+  "poolSingleSex": 1,
+  "outOfReach": 23,
+  "nearbyUsed": true,
+  "nearbyCount": 17,
+  "nearbyReachable": 9,
+  "nearbyReachableMixed": 8,
+  "nearbyReachableSingle": 1,
+  "nearbyOutOfReachNames": [
+   "Bowen",
+   "Greendale",
+   "Yusof Ishak",
+   "CHIJ St. Joseph's Convent",
+   "Edgefield",
+   "Holy Innocents' High School",
+   "Pei Hwa",
+   "Xinmin"
+  ],
+  "nearbySingleSexName": "Montfort",
+  "nearbySingleSexType": "boys"
+ },
  "weights": {
   "safety": 0.3,
   "commute": 0.25,

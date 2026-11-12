@@ -379,6 +379,28 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
   t('无 ccaFull 的学校回退为单一列表', fallback.found && fallback.groups === 0);
   t('回退时仍显示 MOE 项数', /22 项/.test(fallback.row), fallback.row);
 
+  console.log('\n【七之六】志愿方案入口跟随学生索引');
+  const navInfo = JSON.parse(await ev(`JSON.stringify((() => {
+    const a = document.getElementById('planNav');
+    if (!a) return { found: false };
+    return { found: true, href: a.getAttribute('href'), text: a.textContent.trim(), title: a.title || '' };
+  })())`));
+  t('导航里有「志愿方案」入口', navInfo.found);
+  t('入口已由学生索引接管（href 为 reports/*.html）',
+    /^reports\/.+\.html$/.test(navInfo.href || ''), navInfo.href);
+  const navFile = (navInfo.href || '').replace(/^reports\//, '');
+  t('入口指向真实存在的报告', fs.existsSync(path.join(BASE, 'docs/reports', navFile)), navFile);
+  // 只有一位学生时保持原文案；多学生时才加括号标注
+  const stuIdx = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/students-index.json'), 'utf8'));
+  if (stuIdx.students.length === 1) {
+    t('单学生时文案不冗余', navInfo.text === '我的志愿方案', navInfo.text);
+    t('入口指向该学生的方案', navFile === stuIdx.students[0].planSlug + '.html', navFile);
+  } else {
+    t('多学生时文案标注当前学生', /志愿方案（/.test(navInfo.text), navInfo.text);
+    const act = stuIdx.students.find(x => x.id === stuIdx.activeId);
+    t('入口指向活跃学生的方案', navFile === act.planSlug + '.html', navFile);
+  }
+
   console.log('\n【八】JS 异常检查');
   const errs = await ev(`JSON.stringify(window.__errs || [])`);
   t('无未捕获异常', JSON.parse(errs).length === 0);

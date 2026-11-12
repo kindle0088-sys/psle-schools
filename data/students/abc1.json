@@ -1,0 +1,47 @@
+{
+  "id": "abc1",
+  "label": "abc1",
+  "createdAt": "2026-11-08",
+  "psle": {
+    "al": 17,
+    "year": 2026,
+    "_note": "AL 4–30，越小越好。PG3 = 4–20。"
+  },
+  "home": {
+    "postal": "828765",
+    "address": "110 Punggol Walk Twin Waterfalls Singapore 828765",
+    "lat": 1.402186278027678,
+    "lon": 103.8972807400701,
+    "_note": "填了 lat/lon 就跳过 OneMap 地理编码，省一次网络请求也避免限速。不填会自动 geocode。"
+  },
+  "constraints": {
+    "maxCommuteMin": 45,
+    "commuteFullMarkMin": 17,
+    "gender": "any",
+    "hasAffiliation": false,
+    "dsaApplicant": false,
+    "_note": "commuteFullMarkMin 是「通勤评分满分线」，与 PSLE 分数无关——两者曾同为 17 纯属巧合。gender: any | boys | girls。hasAffiliation=false 表示按非附属生口径看录取区间。"
+  },
+  "interests": {
+    "academic": [
+      "Science",
+      "Computing",
+      "Math",
+      "Languages",
+      "Humanities"
+    ],
+    "cca": [
+      "Robotics",
+      "AI",
+      "Drama",
+      "Swimming",
+      "Cooking"
+    ],
+    "_note": "cca 兴趣用于人工分析；看板的筛选维度用文档的 9 维关键词，不走这个字段。"
+  },
+  "outputs": {
+    "planSlug": "abc1-s1-choice-2026-v2",
+    "_note": "报告落地为 docs/reports/<planSlug>.html。多学生共存时各自用不同 slug。"
+  },
+  "notes": "性别保密，分析时按「混校为主、单性别校另列」处理。"
+}

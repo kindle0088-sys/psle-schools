@@ -7,10 +7,20 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE = path.join(__dirname, '..');
-const html = fs.readFileSync(path.join(BASE, 'docs/reports/abc1-s1-choice-2026-v2.html'), 'utf8');
+const Stu = require('../lib/student.cjs');
+const STU = Stu.load();
+// v1 是 abc1 的历史归档，文件名固定、不随学生配置变化；只对 abc1 做归档检查
+const V1_ARCHIVE = 'abc1-s1-choice-2026.html';
+const html = fs.readFileSync(path.join(BASE, 'docs/reports', STU.planSlug + '.html'), 'utf8');
 const schools = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/schools.json'), 'utf8')).schools;
-const R = JSON.parse(fs.readFileSync(path.join(BASE, 'data/_recommend.json'), 'utf8'));
-const NEARBY = JSON.parse(fs.readFileSync(path.join(BASE, 'data/moe-nearby-828765.json'), 'utf8'));
+const R = JSON.parse(fs.readFileSync(
+  fs.existsSync(path.join(BASE, `data/_recommend-${STU.id}.json`))
+    ? path.join(BASE, `data/_recommend-${STU.id}.json`)
+    : path.join(BASE, 'data/_recommend.json'), 'utf8'));
+const NEARBY = (() => {
+  const f = Stu.nearbyFile(STU);
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
+})();
 
 const rawByName = new Map(schools.map(s => [s.name, s]));
 const recByName = new Map([...R.pool, ...R.singleSex, ...R.outOfReach].map(x => [x.name, x]));
@@ -119,10 +129,13 @@ t('入口数不超过索引总数', linked.length <= Object.keys(REPORTS).length
 const broken = linked.filter(f => !fs.existsSync(path.join(BASE, 'docs', f)));
 t('深度报告链接均指向存在的文件', broken.length === 0, broken.join(', ') || '全部有效');
 t('不含与 v1 的对比总结', !/上一版|本版修正了什么|旧口径/.test(html));
-t('v1 已加废弃提示',
-  fs.readFileSync(path.join(BASE, 'docs/reports/abc1-s1-choice-2026.html'), 'utf8').includes('本版已作废'));
-t('导航已指向 v2',
-  fs.readFileSync(path.join(BASE, 'docs/index.html'), 'utf8').includes('abc1-s1-choice-2026-v2.html'));
+if (STU.id === Stu.DEFAULT_ID) {
+  t('v1 已加废弃提示',
+    fs.readFileSync(path.join(BASE, 'docs/reports', V1_ARCHIVE), 'utf8').includes('本版已作废'));
+}
+t('看板已链接到当前学生的方案',
+  fs.readFileSync(path.join(BASE, 'docs/index.html'), 'utf8').includes(STU.planSlug + '.html'),
+  STU.planSlug);
 
 console.log(`\n══════ ${pass} 通过 / ${fail} 失败 ══════`);
 process.exit(fail ? 1 : 0);

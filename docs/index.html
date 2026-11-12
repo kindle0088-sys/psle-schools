@@ -16,7 +16,7 @@
     <nav class="nav">
       <a href="index.html" class="on">学校看板</a>
       <a href="map.html">通勤地图</a>
-      <a href="reports/abc1-s1-choice-2026-v2.html">我的志愿方案</a>
+      <a href="reports/abc1-s1-choice-2026-v2.html" id="planNav">我的志愿方案</a>
     </nav>
   </div>
 </header>
@@ -515,6 +515,31 @@ $('#reset').addEventListener('click', () => {
   render();
 });
 
+/**
+ * 「我的志愿方案」入口跟随学生索引。
+ * 之前这里写死在 HTML 里，换一个学生就点不开新报告。
+ */
+function syncPlanNav() {
+  const nav = $('#planNav');
+  if (!nav) return;
+  fetch('data/students-index.json', { cache: 'no-cache' })
+    .then(r => (r.ok ? r.json() : null))
+    .then(idx => {
+      const list = (idx && idx.students) || [];
+      if (!list.length) return;
+      const act = list.find(s => s.id === idx.activeId)
+        || list.find(s => s.id === idx.defaultId)
+        || list[0];
+      if (!act || !act.planSlug) return;
+      nav.href = 'reports/' + act.planSlug + '.html';
+      nav.textContent = list.length > 1 ? `志愿方案（${act.label || act.id}）` : '我的志愿方案';
+      if (list.length > 1) {
+        nav.title = list.map(s => `${s.label || s.id}：AL ${s.al}`).join(' · ');
+      }
+    })
+    .catch(() => { /* 索引缺失时保持 HTML 里的默认链接 */ });
+}
+
 /* ────────────────────────────────────────────────
    启动
    ──────────────────────────────────────────────── */
@@ -530,6 +555,8 @@ $('#reset').addEventListener('click', () => {
     if (repRes && repRes.ok) {
       try { REPORTS = (await repRes.json()).reports || {}; } catch (_) { REPORTS = {}; }
     }
+    // 志愿方案入口按学生索引走：多学生共存时指向当前活跃的那份
+    syncPlanNav();
     // 有报告才露出「深度报告」筛选；索引挂了也不影响主体
     const nDeep = Object.keys(REPORTS).length;
     if (nDeep) {
