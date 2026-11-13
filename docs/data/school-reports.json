@@ -1,6 +1,6 @@
 {
   "_note": "单校深度报告索引：slug -> 报告文件。新增一份报告只需在此登记一行，看板卡片会自动出现「深度报告」入口。",
-  "generatedAt": "2026-11-11T11:45:05.310Z",
+  "generatedAt": "2026-11-13T06:40:43.885Z",
   "reports": {
     "bendemeer-secondary-school": {
       "file": "reports/school-bendemeer-secondary-school.html",
@@ -8,9 +8,11 @@
       "version": "v1"
     },
     "compassvale-secondary-school": {
-      "file": "reports/school-compassvale-secondary.html",
-      "date": "2026-11-09",
-      "version": "v1"
+      "file": "reports/school-compassvale-secondary-school.html",
+      "date": "2026-11-13",
+      "version": "v2",
+      "previous": "reports/school-compassvale-secondary.html",
+      "note": "2026-11-13 按现行模板重写：补步行/地铁两路通勤，CCA 一节补 MOE 8 项与 DSA 反推。旧版保留可追溯"
     },
     "hougang-secondary-school": {
       "file": "reports/school-hougang-secondary-school.html",
