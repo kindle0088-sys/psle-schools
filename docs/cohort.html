@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="generator" content="psle-cohort-page/v1">
+<title>PSLE 考生人数与学额 · 2020–2026</title>
+<style>
+:root{
+  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
+  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
+  --accent:#0f5c4e; --accent-bg:#eef6f3;
+  --warm:#8a5a00; --warm-bg:#fdf6e7;
+  --risk:#8c2f2f; --risk-bg:#fbf0ef;
+  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:#fff}
+.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.hero h1{margin:10px 0 6px;font-size:26px;font-weight:650;letter-spacing:-.4px;line-height:1.35}
+/* 副标题行：单校报告与志愿报告的 h1 都带 <small>，没有这条会与主标题粘连 */
+.hero h1 small{display:block;font-size:14.5px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:7px;line-height:1.5}
+.hero .sub{opacity:.82;font-size:14px;max-width:660px}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
+.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
+.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+
+section{margin:0 0 38px}
+h2{font-size:18px;font-weight:640;margin:42px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px}
+h2 .n{font-size:12px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 16px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.fixbox{background:var(--risk-bg);border:1px solid #efd6d4;border-left:4px solid var(--risk);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.fixbox h3{margin:0 0 8px;font-size:15.5px;color:var(--risk)}
+.fixbox p{margin:8px 0;font-size:14.3px}
+
+.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict p{margin:8px 0;font-size:14.3px}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+
+table{width:100%;border-collapse:collapse;font-size:13.4px;margin:14px 0}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:12px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.soft,.soft{color:var(--tx3)}
+tbody tr:hover{background:#f6f6f3}
+.tight{color:var(--warm)}
+
+.school{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px;margin:16px 0}
+.school header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
+.sbadges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11px;padding:2px 8px;border-radius:5px;background:#f1f1ee;color:var(--tx2);border:1px solid var(--line)}
+.badge-moe{background:var(--accent-bg);color:var(--accent);border-color:#cfe4dc;font-weight:600}
+.badge-over{background:var(--risk-bg);color:var(--risk);border-color:#e6c9c6;font-weight:600}
+.gap-line{font-size:13px;color:var(--tx2);margin:10px 0 0;padding-left:12px;border-left:2px solid var(--risk);line-height:1.7}
+.tier{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:600}
+.t-reach{background:var(--warm-bg);color:var(--warm);border:1px solid #ecd9b0}
+.t-match{background:var(--accent-bg);color:var(--accent);border:1px solid #cfe4dc}
+.t-safe{background:var(--ok-bg);color:var(--ok);border:1px solid #cfe6d8}
+
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:13px}
+.kv div{background:var(--card);padding:9px 12px}
+.kv .k{display:block;font-size:11px;color:var(--tx3);letter-spacing:.3px}
+.kv .v{display:block;font-size:14px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+
+.why,.caveat{font-size:13.7px;margin:10px 0;padding:10px 13px;border-radius:8px}
+/* 只有段落首个 <b> 当小标题用；正文内的 <b> 保持内联加粗，
+   否则每个加粗词都会变成独立的大写块（曾导致 STEP 4c 排版炸裂） */
+.why>b:first-child,.caveat>b:first-child{display:block;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.why b,.caveat b{font-weight:600}
+.why{background:var(--accent-bg);color:#1c4a3f}
+.why b{color:var(--accent)}
+.caveat{background:var(--warm-bg);color:#6b4a0e}
+.deeplink{display:block;margin:14px 0 2px;padding:11px 15px;background:var(--accent-bg);border:1px solid #cfe4dc;border-radius:9px;text-decoration:none;transition:background .15s,border-color .15s}
+.deeplink span{display:block;font-size:13.6px;font-weight:600;color:var(--accent)}
+.deeplink em{display:block;font-style:normal;font-size:11.6px;color:#5c7a71;margin-top:3px}
+.deeplink:hover{background:#e2f0ea;border-color:#a9cfc2}
+.caveat b{color:var(--warm)}
+
+dl.detail{margin:12px 0 0;font-size:13.2px}
+dl.detail dt{font-size:11.5px;color:var(--tx3);letter-spacing:.4px;margin-top:11px;text-transform:uppercase}
+dl.detail dd{margin:3px 0 0;color:var(--tx2)}
+.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:5px;background:#f4f4f1;border:1px solid var(--line2);color:var(--tx2);margin:2px 3px 2px 0}
+.chip.hit{background:var(--accent-bg);border-color:#cfe4dc;color:var(--accent);font-weight:500}
+
+.ok{color:var(--ok);font-size:12px}
+.warn{color:var(--warm);font-size:12px;font-weight:500}
+
+.plans{display:grid;gap:14px;margin:18px 0}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.plan.rec{border-color:#bfd9d0;box-shadow:0 0 0 3px var(--accent-bg)}
+.plan h3{margin:0 0 3px;font-size:15px;display:flex;align-items:center;gap:8px}
+.plan .pdesc{font-size:12.8px;color:var(--tx3);margin:0 0 11px}
+.plan ol{margin:0;padding-left:22px;font-size:13.7px}
+.plan li{margin:5px 0}
+.pill{font-size:10.5px;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-weight:600}
+
+.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+.foot{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 50px;font-size:12.3px;color:var(--tx3);line-height:1.85}
+.foot code{font-family:var(--mono);font-size:11.4px;background:#f0f0ec;padding:1px 5px;border-radius:3px}
+@media print{.hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.school,.plan,.note{break-inside:avoid}}
+@media(max-width:600px){.hero h1{font-size:21px}.kv{grid-template-columns:1fr 1fr}table{font-size:12.4px}th,td{padding:7px 6px}}
+
+/* 通勤表里的「争议」上标：与数字留 2px，避免粘连 */
+.num sup,.kv sup{font-size:9px;opacity:.72;margin-left:2px;vertical-align:2px}
+
+.profile div .v{font-variant-numeric:tabular-nums}
+/* 柱状图：plan.css 是给报告用的，没有 .bar-row（那套在 school.css 里），
+   这里补一份，否则会退化成竖排的纯文本 */
+.bar-row{display:grid;gap:10px;align-items:center;font-size:13px;margin:7px 0 3px}
+.bar-row .lbl{color:var(--tx2);font-variant-numeric:tabular-nums}
+.bar-track{background:#eeece6;border-radius:4px;height:16px;overflow:hidden;display:block}
+.bar-fill{height:100%;background:#7aa79a;border-radius:4px;display:block}
+.bar-fill.hi{background:var(--accent)}
+.bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
+.src{font-size:10.5px;padding:1px 5px;border-radius:3px;border:1px solid var(--line);color:var(--tx3);margin-left:4px}
+.src.a{border-color:#cfe4dc;background:var(--accent-bg);color:var(--accent)}
+.src.b{border-color:#ecdfc0;background:var(--warm-bg);color:var(--warm)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="index.html">← 返回学校看板</a>
+    <div class="eyebrow">PSLE · 上游变量</div>
+    <h1>考生人数与学额<small>2020–2026 年新加坡 PSLE 考生数、出生基数与学校学额</small></h1>
+    <div class="sub">
+      <b>COP 不是随机浮动的。</b>它的上游是两件事：这一届有多少考生，以及学校有多少学额。
+      考生从 37,095（2022）涨到 40,894（2024）的那一年，Raffles Girls' 的 COP 从 6 掉到 5、
+      St Patrick's 从 14 掉到 11——有孩子拿 12 分却六个志愿全落空。<b>这张表就是为了让你在填志愿前知道今年站在哪一年的水位上。</b>
+    </div>
+    <div class="profile">
+      <div><div class="k">2025 考生</div><div class="v">37,926</div></div>
+      <div><div class="k">2026 预测</div><div class="v">≈ 40,800</div></div>
+      <div><div class="k">5 年均值</div><div class="v">38,853</div></div>
+      <div><div class="k">2026 vs 2025</div><div class="v">+7.6%</div></div>
+      <div><div class="k">2025 年 Sec 1 在册</div><div class="v">41,144</div></div>
+      <div><div class="k">平均每校</div><div class="v">≈ 292</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 七年考生数</a>
+  <a href="#s2">② 龙年实证</a>
+  <a href="#s3">③ 学额够不够</a>
+  <a href="#s4">④ 2026 怎么看</a>
+  <a href="#s5">⑤ 方法：为什么用公民出生数</a>
+  <a href="#s6">⑥ 对选校的实际含义</a>
+  <a href="#s7">⑦ 数据来源</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>读这张表前先分清三件事。</b>
+① <b>考生人数</b>是官方每年 11 月新闻稿里的实数（<span class="src a">A</span>）；
+② <b>公民出生数</b>是推算基数，用来提前一年预测考生数（<span class="src b">B</span>）；
+③ <b>学额</b>只有全市总量公开，<b>逐校学额 MOE 不公布</b>（见第三节说明）。
+</div>
+
+<section>
+<h2 id="s1"><span class="n">01</span>七年考生数：一个完整的起伏</h2>
+<p class="lead">从 2020 到 2025 是一条完整的波浪：39,995 → 39,119 → <b>37,095（谷底）</b> → 38,088 → <b>40,894（峰值，龙年）</b> → 37,926。峰谷差 <b>3,799</b> 人，相当于 10%。</p>
+
+<div class="bar-row" style="grid-template-columns:88px 1fr 96px">
+    <span class="lbl">2020</span>
+    <span class="bar-track"><i class="bar-fill" style="display:block;width:80.9%"></i></span>
+    <span class="val">39,995</span>
+  </div>
+<div class="bar-row" style="grid-template-columns:88px 1fr 96px">
+    <span class="lbl">2021</span>
+    <span class="bar-track"><i class="bar-fill" style="display:block;width:62.2%"></i></span>
+    <span class="val">39,119</span>
+  </div><div style="font-size:11.5px;color:var(--tx3);margin:-2px 0 6px 96px">同比 -2.2%</div>
+<div class="bar-row" style="grid-template-columns:88px 1fr 96px">
+    <span class="lbl">2022</span>
+    <span class="bar-track"><i class="bar-fill hi" style="display:block;width:19.2%"></i></span>
+    <span class="val">37,095</span>
+  </div><div style="font-size:11.5px;color:var(--tx3);margin:-2px 0 6px 96px">谷底</div>
+<div class="bar-row" style="grid-template-columns:88px 1fr 96px">
+    <span class="lbl">2023</span>
+    <span class="bar-track"><i class="bar-fill" style="display:block;width:40.3%"></i></span>
+    <span class="val">38,088</span>
+  </div><div style="font-size:11.5px;color:var(--tx3);margin:-2px 0 6px 96px">同比 +2.7%</div>
+<div class="bar-row" style="grid-template-columns:88px 1fr 96px">
+    <span class="lbl">2024</span>
+    <span class="bar-track"><i class="bar-fill hi" style="display:block;width:100.0%"></i></span>
+    <span class="val">40,894</span>
+  </div><div style="font-size:11.5px;color:var(--tx3);margin:-2px 0 6px 96px">龙年 · 峰值</div>
+<div class="bar-row" style="grid-template-columns:88px 1fr 96px">
+    <span class="lbl">2025</span>
+    <span class="bar-track"><i class="bar-fill" style="display:block;width:36.8%"></i></span>
+    <span class="val">37,926</span>
+  </div><div style="font-size:11.5px;color:var(--tx3);margin:-2px 0 6px 96px">同比 -7.3%</div>
+
+<h3>完整对照表</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr>
+  <th class="mid">PSLE 年份</th><th class="mid">对应出生年</th>
+  <th class="mid">公民出生数<br><span class="soft">推算基数</span></th>
+  <th class="mid">官方考生数</th>
+  <th class="mid">推算区间</th><th>备注</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td class="num mid"><b>2020</b></td>
+  <td class="num mid">2008</td>
+  <td class="num mid">31,000–32,000</td>
+  <td class="num mid"><b>39,995</b></td>
+  <td class="num mid">38,100–40,400</td>
+  <td class="soft" style="font-size:12.4px">实际值落在推算区间内</td>
+</tr>
+<tr>
+  <td class="num mid"><b>2021</b></td>
+  <td class="num mid">2009</td>
+  <td class="num mid">31,000–31,700</td>
+  <td class="num mid"><b>39,119</b></td>
+  <td class="num mid">38,800–39,800</td>
+  <td class="soft" style="font-size:12.4px">实际值落在推算区间内</td>
+</tr>
+<tr>
+  <td class="num mid"><b>2022</b></td>
+  <td class="num mid">2010</td>
+  <td class="num mid">约 30,000</td>
+  <td class="num mid"><b>37,095</b></td>
+  <td class="num mid"><span class="soft">明显高估（早期误用总出生数）</span></td>
+  <td class="soft" style="font-size:12.4px">回测偏差最大的年份。总出生数 ≠ 公民出生数，是这一年暴露出来的</td>
+</tr>
+<tr>
+  <td class="num mid"><b>2023</b></td>
+  <td class="num mid">2011</td>
+  <td class="num mid">31,000–31,700</td>
+  <td class="num mid"><b>38,088</b></td>
+  <td class="num mid">37,900–38,900</td>
+  <td class="soft" style="font-size:12.4px">拟合最好的年份之一，误差仅数百人</td>
+</tr>
+<tr>
+  <td class="num mid"><b>2024</b></td>
+  <td class="num mid">2012<br><span class="soft" style="font-size:11px">龙年</span></td>
+  <td class="num mid">32,400–33,200</td>
+  <td class="num mid"><b>40,894</b></td>
+  <td class="num mid">40,200–41,200</td>
+  <td class="soft" style="font-size:12.4px">龙年基数抬升 → 考生人数高峰，COP 实测普遍下降（见 cases）</td>
+</tr>
+<tr>
+  <td class="num mid"><b>2025</b></td>
+  <td class="num mid">2013</td>
+  <td class="num mid">31,000–31,700</td>
+  <td class="num mid"><b>37,926</b></td>
+  <td class="num mid">38,000–39,000</td>
+  <td class="soft" style="font-size:12.4px">模型轻微高估数百人，趋势判断正确</td>
+</tr>
+<tr>
+  <td class="num mid"><b>2026</b></td>
+  <td class="num mid">2014</td>
+  <td class="num mid">约 33,000</td>
+  <td class="num mid"><span class="soft">未公布</span></td>
+  <td class="num mid">40,000–41,000</td>
+  <td class="soft" style="font-size:12.4px">预测值。基于修订后的公民出生基数（约 33,000），不是总出生数 42,232。官方人数预计 2026-11-24 或 11-25 公布</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2 id="s2"><span class="n">02</span>龙年实证：考生涨 7.4%，COP 真的会掉</h2>
+<p class="lead">2024 年是唯一一次可以事后验证的年份：考生从 38,088 涨到 40,894（<b>+7.4%</b>）。The Straits Times 采访的家长给出了具体数字。</p>
+
+<table>
+<thead><tr><th>学校</th><th class="mid">2023 COP</th><th class="mid">2024 COP</th><th class="mid">变动</th></tr></thead>
+<tbody>
+<tr>
+  <td>Raffles Girls&#39; School</td>
+  <td class="num mid">6</td>
+  <td class="num mid">5</td>
+  <td class="num mid"><b>-1</b></td>
+</tr>
+<tr>
+  <td>Hwa Chong Institution</td>
+  <td class="num mid">7</td>
+  <td class="num mid">6</td>
+  <td class="num mid"><b>-1</b></td>
+</tr>
+<tr>
+  <td>St Patrick&#39;s Secondary School</td>
+  <td class="num mid">14</td>
+  <td class="num mid">11</td>
+  <td class="num mid"><b>-3</b></td>
+</tr>
+</tbody>
+</table>
+
+<div class="warnbox">
+<b>这一节最该记住的不是「COP 会掉」，而是「掉多少无法预测」。</b>
+Raffles Girls' 和 Hwa Chong 只掉 1 分，<b>St Patrick's 掉了 3 分</b>。
+<br><br>
+有学生拿 12 分（远优于 St Patrick&#39;s 2023 年的 14 分）却六个志愿全部落空；也有家长按近三年 COP 排了三个保底校仍未被任何一个志愿录取。MOE 的回应是「学额规划会考虑国家与地方层面的需求，确保所有合格学生都有学额」——注意这句话保证的是**总量**，不是**逐校**。
+</div>
+
+<div class="note">
+<b>我的判断：</b>COP 下降幅度和学校的热门程度不成正比 —— 恰恰是**中段学校**波动更大。
+顶尖校的报考者分数分布集中，上下浮动 1 分就到头；中段学校的报考池更「宽」，
+多出来的考生会整体把它往上顶，反映在 COP 上就是 2–3 分的跳变。
+所以「照去年 COP + 2 分选校」这个习惯，在考生人数上升的年份是不够的。
+</div>
+</section>
+
+<section>
+<h2 id="s3"><span class="n">03</span>学额够不够：总量够，逐校不一定</h2>
+<p class="lead">这是本节必须说清的一件事：<b>MOE 公布的学额只有全市总量，没有逐校数据。</b></p>
+
+<h3>官方能查到的（MOE Education Statistics Digest 2026）</h3>
+<table>
+<thead><tr><th style="width:44%">指标</th><th class="mid">数值</th><th>口径</th></tr></thead>
+<tbody>
+<tr><td>中学在册总人数</td><td class="num mid">158,781</td><td class="soft">2025 年，含政府/政府辅助/自主/专科</td></tr>
+<tr><td>中学班级总数</td><td class="num mid">4,750</td><td class="soft">2025 年</td></tr>
+<tr><td>平均班级规模</td><td class="num mid">33.4 人</td><td class="soft">在册 ÷ 班级数</td></tr>
+<tr><td><b>Sec 1 在册人数</b></td><td class="num mid"><b>41,144</b></td><td class="soft">2025 年入学的这一届</td></tr>
+<tr><td>纯中学 / 含中学部的混合校</td><td class="num mid">131 / 16</td><td class="soft">2025 年</td></tr>
+<tr><td>参与 S1 Posting 的学校</td><td class="num mid">141</td><td class="soft">2025 年（2024 年为 140 所）</td></tr>
+<tr><td><b>平均每校 Sec 1 人数</b></td><td class="num mid"><b>≈ 292</b></td><td class="soft">41,144 ÷ 141</td></tr>
+</tbody>
+</table>
+
+<div class="warnbox">
+<b>为什么看板里没有「每校招生人数」这一列 —— 因为官方不公布。</b><br><br>
+逐校 S1 学额（vacancies）只在 <b>S1 Portal 登录后</b>可见（需 Singpass，且仅在填报期内），
+MOE 的统计年报与 SchoolFinder 都<b>没有</b>逐校 intake 字段。
+任何声称给出「某校 2026 年招生 N 人」的第三方数据，来源都不透明。
+<br><br>
+<b>能严谨做到的替代：</b>① 全市平均 ≈ 292 人/校（用官方总数算出，不是估算）；
+② 学校官网若写明年年开班数（如「8 个 Sec 1 班」）× 平均班额 33.4 人，可得到该校的近似学额，但需逐校核实，且是<b>往年</b>数据。
+</div>
+
+<h3>MOE 对「考生变多怎么办」的官方说法</h3>
+<p>2024 年龙年争议后，MOE 的回应是：<b>「学额规划会考虑国家与地方层面的需求，确保所有合格 Secondary 1 学生都有学额。」</b></p>
+<div class="note">
+<b>注意这句话保证的是什么。</b>它保证的是<b>总量</b>——每个合格学生都有学上；
+它<b>不保证</b>你的孩子能进他填的那六所。龙年那批「六个志愿全落空、被派到一小时路程外的学校」的学生，
+就是在「总量够」的前提下发生的。<b>所以学额总量不是安慰，志愿梯度才是。</b>
+</div>
+</section>
+
+<section>
+<h2 id="s4"><span class="n">04</span>2026：站在峰值附近的一年</h2>
+<p class="lead">2026 届对应 2014 年出生，公民出生数约 33,000——比 2013 年（约 31,400）高。</p>
+
+<div class="verdict">
+<h3>推算结论</h3>
+<ul>
+<li><b>考生人数：约 40,800</b>（合理区间 40,000–41,000）。官方数字预计 <b>2026-11-24 或 11-25</b> 公布。</li>
+<li><b>与 2025 年（37,926）相比 +7.6%</b>，与 2024 龙年峰值（40,894）基本持平。</li>
+<li><b>趋势判断可靠，精确值不可靠。</b>趋势来自出生基数（2014 年公民出生比 2013 年多约 1,600），这个方向不太会错；
+但「40,800」这个点估计的误差至少在 ±500 人量级，别拿它做任何精确计算。</li>
+</ul>
+</div>
+
+<div class="warnbox">
+<b>对 2026 填志愿的三个直接含义：</b><br>
+① <b>不要把「去年 COP + 0」当稳妥。</b>考生人数回到峰值附近，中段学校 COP 上行 1–3 分是常态；<br>
+② <b>稳妥档要留出 5 分以上余量</b>，而不是往年的 3 分；<br>
+③ <b>热门校的 COP 可能不降反升</b>——龙年那年之所以「掉」，是因为考生多但学额也扩了；如果今年学额不扩，同样的考生数会把 COP 顶上去。
+</div>
+</section>
+
+<section>
+<h2 id="s5"><span class="n">05</span>方法：为什么用公民出生数，而不是总出生数</h2>
+<p class="lead">这是整张表唯一的技术点，也是 2022 年那次偏差的根源。</p>
+
+<table>
+<thead><tr><th style="width:26%">口径</th><th>说明</th><th class="mid">用它对不对</th></tr></thead>
+<tbody>
+<tr><td>总出生数</td><td>含公民、永久居民、外国人。2010 年约 3.8 万</td><td class="mid">❌ 会系统性高估</td></tr>
+<tr><td><b>公民出生数</b></td><td>只算公民。PSLE 考生里公民占绝大多数，且 PR/外国学生数量受政策调节、波动大</td><td class="mid">✅ 回测拟合最好</td></tr>
+</tbody>
+</table>
+
+<p>用总出生数回测 2022 年（对应 2010 年出生）时，预测明显高于实际的 37,095；
+换成公民出生数后，其余年份的误差都收敛到数百人量级。<b>2026 的预测之所以修正到 40,800，
+也是因为把基数从「总出生 42,232」换成了「公民出生约 33,000」。</b></p>
+
+<div class="note">
+<b>为什么不能直接说「1 个公民出生 ≈ 1 个 PSLE 考生」。</b>
+两者之间隔着几年的人口流动：有人随家庭移居海外、有人从海外回流（SPERS）、
+也有 PR 转公民。<b>所以这是比例关系，不是恒等式</b>——回测用的是「考生数 ÷ 该年公民出生数」的比值，
+而不是出生数本身。
+</div>
+</section>
+
+<section>
+<h2 id="s6"><span class="n">06</span>对你选校的实际含义</h2>
+<table>
+<thead><tr><th style="width:30%">场景</th><th>该怎么做</th></tr></thead>
+<tbody>
+<tr><td>考生数上升年（如 2024、2026）</td><td>余量要求上调 <b>2 分</b>；稳妥档从「余量 ≥5」提到「≥6」；冲刺位可以留，但别把仅剩的稳妥位也拿去冲</td></tr>
+<tr><td>考生数下降年（如 2022、2025）</td><td>同等分数能买到更好的学校，可以适度上调冲刺档比例</td></tr>
+<tr><td>COP 刚好等于孩子分数</td><td><b>无论哪一年都按高风险处理。</b>同分还要过 tie-breaker（公民身份 → 志愿顺序 → 抽签）</td></tr>
+<tr><td>想确认某校今年的真实学额</td><td>只能在 <b>S1 Portal 填报期内</b>看到 vacancies；或直接问学校招生办。第三方网站的「招生人数」不可核</td></tr>
+</tbody>
+</table>
+
+<div class="verdict">
+<h3>一句话</h3>
+<p><b>考生人数决定的是「整体水位」，不是「某所学校的分数线」。</b>
+水位高的年份，同样的分数买到的东西会缩水；具体缩多少，取决于那所学校今年有多少人报、有多少学额——
+这两个数字官方都不提前公布。<b>所以能做的只有一件事：把梯度拉开。</b></p>
+</div>
+</section>
+
+<section>
+<h2 id="s7"><span class="n">07</span>数据来源与等级</h2>
+<table>
+<thead><tr><th style="width:34%">数据</th><th>来源</th><th class="mid">等级</th></tr></thead>
+<tbody>
+<tr><td>2020–2025 年 PSLE 考生人数</td><td>SEAB / MOE 各年「Release of PSLE Results」新闻稿</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>2024 年 COP 变动与落空案例</td><td>The Straits Times 报道（引 MOE 回应与家长采访）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>中学在册人数 / 班级数 / 班均 / 学校数 / Sec 1 在册</td><td>MOE Education Statistics Digest 2026 统计表（Sheet 4 / 7 / 9）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>参与 S1 Posting 的学校数（141 / 140）</td><td>MOE 2025 / 2024 PSLE 成绩新闻稿</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>公民出生数（各年区间）</td><td>项目整理，用于回测与预测</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td>2026 年考生数推算（≈ 40,800）</td><td>本项目模型，基于 2014 年公民出生基数</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td>逐校 S1 学额</td><td><b>无公开来源</b>（S1 Portal 登录后可见）</td><td class="mid">—</td></tr>
+</tbody>
+</table>
+
+<div class="warnbox">
+<b>两条必须知道的局限：</b><br>
+① <b>2026 的 40,800 是推算，不是官方数字。</b>官方预计 11 月底公布，出来后这个页面的数要更新；<br>
+② <b>考生数与 COP 的因果关系是统计性的，不是机械的。</b>同样是 40,800 人，如果今年学额也扩了，COP 可能不动；如果学额冻结，中段校会明显上移。
+</div>
+</section>
+
+<div class="foot">
+<b>生成信息</b>　本页由 <code>scripts/build-cohort-page.cjs</code> 从 <code>data/psle-cohort.json</code> 生成，
+数据更新于 2026-11-14。<br>
+<b>关联页面</b>　<a href="index.html">学校看板</a> ｜ <a href="map.html">通勤地图</a> ｜ <a href="reports/abc2-s1-choice-2026.html">AL 15 志愿方案</a><br>
+<b>免责</b>　推算部分为个人研究，非 MOE 官方预测。COP 受考生数、学额、报考偏好三者共同影响，本页只解释第一个变量。
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+{
+  "_note": "PSLE 考生人数与出生基数。这是 COP 年际波动的上游变量：考生多 → 同一批学额被更多人抢 → 热门校 COP 上行。所有数字都标了来源等级，A = 官方新闻稿可核，B = 项目推算。",
+  "updatedAt": "2026-11-14",
+  "sources": {
+    "seab": "SEAB / MOE 每年 'Release of PSLE Results' 新闻稿（考生总人数）",
+    "esd": "MOE Education Statistics Digest 2026 统计表（在册人数、班级数、学校数）",
+    "straitsTimes": "The Straits Times 报道（2024 龙年 COP 变动的具体案例）"
+  },
+  "years": [
+    {
+      "year": 2020,
+      "birthYear": 2008,
+      "citizenBirths": [31000, 32000],
+      "psleCandidates": 39995,
+      "psleSource": "A",
+      "forecast": [38100, 40400],
+      "note": "实际值落在推算区间内"
+    },
+    {
+      "year": 2021,
+      "birthYear": 2009,
+      "citizenBirths": [31000, 31700],
+      "psleCandidates": 39119,
+      "psleSource": "A",
+      "forecast": [38800, 39800],
+      "note": "实际值落在推算区间内"
+    },
+    {
+      "year": 2022,
+      "birthYear": 2010,
+      "citizenBirths": [30000, 30000],
+      "psleCandidates": 37095,
+      "psleSource": "A",
+      "forecast": null,
+      "forecastNote": "明显高估（早期误用总出生数）",
+      "note": "回测偏差最大的年份。总出生数 ≠ 公民出生数，是这一年暴露出来的"
+    },
+    {
+      "year": 2023,
+      "birthYear": 2011,
+      "citizenBirths": [31000, 31700],
+      "psleCandidates": 38088,
+      "psleSource": "A",
+      "forecast": [37900, 38900],
+      "note": "拟合最好的年份之一，误差仅数百人"
+    },
+    {
+      "year": 2024,
+      "birthYear": 2012,
+      "birthYearNote": "龙年",
+      "citizenBirths": [32400, 33200],
+      "psleCandidates": 40894,
+      "psleSource": "A",
+      "forecast": [40200, 41200],
+      "note": "龙年基数抬升 → 考生人数高峰，COP 实测普遍下降（见 cases）"
+    },
+    {
+      "year": 2025,
+      "birthYear": 2013,
+      "citizenBirths": [31000, 31700],
+      "psleCandidates": 37926,
+      "psleSource": "A",
+      "forecast": [38000, 39000],
+      "note": "模型轻微高估数百人，趋势判断正确"
+    },
+    {
+      "year": 2026,
+      "birthYear": 2014,
+      "citizenBirths": [33000, 33000],
+      "psleCandidates": null,
+      "psleSource": "pending",
+      "forecast": [40000, 41000],
+      "forecastPoint": 40800,
+      "note": "预测值。基于修订后的公民出生基数（约 33,000），不是总出生数 42,232。官方人数预计 2026-11-24 或 11-25 公布"
+    }
+  ],
+  "cases": {
+    "_note": "2024 龙年是唯一一次可以「事后验证」考生数影响的年份。以下是 The Straits Times 报道的家长实测，不是推算。",
+    "year": 2024,
+    "psleCandidates": 40894,
+    "previousYear": 38088,
+    "changePct": 7.4,
+    "items": [
+      { "school": "Raffles Girls' School", "cop": "6 → 5", "delta": -1 },
+      { "school": "Hwa Chong Institution", "cop": "7 → 6", "delta": -1 },
+      { "school": "St Patrick's Secondary School", "cop": "14 → 11", "delta": -3 }
+    ],
+    "narrative": "有学生拿 12 分（远优于 St Patrick's 2023 年的 14 分）却六个志愿全部落空；也有家长按近三年 COP 排了三个保底校仍未被任何一个志愿录取。MOE 的回应是「学额规划会考虑国家与地方层面的需求，确保所有合格学生都有学额」——注意这句话保证的是**总量**，不是**逐校**。"
+  },
+  "capacity": {
+    "_note": "学额侧的口径。MOE 不公布逐校 S1 学额，只有全市总量与班级规模。",
+    "esdYear": 2025,
+    "secondaryEnrolment": 158781,
+    "secondaryClasses": 4750,
+    "averageClassSize": 33.4,
+    "sec1Enrolment": 41144,
+    "secondarySchoolsPure": 131,
+    "mixedLevelSchools": 16,
+    "schoolsInS1Posting2025": 141,
+    "schoolsInS1Posting2024": 140,
+    "avgSec1PerSchool": 292
+  }
+}
