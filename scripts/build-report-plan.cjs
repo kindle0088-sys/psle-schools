@@ -31,6 +31,14 @@ if (!fs.existsSync(recFile)) {
 }
 const R = JSON.parse(fs.readFileSync(recFile, 'utf8'));
 const SC = JSON.parse(fs.readFileSync(P('docs/data/schools.json'), 'utf8'));
+
+/* MOE 的 * 标记：某档在 S1 posting 结束后仍有学额（官方脚注）。
+   实测 139 所里只有 PG1 档出现，PG3 一所都没有 —— 这点必须讲清楚，
+   否则「未招满」会被误读成「PG3 门槛会降」。 */
+const starAll = SC.schools.filter(s => s.copFlags && s.copFlags.PG1);
+const STAR_TOTAL = starAll.length;
+const STAR_IN_POOL = R.pool.filter(x => x.copFlags && x.copFlags.PG1)
+  .map(x => x.name.replace(/ Secondary School| \(Secondary\)/, ''));
 const BY = new Map(SC.schools.map(s => [s.slug, s]));
 const REPORTS = (() => {
   try { return JSON.parse(fs.readFileSync(P('docs/data/school-reports.json'), 'utf8')).reports || {}; }
@@ -307,6 +315,16 @@ ${[...R.pool].sort((a, b) => a.margin - b.margin).map(x => {
 </tbody>
 </table>
 </div>
+
+<h3>另一个官方信号：低位段有没有招满</h3>
+<p>MOE 在 SchoolFinder 里用星号 <code>*</code> 标注一个事实：<b>该档在 S1 posting 结束后仍有学额</b>。
+官方脚注的定义是「最后一名被录取者的分数优于 30，但学校仍有余位，所以记为 30」。
+这是唯一一个有官方背书的「学校紧不紧张」指标——不是估算，不用猜。</p>
+<p>我全量查了 139 所（另 8 所专科/特殊校不参与 PG 分配）：星号<b>只出现在 PG1 档，共 ${STAR_TOTAL} 所</b>，
+<b>PG3 和 PG2 一所都没有</b>。含义很明确：没有学校在 PG3 段没招满，但有一批学校连最低档都没填满。</p>
+${STAR_IN_POOL.length ? `<p>落到这份候选池（${S2.poolMixed} 所）里，有 <b>${STAR_IN_POOL.length} 所</b>被标记：<b>${STAR_IN_POOL.join('、')}</b>。
+按上面的方案，${STAR_IN_POOL.includes('Bartley') ? '<b>Bartley 是方案 A 的第 6 志愿</b>——它的「稳妥」不只是余量 +6 分算出来的，还被官方标记印证了：这所学校连 PG1 都没招满。' : '它们都是稳妥档的候选。'}</p>` : ''}
+<p class="soft" style="font-size:12.6px">⚠️ 别过度解读：PG1 有余额 ≠ PG3 门槛会降。它是「学校整体不紧张」的旁证，不是「你更可能进」的保证。</p>
 
 <h3>够不着的那些：差多少才算「没戏」</h3>
 <p>把 SAP 与 IP 单独拎出来，因为家长明确说了「可以考虑」——但分数差得太远，这个「可以」在 ${S.score} 分这个位置不成立。</p>

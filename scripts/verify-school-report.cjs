@@ -116,6 +116,36 @@ if (s) {
     t('争议项显式标注「争议」', c.walkDisputed ? walkCell.includes('争议') : !walkCell.includes('争议'), walkCell.trim());
   }
 
+  /* ── 三年走向（2026-11-14 新增）─────────────────────────
+     只有当该校有 copHistory 时报告才该出现这块；没有数据的学校必须不出现，
+     否则就是「看起来有趋势、其实是空的」。 */
+  if (isV2Template) {
+    const hasTrend = /PG3 录取区间：[0-9]{4} → [0-9]{4} 的走向/.test(html);
+    const hist = s.copHistory;
+    if (hist) {
+      const okYears = ['2023', '2024'].filter(y => hist[y] && hist[y].status === 'ok');
+      t('有历史数据时报告出现三年走向', hasTrend);
+      t('走向注明来源是 Wayback 存档', /Wayback 存档的 MOE SchoolFinder/.test(html));
+      /* ⚠️ 这条不要写成「匹配 <th class="mid">2023」——那是绑死了表格实现，
+         一改成卡片布局就全线误报（本次踩过）。只验语义：三年都出现、两个箭头。 */
+      const blk = (html.match(/PG3 录取区间：[\s\S]{0,2600}?不是「该年为 0 分」/) || [''])[0]
+        || (html.match(/PG3 录取区间：[\s\S]{0,2200}?线上页面。/) || [''])[0];
+      const yearsShown = ['2023', '2024', '2025'].filter(y => blk.includes(y));
+      t('三年年份全部出现（缺年以 ? 占位）',
+        okYears.length >= 1 && yearsShown.length === 3 && (blk.match(/→/g) || []).length >= 2,
+        yearsShown.join('/') || '块未找到');
+      /* 缺口必须分清「无存档」与「存档是坏值」，两者对读者的含义完全不同 */
+      const miss = ['2023', '2024'].filter(y => hist[y] && hist[y].status !== 'ok');
+      if (miss.length) {
+        const kinds = miss.map(y => (hist[y].status === 'anomaly' ? '坏值，已弃用' : '没有可用存档'));
+        t('缺口写明原因（无存档 / 坏值）', kinds.every(k => html.includes(k)), kinds.join('、'));
+      }
+      t('缺年不用 0 分代替', !/<td class="num mid">0–0<\/td>/.test(html));
+    } else {
+      t('无历史数据时不渲染三年走向', !hasTrend);
+    }
+  }
+
   // PG3 区间与余量
   const pg3 = (s.cop.rows || []).find(r => /Posting Group 3/.test(r.label))?.nonAff;
   if (pg3) {

@@ -19,6 +19,15 @@ const schools = JSON.parse(fs.readFileSync(path.join(BASE, 'data/schools.json'),
 const net = JSON.parse(fs.readFileSync(path.join(BASE, 'data/network.json'), 'utf8'));
 const ccaCat = JSON.parse(fs.readFileSync(path.join(BASE, 'data/cca-catalog.json'), 'utf8'));
 
+/* 历史 COP（Wayback 存档）与「低位段未招满」官方星号标记。
+   两者都是后补的采集产物，缺失时降级为 null —— 不能让整条构建链挂掉。 */
+const optionalJson = (f) => {
+  try { return JSON.parse(fs.readFileSync(path.join(BASE, f), 'utf8')); }
+  catch { console.warn('  ⚠ 缺少 ' + f + '，相关字段降级为空'); return { schools: {} }; }
+};
+const COP_HIST = optionalJson('data/cop-history.json').schools || {};
+const COP_FLAGS = optionalJson('data/cop-flags.json').schools || {};
+
 /* ── 通勤：地铁模型 + 真实步行路网，取最快 ────────────────────────
    看板是单一学生的个人工具，起点就是 data/students/<id>.json 的家。
    没有坐标或缺步行数据时逐级降级，不让整条构建链挂掉。 */
@@ -128,6 +137,18 @@ for (const s of schools) {
     mode: s.schoolMode || null,
     ip, sap, autonomous, independent, specialised,
     cop,
+    /* 历史 PG3 COP：只对已采集的学校有值（目前 13 所深度报告校）。
+       结构 { '2023': {status, pg3:{min,max,vacanciesRemain}}, '2024': {...} } */
+    copHistory: COP_HIST[s.slug] || null,
+    /* MOE 官方 * 标记：某 Posting Group 在 S1 posting 后仍有学额。
+       实测 139 所里只有 PG1 档出现（28 所），PG3/PG2 一所都没有。 */
+    copFlags: COP_FLAGS[s.slug] ? {
+      year: COP_FLAGS[s.slug].year,
+      PG1: COP_FLAGS[s.slug].rows.PG1?.nonAff?.star ?? false,
+      PG2: COP_FLAGS[s.slug].rows.PG2?.nonAff?.star ?? false,
+      PG3: COP_FLAGS[s.slug].rows.PG3?.nonAff?.star ?? false,
+      any: ['PG1', 'PG2', 'PG3'].some(k => COP_FLAGS[s.slug].rows[k]?.nonAff?.star),
+    } : null,
     cca: s.cca || [],
     ccaFull: buildCcaFull(s.slug, s.cca || []),
     dsaYear: s.dsa?.year || null,

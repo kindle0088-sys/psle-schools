@@ -98,6 +98,55 @@ function render(pf) {
     ...(pf.profileExtra || []),
   ];
 
+  /* ── PG3 三年走向 ────────────────────────────────────────
+     当年值来自 SchoolFinder 线上页面，历史值来自 Wayback 存档（官方内容）。
+     缺年用 ? 占位而不是跳过 —— 跳过会让「2023 → 2025」看起来像连续两年。 */
+  const HY = [2023, 2024, 2025];
+  const pg3Now = (sc.cop?.rows || []).find(r => r.label === 'Posting Group 3');
+  const histVal = y => {
+    if (y === (sc.cop?.year || 2025)) return pg3Now && pg3Now.nonAff ? pg3Now.nonAff : null;
+    const v = sc.copHistory && sc.copHistory[String(y)];
+    return v && v.status === 'ok' ? v.pg3 : null;
+  };
+  const trendCells = HY.map(y => ({ y, v: histVal(y) }));
+  let trendBlock = '';
+  if (trendCells.filter(c => c.v).length >= 2) {
+    const first = trendCells.find(c => c.v);
+    const last = [...trendCells].reverse().find(c => c.v);
+    const dMax = last.v.max - first.v.max;   // 上端 = 录取门槛，变大 = 变宽松
+    const dMin = last.v.min - first.v.min;   // 下端 = 当年最强的那名考生
+    const fmtD = n => (n === 0 ? '持平' : (n > 0 ? `+${n} 分` : `${n} 分`));
+    /* 缺口分两种，不能混为一谈：没有存档 vs 存档页本身是坏值（Outram 2024 显示 0–0）。
+       后者是「数据存在但不可用」，说成「无存档」会让人以为再去抓一次就有。 */
+    const miss = trendCells.filter(c => !c.v).map(c => {
+      const v = sc.copHistory && sc.copHistory[String(c.y)];
+      return v && v.status === 'anomaly'
+        ? `${c.y} 年（存档页显示 0–0，坏值，已弃用）`
+        : `${c.y} 年（没有可用存档）`;
+    }).join('、');
+    const vac = sc.copFlags && sc.copFlags.PG1
+      ? '<br>另外，MOE 用 <code>*</code> 标记该校 <b>PG1 档在 S1 posting 结束后仍有学额</b>——说明最低档没招满、学校整体不紧张（但不代表 PG3 门槛会降）。'
+      : '';
+    trendBlock = `
+<div class="note">
+<b>PG3 录取区间：${first.y} → ${last.y} 的走向</b>
+<!-- 用三张卡片而不是表格：表格在 .note 里表头与数值列宽对不齐（实测过一次），
+     而且只有一行数据也不需要表头行。 -->
+<div style="display:flex;gap:9px;align-items:stretch;margin:11px 0 9px">
+${trendCells.map((c, i) => `${i ? '  <div style="align-self:center;color:var(--tx3);font-size:14px">→</div>' : ''}
+  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:rgba(255,255,255,.55)">
+    <div style="font-size:10.5px;color:var(--tx3);letter-spacing:.4px">${c.y}</div>
+    <div style="font-family:var(--mono);font-size:15px;font-weight:600;margin-top:2px">${c.v ? `${c.v.min}–${c.v.max}` : '?'}</div>
+  </div>`).join('\n')}
+</div>
+<p style="margin:0 0 6px;font-size:13px">
+${first.y} → ${last.y}：<b>上端 ${fmtD(dMax)}</b>（上端 = 录取门槛，变大表示变宽松）、<b>下端 ${fmtD(dMin)}</b>（下端 = 当年最强的那名考生）。</p>
+<p class="soft" style="font-size:12.4px;margin:0">
+历史值来自 <b>Wayback 存档的 MOE SchoolFinder 页面</b>（官方内容，不是二手整理表）；${last.y} 年值来自 SchoolFinder 线上页面。
+${miss ? `「?」= ${miss}——不是「该年为 0 分」。` : ''}${vac}</p>
+</div>`;
+  }
+
   const toc = [
     '30 秒判断', '学校底色与校史', '学业与升学出路', '旗舰项目',
     'CCA 全解析', '真实声音', '开放日必问清单', '数据来源与可信度',
@@ -152,7 +201,7 @@ ${profileCells.map(c => `      <div><div class="k">${esc(c.k)}</div><div class="
 </div>
 
 <div class="wrap">
-
+${trendBlock}
 <div class="toc">
   <b>目录</b>
 ${toc.map((t, i) => `  <a href="#s${i + 1}">${'①②③④⑤⑥⑦⑧'[i]} ${esc(t)}</a>`).join('\n')}

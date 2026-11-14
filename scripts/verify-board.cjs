@@ -448,6 +448,33 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
   }
   }
 
+  console.log('\n【七之十】官方星号（低位段未招满）与 COP 走向');
+  const extra = JSON.parse(await ev(`JSON.stringify((() => {
+    const all = [...document.querySelectorAll('.card')];
+    const withVac = all.filter(c => c.querySelector('.tag-vac')).map(c => c.dataset.slug);
+    const trends = all.map(c => {
+      const r = [...c.querySelectorAll('.rows .r')].find(x => ((x.querySelector('.k') || {}).textContent || '').includes('COP 走向'));
+      return r ? { slug: c.dataset.slug, v: r.querySelector('.val').textContent.trim() } : null;
+    }).filter(Boolean);
+    return { total: all.length, withVac, trends };
+  })())`));
+
+  const DATA2 = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/schools.json'), 'utf8')).schools;
+  const expVac = DATA2.filter(x => x.copFlags && x.copFlags.PG1).map(x => x.slug);
+  const expTrend = DATA2.filter(x => x.copHistory).map(x => x.slug);
+  t('「低位段未招满」标签数量与数据一致', extra.withVac.length === expVac.length,
+    `${extra.withVac.length} / 期望 ${expVac.length}`);
+  t('Bartley 带官方星号标记', extra.withVac.includes('bartley-secondary-school'));
+  t('无星号的学校不显示该标签', !extra.withVac.includes('greendale-secondary-school'));
+  t('星号为中性标签（不暗示好坏）', await ev(`!document.querySelector('.tag-vac') || getComputedStyle(document.querySelector('.tag-vac')).borderTopStyle === 'dashed'`));
+  t('COP 走向只出现在有历史数据的学校', extra.trends.length === expTrend.length,
+    `${extra.trends.length} / 期望 ${expTrend.length}`);
+  const gTrend = (extra.trends.find(x => x.slug === 'greendale-secondary-school') || {}).v || '';
+  t('Greendale 三年区间正确', gTrend === '7–17 → 9–16 → 11–16', gTrend);
+  const oTrend = (extra.trends.find(x => x.slug === 'outram-secondary-school') || {}).v || '';
+  t('缺年用 ? 占位，不跳过', /\?/.test(oTrend), oTrend);
+  t('未把星号写成「PG3 未招满」', !/PG3 未招满/.test(await ev(`document.body.innerText`)));
+
   console.log('\n【八】JS 异常检查');
   const errs = await ev(`JSON.stringify(window.__errs || [])`);
   t('无未捕获异常', JSON.parse(errs).length === 0);

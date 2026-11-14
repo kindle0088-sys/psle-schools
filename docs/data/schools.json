@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-14T03:32:01.604Z",
+  "generatedAt": "2026-11-14T08:23:11.609Z",
   "total": 147,
   "copYear": 2025,
   "ipCount": 17,
@@ -101,6 +101,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -228,6 +236,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Basketball (Girls and Boys)",
@@ -363,6 +379,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Girls and Boys)",
     "Choir (Girls and Boys)",
@@ -488,6 +512,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -597,6 +629,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -749,6 +789,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Boys)",
     "Basketball (Boys)",
@@ -886,6 +934,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Audio Visual Aid (Boys)",
@@ -1071,6 +1127,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Girls and Boys)",
     "Choir (Girls and Boys)",
@@ -1157,6 +1221,8 @@
    "independent": false,
    "specialised": true,
    "cop": null,
+   "copHistory": null,
+   "copFlags": null,
    "cca": [
     "Basketball (Boys)",
     "Football (Boys)",
@@ -1243,6 +1309,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Basketball (Boys)",
@@ -1369,6 +1443,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Canoeing (Girls and Boys)",
     "Chinese Orchestra (Girls and Boys)",
@@ -1493,6 +1575,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Girls and Boys)",
@@ -1605,6 +1695,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -1736,6 +1834,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Boys)",
     "Basketball (Girls and Boys)",
@@ -1866,6 +1972,73 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610093353",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610093353/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bendemeer-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20251006050535",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20251006050535/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bendemeer-secondary-school"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Choir (Girls and Boys)",
@@ -2089,6 +2262,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -2222,6 +2403,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -2338,6 +2527,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Basketball (Boys)",
@@ -2462,6 +2659,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -2594,6 +2799,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Girls and Boys)",
     "Concert Band (Girls and Boys)",
@@ -2711,6 +2924,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Basketball (Boys)",
@@ -2835,6 +3056,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -2967,6 +3196,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Choir (Girls and Boys)",
@@ -3084,6 +3321,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Basketball (Boys)",
@@ -3251,6 +3496,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)",
@@ -3373,6 +3626,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -3511,6 +3772,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)"
@@ -3646,6 +3915,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)"
@@ -3778,6 +4055,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)",
@@ -3895,6 +4180,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Girl Guides (Girls)",
@@ -4055,6 +4348,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)"
@@ -4176,6 +4477,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -4300,6 +4609,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -4405,6 +4722,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -4539,6 +4864,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Boys)",
     "Chinese Orchestra (Girls and Boys)",
@@ -4665,6 +4998,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -4800,6 +5141,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -4928,6 +5277,47 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610172913",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 15,
+      "max": 19,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 15,
+       "max": 19,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610172913/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=compassvale-secondary-school"
+    },
+    "2024": {
+     "status": "no-snapshot"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -5120,6 +5510,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)"
@@ -5199,6 +5597,8 @@
    "independent": false,
    "specialised": true,
    "cop": null,
+   "copHistory": null,
+   "copFlags": null,
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -5290,6 +5690,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Choir (Girls and Boys)",
@@ -5404,6 +5812,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Badminton (Boys)",
@@ -5536,6 +5952,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Girls and Boys)",
     "Choir (Girls and Boys)",
@@ -5626,6 +6050,14 @@
       "kind": "IP"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -5772,6 +6204,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Boys)",
     "Basketball (Girls and Boys)",
@@ -5885,6 +6325,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -6004,6 +6452,73 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610060520",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 14,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 14,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 22,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 26,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610060520/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=edgefield-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20251006021413",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 13,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 13,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 22,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 26,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20251006021413/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=edgefield-secondary-school"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -6308,6 +6823,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Chinese Dance (Girls and Boys)",
@@ -6453,6 +6976,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Boys)",
     "Choir (Girls and Boys)",
@@ -6565,6 +7096,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -6694,6 +7233,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "National Police Cadet Corps (NPCC) (Boys)"
@@ -6825,6 +7372,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -6943,6 +7498,73 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610061252",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 17,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 17,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610061252/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=greendale-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20250916011654",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 16,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 16,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20250916011654/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=greendale-secondary-school"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Canoeing (Girls and Boys)",
@@ -7216,6 +7838,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Concert Band (Girls and Boys)",
     "Football (Boys)",
@@ -7326,6 +7956,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -7449,6 +8087,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -7578,6 +8224,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -7722,6 +8376,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -7854,6 +8516,73 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610095957",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 16,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 16,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610095957/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=hougang-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20251216181956",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20251216181956/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=hougang-secondary-school"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Basketball (Boys)",
@@ -8117,6 +8846,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -8231,6 +8968,14 @@
       "kind": "IP"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Audio Visual Aid (Boys)",
@@ -8400,6 +9145,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -8524,6 +9277,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -8651,6 +9412,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -8788,6 +9557,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Boys)",
     "Chinese Orchestra (Girls and Boys)",
@@ -8908,6 +9685,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -9022,6 +9807,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -9144,6 +9937,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -9280,6 +10081,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Badminton (Boys)",
     "Basketball (Boys)",
@@ -9402,6 +10211,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Basketball (Boys)",
@@ -9538,6 +10355,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Badminton (Boys)",
     "Chinese Orchestra (Girls and Boys)",
@@ -9649,6 +10474,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -9803,6 +10636,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Chinese Orchestra (Girls and Boys)",
@@ -9922,6 +10763,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Basketball (Boys)",
@@ -10059,6 +10908,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -10182,6 +11039,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Girl Guides (Girls)",
@@ -10335,6 +11200,73 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615040706",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 21,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 21,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 27,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615040706/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=montfort-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20250828233458",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20250828233458/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=montfort-secondary-school"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Audio Visual Aid (Boys)",
@@ -10523,6 +11455,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Girls and Boys)",
     "Chinese Dance (Girls and Boys)",
@@ -10644,6 +11584,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -10763,6 +11711,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)",
@@ -10876,6 +11832,14 @@
       "kind": "IP"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Basketball (Girls and Boys)",
@@ -11020,6 +11984,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Choir (Girls and Boys)",
     "Concert Band (Girls and Boys)",
@@ -11140,6 +12112,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -11290,6 +12270,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -11410,6 +12398,47 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615022342",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 18,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 18,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615022342/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=north-vista-secondary-school"
+    },
+    "2024": {
+     "status": "no-snapshot"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Basketball (Girls and Boys)",
@@ -11687,6 +12716,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Girls and Boys)",
@@ -11814,6 +12851,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Girls and Boys)",
     "Concert Band (Girls and Boys)",
@@ -11901,6 +12946,8 @@
    "independent": false,
    "specialised": true,
    "cop": null,
+   "copHistory": null,
+   "copFlags": null,
    "cca": [
     "Basketball (Boys)",
     "Girl Guides (Girls)",
@@ -11961,6 +13008,8 @@
    "independent": true,
    "specialised": true,
    "cop": null,
+   "copHistory": null,
+   "copFlags": null,
    "cca": [],
    "ccaFull": null,
    "dsaYear": 2026,
@@ -12068,6 +13117,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Basketball (Girls and Boys)",
@@ -12204,6 +13261,55 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615035901",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615035901/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=outram-secondary-school"
+    },
+    "2024": {
+     "status": "anomaly",
+     "archiveTs": "20250424113933",
+     "labelYear": 2024,
+     "basis": "PG",
+     "raw": {
+      "min": 0,
+      "max": 0,
+      "star": false
+     }
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -12382,6 +13488,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Choir (Girls and Boys)",
     "Concert Band (Girls and Boys)",
@@ -12510,6 +13624,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -12642,6 +13764,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Netball (Girls)",
     "Table Tennis (Girls)",
@@ -12751,6 +13881,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -12866,6 +14004,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Basketball (Boys)",
@@ -12984,6 +14130,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Basketball (Boys)",
@@ -13106,6 +14260,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -13232,6 +14394,73 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610185006",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610185006/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20250916021134",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 19,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 19,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20250916021134/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Basketball (Boys)",
@@ -13449,6 +14678,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Basketball (Girls and Boys)",
     "Chinese Dance (Girls and Boys)",
@@ -13579,6 +14816,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Boys)",
     "Choir (Girls and Boys)",
@@ -13682,6 +14927,14 @@
       "kind": "IP"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Girl Guides (Girls)",
@@ -13793,6 +15046,14 @@
       "kind": "IP"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -13943,6 +15204,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -14047,6 +15316,14 @@
       "kind": "IP"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -14187,6 +15464,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Girls and Boys)",
@@ -14287,6 +15572,8 @@
    "independent": true,
    "specialised": true,
    "cop": null,
+   "copHistory": null,
+   "copFlags": null,
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Girls and Boys)",
@@ -14352,6 +15639,8 @@
    "independent": true,
    "specialised": true,
    "cop": null,
+   "copHistory": null,
+   "copFlags": null,
    "cca": [],
    "ccaFull": null,
    "dsaYear": 2026,
@@ -14483,6 +15772,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Chinese Dance (Girls and Boys)",
@@ -14595,6 +15892,47 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610051334",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 15,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 15,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610051334/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=seng-kang-secondary-school"
+    },
+    "2024": {
+     "status": "no-snapshot"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -14860,6 +16198,73 @@
      }
     ]
    },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610160337",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610160337/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=serangoon-garden-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20251006010421",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20251006010421/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=serangoon-garden-secondary-school"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -15105,6 +16510,47 @@
      }
     ]
    },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610215225",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610215225/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=serangoon-secondary-school"
+    },
+    "2024": {
+     "status": "no-snapshot"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Boys)",
     "Choir (Girls and Boys)",
@@ -15293,6 +16739,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)",
@@ -15402,6 +16856,8 @@
    "independent": true,
    "specialised": true,
    "cop": null,
+   "copHistory": null,
+   "copFlags": null,
    "cca": [],
    "ccaFull": null,
    "dsaYear": null,
@@ -15457,6 +16913,8 @@
    "independent": false,
    "specialised": true,
    "cop": null,
+   "copHistory": null,
+   "copFlags": null,
    "cca": [
     "Basketball (Boys)",
     "Football (Boys)",
@@ -15548,6 +17006,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Concert Band (Girls and Boys)",
@@ -15683,6 +17149,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -15826,6 +17300,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)"
@@ -15953,6 +17435,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Audio Visual Aid (Boys)",
@@ -16106,6 +17596,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Boys)",
     "Concert Band (Girls and Boys)",
@@ -16222,6 +17720,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -16401,6 +17907,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)"
@@ -16538,6 +18052,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -16682,6 +18204,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Boys)",
     "Chinese Dance (Girls and Boys)",
@@ -16810,6 +18340,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Girls and Boys)",
     "Chinese Dance (Girls and Boys)",
@@ -16926,6 +18464,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Girl Guides (Girls)",
     "Netball (Girls)"
@@ -17030,6 +18576,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Boys)",
     "Choir (Girls and Boys)",
@@ -17126,6 +18680,14 @@
       "kind": "IP"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -17260,6 +18822,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Boys)",
     "Bowling (Girls and Boys)",
@@ -17372,6 +18942,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Girls and Boys)",
     "Concert Band (Girls and Boys)",
@@ -17481,6 +19059,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Audio Visual Aid (Boys)",
@@ -17643,6 +19229,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Concert Band (Girls and Boys)",
@@ -17769,6 +19363,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -17890,6 +19492,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -18013,6 +19623,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Girls and Boys)",
@@ -18135,6 +19753,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Boys)",
@@ -18265,6 +19891,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -18391,6 +20025,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Choir (Girls and Boys)",
     "Concert Band (Girls and Boys)",
@@ -18494,6 +20136,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
    },
    "cca": [
     "Basketball (Boys)",
@@ -18627,6 +20277,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -18762,6 +20420,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Girls and Boys)",
     "Bowling (Girls and Boys)",
@@ -18880,6 +20546,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Basketball (Boys)",
@@ -19001,6 +20675,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Concert Band (Girls and Boys)",
@@ -19129,6 +20811,73 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240613014208",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 15,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 15,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 26,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240613014208/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yusof-ishak-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20250429232840",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 6,
+      "max": 14,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 6,
+       "max": 14,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 22,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 26,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20250429232840/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yusof-ishak-secondary-school"
+    }
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Badminton (Girls and Boys)",
@@ -19393,6 +21142,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Badminton (Girls and Boys)",
     "Basketball (Boys)",
@@ -19518,6 +21275,14 @@
      }
     ]
    },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
    "cca": [
     "Basketball (Boys)",
     "Choir (Girls and Boys)",
@@ -19642,6 +21407,14 @@
       "kind": "PG"
      }
     ]
+   },
+   "copHistory": null,
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
    },
    "cca": [
     "Chinese Dance (Girls and Boys)",

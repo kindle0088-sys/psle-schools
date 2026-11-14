@@ -1,0 +1,4220 @@
+{
+ "_note": "MOE SchoolFinder 的「未招满」星号标记。star=true 表示该 Posting Group 在 S1 posting 结束后仍有学额（官方脚注原文见脚本头注释）。这是唯一有官方背书的「学校紧不紧张」信号，不是推算。",
+ "collectedAt": "2026-11-14",
+ "copYear": 2025,
+ "schools": {
+  "admiralty-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 16,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 29,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "ahmad-ibrahim-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 18,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "anderson-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 7,
+      "max": 11,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "anglican-high-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 4,
+      "max": 12,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "anglo-chinese-school-barker-road": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 9,
+      "star": false
+     },
+     "aff": {
+      "min": 8,
+      "max": 21,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 21,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 26,
+      "star": false
+     },
+     "aff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "anglo-chinese-school-independent-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 8,
+      "star": false
+     },
+     "aff": {
+      "min": 7,
+      "max": 13,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "ang-mo-kio-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 16,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "assumption-english-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 10,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 29,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "bartley-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 16,
+      "max": 21,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "beatty-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 18,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "bedok-green-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "bedok-south-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 13,
+      "max": 18,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "bedok-view-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 16,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "bendemeer-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "boon-lay-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 7,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "bowen-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 16,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "broadrick-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 5,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "bukit-batok-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 15,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 26,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "bukit-merah-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "bukit-panjang-govt-high-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 7,
+      "max": 11,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 26,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "bukit-view-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 13,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 29,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "canberra-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 17,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 29,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "catholic-high-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": {
+      "min": 7,
+      "max": 12,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "cedar-girls-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 9,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "changkat-changi-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "chij-katong-convent": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 14,
+      "star": false
+     },
+     "aff": {
+      "min": 12,
+      "max": 20,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "chij-secondary-toa-payoh": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 10,
+      "star": false
+     },
+     "aff": {
+      "min": 8,
+      "max": 20,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 22,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": {
+      "min": 26,
+      "max": 29,
+      "star": false
+     }
+    }
+   }
+  },
+  "chij-st-josephs-convent": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 14,
+      "star": false
+     },
+     "aff": {
+      "min": 11,
+      "max": 20,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "chij-st-nicholas-girls-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "chij-st-theresas-convent": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 13,
+      "star": false
+     },
+     "aff": {
+      "min": 9,
+      "max": 20,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": {
+      "min": 26,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "christ-church-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 17,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 29,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "chua-chu-kang-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "chung-cheng-high-school-main": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "chung-cheng-high-school-yishun": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 11,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "clementi-town-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 13,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "commonwealth-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 13,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "compassvale-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 18,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "crescent-girls-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 7,
+      "max": 13,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "damai-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 10,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "deyi-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 9,
+      "max": 16,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "dunearn-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 29,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "dunman-high-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "dunman-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 14,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "east-spring-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 16,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 29,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "edgefield-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 5,
+      "max": 14,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "evergreen-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 10,
+      "max": 15,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 26,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "fairfield-methodist-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 11,
+      "star": false
+     },
+     "aff": {
+      "min": 6,
+      "max": 20,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 21,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "fuhua-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 13,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "gan-eng-seng-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 9,
+      "max": 15,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "geylang-methodist-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 14,
+      "star": false
+     },
+     "aff": {
+      "min": 11,
+      "max": 21,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "greendale-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 16,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "greenridge-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "guangyang-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 9,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "hai-sing-catholic-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 15,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "hillgrove-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 13,
+      "max": 18,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "holy-innocents-high-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 14,
+      "star": false
+     },
+     "aff": {
+      "min": 13,
+      "max": 22,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": {
+      "min": 23,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": {
+      "min": 26,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "hougang-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "hua-yi-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 14,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "hwa-chong-institution-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "junyuan-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 21,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "jurong-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 16,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "jurongville-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "jurong-west-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 16,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "juying-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 17,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "kent-ridge-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 13,
+      "max": 18,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "kranji-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 10,
+      "max": 14,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "kuo-chuan-presbyterian-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": {
+      "min": 8,
+      "max": 20,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": {
+      "min": 26,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "loyang-view-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 16,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "manjusri-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 15,
+      "max": 21,
+      "star": false
+     },
+     "aff": {
+      "min": 15,
+      "max": 22,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "maris-stella-high-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "marsiling-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "mayflower-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 13,
+      "max": 17,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "meridian-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 13,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "methodist-girls-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 8,
+      "star": false
+     },
+     "aff": {
+      "min": 7,
+      "max": 17,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "montfort-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 22,
+      "star": false
+     },
+     "aff": {
+      "min": 11,
+      "max": 22,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 23,
+      "max": 25,
+      "star": false
+     },
+     "aff": {
+      "min": 22,
+      "max": 24,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 27,
+      "max": 29,
+      "star": false
+     },
+     "aff": {
+      "min": 26,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "nan-chiau-high-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "nan-hua-high-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "nanyang-girls-high-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "national-junior-college-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "naval-base-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 13,
+      "max": 19,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "new-town-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "ngee-ann-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 12,
+      "star": false
+     },
+     "aff": {
+      "min": 12,
+      "max": 16,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 21,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 26,
+      "star": false
+     },
+     "aff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "northbrooks-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 15,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "northland-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 15,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "north-vista-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 18,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "orchid-park-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 10,
+      "max": 19,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "outram-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 9,
+      "max": 17,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 26,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "pasir-ris-crest-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 10,
+      "max": 18,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "pasir-ris-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 17,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "paya-lebar-methodist-girls-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 7,
+      "max": 10,
+      "star": false
+     },
+     "aff": {
+      "min": 7,
+      "max": 20,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": {
+      "min": 26,
+      "max": 27,
+      "star": false
+     }
+    }
+   }
+  },
+  "peicai-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "pei-hwa-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 7,
+      "max": 14,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "peirce-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "presbyterian-high-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 13,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "punggol-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 13,
+      "max": 19,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "queenstown-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 15,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "queensway-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 13,
+      "max": 17,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "raffles-girls-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "raffles-institution-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "regent-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 17,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 23,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "riverside-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 14,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "river-valley-high-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "sembawang-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 18,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 29,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "seng-kang-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 19,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "serangoon-garden-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "serangoon-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 16,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "singapore-chinese-girls-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 8,
+      "star": false
+     },
+     "aff": {
+      "min": 7,
+      "max": 17,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "springfield-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 10,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 27,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "st-andrews-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 9,
+      "star": false
+     },
+     "aff": {
+      "min": 9,
+      "max": 22,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 21,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": {
+      "min": 25,
+      "max": 30,
+      "star": false
+     }
+    }
+   }
+  },
+  "st-anthonys-canossian-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 15,
+      "star": false
+     },
+     "aff": {
+      "min": 14,
+      "max": 22,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": {
+      "min": 26,
+      "max": 29,
+      "star": false
+     }
+    }
+   }
+  },
+  "st-gabriels-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 10,
+      "max": 15,
+      "star": false
+     },
+     "aff": {
+      "min": 11,
+      "max": 22,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": {
+      "min": 23,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": {
+      "min": 26,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "st-hildas-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 14,
+      "star": false
+     },
+     "aff": {
+      "min": 12,
+      "max": 22,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": {
+      "min": 26,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "st-josephs-institution-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 4,
+      "max": 8,
+      "star": false
+     },
+     "aff": {
+      "min": 7,
+      "max": 12,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "st-margarets-school-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 11,
+      "star": false
+     },
+     "aff": {
+      "min": 10,
+      "max": 20,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 26,
+      "star": false
+     },
+     "aff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "st-patricks-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 11,
+      "star": false
+     },
+     "aff": {
+      "min": 13,
+      "max": 20,
+      "star": false
+     }
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 22,
+      "star": false
+     },
+     "aff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     }
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     }
+    }
+   }
+  },
+  "swiss-cottage-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 11,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 26,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "tampines-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 13,
+      "max": 19,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "tanjong-katong-girls-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 7,
+      "max": 13,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "tanjong-katong-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 7,
+      "max": 13,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "temasek-junior-college-secondary": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "temasek-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 11,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 26,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "unity-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 18,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "victoria-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 6,
+      "max": 9,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": null,
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": null,
+     "aff": null
+    }
+   }
+  },
+  "west-spring-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 17,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "westwood-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "whitley-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 15,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 26,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "woodgrove-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 19,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "woodlands-ring-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 17,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 29,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "woodlands-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 15,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "xinmin-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 13,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "yio-chu-kang-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 15,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 23,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 30,
+      "star": true
+     },
+     "aff": null
+    }
+   }
+  },
+  "yishun-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "yishun-town-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 5,
+      "max": 13,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "yuan-ching-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 12,
+      "max": 18,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "yuhua-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 15,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 28,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "yusof-ishak-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 7,
+      "max": 15,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "yuying-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 11,
+      "max": 22,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 22,
+      "max": 25,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 29,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "zhenghua-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 14,
+      "max": 20,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 24,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  },
+  "zhonghua-secondary-school": {
+   "year": 2025,
+   "basis": "PG",
+   "rows": {
+    "PG3": {
+     "nonAff": {
+      "min": 8,
+      "max": 12,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG2": {
+     "nonAff": {
+      "min": 21,
+      "max": 23,
+      "star": false
+     },
+     "aff": null
+    },
+    "PG1": {
+     "nonAff": {
+      "min": 25,
+      "max": 27,
+      "star": false
+     },
+     "aff": null
+    }
+   }
+  }
+ },
+ "failed": [
+  {
+   "slug": "assumption-pathway-school",
+   "err": "no PG3 table"
+  },
+  {
+   "slug": "crest-secondary-school",
+   "err": "no PG3 table"
+  },
+  {
+   "slug": "northlight-school",
+   "err": "no PG3 table"
+  },
+  {
+   "slug": "nus-high-school-of-mathematics-and-science",
+   "err": "no PG3 table"
+  },
+  {
+   "slug": "school-of-science-and-technology-singapore",
+   "err": "no PG3 table"
+  },
+  {
+   "slug": "school-of-the-arts-singapore",
+   "err": "no PG3 table"
+  },
+  {
+   "slug": "singapore-sports-school",
+   "err": "no PG3 table"
+  },
+  {
+   "slug": "spectra-secondary-school",
+   "err": "no PG3 table"
+  }
+ ],
+ "drift": []
+}

@@ -272,12 +272,19 @@ select:focus, .num-in:focus { outline: none; border-color: var(--accent-dim); }
 .tag-indep { background: rgba(56,189,248,.10); color: #7dd3fc; border-color: rgba(56,189,248,.22); }
 .tag-spec { background: rgba(148,163,184,.10); color: #94a3b8; border-color: rgba(148,163,184,.18); }
 .tag-none { background: transparent; color: var(--tx3); border-color: var(--line); }
+/* MOE 星号标记：该校最低档在 S1 posting 后仍有学额。
+   刻意用中性灰 + 虚线 —— 这既不是「好」也不是「坏」，只是一个事实，
+   所以不给它任何代表得失的颜色。 */
+.tag-vac { background: transparent; color: var(--tx3); border: 1px dashed rgba(148,163,184,.5); }
+
 /* 深度报告标记 —— 用青绿，与 IP/SAP 等身份标签区分 */
 .tag-deep { background: rgba(52,211,153,.13); color: #6ee7b7; border-color: rgba(52,211,153,.32); }
 
 /* 明细行 */
 .rows { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--tx2); }
 .rows .r { display: flex; justify-content: space-between; gap: 10px; }
+/* COP 多年走势：三段区间拼在一行，字号要收一档才不换行 */
+.rows .r .val.trend { font-size: 11px; letter-spacing: 0; }
 .rows .r .k { color: var(--tx3); }
 .rows .r .val { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--tx2); }
 

@@ -343,6 +343,12 @@ function cardHtml(sc) {
   // ⚠️ 「政府」兜底必须在「深度报告」之前判：否则普通政府学校一旦有报告，
   //    tags 已非空，「政府」就不会被补上，看起来像被「深度报告」顶掉了。
   if (!tags.length) tags.push('<span class="tag tag-none">政府</span>');
+  /* MOE 官方星号：某档在 S1 posting 结束后仍有学额。
+     实测 139 所里只有 PG1 档出现（28 所），所以标签写「低位段」而不是「未招满」——
+     说「未招满」会让人以为 PG3 门槛会降，那是不成立的推论。 */
+  if (sc.copFlags && sc.copFlags.PG1) {
+    tags.push(`<span class="tag tag-vac" title="MOE SchoolFinder 官方星号：该校 PG1 档在 S1 posting 结束后仍有学额。说明最低档没招满、学校整体不紧张；但 PG3 一所都没有这个标记，所以不代表 PG3 门槛会降">低位段未招满</span>`);
+  }
   const rep = REPORTS[sc.slug];
   if (rep) tags.push('<span class="tag tag-deep">深度报告</span>');
 
@@ -383,6 +389,21 @@ function cardHtml(sc) {
       <div class="r"><span class="k">地铁</span><span class="val${!walkFast ? ' fast' : ''}">${mrtVal} 分钟${!walkFast ? '<em>最快</em>' : ''}</span></div>`;
   }
 
+  /* COP 多年走势：只对有历史数据的学校显示（目前 13 所深度报告校）。
+     缺年用 ? 占位而不是跳过 —— 跳过会让「2023 → 2025」看起来像连续两年。 */
+  let trendRow = '';
+  if (sc.copHistory) {
+    const pg3Now = (sc.cop.rows || []).find(r => r.label === 'Posting Group 3');
+    const series = ['2023', '2024', '2025'].map(y => {
+      if (y === '2025') return pg3Now && pg3Now.nonAff ? `${pg3Now.nonAff.min}–${pg3Now.nonAff.max}` : '?';
+      const v = sc.copHistory[y];
+      return v && v.status === 'ok' && v.pg3 ? `${v.pg3.min}–${v.pg3.max}` : '?';
+    });
+    if (series.filter(x => x !== '?').length >= 2) {
+      trendRow = `<div class="r"><span class="k">COP 走向</span><span class="val trend" title="2023 → 2024 → 2025 的 PG3 区间。历史值来自 Wayback 存档的 MOE SchoolFinder 页面；? 表示该年无可用存档">${series.join(' → ')}</span></div>`;
+    }
+  }
+
   const fitHtml = fit
     ? `<span class="fit fit-${fit.status}">${fit.status === 'na' ? '无区间' : FIT_LABEL[fit.status](fit.delta)}</span>`
     : '';
@@ -403,6 +424,7 @@ function cardHtml(sc) {
     <div class="tags">${tags.join('')}${fitHtml}</div>
 
     <div class="rows">
+      ${trendRow}
       ${commuteRows}
       <div class="r"><span class="k">CCA</span><span class="val">${cv.total} 项${cv.full && cv.onlyWebsite ? `<span style="font-weight:400;color:var(--tx3)"> · MOE 登记 ${cv.moeCount}</span>` : ''}</span></div>
       <div class="r"><span class="k">DSA</span><span class="val">${sc.dsaAreas.length ? sc.dsaAreas.length + ' 项（' + sc.dsaYear + '）' : '未列'}</span></div>

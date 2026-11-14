@@ -267,6 +267,10 @@ function gate(sc) {
       nature: sc.nature, type: sc.type, ip: sc.ip, sap: sc.sap,
       autonomous: sc.autonomous, independent: sc.independent,
       cop: g ? { min: g.min, max: g.max, markMax: g.markMax, kind: g.kind, year: sc.cop.year } : null,
+      /* 官方星号标记与历史 COP 一并带过去：报告要引用它们，
+         而 pool 是精简对象，不显式拷贝下游就拿不到。 */
+      copFlags: sc.copFlags || null,
+      copHistory: sc.copHistory || null,
       margin,
       // minutes = 参与评分的最快通勤（步行 or 地铁）；mrtMinutes / walkMinutes 分开留给展示
       minutes: cm ? cm.minutes : null,

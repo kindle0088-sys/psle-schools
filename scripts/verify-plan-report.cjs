@@ -102,6 +102,18 @@ t('Bendemeer 余量正确（+7）', ben ? text.includes('+7') : false, ben ? `+$
 group('四、口径与规则正确性');
 t('按 PG3 口径（不是 PG1）', /Posting Group 3|PG3/.test(text) && !/只竞争 PG1/.test(text));
 t('COP 年度写明 2025', /2025 年度/.test(text));
+
+/* ── 官方星号（低位段未招满）─────────────────────────────
+   实测星号只出现在 PG1 档、PG3 一所都没有。报告必须写清这个分布，
+   否则「未招满」会被读成「PG3 门槛会降」。 */
+t('写明星号分布（只出现在 PG1、共 N 所）', /只出现在 PG1 档，共 \d+ 所/.test(text));
+t('明确 PG3 / PG2 没有该标记', /PG3 和 PG2 一所都没有/.test(text));
+t('给出「别过度解读」的边界', /PG1 有余额 ≠ PG3 门槛会降/.test(text));
+{
+  const SC2 = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/schools.json'), 'utf8')).schools;
+  const exp = SC2.filter(x => x.copFlags && x.copFlags.PG1).length;
+  t('星号总数与数据源一致', new RegExp(`共 ${exp} 所`).test(text), `期望 ${exp}`);
+}
 t('写明 2026 届 COP 要 12 月才出', /12 月/.test(text) && /COP/.test(text));
 t('三条 tie-breaker 齐全', /公民/.test(text) && /志愿顺序/.test(text) && /抽签/.test(text));
 t('SAP 高华条件写对（PSLE ≤ 14）', /≤ 14|14 或更好|14 分/.test(text) && /高华|HCL/.test(text));
