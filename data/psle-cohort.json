@@ -1,10 +1,12 @@
 {
-  "_note": "PSLE 考生人数与出生基数。这是 COP 年际波动的上游变量：考生多 → 同一批学额被更多人抢 → 热门校 COP 上行。所有数字都标了来源等级，A = 官方新闻稿可核，B = 项目推算。",
+  "_note": "PSLE 考生人数与出生基数。这是 COP 年际波动的上游变量：考生多 → 同一批学额被更多人抢 → 热门校 COP 数值下行（门槛收紧）。所有数字都标了来源等级，A = 官方新闻稿可核，B = 项目推算。",
   "updatedAt": "2026-11-14",
+  "revision": "2026-11-14 修订：① 更正「S1 Portal 可查逐校 vacancies」的错误表述（官方定义中无此项）② 均值口径 5 年→6 年 ③ 统一 COP 方向的表述（数值下行 = 门槛收紧）④ 补 Sec 1 班均与在册交叉校验 ⑤ 补 MOE 分配结果的概率基准 ⑥ 补 2026 时间线",
   "sources": {
-    "seab": "SEAB / MOE 每年 'Release of PSLE Results' 新闻稿（考生总人数）",
+    "seab": "SEAB / MOE 每年 'Release of PSLE Results' 新闻稿（考生总人数、参与 S1 Posting 的学校数）",
     "esd": "MOE Education Statistics Digest 2026 统计表（在册人数、班级数、学校数）",
-    "straitsTimes": "The Straits Times 报道（2024 龙年 COP 变动的具体案例）"
+    "s1portal": "MOE S1 Posting 官网 s1.placement.moe.gov.sg（S1 Portal 功能定义、2026 时间线）",
+    "straitsTimes": "The Straits Times 报道（2024 龙年 COP 变动案例、MOE 对分配结果的说明）"
   },
   "years": [
     {
@@ -52,7 +54,7 @@
       "psleCandidates": 40894,
       "psleSource": "A",
       "forecast": [40200, 41200],
-      "note": "龙年基数抬升 → 考生人数高峰，COP 实测普遍下降（见 cases）"
+      "note": "龙年基数抬升 → 考生人数高峰；COP 数值普遍下行（见 cases）"
     },
     {
       "year": 2025,
@@ -71,11 +73,35 @@
       "psleSource": "pending",
       "forecast": [40000, 41000],
       "forecastPoint": 40800,
-      "note": "预测值。基于修订后的公民出生基数（约 33,000），不是总出生数 42,232。官方人数预计 2026-11-24 或 11-25 公布"
+      "note": "预测值。基于修订后的公民出生基数（约 33,000），不是总出生数 42,232。SEAB 公布的暂定放榜窗口为 2026-11-24 或 11-25"
     }
   ],
+  "ratioBacktest": {
+    "_note": "把「考生数 ÷ 该年公民出生数」当成比例用，不是恒等式。六个已知年份的实际比值波动 1.210–1.270，这才是这套方法真实的精度上限 —— 比「拍一个 ±500」诚实。",
+    "byYear": [
+      { "year": 2020, "births": 31500, "candidates": 39995, "ratio": 1.2697 },
+      { "year": 2021, "births": 31350, "candidates": 39119, "ratio": 1.2478 },
+      { "year": 2022, "births": 30000, "candidates": 37095, "ratio": 1.2365 },
+      { "year": 2023, "births": 31350, "candidates": 38088, "ratio": 1.2149 },
+      { "year": 2024, "births": 32800, "candidates": 40894, "ratio": 1.2468 },
+      { "year": 2025, "births": 31350, "candidates": 37926, "ratio": 1.2098 }
+    ],
+    "min": 1.2098,
+    "max": 1.2697,
+    "mean": 1.2376,
+    "base2026": 33000,
+    "bandFor2026": [39900, 41900]
+  },
+  "postingOutcomes": {
+    "_note": "MOE 对 2024 龙年那届 S1 Posting 结果的说明（Straits Times 引述 MOE 发言人）。这是「落空」这件事的基准概率 —— 不给基准只说「有人全落空」，会让人误判风险量级。",
+    "year": 2024,
+    "firstThreeChoicesPct": 80,
+    "anyOfSixPct": 90,
+    "ballotingShare": "约 1/10",
+    "note": "超过 80% 进前三志愿，逾九成进六志愿之一，需 tie-breaker 者约 1/10 走电脑抽签 —— MOE 称与往年「comparable」"
+  },
   "cases": {
-    "_note": "2024 龙年是唯一一次可以「事后验证」考生数影响的年份。以下是 The Straits Times 报道的家长实测，不是推算。",
+    "_note": "2024 龙年是唯一一次可以「事后验证」考生数影响的年份。以下是 The Straits Times 报道的家长实测，不是推算。三所学校的 COP 均由家长口述，非 MOE 逐校发布。",
     "year": 2024,
     "psleCandidates": 40894,
     "previousYear": 38088,
@@ -85,7 +111,8 @@
       { "school": "Hwa Chong Institution", "cop": "7 → 6", "delta": -1 },
       { "school": "St Patrick's Secondary School", "cop": "14 → 11", "delta": -3 }
     ],
-    "narrative": "有学生拿 12 分（远优于 St Patrick's 2023 年的 14 分）却六个志愿全部落空；也有家长按近三年 COP 排了三个保底校仍未被任何一个志愿录取。MOE 的回应是「学额规划会考虑国家与地方层面的需求，确保所有合格学生都有学额」——注意这句话保证的是**总量**，不是**逐校**。"
+    "narrative": "有学生拿 12 分（远优于 St Patrick's 2023 年的 14 分）却六个志愿全部落空；也有家长按近三年 COP 排了三个保底校仍未被任何一个志愿录取。MOE 的回应是「学额规划会考虑国家与地方层面的需求，确保所有合格学生都有学额」——注意这句话保证的是**总量**，不是**逐校**。",
+    "corroboration": "同期《联合早报》查 25 所中学，约四分之三的 COP 数值比上一届低 1 分：莱佛士女中 6→5、南洋女中与华侨中学 7D→6M、德明政府 8M→7M、中正总校 10M→9P、育德 14→13、瑞士村 11→10。莱佛士书院维持 6。方向一致：考生增多 → COP 数值下行。"
   },
   "capacity": {
     "_note": "学额侧的口径。MOE 不公布逐校 S1 学额，只有全市总量与班级规模。",
@@ -94,10 +121,27 @@
     "secondaryClasses": 4750,
     "averageClassSize": 33.4,
     "sec1Enrolment": 41144,
+    "sec1Classes": 1178,
+    "sec1AverageClassSize": 34.9,
     "secondarySchoolsPure": 131,
     "mixedLevelSchools": 16,
     "schoolsInS1Posting2025": 141,
     "schoolsInS1Posting2024": 140,
-    "avgSec1PerSchool": 292
+    "avgSec1PerSchool": 292,
+    "crossCheck": {
+      "_note": "Sec 1 在册（2025 学年）对应的是 2024 年考 PSLE 的那一届。两者不完全相等，差额来自回流公民（SPERS）、直接录取的国际学生、madrasah 等非 PSLE 通道 —— 这正说明「考生数」是 Sec 1 规模的近似，不是恒等。",
+      "psleYear": 2024,
+      "psleCandidates": 40894,
+      "eligiblePct": 98.5,
+      "sec1EnrolledNextYear": 41144,
+      "diff": 250
+    }
+  },
+  "timeline2026": {
+    "_note": "MOE S1 Posting 官网与 SEAB 重要日期页（2026-11 核对）。2026 届考生 2027 年 1 月才入学，所以「学额」指的是 2027 S1 intake。",
+    "psleResults": "2026-11-24 或 11-25（暂定，11:00 放榜）",
+    "choiceWindow": "放榜日起 7 个日历日（11:30 开放 → 最后一日 16:30 截止）",
+    "postingResults": "2026-12-18（暂定）",
+    "enrolment": "2027 年 1 月入学"
   }
 }
