@@ -435,6 +435,17 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
     t('多学生时文案标注当前学生', /志愿方案（/.test(navInfo.text), navInfo.text);
     const act = stuIdx.students.find(x => x.id === stuIdx.activeId);
     t('入口指向活跃学生的方案', navFile === act.planSlug + '.html', navFile);
+
+  /* 多学生：除当前学生外，其他学生的方案也要能点开。
+     否则给老二出的报告只能手输 URL —— 等于没接上。 */
+  const alts = JSON.parse(await ev(`JSON.stringify([...document.querySelectorAll('.plan-alt')].map(a => ({ href: a.getAttribute('href'), text: a.textContent.trim() })))`));
+  const others = (stuIdx.students || []).filter(x => x.id !== stuIdx.activeId);
+  t('多学生时另一学生的方案有独立入口', alts.length === others.length,
+    alts.map(a => a.text + ' → ' + a.href).join(' ｜ ') || '无');
+  if (others.length) {
+    t('另一学生的入口指向真实存在的报告',
+      others.every(o => alts.some(a => a.href.includes(o.planSlug))));
+  }
   }
 
   console.log('\n【八】JS 异常检查');

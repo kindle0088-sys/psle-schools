@@ -1,0 +1,46 @@
+{
+  "id": "abc2",
+  "label": "abc2",
+  "createdAt": "2026-11-14",
+  "psle": {
+    "al": 15,
+    "_note": "AL 4–30，越小越好。PG3 = 4–20。"
+  },
+  "home": {
+    "postal": "828765",
+    "address": "110 Punggol Walk Twin Waterfalls Singapore 828765",
+    "lat": 1.402186278027678,
+    "lon": 103.8972807400701,
+    "_note": "与 abc1 同址。坐标相同 → 步行路网结果完全一致，直接复用 data/walk-abc1.json（见该文件 note）。"
+  },
+  "constraints": {
+    "maxCommuteMin": 45,
+    "commuteFullMarkMin": 17,
+    "gender": "any",
+    "hasAffiliation": false,
+    "_note": "maxCommuteMin = 单程上限（MRT/BUS 合计）；commuteFullMarkMin 与 abc1 保持一致，便于两兄弟横向对比；gender: any = 主池只放混校，单性别校另列（家长要求「最好混校」）；hasAffiliation = 有无兄姐/父母在读（决定看 COP 哪一列），本案例无附属小学。"
+  },
+  "interests": {
+    "academic": [
+      "Science",
+      "Computing",
+      "Mathematics",
+      "Languages",
+      "Humanities"
+    ],
+    "cca": [
+      "Robotics",
+      "AI",
+      "Drama",
+      "Swimming",
+      "Cooking"
+    ],
+    "_note": "顺序即优先级（Science/Computing 最前，Robotics/AI 最前）。cca 用于 score-candidates 的兴趣加权。"
+  },
+  "outputs": {
+    "planSlug": "abc2-s1-choice-2026",
+    "_note": "报告落地为 docs/reports/<planSlug>.html。"
+  },
+  "notes": "第二个孩子案例（AL 15）。性别保密 → 按「混校为主、单性别校另列」处理。无 DSA、无附属小学、无兄姐在读。家长特别希望的方向：STEM / AI / Computing / Robotics / Sports / Leadership / Arts / Languages；可接受的学校类型：混校优先，SAP 与 IP 也考虑（实际核查后 AL 15 全部够不着，见报告第三步）。",
+  "_生效说明": "以下字段参与计算：psle.al、home.postal、home.lat/lon、constraints.maxCommuteMin / commuteFullMarkMin / gender / hasAffiliation / weights、interests.cca、outputs.planSlug。label / notes / createdAt / wants 只供人读，不影响计算结果。"
+}

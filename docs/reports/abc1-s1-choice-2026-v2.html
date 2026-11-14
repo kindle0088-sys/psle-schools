@@ -25,6 +25,8 @@ a{color:var(--accent)}
 .hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
 .hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
 .hero h1{margin:10px 0 6px;font-size:26px;font-weight:650;letter-spacing:-.4px;line-height:1.35}
+/* 副标题行：单校报告与志愿报告的 h1 都带 <small>，没有这条会与主标题粘连 */
+.hero h1 small{display:block;font-size:14.5px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:7px;line-height:1.5}
 .hero .sub{opacity:.82;font-size:14px;max-width:660px}
 .profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
 .profile div{background:rgba(255,255,255,.05);padding:12px 15px}
@@ -113,6 +115,10 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 .foot code{font-family:var(--mono);font-size:11.4px;background:#f0f0ec;padding:1px 5px;border-radius:3px}
 @media print{.hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.school,.plan,.note{break-inside:avoid}}
 @media(max-width:600px){.hero h1{font-size:21px}.kv{grid-template-columns:1fr 1fr}table{font-size:12.4px}th,td{padding:7px 6px}}
+
+/* 通勤表里的「争议」上标：与数字留 2px，避免粘连 */
+.num sup,.kv sup{font-size:9px;opacity:.72;margin-left:2px;vertical-align:2px}
+
 </style>
 </head>
 <body>
@@ -904,7 +910,7 @@ CCA 那一维是按<b>你的兴趣</b>加权的——它衡量的是「这所学
 · 候选池：MOE 邮编 828765 筛选 + 45 分钟通勤双口径，逐所标注是否在 MOE 附近列表内<br>
 · 安全性评分：按实际余量分布（0–5 分）标定<br><br>
 <b>免责</b>：个人研究工具输出，非 MOE 官方建议。COP 仅供参考，不构成录取保证。通勤时间为模型估算，未含巴士接驳与等车波动。<br><br>
-<span class="soft">生成于 2026/11/13 14:43:32 SGT · 基于 AL 17 / PG3 / 邮编 828765 / 通勤上限 45 分钟</span>
+<span class="soft">生成于 2026/11/14 11:41:06 SGT · 基于 AL 17 / PG3 / 邮编 828765 / 通勤上限 45 分钟</span>
 </div>
 
 </div>

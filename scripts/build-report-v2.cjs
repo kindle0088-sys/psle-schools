@@ -33,6 +33,8 @@ const REPORT_IDX = (() => {
 const byName = new Map(R.pool.map(x => [x.name, x]));
 const byNameAll = new Map([...R.pool, ...R.singleSex, ...R.outOfReach].map(x => [x.name, x]));
 
+const PLAN_CSS = fs.readFileSync(path.join(BASE, 'scripts/tpl/plan.css'), 'utf8');
+
 const S = R.student;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -215,113 +217,7 @@ const html = `<!DOCTYPE html>
 <meta name="robots" content="noindex,nofollow">
 <title>PSLE 志愿规划 v2 · AL ${S.score} 分 · 6 个志愿排序</title>
 <style>
-:root{
-  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
-  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
-  --accent:#0f5c4e; --accent-bg:#eef6f3;
-  --warm:#8a5a00; --warm-bg:#fdf6e7;
-  --risk:#8c2f2f; --risk-bg:#fbf0ef;
-  --ok:#1f5c3a; --ok-bg:#eef7f1;
-  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
-  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
-.wrap{max-width:960px;margin:0 auto;padding:0 22px}
-a{color:var(--accent)}
-.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
-.backlink:hover{color:#fff}
-.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
-.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
-.hero h1{margin:10px 0 6px;font-size:26px;font-weight:650;letter-spacing:-.4px;line-height:1.35}
-.hero .sub{opacity:.82;font-size:14px;max-width:660px}
-.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
-.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
-.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
-.profile .v{font-size:15px;font-weight:600;margin-top:3px}
-
-section{margin:0 0 38px}
-h2{font-size:18px;font-weight:640;margin:42px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px}
-h2 .n{font-size:12px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px}
-h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 16px}
-h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
-h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
-p{margin:11px 0}
-
-.fixbox{background:var(--risk-bg);border:1px solid #efd6d4;border-left:4px solid var(--risk);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
-.fixbox h3{margin:0 0 8px;font-size:15.5px;color:var(--risk)}
-.fixbox p{margin:8px 0;font-size:14.3px}
-
-.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
-.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
-.verdict p{margin:8px 0;font-size:14.3px}
-.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
-.verdict li{margin:5px 0}
-
-table{width:100%;border-collapse:collapse;font-size:13.4px;margin:14px 0}
-th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
-th{font-size:12px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line);white-space:nowrap}
-td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
-td.soft,.soft{color:var(--tx3)}
-tbody tr:hover{background:#f6f6f3}
-.tight{color:var(--warm)}
-
-.school{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px;margin:16px 0}
-.school header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
-.sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
-.sbadges{display:flex;gap:6px;flex-wrap:wrap}
-.badge{font-size:11px;padding:2px 8px;border-radius:5px;background:#f1f1ee;color:var(--tx2);border:1px solid var(--line)}
-.badge-moe{background:var(--accent-bg);color:var(--accent);border-color:#cfe4dc;font-weight:600}
-.badge-over{background:var(--risk-bg);color:var(--risk);border-color:#e6c9c6;font-weight:600}
-.gap-line{font-size:13px;color:var(--tx2);margin:10px 0 0;padding-left:12px;border-left:2px solid var(--risk);line-height:1.7}
-.tier{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:600}
-.t-reach{background:var(--warm-bg);color:var(--warm);border:1px solid #ecd9b0}
-.t-match{background:var(--accent-bg);color:var(--accent);border:1px solid #cfe4dc}
-.t-safe{background:var(--ok-bg);color:var(--ok);border:1px solid #cfe6d8}
-
-.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:13px}
-.kv div{background:var(--card);padding:9px 12px}
-.kv .k{display:block;font-size:11px;color:var(--tx3);letter-spacing:.3px}
-.kv .v{display:block;font-size:14px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
-
-.why,.caveat{font-size:13.7px;margin:10px 0;padding:10px 13px;border-radius:8px}
-/* 只有段落首个 <b> 当小标题用；正文内的 <b> 保持内联加粗，
-   否则每个加粗词都会变成独立的大写块（曾导致 STEP 4c 排版炸裂） */
-.why>b:first-child,.caveat>b:first-child{display:block;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
-.why b,.caveat b{font-weight:600}
-.why{background:var(--accent-bg);color:#1c4a3f}
-.why b{color:var(--accent)}
-.caveat{background:var(--warm-bg);color:#6b4a0e}
-.deeplink{display:block;margin:14px 0 2px;padding:11px 15px;background:var(--accent-bg);border:1px solid #cfe4dc;border-radius:9px;text-decoration:none;transition:background .15s,border-color .15s}
-.deeplink span{display:block;font-size:13.6px;font-weight:600;color:var(--accent)}
-.deeplink em{display:block;font-style:normal;font-size:11.6px;color:#5c7a71;margin-top:3px}
-.deeplink:hover{background:#e2f0ea;border-color:#a9cfc2}
-.caveat b{color:var(--warm)}
-
-dl.detail{margin:12px 0 0;font-size:13.2px}
-dl.detail dt{font-size:11.5px;color:var(--tx3);letter-spacing:.4px;margin-top:11px;text-transform:uppercase}
-dl.detail dd{margin:3px 0 0;color:var(--tx2)}
-.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:5px;background:#f4f4f1;border:1px solid var(--line2);color:var(--tx2);margin:2px 3px 2px 0}
-.chip.hit{background:var(--accent-bg);border-color:#cfe4dc;color:var(--accent);font-weight:500}
-
-.ok{color:var(--ok);font-size:12px}
-.warn{color:var(--warm);font-size:12px;font-weight:500}
-
-.plans{display:grid;gap:14px;margin:18px 0}
-.plan{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
-.plan.rec{border-color:#bfd9d0;box-shadow:0 0 0 3px var(--accent-bg)}
-.plan h3{margin:0 0 3px;font-size:15px;display:flex;align-items:center;gap:8px}
-.plan .pdesc{font-size:12.8px;color:var(--tx3);margin:0 0 11px}
-.plan ol{margin:0;padding-left:22px;font-size:13.7px}
-.plan li{margin:5px 0}
-.pill{font-size:10.5px;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-weight:600}
-
-.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
-.note b{color:var(--tx)}
-.foot{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 50px;font-size:12.3px;color:var(--tx3);line-height:1.85}
-.foot code{font-family:var(--mono);font-size:11.4px;background:#f0f0ec;padding:1px 5px;border-radius:3px}
-@media print{.hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.school,.plan,.note{break-inside:avoid}}
-@media(max-width:600px){.hero h1{font-size:21px}.kv{grid-template-columns:1fr 1fr}table{font-size:12.4px}th,td{padding:7px 6px}}
+${PLAN_CSS}
 </style>
 </head>
 <body>
@@ -687,38 +583,6 @@ console.log('▸ 输出', out);
 console.log('  大小', Math.round(html.length / 1024) + 'KB');
 
 /* 登记到学生索引，供看板导航读取。
-   多学生共存时，看板按 activeId 决定「我的志愿方案」指向哪一份。 */
-const IDX_FILE = path.join(BASE, 'docs/data/students-index.json');
-let idx = { students: [] };
-try { idx = JSON.parse(fs.readFileSync(IDX_FILE, 'utf8')); } catch (_) { /* 首次生成 */ }
-// 只保留配置文件仍存在的学生 —— 索引是派生结果，删掉 students/<id>.json 就该消失
-const alive = (idx.students || []).filter(x => fs.existsSync(path.join(Stu.DIR, x.id + '.json')));
-const list = alive.filter(x => x.id !== STU.id);
-list.push({
-  id: STU.id,
-  label: STU.label,
-  al: STU.al,
-  pgShort: S.pgShort,
-  postal: STU.home.postal,
-  maxCommuteMin: STU.maxCommuteMin,
-  planSlug: STU.planSlug,
-  updatedAt: new Date().toISOString(),
-});
-list.sort((a, b) => (a.id === Stu.DEFAULT_ID ? -1 : b.id === Stu.DEFAULT_ID ? 1 : a.id.localeCompare(b.id)));
-fs.mkdirSync(path.dirname(IDX_FILE), { recursive: true });
-fs.writeFileSync(IDX_FILE, JSON.stringify({
-  generatedAt: new Date().toISOString(),
-  defaultId: Stu.DEFAULT_ID,
-  // activeId 不是「最后生成的那个」，而是显式指针：
-  // 优先 data/students/active.json，其次默认学生。否则给另一个学生出报告
-  // 会把看板入口悄悄抢走。
-  activeId: (() => {
-    try {
-      const a = JSON.parse(fs.readFileSync(path.join(Stu.DIR, 'active.json'), 'utf8'));
-      if (a.active && list.some(x => x.id === a.active)) return a.active;
-    } catch (_) { /* 无指针 */ }
-    return list.some(x => x.id === Stu.DEFAULT_ID) ? Stu.DEFAULT_ID : list[0].id;
-  })(),
-  students: list,
-}, null, 1));
+   逻辑抽到 lib/students-index.cjs —— 两个报告生成器共用同一份 activeId 规则。 */
+const list = require('../lib/students-index.cjs').upsert(STU, { pgShort: S.pgShort });
 console.log('  索引：docs/data/students-index.json（%d 个学生，当前 %s）', list.length, STU.id);

@@ -557,6 +557,17 @@ function syncPlanNav() {
       if (list.length > 1) {
         nav.title = list.map(s => `${s.label || s.id}：AL ${s.al}`).join(' · ');
       }
+      /* 多学生时，除当前学生外的方案也要能点到 —— 否则给老二出的报告
+         只能在 URL 里手输。插成兄弟节点，样式沿用 .nav a。 */
+      document.querySelectorAll('.plan-alt').forEach(e => e.remove());
+      list.filter(s => s.id !== act.id && s.planSlug).forEach(o => {
+        const a = document.createElement('a');
+        a.className = 'plan-alt';
+        a.href = 'reports/' + o.planSlug + '.html';
+        a.textContent = `${o.label || o.id} 方案`;
+        a.title = `AL ${o.al} · ${o.pgShort || ''}`;
+        nav.after(a);
+      });
     })
     .catch(() => { /* 索引缺失时保持 HTML 里的默认链接 */ });
 }

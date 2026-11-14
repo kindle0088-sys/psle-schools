@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-13T06:43:32.227Z",
+ "generatedAt": "2026-11-14T03:41:58.986Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -11,7 +11,17 @@
    "postal": "828765",
    "maxCommuteMin": 45,
    "planSlug": "abc1-s1-choice-2026-v2",
-   "updatedAt": "2026-11-13T06:43:32.225Z"
+   "updatedAt": "2026-11-14T03:41:07.029Z"
+  },
+  {
+   "id": "abc2",
+   "label": "abc2",
+   "al": 15,
+   "pgShort": "PG3",
+   "postal": "828765",
+   "maxCommuteMin": 45,
+   "planSlug": "abc2-s1-choice-2026",
+   "updatedAt": "2026-11-14T03:41:58.985Z"
   }
  ]
 }
