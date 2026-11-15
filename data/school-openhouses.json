@@ -1,0 +1,248 @@
+{
+  "_note": "13 所深度报告学校在 2026 年（服务 2027 年 1 月入学）的开放日。日期与时间优先采用 MOE Schoolbag 官方列表（A 级），活动细节只有在学校官方或明确引述学校公告的来源里才写（B 级）；没有公布的一律留空并标注「官方未公布」，不推测。地址与电话不在这里重复维护，由 docs/data/schools.json 提供。",
+  "updatedAt": "2026-11-15",
+  "cycle": "2026 年开放日，对应 2027 年 1 月入学的 Sec 1",
+  "sources": [
+    {
+      "label": "MOE Schoolbag · Open House for Secondary Schools 2026（官方汇总，标注截至 2026-11-06）",
+      "url": "https://www.schoolbag.edu.sg/story/open-house-for-secondary-schools/",
+      "grade": "A",
+      "usedFor": "日期、时间、实体/线上、是否需报名"
+    },
+    {
+      "label": "SG Schooling · Secondary Schools Open House 2026（第三方日历，用于交叉核对）",
+      "url": "https://sgschooling.com/blog/secondary-schools-open-house-2026",
+      "grade": "C",
+      "usedFor": "交叉核对日期与时间；与官方不一致时以 MOE 为准并记录差异"
+    },
+    {
+      "label": "Greendale Secondary 官方公告（经 eduKate Punggol 引述全文）",
+      "url": "https://edukatepunggol.com/2026/10/23/greendale-secondary-open-house-14-november-2026-edgedale-plains-entrance-photos-guide",
+      "grade": "B",
+      "usedFor": "活动内容、无需报名"
+    },
+    {
+      "label": "Compassvale Secondary · CVSS Open House 2026 活动页",
+      "url": "https://allevents.in/pasir-ris/cvss-open-house-2026/200030985517005",
+      "grade": "B",
+      "usedFor": "活动内容（学生导览、CCA 摊位、与校领导交流）"
+    },
+    {
+      "label": "Yusof Ishak Secondary 官方 Open House 页（报名 go.gov.sg/yissoh2026）",
+      "url": "https://edukatepunggol.com/2026/10/23/what-is-happening-punggol-yusof-ishak-secondary-open-house-21-november-2026-stem-leadership",
+      "grade": "B",
+      "usedFor": "需报名、展示方向（STEM / 领导力 / coding / robotics）"
+    },
+    {
+      "label": "Montfort Secondary 官网（Open House 2026 时段预约）",
+      "url": "https://www.montfortsec.moe.edu.sg/",
+      "grade": "B",
+      "usedFor": "定点参观需预约"
+    },
+    {
+      "label": "Serangoon Garden Secondary 官网（e-Open House）",
+      "url": "https://www.sgs.moe.edu.sg/",
+      "grade": "B",
+      "usedFor": "只有线上开放日，无实体场"
+    }
+  ],
+  "schools": {
+    "bendemeer-secondary-school": {
+      "headline": "三场活动，分三种形式",
+      "events": [
+        {
+          "date": "2026-11-21", "start": "08:30", "end": "13:00", "mode": "physical",
+          "title": "开放日 Open House",
+          "registration": "none",
+          "activities": [],
+          "note": "第三方日历写 8:30–14:00，与 MOE 的 13:00 不一致。以 MOE 为准，出发前建议电话确认结束时间。"
+        },
+        {
+          "date": "2026-11-26", "start": "18:00", "end": "19:00", "mode": "virtual",
+          "title": "校长交流场 Principal's Engagement Session",
+          "registration": "opens-2026-11-23",
+          "activities": ["校长对话", "线上提问"],
+          "note": "线上场，报名 2026-11-23 开放；具体细节在活动前一周才公布。"
+        },
+        {
+          "date": "2026-11-28", "start": "09:00", "end": "11:00", "mode": "physical",
+          "title": "校园参观与体验 School Tours & Experience",
+          "registration": "unknown",
+          "activities": ["校园导览", "体验活动"],
+          "note": "只有 2 小时，规模小于 21 日那场开放日。"
+        }
+      ],
+      "sourceNote": "三场活动的名称与时段来自 MOE Schoolbag；活动细则 MOE 原文写「请到学校网站看详情」。"
+    },
+    "compassvale-secondary-school": {
+      "headline": "有明确活动清单的一场",
+      "events": [
+        {
+          "date": "2026-11-21", "start": "10:00", "end": "14:30", "mode": "physical",
+          "title": "CVSS Open House 2026",
+          "registration": "none",
+          "activities": [
+            "学生导览员带你逛校园（student docents）",
+            "CCA 与活动摊位",
+            "与校领导、学生领袖面对面交流"
+          ],
+          "note": "学校公告原文未提报名，按 walk-in 处理；开始时间 10:00 比多数学校晚，睡懒觉也行。"
+        }
+      ],
+      "sourceNote": "活动内容来自学校活动页（明确列为三条亮点）；日期时间与 MOE 一致。"
+    },
+    "edgefield-secondary-school": {
+      "headline": "只有日期时间，没有公布流程",
+      "events": [
+        {
+          "date": "2026-11-21", "start": "09:00", "end": "13:00", "mode": "physical",
+          "title": "开放日 Open House",
+          "registration": "unknown",
+          "activities": [],
+          "note": "MOE 与第三方日历时间一致（9:00–13:00），但均未列出具体活动安排。"
+        }
+      ],
+      "sourceNote": "官方未公布分场次安排；想知道有没有校长讲座 / CCA 展示，只能电话问。"
+    },
+    "greendale-secondary-school": {
+      "headline": "唯一有完整活动说明的一场（已结束）",
+      "events": [
+        {
+          "date": "2026-11-14", "start": "09:00", "end": "13:00", "mode": "physical",
+          "title": "Greendale Open House 2026 · Finding the Right Fit for Your Child",
+          "registration": "none",
+          "activities": [
+            "学生导览 / 自助参观",
+            "科目与 CCA 展示（学校点名 Fencing、Canoeing、Angklung）",
+            "学生表演",
+            "ALP「Design, Technology & Engineering」与 LLP「Outdoor Adventure」介绍"
+          ],
+          "note": "学校公告原文写 NO REGISTRATION REQUIRED。"
+        }
+      ],
+      "sourceNote": "活动清单来自学校公告全文；这份公告本身是「为什么选对学校比选名校重要」的家长向文案，营销成分要打折看。"
+    },
+    "hougang-secondary-school": {
+      "headline": "月底那场，时间较宽裕",
+      "events": [
+        {
+          "date": "2026-11-28", "start": "09:00", "end": "12:30", "mode": "physical",
+          "title": "开放日 Open House",
+          "registration": "unknown",
+          "activities": [],
+          "note": "MOE 与第三方日历时间一致；官方未公布具体活动。"
+        }
+      ],
+      "sourceNote": "官方未公布分场次安排。注意 11-28 与 Serangoon 同一天，可以一天跑两所（两校相距约 4 公里）。"
+    },
+    "montfort-secondary-school": {
+      "headline": "没有常规开放日，改成「定点参观 + 预约」",
+      "events": [
+        {
+          "date": "2026-11-18", "endDate": "2026-11-20", "start": null, "end": null, "mode": "physical",
+          "title": "Focused School Visits（定点校园参观）",
+          "registration": "required",
+          "activities": ["按时段预约的校园参观"],
+          "note": "三天内分时段进行，具体时段要在学校网站预约。MOE 与第三方日历都只写「时间待定」，说明这不是对外开放日，而是小规模接待。"
+        }
+      ],
+      "sourceNote": "学校官网有「Montfort Open House 2026 — book your preferred slot」入口，与 MOE 的「定点参观」对得上。"
+    },
+    "north-vista-secondary-school": {
+      "headline": "最早开始的一场（已结束）",
+      "events": [
+        {
+          "date": "2026-11-14", "start": "08:00", "end": "13:00", "mode": "physical",
+          "title": "开放日 Open House",
+          "registration": "unknown",
+          "activities": [],
+          "note": "13 所里开门最早的（8:00），时长 5 小时。"
+        }
+      ],
+      "sourceNote": "官方未公布具体活动。"
+    },
+    "outram-secondary-school": {
+      "headline": "唯一的下午场（已结束）",
+      "events": [
+        {
+          "date": "2026-11-14", "start": "14:30", "end": "16:30", "mode": "physical",
+          "title": "Our School Open House",
+          "registration": "unknown",
+          "activities": [],
+          "note": "MOE 引述学校原文为 2.30pm–4.30pm；第三方日历写 14:00–16:30。以学校原文为准，差 30 分钟。"
+        }
+      ],
+      "sourceNote": "时段冲突已记录：MOE 转述学校公告 14:30 起，第三方 14:00 起。"
+    },
+    "punggol-secondary-school": {
+      "headline": "日期有了，时间至今没公布",
+      "events": [
+        {
+          "date": "2026-11-14", "start": null, "end": null, "mode": "physical",
+          "title": "开放日 Open House（时间未公布）",
+          "registration": "unknown",
+          "activities": [],
+          "note": "MOE 原文就写「Timing TBC」，第三方日历同样标 timing TBC。到了开放日当天仍是 TBC，说明学校没有对外公布时段。"
+        }
+      ],
+      "sourceNote": "这是 13 所里信息最不完整的一所 —— 日期在，时间没了。想去只能打电话（6489 7851）。"
+    },
+    "seng-kang-secondary-school": {
+      "headline": "上午场，时长 4 小时（已结束）",
+      "events": [
+        {
+          "date": "2026-11-14", "start": "08:00", "end": "12:00", "mode": "physical",
+          "title": "开放日 Open House",
+          "registration": "unknown",
+          "activities": [],
+          "note": "与 North Vista 同为 8:00 开始，但 12:00 结束。"
+        }
+      ],
+      "sourceNote": "官方未公布具体活动。"
+    },
+    "serangoon-secondary-school": {
+      "headline": "和 Hougang 同一天，可一天跑两所",
+      "events": [
+        {
+          "date": "2026-11-28", "start": "09:00", "end": "12:00", "mode": "physical",
+          "title": "开放日 Open House",
+          "registration": "unknown",
+          "activities": [],
+          "note": "9:00–12:00，比 Hougang 早半小时结束。"
+        }
+      ],
+      "sourceNote": "官方未公布具体活动。"
+    },
+    "serangoon-garden-secondary-school": {
+      "headline": "13 所里唯一没有实体开放日的",
+      "events": [],
+      "status": "e-only",
+      "sourceNote": "MOE 列表里该校一行没有任何日期时间；学校官网首页只有「e-Open House」入口（线上）。第三方汇总也把它归入「无年末开放日」一栏。想实地看，只能打电话约（6288 9227）。"
+    },
+    "yusof-ishak-secondary-school": {
+      "headline": "需要报名的一场，展示方向最贴 STEM",
+      "events": [
+        {
+          "date": "2026-11-21", "start": "08:00", "end": "12:30", "mode": "physical",
+          "title": "YI Open House 2026",
+          "registration": "required",
+          "regUrl": "https://go.gov.sg/yissoh2026",
+          "activities": [
+            "STEM / 智慧城市主题展示（ALP S4TEM@YI）",
+            "Coding 与 Robotics 相关展示",
+            "学生领导力项目介绍",
+            "YI AgriSphere Lab 与城市农场（水培/土培）"
+          ],
+          "note": "学校用 go.gov.sg 表单单收报名。注意：报名链接不等于已占位，以学校确认为准。"
+        }
+      ],
+      "sourceNote": "时段来自 MOE 列表；展示方向来自学校 ALP 页面与官方报名页引述。"
+    }
+  },
+  "caveats": [
+    "开放日不是录取环节：去不去不影响 S1 分配，也不会改变 COP。它的作用是让你判断「这所学校适不适合」，以及提前排掉通勤与氛围上的误判。",
+    "时间与活动都可能临时调整。MOE 列表自身标注「准确截至 2026-11-06」，学校网站才是最终口径。",
+    "「官方未公布具体活动」不等于没有安排 —— 多数学校现场就是校园参观 + 科目/CCA 摊位 + 校长讲座，但这句话是我的经验判断，不是学校说的，所以页面上不写成事实。",
+    "已结束的场次仍然保留在表里：一是对照（谁家办得早、办得久），二是明年这套时间规律大概率重复（多数学校固定在 PSLE 出分前两周的周六）。"
+  ]
+}

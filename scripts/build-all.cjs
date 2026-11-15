@@ -73,6 +73,7 @@ for (const s of STUDENTS) {
 add('13 份单校深度报告', 'build-school-reports.cjs');
 add('考生人数与学额页', 'build-cohort-page.cjs');
 add('家长学习手册', 'build-guide.cjs');
+add('开放日汇总页', 'build-openhouse-page.cjs');
 add('方案看板（须最后）', 'build-plans-index.cjs');
 
 const selected = ONLY ? steps.filter(s => ONLY.some(k => s.label.includes(k) || s.script.includes(k))) : steps;
@@ -139,6 +140,7 @@ const EXPECT = [
   'docs/cohort.html',
   'docs/guide.html',
   'docs/plans.html',
+  'docs/openhouse.html',
   ...STUDENTS.filter(s => s.planSlug).map(s => `docs/reports/${s.planSlug}.html`),
 ];
 /* 只核对「由生成器产出」的报告：docs/reports 里还留着 v1 手写存档
@@ -176,6 +178,7 @@ if (VERIFY) {
     ['考生人数页', 'verify-cohort-page.cjs'],
     ['家长手册', 'verify-guide.cjs'],
     ['方案看板', 'verify-plans-index.cjs'],
+    ['开放日页', 'verify-openhouse.cjs'],
   ];
   /* 报告验证器按「谁生成了它」选：v2 的产物用 verify-report-v2，
      通用生成器的产物用 verify-plan-report（需要文件路径 + 学生 id）。 */

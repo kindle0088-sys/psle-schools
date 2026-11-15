@@ -129,6 +129,9 @@ tbody tr:hover{background:var(--hover)}
 .sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
 .sbadges{display:flex;gap:6px;flex-wrap:wrap}
 .badge{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--chip);color:var(--tx2);border:1px solid var(--line)}
+/* 风险提示徽章：与普通 badge 同形，只换配色。
+   志愿报告的「余量 ≤1」和开放日页的「需报名」都用它 —— 之前这个类名一直没定义。 */
+.badge-risk{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
 .badge-moe{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-line);font-weight:600}
 .badge-over{background:var(--risk-bg);color:var(--risk);border-color:var(--risk-line);font-weight:600}
 .gap-line{font-size:13px;color:var(--tx2);margin:10px 0 0;padding-left:12px;border-left:2px solid var(--risk);line-height:1.7}
@@ -915,7 +918,7 @@ AL2–AL4 各只有 <b>5 分</b>宽，而 AL6 有 <b>20 分</b>、AL7 有 <b>25 
 <b>相关页面</b>　<a href="index.html">学校看板</a>（147 所，含 COP / CCA / 通勤）
 ｜ <a href="map.html">通勤地图</a>
 ｜ <a href="cohort.html">考生人数与学额</a>
-｜ <a href="plans.html">志愿方案</a><br>
+｜ <a href="openhouse.html">开放日</a> ｜ <a href="plans.html">志愿方案</a><br>
 <b>生成信息</b>　本页由 <code>scripts/build-guide.cjs</code> 从 <code>data/secondary-costs.json</code> 与相关数据生成，
 数据更新 2026-11-15。<br>
 <b>免责</b>　个人研究工具输出，非 MOE 官方建议。政策以官方最新公告为准。

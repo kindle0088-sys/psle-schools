@@ -137,7 +137,7 @@ ${body}
 
 <div class="foot" style="margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:12.4px;color:var(--tx3);line-height:1.9">
 <b>相关页面</b>　<a href="index.html">学校看板</a> ｜ <a href="map.html">通勤地图</a> ｜
-<a href="guide.html">填报手册</a> ｜ <a href="cohort.html">考生人数与学额</a><br>
+<a href="guide.html">填报手册</a> ｜ <a href="openhouse.html">开放日</a> ｜ <a href="cohort.html">考生人数与学额</a><br>
 <b>端口径</b>　COP 为上一年度 S1 Posting 实际录取区间，仅供参考，不构成录取保证。<br>
 <b>生成</b>　本页由 <code>scripts/build-plans-index.cjs</code> 从 <code>docs/data/students-index.json</code> 生成，
 索引更新于 ${esc(when(IDX.generatedAt))} SGT。

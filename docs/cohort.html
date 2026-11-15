@@ -129,6 +129,9 @@ tbody tr:hover{background:var(--hover)}
 .sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
 .sbadges{display:flex;gap:6px;flex-wrap:wrap}
 .badge{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--chip);color:var(--tx2);border:1px solid var(--line)}
+/* 风险提示徽章：与普通 badge 同形，只换配色。
+   志愿报告的「余量 ≤1」和开放日页的「需报名」都用它 —— 之前这个类名一直没定义。 */
+.badge-risk{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
 .badge-moe{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-line);font-weight:600}
 .badge-over{background:var(--risk-bg);color:var(--risk);border-color:var(--risk-line);font-weight:600}
 .gap-line{font-size:13px;color:var(--tx2);margin:10px 0 0;padding-left:12px;border-left:2px solid var(--risk);line-height:1.7}
@@ -641,7 +644,7 @@ MOE 对 S1 Portal 的功能定义原文是「view their child's S1 Posting eligi
 <b>生成信息</b>　本页由 <code>scripts/build-cohort-page.cjs</code> 从 <code>data/psle-cohort.json</code> 生成，
 数据更新于 2026-11-14。<br>
 <b>本次修订</b>　2026-11-14 修订：① 更正「S1 Portal 可查逐校 vacancies」的错误表述（官方定义中无此项）② 均值口径 5 年→6 年 ③ 统一 COP 方向的表述（数值下行 = 门槛收紧）④ 补 Sec 1 班均与在册交叉校验 ⑤ 补 MOE 分配结果的概率基准 ⑥ 补 2026 时间线<br>
-<b>关联页面</b>　<a href="index.html">学校看板</a> ｜ <a href="map.html">通勤地图</a> ｜ <a href="guide.html">填报手册</a> ｜ <a href="plans.html">志愿方案</a><br>
+<b>关联页面</b>　<a href="index.html">学校看板</a> ｜ <a href="map.html">通勤地图</a> ｜ <a href="guide.html">填报手册</a> ｜ <a href="openhouse.html">开放日</a> ｜ <a href="plans.html">志愿方案</a><br>
 <b>免责</b>　推算部分为个人研究，非 MOE 官方预测。COP 受考生数、学额、报考偏好三者共同影响，本页只解释第一个变量。
 </div>
 

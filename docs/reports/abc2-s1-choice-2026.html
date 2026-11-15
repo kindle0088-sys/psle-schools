@@ -129,6 +129,9 @@ tbody tr:hover{background:var(--hover)}
 .sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
 .sbadges{display:flex;gap:6px;flex-wrap:wrap}
 .badge{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--chip);color:var(--tx2);border:1px solid var(--line)}
+/* 风险提示徽章：与普通 badge 同形，只换配色。
+   志愿报告的「余量 ≤1」和开放日页的「需报名」都用它 —— 之前这个类名一直没定义。 */
+.badge-risk{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
 .badge-moe{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-line);font-weight:600}
 .badge-over{background:var(--risk-bg);color:var(--risk);border-color:var(--risk-line);font-weight:600}
 .gap-line{font-size:13px;color:var(--tx2);margin:10px 0 0;padding-left:12px;border-left:2px solid var(--risk);line-height:1.7}
@@ -1527,7 +1530,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 
 <div class="foot">
 <b>生成信息</b>　本报告由 <code>scripts/build-report-plan.cjs</code> 基于学生画像 <code>data/students/abc2.json</code> 生成，
-数据采集 2026-11，生成于 2026/11/15 13:36:51 SGT。<br>
+数据采集 2026-11，生成于 2026/11/15 14:59:09 SGT。<br>
 <b>口径</b>　COP = 2025 年度 S1 Posting 实际录取区间 · 学生 AL 15 / PG3 / 邮编 828765 / 通勤上限 45 分钟 ·
 步行 = OSM 步行路网 · 地铁 = 自建 MRT 模型。<br>
 <b>免责</b>　个人研究工具输出，非 MOE 官方建议。COP 每年浮动，录取结果受志愿策略、同届竞争与 tie-breaker 影响，本报告不构成录取保证。
