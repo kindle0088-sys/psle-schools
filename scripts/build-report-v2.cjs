@@ -584,5 +584,15 @@ console.log('  大小', Math.round(html.length / 1024) + 'KB');
 
 /* 登记到学生索引，供看板导航读取。
    逻辑抽到 lib/students-index.cjs —— 两个报告生成器共用同一份 activeId 规则。 */
-const list = require('../lib/students-index.cjs').upsert(STU, { pgShort: S.pgShort });
+const list = require('../lib/students-index.cjs').upsert(STU, {
+  pgShort: S.pgShort,
+  // 方案摘要进索引，供「志愿方案看板」直接渲染，不必解析 HTML
+  plan: {
+    picks: PICK.map(p => ({ slot: p.slot, name: p.name, tier: p.tier })),
+    poolMixed: S2.poolMixed,
+    withinCommuteReachable: S2.withinCommuteReachable,
+    kinds: ['v2'],
+    report: 'reports/' + STU.planSlug + '.html',
+  },
+});
 console.log('  索引：docs/data/students-index.json（%d 个学生，当前 %s）', list.length, STU.id);

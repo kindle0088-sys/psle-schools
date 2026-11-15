@@ -415,38 +415,35 @@ const SITE = process.env.SITE || 'http://127.0.0.1:8901';
   t('Yusof Ishak 步行 8–21 分钟（两家引擎分歧）', /^8–21 分钟/.test(yiWalk.v), yiWalk.v);
   t('通勤口径说明写在页面顶部', (await ev(`(document.getElementById('commuteNote')||{}).textContent||''`)).includes('取最快'));
 
-  console.log('\n【七之七】志愿方案入口跟随学生索引');
+  console.log('\n【七之七】志愿方案入口：主界面只留一个，指向方案看板');
+  /* 2026-11-15 改机制：入口不再「跟随学生索引」动态换链接，
+     而是固定指向 plans.html（方案看板），由看板列出所有学生的方案。
+     这样新加一份方案不会挤占导航，也不会出现「谁最后生成就指谁」。 */
   const navInfo = JSON.parse(await ev(`JSON.stringify((() => {
-    const a = document.getElementById('planNav');
-    if (!a) return { found: false };
-    return { found: true, href: a.getAttribute('href'), text: a.textContent.trim(), title: a.title || '' };
+    const navs = [...document.querySelectorAll('.nav a')];
+    const hit = navs.filter(a => (a.getAttribute('href') || '').includes('plans.html'));
+    return {
+      count: hit.length,
+      href: hit[0] ? hit[0].getAttribute('href') : null,
+      text: hit[0] ? hit[0].textContent.trim() : null,
+      /* 别在这里写正则：模板字符串里的 \\/ 会被折成 /，浏览器拿到的是
+         /reports/|plans.html/ —— 直接语法错误（本次踩过）。用 includes 最稳。 */
+      planLinks: navs.map(a => a.getAttribute('href') || '').filter(h => h.includes('reports/') || h.includes('plans.html')),
+    };
   })())`));
-  t('导航里有「志愿方案」入口', navInfo.found);
-  t('入口已由学生索引接管（href 为 reports/*.html）',
-    /^reports\/.+\.html$/.test(navInfo.href || ''), navInfo.href);
-  const navFile = (navInfo.href || '').replace(/^reports\//, '');
-  t('入口指向真实存在的报告', fs.existsSync(path.join(BASE, 'docs/reports', navFile)), navFile);
-  // 只有一位学生时保持原文案；多学生时才加括号标注
-  const stuIdx = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/students-index.json'), 'utf8'));
-  if (stuIdx.students.length === 1) {
-    t('单学生时文案不冗余', navInfo.text === '我的志愿方案', navInfo.text);
-    t('入口指向该学生的方案', navFile === stuIdx.students[0].planSlug + '.html', navFile);
-  } else {
-    t('多学生时文案标注当前学生', /志愿方案（/.test(navInfo.text), navInfo.text);
-    const act = stuIdx.students.find(x => x.id === stuIdx.activeId);
-    t('入口指向活跃学生的方案', navFile === act.planSlug + '.html', navFile);
-
-  /* 多学生：除当前学生外，其他学生的方案也要能点开。
-     否则给老二出的报告只能手输 URL —— 等于没接上。 */
-  const alts = JSON.parse(await ev(`JSON.stringify([...document.querySelectorAll('.plan-alt')].map(a => ({ href: a.getAttribute('href'), text: a.textContent.trim() })))`));
-  const others = (stuIdx.students || []).filter(x => x.id !== stuIdx.activeId);
-  t('多学生时另一学生的方案有独立入口', alts.length === others.length,
-    alts.map(a => a.text + ' → ' + a.href).join(' ｜ ') || '无');
-  if (others.length) {
-    t('另一学生的入口指向真实存在的报告',
-      others.every(o => alts.some(a => a.href.includes(o.planSlug))));
-  }
-  }
+  t('导航里有且只有一个志愿方案入口', navInfo.count === 1,
+    navInfo.planLinks.join(' ｜ ') || '无');
+  t('入口指向 plans.html', navInfo.href === 'plans.html', navInfo.href);
+  t('入口文案不带学生名（不随学生变）', navInfo.text === '志愿方案', navInfo.text);
+  t('导航里不再直连某个学生的报告',
+    !navInfo.planLinks.some(h => h.startsWith('reports/')), navInfo.planLinks.join(','));
+  t('不再有动态插入的 .plan-alt 链接',
+    (await ev(`document.querySelectorAll('.plan-alt').length`)) === 0);
+  const PLANS = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/students-index.json'), 'utf8'));
+  t('方案看板存在', fs.existsSync(path.join(BASE, 'docs/plans.html')));
+  t('看板覆盖了索引里的每一份方案',
+    (PLANS.students || []).every(x => fs.existsSync(path.join(BASE, 'docs/reports', (x.planSlug || '') + '.html'))),
+    `${(PLANS.students || []).length} 份`);
 
   console.log('\n【七之十】官方星号（低位段未招满）与 COP 走向');
   const extra = JSON.parse(await ev(`JSON.stringify((() => {

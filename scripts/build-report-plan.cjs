@@ -760,7 +760,16 @@ ${STEP6}
 /* 登记到学生索引（与 build-report-v2 共用同一份 activeId 规则）。
    注意：给老二出报告不应把老大在看板上的入口顶掉 —— activeId 由
    data/students/active.json 决定，不在这里。 */
-const idxList = require('../lib/students-index.cjs').upsert(STU, { pgShort: S.pgShort });
+const idxList = require('../lib/students-index.cjs').upsert(STU, {
+  pgShort: S.pgShort,
+  plan: {
+    picks: PLANS.A.picks.map(p => ({ slot: p.slot, name: p.name, tier: p.tier })),
+    poolMixed: S2.poolMixed,
+    withinCommuteReachable: S2.withinCommuteReachable,
+    kinds: ['plan'],
+    report: 'reports/' + STU.planSlug + '.html',
+  },
+});
 
 const out = P('docs/reports', STU.planSlug + '.html');
 fs.mkdirSync(path.dirname(out), { recursive: true });

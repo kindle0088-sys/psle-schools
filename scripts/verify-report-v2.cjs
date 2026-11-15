@@ -154,8 +154,12 @@ if (STU.id === Stu.DEFAULT_ID) {
   t('v1 已加废弃提示',
     fs.readFileSync(path.join(BASE, 'docs/reports', V1_ARCHIVE), 'utf8').includes('本版已作废'));
 }
-t('看板已链接到当前学生的方案',
-  fs.readFileSync(path.join(BASE, 'docs/index.html'), 'utf8').includes(STU.planSlug + '.html'),
+/* 2026-11-15 起入口改为一层：看板 → plans.html（方案看板）→ 本报告。
+   所以这里拆成两段查，别再看 index.html 里有没有直连。 */
+t('看板导航指向方案看板',
+  fs.readFileSync(path.join(BASE, 'docs/index.html'), 'utf8').includes('href="plans.html"'));
+t('方案看板里有指向本报告的入口',
+  fs.readFileSync(path.join(BASE, 'docs/plans.html'), 'utf8').includes(STU.planSlug + '.html'),
   STU.planSlug);
 
 console.log(`\n══════ ${pass} 通过 / ${fail} 失败 ══════`);

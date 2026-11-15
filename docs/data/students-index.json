@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-15T02:34:35.385Z",
+ "generatedAt": "2026-11-15T05:05:46.386Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -11,7 +11,48 @@
    "postal": "828765",
    "maxCommuteMin": 45,
    "planSlug": "abc1-s1-choice-2026-v2",
-   "updatedAt": "2026-11-15T02:34:35.213Z"
+   "updatedAt": "2026-11-15T05:05:46.220Z",
+   "plan": {
+    "picks": [
+     {
+      "slot": 1,
+      "name": "Compassvale Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 2,
+      "name": "North Vista Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 3,
+      "name": "Punggol Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 4,
+      "name": "Seng Kang Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 5,
+      "name": "Hougang Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 6,
+      "name": "Bendemeer Secondary School",
+      "tier": "稳妥"
+     }
+    ],
+    "poolMixed": 18,
+    "withinCommuteReachable": 19,
+    "kinds": [
+     "v2"
+    ],
+    "report": "reports/abc1-s1-choice-2026-v2.html",
+    "generatedAt": "2026-11-15T05:05:46.220Z"
+   }
   },
   {
    "id": "abc2",
@@ -21,7 +62,48 @@
    "postal": "828765",
    "maxCommuteMin": 45,
    "planSlug": "abc2-s1-choice-2026",
-   "updatedAt": "2026-11-15T02:34:35.383Z"
+   "updatedAt": "2026-11-15T05:05:46.384Z",
+   "plan": {
+    "picks": [
+     {
+      "slot": 1,
+      "name": "Greendale Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 2,
+      "name": "Compassvale Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 3,
+      "name": "Seng Kang Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 4,
+      "name": "North Vista Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 5,
+      "name": "Bendemeer Secondary School",
+      "tier": "稳妥"
+     },
+     {
+      "slot": 6,
+      "name": "Bartley Secondary School",
+      "tier": "稳妥"
+     }
+    ],
+    "poolMixed": 22,
+    "withinCommuteReachable": 24,
+    "kinds": [
+     "plan"
+    ],
+    "report": "reports/abc2-s1-choice-2026.html",
+    "generatedAt": "2026-11-15T05:05:46.384Z"
+   }
   }
  ]
 }

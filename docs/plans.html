@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="generator" content="psle-plans-index/v1">
+<title>志愿方案 · PSLE 择校看板</title>
+<style>
+:root{
+  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
+  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
+  --accent:#0f5c4e; --accent-bg:#eef6f3;
+  --warm:#8a5a00; --warm-bg:#fdf6e7;
+  --risk:#8c2f2f; --risk-bg:#fbf0ef;
+  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:#fff}
+.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.hero h1{margin:10px 0 6px;font-size:26px;font-weight:650;letter-spacing:-.4px;line-height:1.35}
+/* 副标题行：单校报告与志愿报告的 h1 都带 <small>，没有这条会与主标题粘连 */
+.hero h1 small{display:block;font-size:14.5px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:7px;line-height:1.5}
+.hero .sub{opacity:.82;font-size:14px;max-width:660px}
+
+/* 两栏对照块。这两个类原先只在 school.css 里定义，而本模板的使用者
+   （填报手册、考生人数页）只引 plan.css —— 于是「有结构、没样式」，
+   两块内容会静默堆成普通段落。定义在这里，两边都能用。 */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:14px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.panel h4{margin:0;font-size:13.5px;font-weight:650;color:var(--tx)}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
+.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
+.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+
+section{margin:0 0 38px}
+h2{font-size:18px;font-weight:640;margin:42px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px}
+h2 .n{font-size:12px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 16px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.fixbox{background:var(--risk-bg);border:1px solid #efd6d4;border-left:4px solid var(--risk);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.fixbox h3{margin:0 0 8px;font-size:15.5px;color:var(--risk)}
+.fixbox p{margin:8px 0;font-size:14.3px}
+
+.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict p{margin:8px 0;font-size:14.3px}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+
+table{width:100%;border-collapse:collapse;font-size:13.4px;margin:14px 0}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:12px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.soft,.soft{color:var(--tx3)}
+tbody tr:hover{background:#f6f6f3}
+.tight{color:var(--warm)}
+
+.school{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px;margin:16px 0}
+.school header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
+.sbadges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11px;padding:2px 8px;border-radius:5px;background:#f1f1ee;color:var(--tx2);border:1px solid var(--line)}
+.badge-moe{background:var(--accent-bg);color:var(--accent);border-color:#cfe4dc;font-weight:600}
+.badge-over{background:var(--risk-bg);color:var(--risk);border-color:#e6c9c6;font-weight:600}
+.gap-line{font-size:13px;color:var(--tx2);margin:10px 0 0;padding-left:12px;border-left:2px solid var(--risk);line-height:1.7}
+.tier{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:600}
+.t-reach{background:var(--warm-bg);color:var(--warm);border:1px solid #ecd9b0}
+.t-match{background:var(--accent-bg);color:var(--accent);border:1px solid #cfe4dc}
+.t-safe{background:var(--ok-bg);color:var(--ok);border:1px solid #cfe6d8}
+
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:13px}
+.kv div{background:var(--card);padding:9px 12px}
+.kv .k{display:block;font-size:11px;color:var(--tx3);letter-spacing:.3px}
+.kv .v{display:block;font-size:14px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+
+.why,.caveat{font-size:13.7px;margin:10px 0;padding:10px 13px;border-radius:8px}
+/* 只有段落首个 <b> 当小标题用；正文内的 <b> 保持内联加粗，
+   否则每个加粗词都会变成独立的大写块（曾导致 STEP 4c 排版炸裂） */
+.why>b:first-child,.caveat>b:first-child{display:block;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.why b,.caveat b{font-weight:600}
+.why{background:var(--accent-bg);color:#1c4a3f}
+.why b{color:var(--accent)}
+.caveat{background:var(--warm-bg);color:#6b4a0e}
+.deeplink{display:block;margin:14px 0 2px;padding:11px 15px;background:var(--accent-bg);border:1px solid #cfe4dc;border-radius:9px;text-decoration:none;transition:background .15s,border-color .15s}
+.deeplink span{display:block;font-size:13.6px;font-weight:600;color:var(--accent)}
+.deeplink em{display:block;font-style:normal;font-size:11.6px;color:#5c7a71;margin-top:3px}
+.deeplink:hover{background:#e2f0ea;border-color:#a9cfc2}
+.caveat b{color:var(--warm)}
+
+dl.detail{margin:12px 0 0;font-size:13.2px}
+dl.detail dt{font-size:11.5px;color:var(--tx3);letter-spacing:.4px;margin-top:11px;text-transform:uppercase}
+dl.detail dd{margin:3px 0 0;color:var(--tx2)}
+.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:5px;background:#f4f4f1;border:1px solid var(--line2);color:var(--tx2);margin:2px 3px 2px 0}
+.chip.hit{background:var(--accent-bg);border-color:#cfe4dc;color:var(--accent);font-weight:500}
+
+.ok{color:var(--ok);font-size:12px}
+.warn{color:var(--warm);font-size:12px;font-weight:500}
+
+.plans{display:grid;gap:14px;margin:18px 0}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.plan.rec{border-color:#bfd9d0;box-shadow:0 0 0 3px var(--accent-bg)}
+.plan h3{margin:0 0 3px;font-size:15px;display:flex;align-items:center;gap:8px}
+.plan .pdesc{font-size:12.8px;color:var(--tx3);margin:0 0 11px}
+.plan ol{margin:0;padding-left:22px;font-size:13.7px}
+.plan li{margin:5px 0}
+.pill{font-size:10.5px;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-weight:600}
+
+.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+.foot{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 50px;font-size:12.3px;color:var(--tx3);line-height:1.85}
+.foot code{font-family:var(--mono);font-size:11.4px;background:#f0f0ec;padding:1px 5px;border-radius:3px}
+@media print{.hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.school,.plan,.note{break-inside:avoid}}
+@media(max-width:600px){.hero h1{font-size:21px}.kv{grid-template-columns:1fr 1fr}table{font-size:12.4px}th,td{padding:7px 6px}}
+
+/* 通勤表里的「争议」上标：与数字留 2px，避免粘连 */
+.num sup,.kv sup{font-size:9px;opacity:.72;margin-left:2px;vertical-align:2px}
+
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px;margin-top:22px}
+.plan{border:1px solid var(--line);border-radius:11px;background:var(--card);padding:16px 17px 13px;display:flex;flex-direction:column}
+.plan header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.plan .nm{font-size:16px;font-weight:650;display:flex;align-items:center;gap:7px}
+.plan .cur{font-size:10px;font-weight:400;padding:1px 6px;border-radius:3px;border:1px solid var(--line);color:var(--tx3)}
+.plan .meta{font-size:12px;color:var(--tx3);margin-top:4px}
+.plan .stat{display:flex;gap:14px;text-align:right;flex:0 0 auto}
+.plan .stat .k{display:block;font-size:10.5px;color:var(--tx3)}
+.plan .stat .v{display:block;font-size:16px;font-weight:650;font-family:var(--mono);color:var(--tx)}
+.plan .slots{list-style:none;margin:14px 0 12px;padding:0;flex:1}
+.plan .slots li{display:flex;align-items:center;gap:9px;padding:6px 0;border-bottom:1px dashed var(--line2);font-size:13.2px}
+.plan .slots li:last-child{border-bottom:0}
+.plan .slot{flex:0 0 18px;text-align:right;font-family:var(--mono);font-size:11px;color:var(--tx3)}
+.plan .sn{flex:1;min-width:0}
+.plan .tr{font-size:10.5px;padding:1px 6px;border-radius:3px;border:1px solid;white-space:nowrap}
+/* 档位只用来说明「风险高低」，不是好坏，所以三色都压得比较淡 */
+.tr-reach{border-color:rgba(251,191,36,.5);color:#8a5a00;background:var(--warm-bg)}
+.tr-match{border-color:rgba(56,189,248,.38);color:#0b5c78;background:#eef7fb}
+.tr-safe{border-color:rgba(15,92,78,.32);color:var(--accent);background:var(--accent-bg)}
+.plan footer{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:10px;border-top:1px solid var(--line2)}
+.plan .ts{font-size:11.5px;color:var(--tx3)}
+.plan .go{font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}
+.plan .go:hover{text-decoration:underline}
+.plan .miss{font-size:11.5px;color:var(--risk)}
+.plan .slots .empty{font-size:12.5px;color:var(--tx3)}
+.howto{margin-top:26px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="index.html">← 返回学校看板</a>
+    <div class="eyebrow">PSLE · 志愿方案</div>
+    <h1>志愿方案<small>每个孩子一份，各 6 个志愿；方案 A 是推荐组合</small></h1>
+    <div class="sub">
+      每份方案都基于各自的分数、住址与兴趣算出候选池，再按「冲刺 / 匹配 / 稳妥」排 6 个位置。
+      点开可以看到完整的六步分析、逐校适配度、B / C 两套备选方案，以及每条推荐的理由与风险。
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="plans">
+
+<article class="plan" data-id="abc1">
+  <header>
+    <div class="who">
+      <div class="nm">abc1<span class="cur">看板当前</span></div>
+      <div class="meta">AL <b>17</b> · PG3 · 邮编 828765 · 通勤上限 45 分钟</div>
+    </div>
+    <div class="stat">
+      <div><span class="k">主池</span><span class="v">18</span></div>
+      <div><span class="k">可及</span><span class="v">19</span></div>
+    </div>
+  </header>
+
+  <ol class="slots">
+    <li>
+      <span class="slot">1</span>
+      <span class="sn">Compassvale</span>
+      <span class="tr tr-reach">冲刺</span>
+    </li><li>
+      <span class="slot">2</span>
+      <span class="sn">North Vista</span>
+      <span class="tr tr-reach">冲刺</span>
+    </li><li>
+      <span class="slot">3</span>
+      <span class="sn">Punggol</span>
+      <span class="tr tr-match">匹配</span>
+    </li><li>
+      <span class="slot">4</span>
+      <span class="sn">Seng Kang</span>
+      <span class="tr tr-match">匹配</span>
+    </li><li>
+      <span class="slot">5</span>
+      <span class="sn">Hougang</span>
+      <span class="tr tr-match">匹配</span>
+    </li><li>
+      <span class="slot">6</span>
+      <span class="sn">Bendemeer</span>
+      <span class="tr tr-safe">稳妥</span>
+    </li>
+  </ol>
+
+  <footer>
+    <span class="ts">生成于 2026/11/15</span>
+    <a class="go" href="reports/abc1-s1-choice-2026-v2.html">打开完整方案 →</a>
+  </footer>
+</article>
+
+<article class="plan" data-id="abc2">
+  <header>
+    <div class="who">
+      <div class="nm">abc2</div>
+      <div class="meta">AL <b>15</b> · PG3 · 邮编 828765 · 通勤上限 45 分钟</div>
+    </div>
+    <div class="stat">
+      <div><span class="k">主池</span><span class="v">22</span></div>
+      <div><span class="k">可及</span><span class="v">24</span></div>
+    </div>
+  </header>
+
+  <ol class="slots">
+    <li>
+      <span class="slot">1</span>
+      <span class="sn">Greendale</span>
+      <span class="tr tr-reach">冲刺</span>
+    </li><li>
+      <span class="slot">2</span>
+      <span class="sn">Compassvale</span>
+      <span class="tr tr-match">匹配</span>
+    </li><li>
+      <span class="slot">3</span>
+      <span class="sn">Seng Kang</span>
+      <span class="tr tr-match">匹配</span>
+    </li><li>
+      <span class="slot">4</span>
+      <span class="sn">North Vista</span>
+      <span class="tr tr-match">匹配</span>
+    </li><li>
+      <span class="slot">5</span>
+      <span class="sn">Bendemeer</span>
+      <span class="tr tr-safe">稳妥</span>
+    </li><li>
+      <span class="slot">6</span>
+      <span class="sn">Bartley</span>
+      <span class="tr tr-safe">稳妥</span>
+    </li>
+  </ol>
+
+  <footer>
+    <span class="ts">生成于 2026/11/15</span>
+    <a class="go" href="reports/abc2-s1-choice-2026.html">打开完整方案 →</a>
+  </footer>
+</article>
+</div>
+
+<div class="note howto">
+<b>怎么新增一份方案。</b>在 <code>data/students/</code> 下加一份学生配置（分数 / 分组 / 邮编 / 通勤上限 / 兴趣），
+然后跑 <code>STUDENT=&lt;id&gt; node scripts/build-report-plan.cjs</code>，再跑一次
+<code>node scripts/build-plans-index.cjs</code> —— 本页会自动多一张卡。
+</div>
+
+<div class="foot" style="margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:12.4px;color:var(--tx3);line-height:1.9">
+<b>相关页面</b>　<a href="index.html">学校看板</a> ｜ <a href="map.html">通勤地图</a> ｜
+<a href="guide.html">填报手册</a> ｜ <a href="cohort.html">考生人数与学额</a><br>
+<b>端口径</b>　COP 为上一年度 S1 Posting 实际录取区间，仅供参考，不构成录取保证。<br>
+<b>生成</b>　本页由 <code>scripts/build-plans-index.cjs</code> 从 <code>docs/data/students-index.json</code> 生成，
+索引更新于 2026/11/15 SGT。
+</div>
+
+</div>
+</body>
+</html>

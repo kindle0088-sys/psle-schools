@@ -396,7 +396,7 @@ MOE 对 S1 Portal 的功能定义原文是「view their child's S1 Posting eligi
 <b>生成信息</b>　本页由 <code>scripts/build-cohort-page.cjs</code> 从 <code>data/psle-cohort.json</code> 生成，
 数据更新于 ${esc(D.updatedAt)}。<br>
 <b>本次修订</b>　${esc(D.revision)}<br>
-<b>关联页面</b>　<a href="index.html">学校看板</a> ｜ <a href="map.html">通勤地图</a> ｜ <a href="guide.html">填报手册</a> ｜ <a href="reports/abc2-s1-choice-2026.html">AL 15 志愿方案</a><br>
+<b>关联页面</b>　<a href="index.html">学校看板</a> ｜ <a href="map.html">通勤地图</a> ｜ <a href="guide.html">填报手册</a> ｜ <a href="plans.html">志愿方案</a><br>
 <b>免责</b>　推算部分为个人研究，非 MOE 官方预测。COP 受考生数、学额、报考偏好三者共同影响，本页只解释第一个变量。
 </div>
 
