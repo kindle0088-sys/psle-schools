@@ -82,20 +82,64 @@ console.log('\n══ 三、日期与状态：逐场重算');
   const trs = [...seg.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)]
     .map(m => [...m[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)]
       .map(x => x[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()))
-    .filter(c => c.length >= 6);
+    .filter(c => c.length >= 7);
   t('总览表场次数与数据一致', trs.length === events.length, `${trs.length} / 期望 ${events.length}`);
+  t('总览表每行 7 格（学校 / COP / 日期 / 时间 / 形式 / 报名 / 状态）',
+    trs.every(c => c.length === 7), [...new Set(trs.map(c => c.length))].join(','));
 
-  /* 按「日期 + 学校」配对，逐行比对状态文字 —— 只查「页面上有这个词」会被别的场次兜住 */
+  /* 按「日期 + 学校」配对，逐行比对状态文字 —— 只查「页面上有这个词」会被别的场次兜住。
+     ⚠️ 列序变了（2026-11-15 插入 COP 列）后这里必须跟着改，否则全部「行未找到」。 */
   const bad = [];
   for (const e of events) {
     const want = expectStatus(e.ev.date);
     const mdLabel = `${+e.ev.date.slice(5, 7)} 月 ${+e.ev.date.slice(8, 10)} 日`;
     const short = String(bySlug.get(e.slug).name).replace(/ Secondary School| \(Secondary\)/, '');
-    const row = trs.find(c => c[0].includes(short) && c[1].includes(mdLabel));
+    const row = trs.find(c => c[0].includes(short) && c[2].includes(mdLabel));
     if (!row) { bad.push(`${short}@${e.ev.date} 行未找到`); continue; }
-    if (!row[5].includes(want)) bad.push(`${short}@${e.ev.date} 状态=${row[5]}≠${want}`);
+    if (!row[6].includes(want)) bad.push(`${short}@${e.ev.date} 状态=${row[6]}≠${want}`);
   }
   t('每场的「已结束 / 还有 N 天」与今天一致', bad.length === 0, bad.slice(0, 4).join(' ｜ ') || `${events.length} 场全对`);
+}
+
+console.log('\n══ 三之二、2025 PG3 区间必须与 schools.json 一致');
+{
+  const from = html.indexOf('<h2 id="s1"');
+  const to = html.indexOf('<h2 id="s2"', from);
+  const seg = from >= 0 && to > from ? html.slice(from, to) : '';
+  /* ⚠️ 不能只查整段：表下的脚注里也写着「2025 PG3 非附属」，
+     把表头改成 2024 仍然会通过（负向测试实测）。只在表头里查。 */
+  const thead = (seg.match(/<thead>([\s\S]*?)<\/thead>/) || [])[1] || '';
+  t('表头标明年度与口径', /2025 PG3/.test(thead) && /非附属/.test(thead),
+    thead.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60));
+
+  const trs = [...seg.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)]
+    .map(m => [...m[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)]
+      .map(x => x[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()))
+    .filter(c => c.length === 7);
+
+  /* 独立重算：直接从 schools.json 取 PG3 的 nonAff 区间，与页面逐行比对 */
+  const want = new Map();
+  for (const s2 of SC) {
+    const g = ((s2.cop && s2.cop.rows) || []).find(r => r.label === 'Posting Group 3');
+    if (g && g.nonAff) want.set(s2.slug, `${g.nonAff.min}–${g.nonAff.max}`);
+  }
+  const bad = [];
+  for (const e of events) {
+    const short = String(bySlug.get(e.slug).name).replace(/ Secondary School| \(Secondary\)/, '');
+    const row = trs.find(c => c[0].includes(short) && c[2].includes(`${+e.ev.date.slice(5, 7)} 月`));
+    if (!row) { bad.push(`${short} 行未找到`); continue; }
+    const exp = want.get(e.slug);
+    if (row[1] !== exp) bad.push(`${short}: ${row[1]} ≠ ${exp}`);
+  }
+  t('每行的 PG3 与数据源逐字一致', bad.length === 0, bad.slice(0, 4).join(' ｜ ') || `${trs.length} 行全对`);
+
+  t('COP 不是门槛的说法写清了', /不是门槛|不是「门槛」/.test(text));
+  /* Montfort 有附属区间：必须表态「本表用非附属」，否则家长会拿错数 */
+  const mf = SC.find(x => x.slug === 'montfort-secondary-school');
+  const g = ((mf.cop.rows) || []).find(r => r.label === 'Posting Group 3');
+  if (g && g.aff) {
+    t('Montfort 的附属区间被单独说明', /Montfort[\s\S]{0,80}附属|另设[\s\S]{0,20}附属/.test(text), `${g.aff.min}–${g.aff.max}`);
+  }
 }
 
 console.log('\n══ 四、时间与报名格式');

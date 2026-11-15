@@ -36,6 +36,23 @@ const WD = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'
 const weekday = iso => WD[new Date(iso + 'T00:00:00Z').getUTCDay()];
 const md = iso => `${+iso.slice(5, 7)} 月 ${+iso.slice(8, 10)} 日`;
 
+/* ── 2025 年 PG3 录取区间（非附属）────────────────────────────
+   取 schools.json 的 cop（year=2025），而不是手写进开放日数据里 ——
+   COP 每年会变，抄一份就等着它和看板对不上。
+   注意：一律用 nonAff（非附属）区间；Montfort 另有附属区间，单独标出来。 */
+const cop3 = slug => {
+  const s = bySlug.get(slug);
+  const g = ((s && s.cop && s.cop.rows) || []).find(r => r.label === 'Posting Group 3');
+  if (!g || !g.nonAff) return null;
+  return { year: s.cop.year, min: g.nonAff.min, max: g.nonAff.max, aff: g.aff || null };
+};
+const copText = slug => {
+  const c = cop3(slug);
+  return c ? `${c.min}–${c.max}` : '—';
+};
+/** 13 所里只有 Montfort 有附属区间，值得在表下点一句 */
+const withAff = Object.keys(OH.schools).filter(k => (cop3(k) || {}).aff);
+
 /** 相对状态：已结束 / 就是今天 / 还有 N 天 */
 const statusOf = ev => {
   const d = dayNum(ev.date), t = dayNum(TODAY);
@@ -91,6 +108,7 @@ const statusTag = st => `<span class="st st-${st.key}">${st.label}</span>`;
 
 const overviewRows = rows.map(r => `<tr>
   <td><b>${esc(r.short)}</b></td>
+  <td class="num mid">${esc(copText(r.slug))}</td>
   <td class="num mid">${md(r.ev.date)}<br><span class="soft" style="font-size:11px">${weekday(r.ev.date)}</span></td>
   <td class="num mid">${esc(timeOf(r.ev))}</td>
   <td class="mid">${esc(modeOf(r.ev.mode))}</td>
@@ -239,14 +257,21 @@ ${CSS}
 <div style="overflow-x:auto">
 <table>
 <thead><tr>
-  <th style="width:24%">学校</th><th class="mid" style="width:16%">日期</th><th class="mid" style="width:16%">时间</th>
-  <th class="mid" style="width:10%">形式</th><th class="mid" style="width:14%">报名</th><th class="mid">状态</th>
+  <th style="width:20%">学校</th>
+  <th class="mid" style="width:11%">2025 PG3<br><span class="soft">非附属</span></th>
+  <th class="mid" style="width:15%">日期</th><th class="mid" style="width:15%">时间</th>
+  <th class="mid" style="width:8%">形式</th><th class="mid" style="width:12%">报名</th><th class="mid">状态</th>
 </tr></thead>
 <tbody>
 ${overviewRows}
 </tbody>
 </table>
 </div>
+<p class="soft" style="font-size:12.4px">
+「2025 PG3 非附属」= 2025 年度 S1 Posting 中，<b>非附属生</b>在 Posting Group 3 的实际录取区间（左端最强、右端最后一名）。
+<b>它不是门槛</b>：区间每年会动 1–3 分，且踩线还要过同分比较。三年走向见各校深度报告与看板卡片。
+${withAff.length ? `<br>${withAff.map(k => esc(short(bySlug.get(k)?.name))).join('、')} 另设<b>附属</b>区间 ${esc((cop3(withAff[0]) || {}).aff ? `${cop3(withAff[0]).aff.min}–${cop3(withAff[0]).aff.max}` : '')}，只对附属小学毕业生有效，本表用的是非附属区间。` : ''}
+</p>
 ${eOnly.length ? `<p class="soft" style="font-size:12.6px">另有 ${eOnly.map(k => esc(short(bySlug.get(k)?.name))).join('、')} 只有线上开放日，没有实体场，不入上表（见第 03 节）。</p>` : ''}
 </section>
 
