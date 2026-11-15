@@ -1,0 +1,58 @@
+/* ─────────────────────────────────────────────────────────────
+   PSLE 择校 · 共享色板（深色）
+
+   唯一的颜色来源。plan.css / school.css 里不允许再出现硬编码色值，
+   一律走这里的 token；生成器把本文件拼在模板前面。
+
+   取值与 docs/assets/style.css（看板）的 :root 保持一致 —— 两处必须同步，
+   scripts/verify-theme.cjs 会做比对。
+
+   配色约定：红绿只用于「涨跌」语义（本项目没有），所以只用中性色阶 +
+   一种强调色；琥珀/红/绿仅表达「风险/不确定/达标」，不表达学校好坏。
+   ───────────────────────────────────────────────────────────── */
+:root{
+  /* 底与面 */
+  --bg:#0a0f1a;
+  --bg-soft:#0e1526;
+  --card:#121a2a;
+  --line:#1e2b40;
+  --line2:#182338;
+
+  /* 文字 */
+  --tx:#e8eef7;
+  --tx2:#93a4bd;
+  --tx3:#78879f;
+
+  /* 强调（天蓝，与看板同色） */
+  --accent:#38bdf8;
+  --accent-dim:#0e7490;
+  --accent-bg:rgba(56,189,248,.10);
+  --accent-line:rgba(56,189,248,.30);
+  --accent-ink:#06212f;        /* 铺在 accent 底色上的文字 */
+
+  /* 语义色：琥珀＝注意 / 红＝风险 / 绿＝达成 */
+  --warm:#fbbf24;
+  --warm-bg:rgba(251,191,36,.10);
+  --warm-line:rgba(251,191,36,.30);
+
+  --risk:#f87171;
+  --risk-bg:rgba(248,113,113,.10);
+  --risk-line:rgba(248,113,113,.28);
+
+  --ok:#34d399;
+  --ok-bg:rgba(52,211,153,.10);
+  --ok-line:rgba(52,211,153,.28);
+
+  /* 交互与容器 */
+  --hover:rgba(255,255,255,.035);
+  --surface:rgba(255,255,255,.03);        /* 卡片内的次级面（数据格、note） */
+  --surface-line:rgba(255,255,255,.055);  /* 次级面的描边 */
+  --accent-hover:rgba(56,189,248,.16);    /* 强调块 hover */
+  --chip:rgba(255,255,255,.055);
+  --code:rgba(255,255,255,.07);
+  --hero-a:#0c1424;
+  --hero-b:#0a0f1a;
+
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}

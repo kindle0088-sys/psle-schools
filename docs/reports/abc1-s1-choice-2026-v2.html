@@ -6,28 +6,79 @@
 <meta name="robots" content="noindex,nofollow">
 <title>PSLE 志愿规划 v2 · AL 17 分 · 6 个志愿排序</title>
 <style>
+/* ─────────────────────────────────────────────────────────────
+   PSLE 择校 · 共享色板（深色）
+
+   唯一的颜色来源。plan.css / school.css 里不允许再出现硬编码色值，
+   一律走这里的 token；生成器把本文件拼在模板前面。
+
+   取值与 docs/assets/style.css（看板）的 :root 保持一致 —— 两处必须同步，
+   scripts/verify-theme.cjs 会做比对。
+
+   配色约定：红绿只用于「涨跌」语义（本项目没有），所以只用中性色阶 +
+   一种强调色；琥珀/红/绿仅表达「风险/不确定/达标」，不表达学校好坏。
+   ───────────────────────────────────────────────────────────── */
 :root{
-  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
-  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
-  --accent:#0f5c4e; --accent-bg:#eef6f3;
-  --warm:#8a5a00; --warm-bg:#fdf6e7;
-  --risk:#8c2f2f; --risk-bg:#fbf0ef;
-  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  /* 底与面 */
+  --bg:#0a0f1a;
+  --bg-soft:#0e1526;
+  --card:#121a2a;
+  --line:#1e2b40;
+  --line2:#182338;
+
+  /* 文字 */
+  --tx:#e8eef7;
+  --tx2:#93a4bd;
+  --tx3:#78879f;
+
+  /* 强调（天蓝，与看板同色） */
+  --accent:#38bdf8;
+  --accent-dim:#0e7490;
+  --accent-bg:rgba(56,189,248,.10);
+  --accent-line:rgba(56,189,248,.30);
+  --accent-ink:#06212f;        /* 铺在 accent 底色上的文字 */
+
+  /* 语义色：琥珀＝注意 / 红＝风险 / 绿＝达成 */
+  --warm:#fbbf24;
+  --warm-bg:rgba(251,191,36,.10);
+  --warm-line:rgba(251,191,36,.30);
+
+  --risk:#f87171;
+  --risk-bg:rgba(248,113,113,.10);
+  --risk-line:rgba(248,113,113,.28);
+
+  --ok:#34d399;
+  --ok-bg:rgba(52,211,153,.10);
+  --ok-line:rgba(52,211,153,.28);
+
+  /* 交互与容器 */
+  --hover:rgba(255,255,255,.035);
+  --surface:rgba(255,255,255,.03);        /* 卡片内的次级面（数据格、note） */
+  --surface-line:rgba(255,255,255,.055);  /* 次级面的描边 */
+  --accent-hover:rgba(56,189,248,.16);    /* 强调块 hover */
+  --chip:rgba(255,255,255,.055);
+  --code:rgba(255,255,255,.07);
+  --hero-a:#0c1424;
+  --hero-b:#0a0f1a;
+
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
   --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
 }
+/* plan.css —— 手册 / 考生数据 / 方案看板 / 志愿报告的公共组件
+   颜色全部来自 tpl/tokens.css（生成器会把它拼在本文件前面）。
+   ⚠️ 这个文件里不要写任何色值字面量，否则换主题时会漏掉。 */
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
 .wrap{max-width:960px;margin:0 auto;padding:0 22px}
 a{color:var(--accent)}
-.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
-.backlink:hover{color:#fff}
-.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
-.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--tx3);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:var(--tx)}
+.hero{background:linear-gradient(180deg,var(--hero-a),var(--hero-b));color:var(--tx);padding:40px 0 36px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);opacity:.85}
 .hero h1{margin:10px 0 6px;font-size:26px;font-weight:650;letter-spacing:-.4px;line-height:1.35}
 /* 副标题行：单校报告与志愿报告的 h1 都带 <small>，没有这条会与主标题粘连 */
-.hero h1 small{display:block;font-size:14.5px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:7px;line-height:1.5}
-.hero .sub{opacity:.82;font-size:14px;max-width:660px}
+.hero h1 small{display:block;font-size:14.5px;font-weight:400;color:var(--tx2);margin-top:7px;line-height:1.5}
+.hero .sub{color:var(--tx2);font-size:14px;max-width:660px}
 
 /* 两栏对照块。这两个类原先只在 school.css 里定义，而本模板的使用者
    （填报手册、考生人数页）只引 plan.css —— 于是「有结构、没样式」，
@@ -35,24 +86,25 @@ a{color:var(--accent)}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:14px 0}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
 .panel h4{margin:0;font-size:13.5px;font-weight:650;color:var(--tx)}
-.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
-.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
-.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+/* 每格独立成卡：否则格子数不满一行时，容器底色会露出一块空的「假格子」 */
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:6px;margin-top:24px}
+.profile div{background:var(--surface);border:1px solid var(--surface-line);border-radius:8px;padding:11px 14px}
+.profile .k{font-size:11.5px;color:var(--tx3);letter-spacing:.4px}
 .profile .v{font-size:15px;font-weight:600;margin-top:3px}
 
 section{margin:0 0 38px}
 h2{font-size:18px;font-weight:640;margin:42px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px}
-h2 .n{font-size:12px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px}
+h2 .n{font-size:12px;font-weight:600;color:var(--accent-ink);background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px}
 h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 16px}
 h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
 h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
 p{margin:11px 0}
 
-.fixbox{background:var(--risk-bg);border:1px solid #efd6d4;border-left:4px solid var(--risk);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.fixbox{background:var(--risk-bg);border:1px solid var(--risk-line);border-left:4px solid var(--risk);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
 .fixbox h3{margin:0 0 8px;font-size:15.5px;color:var(--risk)}
 .fixbox p{margin:8px 0;font-size:14.3px}
 
-.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.verdict{background:var(--accent-bg);border:1px solid var(--accent-line);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
 .verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
 .verdict p{margin:8px 0;font-size:14.3px}
 .verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
@@ -63,21 +115,21 @@ th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vert
 th{font-size:12px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line);white-space:nowrap}
 td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
 td.soft,.soft{color:var(--tx3)}
-tbody tr:hover{background:#f6f6f3}
+tbody tr:hover{background:var(--hover)}
 .tight{color:var(--warm)}
 
 .school{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px;margin:16px 0}
 .school header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
 .sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
 .sbadges{display:flex;gap:6px;flex-wrap:wrap}
-.badge{font-size:11px;padding:2px 8px;border-radius:5px;background:#f1f1ee;color:var(--tx2);border:1px solid var(--line)}
-.badge-moe{background:var(--accent-bg);color:var(--accent);border-color:#cfe4dc;font-weight:600}
-.badge-over{background:var(--risk-bg);color:var(--risk);border-color:#e6c9c6;font-weight:600}
+.badge{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--chip);color:var(--tx2);border:1px solid var(--line)}
+.badge-moe{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-line);font-weight:600}
+.badge-over{background:var(--risk-bg);color:var(--risk);border-color:var(--risk-line);font-weight:600}
 .gap-line{font-size:13px;color:var(--tx2);margin:10px 0 0;padding-left:12px;border-left:2px solid var(--risk);line-height:1.7}
 .tier{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:600}
-.t-reach{background:var(--warm-bg);color:var(--warm);border:1px solid #ecd9b0}
-.t-match{background:var(--accent-bg);color:var(--accent);border:1px solid #cfe4dc}
-.t-safe{background:var(--ok-bg);color:var(--ok);border:1px solid #cfe6d8}
+.t-reach{background:var(--warm-bg);color:var(--warm);border:1px solid var(--warm-line)}
+.t-match{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent-line)}
+.t-safe{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-line)}
 
 .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:13px}
 .kv div{background:var(--card);padding:9px 12px}
@@ -89,42 +141,58 @@ tbody tr:hover{background:#f6f6f3}
    否则每个加粗词都会变成独立的大写块（曾导致 STEP 4c 排版炸裂） */
 .why>b:first-child,.caveat>b:first-child{display:block;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
 .why b,.caveat b{font-weight:600}
-.why{background:var(--accent-bg);color:#1c4a3f}
+.why{background:var(--accent-bg);color:var(--tx)}
 .why b{color:var(--accent)}
-.caveat{background:var(--warm-bg);color:#6b4a0e}
-.deeplink{display:block;margin:14px 0 2px;padding:11px 15px;background:var(--accent-bg);border:1px solid #cfe4dc;border-radius:9px;text-decoration:none;transition:background .15s,border-color .15s}
-.deeplink span{display:block;font-size:13.6px;font-weight:600;color:var(--accent)}
-.deeplink em{display:block;font-style:normal;font-size:11.6px;color:#5c7a71;margin-top:3px}
-.deeplink:hover{background:#e2f0ea;border-color:#a9cfc2}
+.caveat{background:var(--warm-bg);color:var(--tx)}
 .caveat b{color:var(--warm)}
+.deeplink{display:block;margin:14px 0 2px;padding:11px 15px;background:var(--accent-bg);border:1px solid var(--accent-line);border-radius:9px;text-decoration:none;transition:background .15s,border-color .15s}
+.deeplink span{display:block;font-size:13.6px;font-weight:600;color:var(--accent)}
+.deeplink em{display:block;font-style:normal;font-size:11.6px;color:var(--tx3);margin-top:3px}
+.deeplink:hover{background:var(--accent-hover);border-color:var(--accent)}
 
 dl.detail{margin:12px 0 0;font-size:13.2px}
 dl.detail dt{font-size:11.5px;color:var(--tx3);letter-spacing:.4px;margin-top:11px;text-transform:uppercase}
 dl.detail dd{margin:3px 0 0;color:var(--tx2)}
-.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:5px;background:#f4f4f1;border:1px solid var(--line2);color:var(--tx2);margin:2px 3px 2px 0}
-.chip.hit{background:var(--accent-bg);border-color:#cfe4dc;color:var(--accent);font-weight:500}
+.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:5px;background:var(--chip);border:1px solid var(--line);color:var(--tx2);margin:2px 3px 2px 0}
+.chip.hit{background:var(--accent-bg);border-color:var(--accent-line);color:var(--accent);font-weight:500}
 
 .ok{color:var(--ok);font-size:12px}
 .warn{color:var(--warm);font-size:12px;font-weight:500}
 
 .plans{display:grid;gap:14px;margin:18px 0}
 .plan{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
-.plan.rec{border-color:#bfd9d0;box-shadow:0 0 0 3px var(--accent-bg)}
+.plan.rec{border-color:var(--accent-line);box-shadow:0 0 0 3px var(--accent-bg)}
 .plan h3{margin:0 0 3px;font-size:15px;display:flex;align-items:center;gap:8px}
 .plan .pdesc{font-size:12.8px;color:var(--tx3);margin:0 0 11px}
 .plan ol{margin:0;padding-left:22px;font-size:13.7px}
 .plan li{margin:5px 0}
-.pill{font-size:10.5px;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-weight:600}
+.pill{font-size:10.5px;padding:2px 7px;border-radius:4px;background:var(--accent);color:var(--accent-ink);font-weight:600}
 
-.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
 .note b{color:var(--tx)}
 .foot{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 50px;font-size:12.3px;color:var(--tx3);line-height:1.85}
-.foot code{font-family:var(--mono);font-size:11.4px;background:#f0f0ec;padding:1px 5px;border-radius:3px}
-@media print{.hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.school,.plan,.note{break-inside:avoid}}
-@media(max-width:600px){.hero h1{font-size:21px}.kv{grid-template-columns:1fr 1fr}table{font-size:12.4px}th,td{padding:7px 6px}}
+.foot code{font-family:var(--mono);font-size:11.4px;background:var(--code);padding:1px 5px;border-radius:3px;color:var(--tx2)}
 
 /* 通勤表里的「争议」上标：与数字留 2px，避免粘连 */
 .num sup,.kv sup{font-size:9px;opacity:.72;margin-left:2px;vertical-align:2px}
+
+/* 打印：把色板整体翻回浅色。
+   只改 token 就够了 —— 前提是所有规则都走变量、没有写死色值。 */
+@media print{
+  :root{
+    --bg:#fff; --card:#fff; --line:#d7dde5; --line2:#eceff3;
+    --tx:#111827; --tx2:#374151; --tx3:#6b7280;
+    --accent:#0b6b8a; --accent-bg:#eef7fb; --accent-line:#bfe0ec; --accent-ink:#fff;
+    --warm:#8a5a00; --warm-bg:#fdf6e7; --warm-line:#ecd9b0;
+    --risk:#8c2f2f; --risk-bg:#fbf0ef; --risk-line:#efd6d4;
+    --ok:#1f5c3a; --ok-bg:#eef7f1; --ok-line:#cfe6d8;
+    --hover:transparent; --chip:#f4f5f7; --code:#f1f2f4;
+  }
+  .hero{background:#fff!important;color:var(--tx)!important;border-bottom:1px solid var(--line)}
+  .hero .profile div{background:#fafbfc;border-color:#e3e8ee}
+  .school,.plan,.note{break-inside:avoid}
+}
+@media(max-width:600px){.hero h1{font-size:21px}.kv{grid-template-columns:1fr 1fr}table{font-size:12.4px}th,td{padding:7px 6px}}
 
 </style>
 </head>
@@ -917,7 +985,7 @@ CCA 那一维是按<b>你的兴趣</b>加权的——它衡量的是「这所学
 · 候选池：MOE 邮编 828765 筛选 + 45 分钟通勤双口径，逐所标注是否在 MOE 附近列表内<br>
 · 安全性评分：按实际余量分布（0–5 分）标定<br><br>
 <b>免责</b>：个人研究工具输出，非 MOE 官方建议。COP 仅供参考，不构成录取保证。通勤时间为模型估算，未含巴士接驳与等车波动。<br><br>
-<span class="soft">生成于 2026/11/15 13:05:46 SGT · 基于 AL 17 / PG3 / 邮编 828765 / 通勤上限 45 分钟</span>
+<span class="soft">生成于 2026/11/15 13:24:52 SGT · 基于 AL 17 / PG3 / 邮编 828765 / 通勤上限 45 分钟</span>
 </div>
 
 </div>

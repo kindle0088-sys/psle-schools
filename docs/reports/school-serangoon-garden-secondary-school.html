@@ -8,32 +8,84 @@
 <meta name="generator" content="psle-school-report/v2">
 <title>实龙岗花园中学 Serangoon Garden Secondary School · 单校深度报告</title>
 <style>
+/* ─────────────────────────────────────────────────────────────
+   PSLE 择校 · 共享色板（深色）
+
+   唯一的颜色来源。plan.css / school.css 里不允许再出现硬编码色值，
+   一律走这里的 token；生成器把本文件拼在模板前面。
+
+   取值与 docs/assets/style.css（看板）的 :root 保持一致 —— 两处必须同步，
+   scripts/verify-theme.cjs 会做比对。
+
+   配色约定：红绿只用于「涨跌」语义（本项目没有），所以只用中性色阶 +
+   一种强调色；琥珀/红/绿仅表达「风险/不确定/达标」，不表达学校好坏。
+   ───────────────────────────────────────────────────────────── */
 :root{
-  --bg:#fbfbf9; --card:#fff; --line:#e4e4e0; --line2:#efefec;
-  --tx:#1a1a1a; --tx2:#555; --tx3:#8a8a8a;
-  --accent:#0f5c4e; --accent-bg:#eef6f3;
-  --warm:#8a5a00; --warm-bg:#fdf6e7;
-  --risk:#8c2f2f; --risk-bg:#fbf0ef;
-  --ok:#1f5c3a; --ok-bg:#eef7f1;
+  /* 底与面 */
+  --bg:#0a0f1a;
+  --bg-soft:#0e1526;
+  --card:#121a2a;
+  --line:#1e2b40;
+  --line2:#182338;
+
+  /* 文字 */
+  --tx:#e8eef7;
+  --tx2:#93a4bd;
+  --tx3:#78879f;
+
+  /* 强调（天蓝，与看板同色） */
+  --accent:#38bdf8;
+  --accent-dim:#0e7490;
+  --accent-bg:rgba(56,189,248,.10);
+  --accent-line:rgba(56,189,248,.30);
+  --accent-ink:#06212f;        /* 铺在 accent 底色上的文字 */
+
+  /* 语义色：琥珀＝注意 / 红＝风险 / 绿＝达成 */
+  --warm:#fbbf24;
+  --warm-bg:rgba(251,191,36,.10);
+  --warm-line:rgba(251,191,36,.30);
+
+  --risk:#f87171;
+  --risk-bg:rgba(248,113,113,.10);
+  --risk-line:rgba(248,113,113,.28);
+
+  --ok:#34d399;
+  --ok-bg:rgba(52,211,153,.10);
+  --ok-line:rgba(52,211,153,.28);
+
+  /* 交互与容器 */
+  --hover:rgba(255,255,255,.035);
+  --surface:rgba(255,255,255,.03);        /* 卡片内的次级面（数据格、note） */
+  --surface-line:rgba(255,255,255,.055);  /* 次级面的描边 */
+  --accent-hover:rgba(56,189,248,.16);    /* 强调块 hover */
+  --chip:rgba(255,255,255,.055);
+  --code:rgba(255,255,255,.07);
+  --hero-a:#0c1424;
+  --hero-b:#0a0f1a;
+
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
   --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
 }
+/* school.css —— 单校深度报告的组件
+   颜色全部来自 tpl/tokens.css（生成器会把它拼在本文件前面）。
+   ⚠️ 这个文件里不要写任何色值字面量，否则换主题时会漏掉。 */
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.78 var(--font);-webkit-font-smoothing:antialiased}
 .wrap{max-width:940px;margin:0 auto;padding:0 22px}
 a{color:var(--accent)}
-.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:rgba(238,246,243,.7);text-decoration:none;margin-bottom:14px}
-.backlink:hover{color:#fff}
-.hero{background:linear-gradient(160deg,#0f3d33,#124b3e 55%,#1a5c4c);color:#eef6f3;padding:40px 0 36px}
-.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;opacity:.72}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--tx3);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:var(--tx)}
+.hero{background:linear-gradient(180deg,var(--hero-a),var(--hero-b));color:var(--tx);padding:40px 0 36px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);opacity:.85}
 .hero h1{margin:10px 0 4px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.3}
-.hero h1 small{display:block;font-size:15px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:5px}
-.hero .sub{opacity:.84;font-size:14px;max-width:680px;margin-top:12px}
-.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
-.profile div{background:rgba(255,255,255,.05);padding:12px 15px}
-.profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
+.hero h1 small{display:block;font-size:15px;font-weight:400;color:var(--tx2);margin-top:5px}
+.hero .sub{color:var(--tx2);font-size:14px;max-width:680px;margin-top:12px}
+/* 每格独立成卡：否则格子数不满一行时，容器底色会露出一块空的「假格子」 */
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;margin-top:24px}
+.profile div{background:var(--surface);border:1px solid var(--surface-line);border-radius:8px;padding:11px 14px}
+.profile .k{font-size:11.5px;color:var(--tx3);letter-spacing:.4px}
 .profile .v{font-size:15px;font-weight:600;margin-top:3px}
-.addr{font-size:12.6px;opacity:.72;margin-top:12px;font-variant-numeric:tabular-nums}
+.addr{font-size:12.6px;color:var(--tx3);margin-top:12px;font-variant-numeric:tabular-nums}
 
 .toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
 .toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
@@ -42,19 +94,19 @@ a{color:var(--accent)}
 
 section{margin:0 0 10px}
 h2{font-size:18px;font-weight:640;margin:40px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:16px}
-h2 .n{font-size:11.5px;font-weight:600;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
+h2 .n{font-size:11.5px;font-weight:600;color:var(--accent-ink);background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
 h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 14px}
 h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
 h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
 p{margin:11px 0}
 
-.verdict{background:var(--accent-bg);border:1px solid #cfe4dc;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
+.verdict{background:var(--accent-bg);border:1px solid var(--accent-line);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
 .verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
 .verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
 .verdict li{margin:5px 0}
-.warnbox{background:var(--warm-bg);border:1px solid #ecdfc0;border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox{background:var(--warm-bg);border:1px solid var(--warm-line);border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
 .warnbox b{color:var(--warm)}
-.note{background:#f7f7f4;border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
 .note b{color:var(--tx)}
 
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
@@ -69,13 +121,13 @@ th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2);verti
 th{font-size:11.5px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
 td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
 td.mid{text-align:center}
-tbody tr:hover{background:#f6f6f3}
+tbody tr:hover{background:var(--hover)}
 .soft{color:var(--tx3)}
 
 .bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;font-size:13px;margin:5px 0}
 .bar-row .lbl{color:var(--tx2)}
-.bar-track{background:#eeeeea;border-radius:4px;height:15px;overflow:hidden}
-.bar-fill{height:100%;background:#4f8f7d;border-radius:4px}
+.bar-track{background:var(--chip);border-radius:4px;height:15px;overflow:hidden}
+.bar-fill{height:100%;background:var(--accent-dim);border-radius:4px}
 .bar-fill.hi{background:var(--accent)}
 .bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
 
@@ -85,15 +137,15 @@ tbody tr:hover{background:#f6f6f3}
 .tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600}
 .tl .d{font-size:14px;margin-top:1px}
 
-.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid #c9c9c3;border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
+.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--line2);border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
 .voice .who{font-size:12.3px;color:var(--tx3);margin-bottom:6px;letter-spacing:.2px}
 .voice q{quotes:"「" "」";font-style:italic;color:var(--tx)}
 .voice p{margin:8px 0}
 
-.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:#f7f7f4;margin-right:5px;letter-spacing:.2px}
-.tag.a{border-color:#cfe4dc;background:var(--accent-bg);color:var(--accent)}
-.tag.c{border-color:#ecdfc0;background:var(--warm-bg);color:var(--warm)}
-.tag.b{border-color:#d8d8d2;background:#f2f2ee;color:#5a5a52}
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:var(--chip);margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:var(--accent-line);background:var(--accent-bg);color:var(--accent)}
+.tag.b{border-color:var(--line);background:var(--chip);color:var(--tx2)}
+.tag.c{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
 
 .checklist{counter-reset:c;list-style:none;padding:0;margin:14px 0}
 .checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
@@ -111,7 +163,17 @@ tbody tr:hover{background:#f6f6f3}
   th,td{padding:7px 6px}
 }
 @media print{
-  .hero{background:#124b3e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  :root{
+    --bg:#fff; --card:#fff; --line:#d7dde5; --line2:#eceff3;
+    --tx:#111827; --tx2:#374151; --tx3:#6b7280;
+    --accent:#0b6b8a; --accent-bg:#eef7fb; --accent-line:#bfe0ec; --accent-ink:#fff;
+    --warm:#8a5a00; --warm-bg:#fdf6e7; --warm-line:#ecd9b0;
+    --risk:#8c2f2f; --risk-bg:#fbf0ef; --risk-line:#efd6d4;
+    --ok:#1f5c3a; --ok-bg:#eef7f1; --ok-line:#cfe6d8;
+    --hover:transparent; --chip:#f4f5f7; --code:#f1f2f4;
+  }
+  .hero{background:#fff!important;color:var(--tx)!important;border-bottom:1px solid var(--line)}
+  .hero .profile div{background:#fafbfc;border-color:#e3e8ee}
   .voice,.panel,.note{break-inside:avoid}
 }
 
@@ -147,17 +209,17 @@ tbody tr:hover{background:#f6f6f3}
      而且只有一行数据也不需要表头行。 -->
 <div style="display:flex;gap:9px;align-items:stretch;margin:11px 0 9px">
 
-  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:rgba(255,255,255,.55)">
+  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:var(--surface)">
     <div style="font-size:10.5px;color:var(--tx3);letter-spacing:.4px">2023</div>
     <div style="font-family:var(--mono);font-size:15px;font-weight:600;margin-top:2px">10–22</div>
   </div>
   <div style="align-self:center;color:var(--tx3);font-size:14px">→</div>
-  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:rgba(255,255,255,.55)">
+  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:var(--surface)">
     <div style="font-size:10.5px;color:var(--tx3);letter-spacing:.4px">2024</div>
     <div style="font-family:var(--mono);font-size:15px;font-weight:600;margin-top:2px">8–22</div>
   </div>
   <div style="align-self:center;color:var(--tx3);font-size:14px">→</div>
-  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:rgba(255,255,255,.55)">
+  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:var(--surface)">
     <div style="font-size:10.5px;color:var(--tx3);letter-spacing:.4px">2025</div>
     <div style="font-family:var(--mono);font-size:15px;font-weight:600;margin-top:2px">12–22</div>
   </div>

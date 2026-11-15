@@ -14,7 +14,7 @@ const path = require('path');
 
 const BASE = path.join(__dirname, '..');
 const P = (...a) => path.join(BASE, ...a);
-const CSS = fs.readFileSync(P('scripts/tpl/plan.css'), 'utf8');
+const CSS = fs.readFileSync(P('scripts/tpl/tokens.css'), 'utf8') + fs.readFileSync(P('scripts/tpl/plan.css'), 'utf8');
 
 const IDX = JSON.parse(fs.readFileSync(P('docs/data/students-index.json'), 'utf8'));
 const students = (IDX.students || []).filter(s => s.planSlug);
@@ -98,9 +98,9 @@ ${CSS}
 .plan .sn{flex:1;min-width:0}
 .plan .tr{font-size:10.5px;padding:1px 6px;border-radius:3px;border:1px solid;white-space:nowrap}
 /* 档位只用来说明「风险高低」，不是好坏，所以三色都压得比较淡 */
-.tr-reach{border-color:rgba(251,191,36,.5);color:#8a5a00;background:var(--warm-bg)}
-.tr-match{border-color:rgba(56,189,248,.38);color:#0b5c78;background:#eef7fb}
-.tr-safe{border-color:rgba(15,92,78,.32);color:var(--accent);background:var(--accent-bg)}
+.tr-reach{border-color:var(--warm-line);color:var(--warm);background:var(--warm-bg)}
+.tr-match{border-color:var(--accent-line);color:var(--accent);background:var(--accent-bg)}
+.tr-safe{border-color:var(--ok-line);color:var(--ok);background:var(--ok-bg)}
 .plan footer{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:10px;border-top:1px solid var(--line2)}
 .plan .ts{font-size:11.5px;color:var(--tx3)}
 .plan .go{font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}

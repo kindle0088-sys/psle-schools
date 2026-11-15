@@ -33,7 +33,7 @@ const REPORT_IDX = (() => {
 const byName = new Map(R.pool.map(x => [x.name, x]));
 const byNameAll = new Map([...R.pool, ...R.singleSex, ...R.outOfReach].map(x => [x.name, x]));
 
-const PLAN_CSS = fs.readFileSync(path.join(BASE, 'scripts/tpl/plan.css'), 'utf8');
+const PLAN_CSS = fs.readFileSync(path.join(BASE, 'scripts/tpl/tokens.css'), 'utf8') + fs.readFileSync(path.join(BASE, 'scripts/tpl/plan.css'), 'utf8');
 
 const S = R.student;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

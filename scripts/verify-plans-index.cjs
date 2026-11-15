@@ -37,7 +37,8 @@ const short = n => String(n).replace(/ Secondary School| \(Secondary\)/, '');
 
 console.log('\n══ 一、结构与残留');
 t('无未替换变量', !/\$\{|undefined|NaN/.test(html));
-t('无裸露的 Markdown 星号', !/\*\*/.test(html));
+/* 只看可见内容：模板 CSS 会内联进页面，注释里的 * 不该算「页面上的星号」 */
+t('无裸露的 Markdown 星号', !/\*\*/.test(html.replace(/<style[\s\S]*?<\/style>/gi, '')));
 t('有生成器标记', /name="generator" content="psle-plans-index/.test(html));
 t('有返回看板链接', html.includes('href="index.html"'));
 

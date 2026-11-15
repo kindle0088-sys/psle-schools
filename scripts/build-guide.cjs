@@ -19,7 +19,7 @@ const path = require('path');
 
 const BASE = path.join(__dirname, '..');
 const P = (...a) => path.join(BASE, ...a);
-const CSS = fs.readFileSync(P('scripts/tpl/plan.css'), 'utf8');
+const CSS = fs.readFileSync(P('scripts/tpl/tokens.css'), 'utf8') + fs.readFileSync(P('scripts/tpl/plan.css'), 'utf8');
 
 const CO = JSON.parse(fs.readFileSync(P('data/secondary-costs.json'), 'utf8'));
 const COHORT = JSON.parse(fs.readFileSync(P('data/psle-cohort.json'), 'utf8'));

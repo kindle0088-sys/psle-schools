@@ -30,7 +30,8 @@ const money = v => (v == null ? '未公布' : 'S$' + v.toLocaleString('en-US'));
 
 console.log('\n══ 一、结构与残留');
 t('无未替换变量', !/\$\{|undefined|NaN/.test(html));
-t('无裸露的 Markdown 星号', !/\*\*/.test(html), '页面上不该出现 **');
+/* 只看可见内容：模板 CSS 会内联进页面，注释里的 * 不该算「页面上的星号」 */
+t('无裸露的 Markdown 星号', !/\*\*/.test(html.replace(/<style[\s\S]*?<\/style>/gi, '')), '页面上不该出现 **');
 t('有生成器标记', /name="generator" content="psle-guide/.test(html));
 t('8 个章节锚点齐全', (html.match(/id="s[1-8]"/g) || []).length === 8);
 t('目录 8 项与章节一一对应',

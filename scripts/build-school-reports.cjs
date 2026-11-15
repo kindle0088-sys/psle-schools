@@ -23,7 +23,8 @@ const Iso = require('../lib/iso.cjs');
 const BASE = path.resolve(__dirname, '..');
 const P = (...a) => path.join(BASE, ...a);
 
-const CSS = fs.readFileSync(P('scripts/tpl/school.css'), 'utf8');
+/* 色板单独维护：tokens.css 在前，组件样式在后 */
+const CSS = fs.readFileSync(P('scripts/tpl/tokens.css'), 'utf8') + fs.readFileSync(P('scripts/tpl/school.css'), 'utf8');
 const SCHOOLS = JSON.parse(fs.readFileSync(P('docs/data/schools.json'), 'utf8')).schools;
 const NET = JSON.parse(fs.readFileSync(P('data/network.json'), 'utf8'));
 // 学生画像统一从配置读，不再依赖 analyze-student 的中间产物
@@ -134,7 +135,7 @@ function render(pf) {
      而且只有一行数据也不需要表头行。 -->
 <div style="display:flex;gap:9px;align-items:stretch;margin:11px 0 9px">
 ${trendCells.map((c, i) => `${i ? '  <div style="align-self:center;color:var(--tx3);font-size:14px">→</div>' : ''}
-  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:rgba(255,255,255,.55)">
+  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:var(--surface)">
     <div style="font-size:10.5px;color:var(--tx3);letter-spacing:.4px">${c.y}</div>
     <div style="font-family:var(--mono);font-size:15px;font-weight:600;margin-top:2px">${c.v ? `${c.v.min}–${c.v.max}` : '?'}</div>
   </div>`).join('\n')}

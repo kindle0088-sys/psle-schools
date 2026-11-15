@@ -39,7 +39,8 @@ t('有生成器标记', /name="generator" content="psle-cohort-page/.test(html))
 t('7 个章节锚点', (html.match(/id="s[1-7]"/g) || []).length === 7);
 t('有返回看板链接', html.includes('href="index.html"'));
 t('页脚有修订记录（改了什么都留痕）', /本次修订/.test(text));
-t('无裸露的 Markdown 标记', !/\*\*/.test(html), '页面上不该出现 ** 星号');
+/* 只看可见内容：模板 CSS 会内联进页面，注释里的 * 不该算「页面上的星号」 */
+t('无裸露的 Markdown 标记', !/\*\*/.test(html.replace(/<style[\s\S]*?<\/style>/gi, '')), '页面上不该出现 ** 星号');
 
 console.log('\n══ 二、官方数字一致性');
 const bad = known.filter(y => !text.includes(y.psleCandidates.toLocaleString('en-US')));

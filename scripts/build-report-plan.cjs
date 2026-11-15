@@ -22,7 +22,7 @@ const BASE = path.join(__dirname, '..');
 const P = (...a) => path.join(BASE, ...a);
 const Stu = require('../lib/student.cjs');
 const STU = Stu.load();
-const PLAN_CSS = fs.readFileSync(P('scripts/tpl/plan.css'), 'utf8');
+const PLAN_CSS = fs.readFileSync(P('scripts/tpl/tokens.css'), 'utf8') + fs.readFileSync(P('scripts/tpl/plan.css'), 'utf8');
 
 const recFile = P(`data/_recommend-${STU.id}.json`);
 if (!fs.existsSync(recFile)) {

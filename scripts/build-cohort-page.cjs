@@ -14,7 +14,7 @@ const path = require('path');
 const BASE = path.join(__dirname, '..');
 const P = (...a) => path.join(BASE, ...a);
 const D = JSON.parse(fs.readFileSync(P('data/psle-cohort.json'), 'utf8'));
-const CSS = fs.readFileSync(P('scripts/tpl/plan.css'), 'utf8');
+const CSS = fs.readFileSync(P('scripts/tpl/tokens.css'), 'utf8') + fs.readFileSync(P('scripts/tpl/plan.css'), 'utf8');
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const n = v => (v == null ? '—' : v.toLocaleString('en-US'));
@@ -60,8 +60,8 @@ ${CSS}
    这里补一份，否则会退化成竖排的纯文本 */
 .bar-row{display:grid;gap:10px;align-items:center;font-size:13px;margin:7px 0 3px}
 .bar-row .lbl{color:var(--tx2);font-variant-numeric:tabular-nums}
-.bar-track{background:#eeece6;border-radius:4px;height:16px;overflow:hidden;display:block}
-.bar-fill{height:100%;background:#7aa79a;border-radius:4px;display:block}
+.bar-track{background:var(--chip);border-radius:4px;height:16px;overflow:hidden;display:block}
+.bar-fill{height:100%;background:var(--accent-dim);border-radius:4px;display:block}
 .bar-fill.hi{background:var(--accent)}
 .bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
 /* hero 数据格：标签行数不一时，数值会被顶到不同高度（已实测过一次错位）。
@@ -69,8 +69,8 @@ ${CSS}
 .hero .profile div{display:flex;flex-direction:column}
 .hero .profile .v{margin-top:auto}
 .src{font-size:10.5px;padding:1px 5px;border-radius:3px;border:1px solid var(--line);color:var(--tx3);margin-left:4px}
-.src.a{border-color:#cfe4dc;background:var(--accent-bg);color:var(--accent)}
-.src.b{border-color:#ecdfc0;background:var(--warm-bg);color:var(--warm)}
+.src.a{border-color:var(--accent-line);background:var(--accent-bg);color:var(--accent)}
+.src.b{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
 </style>
 </head>
 <body>
