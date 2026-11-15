@@ -28,6 +28,13 @@ a{color:var(--accent)}
 /* 副标题行：单校报告与志愿报告的 h1 都带 <small>，没有这条会与主标题粘连 */
 .hero h1 small{display:block;font-size:14.5px;font-weight:400;opacity:.7;letter-spacing:0;margin-top:7px;line-height:1.5}
 .hero .sub{opacity:.82;font-size:14px;max-width:660px}
+
+/* 两栏对照块。这两个类原先只在 school.css 里定义，而本模板的使用者
+   （填报手册、考生人数页）只引 plan.css —— 于是「有结构、没样式」，
+   两块内容会静默堆成普通段落。定义在这里，两边都能用。 */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:14px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.panel h4{margin:0;font-size:13.5px;font-weight:650;color:var(--tx)}
 .profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:24px;border-radius:10px;overflow:hidden}
 .profile div{background:rgba(255,255,255,.05);padding:12px 15px}
 .profile .k{font-size:11.5px;opacity:.68;letter-spacing:.4px}
@@ -910,7 +917,7 @@ CCA 那一维是按<b>你的兴趣</b>加权的——它衡量的是「这所学
 · 候选池：MOE 邮编 828765 筛选 + 45 分钟通勤双口径，逐所标注是否在 MOE 附近列表内<br>
 · 安全性评分：按实际余量分布（0–5 分）标定<br><br>
 <b>免责</b>：个人研究工具输出，非 MOE 官方建议。COP 仅供参考，不构成录取保证。通勤时间为模型估算，未含巴士接驳与等车波动。<br><br>
-<span class="soft">生成于 2026/11/14 16:23:11 SGT · 基于 AL 17 / PG3 / 邮编 828765 / 通勤上限 45 分钟</span>
+<span class="soft">生成于 2026/11/15 10:34:35 SGT · 基于 AL 17 / PG3 / 邮编 828765 / 通勤上限 45 分钟</span>
 </div>
 
 </div>

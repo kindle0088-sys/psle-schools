@@ -1,0 +1,71 @@
+{
+  "_note": "新加坡政府/政府辅助学校的学费口径。全部来自 MOE 2023-10-18 公告《Revised School Fees for Non-Citizens in Government and Government-Aided Schools for 2024 to 2026》。单位：新币/月。这是「学费」单项，校服、书本、交通、餐费、CCA 费用另计。",
+  "updatedAt": "2026-11-15",
+  "source": {
+    "label": "MOE 新闻稿 2023-10-18（2024–2026 非公民学费表）",
+    "url": "https://www.moe.gov.sg/news/press-releases/20231018-revised-school-fees-for-non-citizens-in-government-and-government-aided-schools-for-2024-to-2026",
+    "grade": "A"
+  },
+  "currency": "SGD",
+  "period": "per month",
+  "secondary": {
+    "_note": "中学（Secondary）月费。公民只交 5 元；PR 与两类国际生按年上调，2026 为公告覆盖的最后一年。",
+    "rows": [
+      { "group": "新加坡公民", "zh": "公民", "y2023": 5, "y2024": 5, "y2025": 5, "y2026": 5, "note": "2023 年起维持 5 元/月" },
+      { "group": "永久居民 PR", "zh": "PR", "y2023": 500, "y2024": 560, "y2025": 620, "y2026": 680, "note": "每年 +60" },
+      { "group": "国际生（东盟）", "zh": "东盟国际生", "y2023": 910, "y2024": 970, "y2025": 1030, "y2026": 1090, "note": "每年 +60" },
+      { "group": "国际生（非东盟）", "zh": "非东盟国际生", "y2023": 1770, "y2024": 1910, "y2025": 2050, "y2026": 2190, "note": "每年 +140" }
+    ],
+    "y2027": null,
+    "y2027Note": "2027 年的学费尚未公布。MOE 一般在上一年第四季公布下一轮调整，别按 2026 的数字外推。"
+  },
+  "misc": {
+    "_note": "杂费（Miscellaneous Fee）。2024 年起把原来的标准档与第二档合并为单一档，所有国籍同价。",
+    "rows": [
+      { "level": "小学 Primary", "amount": 13 },
+      { "level": "中学 Secondary", "amount": 20 },
+      { "level": "初级学院 Pre-U", "amount": 27 }
+    ],
+    "since": 2024
+  },
+  "otherLevels2026": {
+    "_note": "同一年份的小学与初级学院口径，方便看完整路径的成本。",
+    "rows": [
+      { "level": "小学", "citizen": 0, "pr": 330, "asean": 595, "nonAsean": 1035 },
+      { "level": "中学", "citizen": 5, "pr": 680, "asean": 1090, "nonAsean": 2190 },
+      { "level": "初级学院 / 励仁高中", "citizen": 6, "pr": 760, "asean": 1290, "nonAsean": 2540 }
+    ]
+  },
+  "pathway": {
+    "_note": "升学路径的关键时点。2027 年 SEC 取代 N/O 水准，这是 Full SBB 的收尾。",
+    "facts": [
+      { "k": "Full SBB 全面实施", "v": "2024 年（120 所中学，取消 Express / N(A) / N(T) 分流）" },
+      { "k": "SEC 首次考试", "v": "2027 年（2024 年入学那届中四）" },
+      { "k": "本届（2027 年 1 月入学）考 SEC 的年份", "v": "2030 年" },
+      { "k": "科目层级", "v": "G1 / G2 / G3，分别对应原 N(T) / N(A) / Express 标准" },
+      { "k": "同一班可以不同层级", "v": "是。混合编班，按科目分层，不是按总分分班" },
+      { "k": "层级能否调整", "v": "能。学年之间按表现上调或下调" },
+      { "k": "Poly 一年级收生标准调整", "v": "2028 年起 G2 科目可计入 ELR2B2，收生分从 26 调至 22" }
+    ],
+    "source": {
+      "label": "SEAB《Secondary Education Certificate (SEC)》· MOE Full SBB · MOE COS 2024 公告",
+      "url": "https://www.seab.gov.sg/secondary-education-certificate-sec/",
+      "grade": "A"
+    }
+  },
+  "posting": {
+    "_note": "S1 Posting 的分配机制口径，用于手册第 3 节。",
+    "tiebreaker": ["公民身份（公民 → PR → 国际生）", "志愿顺序", "电脑抽签"],
+    "principles": [
+      "按 PSLE 总分排序，分数优先于志愿顺序 —— 分数高的学生先被处理",
+      "轮到你时才看你的第一志愿有没有位子，没有就顺次往下看",
+      "同分才启用 tie-breaker：先比公民身份，再比志愿顺序，最后抽签",
+      "所以第一志愿填「最想去的」不会吃亏：分数不够时系统直接看下一志愿"
+    ],
+    "source": {
+      "label": "MOE S1 Posting 官网（tie-breakers 与 posting 流程）",
+      "url": "https://www.moe.gov.sg/secondary/s1-posting",
+      "grade": "A"
+    }
+  }
+}
