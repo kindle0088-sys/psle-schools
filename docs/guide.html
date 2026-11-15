@@ -115,6 +115,11 @@ table{width:100%;border-collapse:collapse;font-size:13.4px;margin:14px 0}
 th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
 th{font-size:12px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line);white-space:nowrap}
 td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+/* 单元格居中。这条规则原先只写在 school.css（还是只有 td、没有 th），
+   而本模板的使用者（手册 / 考生页 / 两份志愿报告）只引 plan.css —— 于是
+   这三类页面里 866 个 class="mid" 一直没有任何效果，表格左对齐到底。
+   刻意不给 td.num 加对齐：num 只表示「等宽数字」，对齐交给 mid 决定。 */
+th.mid,td.mid{text-align:center}
 td.soft,.soft{color:var(--tx3)}
 tbody tr:hover{background:var(--hover)}
 .tight{color:var(--warm)}
@@ -171,6 +176,22 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 
 .note{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
 .note b{color:var(--tx)}
+
+/* ── 三个共享组件（2026-11-15 从 school.css 补齐）──────────────────
+   .warnbox / .tag / .toc 一直只定义在 school.css，而本模板的使用者
+   （手册 / 考生页 / 两份志愿报告）只引 plan.css —— 于是手册里所有警示框
+   都是「背景透明、边框 0px」的普通段落，来源等级标签也只是一串文字。
+   规则逐字复制自 school.css，两份必须保持一致（verify-theme 会比对）。 */
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.warnbox{background:var(--warm-bg);border:1px solid var(--warm-line);border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:var(--chip);margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:var(--accent-line);background:var(--accent-bg);color:var(--accent)}
+.tag.b{border-color:var(--line);background:var(--chip);color:var(--tx2)}
+.tag.c{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
 .foot{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 50px;font-size:12.3px;color:var(--tx3);line-height:1.85}
 .foot code{font-family:var(--mono);font-size:11.4px;background:var(--code);padding:1px 5px;border-radius:3px;color:var(--tx2)}
 
@@ -198,7 +219,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 .hb-hero{padding:34px 0 26px}
 .hb-hero h1{font-size:27px;line-height:1.4;margin:8px 0 0}
 .hb-hero .sub{margin-top:12px;max-width:720px}
-/* 目录 8 项在窄屏会挤成一段，加换行间距 */
+/* 目录项在窄屏会挤成一段：卡片底色由 plan.css 给，这里只补布局 */
 .toc{display:flex;flex-wrap:wrap;gap:6px 15px;align-items:baseline}
 .toc b{margin-right:2px}
 .step{display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
@@ -246,12 +267,13 @@ ol.chk li::before{content:counter(c);flex:0 0 16px;text-align:right;color:var(--
   <b>目录</b>
   <a href="#s1">① 这 7 天里发生什么</a>
   <a href="#s2">② 30 秒看懂分数与分组</a>
-  <a href="#s3">③ 电脑到底怎么分学校</a>
-  <a href="#s4">④ 通勤这笔账</a>
-  <a href="#s5">⑤ COP 怎么看</a>
-  <a href="#s6">⑥ 学费与升学路径</a>
-  <a href="#s7">⑦ 提交前 12 项清单</a>
-  <a href="#s8">⑧ 延伸阅读与数据来源</a>
+  <a href="#s3">③ AL 与百分比换算</a>
+  <a href="#s4">④ 电脑到底怎么分学校</a>
+  <a href="#s5">⑤ 通勤这笔账</a>
+  <a href="#s6">⑥ COP 怎么看</a>
+  <a href="#s7">⑦ 学费与升学路径</a>
+  <a href="#s8">⑧ 提交前 12 项清单</a>
+  <a href="#s9">⑨ 延伸阅读与数据来源</a>
 </div>
 
 <div class="note" style="margin-top:20px">
@@ -318,7 +340,343 @@ ol.chk li::before{content:counter(c);flex:0 0 16px;text-align:right;color:var(--
 </section>
 
 <section>
-<h2 id="s3"><span class="n">03</span>电脑到底怎么分学校</h2>
+<h2 id="s3"><span class="n">03</span>AL 与百分比怎么换算</h2>
+<p class="lead">成绩单上只有 AL，没有百分比。但老师、补习班、家长群常说「差不多 85 分」——这一节把两者的对应关系摊开，也说清为什么<b>四科总分不能换算成一个百分比平均</b>。</p>
+
+<h3>单科：每个 AL 对应的原始分百分比</h3>
+<p>这是官方定义，不是经验值。AL 只看孩子自己考了多少分，与同届其他考生无关——这也是 AL 取代 T-score 的核心变化。</p>
+<table>
+<thead><tr><th class="mid" style="width:14%">AL</th><th class="mid" style="width:20%">原始分百分比</th><th class="mid" style="width:12%">档宽</th><th>大致含义</th></tr></thead>
+<tbody>
+<tr>
+  <td class="num mid"><b>AL 1</b></td>
+  <td class="num mid">≥ 90</td>
+  <td class="num mid soft">—</td>
+  <td class="soft" style="font-size:12.8px">对课程内容掌握扎实，超出预期</td>
+</tr>
+<tr>
+  <td class="num mid"><b>AL 2</b></td>
+  <td class="num mid">85–89</td>
+  <td class="num mid soft">5</td>
+  <td class="soft" style="font-size:12.8px">掌握牢固，只有零星疏漏</td>
+</tr>
+<tr>
+  <td class="num mid"><b>AL 3</b></td>
+  <td class="num mid">80–84</td>
+  <td class="num mid soft">5</td>
+  <td class="soft" style="font-size:12.8px">理解到位，个别概念有小缺口</td>
+</tr>
+<tr>
+  <td class="num mid"><b>AL 4</b></td>
+  <td class="num mid">75–79</td>
+  <td class="num mid soft">5</td>
+  <td class="soft" style="font-size:12.8px">基本知识点都过关</td>
+</tr>
+<tr>
+  <td class="num mid"><b>AL 5</b></td>
+  <td class="num mid">65–74</td>
+  <td class="num mid soft">10</td>
+  <td class="soft" style="font-size:12.8px">达到基础要求，但有明显弱项</td>
+</tr>
+<tr>
+  <td class="num mid"><b>AL 6</b></td>
+  <td class="num mid">45–64</td>
+  <td class="num mid soft">20</td>
+  <td class="soft" style="font-size:12.8px">及格水平，基础概念尚可</td>
+</tr>
+<tr>
+  <td class="num mid"><b>AL 7</b></td>
+  <td class="num mid">20–44</td>
+  <td class="num mid soft">25</td>
+  <td class="soft" style="font-size:12.8px">掌握有限，需要系统性补强</td>
+</tr>
+<tr>
+  <td class="num mid"><b>AL 8</b></td>
+  <td class="num mid">&lt; 20</td>
+  <td class="num mid soft">—</td>
+  <td class="soft" style="font-size:12.8px">基础薄弱，需要个别支持</td>
+</tr>
+</tbody>
+</table>
+<p class="soft" style="font-size:12.6px">档位宽度刻意不均匀：MOE 预期略少于一半的考生能在标准科目拿到 AL1–4，所以上半段切得细（AL2–4 各 5 分）；中下段考生分数分布更宽，再细分没有教育意义，反而与「减少过度比较」的目标相违。</p>
+
+<div class="note">
+<b>这张表最容易忽略的一点：档宽差 4 倍。</b>
+AL2–AL4 各只有 <b>5 分</b>宽，而 AL6 有 <b>20 分</b>、AL7 有 <b>25 分</b>。
+所以「从 AL6 提到 AL5」要跨过 10 分以上的档界，「从 AL2 提到 AL1」只要跨 1 分——但家长通常按「提高一个等级」来估补习强度，这两件事的工作量根本不是一个量级。
+</div>
+
+<h3>四科总分：能反推出多少百分比</h3>
+<p>下表 4–32 分全部列出。请重点看最后一列括号里的数字：<b>同一个总分，对应的百分比是一个可宽可窄的区间</b>——
+因为 AL 是分档，四科既可「均衡」也可「极端偏科」。</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr>
+  <th class="mid" style="width:12%">总分</th>
+  <th class="mid" style="width:16%">平均 AL</th>
+  <th class="mid" style="width:24%">四科接近时<br><span class="soft">百分比</span></th>
+  <th class="mid">同分可能跨度<br><span class="soft">括号内为区间宽度</span></th>
+</tr></thead>
+<tbody>
+<tr style="background:rgba(255,255,255,.022)">
+  <td class="num mid"><b>4</b></td>
+  <td class="num mid soft">1.00</td>
+  <td class="num mid">90–100</td>
+  <td class="num mid"><span class="soft">90.0</span> – 100.0 <span class="soft" style="font-size:11px">（10.0）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>5</b></td>
+  <td class="num mid soft">1.25</td>
+  <td class="num mid">≈ 93.0</td>
+  <td class="num mid"><span class="soft">88.8</span> – 97.3 <span class="soft" style="font-size:11px">（8.5）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>6</b></td>
+  <td class="num mid soft">1.50</td>
+  <td class="num mid">≈ 91.0</td>
+  <td class="num mid"><span class="soft">87.5</span> – 96.0 <span class="soft" style="font-size:11px">（8.5）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>7</b></td>
+  <td class="num mid soft">1.75</td>
+  <td class="num mid">≈ 89.0</td>
+  <td class="num mid"><span class="soft">86.3</span> – 94.8 <span class="soft" style="font-size:11px">（8.5）</span></td>
+</tr>
+<tr style="background:rgba(255,255,255,.022)">
+  <td class="num mid"><b>8</b></td>
+  <td class="num mid soft">2.00</td>
+  <td class="num mid">85–89</td>
+  <td class="num mid"><span class="soft">83.8</span> – 93.5 <span class="soft" style="font-size:11px">（9.8）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>9</b></td>
+  <td class="num mid soft">2.25</td>
+  <td class="num mid">≈ 85.8</td>
+  <td class="num mid"><span class="soft">78.8</span> – 91.0 <span class="soft" style="font-size:11px">（12.3）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>10</b></td>
+  <td class="num mid soft">2.50</td>
+  <td class="num mid">≈ 84.5</td>
+  <td class="num mid"><span class="soft">72.5</span> – 89.5 <span class="soft" style="font-size:11px">（17.0）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>11</b></td>
+  <td class="num mid soft">2.75</td>
+  <td class="num mid">≈ 83.3</td>
+  <td class="num mid"><span class="soft">67.5</span> – 88.3 <span class="soft" style="font-size:11px">（20.8）</span></td>
+</tr>
+<tr style="background:rgba(255,255,255,.022)">
+  <td class="num mid"><b>12</b></td>
+  <td class="num mid soft">3.00</td>
+  <td class="num mid">80–84</td>
+  <td class="num mid"><span class="soft">66.3</span> – 87.0 <span class="soft" style="font-size:11px">（20.8）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>13</b></td>
+  <td class="num mid soft">3.25</td>
+  <td class="num mid">≈ 80.8</td>
+  <td class="num mid"><span class="soft">65.0</span> – 84.5 <span class="soft" style="font-size:11px">（19.5）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>14</b></td>
+  <td class="num mid soft">3.50</td>
+  <td class="num mid">≈ 79.5</td>
+  <td class="num mid"><span class="soft">63.8</span> – 83.0 <span class="soft" style="font-size:11px">（19.3）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>15</b></td>
+  <td class="num mid soft">3.75</td>
+  <td class="num mid">≈ 78.3</td>
+  <td class="num mid"><span class="soft">61.3</span> – 81.8 <span class="soft" style="font-size:11px">（20.5）</span></td>
+</tr>
+<tr style="background:rgba(255,255,255,.022)">
+  <td class="num mid"><b>16</b></td>
+  <td class="num mid soft">4.00</td>
+  <td class="num mid">75–79</td>
+  <td class="num mid"><span class="soft">55.0</span> – 80.5 <span class="soft" style="font-size:11px">（25.5）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>17</b></td>
+  <td class="num mid soft">4.25</td>
+  <td class="num mid">≈ 75.1</td>
+  <td class="num mid"><span class="soft">50.0</span> – 78.0 <span class="soft" style="font-size:11px">（28.0）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>18</b></td>
+  <td class="num mid soft">4.50</td>
+  <td class="num mid">≈ 73.3</td>
+  <td class="num mid"><span class="soft">45.0</span> – 76.5 <span class="soft" style="font-size:11px">（31.5）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>19</b></td>
+  <td class="num mid soft">4.75</td>
+  <td class="num mid">≈ 71.4</td>
+  <td class="num mid"><span class="soft">43.8</span> – 75.3 <span class="soft" style="font-size:11px">（31.5）</span></td>
+</tr>
+<tr style="background:rgba(255,255,255,.022)">
+  <td class="num mid"><b>20</b></td>
+  <td class="num mid soft">5.00</td>
+  <td class="num mid">65–74</td>
+  <td class="num mid"><span class="soft">42.5</span> – 74.0 <span class="soft" style="font-size:11px">（31.5）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>21</b></td>
+  <td class="num mid soft">5.25</td>
+  <td class="num mid">≈ 65.8</td>
+  <td class="num mid"><span class="soft">41.3</span> – 71.5 <span class="soft" style="font-size:11px">（30.3）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>22</b></td>
+  <td class="num mid soft">5.50</td>
+  <td class="num mid">≈ 62.0</td>
+  <td class="num mid"><span class="soft">37.5</span> – 69.0 <span class="soft" style="font-size:11px">（31.5）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>23</b></td>
+  <td class="num mid soft">5.75</td>
+  <td class="num mid">≈ 58.3</td>
+  <td class="num mid"><span class="soft">32.5</span> – 66.5 <span class="soft" style="font-size:11px">（34.0）</span></td>
+</tr>
+<tr style="background:rgba(255,255,255,.022)">
+  <td class="num mid"><b>24</b></td>
+  <td class="num mid soft">6.00</td>
+  <td class="num mid">45–64</td>
+  <td class="num mid"><span class="soft">27.5</span> – 64.0 <span class="soft" style="font-size:11px">（36.5）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>25</b></td>
+  <td class="num mid soft">6.25</td>
+  <td class="num mid">≈ 48.9</td>
+  <td class="num mid"><span class="soft">22.5</span> – 59.0 <span class="soft" style="font-size:11px">（36.5）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>26</b></td>
+  <td class="num mid soft">6.50</td>
+  <td class="num mid">≈ 43.3</td>
+  <td class="num mid"><span class="soft">21.3</span> – 54.0 <span class="soft" style="font-size:11px">（32.8）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>27</b></td>
+  <td class="num mid soft">6.75</td>
+  <td class="num mid">≈ 37.6</td>
+  <td class="num mid"><span class="soft">20.0</span> – 49.0 <span class="soft" style="font-size:11px">（29.0）</span></td>
+</tr>
+<tr style="background:rgba(255,255,255,.022)">
+  <td class="num mid"><b>28</b></td>
+  <td class="num mid soft">7.00</td>
+  <td class="num mid">20–44</td>
+  <td class="num mid"><span class="soft">18.8</span> – 44.0 <span class="soft" style="font-size:11px">（25.3）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>29</b></td>
+  <td class="num mid soft">7.25</td>
+  <td class="num mid">≈ 26.4</td>
+  <td class="num mid"><span class="soft">15.0</span> – 37.8 <span class="soft" style="font-size:11px">（22.8）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>30</b></td>
+  <td class="num mid soft">7.50</td>
+  <td class="num mid">≈ 20.8</td>
+  <td class="num mid"><span class="soft">10.0</span> – 31.5 <span class="soft" style="font-size:11px">（21.5）</span></td>
+</tr>
+<tr>
+  <td class="num mid"><b>31</b></td>
+  <td class="num mid soft">7.75</td>
+  <td class="num mid">≈ 15.1</td>
+  <td class="num mid"><span class="soft">5.0</span> – 25.3 <span class="soft" style="font-size:11px">（20.3）</span></td>
+</tr>
+<tr style="background:rgba(255,255,255,.022)">
+  <td class="num mid"><b>32</b></td>
+  <td class="num mid soft">8.00</td>
+  <td class="num mid">0–19</td>
+  <td class="num mid"><span class="soft">0.0</span> – 19.0 <span class="soft" style="font-size:11px">（19.0）</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="soft" style="font-size:12.4px">带底色的行（4 / 8 / 12 / 16 / 20 / 24 / 28）是四科恰好同档的情况，可以直接对应上表。
+「四科接近」按 AL 尽量平均的组合算（如总分 15 → AL 3/4/4/4），偏科越严重就越往区间两端走。</p>
+
+<div class="warnbox">
+<b>三条必须记住：</b><br>
+① <b>总分不是百分比平均。</b>同样 18 分，可能来自 AL 1/1/8/8，也可能来自 AL 3/5/5/5；
+对应百分比从 <b>45.0</b> 到 <b>76.5</b>，幅宽 <b>31.5 个点</b>。
+所以「18 分相当于百分之多少」这个问题本身没有唯一答案。<br>
+② <b>AL 不是线性刻度。</b>总分少 1 分在百分比上值多少，取决于那 1 分是从哪个档跨过去的：从 AL1→AL2 是 11–15 分，从 AL6→AL7 是 20 分以上。<br>
+③ <b>百分比是档位的定义区间，不是孩子的实际得分。</b>MOE 从不公布考生原始分，成绩单上只有 AL —— 用这张表估算，只能得到「大概在哪一段」，不是精确分数。
+</div>
+
+<h3>两个特殊情况：基础科目与高华</h3>
+<div class="grid2">
+  <div class="panel">
+    <h4>基础科目（Foundation）：最高只折到 AL6</h4>
+    <table style="margin:9px 0 0">
+    <thead><tr><th class="mid">基础科</th><th class="mid">原始分</th><th class="mid">折算标准科</th><th>说明</th></tr></thead>
+    <tbody>
+<tr>
+  <td class="num mid"><b>AL A</b></td>
+  <td class="num mid">75–100</td>
+  <td class="num mid"><b>AL 6</b></td>
+  <td class="soft" style="font-size:12.8px">基础科最高档，但已相当于标准科的 AL6</td>
+</tr>
+<tr>
+  <td class="num mid"><b>AL B</b></td>
+  <td class="num mid">30–74</td>
+  <td class="num mid"><b>AL 7</b></td>
+  <td class="soft" style="font-size:12.8px">相当于标准科 AL7</td>
+</tr>
+<tr>
+  <td class="num mid"><b>AL C</b></td>
+  <td class="num mid">0–29</td>
+  <td class="num mid"><b>AL 8</b></td>
+  <td class="soft" style="font-size:12.8px">相当于标准科 AL8</td>
+</tr>
+    </tbody>
+    </table>
+    <p class="soft" style="font-size:12.4px;margin:9px 0 0">折算只为 S1 分配能算出四科总分。<b>只要有一科读基础科，总分最好也只能是 9</b>（AL6+1+1+1）——这是选科时最容易被忽略的代价。</p>
+  </div>
+  <div class="panel">
+    <h4>高华（HCL / HML / HTL）：不进总分</h4>
+    <table style="margin:9px 0 0">
+    <thead><tr><th>等级</th><th class="mid">原始分</th><th>作用</th></tr></thead>
+    <tbody>
+<tr>
+  <td><b>Distinction（D）</b></td>
+  <td class="num mid">80–100</td>
+  <td class="soft" style="font-size:12.8px">同分争 SAP 校最后一个位时排最前</td>
+</tr>
+<tr>
+  <td><b>Merit（M）</b></td>
+  <td class="num mid">65–79</td>
+  <td class="soft" style="font-size:12.8px">排在 D 之后、P 之前</td>
+</tr>
+<tr>
+  <td><b>Pass（P）</b></td>
+  <td class="num mid">50–64</td>
+  <td class="soft" style="font-size:12.8px">有优先权，但排在 D / M 之后</td>
+</tr>
+<tr>
+  <td><b>Ungraded（UG）</b></td>
+  <td class="num mid">0–49</td>
+  <td class="soft" style="font-size:12.8px">不享有优先权</td>
+</tr>
+    </tbody>
+    </table>
+    <p class="soft" style="font-size:12.4px;margin:9px 0 0">中学可修高华的条件：总分 ≤ 8；或总分 9–14 且母语达 AL1/AL2（或高华达 D/M）。未达标者，中学仍可按能力与意愿个案批准。</p>
+  </div>
+</div>
+
+<div class="note">
+<b>数据边界，说清楚免得误用：</b>AL 档位来自 MOE 官方计分说明（本页 2026-11 核对）；
+但「原始分区间」只是档位的定义，<b>孩子的实际原始分是查不到的</b>。
+所以这张表的正确用法是：<b>把 AL 换算成一个大致百分比段位</b>（比如帮孩子理解「AL3 意味着 80 分出头」），
+而不是把总分乘 4 当成百分制总分去跟别的孩子比 —— 后者在数学上就不成立。
+</div>
+</section>
+
+<section>
+<h2 id="s4"><span class="n">04</span>电脑到底怎么分学校</h2>
 <p class="lead">这一节值得认真看。理解了机制，你就不会做「为了保险把差学校放第一」这种反效果的操作。</p>
 
 <div class="verdict">
@@ -347,7 +705,7 @@ ol.chk li::before{content:counter(c);flex:0 0 16px;text-align:right;color:var(--
 </section>
 
 <section>
-<h2 id="s4"><span class="n">04</span>通勤这笔账</h2>
+<h2 id="s5"><span class="n">05</span>通勤这笔账</h2>
 <p class="lead">几乎所有家长都说「距离重要」，但很少有人把它换算成数字。换个算法，这件事会清楚很多。</p>
 
 <div class="verdict">
@@ -388,7 +746,7 @@ ol.chk li::before{content:counter(c);flex:0 0 16px;text-align:right;color:var(--
 </section>
 
 <section>
-<h2 id="s5"><span class="n">05</span>COP 怎么看</h2>
+<h2 id="s6"><span class="n">06</span>COP 怎么看</h2>
 <p class="lead"><b>COP（截分点）= 去年最后一个被录取的学生的分数。</b>它是结果，不是门槛。每年随报考热度浮动 1–3 分是常态。</p>
 
 <div class="grid2">
@@ -425,7 +783,7 @@ ol.chk li::before{content:counter(c);flex:0 0 16px;text-align:right;color:var(--
 </section>
 
 <section>
-<h2 id="s6"><span class="n">06</span>学费与升学路径</h2>
+<h2 id="s7"><span class="n">07</span>学费与升学路径</h2>
 <p class="lead">读四年中学的实际支出，和「中四考什么」这件事，在选校阶段就该知道。下面全部是官方公布口径。</p>
 
 <h3>政府 / 政府辅助中学月费（含所有国籍）</h3>
@@ -508,7 +866,7 @@ ol.chk li::before{content:counter(c);flex:0 0 16px;text-align:right;color:var(--
 </section>
 
 <section>
-<h2 id="s7"><span class="n">07</span>提交前 12 项清单</h2>
+<h2 id="s8"><span class="n">08</span>提交前 12 项清单</h2>
 <p class="lead">填报那天照着过一遍。勾选状态不会保存，刷新就没了——需要留存请截图。</p>
 <ol class="chk">
 <li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>在 S1 Option Form 上核对孩子的<b>姓名、Birth Certificate 号 / FIN、总分、Posting Group</b></span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>确认 <b>Singpass 能登录</b>（登不上就工作日去小学，别等最后一天）</span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>把 6 所学校按<b>真实偏好</b>排序（不是按 COP 高低排）</span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>6 个志愿<b>全部填满</b>，空着等于主动放弃机会</span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>至少 2–3 所的往年 COP <b>明显宽松于</b>孩子分数（MOE 自己也这么建议）</span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>别把「去年 COP + 0」当稳妥 —— 那叫踩线，不叫稳</span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>同一 Posting Group 的学校才能填在一起（中间档尤其注意）</span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>SAP 校：孩子 PSLE <b>≤14 且高华及格</b>才有优势，15 分及以上用不上</span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>查一遍<b>通勤</b>：按 CCA 结束后的时间走一次，不是按早上走</span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>确认该校<b>有没有孩子想进的 CCA</b>，以及 Sec 1 的社团分配规则</span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>提交后<b>保存确认页</b>（截图或 PDF）</span></label></li><li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>放榜日 12/18 当天再查一次结果，未录取的当天就可以打电话问学校</span></label></li>
@@ -516,7 +874,7 @@ ol.chk li::before{content:counter(c);flex:0 0 16px;text-align:right;color:var(--
 </section>
 
 <section>
-<h2 id="s8"><span class="n">08</span>延伸阅读与数据来源</h2>
+<h2 id="s9"><span class="n">09</span>延伸阅读与数据来源</h2>
 
 <div class="ext">
   <div class="ttl">PSLE 出分后 7 天，中学志愿怎么填？</div>

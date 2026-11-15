@@ -33,9 +33,17 @@ t('无未替换变量', !/\$\{|undefined|NaN/.test(html));
 /* 只看可见内容：模板 CSS 会内联进页面，注释里的 * 不该算「页面上的星号」 */
 t('无裸露的 Markdown 星号', !/\*\*/.test(html.replace(/<style[\s\S]*?<\/style>/gi, '')), '页面上不该出现 **');
 t('有生成器标记', /name="generator" content="psle-guide/.test(html));
-t('8 个章节锚点齐全', (html.match(/id="s[1-8]"/g) || []).length === 8);
-t('目录 8 项与章节一一对应',
-  ['这 7 天里发生什么', '学费与升学路径', '提交前 12 项清单'].every(x => html.includes(x)));
+t('9 个章节锚点齐全', (html.match(/id="s[1-9]"/g) || []).length === 9);
+{
+  /* 目录项与章节锚点必须双向对得上：只查「标题文字存在」的话，
+     漏一个目录项、或者目录指向不存在的锚点，都发现不了。 */
+  const tocHrefs = [...html.matchAll(/href="#(s\d+)"/g)].map(m => m[1]);
+  const ids = [...html.matchAll(/id="(s\d+)"/g)].map(m => m[1]);
+  t('目录项数与章节数一致', tocHrefs.length === ids.length && ids.length === 9,
+    `${tocHrefs.length} 目录 / ${ids.length} 章节`);
+  t('每个目录锚点都真实存在', tocHrefs.every(h => ids.includes(h)), tocHrefs.join(','));
+  t('每个章节都进了目录', ids.every(i => tocHrefs.includes(i)));
+}
 t('有返回看板链接', html.includes('href="index.html"'));
 
 console.log('\n══ 二、学费：12 个数字必须与数据源逐一相等');
@@ -121,6 +129,110 @@ t('写清本届考 SEC 是 2030 年', /2030/.test(text));
 t('说明 G1/G2/G3 与旧制度对应', /G1 \/ G2 \/ G3/.test(text) && /N\(T\)/.test(text));
 t('标了数据来源等级', html.includes('class="tag a"'));
 t('延伸阅读指向原帖且声明未转载', /xiaohongshu\.com\/discovery\/item/.test(html) && /没有转载/.test(text));
+
+console.log('\n══ 九、AL 与百分比换算：数字必须能从官方档位重算出来');
+/* 这一段刻意不复用生成器里的算法 —— 验证器自己再枚举一遍四科组合。
+   如果两边写的是同一段代码，那只能证明「代码没变」，证明不了「数字对」。 */
+const OFFICIAL = [[90, 100], [85, 89], [80, 84], [75, 79], [65, 74], [45, 64], [20, 44], [0, 19]];
+const ALB = JSON.parse(fs.readFileSync(path.join(BASE, 'data/al-bands.json'), 'utf8'));
+
+t('数据源 8 个 AL 档位与官方区间逐一相等',
+  ALB.standard.bands.length === 8 && ALB.standard.bands.every((b, i) =>
+    b.al === i + 1 && b.min === OFFICIAL[i][0] && b.max === OFFICIAL[i][1]),
+  ALB.standard.bands.map(b => `AL${b.al}:${b.min}-${b.max}`).join(' '));
+
+t('档位首尾相接、不重叠不留缝',
+  ALB.standard.bands.every((b, i) => i === 0 || b.max === ALB.standard.bands[i - 1].min - 1),
+  'AL1 90 起、AL8 19 止');
+
+{
+  /* ⚠️ 不能全页 includes('45–64')：这个字符串在「总分表」的第 24 行也出现，
+     改坏 AL 表那一处仍会被另一处兜住（负向测试实测漏报）。
+     所以先把单科表切出来，逐行比对区间与档宽。 */
+  const from = html.indexOf('单科：每个 AL 对应的原始分百分比');
+  const to = html.indexOf('四科总分：能反推出多少百分比', from);
+  const seg = from >= 0 && to > from ? html.slice(from, to) : '';
+  const rows = [...seg.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)]
+    .map(m => [...m[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)]
+      .map(x => x[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()))
+    .filter(r => r.length >= 3 && /^AL \d$/.test(r[0]));
+
+  const want = OFFICIAL.map(([mn, mx], i) => {
+    const label = i === 0 ? `≥ ${mn}` : i === 7 ? `&lt; 20` : `${mn}–${mx}`;
+    const w = (i === 0 || i === 7) ? '—' : String(mx - mn + 1);
+    return { al: `AL ${i + 1}`, label, w };
+  });
+  t('单科表 8 行且 AL 顺序正确',
+    rows.length === 8 && rows.every((r, i) => r[0] === want[i].al), rows.map(r => r[0]).join(','));
+  const badLabel = rows.filter((r, i) => want[i] && r[1] !== want[i].label);
+  t('每行区间与官方定义逐字一致', badLabel.length === 0,
+    badLabel.map(r => `${r[0]}≠${r[1]}`).join(' ') || '8 行全对');
+  const badWidth = rows.map((r, i) => ({ r, i })).filter(({ r, i }) => want[i] && r[2] !== want[i].w);
+  t('每行档宽与区间长度一致', badWidth.length === 0,
+    badWidth.map(({ r, i }) => `${r[0]}:${r[2]}≠${want[i].w}`).join(' ') || '8 行全对');
+  t('开区间两端写成「≥ 90」「< 20」',
+    seg.includes('≥ 90') && seg.includes('&lt; 20'));
+}
+
+{
+  /* 自己重算总分表 */
+  const agg = new Map();
+  for (let a = 1; a <= 8; a++) for (let b = a; b <= 8; b++)
+  for (let c = b; c <= 8; c++) for (let d = c; d <= 8; d++) {
+    const s = a + b + c + d;
+    const lo = [a, b, c, d].reduce((t2, k) => t2 + OFFICIAL[k - 1][0], 0);
+    const hi = [a, b, c, d].reduce((t2, k) => t2 + OFFICIAL[k - 1][1], 0);
+    const cur = agg.get(s) || { lo: Infinity, hi: -Infinity };
+    agg.set(s, { lo: Math.min(cur.lo, lo), hi: Math.max(cur.hi, hi) });
+  }
+
+  /* 从页面里把总分表抠出来逐行比对 */
+  const from = html.indexOf('四科总分：能反推出多少百分比');
+  const to = html.indexOf('三条必须记住', from);
+  const seg = from >= 0 && to > from ? html.slice(from, to) : '';
+  const rows = [...seg.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)]
+    .map(m => [...m[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)]
+      .map(x => x[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()))
+    .filter(c => c.length >= 4);
+
+  t('总分表覆盖 4–32 共 29 行', rows.length === 29, `${rows.length} 行`);
+  t('总分列连续 4→32',
+    rows.every((r, i) => +r[0] === 4 + i), rows.map(r => r[0]).join(','));
+
+  const badAvg = rows.filter(r => Math.abs(+r[1] - (+r[0] / 4)) > 0.006);
+  t('平均 AL = 总分 ÷ 4', badAvg.length === 0, badAvg.map(r => r[0]).join(',') || '全部一致');
+
+  const badRange = rows.filter(r => {
+    const hit = r[3].match(/([\d.]+)\s*[–-]\s*([\d.]+)/);
+    if (!hit) return true;
+    const w = agg.get(+r[0]);
+    return Math.abs(+hit[1] - w.lo / 4) > 0.06 || Math.abs(+hit[2] - w.hi / 4) > 0.06;
+  });
+  t('每行百分比区间与独立重算一致', badRange.length === 0, badRange.map(r => r[0] + ':' + r[3]).join(' ') || '29 行全对');
+
+  /* 四科同档的行必须直接等于官方档位，这是最容易被手改坏的地方 */
+  const even = [[4, '90–100'], [8, '85–89'], [12, '80–84'], [16, '75–79'], [20, '65–74'], [24, '45–64'], [28, '20–44'], [32, '0–19']];
+  const badEven = even.filter(([s2, want]) => {
+    const r = rows.find(x => +x[0] === s2);
+    return !r || r[2] !== want;
+  });
+  t('四科同档的行等于官方档位（4/8/…/32）', badEven.length === 0,
+    badEven.map(([s2, w]) => `${s2}≠${w}`).join(' ') || '8 行全对');
+}
+
+t('说明总分不能换算成百分比平均', /总分不是百分比平均|不能换算成一个百分比平均/.test(text));
+t('举出同分的两种极端组合', /同样 18 分/.test(text) && /31\.5/.test(text));
+t('基础科折算 A→6 / B→7 / C→8',
+  ALB.foundation.bands.map(b => b.al + b.equiv).join('') === 'A6B7C8');
+t('写明有一科基础科时总分最好只能是 9', /总分最好也只能是 9/.test(text));
+t('高华写明不计入总分', /不计入 4–32 总分/.test(text) || /不进总分/.test(text));
+t('高华 4 个等级齐全', ['Distinction', 'Merit', 'Pass', 'Ungraded'].every(x => text.includes(x)));
+t('写明原始分是查不到的（避免误用）', /从不公布考生原始分/.test(text) && /查不到/.test(text));
+{
+  /* 文本节点里不能出现裸 `<`（AL8 的「< 20」最容易漏转义） */
+  const body = html.replace(/<style[\s\S]*?<\/style>/gi, '');
+  t('没有裸露的 < 字符', !/< \d/.test(body.replace(/&lt;/g, '§')));
+}
 
 console.log('\n' + '═'.repeat(26));
 console.log(pass + ' 通过 / ' + fail + ' 失败');

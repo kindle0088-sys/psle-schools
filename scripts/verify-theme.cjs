@@ -123,6 +123,53 @@ console.log('\n══ 四、生成物里不能残留旧浅色主题');
   }
 }
 
+/* ── 跨页共享的类名必须真的有规则 ─────────────────────────────
+   .grid2 / .panel 曾只定义在 school.css，而手册与考生页只引 plan.css，
+   于是「有结构、没样式」，两栏块静默堆成普通段落；
+   .mid 同样只在 school.css 里，866 个单元格的居中全部空转。
+   这类问题肉眼很难发现，所以把「用到的类名 ⇄ 存在的规则」做成断言。 */
+{
+  const CSS_ALL = fs.readFileSync(path.join(BASE, 'scripts/tpl/tokens.css'), 'utf8')
+    + fs.readFileSync(path.join(BASE, 'scripts/tpl/plan.css'), 'utf8');
+  const pages = ['docs/guide.html', 'docs/cohort.html', 'docs/plans.html', 'docs/reports/abc2-s1-choice-2026.html'];
+  const used = new Set();
+  for (const p of pages) {
+    if (!fs.existsSync(path.join(BASE, p))) continue;
+    const h = fs.readFileSync(path.join(BASE, p), 'utf8');
+    for (const m of h.matchAll(/class="([^"]+)"/g)) m[1].split(/\s+/).forEach(c => c && used.add(c));
+  }
+  /* 只查「模板里会用到、且必须靠 CSS 才有意义」的类；纯 JS 钩子（如 data-*）、
+     工具类（soft 等）也一并纳入，因为漏了它们同样会静默失效。 */
+  const must = ['mid', 'grid2', 'panel', 'num', 'soft', 'note', 'warnbox', 'verdict', 'tag', 'toc', 'profile', 'badge', 'tier'];
+  const missing = must.filter(c => used.has(c) && !new RegExp(`\\.${c}(?![\\w-])`).test(CSS_ALL));
+  t('页面用到的关键类名在 plan.css 里都有规则', missing.length === 0,
+    missing.length ? missing.join(',') : must.filter(c => used.has(c)).join(','));
+  t('.mid 在 plan.css 里是居中（而不是空转）',
+    /th\.mid,\s*td\.mid\{text-align:center\}/.test(CSS_ALL.replace(/\n/g, '')));
+
+  /* 两个样式表里都有定义的组件分两类，要求不同：
+     SAME   = 逐字复制的（toc / warnbox / tag / note），必须一模一样，否则改一处另一处悄悄旧掉；
+     EXISTS = 按各自版面调过的（verdict / panel / grid2），只要求两边都存在 ——
+              单校报告的卡片本来就比手册宽，强行统一反而会破坏版面。 */
+  const SCHOOL_CSS = fs.readFileSync(path.join(BASE, 'scripts/tpl/school.css'), 'utf8');
+  const PLAN_CSS = fs.readFileSync(path.join(BASE, 'scripts/tpl/plan.css'), 'utf8');
+  const ruleOf = (css, sel) => {
+    const i = css.indexOf(sel);
+    if (i < 0) return null;
+    const j = css.indexOf('}', i);
+    return css.slice(i, j + 1).replace(/\s+/g, '');
+  };
+  const SAME = ['.toc{', '.warnbox{', '.tag{', '.note{'];
+  const EXISTS = ['.verdict{', '.panel{', '.grid2{', 'th.mid,td.mid{'];
+  const drift = SAME.filter(sel => {
+    const a = ruleOf(SCHOOL_CSS, sel), b = ruleOf(PLAN_CSS, sel);
+    return a && b && a !== b;
+  });
+  t('逐字复制的组件两份完全一致', drift.length === 0, drift.join(',') || `${SAME.length} 组一致`);
+  const absent = EXISTS.filter(sel => !ruleOf(SCHOOL_CSS, sel) || !ruleOf(PLAN_CSS, sel));
+  t('两侧都定义了各自的版面组件', absent.length === 0, absent.join(',') || `${EXISTS.length} 组齐全`);
+}
+
 console.log('\n' + '═'.repeat(26));
 console.log(pass + ' 通过 / ' + fail + ' 失败');
 process.exit(fail ? 1 : 0);

@@ -1,0 +1,60 @@
+{
+  "_note": "PSLE Achievement Level（AL）档位定义。这是「AL 与百分比」换算的唯一依据：单科 AL 对应的是原始分百分比区间，不是线性刻度，所以四科总分不能简单换算成一个百分比平均。全部分数来自 MOE 官方 PSLE 计分说明，2026-11-15 核对。",
+  "updatedAt": "2026-11-15",
+  "sources": [
+    {
+      "label": "MOE · PSLE Score Calculator（AL 百分比区间表、Posting Group 表）",
+      "url": "https://www.moe.gov.sg/psle-fsbb/resources/score-calculator",
+      "grade": "A"
+    },
+    {
+      "label": "MOE · Summary of PSLE scoring and S1 Posting changes（AL 参考原始分区间、基础科折算、高华等级）",
+      "url": "https://www.moe.gov.sg/api/media/ab333bd9-5c28-4f78-8773-7302fc7483a6",
+      "grade": "A"
+    }
+  ],
+  "standard": {
+    "_note": "标准科目的 8 个 AL 及其原始分百分比区间（含端点）。minOpen/maxOpen 表示该端是开区间：AL1 是「90 及以上」，AL8 是「低于 20」。带宽一栏由生成器算，不写死在数据里。",
+    "bands": [
+      { "al": 1, "min": 90, "max": 100, "openTop": true, "meaning": "对课程内容掌握扎实，超出预期" },
+      { "al": 2, "min": 85, "max": 89, "meaning": "掌握牢固，只有零星疏漏" },
+      { "al": 3, "min": 80, "max": 84, "meaning": "理解到位，个别概念有小缺口" },
+      { "al": 4, "min": 75, "max": 79, "meaning": "基本知识点都过关" },
+      { "al": 5, "min": 65, "max": 74, "meaning": "达到基础要求，但有明显弱项" },
+      { "al": 6, "min": 45, "max": 64, "meaning": "及格水平，基础概念尚可" },
+      { "al": 7, "min": 20, "max": 44, "meaning": "掌握有限，需要系统性补强" },
+      { "al": 8, "min": 0, "max": 19, "openBottom": true, "meaning": "基础薄弱，需要个别支持" }
+    ],
+    "unevenReason": "档位宽度刻意不均匀：MOE 预期略少于一半的考生能在标准科目拿到 AL1–4，所以上半段切得细（AL2–4 各 5 分）；中下段考生分数分布更宽，再细分没有教育意义，反而与「减少过度比较」的目标相违。"
+  },
+  "total": {
+    "_note": "四科总分 4–32 的所有组合派生值，由生成器从 standard.bands 计算，不在此处写死。规则：同分可能有多种 AL 组合，理论下限取「最极端的偏科组合」，理论上限取「最极端的均衡组合」，两者之差说明总分不能反推百分比。",
+    "min": 4,
+    "max": 32,
+    "subjects": 4
+  },
+  "foundation": {
+    "_note": "基础科目（Foundation）按 AL A–C 评级，为 S1 分配需要折算成标准科 AL 6–8。所以只要有一科读基础科，总分最好也只能是 6+1+1+1 = 9。",
+    "bands": [
+      { "al": "A", "min": 75, "max": 100, "equiv": 6 },
+      { "al": "B", "min": 30, "max": 74, "equiv": 7 },
+      { "al": "C", "min": 0, "max": 29, "equiv": 8 }
+    ]
+  },
+  "hmtl": {
+    "_note": "高华（HCL / HML / HTL）等级。不计入 4–32 总分，只作两件事：① 同分争 SAP 校最后一个位时，等级高者优先（D > M > P）；② 判断中学能否修高华。",
+    "grades": [
+      { "grade": "Distinction（D）", "short": "D", "min": 80, "max": 100 },
+      { "grade": "Merit（M）", "short": "M", "min": 65, "max": 79 },
+      { "grade": "Pass（P）", "short": "P", "min": 50, "max": 64 },
+      { "grade": "Ungraded（UG）", "short": "UG", "min": 0, "max": 49 }
+    ],
+    "hmtlEligibility": "中学可修高华的条件：总分 ≤ 8；或总分 9–14 且母语达 AL1/AL2（或高华达 D/M）。未达标者，中学仍可按能力与意愿个案批准。"
+  },
+  "caveats": [
+    "百分比是「AL 档的定义区间」，不是孩子实际考了多少分 —— MOE 从不公布考生的原始分，成绩单上只有 AL。",
+    "总分是四个 AL 相加，不是四个百分比的平均。同样总分 18，可能来自 90/90/0/0，也可能来自 78/78/78/78，百分比平均能差 30 个点。",
+    "AL 不是线性刻度：AL6 的带宽（20 分）是 AL2（5 分）的四倍。所以「6 提到 5」和「2 提到 1」付出的努力完全不是一个量级。",
+    "不要把历年 COP（AL 值）换算成百分比去和别的学校比 —— COP 本身就是 AL 口径，换算只会引入误差。"
+  ]
+}

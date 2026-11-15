@@ -25,6 +25,7 @@ const CO = JSON.parse(fs.readFileSync(P('data/secondary-costs.json'), 'utf8'));
 const COHORT = JSON.parse(fs.readFileSync(P('data/psle-cohort.json'), 'utf8'));
 const SC = JSON.parse(fs.readFileSync(P('docs/data/schools.json'), 'utf8')).schools;
 const TL = COHORT.timeline2026;
+const ALB = JSON.parse(fs.readFileSync(P('data/al-bands.json'), 'utf8'));
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const n = v => (v == null ? '—' : v.toLocaleString('en-US'));
@@ -131,15 +132,111 @@ const CHECKLIST = [
   '放榜日 12/18 当天再查一次结果，未录取的当天就可以打电话问学校',
 ].map(t => `<li><label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;flex:1"><input type="checkbox" style="margin-top:3px;flex:0 0 auto"> <span>${t}</span></label></li>`).join('');
 
+
+/* ── AL ⇄ 百分比：所有数字都从 data/al-bands.json 派生 ──────────────
+   两件事必须守住：
+   1) 单科 AL 的定义区间直接读数据，不在模板里再抄一遍数字；
+   2) 总分 4–32 的百分比是「算出来的区间」，不是查表常数 ——
+      因为同一个总分对应多种 AL 组合，区间宽度正是「总分 ≠ 百分比平均」的证据。 */
+const SUBJ = ALB.total.subjects;
+const AL_BANDS = ALB.standard.bands;
+/** AL 区间显示：开区间要写成「≥ 90」「< 20」，不能写「90–100」误导 */
+const alRange = b => (b.openTop ? `≥ ${b.min}` : b.openBottom ? `&lt; ${b.max + 1}` : `${b.min}–${b.max}`);   // 文本节点里的 < 必须转义
+/** 带宽：开区间一端没有精确宽度 */
+const alWidth = b => (b.openTop || b.openBottom ? '—' : String(b.max - b.min + 1));
+
+/** 枚举四科 AL 的全部组合（无序，减少重复），按总分归并出百分比上下限 */
+const TOTAL = (() => {
+  const agg = new Map();
+  for (let a = 1; a <= 8; a++)
+  for (let b = a; b <= 8; b++)
+  for (let c = b; c <= 8; c++)
+  for (let d = c; d <= 8; d++) {
+    const s = a + b + c + d;
+    const pick = [a, b, c, d].map(k => AL_BANDS[k - 1]);
+    const lo = pick.reduce((t, x) => t + x.min, 0);
+    const hi = pick.reduce((t, x) => t + x.max, 0);
+    const cur = agg.get(s) || { lo: Infinity, hi: -Infinity, loCombo: null, hiCombo: null };
+    if (lo < cur.lo) { cur.lo = lo; cur.loCombo = [a, b, c, d]; }
+    if (hi > cur.hi) { cur.hi = hi; cur.hiCombo = [a, b, c, d]; }
+    agg.set(s, cur);
+  }
+  /* 「四科接近」= AL 尽量平均的那组组合（如 15 → 3/4/4/4），与上面的极端值分开给，
+     因为家长真正想知道的通常是「各科差不多时大概多少分」。 */
+  const balanced = s => {
+    const base = Math.floor(s / SUBJ), rem = s % SUBJ;
+    return Array.from({ length: SUBJ }, (_, i) => base + (i < rem ? 1 : 0));
+  };
+  const rows = [];
+  for (let s = ALB.total.min; s <= ALB.total.max; s++) {
+    const a = agg.get(s);
+    if (!a) continue;
+    const bal = balanced(s).map(k => AL_BANDS[k - 1]);
+    const balLo = bal.reduce((t, x) => t + x.min, 0);
+    const balHi = bal.reduce((t, x) => t + x.max, 0);
+    const even = s % SUBJ === 0;
+    rows.push({
+      score: s,
+      avgAl: +(s / SUBJ).toFixed(2),
+      balLo: balLo / SUBJ,
+      balHi: balHi / SUBJ,
+      // 整除时四科同档，直接给官方档位区间；否则给均衡组合的中点
+      balText: even ? `${balLo / SUBJ}–${balHi / SUBJ}` : `≈ ${((balLo + balHi) / SUBJ / 2).toFixed(1)}`,
+      lo: a.lo / SUBJ,
+      hi: a.hi / SUBJ,
+      span: (a.hi - a.lo) / SUBJ,
+      even,
+      loCombo: a.loCombo.join('/'),
+      hiCombo: a.hiCombo.join('/'),
+    });
+  }
+  return rows;
+})();
+
+const alBandRows = AL_BANDS.map(b => `<tr>
+  <td class="num mid"><b>AL ${b.al}</b></td>
+  <td class="num mid">${alRange(b)}</td>
+  <td class="num mid soft">${alWidth(b)}</td>
+  <td class="soft" style="font-size:12.8px">${esc(b.meaning)}</td>
+</tr>`).join('\n');
+
+const alTotalRows = TOTAL.map(r => `<tr${r.even ? ' style="background:rgba(255,255,255,.022)"' : ''}>
+  <td class="num mid"><b>${r.score}</b></td>
+  <td class="num mid soft">${r.avgAl.toFixed(2)}</td>
+  <td class="num mid">${r.balText}</td>
+  <td class="num mid"><span class="soft">${r.lo.toFixed(1)}</span> – ${r.hi.toFixed(1)} <span class="soft" style="font-size:11px">（${r.span.toFixed(1)}）</span></td>
+</tr>`).join('\n');
+
+/* 正文举例用：18 分是跨度最大的一档之一，正好说明「同分不同科」。
+   只取实际用到的那一档 —— 多留一个没人读的变量，迟早变成第二个「假配置」。 */
+const T18 = TOTAL.find(r => r.score === 18);
+
+const alFoundRows = ALB.foundation.bands.map(b => `<tr>
+  <td class="num mid"><b>AL ${esc(b.al)}</b></td>
+  <td class="num mid">${b.min}–${b.max}</td>
+  <td class="num mid"><b>AL ${b.equiv}</b></td>
+  <td class="soft" style="font-size:12.8px">${b.equiv === 6 ? '基础科最高档，但已相当于标准科的 AL6' : b.equiv === 7 ? '相当于标准科 AL7' : '相当于标准科 AL8'}</td>
+</tr>`).join('\n');
+
+const alHmtlRows = ALB.hmtl.grades.map(g => `<tr>
+  <td><b>${esc(g.grade)}</b></td>
+  <td class="num mid">${g.min}–${g.max}</td>
+  <td class="soft" style="font-size:12.8px">${g.short === 'D' ? '同分争 SAP 校最后一个位时排最前' : g.short === 'M' ? '排在 D 之后、P 之前' : g.short === 'P' ? '有优先权，但排在 D / M 之后' : '不享有优先权'}</td>
+</tr>`).join('\n');
+
+/** 有基础科时的最好可能总分：基础科最高折 AL6，其余三科 AL1 */
+const FOUND_BEST = ALB.foundation.bands[0].equiv + (SUBJ - 1);
+
 const toc = [
   ['s1', '这 7 天里发生什么'],
   ['s2', '30 秒看懂分数与分组'],
-  ['s3', '电脑到底怎么分学校'],
-  ['s4', '通勤这笔账'],
-  ['s5', 'COP 怎么看'],
-  ['s6', '学费与升学路径'],
-  ['s7', '提交前 12 项清单'],
-  ['s8', '延伸阅读与数据来源'],
+  ['s3', 'AL 与百分比换算'],
+  ['s4', '电脑到底怎么分学校'],
+  ['s5', '通勤这笔账'],
+  ['s6', 'COP 怎么看'],
+  ['s7', '学费与升学路径'],
+  ['s8', '提交前 12 项清单'],
+  ['s9', '延伸阅读与数据来源'],
 ];
 
 const html = `<!DOCTYPE html>
@@ -155,7 +252,7 @@ ${CSS}
 .hb-hero{padding:34px 0 26px}
 .hb-hero h1{font-size:27px;line-height:1.4;margin:8px 0 0}
 .hb-hero .sub{margin-top:12px;max-width:720px}
-/* 目录 8 项在窄屏会挤成一段，加换行间距 */
+/* 目录项在窄屏会挤成一段：卡片底色由 plan.css 给，这里只补布局 */
 .toc{display:flex;flex-wrap:wrap;gap:6px 15px;align-items:baseline}
 .toc b{margin-right:2px}
 .step{display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
@@ -201,7 +298,7 @@ ol.chk li::before{content:counter(c);flex:0 0 16px;text-align:right;color:var(--
 
 <div class="toc">
   <b>目录</b>
-${toc.map(([id, t], i) => `  <a href="#${id}">${'①②③④⑤⑥⑦⑧'[i]} ${esc(t)}</a>`).join('\n')}
+${toc.map(([id, t], i) => `  <a href="#${id}">${'①②③④⑤⑥⑦⑧⑨'[i]} ${esc(t)}</a>`).join('\n')}
 </div>
 
 <div class="note" style="margin-top:20px">
@@ -268,7 +365,87 @@ ${pgRows}
 </section>
 
 <section>
-<h2 id="s3"><span class="n">03</span>电脑到底怎么分学校</h2>
+<h2 id="s3"><span class="n">03</span>AL 与百分比怎么换算</h2>
+<p class="lead">成绩单上只有 AL，没有百分比。但老师、补习班、家长群常说「差不多 85 分」——这一节把两者的对应关系摊开，也说清为什么<b>四科总分不能换算成一个百分比平均</b>。</p>
+
+<h3>单科：每个 AL 对应的原始分百分比</h3>
+<p>这是官方定义，不是经验值。AL 只看孩子自己考了多少分，与同届其他考生无关——这也是 AL 取代 T-score 的核心变化。</p>
+<table>
+<thead><tr><th class="mid" style="width:14%">AL</th><th class="mid" style="width:20%">原始分百分比</th><th class="mid" style="width:12%">档宽</th><th>大致含义</th></tr></thead>
+<tbody>
+${alBandRows}
+</tbody>
+</table>
+<p class="soft" style="font-size:12.6px">${esc(ALB.standard.unevenReason)}</p>
+
+<div class="note">
+<b>这张表最容易忽略的一点：档宽差 4 倍。</b>
+AL2–AL4 各只有 <b>5 分</b>宽，而 AL6 有 <b>20 分</b>、AL7 有 <b>25 分</b>。
+所以「从 AL6 提到 AL5」要跨过 10 分以上的档界，「从 AL2 提到 AL1」只要跨 1 分——但家长通常按「提高一个等级」来估补习强度，这两件事的工作量根本不是一个量级。
+</div>
+
+<h3>四科总分：能反推出多少百分比</h3>
+<p>下表 4–32 分全部列出。请重点看最后一列括号里的数字：<b>同一个总分，对应的百分比是一个可宽可窄的区间</b>——
+因为 AL 是分档，四科既可「均衡」也可「极端偏科」。</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr>
+  <th class="mid" style="width:12%">总分</th>
+  <th class="mid" style="width:16%">平均 AL</th>
+  <th class="mid" style="width:24%">四科接近时<br><span class="soft">百分比</span></th>
+  <th class="mid">同分可能跨度<br><span class="soft">括号内为区间宽度</span></th>
+</tr></thead>
+<tbody>
+${alTotalRows}
+</tbody>
+</table>
+</div>
+<p class="soft" style="font-size:12.4px">带底色的行（4 / 8 / 12 / 16 / 20 / 24 / 28）是四科恰好同档的情况，可以直接对应上表。
+「四科接近」按 AL 尽量平均的组合算（如总分 15 → AL 3/4/4/4），偏科越严重就越往区间两端走。</p>
+
+<div class="warnbox">
+<b>三条必须记住：</b><br>
+① <b>总分不是百分比平均。</b>同样 ${T18.score} 分，可能来自 AL ${esc(T18.loCombo)}，也可能来自 AL ${esc(T18.hiCombo)}；
+对应百分比从 <b>${T18.lo.toFixed(1)}</b> 到 <b>${T18.hi.toFixed(1)}</b>，幅宽 <b>${T18.span.toFixed(1)} 个点</b>。
+所以「${T18.score} 分相当于百分之多少」这个问题本身没有唯一答案。<br>
+② <b>AL 不是线性刻度。</b>总分少 1 分在百分比上值多少，取决于那 1 分是从哪个档跨过去的：从 AL1→AL2 是 11–15 分，从 AL6→AL7 是 20 分以上。<br>
+③ <b>百分比是档位的定义区间，不是孩子的实际得分。</b>MOE 从不公布考生原始分，成绩单上只有 AL —— 用这张表估算，只能得到「大概在哪一段」，不是精确分数。
+</div>
+
+<h3>两个特殊情况：基础科目与高华</h3>
+<div class="grid2">
+  <div class="panel">
+    <h4>基础科目（Foundation）：最高只折到 AL6</h4>
+    <table style="margin:9px 0 0">
+    <thead><tr><th class="mid">基础科</th><th class="mid">原始分</th><th class="mid">折算标准科</th><th>说明</th></tr></thead>
+    <tbody>
+${alFoundRows}
+    </tbody>
+    </table>
+    <p class="soft" style="font-size:12.4px;margin:9px 0 0">折算只为 S1 分配能算出四科总分。<b>只要有一科读基础科，总分最好也只能是 ${FOUND_BEST}</b>（AL6+1+1+1）——这是选科时最容易被忽略的代价。</p>
+  </div>
+  <div class="panel">
+    <h4>高华（HCL / HML / HTL）：不进总分</h4>
+    <table style="margin:9px 0 0">
+    <thead><tr><th>等级</th><th class="mid">原始分</th><th>作用</th></tr></thead>
+    <tbody>
+${alHmtlRows}
+    </tbody>
+    </table>
+    <p class="soft" style="font-size:12.4px;margin:9px 0 0">${esc(ALB.hmtl.hmtlEligibility)}</p>
+  </div>
+</div>
+
+<div class="note">
+<b>数据边界，说清楚免得误用：</b>AL 档位来自 MOE 官方计分说明（本页 2026-11 核对）；
+但「原始分区间」只是档位的定义，<b>孩子的实际原始分是查不到的</b>。
+所以这张表的正确用法是：<b>把 AL 换算成一个大致百分比段位</b>（比如帮孩子理解「AL3 意味着 80 分出头」），
+而不是把总分乘 4 当成百分制总分去跟别的孩子比 —— 后者在数学上就不成立。
+</div>
+</section>
+
+<section>
+<h2 id="s4"><span class="n">04</span>电脑到底怎么分学校</h2>
 <p class="lead">这一节值得认真看。理解了机制，你就不会做「为了保险把差学校放第一」这种反效果的操作。</p>
 
 <div class="verdict">
@@ -299,7 +476,7 @@ ${CO.posting.tiebreaker.map((t, i) => `<tr><td class="num mid">${i + 1}</td><td>
 </section>
 
 <section>
-<h2 id="s4"><span class="n">04</span>通勤这笔账</h2>
+<h2 id="s5"><span class="n">05</span>通勤这笔账</h2>
 <p class="lead">几乎所有家长都说「距离重要」，但很少有人把它换算成数字。换个算法，这件事会清楚很多。</p>
 
 <div class="verdict">
@@ -340,7 +517,7 @@ ${poolStats.buckets.map(b => {
 </section>
 
 <section>
-<h2 id="s5"><span class="n">05</span>COP 怎么看</h2>
+<h2 id="s6"><span class="n">06</span>COP 怎么看</h2>
 <p class="lead"><b>COP（截分点）= 去年最后一个被录取的学生的分数。</b>它是结果，不是门槛。每年随报考热度浮动 1–3 分是常态。</p>
 
 <div class="grid2">
@@ -377,7 +554,7 @@ ${TREND_A && TREND_B ? `
 </section>
 
 <section>
-<h2 id="s6"><span class="n">06</span>学费与升学路径</h2>
+<h2 id="s7"><span class="n">07</span>学费与升学路径</h2>
 <p class="lead">读四年中学的实际支出，和「中四考什么」这件事，在选校阶段就该知道。下面全部是官方公布口径。</p>
 
 <h3>政府 / 政府辅助中学月费（含所有国籍）</h3>
@@ -417,7 +594,7 @@ ${feeRows}
 </section>
 
 <section>
-<h2 id="s7"><span class="n">07</span>提交前 12 项清单</h2>
+<h2 id="s8"><span class="n">08</span>提交前 12 项清单</h2>
 <p class="lead">填报那天照着过一遍。勾选状态不会保存，刷新就没了——需要留存请截图。</p>
 <ol class="chk">
 ${CHECKLIST}
@@ -425,7 +602,7 @@ ${CHECKLIST}
 </section>
 
 <section>
-<h2 id="s8"><span class="n">08</span>延伸阅读与数据来源</h2>
+<h2 id="s9"><span class="n">09</span>延伸阅读与数据来源</h2>
 
 <div class="ext">
   <div class="ttl">PSLE 出分后 7 天，中学志愿怎么填？</div>
