@@ -42,7 +42,7 @@ const card = s => {
   <header>
     <div class="who">
       <div class="nm">${esc(s.label || s.id)}${isActive ? '<span class="cur">看板当前</span>' : ''}</div>
-      <div class="meta">AL <b>${s.al}</b> · ${esc(s.pgShort || '')} · 邮编 ${esc(s.postal || '—')} · 通勤上限 ${s.maxCommuteMin || '—'} 分钟</div>
+      <div class="meta">AL <b>${s.al}</b> · ${esc(s.pgShort || '')} · 邮编 ${esc(s.postal || '—')} · ${s.commuteMode === 'walk' ? '<b>全程步行</b>上限' : '通勤上限'} ${s.maxCommuteMin || '—'} 分钟</div>
     </div>
     <div class="stat">
       <div><span class="k">主池</span><span class="v">${pl.poolMixed != null ? pl.poolMixed : '—'}</span></div>

@@ -11,6 +11,7 @@
   "pgLabel": "Posting Group 3",
   "gender": "any",
   "hasAffiliation": false,
+  "commuteMode": "fastest",
   "moeNearbyUsed": true,
   "walkData": {
    "generatedAt": "2026-11-12T15:06:44.910Z",
@@ -119,6 +120,7 @@
    },
    "margin": 7,
    "minutes": 34,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 34,
    "walkMinutes": 140,
@@ -139,6 +141,9 @@
     "National Cadet Corps (NCC) (Land) (Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Taekwondo (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "戏剧"
    ],
    "alpCats": [
     "STEM - Emerging Technologies"
@@ -199,6 +204,7 @@
    "copHistory": null,
    "margin": 6,
    "minutes": 33,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 33,
    "walkMinutes": 110,
@@ -222,6 +228,9 @@
     "Netball (Girls)",
     "Table Tennis (Boys)",
     "Volleyball (Girls)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "STEM - Health and Food Science"
@@ -340,6 +349,7 @@
    },
    "margin": 5,
    "minutes": 32,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 32,
    "walkMinutes": 47,
@@ -362,6 +372,9 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)",
     "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "戏剧"
    ],
    "alpCats": [
     "STEM"
@@ -428,6 +441,7 @@
    "copHistory": null,
    "margin": 7,
    "minutes": 28,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 28,
    "walkMinutes": 79,
@@ -451,6 +465,9 @@
     "Table Tennis (Boys)",
     "Volleyball (Girls)",
     "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "Business & Entrepreneurship"
@@ -543,6 +560,7 @@
    },
    "margin": 4,
    "minutes": 22,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 22,
    "walkMinutes": 33,
@@ -565,6 +583,9 @@
     "National Cadet Corps (NCC) (Land) (Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
+   ],
+   "ccaHits": [
+    "戏剧"
    ],
    "alpCats": [
     "STEM - Health and Food Science"
@@ -626,6 +647,7 @@
    "copHistory": null,
    "margin": 7,
    "minutes": 40,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 40,
    "walkMinutes": 161,
@@ -648,6 +670,9 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Shooting (Girls and Boys)",
     "Taekwondo (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "STEM - Sustainability"
@@ -707,6 +732,7 @@
    "copHistory": null,
    "margin": 7,
    "minutes": 40,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 40,
    "walkMinutes": 132,
@@ -727,6 +753,9 @@
     "Modern Dance (Girls and Boys)",
     "National Cadet Corps (NCC) (Land) (Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "STEM - Sustainability"
@@ -787,6 +816,7 @@
    "copHistory": null,
    "margin": 6,
    "minutes": 44,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 44,
    "walkMinutes": 131,
@@ -811,6 +841,9 @@
     "Scouts (Boys)",
     "Table Tennis (Boys)",
     "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "STEM - Cities and Urban Landscapes"
@@ -906,6 +939,7 @@
    },
    "margin": 3,
    "minutes": 25,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 25,
    "walkMinutes": 38,
@@ -929,6 +963,10 @@
     "Netball (Girls)",
     "String Ensemble (Girls and Boys)",
     "Track and Field (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI",
+    "戏剧"
    ],
    "alpCats": [
     "STEM - Cities and Urban Landscapes"
@@ -994,6 +1032,7 @@
    "copHistory": null,
    "margin": 5,
    "minutes": 34,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 34,
    "walkMinutes": 86,
@@ -1013,6 +1052,9 @@
     "Modern Dance (Girls and Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Volleyball (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "STEM - Health and Food Science"
@@ -1111,6 +1153,7 @@
    },
    "margin": 3,
    "minutes": 14,
+   "commuteBasis": "fastest",
    "commuteMode": "walk",
    "mrtMinutes": 22,
    "walkMinutes": 14,
@@ -1135,6 +1178,7 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
    ],
+   "ccaHits": [],
    "alpCats": [
     "STEM - Future of Transportation"
    ],
@@ -1255,6 +1299,7 @@
    },
    "margin": 1,
    "minutes": 27,
+   "commuteBasis": "fastest",
    "commuteMode": "walk",
    "mrtMinutes": 28,
    "walkMinutes": 27,
@@ -1274,6 +1319,10 @@
     "National Cadet Corps (NCC) (Land) (Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Softball (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "机器人",
+    "戏剧"
    ],
    "alpCats": [
     "STEM - Sustainability"
@@ -1332,6 +1381,7 @@
    "copHistory": null,
    "margin": 3,
    "minutes": 44,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 44,
    "walkMinutes": 127,
@@ -1356,6 +1406,9 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Volleyball (Girls)",
     "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "STEM - Cities and Urban Landscapes"
@@ -1424,6 +1477,7 @@
    "copHistory": null,
    "margin": 7,
    "minutes": 42,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 42,
    "walkMinutes": 128,
@@ -1446,6 +1500,9 @@
     "Modern Dance (Girls and Boys)",
     "National Cadet Corps (NCC) (Land) (Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "Languages"
@@ -1562,6 +1619,7 @@
    },
    "margin": 0,
    "minutes": 8,
+   "commuteBasis": "fastest",
    "commuteMode": "walk",
    "mrtMinutes": 20,
    "walkMinutes": 8,
@@ -1586,6 +1644,11 @@
     "Modern Dance (Girls and Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "机器人",
+    "AI",
+    "戏剧"
    ],
    "alpCats": [
     "STEM - Sustainability"
@@ -1692,6 +1755,7 @@
    },
    "margin": 2,
    "minutes": 15,
+   "commuteBasis": "fastest",
    "commuteMode": "walk",
    "mrtMinutes": 24,
    "walkMinutes": 15,
@@ -1713,6 +1777,9 @@
     "Modern Dance (Girls and Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Water Polo (Boys)"
+   ],
+   "ccaHits": [
+    "游泳"
    ],
    "alpCats": [
     "Business & Entrepreneurship"
@@ -1836,6 +1903,7 @@
    },
    "margin": 4,
    "minutes": 22,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 22,
    "walkMinutes": 24,
@@ -1861,6 +1929,7 @@
     "Table Tennis (Boys)",
     "Volleyball (Girls and Boys)"
    ],
+   "ccaHits": [],
    "alpCats": [
     "STEM - Sustainability"
    ],
@@ -1977,6 +2046,7 @@
    },
    "margin": 7,
    "minutes": 44,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 44,
    "walkMinutes": 75,
@@ -2000,6 +2070,9 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)",
     "Table Tennis (Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "Humanities"
@@ -2096,6 +2169,7 @@
    },
    "margin": 5,
    "minutes": 32,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 32,
    "walkMinutes": 51,
@@ -2117,6 +2191,7 @@
     "Netball (Girls)",
     "Scouts (Boys)"
    ],
+   "ccaHits": [],
    "alpCats": [
     "STEM - Future of Transportation"
    ],
@@ -2173,6 +2248,7 @@
    "copHistory": null,
    "margin": 4,
    "minutes": 45,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 45,
    "walkMinutes": 140,
@@ -2193,6 +2269,9 @@
     "National Cadet Corps (NCC) (Land) (Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Netball (Girls)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "Aesthetics"
@@ -2255,6 +2334,7 @@
    "copHistory": null,
    "margin": 1,
    "minutes": 37,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 37,
    "walkMinutes": 63,
@@ -2280,6 +2360,9 @@
     "Netball (Girls)",
     "Table Tennis (Boys)",
     "Taekwondo (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "Business & Entrepreneurship"
@@ -2340,6 +2423,7 @@
    "copHistory": null,
    "margin": 1,
    "minutes": 44,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 44,
    "walkMinutes": 102,
@@ -2359,6 +2443,7 @@
     "Track and Field (Girls and Boys)",
     "Volleyball (Boys)"
    ],
+   "ccaHits": [],
    "alpCats": [
     "Languages"
    ],
@@ -2489,6 +2574,7 @@
    },
    "margin": 7,
    "minutes": 24,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 24,
    "walkMinutes": 47,
@@ -2511,6 +2597,7 @@
     "Scouts (Boys)",
     "Wushu (Boys)"
    ],
+   "ccaHits": [],
    "alpCats": [
     "STEM - Emerging Technologies"
    ],
@@ -2570,6 +2657,7 @@
    "copHistory": null,
    "margin": 0,
    "minutes": 29,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 29,
    "walkMinutes": 101,
@@ -2590,6 +2678,7 @@
     "National Police Cadet Corps (NPCC) (Boys)",
     "Scouts (Boys)"
    ],
+   "ccaHits": [],
    "alpCats": [
     "STEM - Future of Transportation"
    ],
@@ -2661,6 +2750,7 @@
    "copHistory": null,
    "margin": -1,
    "minutes": 23,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 23,
    "walkMinutes": 24,
@@ -2678,6 +2768,7 @@
     "Table Tennis (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaHits": [],
    "alpCats": [
     "Languages"
    ],
@@ -2797,6 +2888,7 @@
    },
    "margin": -1,
    "minutes": 10,
+   "commuteBasis": "fastest",
    "commuteMode": "walk",
    "mrtMinutes": 17,
    "walkMinutes": 10,
@@ -2821,6 +2913,11 @@
     "Taekwondo (Girls and Boys)",
     "Volleyball (Boys)",
     "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "机器人",
+    "AI",
+    "戏剧"
    ],
    "alpCats": [
     "Business & Entrepreneurship"
@@ -2883,6 +2980,7 @@
    "copHistory": null,
    "margin": -1,
    "minutes": 43,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 43,
    "walkMinutes": 146,
@@ -2906,6 +3004,7 @@
     "Track and Field (Girls and Boys)",
     "Volleyball (Girls)"
    ],
+   "ccaHits": [],
    "alpCats": [],
    "alpItems": [],
    "llpCats": [
@@ -2959,6 +3058,7 @@
    "copHistory": null,
    "margin": -1,
    "minutes": 23,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 23,
    "walkMinutes": 54,
@@ -2984,6 +3084,7 @@
     "Scouts (Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaHits": [],
    "alpCats": [
     "Languages"
    ],
@@ -3046,6 +3147,7 @@
    "copHistory": null,
    "margin": -1,
    "minutes": 37,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 37,
    "walkMinutes": 43,
@@ -3068,6 +3170,9 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Taekwondo (Girls and Boys)",
     "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "STEM - Emerging Technologies"
@@ -3128,6 +3233,7 @@
    "copHistory": null,
    "margin": -2,
    "minutes": 43,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 43,
    "walkMinutes": 108,
@@ -3148,6 +3254,9 @@
     "Modern Dance (Girls and Boys)",
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Volleyball (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [
     "STEM - Health and Food Science"
@@ -3210,6 +3319,7 @@
    "copHistory": null,
    "margin": -2,
    "minutes": 31,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 31,
    "walkMinutes": 56,
@@ -3228,6 +3338,9 @@
     "National Cadet Corps (NCC) (Land) (Boys)",
     "Shooting (Girls and Boys)",
     "Volleyball (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [],
    "alpItems": [],
@@ -3288,6 +3401,7 @@
    "copHistory": null,
    "margin": -3,
    "minutes": 32,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 32,
    "walkMinutes": 113,
@@ -3309,6 +3423,9 @@
     "St John Brigade (Boys)",
     "Table Tennis (Boys)",
     "Wushu (Boys)"
+   ],
+   "ccaHits": [
+    "戏剧"
    ],
    "alpCats": [
     "STEM - Material Science"
@@ -3381,6 +3498,7 @@
    "copHistory": null,
    "margin": -3,
    "minutes": 27,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 27,
    "walkMinutes": 99,
@@ -3402,6 +3520,9 @@
     "National Police Cadet Corps (NPCC) (Girls and Boys)",
     "Table Tennis (Boys)",
     "Volleyball (Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [],
    "alpItems": [],
@@ -3458,6 +3579,7 @@
    "copHistory": null,
    "margin": -4,
    "minutes": 44,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 44,
    "walkMinutes": 93,
@@ -3483,6 +3605,9 @@
     "Table Tennis (Girls)",
     "Volleyball (Girls)",
     "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
    ],
    "alpCats": [],
    "alpItems": [],
@@ -3537,6 +3662,7 @@
    "copHistory": null,
    "margin": -4,
    "minutes": 22,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 22,
    "walkMinutes": 27,
@@ -3560,6 +3686,7 @@
     "Track and Field (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaHits": [],
    "alpCats": [
     "STEM - Emerging Technologies"
    ],
@@ -3621,6 +3748,7 @@
    "copHistory": null,
    "margin": -5,
    "minutes": 43,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 43,
    "walkMinutes": 156,
@@ -3636,6 +3764,7 @@
     "Girl Guides (Girls)",
     "Netball (Girls)"
    ],
+   "ccaHits": [],
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -3691,6 +3820,7 @@
    "copHistory": null,
    "margin": -5,
    "minutes": 42,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 42,
    "walkMinutes": 164,
@@ -3717,6 +3847,7 @@
     "Volleyball (Girls and Boys)",
     "Wushu (Girls and Boys)"
    ],
+   "ccaHits": [],
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -3771,6 +3902,7 @@
    "copHistory": null,
    "margin": -5,
    "minutes": 32,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 32,
    "walkMinutes": 90,
@@ -3787,6 +3919,7 @@
     "Table Tennis (Girls)",
     "Volleyball (Girls)"
    ],
+   "ccaHits": [],
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -3842,6 +3975,7 @@
    "copHistory": null,
    "margin": -6,
    "minutes": 33,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 33,
    "walkMinutes": 129,
@@ -3863,6 +3997,7 @@
     "FAQ",
     "Sitemap"
    ],
+   "ccaHits": [],
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -3924,6 +4059,7 @@
    "copHistory": null,
    "margin": -6,
    "minutes": 30,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 30,
    "walkMinutes": 124,
@@ -3948,6 +4084,10 @@
     "Tennis (Boys)",
     "Track and Field (Boys)",
     "Water Polo (Boys)"
+   ],
+   "ccaHits": [
+    "戏剧",
+    "游泳"
    ],
    "alpCats": [],
    "alpItems": [],
@@ -4006,6 +4146,7 @@
    "copHistory": null,
    "margin": -7,
    "minutes": 40,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 40,
    "walkMinutes": 129,
@@ -4030,6 +4171,9 @@
     "Track and Field (Boys)",
     "Volleyball (Boys)",
     "Wushu (Boys)"
+   ],
+   "ccaHits": [
+    "戏剧"
    ],
    "alpCats": [
     "STEM - Sustainability"
@@ -4118,6 +4262,7 @@
    "copHistory": null,
    "margin": -7,
    "minutes": 44,
+   "commuteBasis": "fastest",
    "commuteMode": "mrt",
    "mrtMinutes": 44,
    "walkMinutes": 194,
@@ -4136,6 +4281,7 @@
     "Feedback",
     "FAQ"
    ],
+   "ccaHits": [],
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -4193,9 +4339,13 @@
   "poolSingleSex": 2,
   "outOfReach": 18,
   "walkDataUsed": true,
+  "commuteMode": "fastest",
   "walkFasterTotal": 5,
   "walkFasterInPool": 4,
   "walkDisputedInPool": 3,
+  "walkCutCount": 0,
+  "walkCutNames": [],
+  "walkCutDetail": [],
   "nearbyUsed": true,
   "nearbyCount": 17,
   "nearbyReachable": 12,

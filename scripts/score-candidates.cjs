@@ -35,6 +35,10 @@ const MOE_NEARBY = (() => {
 const SCORE = STU.al;
 const POSTAL = STU.home.postal;
 const MAX_MIN = STU.maxCommuteMin;
+/* 通勤口径。fastest = min(步行, 地铁)（abc1/abc2）；walk = 只认全程步行（abc3）。
+   两种口径下 minutes 字段含义不同，报告必须按同一个人读它，否则会出现
+   「门槛写 40 分钟、表里全是地铁 33/34 分钟」这种自相矛盾。 */
+const MODE = STU.commuteMode;
 const PG = STU.postingGroupLabel;      // 'Posting Group 3'，用于匹配 rows.label
 // 通勤评分满分线 —— 与学生分数无关，过去写成 17 只是巧合
 const FULL_MARK = STU.commuteFullMarkMin;
@@ -138,15 +142,15 @@ function scoreAcademic(alpCats, alpItems) {
  * keys 用中文和英文都认，配置里写 "Robotics" 或 "机器人" 都能命中。
  */
 const CCA_INTEREST_RULES = [
-  { keys: ['robotics', '机器人'],           re: /robot|mechatron/i, score: 95 },
-  { keys: ['ai', 'artificial intelligence'], re: /infocomm|comput|program|maker|electronic|coding/i, score: 94 },
-  { keys: ['computing', 'computing', 'programming', '编程'], re: /infocomm|comput|program|maker|electronic|coding/i, score: 92 },
-  { keys: ['drama', '戏剧'],                re: /drama|theatr|eldds/i, score: 90 },
-  { keys: ['swimming', '游泳'],             re: /swim|water polo|lifesaving/i, score: 88 },
-  { keys: ['cooking', '烹饪'],              re: /cook|culinary|food|nutrition/i, score: 88 },
-  { keys: ['music', '音乐'],                re: /choir|chorale|band|orchestra|ensemble|guzheng|angklung|harmonica|drum/i, score: 80 },
-  { keys: ['sports', '体育'],               re: /basketball|football|netball|volleyball|badminton|table tennis|track|wushu|sailing|canoe|floorball|hockey|softball|fencing|shooting/i, score: 70 },
-  { keys: ['uniformed', '制服团体'],         re: /ncc|npcc|ncdcc|scout|guide|brigade|red cross|st john/i, score: 60 },
+  { keys: ['robotics', '机器人'],           label: '机器人', re: /robot|mechatron/i, score: 95 },
+  { keys: ['ai', 'artificial intelligence'], label: 'AI',    re: /infocomm|comput|program|maker|electronic|coding/i, score: 94 },
+  { keys: ['computing', 'computing', 'programming', '编程'], label: '编程', re: /infocomm|comput|program|maker|electronic|coding/i, score: 92 },
+  { keys: ['drama', '戏剧'],                label: '戏剧', re: /drama|theatr|eldds/i, score: 90 },
+  { keys: ['swimming', '游泳'],             label: '游泳', re: /swim|water polo|lifesaving/i, score: 88 },
+  { keys: ['cooking', '烹饪'],              label: '烹饪', re: /cook|culinary|food|nutrition/i, score: 88 },
+  { keys: ['music', '音乐'],                label: '音乐', re: /choir|chorale|band|orchestra|ensemble|guzheng|angklung|harmonica|drum/i, score: 80 },
+  { keys: ['sports', '体育'],               label: '体育', re: /basketball|football|netball|volleyball|badminton|table tennis|track|wushu|sailing|canoe|floorball|hockey|softball|fencing|shooting/i, score: 70 },
+  { keys: ['uniformed', '制服团体'],         label: '制服团体', re: /ncc|npcc|ncdcc|scout|guide|brigade|red cross|st john/i, score: 60 },
 ];
 
 /** 没有配置兴趣时的通用评分（与改造前完全一致，保证向后兼容） */
@@ -184,6 +188,25 @@ function scoreCca(ccaList, interests) {
   if (matched.length >= 2) s = Math.min(100, s + 3);
   if (ccaList.length >= 14) s = Math.min(100, s + 2);
   return s;
+}
+
+/**
+ * 命中了哪几项兴趣（中文标签）。
+ *
+ * 为什么要单独给这份名单：报告里以前只能写「机器人 + 戏剧都有 / 两项主要兴趣都没有」，
+ * 而这种二元判断漏掉了「只有游泳」这类学校 —— Outram 明明有水球和泳池，
+ * 却被盖章成「两项主要兴趣都没有」，读起来就是错的。
+ */
+function ccaHitLabels(ccaList, interests) {
+  const wanted = (interests || []).map(x => String(x).toLowerCase().trim()).filter(Boolean);
+  if (!wanted.length) return [];
+  const has = re => ccaList.some(c => re.test(c));
+  const out = [];
+  for (const rule of CCA_INTEREST_RULES) {
+    const isWanted = rule.keys.some(k => wanted.some(w => w.includes(k) || k.includes(w)));
+    if (isWanted && has(rule.re) && !out.includes(rule.label)) out.push(rule.label);
+  }
+  return out;
 }
 
 /** ALP / LLP 与学校特色 */
@@ -241,22 +264,25 @@ function gate(sc) {
   const all = schools.map(sc => {
     const g = gate(sc);
     const t = tmap.get(sc.slug);
-    // 通勤：步行 / 地铁取最快者（争议项步行取区间上端，见 lib/walk.cjs）
+    // 通勤：fastest → 步行/地铁取最快；walk → 只认全程步行（争议项取区间上端）
     const cm = Walk.merge(WALK ? WALK.bySlug.get(sc.slug) : null, t ? t.minutes : null);
+    const commuteMin = Walk.scored(cm, MODE);
     const alpCats = (sc.electives || []).filter(x => x.type.startsWith('Applied Learning')).map(x => x.category || '');
     const llpCats = (sc.electives || []).filter(x => x.type.startsWith('Learning for Life')).map(x => x.category || '');
     const alpItems = (sc.electives || []).filter(x => x.type.startsWith('Applied Learning')).flatMap(x => x.items || []);
     const llpItems = (sc.electives || []).filter(x => x.type.startsWith('Learning for Life')).flatMap(x => x.items || []);
+    const ccaList = ccaNamesOf(sc);
     const margin = g ? g.max - SCORE : null;
     const s = {
       safety: scoreSafety(margin),
       // ⚠️ 口径变更（2026-11-12）：原来只吃地铁模型，现在吃 min(步行, 地铁)。
       //    Punggol 这批学校其实走路上学比坐地铁快 7–12 分钟，只看地铁会系统性低估。
-      commute: scoreCommute(cm ? cm.minutes : null),
+      // ⚠️ 口径再变（2026-11-16）：commuteMode=walk 的学生只吃步行，见 lib/walk.cjs。
+      commute: scoreCommute(commuteMin),
       academic: scoreAcademic(alpCats, alpItems),
       // ⚠️ 用 ccaFull（官网核实过的完整清单），不是 sc.cca（MOE 登记，常年漏登）。
       //    否则 Greendale 这种「MOE 只登记 7 项、实际 19 项」的学校会被系统性低估。
-      cca: scoreCca(ccaNamesOf(sc), STU.interests.cca),
+      cca: scoreCca(ccaList, STU.interests.cca),
       feature: scoreFeature(sc, alpCats, llpCats),
     };
     const total = Math.round(
@@ -272,8 +298,11 @@ function gate(sc) {
       copFlags: sc.copFlags || null,
       copHistory: sc.copHistory || null,
       margin,
-      // minutes = 参与评分的最快通勤（步行 or 地铁）；mrtMinutes / walkMinutes 分开留给展示
-      minutes: cm ? cm.minutes : null,
+      /* minutes = 参与门槛与评分的分钟数：fastest 口径下是「步行/地铁取最快」，
+         walk 口径下是「全程步行（争议项取区间上端）」。
+         mrtMinutes / walkMinutes 始终分开保留，仅供展示。 */
+      minutes: commuteMin,
+      commuteBasis: MODE,          // 'fastest' | 'walk' —— 报告据此决定文案，不再靠猜
       commuteMode: cm ? cm.best : null,
       mrtMinutes: cm ? cm.mrtMin : null,
       walkMinutes: cm ? cm.walkMin : null,
@@ -286,6 +315,9 @@ function gate(sc) {
       via: t ? `${t.viaStation} ${t.viaStationName}` : null,
       accessWalkM: t ? t.accessWalkM : null,
       cca: sc.cca || [],
+      /* 命中孩子哪几项兴趣（中文标签，空数组 = 五项都没社团承接）。
+         报告里的「一句话」列直接用它，不再用「机器人/戏剧有没有」这种二元判断。 */
+      ccaHits: ccaHitLabels(ccaList, STU.interests.cca),
       alpCats, alpItems, llpCats, llpItems,
       dsaAreas: sc.dsaAreas || [],
       moeNearby: MOE_NEARBY.has(sc.name),
@@ -324,13 +356,15 @@ function gate(sc) {
     .sort((a, b) => b.margin - a.margin);
 
   console.log('▸ 起点:', origin.label, origin.lat.toFixed(5), origin.lon.toFixed(5));
+  console.log(`▸ 通勤口径: ${MODE === 'walk' ? '只认全程步行（争议项取区间上端）' : '步行 / 地铁取最快'}`);
   console.log(`▸ 候选池（${wantSex === 'any' ? '混校' : wantSex === 'boys' ? '混校+男校' : '混校+女校'} / ${MAX_MIN}min / margin≥0）:`, pool.length, '所');
   console.log('');
-  console.log('排名  总分  通勤  余量  COP       校名 / ALP   （通勤 = 步行/地铁取最快，带 * 为争议项）');
+  console.log('排名  总分  通勤  余量  COP       校名 / ALP   （通勤 = ' +
+    (MODE === 'walk' ? '步行' : '步行/地铁取最快') + '，带 * 为争议项）');
   pool.forEach((x, i) => {
     console.log(
       String(i + 1).padStart(3) + '  ' + String(x.total).padStart(4) + '  ' +
-      (String(x.minutes).padStart(2) + (x.commuteMode === 'walk' ? 'W' : 'M') +
+      (String(x.minutes).padStart(2) + (MODE === 'walk' ? 'W' : (x.commuteMode === 'walk' ? 'W' : 'M')) +
         (x.walkDisputed ? '*' : ' ')).padStart(6) + ' ' + String(x.margin).padStart(4) + '  ' +
       (x.cop.min + '-' + x.cop.max + (x.cop.markMax || '')).padEnd(9) + ' ' +
       (x.moeNearby ? '*' : ' ') + x.name.replace(/ Secondary School| \(Secondary\)/, '') +
@@ -343,8 +377,22 @@ function gate(sc) {
   singleSex.forEach(x => console.log('   ' + String(x.minutes).padStart(2) + 'm ' + x.minutes + ' ' + x.name + ' (' + x.nature + ')'));
 
   console.log('');
-  console.log('── 45 分钟内但分数够不着（margin<0）:', outOfReach.length, '所');
+  console.log(`── ${MAX_MIN} 分钟内但分数够不着（margin<0）:`, outOfReach.length, '所');
   outOfReach.slice(0, 12).forEach(x => console.log('   ' + String(x.minutes).padStart(2) + 'm ' + String(x.margin).padStart(3) + ' ' + x.name + ' [' + x.cop.min + '-' + x.cop.max + (x.cop.markMax || '') + ']'));
+
+  /* walk 口径专属：被「走路走不到」这条硬约束淘汰、但地铁其实能到且分数够得着的学校。
+     报告里必须把它们单独列出来 —— 它们是家长最容易反过来问「为什么不考虑」的那批。 */
+  const walkCut = MODE !== 'walk' ? [] : all
+    .filter(x => x.margin != null && x.margin >= 0 && (x.minutes == null || x.minutes > MAX_MIN))
+    .filter(x => sexOk(x))
+    .filter(x => x.mrtMinutes != null && x.mrtMinutes <= MAX_MIN)
+    .sort((a, b) => (a.minutes ?? 999) - (b.minutes ?? 999));
+  if (MODE === 'walk') {
+    console.log('');
+    console.log(`── 步行超 ${MAX_MIN} 分钟、但地铁在 ${MAX_MIN} 分钟内且分数够得着（被硬约束淘汰）:`, walkCut.length, '所');
+    walkCut.slice(0, 20).forEach(x => console.log('   步行 ' + String(x.walkMinutes == null ? '?' : x.walkMinutes).padStart(3) +
+      'm / 地铁 ' + String(x.mrtMinutes).padStart(2) + 'm  ' + x.name + '  余量 +' + x.margin));
+  }
 
   /* 全国口径统计 —— 报告里所有「N 所」都从这里取，避免换学生后数字失真。
      过去这些数字是硬编码在报告模板里的（130/68/47/20/19/1），
@@ -364,9 +412,26 @@ function gate(sc) {
     outOfReach: outOfReach.length,
     // 通勤口径：步行 vs 地铁的分工，报告里引用这些数字而非写死
     walkDataUsed: !!WALK,
+    /* 口径本身 —— 报告据此决定「通勤」列怎么写、门槛怎么解释。
+       少了这个字段，模板只能猜，猜错就会出现「写 40 分钟步行、表里全是地铁 34 分钟」。 */
+    commuteMode: MODE,
     walkFasterTotal: all.filter(x => x.commuteMode === 'walk').length,
     walkFasterInPool: pool.filter(x => x.commuteMode === 'walk').length,
     walkDisputedInPool: pool.filter(x => x.walkDisputed).length,
+    // walk 口径专属：被「走不到」淘汰、但地铁可达且分数够得着的学校（数量 + 名单）
+    walkCutCount: walkCut.length,
+    walkCutNames: walkCut.map(x => x.name.replace(/ Secondary School| \(Secondary\)/, '')),
+    walkCutDetail: walkCut.map(x => ({
+      name: x.name.replace(/ Secondary School| \(Secondary\)/, ''),
+      walkMinutes: x.walkMinutes,
+      walkUpperMinutes: x.walkUpperMinutes,
+      mrtMinutes: x.mrtMinutes,
+      margin: x.margin,
+      total: x.total,
+      cop: x.cop ? { min: x.cop.min, max: x.cop.max, markMax: x.cop.markMax } : null,
+      sap: !!x.sap, ip: !!x.ip, autonomous: !!x.autonomous,
+      nature: x.nature,
+    })),
     // MOE 邮编筛选
     nearbyUsed: MOE_NEARBY.size > 0,
     nearbyCount: MOE_NEARBY.size,
@@ -403,13 +468,16 @@ function gate(sc) {
       postal: POSTAL, maxCommute: MAX_MIN, commuteFullMarkMin: FULL_MARK,
       pgShort: STU.postingGroup, pgLabel: PG,
       gender: STU.gender, hasAffiliation: STU.hasAffiliation,
+      commuteMode: MODE,
       moeNearbyUsed: MOE_NEARBY.size > 0,
       walkData: WALK ? {
         generatedAt: WALK.generatedAt,
         schoolCount: WALK.bySlug.size,
         walkMetersPerMin: WALK.walkMetersPerMin,
         source: WALK.source,
-        rule: '步行与地铁取最快者参与通勤评分；两家引擎分歧 >1.4× 的标为争议项，展示区间并按上端计分',
+        rule: MODE === 'walk'
+          ? '只认全程步行；两家引擎分歧 >1.4× 的标为争议项，展示区间并按上端过闸与计分'
+          : '步行与地铁取最快者参与通勤评分；两家引擎分歧 >1.4× 的标为争议项，展示区间并按上端计分',
       } : null,
     },
     origin, pool, singleSex, outOfReach, stats,

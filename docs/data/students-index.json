@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-16T15:24:45.376Z",
+ "generatedAt": "2026-11-16T16:01:17.044Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -10,8 +10,9 @@
    "pgShort": "PG3",
    "postal": "828765",
    "maxCommuteMin": 45,
+   "commuteMode": "fastest",
    "planSlug": "abc1-s1-choice-2026-v2",
-   "updatedAt": "2026-11-16T15:24:45.076Z",
+   "updatedAt": "2026-11-16T16:01:16.703Z",
    "plan": {
     "picks": [
      {
@@ -51,7 +52,7 @@
      "v2"
     ],
     "report": "reports/abc1-s1-choice-2026-v2.html",
-    "generatedAt": "2026-11-16T15:24:45.076Z"
+    "generatedAt": "2026-11-16T16:01:16.703Z"
    }
   },
   {
@@ -61,8 +62,9 @@
    "pgShort": "PG3",
    "postal": "828765",
    "maxCommuteMin": 45,
+   "commuteMode": "fastest",
    "planSlug": "abc2-s1-choice-2026",
-   "updatedAt": "2026-11-16T15:24:45.208Z",
+   "updatedAt": "2026-11-16T16:01:16.856Z",
    "plan": {
     "picks": [
      {
@@ -102,7 +104,7 @@
      "plan"
     ],
     "report": "reports/abc2-s1-choice-2026.html",
-    "generatedAt": "2026-11-16T15:24:45.208Z"
+    "generatedAt": "2026-11-16T16:01:16.856Z"
    }
   },
   {
@@ -112,8 +114,9 @@
    "pgShort": "PG3",
    "postal": "828765",
    "maxCommuteMin": 40,
+   "commuteMode": "walk",
    "planSlug": "abc3-s1-choice-2026",
-   "updatedAt": "2026-11-16T15:24:45.372Z",
+   "updatedAt": "2026-11-16T16:01:17.041Z",
    "plan": {
     "picks": [
      {
@@ -123,8 +126,8 @@
      },
      {
       "slot": 2,
-      "name": "Compassvale Secondary School",
-      "tier": "匹配"
+      "name": "Yusof Ishak Secondary School",
+      "tier": "冲刺"
      },
      {
       "slot": 3,
@@ -138,22 +141,22 @@
      },
      {
       "slot": 5,
-      "name": "Bendemeer Secondary School",
-      "tier": "稳妥"
+      "name": "Outram Secondary School",
+      "tier": "匹配"
      },
      {
       "slot": 6,
-      "name": "Bartley Secondary School",
-      "tier": "稳妥"
+      "name": "Compassvale Secondary School",
+      "tier": "匹配"
      }
     ],
-    "poolMixed": 16,
-    "withinCommuteReachable": 18,
+    "poolMixed": 7,
+    "withinCommuteReachable": 7,
     "kinds": [
      "plan"
     ],
     "report": "reports/abc3-s1-choice-2026.html",
-    "generatedAt": "2026-11-16T15:24:45.373Z"
+    "generatedAt": "2026-11-16T16:01:17.041Z"
    }
   }
  ]

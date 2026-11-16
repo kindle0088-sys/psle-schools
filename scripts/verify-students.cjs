@@ -87,7 +87,7 @@ console.log('\n【三之二】配置字段都有明确归属');
 const ACTIVE = new Set([
   'psle.al',
   'home.postal', 'home.lat', 'home.lon',
-  'constraints.maxCommuteMin', 'constraints.commuteFullMarkMin',
+  'constraints.maxCommuteMin', 'constraints.commuteFullMarkMin', 'constraints.commuteMode',
   'constraints.gender', 'constraints.hasAffiliation', 'constraints.weights',
   'interests.cca',
   'outputs.planSlug',

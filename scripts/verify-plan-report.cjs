@@ -72,31 +72,56 @@ t('可及总数一致', text.includes(`${S2.withinCommuteReachable} 所`), `期�
 t('学生分数与 PG 正确', text.includes(`AL ${S.score}`) && text.includes(S.pgShort));
 t('邮编正确', text.includes(S.postal));
 
-// 方案 A 的 6 所学校必须都出现，且 COP 区间与数据源一致
-const planA = R.pool.filter(x => x.rank && x.rank <= 6);
-const six = [
-  'Greendale Secondary School', 'Compassvale Secondary School', 'Seng Kang Secondary School',
-  'North Vista Secondary School', 'Bendemeer Secondary School', 'Bartley Secondary School',
-];
-const missing = six.filter(n => !text.includes(n.replace(/ Secondary School/, '')));
-t('方案 A 六所学校都在报告里', missing.length === 0, missing.length ? '缺：' + missing.join('、') : '6/6');
+/* 方案 A 的名单从 plan 文件读，不写死。
+   ⚠️ 这里踩过一个隐蔽的坑：原版把六所校名写死在验证器里，换成 abc3 之后
+   「方案 A 六所都在报告里」竟然还是绿的 —— 因为 Bendemeer / Bartley 出现在
+   「被步行淘汰」表里，全页搜字符串被那张表兜住了。所以下面一律在
+   **方案 A 表格那一段**内核对，不做全页匹配。 */
+const planMod = require(path.join(BASE, 'data/plans', studentId + '.js'));
+const PLANS = planMod.PLANS;
+const six = PLANS.A.picks.map(p => p.name);
+const sixShort = six.map(n => n.replace(/ Secondary School/, ''));
 
-// 每所的 PG3 区间必须在报告里出现
+const segA = html.slice(
+  Math.max(0, html.indexOf(PLANS.A.title)),
+  PLANS.B && PLANS.B.title ? Math.max(0, html.indexOf(PLANS.B.title)) : undefined);
+const inSegA = s => segA.includes(s);
+
+const missing = sixShort.filter(n => !inSegA(n));
+t('方案 A ' + six.length + ' 所学校都在方案表里', missing.length === 0,
+  missing.length ? '缺：' + missing.join('、') : six.length + '/' + six.length);
+
+// 每所的 PG3 区间必须在方案表内出现
 const copBad = [];
 for (const n of six) {
   const x = R.pool.find(y => y.name === n);
   if (!x || !x.cop) continue;
   const rgx = new RegExp(`${x.cop.min}\\s*[–-]\\s*${x.cop.max}`);
-  if (!rgx.test(text)) copBad.push(`${n.replace(/ Secondary School/, '')}(${x.cop.min}-${x.cop.max})`);
+  if (!rgx.test(segA)) copBad.push(`${n.replace(/ Secondary School/, '')}(${x.cop.min}-${x.cop.max})`);
 }
-t('六所 PG3 区间与数据源一致', copBad.length === 0, copBad.length ? '不符：' + copBad.join('、') : '全部一致');
+t('方案 A 各校 PG3 区间与数据源一致', copBad.length === 0, copBad.length ? '不符：' + copBad.join('、') : '全部一致');
 
-// 余量必须对得上（至少抽查 1 分的 Greendale 与 7 分的 Bendemeer）
-const gre = R.pool.find(x => x.name === 'Greendale Secondary School');
-const ben = R.pool.find(x => x.name === 'Bendemeer Secondary School');
-t('Greendale 余量正确', gre && text.includes(`余量 +${gre.margin}`) === false ? text.includes(`+${gre.margin}`) : true,
-  gre ? `+${gre.margin}` : '—');
-t('Bendemeer 余量正确（+7）', ben ? text.includes('+7') : false, ben ? `+${ben.margin}` : '—');
+// 余量：核对方案 A 里余量最大和最小的两所，数字必须在报告里出现（不写死校名）
+{
+  const picks = six.map(n => R.pool.find(y => y.name === n)).filter(Boolean);
+  const maxM = picks.slice().sort((a, b) => b.margin - a.margin)[0];
+  const minM = picks.slice().sort((a, b) => a.margin - b.margin)[0];
+  t('余量最大的入选校数字正确', maxM ? text.includes(`+${maxM.margin}`) : false,
+    maxM ? `${maxM.name.replace(/ Secondary School/, '')} +${maxM.margin}` : '—');
+  t('余量最小的入选校数字正确', minM ? text.includes(`+${minM.margin}`) : false,
+    minM ? `${minM.name.replace(/ Secondary School/, '')} +${minM.margin}` : '—');
+}
+
+/* ── 方案 A 每所都必须有独立卡片（防止「卡片渲染成空白」静默通过）──
+   第四步的卡片头是 <div class="sname">，校名在方案表 / 附录 / 淘汰表里也会出现，
+   所以必须在 s4 段内、且限定 sname 标签内数。 */
+{
+  const s4 = html.slice(html.indexOf('id="s4"'), html.indexOf('id="s5"'));
+  const cards = [...s4.matchAll(/<div class="sname">([^<]+)<\/div>/g)].map(m => m[1].trim());
+  const noCard = sixShort.filter(n => !cards.includes(n));
+  t('方案 A 每所在第四步都有独立卡片', noCard.length === 0,
+    noCard.length ? '缺卡片：' + noCard.join('、') : `${cards.length} 张卡片`);
+}
 
 /* ── 四、口径正确性 ── */
 group('四、口径与规则正确性');
@@ -122,6 +147,25 @@ t('附属学校规则说明（20% 学额）', /20%/.test(text) || /非附属生/
 t('踩线按高风险处理', /踩线/.test(text) && /高/.test(text));
 t('通勤两列（步行 / 地铁）', /步行/.test(text) && /地铁/.test(text));
 t('争议项已标注', /争议/.test(text));
+
+/* ── 通勤口径回归（2026-11-16 新增）────────────────────────
+   这次的 bug 就是「学生配置写了步行 ≤ 40 分钟，报告里却按步行/地铁取最快算」。
+   下面三条断言专门守这一类事故：口径必须在报告里写得出来，
+   且方案 A 表里不允许出现任何超过上限的步行时间。 */
+if (S.commuteMode === 'walk') {
+  t('写明通勤口径为「只认全程步行」', /只认.?全程步行/.test(text));
+  t('明确地铁不计入本口径', /不计入本口径|仅作参考|不参与门槛判定|仅列出/.test(text));
+  t('列出被「走不到」硬约束淘汰的学校', /走不到/.test(text) && /硬约束淘汰/.test(text));
+  t('逐所说明超出上限多少分钟', /步行比上限多\s*\d+\s*分钟/.test(text));
+  t('淘汰表里的学校步行都确实超上限', (S2.walkCutDetail || []).length > 0 &&
+    S2.walkCutDetail.every(x => (x.walkUpperMinutes != null ? x.walkUpperMinutes : x.walkMinutes) > S.maxCommute),
+    `${(S2.walkCutDetail || []).length} 所，上限 ${S.maxCommute}`);
+
+  const walkNums = [...segA.matchAll(/步行\s*(\d+)(?:\s*[–-]\s*(\d+))?\s*分/g)]
+    .map(m => Math.max(+m[1], m[2] != null ? +m[2] : +m[1]));
+  t('方案 A 内所有步行时间 ≤ 上限', walkNums.length > 0 && walkNums.every(v => v <= S.maxCommute),
+    walkNums.length ? '出现 ' + [...new Set(walkNums)].sort((a, b) => a - b).join('/') + ' 分，上限 ' + S.maxCommute : '方案表内没找到步行时间');
+}
 
 // 反向断言：不得把 COP 说成保证
 /* 反向断言：不得出现「承诺式」表述。

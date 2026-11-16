@@ -16,9 +16,10 @@
   "constraints": {
     "maxCommuteMin": 40,
     "commuteFullMarkMin": 16,
+    "commuteMode": "walk",
     "gender": "any",
     "hasAffiliation": false,
-    "_note": "maxCommuteMin = 40（家长要求单程步行 40 分钟内，比 abc1/abc2 的 45 更严）；commuteFullMarkMin 取上限 × 40% = 16；gender: any = 主池只放混校，单性别校另列（家长要求「混校优先」）；hasAffiliation = false，看 COP 的非附属列。"
+    "_note": "commuteMode = walk 是本案例最关键的一条：家长要求的是「**全程步行**单程不超过 40 分钟」，不是「步行/地铁取最快 40 分钟」。两者选校面差一倍以上（16 所 → 7 所），所以必须显式声明，不能沿用 abc1/abc2 的 fastest 口径。maxCommuteMin = 40 就是步行门槛，争议项按区间上端过闸；commuteFullMarkMin 取上限 × 40% = 16；gender: any = 主池只放混校；hasAffiliation = false，看 COP 的非附属列。"
   },
   "interests": {
     "academic": [
@@ -41,6 +42,6 @@
     "planSlug": "abc3-s1-choice-2026",
     "_note": "报告落地为 docs/reports/<planSlug>.html。"
   },
-  "notes": "第三个孩子案例（AL 15 / 邮编 828765 / 单程上限 40 分钟 / 混校优先 / 无附属 / 无 DSA）。兴趣与 abc1 相同。与 abc2 的唯一实质差别是通勤上限从 45 收紧到 40 —— 用于对照「同一分数、同一住址，只把通勤预算压紧 5 分钟，选择会少几所」。",
+  "notes": "第三个孩子案例（AL 15 / 邮编 828765 / 单程**全程步行**上限 40 分钟 / 混校优先 / 无附属 / 无 DSA）。兴趣与 abc1 相同。与 abc2 的实质差别有两条：① 通勤上限 45 → 40；② 口径从「步行/地铁取最快」改为「只认步行」——第 ② 条才是决定性的一条，它把可及学校从 16 所压到 7 所。",
   "_生效说明": "以下字段参与计算：psle.al、home.postal、home.lat/lon、constraints.maxCommuteMin / commuteFullMarkMin / gender / hasAffiliation / weights、interests.cca、outputs.planSlug。label / notes / createdAt 只供人读。"
 }
