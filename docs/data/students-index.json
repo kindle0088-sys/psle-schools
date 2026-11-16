@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-15T07:11:41.556Z",
+ "generatedAt": "2026-11-16T15:24:45.376Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -11,7 +11,7 @@
    "postal": "828765",
    "maxCommuteMin": 45,
    "planSlug": "abc1-s1-choice-2026-v2",
-   "updatedAt": "2026-11-15T07:11:41.379Z",
+   "updatedAt": "2026-11-16T15:24:45.076Z",
    "plan": {
     "picks": [
      {
@@ -51,7 +51,7 @@
      "v2"
     ],
     "report": "reports/abc1-s1-choice-2026-v2.html",
-    "generatedAt": "2026-11-15T07:11:41.380Z"
+    "generatedAt": "2026-11-16T15:24:45.076Z"
    }
   },
   {
@@ -62,7 +62,7 @@
    "postal": "828765",
    "maxCommuteMin": 45,
    "planSlug": "abc2-s1-choice-2026",
-   "updatedAt": "2026-11-15T07:11:41.555Z",
+   "updatedAt": "2026-11-16T15:24:45.208Z",
    "plan": {
     "picks": [
      {
@@ -102,7 +102,58 @@
      "plan"
     ],
     "report": "reports/abc2-s1-choice-2026.html",
-    "generatedAt": "2026-11-15T07:11:41.555Z"
+    "generatedAt": "2026-11-16T15:24:45.208Z"
+   }
+  },
+  {
+   "id": "abc3",
+   "label": "abc3",
+   "al": 15,
+   "pgShort": "PG3",
+   "postal": "828765",
+   "maxCommuteMin": 40,
+   "planSlug": "abc3-s1-choice-2026",
+   "updatedAt": "2026-11-16T15:24:45.372Z",
+   "plan": {
+    "picks": [
+     {
+      "slot": 1,
+      "name": "Greendale Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 2,
+      "name": "Compassvale Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 3,
+      "name": "Seng Kang Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 4,
+      "name": "North Vista Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 5,
+      "name": "Bendemeer Secondary School",
+      "tier": "稳妥"
+     },
+     {
+      "slot": 6,
+      "name": "Bartley Secondary School",
+      "tier": "稳妥"
+     }
+    ],
+    "poolMixed": 16,
+    "withinCommuteReachable": 18,
+    "kinds": [
+     "plan"
+    ],
+    "report": "reports/abc3-s1-choice-2026.html",
+    "generatedAt": "2026-11-16T15:24:45.373Z"
    }
   }
  ]
