@@ -503,10 +503,12 @@ const REACH = R.pool.filter(x => x.margin <= 2).sort((a, b) => b.total - a.total
 const MATCH = R.pool.filter(x => x.margin >= 3 && x.margin <= 5).sort((a, b) => b.total - a.total);
 const SAFE = R.pool.filter(x => x.margin >= 6).sort((a, b) => b.total - a.total);
 
+/* 空档不渲染表格 —— 只剩一行表头的空表看起来像渲染失败，
+   而这里的「空」本身就是重要结论，用一句说明更清楚。 */
 const tierTable = (title, arr, note) => `
 <h3>${title}（${arr.length} 所）</h3>
 <p class="soft" style="font-size:13px">${note}</p>
-<table>
+${arr.length ? `<table>
 <thead><tr><th>学校</th><th class="mid">余量</th><th class="mid">通勤</th><th class="mid">综合</th><th>一句话</th></tr></thead>
 <tbody>
 ${arr.map(x => {
@@ -518,7 +520,7 @@ ${arr.map(x => {
   return `<tr><td>${esc(short(x.name))}</td><td class="num mid">+${x.margin}</td><td class="num mid">${fastTxt(x)}</td><td class="num mid">${x.total}</td><td class="soft">${tag}</td></tr>`;
 }).join('\n')}
 </tbody>
-</table>`;
+</table>` : ''}`;
 
 /* 档位说明里的数字全部现算：池子从 22 所变 7 所时，
    「这 8 所的余量都在 0–2 分」这种句子必须跟着变，否则整段都在编。 */
