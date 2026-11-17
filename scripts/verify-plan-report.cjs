@@ -184,6 +184,15 @@ const robSchools = R.pool.filter(x => {
 });
 t('「真有 Robotics 的只有 2 所」成立', robSchools.length === 2, robSchools.map(x => x.name.replace(/ Secondary School/, '')).join('、') || '0 所');
 
+/* ── 事实一致性回归（2026-11-17 review 新增）──────────────
+   这轮 review 抓到的错误：模板残留 {{score}}、COP 方向说反、段位判断说反、
+   混校数口径混用。全绿过却漏掉它们，说明原先断言只看「有没有这段字」。 */
+t('无未替换的 {{score}} / 模板变量', !/\{\{[^}]{1,40}\}\}|undefined|NaN|\[object Object\]/.test(text));
+t('COP 收紧方向正确（不把「上限升到 N」说成落空）', !/上限(?:升|上移|涨到)\s*\d+\s*(?:就|即|便)?\s*落空/.test(text));
+t('不用易说反的「中上段/中下段」判断段位', !/属于.{0,2}<b>?中[上下]段/.test(text));
+t('「六步结构」与实际章节数一致（已改为六步+两节参考）', !/六步结构与你的要求一一对应/.test(text));
+t('无「之内」重复拼接', !/(?:分钟内|分钟)\s*之内/.test(text));
+
 console.log('\n' + '═'.repeat(26));
 console.log(pass + ' 通过 / ' + fail + ' 失败');
 if (fail) { console.log('\n失败项:'); fails.forEach(f => console.log('  - ' + f)); }

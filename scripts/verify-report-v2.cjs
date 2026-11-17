@@ -96,7 +96,15 @@ for (const x of R.pool) {
 t('候选池 19 所全部 margin ≥ 0', R.pool.every(x => x.margin >= 0), `${R.pool.length} 所`);
 
 console.log('\n══ 八、结构完整性');
-t('无未替换模板变量', !/\$\{/.test(html));
+t('无未替换模板变量', !/\$\{|\{\{[^}]{1,40}\}\}|undefined|NaN|\[object Object\]/.test(html));
+
+/* 2026-11-17 review 回归：标题数字须与实际混校数一致；Robotics 口径须自洽；
+   不得写死已过时的「现在是 X 月 X 日」。 */
+t('STEP 3 混校标题数 = 实际混校数', html.includes(`${R.stats.poolMixed} 所可及混校`) && html.includes(`下表为 ${R.stats.poolMixed} 所混校`),
+  `poolMixed=${R.stats.poolMixed}`);
+t('Robotics 说明区分 MOE 登记与官网核实口径',
+  /MOE.{0,12}只.{0,6}登记/.test(html) && /官网.{0,8}核实/.test(html) && /Robotics Club/.test(html));
+t('不写死「现在是 X 月 X 日」', !/现在是\s*\d{1,2}\s*月\s*\d{1,2}\s*日/.test(html));
 t('含 6 个志愿行', (html.match(/<td class="num"><b>[1-6]<\/b><\/td>/g) || []).length === 6);
 t('含 3 个方案', (html.match(/class="plan(?!s)/g) || []).length === 3);
 

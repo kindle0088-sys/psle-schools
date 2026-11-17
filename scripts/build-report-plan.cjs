@@ -112,7 +112,7 @@ const sapSpan = sapInRange.length
   : null;
 const SAP_TXT = sapInRange.length
   ? `${LIMIT_LABEL} 能到的 ${sapInRange.length} 所 SAP / IP 校（${sapInRange.map(x => short(x.name) + ' ' + fmtCop(x)).join('、')}）<b>全部差 ${sapSpan[0]}${sapSpan[0] === sapSpan[1] ? '' : '–' + sapSpan[1]} 分</b>，不是「有风险」而是「基本没可能」`
-  : `${LIMIT_LABEL} 之内<b>一所 SAP / IP 校都够不着</b>`;
+  : `${LIMIT_LABEL}<b>一所 SAP / IP 校都够不着</b>`;
 
 /* 主池里通勤最优 / 安全边际最大的两所 —— 判断段里用来做对比，不写校名 */
 const fastestInPool = [...R.pool].sort((a, b) => gateMin(a) - gateMin(b))[0] || null;
@@ -300,7 +300,7 @@ ${S2.walkCutDetail.map(x => `<tr>
 </div>` : ''}
 
 <h3>因为性别偏好被单独列出的 ${S2.poolSingleSex} 所</h3>
-${R.singleSex.length ? `<p>孩子性别保密，报告按「混校优先」处理。这 ${R.singleSex.length} 所如果性别符合，是值得考虑的（都在 ${LIMIT_LABEL} 之内、分数够得着）：</p>
+${R.singleSex.length ? `<p>孩子性别保密，报告按「混校优先」处理。这 ${R.singleSex.length} 所如果性别符合，是值得考虑的（都在 ${LIMIT_LABEL}、分数够得着）：</p>
 <table>
 <thead><tr><th>学校</th><th class="mid">类型</th><th class="mid">PG3 区间</th><th class="mid">余量</th><th class="mid">通勤</th></tr></thead>
 <tbody>
@@ -318,7 +318,7 @@ ${R.outOfReach.slice(0, 10).map(x => `<tr><td>${esc(short(x.name))}</td><td clas
 </table>
 
 <div class="note">
-<b>我的判断：</b>${PLANS.step2Note ? fillScore(cfgText(PLANS.step2Note)) : `${S.score} 分在 PG3（4–20）里属于<b>中上段</b>。${WALK_ONLY
+<b>我的判断：</b>${PLANS.step2Note ? fillScore(cfgText(PLANS.step2Note)) : `孩子 ${S.score} 分属 PG3（4–20，越小越好）：全国 ${S2.withStudentPG} 所有 PG3 档的学校里，区间右端 ≥ ${S.score}、也就是够得着的有 <b>${S2.reachableNationwide} 所</b>（约 ${Math.round(S2.reachableNationwide / S2.withStudentPG * 100)}%）。${WALK_ONLY
   ? `把「步行 ≤ ${S.maxCommute} 分钟」当硬约束之后，真正可及的只剩 <b>${S2.poolMixed} 所</b>——而这 ${S2.poolMixed} 所的通勤跨度是 ${poolGateRange[0]}–${poolGateRange[1]} 分钟，余量 ${Math.min(...R.pool.map(x => x.margin))}–${Math.max(...R.pool.map(x => x.margin))} 分。<b>也就是说：可及的学校数量少到「几乎不用挑」，但质量分布并不差</b>——它们全部落在这一个通勤半径里；半径一收紧，可选面就成比例地缩小，不是「少了几所」，而是「少了一整档」。`
   : `可及学校 ${S2.withinCommuteReachable} 所、主池 ${S2.poolMixed} 所。通勤 ${poolGateRange[0]}–${poolGateRange[1]} 分钟，余量 ${Math.min(...R.pool.map(x => x.margin))}–${Math.max(...R.pool.map(x => x.margin))} 分。`}`}
 </div>
@@ -475,12 +475,14 @@ ${DETAIL_PICKS.map(n => {
   return schoolCard(x, {
     slot: p.slot, tier: p.tier, ...d,
     verdict: (d.verdict || '<span class="soft">—</span>') +
-      (p.why ? `<br><br><b>放进方案 A 的理由：</b>${p.why}<br><b>风险：</b>${p.risk || '—'}` : ''),
+      /* p.why / p.risk 也要过 fillScore：配置里写 {{score}} 时才会被替换。
+         旧版只替换 DETAIL，picks 里的 {{score}} 会原样漏进 HTML（abc3 踩过）。 */
+      (p.why ? `<br><br><b>放进方案 A 的理由：</b>${fillScore(p.why)}<br><b>风险：</b>${fillScore(p.risk || '—')}` : ''),
   });
 }).join('\n')}
 
 ${FOCUS_PAIR.length ? `<h3>关键对照：${FOCUS_PAIR.map(n => esc(short(n))).join(' / ')}</h3>
-<p>这 ${FOCUS_PAIR.length} 所不在方案 A 的 6 个位置里，但必须看懂它们，才能理解「为什么不选」和「什么时候该选」。</p>
+<p>这 ${FOCUS_PAIR.length} 所不在方案 A 的 6 个位置里，但值得看懂——这样才能理解「为什么不选」和「什么时候该选」。</p>
 ${FOCUS_PAIR.map(n => {
   const x = byName.get(n);
   return x ? schoolCard(x, { ...(DETAIL[n] || {}) }) : '';
@@ -814,7 +816,7 @@ ${TOC.map((t, i) => `  <a href="#s${i + 1}">${'①②③④⑤⑥⑦⑧'[i]} ${e
 </div>
 
 <div class="note" style="margin-top:20px">
-<b>这份报告怎么读。</b>六步结构与你的要求一一对应：规则 → 候选池 → COP → 逐校适配 → 梯度 → 建议。${STU.id !== 'abc1' ? `
+<b>这份报告怎么读。</b>主体六步（规则 → 候选池 → COP → 逐校适配 → 梯度 → 建议）+ 两节参考（附录速览、数据来源与口径）。${STU.id !== 'abc1' ? `
 <br><br><b>⚠️ 人工分析边界：</b>候选池、COP、通勤、五维分数都是按这份配置算出来的；但<b>选校理由、逐校「适合/不适合」结论、方案 A/B/C 的取舍</b>是人工判断，<b>没有随配置自动改写</b>——换一个分数、兴趣或邮编，这几节的文字需要重新核对，不能直接沿用。` : ''}
 每一节末尾的灰框是<b>我的判断</b>，其余是可复核的事实。<b>数据口径</b>：COP 取各校 <b>${S.pgLabel} 行的非附属区间</b>（${SC.meta.copYear} 年度），
 孩子 AL ${S.score} 属 ${S.pgShort}，只与同档学生竞争；通勤${WALK_ONLY

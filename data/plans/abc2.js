@@ -15,7 +15,7 @@ const PLANS = {
   /* hero 文案：abc2 这一份保留「与同一住址 17 分对照」的说法（同一家庭的老大是 17 分）。
      换学生时可以直接删掉，生成器会退回通用版。 */
   hero: ({ S, S2, esc }) => `AL <b>${S.score}</b> 分 · ${S.pgShort} · 邮编 ${esc(S.postal)} · 单程上限 ${S.maxCommute} 分钟。
-<b>先说结论：${S.score} 分在这个邮编下可及 ${S2.withinCommuteReachable} 所，比同一住址 17 分时多 ${S2.poolMixed - 18} 所——但多出来的全是「余量 0–2 分的踩线区」</b>——
+<b>先说结论：${S.score} 分在这个邮编下可及 ${S2.withinCommuteReachable} 所（比同一住址 17 分时的 19 所多 ${S2.withinCommuteReachable - 19} 所）；主池混校 ${S2.poolMixed} 所（比 17 分时的 18 所多 ${S2.poolMixed - 18} 所）——<b>但多出来的 4 所全是「余量 0–1 分的踩线区」</b>——
 真正稳妥的那几所，通勤仍然是 33–44 分钟。这份报告要回答的不是「哪所学校最好」，而是「这 6 个位置怎么排，才在保住录取的同时不浪费孩子的兴趣」。`,
   A: {
     title: '方案 A · 平衡型',
@@ -24,7 +24,7 @@ const PLANS = {
       {
         name: 'Greendale Secondary School', slot: 1, tier: '冲刺',
         why: '全池<b>唯一同时有 Robotics 与戏剧（Theatricks!）的学校</b>，CCA 19 项也是全池最多——孩子的第 1 兴趣（机器人）和第 3 兴趣（戏剧）在这里都能落到社团，而不是只停留在课程表里。ALP 是 Design, Technology and Engineering（工程设计），与 STEM 方向一致。27 分钟步行（有争议区间 27–28，差异很小）。',
-        risk: '余量只有 <b>1 分</b>（PG3 11–16，孩子 15）。这是真正的「踩线」——COP 每年动 1–2 分很常见，一旦升到 17 就落空。但它放第 1 志愿，落空不损失任何后续位置，所以风险可控。',
+        risk: '余量只有 <b>1 分</b>（PG3 11–16，孩子 15）。这是真正的「踩线」——COP 每年动 1–2 分很常见，一旦区间右端从 16 <b>收紧到 15 或更低</b>就落空（去年最后一名是 16 分，孩子 15 分只领先 1 分；反之上限升到 17 是门槛放宽，更安全）。但它放第 1 志愿，落空不损失任何后续位置，所以风险可控。',
       },
       {
         name: 'Compassvale Secondary School', slot: 2, tier: '匹配',
