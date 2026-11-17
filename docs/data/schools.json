@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-16T16:04:19.055Z",
+  "generatedAt": "2026-11-16T23:59:49.590Z",
   "total": 147,
   "copYear": 2025,
   "ipCount": 17,
@@ -16541,7 +16541,33 @@
      "archiveUrl": "https://web.archive.org/web/20240610215225/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=serangoon-secondary-school"
     },
     "2024": {
-     "status": "no-snapshot"
+     "status": "ok",
+     "archiveTs": "20251118014845",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 15,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 15,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20251118014845/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Serangoon%20Secondary%20School"
     }
    },
    "copFlags": {
