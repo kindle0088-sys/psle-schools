@@ -70,7 +70,9 @@ for (const s of STUDENTS) {
   add(`志愿报告 ${s.id}（${gen.replace('.cjs', '')}）`, gen, { STUDENT: s.id },
     s.planSlug ? `→ reports/${s.planSlug}.html` : '');
 }
-add('13 份单校深度报告', 'build-school-reports.cjs');
+const SCHOOL_REPORT_COUNT = require('fs').readdirSync(P('data/school-profiles'))
+  .filter(f => f.endsWith('.json')).length;
+add(SCHOOL_REPORT_COUNT + ' 份单校深度报告', 'build-school-reports.cjs');
 add('考生人数与学额页', 'build-cohort-page.cjs');
 add('家长学习手册', 'build-guide.cjs');
 add('开放日汇总页', 'build-openhouse-page.cjs');

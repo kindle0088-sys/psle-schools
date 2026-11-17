@@ -1,6 +1,6 @@
 {
   "_note": "单校深度报告索引：slug -> 报告文件。新增一份报告只需在此登记一行，看板卡片会自动出现「深度报告」入口。",
-  "generatedAt": "2026-11-13T06:40:43.885Z",
+  "generatedAt": "2026-11-17T15:10:00.000Z",
   "reports": {
     "bendemeer-secondary-school": {
       "file": "reports/school-bendemeer-secondary-school.html",
@@ -68,6 +68,18 @@
       "file": "reports/school-greendale-secondary-school.html",
       "date": "2026-11-11",
       "version": "v1"
+    },
+    "st-gabriels-secondary-school": {
+      "file": "reports/school-st-gabriels-secondary-school.html",
+      "date": "2026-11-17",
+      "version": "v1",
+      "note": "NE12 Serangoon 站 591m。政府辅助男校，ALP 航空与飞行（CAAS AIS + Boeing），非附属 PG3 10–15（17 分差 2 分）；官网 17 项 CCA vs MOE 7 项"
+    },
+    "zhonghua-secondary-school": {
+      "file": "reports/school-zhonghua-secondary-school.html",
+      "date": "2026-11-17",
+      "version": "v1",
+      "note": "NE12 Serangoon 站 446m。1911 年创校（新加坡首所华文女校），政府自治混校，有 AEP 艺术选修；PG3 8–12（17 分差 5 分）"
     }
   }
 }

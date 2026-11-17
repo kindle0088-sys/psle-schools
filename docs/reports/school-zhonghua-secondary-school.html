@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<!-- 生成器标记：验证器据此区分本模板产物与 v1 手写报告，避免对老报告套新断言 -->
+<meta name="generator" content="psle-school-report/v2">
+<title>中华中学 Zhonghua Secondary School · 单校深度报告</title>
+<style>
+/* ─────────────────────────────────────────────────────────────
+   PSLE 择校 · 共享色板（深色）
+
+   唯一的颜色来源。plan.css / school.css 里不允许再出现硬编码色值，
+   一律走这里的 token；生成器把本文件拼在模板前面。
+
+   取值与 docs/assets/style.css（看板）的 :root 保持一致 —— 两处必须同步，
+   scripts/verify-theme.cjs 会做比对。
+
+   配色约定：红绿只用于「涨跌」语义（本项目没有），所以只用中性色阶 +
+   一种强调色；琥珀/红/绿仅表达「风险/不确定/达标」，不表达学校好坏。
+   ───────────────────────────────────────────────────────────── */
+:root{
+  /* 底与面 */
+  --bg:#0a0f1a;
+  --bg-soft:#0e1526;
+  --card:#121a2a;
+  --line:#1e2b40;
+  --line2:#182338;
+
+  /* 文字 */
+  --tx:#e8eef7;
+  --tx2:#93a4bd;
+  --tx3:#78879f;
+
+  /* 强调（天蓝，与看板同色） */
+  --accent:#38bdf8;
+  --accent-dim:#0e7490;
+  --accent-bg:rgba(56,189,248,.10);
+  --accent-line:rgba(56,189,248,.30);
+  --accent-ink:#06212f;        /* 铺在 accent 底色上的文字 */
+
+  /* 语义色：琥珀＝注意 / 红＝风险 / 绿＝达成 */
+  --warm:#fbbf24;
+  --warm-bg:rgba(251,191,36,.10);
+  --warm-line:rgba(251,191,36,.30);
+
+  --risk:#f87171;
+  --risk-bg:rgba(248,113,113,.10);
+  --risk-line:rgba(248,113,113,.28);
+
+  --ok:#34d399;
+  --ok-bg:rgba(52,211,153,.10);
+  --ok-line:rgba(52,211,153,.28);
+
+  /* 交互与容器 */
+  --hover:rgba(255,255,255,.035);
+  --surface:rgba(255,255,255,.03);        /* 卡片内的次级面（数据格、note） */
+  --surface-line:rgba(255,255,255,.055);  /* 次级面的描边 */
+  --accent-hover:rgba(56,189,248,.16);    /* 强调块 hover */
+  --chip:rgba(255,255,255,.055);
+  --code:rgba(255,255,255,.07);
+  --hero-a:#0c1424;
+  --hero-b:#0a0f1a;
+
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+/* school.css —— 单校深度报告的组件
+   颜色全部来自 tpl/tokens.css（生成器会把它拼在本文件前面）。
+   ⚠️ 这个文件里不要写任何色值字面量，否则换主题时会漏掉。 */
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.78 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--tx3);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:var(--tx)}
+.hero{background:linear-gradient(180deg,var(--hero-a),var(--hero-b));color:var(--tx);padding:40px 0 36px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);opacity:.85}
+.hero h1{margin:10px 0 4px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.3}
+.hero h1 small{display:block;font-size:15px;font-weight:400;color:var(--tx2);margin-top:5px}
+.hero .sub{color:var(--tx2);font-size:14px;max-width:680px;margin-top:12px}
+/* 每格独立成卡：否则格子数不满一行时，容器底色会露出一块空的「假格子」 */
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;margin-top:24px}
+.profile div{background:var(--surface);border:1px solid var(--surface-line);border-radius:8px;padding:11px 14px}
+.profile .k{font-size:11.5px;color:var(--tx3);letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+.addr{font-size:12.6px;color:var(--tx3);margin-top:12px;font-variant-numeric:tabular-nums}
+
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+section{margin:0 0 10px}
+h2{font-size:18px;font-weight:640;margin:40px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:16px}
+h2 .n{font-size:11.5px;font-weight:600;color:var(--accent-ink);background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 14px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.verdict{background:var(--accent-bg);border:1px solid var(--accent-line);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+.warnbox{background:var(--warm-bg);border:1px solid var(--warm-line);border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.panel h4{margin:0 0 8px;font-size:13.5px;color:var(--accent);letter-spacing:.2px}
+.panel ul{margin:0;padding-left:18px;font-size:13.6px}
+.panel li{margin:5px 0}
+.panel.muted h4{color:var(--tx3)}
+
+table{width:100%;border-collapse:collapse;font-size:13.3px;margin:14px 0}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:11.5px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+th.mid,td.mid{text-align:center}
+tbody tr:hover{background:var(--hover)}
+.soft{color:var(--tx3)}
+
+.bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;font-size:13px;margin:5px 0}
+.bar-row .lbl{color:var(--tx2)}
+.bar-track{background:var(--chip);border-radius:4px;height:15px;overflow:hidden}
+.bar-fill{height:100%;background:var(--accent-dim);border-radius:4px}
+.bar-fill.hi{background:var(--accent)}
+.bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
+
+.tl{border-left:2px solid var(--line);margin:16px 0 0 6px;padding-left:20px}
+.tl .ev{position:relative;margin:0 0 16px}
+.tl .ev::before{content:"";position:absolute;left:-26px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600}
+.tl .d{font-size:14px;margin-top:1px}
+
+.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--line2);border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
+.voice .who{font-size:12.3px;color:var(--tx3);margin-bottom:6px;letter-spacing:.2px}
+.voice q{quotes:"「" "」";font-style:italic;color:var(--tx)}
+.voice p{margin:8px 0}
+
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:var(--chip);margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:var(--accent-line);background:var(--accent-bg);color:var(--accent)}
+.tag.b{border-color:var(--line);background:var(--chip);color:var(--tx2)}
+.tag.c{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
+
+.checklist{counter-reset:c;list-style:none;padding:0;margin:14px 0}
+.checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
+.checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+.foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
+.foot b{color:var(--tx2)}
+.foot a{color:var(--accent)}
+
+@media(max-width:600px){
+  .hero h1{font-size:21px}
+  .grid2{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:110px 1fr 42px;font-size:12.3px}
+  table{font-size:12.3px}
+  th,td{padding:7px 6px}
+}
+@media print{
+  :root{
+    --bg:#fff; --card:#fff; --line:#d7dde5; --line2:#eceff3;
+    --tx:#111827; --tx2:#374151; --tx3:#6b7280;
+    --accent:#0b6b8a; --accent-bg:#eef7fb; --accent-line:#bfe0ec; --accent-ink:#fff;
+    --warm:#8a5a00; --warm-bg:#fdf6e7; --warm-line:#ecd9b0;
+    --risk:#8c2f2f; --risk-bg:#fbf0ef; --risk-line:#efd6d4;
+    --ok:#1f5c3a; --ok-bg:#eef7f1; --ok-line:#cfe6d8;
+    --hover:transparent; --chip:#f4f5f7; --code:#f1f2f4;
+  }
+  .hero{background:#fff!important;color:var(--tx)!important;border-bottom:1px solid var(--line)}
+  .hero .profile div{background:#fafbfc;border-color:#e3e8ee}
+  .voice,.panel,.note{break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">单校深度报告 · Serangoon · 政府自治混校</div>
+    <h1>中华中学<small>Zhonghua Secondary School（ZHSS）</small></h1>
+    <div class="sub"><b>先说结论：17 分报这所，差 5 分</b>（PG3 区间 8–12），是两所里门槛更高的一所。但它有别的学校少有的东西：<b>1911 年创校（新加坡第一所华文女校）、艺术选修课程 AEP（全岛首批、第一所混校开设）、以及一整套以新加坡真实数据为基础的 Eco Heroes 永续课程</b>。离 NE12 Serangoon 站步行 446m，比圣加布里埃尔还近。</div>
+    <div class="profile">
+      <div><div class="k">PG3 区间（2025）</div><div class="v">8 – 12</div></div>
+      <div><div class="k">AL 17 余量</div><div class="v">-5 分</div></div>
+      <div><div class="k">步行（自 828765）</div><div class="v">99 分钟</div></div>
+      <div><div class="k">地铁</div><div class="v">27 分钟</div></div>
+      <div><div class="k">通勤计分</div><div class="v">27 分钟（地铁）</div></div>
+      <div><div class="k">建校</div><div class="v">1911 年</div></div>
+      <div><div class="k">身份</div><div class="v">政府学校 · 自治</div></div>
+      <div><div class="k">IP / SAP</div><div class="v">否 / 否（有 AEP）</div></div>
+      <div><div class="k">最近站（站到校）</div><div class="v">NE12/CC13 Serangoon · 446m</div></div>
+    </div>
+    <div class="addr">13 Serangoon Avenue 3, S556123　·　最近站 CC13/NE12 SERANGOON，步行约 446m</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 30 秒判断</a>
+  <a href="#s2">② 学校底色与校史</a>
+  <a href="#s3">③ 学业与升学出路</a>
+  <a href="#s4">④ 旗舰项目</a>
+  <a href="#s5">⑤ CCA 全解析</a>
+  <a href="#s6">⑥ 真实声音</a>
+  <a href="#s7">⑦ 开放日必问清单</a>
+  <a href="#s8">⑧ 数据来源与可信度</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>先说清楚这份报告怎么写的。</b>COP、CCA、DSA 来自 <b>MOE SchoolFinder</b>；校史、愿景、六大特色项目细节来自<b>学校官网</b>与 <b>MOE Heritage Centre 校史档案</b>。这所学校的关键点是<b>它是政府自治学校、有 AEP 艺术选修、但没有 IP / SAP</b>——网上常把它和隔壁的顶尖女校混为一谈，第 8 节逐条纠偏。
+</div>
+
+<!-- ============ 1 ============ -->
+<section>
+<h2 id="s1"><span class="n">01</span>30 秒判断</h2>
+<p class="lead">一句话：<b>这是一所「百年老校 + 艺术选修 AEP + 永续教育」的政府自治混校</b>——站距全两所里最近（446m），课程结构完整；但 PG3 上限 12，<b>17 分差 5 分</b>，是明显够不着的一档。</p>
+
+<div class="warnbox">
+<b>把分数说在前面：17 分报这所，差 5 分。</b>2025 年 PG3 区间 <b>8–12</b>，最后一名录取生是 12 分。<b>你高出上限 5 分——不是「差一点」，是超出录取范围。</b>COP 年际浮动 1–2 分，<b>5 分差距基本无法靠爆冷覆盖</b>。
+<br><br>
+<b>那为什么还做这份报告？</b>两个理由：① 它是判断同区学校的<b>标尺</b>——知道 12 分能进什么样的学校，才知道自己 17 分该把期望放在哪里；② 它是<b>全岛少数开设 AEP（艺术选修课程）的学校</b>，如果家里有更小的孩子、或艺术是长期方向，这份档案直接可用。
+</div>
+
+<div class="grid2">
+  <div class="panel">
+    <h4>它的条件好在哪里</h4>
+    <ul>
+      <li><b>站距 446m</b>——NE12/CC13 Serangoon 站步行约 6 分钟，是两所里最近的</li>
+      <li><b>1911 年创校</b>，新加坡第一所华文女校，百年老校，有完整的校史馆</li>
+      <li><b>艺术选修 AEP</b>：2010 年全岛第一所开设 AEP 的混校，四年制艺术课程</li>
+      <li><b>Eco Heroes 永续课程</b>：中二全员，用新加坡真实数据（ waste、粮食、水、能源、生态）做设计思维项目</li>
+    </ul>
+  </div>
+  <div class="panel muted">
+    <h4>现实约束</h4>
+    <ul>
+      <li><b>分数差 5 分</b>——PG3 上限 12，17 分超出，是当前最硬的问题</li>
+      <li><b>没有 IP，也不是 SAP</b>——虽有 AEP 与自治身份，但不是直通车学校</li>
+      <li>特色项目（AEP、TDP）多为<b>选拔制</b>，未必全员覆盖</li>
+      <li><b>不公布 O-Level 成绩</b>，学术水平只能靠开放日问</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verdict">
+  <h3>三个要记住的数字</h3>
+  <ul>
+    <li><b>PG3 8–12</b>：17 分差 5 分。下限 8 分说明它能收到很好的生源，是这一带门槛较高的学校。</li>
+    <li><b>446m / 约 6 分钟</b>：到 NE12/CC13 Serangoon 双线站的步行距离——站距是它的强项。</li>
+    <li><b>1911 年 / 115 年</b>：2026 年正是它的 115 周年。从华文女校到政府自治混校，校史本身就是一部新加坡教育史。</li>
+  </ul>
+</div>
+</section>
+<!-- ============ 2 ============ -->
+<section>
+<h2 id="s2"><span class="n">02</span>学校底色与校史</h2>
+<p class="lead">这所学校的校史在本次两所里最有分量：<b>1911 年创校，是新加坡第一所华文女校</b>。它从女校起步，经历华文教育、英文源流、混校化、自治、艺术卓越中心，一路走到今天。读它的校史，基本就是读新加坡华文教育的一段缩影。</p>
+
+<h3>它对自己的定位</h3>
+<table>
+<thead><tr><th style="width:130px">项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td><b>愿景</b></td><td><b>Nurturing Passionate Learners, Dynamic Leaders & Connected Citizens</b><br><span class="soft">培养热切的学习者、有活力的领导者、与世界相连的公民</span></td></tr>
+<tr><td><b>价值观</b></td><td><b>RICE</b>：Resilience 韧性 · Integrity 诚信 · Care 关怀 · Excellence 卓越</td></tr>
+<tr><td><b>四大教育支柱</b></td><td>STEAM 教育 · 永续发展教育 · 品格教育 · Glocal（全球-本地）教育</td></tr>
+<tr><td><b>身份</b></td><td>政府学校 · <b>自治（Autonomous）</b> · 混校 · 有 AEP 艺术选修</td></tr>
+</tbody>
+</table>
+
+<h3>校史关键节点</h3>
+<table>
+<thead><tr><th style="width:110px">年份</th><th>事件</th></tr></thead>
+<tbody>
+<tr><td><b>1911</b></td><td>以 <b>Chung Hwa Girls' School</b> 创校——<b>新加坡第一所华文女校</b></td></tr>
+<tr><td><b>1951</b></td><td>小学部与中学部分开，中学部称 Chung Hwa Girls' High School，位于 Bartley Road</td></tr>
+<tr><td><b>1957</b></td><td>成为政府辅助学校</td></tr>
+<tr><td><b>1980</b></td><td>首次招收英文源流学生</td></tr>
+<tr><td><b>1984</b></td><td>成为<b>混校</b>、完全政府学校，改名 Chung Hwa High School</td></tr>
+<tr><td><b>1987</b></td><td>改名 <b>Zhonghua Secondary School</b>，迁往 Serangoon Avenue 4</td></tr>
+<tr><td><b>1996</b></td><td>获得<b>自治学校（Autonomous）</b>地位</td></tr>
+<tr><td><b>2000</b></td><td>迁至现址 <b>Serangoon Avenue 3</b></td></tr>
+<tr><td><b>2005</b></td><td>成为<b>视觉艺术卓越中心</b>，艺术馆与中心正式开幕</td></tr>
+<tr><td><b>2010</b></td><td><b>全岛第一所开设艺术选修课程 AEP 的混校</b></td></tr>
+<tr><td><b>2013</b></td><td>成为南区<b>科学卓越中心</b></td></tr>
+<tr><td><b>2021 / 2026</b></td><td>110 周年开设校史馆（Heritage Gallery）；<b>2026 年迎来 115 周年</b></td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>「自治学校」是什么，不是什么。</b>自治（Autonomous）意味着学校在课程、招生、资源运用上有更大自主权，通常有更强的特色项目——这所的 AEP、TDP、Eco Heroes 都与此有关。<b>但它不是 IP（直通车）、也不是 SAP（特别辅助计划）</b>。网上常把「自治」误读成「半直通」，这是错的，第 8 节会再点一次。
+</div>
+
+<h3>从「华文女校」到「艺术与科学双卓越」</h3>
+<p>这所学校有一条很清晰的转型线：<b>从华文教育的根基出发，逐步叠加英文源流、混校化、艺术卓越、科学卓越</b>。今天的定位是「Future-Ready」——四个支柱（STEAM、永续、品格、Glocal）加六大特色项目，把百年老校的资源摊到了新方向上。</p>
+<p class="soft" style="font-size:13.2px">对择校的实际含义：<b>它的文化沉淀是真有的（115 年、校史馆、校友会），而不是新校靠宣传词撑起来</b>。但同时它的课程重心已经很「现代」——艺术、永续、STEAM 都是当下热门方向。</p>
+</section>
+<!-- ============ 3 ============ -->
+<section>
+<h2 id="s3"><span class="n">03</span>学业与升学出路</h2>
+<p class="lead">这所学校<b>不公布 O-Level 成绩</b>。PG3 区间 8–12 是判断生源最硬的证据——下限 8 分，上限 12 分，是这一带门槛明显偏高的一所。</p>
+
+<h3>生源结构说明了什么</h3>
+<ul>
+  <li><b>PG3 下限 8 分</b>——能收到接近顶尖的学生，生源上限很高</li>
+  <li><b>上限 12 分</b>——比绝大多数邻里中学严格（对比：St. Gabriel's 非附属 10–15、Bendemeer 11–22）</li>
+  <li><b>17 分超出上限 5 分</b>——不是边缘，是明显够不着</li>
+</ul>
+<p>换句话说：这所学校收的是<b>中上到较好的生源</b>。它的自治身份、AEP 与科学卓越中心地位，让它能吸引比一般邻里中学更强的学生。<b>对 17 分的考生，它只能当参照标尺，不能当目标。</b></p>
+
+<h3>课程结构：四大支柱 + 六大特色项目</h3>
+<p>学校的课程框架以 <b>RICE 价值观</b>为核心，向外展开四大支柱，再落到六个特色项目：</p>
+<table>
+<thead><tr><th style="width:170px">支柱</th><th>对应项目 / 内容</th></tr></thead>
+<tbody>
+<tr><td><b>STEAM 教育</b></td><td>培养批判性、适应性与创新性思维；Talent Development Programme 的 STEAM Research</td></tr>
+<tr><td><b>永续发展教育</b></td><td>Eco Stewardship / Eco Heroes 计划，五大永续主题</td></tr>
+<tr><td><b>品格教育</b></td><td>RICE 价值观、Student Leadership Programme、服务学习</td></tr>
+<tr><td><b>Glocal 全球-本地教育</b></td><td>Cross Cultural Programme：文化节、学习之旅、海外交流</td></tr>
+</tbody>
+</table>
+<p>另有 <b>Digital Literacy Programme</b>（中一：设备使用、故障排查、编程）与 <b>AEP 艺术选修</b>作为两条贯穿线。整体课程设计的完整度，在同类学校里属于上游。</p>
+
+<div class="verdict">
+  <h3>毕业生去向怎么判断</h3>
+  <ul>
+    <li><b>直接证据：没有。</b>官网未公布升学分布。</li>
+    <li><b>间接判断：</b>PG3 8–12 的生源，加上自治学校与特色项目，出口通常不差——但没有公开数据，不能写成承诺。</li>
+    <li><b>开放日要问：</b>「AEP 学生毕业后的升学方向？」「TDP 的 IvP 项目对申请大学有什么实际帮助？」「上一届 JC 资格率？」</li>
+  </ul>
+</div>
+</section>
+<!-- ============ 4 ============ -->
+<section>
+<h2 id="s4"><span class="n">04</span>旗舰项目：艺术与永续的双主线</h2>
+<p class="lead">这所学校的特色项目不是一两个点缀，而是<b>六个成体系的项目</b>。其中最能代表它的，是<b>艺术选修 AEP</b>和<b>用真实数据做项目的 Eco Heroes</b>。</p>
+
+<h3>AEP：Art Elective Programme（艺术选修课程）</h3>
+<p>这是这所学校最硬的一张牌。<b>2010 年开办，是全岛第一所开设 AEP 的混校</b>（此前 AEP 只在女校开设）。它是<b>四年制</b>艺术课程，培养目标写得很明确：<b>Practitioners, Scholars, Advocates and Leaders in Art and the Arts</b>（艺术的实践者、学者、倡导者与领导者）。</p>
+
+<table>
+<thead><tr><th style="width:170px">环节</th><th>具体内容</th></tr></thead>
+<tbody>
+<tr><td><b>课程结构</b></td><td>四年制，强调<b>情境化学习</b>——把艺术技能用在真实议题上；同时打扎实的艺术理论基础</td></tr>
+<tr><td><b>教学法</b></td><td>2012 年起引入 <b>Lincoln Centre Education（LCE）</b>框架，用问题导向与探究式教学，十项能力从「深度观察」到「反思评估」</td></tr>
+<tr><td><b>跨校协作</b></td><td>中一、中三 AEP 学生与其他学校的 AEP 学生一起工作坊、<b>联合展览</b></td></tr>
+<tr><td><b>展示平台</b></td><td>校内 <b>Aesthetics Week AEP Showcase</b>、毕业展 <b>Exposé 90 Graduates' Art Exhibition</b>、校际 AEP 展</td></tr>
+<tr><td><b>社区角色</b></td><td>中一至中二参与社区艺术项目；中三至中四<b>为同学和小学生开艺术工作坊</b></td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>AEP 是选拔制，不是全员。</b>它是 MOE 的正式艺术选修课程，需要申请与甄选。<b>对 17 分的考生，先过录取关才谈得上 AEP</b>——这一节的价值在于判断「这所学校的艺术教育是不是真有东西」，答案是：有，而且是全岛第一梯队。
+</div>
+
+<h3>Eco Heroes：用新加坡真实数据做永续项目</h3>
+<p>这是中二<b>全员</b>参与的 STEM 课程，也是我觉得这所学校最有意思的设计。它不是泛泛地讲环保，而是<b>给五个跟新加坡切实相关的主题，配真实数据与设计思维流程</b>：</p>
+
+<table>
+<thead><tr><th style="width:170px">主题</th><th>对应的联合国 SDG 与真实数据</th></tr></thead>
+<tbody>
+<tr><td><b>废弃物管理</b></td><td>SDG 12。2022 年新加坡产生约 <b>740 万吨</b>垃圾；Semakau 填埋场预计 <b>2035 年</b>用尽；2022 年家庭回收率跌至 <b>12%</b></td></tr>
+<tr><td><b>粮食安全</b></td><td>SDG 2。新加坡<b>超过 90% 食物靠进口</b>，易受全球供应冲击</td></tr>
+<tr><td><b>水资源限制</b></td><td>SDG 6。用水需求预计到 <b>2060 年翻倍</b>；传统水源依赖降雨</td></tr>
+<tr><td><b>能源来源</b></td><td>SDG 7。承诺 <b>2050 年净零排放</b>；可再生选项有限，主要靠天然气</td></tr>
+<tr><td><b>生物多样性</b></td><td>SDG 15。栖息地因发展而破碎化，边缘地带受光／噪音污染</td></tr>
+</tbody>
+</table>
+
+<p>学生的流程是完整的：<b>设计调查问卷 → 定义问题（为什么人们行动或不行动）→ 头脑风暴方案 → 制作原型并测试</b>。同时学数据分析与信息图表——用真实数据讲故事。</p>
+
+<div class="voice">
+  <div class="who">官网对「Data Literacy」的说明</div>
+  <p>「数据素养意味着能有效『读』与『写』数据——在我们每天沉浸于大数据的时代，这是一项面向未来的技能。」学生要学会识别需要什么数据、通过问卷／政府公开数据／观察／访谈去收集、再用常用工具分析并做成图表或信息图。</p>
+  <p class="soft" style="font-size:13.2px">这一节 crossover 到数学（统计）、人文（资料解读）、英语（简报）、科学（数据分析），<b>是真正的跨学科项目，而不是一门孤立的「环保课」</b>。如果孩子喜欢「用数据解决真实问题」，这个设计很扎实。</p>
+</div>
+
+<h3>Talent Development Programme（TDP）：高能力学生的四年课程</h3>
+<p>这是为<b>筛选出的高能力学生</b>设的四年进阶课程。中一通过<b>量化成绩 + 年级主任／班主任．科任老师推荐 + 面试</b>三重筛选。核心是<b>一年的 STEAM Research Programme</b>：在老师指导下做永续与宜居主题的研究项目，用创造性问题解决与设计思维框架，还有机会参加 MOE 资优教育处的 <b>Innovation Programme（IvP）</b>。另有公共演讲工作坊、网络安全工作坊（从破解加密信息入手）与年度 STEAM Festival。</p>
+<p class="soft" style="font-size:13.2px">注意：<b>TDP 也是选拔制</b>，目标是「为高层级国家评估平台打基础」——说白了就是为竞赛与升学铺路。它和 AEP 是两条不同的路（艺术 vs 科研），都指向「把好学生再往上推一层」。</p>
+</section>
+<!-- ============ 5 ============ -->
+<section>
+<h2 id="s5"><span class="n">05</span>CCA 全解析</h2>
+<p class="lead">MOE 登记 <b>9 项</b> CCA，学校官网按四类列出更完整的清单。<b>艺术类配置是这所的强项</b>——与它的 AEP 定位一致。</p>
+
+<h3>MOE 登记（9 项）</h3>
+<table>
+<thead><tr><th style="width:110px">类别</th><th>CCA</th></tr></thead>
+<tbody>
+<tr><td><b>表演艺术</b></td><td>Chinese Dance 华族舞蹈 · Chinese Orchestra 华乐团 · Choir 合唱团 · Concert Band 管乐团</td></tr>
+<tr><td><b>俱乐部</b></td><td>Infocomm Technology (Media Production) 资讯科技（媒体制作）</td></tr>
+<tr><td><b>制服团体</b></td><td>NCC (Land) 国民军校（陆）· NPCC 警察少年团</td></tr>
+<tr><td><b>体育</b></td><td>Table Tennis 乒乓（男）· Volleyball 排球（男）</td></tr>
+</tbody>
+</table>
+
+<h3>官网完整清单中另有的（按四类）</h3>
+<table>
+<thead><tr><th style="width:110px">类别</th><th>CCA</th></tr></thead>
+<tbody>
+<tr><td><b>俱乐部</b></td><td>Art Club 美术社 · Chinese Society 华文研究会（含戏剧、书法、棋艺）· ELDDS（英语戏剧 + 辩论）· Library 图书馆社 · Infocomm Club（摄影／编程／游戏设计／AI）</td></tr>
+<tr><td><b>表演艺术</b></td><td>Guzheng Ensemble 古筝合奏 · Dance 舞蹈 · ZWinds 管乐（与 Concert Band 对应）</td></tr>
+<tr><td><b>制服团体</b></td><td>Boys' Brigade 男童军 · Girls' Brigade 女童军 · NCDCC 民防少年团</td></tr>
+<tr><td><b>体育</b></td><td>Badminton 羽毛球（女）· Basketball 篮球（女）</td></tr>
+</tbody>
+</table>
+
+<div class="verdict">
+  <h3>对「兴趣匹配」的判断</h3>
+  <ul>
+    <li><b>艺术类是绝对强项</b>：华乐、古筝、合唱、管乐、华族舞蹈、美术——与 AEP 相互呼应，是全岛艺术社团配置最好的中学之一。</li>
+    <li><b>STEM / 编程有落点</b>：Infocomm Club 明确写了 videography、programming、game design、AI；加上 Eco Heroes 与 TDP 的数据／研究项目，科技线比圣加布里埃尔厚。</li>
+    <li><b>戏剧与辩论</b>：ELDDS 存在，但要看内部是否分开运作。</li>
+    <li><b>制服团体齐全</b>：男童军、女童军、NCC、NPCC、NCDCC、童军都有，选择面宽。</li>
+    <li><b>游泳、烹饪：官网未见。</b></li>
+  </ul>
+</div>
+
+<h3>用 DSA 名单反推强项</h3>
+<p>DSA 开 <b>10 项</b>：</p>
+<p style="font-size:14.4px">
+<span class="tag b">Chinese Dance 华族舞蹈</span>
+<span class="tag b">Chinese Orchestra 华乐</span>
+<span class="tag b">Choir 合唱</span>
+<span class="tag b">Concert Band 管乐</span>
+<span class="tag b">Guzheng Ensemble 古筝合奏</span>
+<span class="tag b">Leadership & Character 领导力与品格</span>
+<span class="tag a">Badminton 羽毛球（女）</span>
+<span class="tag a">Basketball 篮球（女）</span>
+<span class="tag a">Table Tennis 乒乓（男）</span>
+<span class="tag a">Volleyball 排球（男）</span>
+</p>
+<p><b>6 项艺术 + 1 项领导力 + 3 项体育。</b>这个结构和 AEP 的定位完全一致：<b>艺术是这所学校对外招生的最强抓手</b>。<b>没有一项 STEM / 科技类 DSA</b>——科研强项（TDP）不走 DSA 通道。</p>
+</section>
+<!-- ============ 6 ============ -->
+<section>
+<h2 id="s6"><span class="n">06</span>真实声音与外部印证</h2>
+<p class="lead">这所学校的官网与 MOE 校史档案提供了比一般学校更完整的「自我叙述」。但我没有找到大量学生第一人称证言——所以这一节以可核到的官方表述为主，不拿网络软文填空。</p>
+
+<div class="voice">
+  <div class="who">学校官网对 AEP 的定位（原文标题）</div>
+  <p>「<b>Practitioners, Scholars, Advocates and Leaders in Art and the Arts</b>」——艺术与实践者、学者、倡导者、领导者的四重身份。</p>
+  <p class="soft" style="font-size:13.2px">这个定位的野心不小：<b>它不满足于「教学生画画」，而是要培养能在艺术领域带头的角色</b>。配合 LCE 框架、跨校工作坊、社区工作坊，这套设计确实把艺术从「兴趣」拉到了「专业养成」的层面。</p>
+</div>
+
+<div class="voice">
+  <div class="who">MOE Heritage Centre 校史档案对学校的总结</div>
+  <p>「其特色课程整合在三条教育主线之下——科技教育、环境与永续教育、全球视野教育——培养学生面向 21 世纪的竞争力。」（这是 2021 年前的官方表述；学校现改为四大支柱框架，见第 2、3 节）</p>
+  <p class="soft" style="font-size:13.2px">这里有一个值得注意的细节：<b>校史档案的三主线框架与官网现在的四支柱框架不同</b>。说明学校近年把「品格教育」从隐含提到了明面。<b>这类框架更新很常见，引用时要看年份</b>——本报告以官网现行版本为准。</p>
+</div>
+
+<h3>一条能看出现代方向的细节</h3>
+<p>学校 2021 年 110 周年时开设 <b>Heritage Gallery（校史馆）</b>，由教育部长陈振声出席开幕，并接受学生画作作为纪念。<b>一所百年老校同时经营「历史」与「艺术」两条线</b>——校史馆是历史，AEP 是艺术，两者互为支撑。这种「有根又有新方向」的气质，是这所学校和普通邻里中学最大的区别。</p>
+
+<div class="note">
+<b>关于「真实声音」的坦白：</b>能核到的学生第一人称内容有限，我不拿论坛匿名帖或软文来补。<b>这所学校的艺术与永续项目到底体验如何，开放日一定要看作品、问学生本人。</b>尤其是 AEP——作品质量比任何宣传文字都说明问题。
+</div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section>
+<h2 id="s7"><span class="n">07</span>开放日必问清单</h2>
+<p class="lead">前提：<b>17 分报这所差 5 分</b>，录取概率极低。以下清单更适合「作为参照标尺」或「家里有更小的孩子、艺术是长期方向」时使用。</p>
+<ol class="checklist">
+<li><b>这所的 PG3 上限这两年在 12 附近吗？有没有可能到 17？</b>——坦白说希望不大，但可以问老师对今年分数线的判断。</li>
+<li><b>AEP 怎么录取？是入学后再选拔，还是小六申请时就要报？</b>——艺术方向家庭最关心的问题，官网没写清遴选时点。</li>
+<li><b>AEP 每周几节课？和普通艺术课的比例？中三中四要不要选 Art 作为 O-Level 科目？</b>——判断艺术教育的实际强度。</li>
+<li><b>Exposé 90 毕业展、Aesthetics Week 是全员参与还是 AEP 专属？</b>——区分「学校艺术氛围浓」与「只有 AEP 学生受益」。</li>
+<li><b>Eco Heroes 是每个中二学生都做，还是只有某些班？项目成果去哪了？</b>——官网写全员，但要确认实际覆盖与产出。</li>
+<li><b>Talent Development Programme 怎么选？中一进去了是不是四年都不能退出？</b>——选拔制项目的进入与退出机制通常官网不写。</li>
+<li><b>有机器人或编程社团吗？Infocomm Club 的编程／AI 是真做还是介绍？</b>——想走科技方向的话，确认课外有没有延续。</li>
+<li><b>这是混校但 DSA 体育项目分男女，日常 CCA 是男女混合还是分开？</b>——了解社团的实际组织方式。</li>
+<li><b>从 NE12 站走到学校的 446m 好走吗？</b>——站距是强项，实地走一次最踏实。</li>
+<li><b>上一届 O-Level 的 JC 资格率、AEP 学生的升学去向？</b>——学校不公布，只能现场问。</li>
+</ol>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与可信度</h2>
+<p class="lead">A 级＝官方一手（MOE、学校官网、官方文件）；B 级＝权威二手（主流媒体、官方平台报道）；C 级＝网络整理，需现场核实。</p>
+<table>
+<thead><tr><th style="width:34%">内容</th><th>来源</th><th style="width:52px">可信度</th></tr></thead>
+<tbody>
+<tr><td><b>PG3 区间 8–12（17 分差 5 分）</b></td><td>MOE SchoolFinder（2025 年度 S1 Posting）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>1911 创校 / 第一所华文女校 / 各次更名迁校 / AEP 与科学卓越中心</b></td><td>MOE Heritage Centre 校史档案</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>愿景 / RICE 价值观 / 四大教育支柱</b></td><td>学校官网 Signature Programmes Framework</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>AEP 四年制、LCE 框架、跨校工作坊、Exposé 90 毕业展</b></td><td>学校官网 AEP 页（2026-07-02 更新）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>Eco Heroes 五大主题、SDG、新加坡真实数据、设计思维流程</b></td><td>学校官网 Eco Stewardship Programme 页（2026-07-22 更新）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>TDP 四年课程、三重筛选、STEAM Research、IvP、工作坊</b></td><td>学校官网 Talent Development Programme 页（2026-08-25 更新）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>Digital Literacy / Cross Cultural / Student Leadership 项目</b></td><td>学校官网 Zhonghua Signature Programmes 页（2026-09-29 更新）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>CCA 完整清单（四类）</b></td><td>学校官网 CCA 各分类页</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>MOE 登记 9 项 CCA</b></td><td>MOE SchoolFinder（<b>不完整</b>）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>DSA 10 个项目</b></td><td>MOE SchoolFinder + 学校官网</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>110 周年校史馆 / 2021 年开幕</b></td><td>MOE Heritage Centre 校史档案</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td><b>O-Level 成绩 / 升学分布</b></td><td><b>官网未公布</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+<tr><td><b>NE12/CC13 Serangoon 站 446m / 通勤时间</b></td><td>OneMap 站点坐标 + OSM 步行路网 + MRT 网络模型</td><td class="mid"><span class="tag a">A</span></td></tr>
+</tbody>
+</table>
+<h3>我剔除掉的错误信息</h3>
+<p>网上流传的择校资料里，这所学校有几条被反复抄错的数字。我逐条回到一手来源核对过：</p>
+<table>
+<thead><tr><th style="width:34%">流传的说法</th><th>实际情况</th></tr></thead>
+<tbody>
+<tr><td>「Zhonghua 是 IP 直通车 / SAP 学校」</td><td><b>都不是</b>。它是政府自治学校（Autonomous），有 AEP 艺术选修，但没有 IP、没有 SAP。网上把「自治」误读成「半直通」是错的。</td></tr>
+<tr><td>「中华中学是女校」</td><td>历史上是——<b>1911 年创校时是新加坡第一所华文女校</b>。但<b>1984 年起已是混校</b>，招收男女学生。</td></tr>
+<tr><td>「PG3 上限 15 左右，17 分有希望」</td><td>2025 年 PG3 是 <b>8–12</b>，上限 12，17 分<b>差 5 分</b>——比隔壁 St. Gabriel's 非附属线还严。</td></tr>
+<tr><td>「Eco Heroes 就是普通环保讲座」</td><td><b>是全员参与的数据驱动的 STEM 项目</b>：中二学生用新加坡真实数据（740 万吨垃圾、90% 食物进口、2060 用水翻倍等）走完整的问卷—定义问题—原型—测试流程。</td></tr>
+<tr><td>「AEP 是全岛每所中学都有」</td><td><b>不是</b>。AEP 是 MOE 的专门艺术选修课程，只有少数学校开设；Zhonghua 是 2010 年<b>第一所开设 AEP 的混校</b>，属全岛第一梯队。</td></tr>
+</tbody>
+</table>
+</section>
+
+<div class="foot">
+<b>报告生成：</b>2026-11-17　·　数据口径：COP 为 2025 年度 S1 Posting 结果，AL 17 属 PG3，只与同档学生竞争<br>
+<b>通勤模型：</b>步行 = 自 828765 出发的 <b>OSM 步行路网最短路径</b>（80m/min，OSRM foot profile；Valhalla pedestrian 交叉校验，两引擎分歧 &gt;1.4× 标「争议」并显示区间）；地铁 = MRT 站间 2 分钟、换乘 5 分钟、进站等车 4 分钟 + 站到校步行；<b>两者取最快者用于通勤评分</b>。不含巴士接驳，故步行路网不通、必须坐车的学校实际更慢<br>
+<b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
+</div>
+
+</div>
+</body>
+</html>
