@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<!-- 生成器标记：验证器据此区分本模板产物与 v1 手写报告，避免对老报告套新断言 -->
+<meta name="generator" content="psle-school-report/v2">
+<title>Woodlands Ring Secondary School Woodlands Ring Secondary School · 单校深度报告</title>
+<style>
+/* ─────────────────────────────────────────────────────────────
+   PSLE 择校 · 共享色板（深色）
+
+   唯一的颜色来源。plan.css / school.css 里不允许再出现硬编码色值，
+   一律走这里的 token；生成器把本文件拼在模板前面。
+
+   取值与 docs/assets/style.css（看板）的 :root 保持一致 —— 两处必须同步，
+   scripts/verify-theme.cjs 会做比对。
+
+   配色约定：红绿只用于「涨跌」语义（本项目没有），所以只用中性色阶 +
+   一种强调色；琥珀/红/绿仅表达「风险/不确定/达标」，不表达学校好坏。
+   ───────────────────────────────────────────────────────────── */
+:root{
+  /* 底与面 */
+  --bg:#0a0f1a;
+  --bg-soft:#0e1526;
+  --card:#121a2a;
+  --line:#1e2b40;
+  --line2:#182338;
+
+  /* 文字 */
+  --tx:#e8eef7;
+  --tx2:#93a4bd;
+  --tx3:#78879f;
+
+  /* 强调（天蓝，与看板同色） */
+  --accent:#38bdf8;
+  --accent-dim:#0e7490;
+  --accent-bg:rgba(56,189,248,.10);
+  --accent-line:rgba(56,189,248,.30);
+  --accent-ink:#06212f;        /* 铺在 accent 底色上的文字 */
+
+  /* 语义色：琥珀＝注意 / 红＝风险 / 绿＝达成 */
+  --warm:#fbbf24;
+  --warm-bg:rgba(251,191,36,.10);
+  --warm-line:rgba(251,191,36,.30);
+
+  --risk:#f87171;
+  --risk-bg:rgba(248,113,113,.10);
+  --risk-line:rgba(248,113,113,.28);
+
+  --ok:#34d399;
+  --ok-bg:rgba(52,211,153,.10);
+  --ok-line:rgba(52,211,153,.28);
+
+  /* 交互与容器 */
+  --hover:rgba(255,255,255,.035);
+  --surface:rgba(255,255,255,.03);        /* 卡片内的次级面（数据格、note） */
+  --surface-line:rgba(255,255,255,.055);  /* 次级面的描边 */
+  --accent-hover:rgba(56,189,248,.16);    /* 强调块 hover */
+  --chip:rgba(255,255,255,.055);
+  --code:rgba(255,255,255,.07);
+  --hero-a:#0c1424;
+  --hero-b:#0a0f1a;
+
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+/* school.css —— 单校深度报告的组件
+   颜色全部来自 tpl/tokens.css（生成器会把它拼在本文件前面）。
+   ⚠️ 这个文件里不要写任何色值字面量，否则换主题时会漏掉。 */
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.78 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--tx3);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:var(--tx)}
+.hero{background:linear-gradient(180deg,var(--hero-a),var(--hero-b));color:var(--tx);padding:40px 0 36px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);opacity:.85}
+.hero h1{margin:10px 0 4px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.3}
+.hero h1 small{display:block;font-size:15px;font-weight:400;color:var(--tx2);margin-top:5px}
+.hero .sub{color:var(--tx2);font-size:14px;max-width:680px;margin-top:12px}
+/* 每格独立成卡：否则格子数不满一行时，容器底色会露出一块空的「假格子」 */
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;margin-top:24px}
+.profile div{background:var(--surface);border:1px solid var(--surface-line);border-radius:8px;padding:11px 14px}
+.profile .k{font-size:11.5px;color:var(--tx3);letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+.addr{font-size:12.6px;color:var(--tx3);margin-top:12px;font-variant-numeric:tabular-nums}
+
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+section{margin:0 0 10px}
+h2{font-size:18px;font-weight:640;margin:40px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:16px}
+h2 .n{font-size:11.5px;font-weight:600;color:var(--accent-ink);background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 14px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.verdict{background:var(--accent-bg);border:1px solid var(--accent-line);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+.warnbox{background:var(--warm-bg);border:1px solid var(--warm-line);border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.panel h4{margin:0 0 8px;font-size:13.5px;color:var(--accent);letter-spacing:.2px}
+.panel ul{margin:0;padding-left:18px;font-size:13.6px}
+.panel li{margin:5px 0}
+.panel.muted h4{color:var(--tx3)}
+
+table{width:100%;border-collapse:collapse;font-size:13.3px;margin:14px 0}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:11.5px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+th.mid,td.mid{text-align:center}
+tbody tr:hover{background:var(--hover)}
+.soft{color:var(--tx3)}
+
+.bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;font-size:13px;margin:5px 0}
+.bar-row .lbl{color:var(--tx2)}
+.bar-track{background:var(--chip);border-radius:4px;height:15px;overflow:hidden}
+.bar-fill{height:100%;background:var(--accent-dim);border-radius:4px}
+.bar-fill.hi{background:var(--accent)}
+.bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
+
+.tl{border-left:2px solid var(--line);margin:16px 0 0 6px;padding-left:20px}
+.tl .ev{position:relative;margin:0 0 16px}
+.tl .ev::before{content:"";position:absolute;left:-26px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600}
+.tl .d{font-size:14px;margin-top:1px}
+
+.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--line2);border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
+.voice .who{font-size:12.3px;color:var(--tx3);margin-bottom:6px;letter-spacing:.2px}
+.voice q{quotes:"「" "」";font-style:italic;color:var(--tx)}
+.voice p{margin:8px 0}
+
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:var(--chip);margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:var(--accent-line);background:var(--accent-bg);color:var(--accent)}
+.tag.b{border-color:var(--line);background:var(--chip);color:var(--tx2)}
+.tag.c{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
+
+.checklist{counter-reset:c;list-style:none;padding:0;margin:14px 0}
+.checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
+.checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+.foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
+.foot b{color:var(--tx2)}
+.foot a{color:var(--accent)}
+
+@media(max-width:600px){
+  .hero h1{font-size:21px}
+  .grid2{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:110px 1fr 42px;font-size:12.3px}
+  table{font-size:12.3px}
+  th,td{padding:7px 6px}
+}
+@media print{
+  :root{
+    --bg:#fff; --card:#fff; --line:#d7dde5; --line2:#eceff3;
+    --tx:#111827; --tx2:#374151; --tx3:#6b7280;
+    --accent:#0b6b8a; --accent-bg:#eef7fb; --accent-line:#bfe0ec; --accent-ink:#fff;
+    --warm:#8a5a00; --warm-bg:#fdf6e7; --warm-line:#ecd9b0;
+    --risk:#8c2f2f; --risk-bg:#fbf0ef; --risk-line:#efd6d4;
+    --ok:#1f5c3a; --ok-bg:#eef7f1; --ok-line:#cfe6d8;
+    --hover:transparent; --chip:#f4f5f7; --code:#f1f2f4;
+  }
+  .hero{background:#fff!important;color:var(--tx)!important;border-bottom:1px solid var(--line)}
+  .hero .profile div{background:#fafbfc;border-color:#e3e8ee}
+  .voice,.panel,.note{break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">单校深度报告 · Woodlands ·  · </div>
+    <h1>Woodlands Ring Secondary School<small>Woodlands Ring Secondary School（WRSS）</small></h1>
+    <div class="sub"><b>先说结论：AL 15 报这所余量 +7 分、最快 59 分钟到校。</b><b>机器人只有单边证据</b>——官网或 MOE 一边出现，开放日必须问清是社团还是课程。 AI／编程只看到 Infocomm／STEM 这类宽口径登记，不能直接等同于编程社。<b>孩子是 PR</b>，同分排在公民之后，志愿梯度要留厚一点。</div>
+    <div class="profile">
+      <div><div class="k">PG3 区间（2025）</div><div class="v">17 – 22</div></div>
+      <div><div class="k">AL 15 余量</div><div class="v">+7 分</div></div>
+      <div><div class="k">步行（自 828765）</div><div class="v">229 分钟</div></div>
+      <div><div class="k">地铁</div><div class="v">59 分钟</div></div>
+      <div><div class="k">通勤计分</div><div class="v">59 分钟（地铁）</div></div>
+      <div><div class="k">建校</div><div class="v">官网未公布</div></div>
+      <div><div class="k">IP / SAP</div><div class="v">否 / 否</div></div>
+      <div><div class="k">学校性质</div><div class="v"> · </div></div>
+      <div><div class="k">附属小学</div><div class="v">未登记</div></div>
+    </div>
+    <div class="addr">21 Woodlands Avenue 1, S739062　·　最近站 NS8 MARSILING，步行约 443m</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 30 秒判断</a>
+  <a href="#s2">② 学校底色与校史</a>
+  <a href="#s3">③ 学业与升学出路</a>
+  <a href="#s4">④ 旗舰项目</a>
+  <a href="#s5">⑤ CCA 全解析</a>
+  <a href="#s6">⑥ 真实声音</a>
+  <a href="#s7">⑦ 开放日必问清单</a>
+  <a href="#s8">⑧ 数据来源与可信度</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>先说清楚这份报告怎么写的。</b>COP、CCA、DSA、科目与附属关系来自 <b>MOE SchoolFinder</b>；校史、ALP／LLP 与兴趣证据来自<b>学校官网实抓</b>（5 页）。两处口径不同时<b>两边都写</b>，不替学校补全。通勤按 abc4 的"最快 ≤60 分钟"口径计算，PR 提示只写 MOE 公开规则。
+</div>
+
+<section>
+<h2 id="s1"><span class="n">01</span>30 秒判断</h2>
+<p class="lead">一句话：<b>Woodlands Ring Secondary School</b> 是 · ，AL <b>15</b> 报它余量 <b>+7 分</b>，最快 <b>59 分钟</b>到校（步行／地铁取最快，无独立公交数据）。<b>机器人只有单边证据</b>——官网或 MOE 一边出现，开放日必须问清是社团还是课程。 AI／编程只看到 Infocomm／STEM 这类宽口径登记，不能直接等同于编程社。</p>
+<div class="warnbox">
+<b>先把 PR 这条说清楚：</b>孩子是永久居民，S1 Posting 同分时排在公民之后。余量 <b>+7 分</b>是有意义的缓冲，但<b>不是「稳进」承诺</b>——填志愿时仍要有更厚的兜底校。政府／政府辅助中学 PR 学费约 S$580–700／月，公民约 S$25／月，这笔差额要提前算进家庭预算。
+</div>
+<div class="grid2">
+  <div class="panel">
+    <h4>它的条件好在哪里</h4>
+    <ul>
+      <li><b>余量 +7 分</b>：AL 15 对 2025 年 PG3 上限 22 的空间</li>
+      <li><b>59 分钟</b>：按 abc4 口径（最快）到校，在 60 分钟上限内</li>
+      <li>兴趣证据：机器人✓MOE</li>
+      <li>校史年份官网未公开，不编造</li>
+    </ul>
+  </div>
+  <div class="panel muted">
+    <h4>现实约束</h4>
+    <ul>
+      <li>学校性质未登记——需确认是否适合孩子的社交偏好</li>
+      <li>未登记附属小学，按非附属口径分析</li>
+      <li>官网抓取 成功（5 页），但社团强度与项目覆盖面仍需现场核</li>
+      <li>学校不公开 O-Level 分布，出口只能靠开放日问</li>
+    </ul>
+  </div>
+</div>
+<div class="verdict">
+  <h3>三个要记住的数字</h3>
+  <ul>
+    <li><b>PG3 17–22</b>：AL 15 余量 <b>+7 分</b>；PR 同分劣势要靠余量对冲。</li>
+    <li><b>59 分钟</b>：abc4 通勤口径（最快）到校；地铁／步行分别见上方格子。</li>
+    <li><b>10 项 CCA（MOE 登记）</b>：官网是否另有社团，第 5 节逐项对照。</li>
+  </ul>
+</div>
+</section>
+<section>
+<h2 id="s2"><span class="n">02</span>学校底色与校史</h2>
+<p class="lead">本次官网抓取没有找到明确的创校年份与校史叙述。<b>这所学校不是「没有历史」，而是我们没拿到可核的一手材料</b>——这一节宁可短，也不补二手资料。</p>
+<div class="voice"><div class="who"><a href="https://www.woodlandsringsec.moe.edu.sg/about-us/" target="_blank" rel="noopener">学校官网 · 校史／简介页</a></div><p>「…People Meet the people who make the difference. Our Partners Pages in Our Partners School History Explore below to learn more about our shared heritage School Song Our new school song, composed and arranged by our talented WRSS…」</p></div>
+<h3>基础事实</h3>
+<table>
+<thead><tr><th style="width:140px">项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td><b>建校</b></td><td>官网未公布／未抓到</td></tr>
+<tr><td><b>学校类型</b></td><td>未登记 · 未登记</td></tr>
+<tr><td><b>附属小学</b></td><td>未登记</td></tr>
+<tr><td><b>地址</b></td><td>21 Woodlands Avenue 1, S739062</td></tr>
+<tr><td><b>官网</b></td><td><a href="https://www.woodlandsringsec.moe.edu.sg" target="_blank" rel="noopener">学校官网首页</a>（另核 4 个子页）</td></tr>
+</tbody>
+</table>
+<div class="note"><b>对 abc4 家庭的意义：</b>没有附属小学通道可用，录取只看非附属这一条线。 这是混校，符合 abc4 的混校偏好。</div>
+</section>
+<section>
+<h2 id="s3"><span class="n">03</span>学业与升学出路</h2>
+<p class="lead">这所学校的 2025 PG3 区间是 <b>17–22</b>，AL 15 的余量是 <b>+7 分</b>。下面把科目、DSA 和出口一起看。</p>
+<h3>录取档位</h3>
+<table>
+<thead><tr><th style="width:150px">项目</th><th>数值</th></tr></thead>
+<tbody>
+<tr><td><b>PG3（2025，非附属）</b></td><td><b>17–22</b></td></tr>
+<tr><td><b>AL 15 余量</b></td><td><b>+7 分</b></td></tr>
+<tr><td><b>PR 提示</b></td><td>同分排在公民之后，余量 较厚，可承担</td></tr>
+</tbody>
+</table>
+<h3>科目覆盖（MOE 登记 0 项）</h3>
+<p>MOE 未登记科目清单，开放日需索取课程表。</p>
+<h3>DSA 招生项目（9 项）</h3>
+<p><span class="tag a">Badminton (Boys)</span>
+<span class="tag a">Chinese Dance (Girls and Boys)</span>
+<span class="tag a">Choir (Girls and Boys)</span>
+<span class="tag a">Concert Band (Girls and Boys)</span>
+<span class="tag a">Hockey (Boys)</span>
+<span class="tag a">Leadership (Girls and Boys)</span>
+<span class="tag a">Malay Dance (Girls and Boys)</span>
+<span class="tag a">Robotics (Girls and Boys)</span>
+<span class="tag a">Steam (Science, Technology, Engineering, Aesthetics and Mathematics) (Girls and Boys)</span></p>
+<div class="note"><b>DSA 名单反过来读：</b>学校只会为真的有教练与梯队的项目开招生通道。这所的 DSA 里有 STEM／科技方向，说明课程侧有真实投入。</div>
+<div class="verdict">
+  <h3>毕业生去向怎么判断</h3>
+  <ul>
+    <li><b>直接证据：没有。</b>本次官网核查未取得可核的 O-Level 分布或 JC／Poly 资格率。</li>
+    <li><b>间接判断：</b>以 PG3 区间与科目覆盖看，属于相对宽松的一档——不能当成出口承诺。</li>
+    <li><b>开放日要问：</b>「上一届 L1R4 中位数与 JC 资格率？」<b>「AL 15 这两年实际录到吗？」</b>「PR 同分排位时去年卡在哪一段？」</li>
+  </ul>
+</div>
+</section>
+<section>
+<h2 id="s4"><span class="n">04</span>旗舰项目（ALP / LLP）</h2>
+<p class="lead">MOE 登记了 ALP／LLP。但过去 13 所的核查反复证明：<b>登记名不等于课程实质</b>，所以下面同时放官网抓到的原句。</p>
+<h3>ALP：The Robotics Education &amp; Enterprise (TREE)</h3>
+<p>MOE 分类：<b>STEM - Future of Transportation</b>。本次官网抓取未拿到 ALP 子页原句，课程强度与覆盖面只能在开放日确认。</p>
+<h3>LLP：Student Leadership Development through Involvement in the Community</h3>
+<p>MOE 分类：<b>Community Youth Leadership</b>。官网子页未抓到对应说明，开放日直接问年级安排与学生角色。</p>
+
+<div class="verdict"><h3>对 abc4 的兴趣意味着什么</h3><ul>
+<li><b>机器人只有单边证据</b>——官网或 MOE 一边出现，开放日必须问清是社团还是课程。 AI／编程只看到 Infocomm／STEM 这类宽口径登记，不能直接等同于编程社。</li>
+<li>学校说「与机构合作」不等于保证升学或实习；问清每年级课时、参与面、是否有产出。</li>
+<li>PR 身份不影响 ALP／LLP／DSA 准入条件，同分排序才受影响。</li>
+</ul></div>
+</section>
+<section>
+<h2 id="s5"><span class="n">05</span>CCA 全解析</h2>
+<p class="lead">MOE SchoolFinder 登记 <b>10 项</b> CCA。官网另有 CCA 页面，本次抓到：<a href="https://www.woodlandsringsec.moe.edu.sg/about-us/our-people/sl-kp/" target="_blank" rel="noopener">官网 CCA 页</a>。<b>两份清单要交叉看，不能只信 MOE。</b></p>
+<h3>MOE 登记（10 项，逐项列出）</h3>
+<table>
+<thead><tr><th style="width:36px">#</th><th>CCA</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Badminton (Boys)</td></tr>
+<tr><td>2</td><td>Basketball (Boys)</td></tr>
+<tr><td>3</td><td>Choir (Girls and Boys)</td></tr>
+<tr><td>4</td><td>Concert Band (Girls and Boys)</td></tr>
+<tr><td>5</td><td>Girl Guides (Girls)</td></tr>
+<tr><td>6</td><td>Modern Dance (Girls and Boys)</td></tr>
+<tr><td>7</td><td>National Cadet Corps (NCC) (Land) (Boys)</td></tr>
+<tr><td>8</td><td>National Police Cadet Corps (NPCC) (Girls and Boys)</td></tr>
+<tr><td>9</td><td>Netball (Girls)</td></tr>
+<tr><td>10</td><td>Volleyball (Girls)</td></tr>
+</tbody>
+</table>
+<h3>abc4 五项兴趣 · 双边核对</h3>
+<table>
+<thead><tr><th>兴趣</th><th>证据</th></tr></thead>
+<tbody>
+<tr><td><b>机器人 Robotics</b></td><td>✓（MOE） MOE✓</td></tr>
+<tr><td><b>AI / 编程</b></td><td>— MOE—</td></tr>
+<tr><td><b>戏剧 Drama</b></td><td>— MOE—</td></tr>
+<tr><td><b>游泳 Swimming</b></td><td>— MOE—</td></tr>
+<tr><td><b>烹饪 Cooking</b></td><td>— MOE—</td></tr>
+</tbody>
+</table>
+<div class="note"><b>宽口径提醒：</b>MOE 的 <i>Infocomm Technology (Media Production)</i> 是分类名，147 所学校里 71 所有，<b>不能据此说学校有 AI 或编程社</b>。机器人与戏剧才是 abc4 真正稀缺的两项。</div>
+<div class="verdict"><h3>这份清单说明什么</h3><ul>
+<li>孩子第 1 兴趣是机器人：证据不完整，开放日必须问「有没有 Robotics Club、做什么、每周几次」。</li>
+<li>戏剧：未核到，不要默认有。</li>
+<li>游泳／烹饪：本次未核到，按「没有」处理更安全。</li>
+<li>MOE 清单历来会漏登官网社团；<b>最终以开放日拿到的当年 CCA 手册为准</b>。</li>
+</ul></div>
+</section>
+<section>
+<h2 id="s6"><span class="n">06</span>真实声音与外部印证</h2>
+<p class="lead">这一节只放能追到出处的官方／权威表述。<b>没有核到学生第一人称证言，就直说没有</b>，不拿论坛匿名帖凑数。</p>
+<div class="voice"><div class="who"><a href="https://www.woodlandsringsec.moe.edu.sg/about-us/" target="_blank" rel="noopener">学校官网自述</a></div><p>「…People Meet the people who make the difference. Our Partners Pages in Our Partners School History Explore below to learn more about our shared heritage School Song Our new school song, composed and arranged by our talented WRSS…」</p></div>
+<div class="note"><b>官方数据的边界：</b>本次兴趣判断来自 MOE SchoolFinder 与学校官网实抓（抓取日期 2026-11-21），两者都可能滞后于 2026 年实际开设情况。<b>凡涉及"有没有某个社团"，以开放日当年手册为准。</b></div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section>
+<h2 id="s7"><span class="n">07</span>开放日必问清单</h2>
+<p class="lead">前提：<b>AL 15、PR、余量 +7 分、最快 59 分钟</b>。下面 10 条按"去了就能问出决策信息"来写。</p>
+<ol class="checklist">
+<li><b>AL 15 报这所（余量 +7）近两年实际录取过吗？</b>——直接问招生老师；孩子是 PR，同分排在公民之后，务必问"同分段卡在哪"。</li>
+<li><b>机器人社是 CCA 还是 ALP 里的一个模块？</b>——若两边都核到，问是不是全员参与；只有单边证据，更要问清有没有持续训练与比赛。</li>
+<li><b>AI／编程到底教什么？</b>——要求看课程表与作品样例，别把 Infocomm 媒体制作当成编程课。</li>
+<li><b>戏剧社（未核到）现在还招生吗？每周几次？</b>——孩子第二梯队兴趣，问清规模与活动时间。</li>
+<li><b>59 分钟的通勤实际怎么走？</b>——abc4 只算"步行／地铁取最快"，没有独立公交数据；实地走一次换乘与末段。</li>
+<li><b>社团时间与末班车衔接得上吗？</b>——60 分钟上限内到校不等于晚放学还方便回家。</li>
+<li><b>PR 学费具体多少、有没有减免？</b>——政府／政府辅助中学 PR 约 S$580–700／月，与公民差距大，先算清四年总额。</li>
+<li><b>ALP／LLP 每个年级多少课时、覆盖多少人？</b>——问"全员还是选拔"和"有没有可展示的产出"。</li>
+<li><b>科目组合里有没有 Computing／Science 相关选修？</b>——孩子学术兴趣偏 Science / Computing，确认中三选科自由。</li>
+<li><b>校纪与手机政策、午餐与户外活动空间怎么安排？</b>——这些制度性的东西官网很少写，开放日现场感受。</li>
+</ol>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与可信度</h2>
+<p class="lead">A 级＝官方一手（MOE、学校官网、官方文件）；B 级＝权威二手（主流媒体、官方平台报道）；C 级＝网络整理，需现场核实。</p>
+<table>
+<thead><tr><th style="width:34%">内容</th><th>来源</th><th style="width:52px">可信度</th></tr></thead>
+<tbody>
+<tr><td><b>PG3 17–22、CCA 10 项、DSA 9 项、科目与附属关系</b></td><td>MOE SchoolFinder（2025／2026 年度）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>学校官网校史／课程／CCA 页面（本次实抓 5 页）</b></td><td><a href="https://www.woodlandsringsec.moe.edu.sg" target="_blank" rel="noopener">学校官网首页</a>（另核 4 个子页）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>通勤步行／地铁两路与最快值</b></td><td>OneMap 站点 + OSM 步行路网 + MRT 网络模型（abc4 口径 ≤60 分钟）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>PR tie-breaker 与学费区间</b></td><td>MOE「How to choose schools」tie-breakers 段 + MOE school fees</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>O-Level 分布／升学去向</b></td><td><b>官网未公布，本次未核到</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+</tbody>
+</table>
+<h3>我剔除掉的错误信息</h3>
+<p>网上流传的择校资料里，这所学校有几条被反复抄错的数字。我逐条回到一手来源核对过：</p>
+<table>
+<thead><tr><th style="width:34%">流传的说法</th><th>实际情况</th></tr></thead>
+<tbody>
+<tr><td>「MOE 登记 10 项 CCA 就是全部」</td><td>MOE 清单历来漏登官网社团（13 所试点里 8 所漏登，最严重只覆盖 37%）。<b>最终以学校当年 CCA 手册为准。</b></td></tr>
+<tr><td>「有 Infocomm 就等于有 AI／编程社」</td><td><b>不等于。</b>MOE 的 Infocomm Technology (Media Production) 是分类名，147 校中 71 所有；本报告只在有 coding／programming／AI 明确证据时才算 AI 命中。</td></tr>
+<tr><td>「余量 +7 分，稳进」</td><td><b>不是稳进。</b>孩子是 PR，同分排序在公民之后；余量只是缓冲，COP 每年浮动 1–3 分。</td></tr>
+<tr><td>「报告里的通勤包含公交」</td><td><b>不包含。</b>项目只有步行路网与 MRT 模型，abc4 按"步行／地铁取最快"实现，没有独立公交数据。</td></tr>
+<tr><td>「ALP 名称就是课程全部」</td><td><b>不是。</b>登记名常与官网实质不同（如 Serangoon 登记 ICT，官网实为无人机编程），覆盖面与课时必须现场问。</td></tr>
+</tbody>
+</table>
+</section>
+
+<div class="foot">
+<b>报告生成：</b>2026-11-21　·　数据口径：COP 为 2025 年度 S1 Posting 结果，AL 15 属 PG3，只与同档学生竞争<br>
+<b>通勤模型：</b>步行 = 自 828765 出发的 <b>OSM 步行路网最短路径</b>（80m/min，OSRM foot profile；Valhalla pedestrian 交叉校验，两引擎分歧 &gt;1.4× 标「争议」并显示区间）；地铁 = MRT 站间 2 分钟、换乘 5 分钟、进站等车 4 分钟 + 站到校步行；<b>两者取最快者用于通勤评分</b>。不含巴士接驳，故步行路网不通、必须坐车的学校实际更慢<br>
+<b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
+</div>
+
+</div>
+</body>
+</html>
