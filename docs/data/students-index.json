@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-17T13:47:15.450Z",
+ "generatedAt": "2026-11-21T14:39:52.109Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -12,7 +12,7 @@
    "maxCommuteMin": 45,
    "commuteMode": "fastest",
    "planSlug": "abc1-s1-choice-2026-v2",
-   "updatedAt": "2026-11-17T13:47:15.117Z",
+   "updatedAt": "2026-11-21T14:39:51.546Z",
    "plan": {
     "picks": [
      {
@@ -52,7 +52,7 @@
      "v2"
     ],
     "report": "reports/abc1-s1-choice-2026-v2.html",
-    "generatedAt": "2026-11-17T13:47:15.118Z"
+    "generatedAt": "2026-11-21T14:39:51.546Z"
    }
   },
   {
@@ -64,7 +64,7 @@
    "maxCommuteMin": 45,
    "commuteMode": "fastest",
    "planSlug": "abc2-s1-choice-2026",
-   "updatedAt": "2026-11-17T13:47:15.268Z",
+   "updatedAt": "2026-11-21T14:39:51.687Z",
    "plan": {
     "picks": [
      {
@@ -104,7 +104,7 @@
      "plan"
     ],
     "report": "reports/abc2-s1-choice-2026.html",
-    "generatedAt": "2026-11-17T13:47:15.268Z"
+    "generatedAt": "2026-11-21T14:39:51.687Z"
    }
   },
   {
@@ -116,7 +116,7 @@
    "maxCommuteMin": 40,
    "commuteMode": "walk",
    "planSlug": "abc3-s1-choice-2026",
-   "updatedAt": "2026-11-17T13:47:15.446Z",
+   "updatedAt": "2026-11-21T14:39:51.903Z",
    "plan": {
     "picks": [
      {
@@ -156,7 +156,59 @@
      "plan"
     ],
     "report": "reports/abc3-s1-choice-2026.html",
-    "generatedAt": "2026-11-17T13:47:15.447Z"
+    "generatedAt": "2026-11-21T14:39:51.904Z"
+   }
+  },
+  {
+   "id": "abc4",
+   "label": "abc4",
+   "al": 15,
+   "pgShort": "PG3",
+   "postal": "828765",
+   "maxCommuteMin": 60,
+   "commuteMode": "fastest",
+   "planSlug": "abc4-s1-choice-2026",
+   "updatedAt": "2026-11-21T14:39:52.105Z",
+   "plan": {
+    "picks": [
+     {
+      "slot": 1,
+      "name": "Greendale Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 2,
+      "name": "Yusof Ishak Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 3,
+      "name": "Seng Kang Secondary School",
+      "tier": "稳妥"
+     },
+     {
+      "slot": 4,
+      "name": "North Vista Secondary School",
+      "tier": "稳妥"
+     },
+     {
+      "slot": 5,
+      "name": "Bendemeer Secondary School",
+      "tier": "稳妥"
+     },
+     {
+      "slot": 6,
+      "name": "Yuying Secondary School",
+      "tier": "稳妥"
+     }
+    ],
+    "poolMixed": 54,
+    "withinCommuteReachable": 57,
+    "kinds": [
+     "plan"
+    ],
+    "report": "reports/abc4-s1-choice-2026.html",
+    "generatedAt": "2026-11-21T14:39:52.105Z"
    }
   }
  ]

@@ -148,6 +148,21 @@ t('踩线按高风险处理', /踩线/.test(text) && /高/.test(text));
 t('通勤两列（步行 / 地铁）', /步行/.test(text) && /地铁/.test(text));
 t('争议项已标注', /争议/.test(text));
 
+/* ── 身份回归（2026-11-21 abc4 新增）：PR 学生的三处差异必须在报告里落地 ──
+   这些断言从学生原始配置反查，文本存在性不足以保证正确，故同时校验数字。 */
+const rawStu = JSON.parse(fs.readFileSync(path.join(BASE, `data/students/${studentId}.json`), 'utf8'));
+const citizenStatus = rawStu.citizenship && rawStu.citizenship.status;
+if (String(citizenStatus || '').toUpperCase() === 'PR') {
+  t('PR 身份已标注', /永久居民|PR/.test(text));
+  t('tie-breaker 写明 PR 排公民之后', /孩子是 PR，排第二档|公民\s*>\s*.*PR|新加坡公民.*永久居民/.test(text) && /输给公民/.test(text));
+  t('PR 专段三处影响齐全', /孩子是永久居民（PR）：三处实际影响/.test(text) && /580.?700/.test(text));
+  t('通勤上限与配置一致（60 分钟）', S.maxCommute === 60 && new RegExp(`≤\\s*${S.maxCommute}\\s*分钟`).test(text),
+    `配置 ${S.maxCommute}，报告是否写明`);
+  t('fastest 口径写明「取最快」', /取最快/.test(text) && S.commuteMode === 'fastest');
+} else {
+  t('非 PR 学生不出现 PR 专段', !/孩子是永久居民（PR）：三处实际影响/.test(text));
+}
+
 /* ── 通勤口径回归（2026-11-16 新增）────────────────────────
    这次的 bug 就是「学生配置写了步行 ≤ 40 分钟，报告里却按步行/地铁取最快算」。
    下面三条断言专门守这一类事故：口径必须在报告里写得出来，

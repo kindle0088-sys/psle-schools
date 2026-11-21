@@ -1,0 +1,2180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="generator" content="psle-plan-report/v1">
+<title>PSLE 2026 志愿规划 · AL 15 分 · 6 个志愿方案</title>
+<style>
+/* ─────────────────────────────────────────────────────────────
+   PSLE 择校 · 共享色板（深色）
+
+   唯一的颜色来源。plan.css / school.css 里不允许再出现硬编码色值，
+   一律走这里的 token；生成器把本文件拼在模板前面。
+
+   取值与 docs/assets/style.css（看板）的 :root 保持一致 —— 两处必须同步，
+   scripts/verify-theme.cjs 会做比对。
+
+   配色约定：红绿只用于「涨跌」语义（本项目没有），所以只用中性色阶 +
+   一种强调色；琥珀/红/绿仅表达「风险/不确定/达标」，不表达学校好坏。
+   ───────────────────────────────────────────────────────────── */
+:root{
+  /* 底与面 */
+  --bg:#0a0f1a;
+  --bg-soft:#0e1526;
+  --card:#121a2a;
+  --line:#1e2b40;
+  --line2:#182338;
+
+  /* 文字 */
+  --tx:#e8eef7;
+  --tx2:#93a4bd;
+  --tx3:#78879f;
+
+  /* 强调（天蓝，与看板同色） */
+  --accent:#38bdf8;
+  --accent-dim:#0e7490;
+  --accent-bg:rgba(56,189,248,.10);
+  --accent-line:rgba(56,189,248,.30);
+  --accent-ink:#06212f;        /* 铺在 accent 底色上的文字 */
+
+  /* 语义色：琥珀＝注意 / 红＝风险 / 绿＝达成 */
+  --warm:#fbbf24;
+  --warm-bg:rgba(251,191,36,.10);
+  --warm-line:rgba(251,191,36,.30);
+
+  --risk:#f87171;
+  --risk-bg:rgba(248,113,113,.10);
+  --risk-line:rgba(248,113,113,.28);
+
+  --ok:#34d399;
+  --ok-bg:rgba(52,211,153,.10);
+  --ok-line:rgba(52,211,153,.28);
+
+  /* 交互与容器 */
+  --hover:rgba(255,255,255,.035);
+  --surface:rgba(255,255,255,.03);        /* 卡片内的次级面（数据格、note） */
+  --surface-line:rgba(255,255,255,.055);  /* 次级面的描边 */
+  --accent-hover:rgba(56,189,248,.16);    /* 强调块 hover */
+  --chip:rgba(255,255,255,.055);
+  --code:rgba(255,255,255,.07);
+  --hero-a:#0c1424;
+  --hero-b:#0a0f1a;
+
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+/* plan.css —— 手册 / 考生数据 / 方案看板 / 志愿报告的公共组件
+   颜色全部来自 tpl/tokens.css（生成器会把它拼在本文件前面）。
+   ⚠️ 这个文件里不要写任何色值字面量，否则换主题时会漏掉。 */
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--tx3);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:var(--tx)}
+.hero{background:linear-gradient(180deg,var(--hero-a),var(--hero-b));color:var(--tx);padding:40px 0 36px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);opacity:.85}
+.hero h1{margin:10px 0 6px;font-size:26px;font-weight:650;letter-spacing:-.4px;line-height:1.35}
+/* 副标题行：单校报告与志愿报告的 h1 都带 <small>，没有这条会与主标题粘连 */
+.hero h1 small{display:block;font-size:14.5px;font-weight:400;color:var(--tx2);margin-top:7px;line-height:1.5}
+.hero .sub{color:var(--tx2);font-size:14px;max-width:660px}
+
+/* 两栏对照块。这两个类原先只在 school.css 里定义，而本模板的使用者
+   （填报手册、考生人数页）只引 plan.css —— 于是「有结构、没样式」，
+   两块内容会静默堆成普通段落。定义在这里，两边都能用。 */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:14px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.panel h4{margin:0;font-size:13.5px;font-weight:650;color:var(--tx)}
+/* 每格独立成卡：否则格子数不满一行时，容器底色会露出一块空的「假格子」 */
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:6px;margin-top:24px}
+.profile div{background:var(--surface);border:1px solid var(--surface-line);border-radius:8px;padding:11px 14px}
+.profile .k{font-size:11.5px;color:var(--tx3);letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+
+section{margin:0 0 38px}
+h2{font-size:18px;font-weight:640;margin:42px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px}
+h2 .n{font-size:12px;font-weight:600;color:var(--accent-ink);background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 16px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.fixbox{background:var(--risk-bg);border:1px solid var(--risk-line);border-left:4px solid var(--risk);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.fixbox h3{margin:0 0 8px;font-size:15.5px;color:var(--risk)}
+.fixbox p{margin:8px 0;font-size:14.3px}
+
+.verdict{background:var(--accent-bg);border:1px solid var(--accent-line);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict p{margin:8px 0;font-size:14.3px}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+
+table{width:100%;border-collapse:collapse;font-size:13.4px;margin:14px 0}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:12px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+/* 单元格居中。这条规则原先只写在 school.css（还是只有 td、没有 th），
+   而本模板的使用者（手册 / 考生页 / 两份志愿报告）只引 plan.css —— 于是
+   这三类页面里 866 个 class="mid" 一直没有任何效果，表格左对齐到底。
+   刻意不给 td.num 加对齐：num 只表示「等宽数字」，对齐交给 mid 决定。 */
+th.mid,td.mid{text-align:center}
+td.soft,.soft{color:var(--tx3)}
+tbody tr:hover{background:var(--hover)}
+.tight{color:var(--warm)}
+
+.school{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px;margin:16px 0}
+.school header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
+.sbadges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--chip);color:var(--tx2);border:1px solid var(--line)}
+/* 风险提示徽章：与普通 badge 同形，只换配色。
+   志愿报告的「余量 ≤1」和开放日页的「需报名」都用它 —— 之前这个类名一直没定义。 */
+.badge-risk{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
+.badge-moe{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-line);font-weight:600}
+.badge-over{background:var(--risk-bg);color:var(--risk);border-color:var(--risk-line);font-weight:600}
+.gap-line{font-size:13px;color:var(--tx2);margin:10px 0 0;padding-left:12px;border-left:2px solid var(--risk);line-height:1.7}
+.tier{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:600}
+.t-reach{background:var(--warm-bg);color:var(--warm);border:1px solid var(--warm-line)}
+.t-match{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent-line)}
+.t-safe{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-line)}
+
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:13px}
+.kv div{background:var(--card);padding:9px 12px}
+.kv .k{display:block;font-size:11px;color:var(--tx3);letter-spacing:.3px}
+.kv .v{display:block;font-size:14px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+
+.why,.caveat{font-size:13.7px;margin:10px 0;padding:10px 13px;border-radius:8px}
+/* 只有段落首个 <b> 当小标题用；正文内的 <b> 保持内联加粗，
+   否则每个加粗词都会变成独立的大写块（曾导致 STEP 4c 排版炸裂） */
+.why>b:first-child,.caveat>b:first-child{display:block;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.why b,.caveat b{font-weight:600}
+.why{background:var(--accent-bg);color:var(--tx)}
+.why b{color:var(--accent)}
+.caveat{background:var(--warm-bg);color:var(--tx)}
+.caveat b{color:var(--warm)}
+.deeplink{display:block;margin:14px 0 2px;padding:11px 15px;background:var(--accent-bg);border:1px solid var(--accent-line);border-radius:9px;text-decoration:none;transition:background .15s,border-color .15s}
+.deeplink span{display:block;font-size:13.6px;font-weight:600;color:var(--accent)}
+.deeplink em{display:block;font-style:normal;font-size:11.6px;color:var(--tx3);margin-top:3px}
+.deeplink:hover{background:var(--accent-hover);border-color:var(--accent)}
+
+dl.detail{margin:12px 0 0;font-size:13.2px}
+dl.detail dt{font-size:11.5px;color:var(--tx3);letter-spacing:.4px;margin-top:11px;text-transform:uppercase}
+dl.detail dd{margin:3px 0 0;color:var(--tx2)}
+.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:5px;background:var(--chip);border:1px solid var(--line);color:var(--tx2);margin:2px 3px 2px 0}
+.chip.hit{background:var(--accent-bg);border-color:var(--accent-line);color:var(--accent);font-weight:500}
+
+.ok{color:var(--ok);font-size:12px}
+.warn{color:var(--warm);font-size:12px;font-weight:500}
+
+.plans{display:grid;gap:14px;margin:18px 0}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.plan.rec{border-color:var(--accent-line);box-shadow:0 0 0 3px var(--accent-bg)}
+.plan h3{margin:0 0 3px;font-size:15px;display:flex;align-items:center;gap:8px}
+.plan .pdesc{font-size:12.8px;color:var(--tx3);margin:0 0 11px}
+.plan ol{margin:0;padding-left:22px;font-size:13.7px}
+.plan li{margin:5px 0}
+.pill{font-size:10.5px;padding:2px 7px;border-radius:4px;background:var(--accent);color:var(--accent-ink);font-weight:600}
+
+.note{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+/* ── 三个共享组件（2026-11-15 从 school.css 补齐）──────────────────
+   .warnbox / .tag / .toc 一直只定义在 school.css，而本模板的使用者
+   （手册 / 考生页 / 两份志愿报告）只引 plan.css —— 于是手册里所有警示框
+   都是「背景透明、边框 0px」的普通段落，来源等级标签也只是一串文字。
+   规则逐字复制自 school.css，两份必须保持一致（verify-theme 会比对）。 */
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.warnbox{background:var(--warm-bg);border:1px solid var(--warm-line);border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:var(--chip);margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:var(--accent-line);background:var(--accent-bg);color:var(--accent)}
+.tag.b{border-color:var(--line);background:var(--chip);color:var(--tx2)}
+.tag.c{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
+.foot{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 50px;font-size:12.3px;color:var(--tx3);line-height:1.85}
+.foot code{font-family:var(--mono);font-size:11.4px;background:var(--code);padding:1px 5px;border-radius:3px;color:var(--tx2)}
+
+/* 通勤表里的「争议」上标：与数字留 2px，避免粘连 */
+.num sup,.kv sup{font-size:9px;opacity:.72;margin-left:2px;vertical-align:2px}
+
+/* 打印：把色板整体翻回浅色。
+   只改 token 就够了 —— 前提是所有规则都走变量、没有写死色值。 */
+@media print{
+  :root{
+    --bg:#fff; --card:#fff; --line:#d7dde5; --line2:#eceff3;
+    --tx:#111827; --tx2:#374151; --tx3:#6b7280;
+    --accent:#0b6b8a; --accent-bg:#eef7fb; --accent-line:#bfe0ec; --accent-ink:#fff;
+    --warm:#8a5a00; --warm-bg:#fdf6e7; --warm-line:#ecd9b0;
+    --risk:#8c2f2f; --risk-bg:#fbf0ef; --risk-line:#efd6d4;
+    --ok:#1f5c3a; --ok-bg:#eef7f1; --ok-line:#cfe6d8;
+    --hover:transparent; --chip:#f4f5f7; --code:#f1f2f4;
+  }
+  .hero{background:#fff!important;color:var(--tx)!important;border-bottom:1px solid var(--line)}
+  .hero .profile div{background:#fafbfc;border-color:#e3e8ee}
+  .school,.plan,.note{break-inside:avoid}
+}
+@media(max-width:600px){.hero h1{font-size:21px}.kv{grid-template-columns:1fr 1fr}table{font-size:12.4px}th,td{padding:7px 6px}}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">PSLE 2026 · Secondary 1 Posting · abc4</div>
+    <h1>AL 15 分，6 个志愿怎么排<small>新加坡中学 S1 Posting 完整分析 · 邮编 828765</small></h1>
+    <div class="sub">AL <b>15</b> 分 · PG3 · 邮编 828765 · <b>步行 / 地铁取最快 ≤ 60 分钟</b> · <b>永久居民（PR）</b>。
+放开通勤后，够得着的混校从 abc3 的 7 所变成 <b>54 所</b>，其中 <b>23 所余量 ≥6 分</b>（最高 +7）——<b>这是一个“有充足兜底”的池子</b>，和上一版“没有一所稳妥校”是完全不同的局面。
+但孩子是 <b>PR</b>：同分时排在公民之后。<b>先说结论：Using 余量 ≥3 的学校做主体、把两所“真有机器人社团”的踩线校放在冲刺位</b>，既不浪费安全池，也不丢掉第 1 兴趣。全池机器人社团只有 2 所（Greendale、Yusof Ishak），这是“过了这村没这店”的东西。</div>
+    <div class="profile">
+      <div><div class="k">PSLE 总分</div><div class="v">AL 15</div></div>
+      <div><div class="k">Posting Group</div><div class="v">PG3</div></div>
+      <div><div class="k">邮编</div><div class="v">828765</div></div>
+      <div><div class="k">通勤上限</div><div class="v">60 分钟</div></div>
+      <div><div class="k">主池（混校）</div><div class="v">54 所</div></div>
+      <div><div class="k">可及总数</div><div class="v">57 所</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 录取规则</a>
+  <a href="#s2">② 候选池</a>
+  <a href="#s3">③ COP 与风险</a>
+  <a href="#s4">④ 逐校适配度</a>
+  <a href="#s5">⑤ 梯度设计</a>
+  <a href="#s6">⑥ 最终建议</a>
+  <a href="#s7">⑦ 附录</a>
+  <a href="#s8">⑧ 数据来源</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>这份报告怎么读。</b>主体六步（规则 → 候选池 → COP → 逐校适配 → 梯度 → 建议）+ 两节参考（附录速览、数据来源与口径）。
+<br><br><b>⚠️ 人工分析边界：</b>候选池、COP、通勤、五维分数都是按这份配置算出来的；但<b>选校理由、逐校「适合/不适合」结论、方案 A/B/C 的取舍</b>是人工判断，<b>没有随配置自动改写</b>——换一个分数、兴趣或邮编，这几节的文字需要重新核对，不能直接沿用。
+每一节末尾的灰框是<b>我的判断</b>，其余是可复核的事实。<b>数据口径</b>：COP 取各校 <b>Posting Group 3 行的非附属区间</b>（2025 年度），
+孩子 AL 15 属 PG3，只与同档学生竞争；通勤按「步行 / 地铁取最快」计算，争议项已标注。
+</div>
+
+
+<section>
+<h2 id="s1"><span class="n">01</span>录取规则：先把「怎么分」搞清楚</h2>
+<p class="lead">这一节只讲事实（MOE 官方口径），判断放在每节末尾的灰框里。</p>
+
+<h3>① 孩子的 Posting Group 是锁定的</h3>
+<p>2026 年 PSLE 仍按 <b>AL 总分（4–30，越小越好）</b>划分三个 Posting Group。孩子 <b>AL 15</b> 落在 <b>4–20 区间 → Posting Group 3</b>，而且这是<b>唯一</b>可选的档位（只有当分数是 21/22 或 25 时才有两档可选）。</p>
+<table>
+<thead><tr><th>PSLE 总分</th><th>Posting Group</th><th>S1 开始时多数科目的层级</th><th>本案</th></tr></thead>
+<tbody>
+<tr><td class="num">4 – 20</td><td class="num">3</td><td>G3</td><td><b>✅ AL 15 在这里</b></td></tr>
+<tr><td class="num">21 – 22</td><td class="num">2 或 3（自选）</td><td>G2 或 G3</td><td>—</td></tr>
+<tr><td class="num">23 – 24</td><td class="num">2</td><td>G2</td><td>—</td></tr>
+<tr><td class="num">25</td><td class="num">1 或 2（自选）</td><td>G1 或 G2</td><td>—</td></tr>
+<tr><td class="num">26 – 30</td><td class="num">1</td><td>G1</td><td>—</td></tr>
+</tbody>
+</table>
+<p><b>实务含义：</b>孩子只和<b>同样被分到 PG3</b> 的学生竞争同一批学额。所以查 COP 时只看各校的 <b>Posting Group 3 那一行</b>，PG2/PG1 的区间与他无关——这也是很多二手资料最容易搞错的地方（把三行混在一起看，会把门槛估低 8–10 分）。</p>
+
+<h3>② 录取的排序逻辑：分数优先，志愿顺序只在同分时起作用</h3>
+<p>MOE 的处理顺序是：<b>按 PSLE 分数从高到低</b>依次处理每个学生，每个学生投到他填的<b>第一个还有空位</b>的志愿。所以「志愿顺序」不是加分项，它只在两个学生<b>同分</b>抢最后一个位子时才成为 tie-breaker。</p>
+<table>
+<thead><tr><th style="width:12%">顺序</th><th style="width:30%">tie-breaker</th><th>含义与对本案例的影响</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>公民身份</td><td>新加坡公民 &gt; <b>永久居民（PR）</b> &gt; 国际学生。<b>孩子是 PR，排第二档：同分时输给公民、赢国际学生</b>——所以踩线校（余量 0–1）的风险比公民更高，选校时要多留安全边际</td></tr>
+<tr><td class="num">2</td><td><b>志愿顺序</b></td><td>同分 + 同身份时，把该校填得更靠前的学生优先。<b>这就是「最想去的必须往前放」的机制原因</b></td></tr>
+<tr><td class="num">3</td><td>电脑抽签</td><td>只有分数、身份、志愿顺序都相同才抽签。MOE 口径：约每 10 名学生有 1 名会经历抽签</td></tr>
+</tbody>
+</table>
+
+<h3>②+ 孩子是永久居民（PR）：三处实际影响</h3>
+<div class="note">
+<b>① 同分竞争输给公民。</b>MOE 的 tie-breaker 第一位就是公民身份，顺序是<b>公民 &gt; PR &gt; 国际学生</b>。这意味着在踩线校（余量 0–1 分），只要最后一个学额有公民同分竞争，PR 就让位——所以本报告把<b>余量 ≥3 的学校当作真正的“稳”</b>，余量 0–1 的只能冲刺、不能兜底。<br><br>
+<b>② 学费差一个大数量级。</b>政府 / 政府辅助中学：<b>公民约 S$25/月，PR 约 S$580–700/月</b>（MOE school fees）。四年下来是笔实质开支，选校时值得纳入考虑——不过本报告候选池全是政府 / 政府辅助校，都在这个费率区间，没有因为选校而额外拉大差距。<br><br>
+<b>③ 入学通道与课程不额外设限。</b>PR 和公民一样走 S1 Posting、可用 6 个志愿、可参加 DSA、可报 SAP / IP——这些通道的准入条件不因身份而变（SAP 仍看高华 + AL≤14，IP 仍看 PSLE / DSA）。所以 PR 身份改变的是<b>“同分时排第几”</b>和<b>“学费多少”</b>，不是“能报什么”。
+</div>
+
+<h3>③ SAP 学校：孩子<b>用不上</b>那个优势（这条最容易误解）</h3>
+<div class="warnbox">
+<b>事实：</b>高级华文（HCL）的 posting advantage 有<b>两个前置条件同时成立</b>——① HCL 考到 Pass / Merit / Distinction；② <b>PSLE 总分 ≤ 14</b>。
+孩子是 <b>AL 15</b>，比 14 高 1 分，<b>即使高华考了 Distinction 也拿不到这个优先权</b>，只能按普通 COP 竞争。
+<br><br>
+<b>判断：</b>所以「可以考虑 SAP 学校」这一条，在 15 分这个位置实际上是不成立的。SAP 校的 COP 普遍在 4–12，本案例 60 分钟内 能到的 11 所 SAP / IP 校（Anglican High School 4–12、Maris Stella High School 7–12、Nan Chiau High School 4–11(M)、Chung Cheng High School (Main) 5–10(M)、Cedar Girls' 6–9、Anglo-Chinese School (Independent) 6–8、Catholic High School 6–8(M)、CHIJ St. Nicholas Girls' School 6–8(M)、Methodist Girls' School 6–8、Singapore Chinese Girls' School 6–8、St. Joseph's Institution 4–8）<b>全部差 3–7 分</b>，不是「有风险」而是「基本没可能」。详见第三步。
+</div>
+
+<h3>④ 附属学校（affiliation）：本案例不适用</h3>
+<p>孩子没有附属中学，所以：不会占用「附属优先」的学额池，也不需要把它填第一志愿来激活优先权。<b>反过来是好事</b>——每所学校每个 Posting Group 至少有 20% 学额是保留给非附属生的，孩子竞争的正是这部分。</p>
+
+<h3>⑤ 时间线（2026 届）</h3>
+<table>
+<thead><tr><th style="width:26%">节点</th><th>时间</th></tr></thead>
+<tbody>
+<tr><td>PSLE 成绩公布</td><td>2026-11-24 或 11-25（暂定，11:00）—— 成绩单、S1 Option Form、Eligibility Letter 一起发</td></tr>
+<tr><td>提交 6 个志愿</td><td>成绩日 11:30 起 <b>7 个日历日</b>内，通过 S1 Portal（Singpass）或回小学填；期内可随时修改</td></tr>
+<tr><td><b>本届 COP 公布</b></td><td><b>2026 年 12 月</b>——所以现在能拿到的<b>最新 COP 是 2025 年度</b>的，这正是本报告用的口径</td></tr>
+<tr><td>S1 Posting 结果</td><td>2026-12-18（暂定），S1 Portal + SMS + 小学</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>我的判断：</b>这套规则里最容易被家长忽略的是第 ② 条——「志愿顺序只在同分时起作用」。它的反直觉后果是：<b>把一所明显够不着的学校放第一志愿，不会伤害任何后续志愿</b>（因为分数不够时根本轮不到你，直接看下一个）。所以「冲刺校」真正的成本只有一个：占掉一个志愿位。6 个位置里用 1–2 个去冲，是合理的。
+</div>
+</section>
+
+<section>
+<h2 id="s2"><span class="n">02</span>候选池：以家为圆心，先划范围再看质量</h2>
+<p class="lead">起点：<b>828765</b>（110 Punggol Walk Twin Waterfalls Singapore 828765）。单程上限 <b>60 分钟</b>，按「<b>步行 / 地铁取最快</b>」计算：只要有一种方式够快就算达标。</p>
+
+<div class="profile" style="margin-top:16px">
+  <div><div class="k">全岛中学</div><div class="v">147</div></div>
+  <div><div class="k">有 PG3 档</div><div class="v">130</div></div>
+  <div><div class="k">全国够得着</div><div class="v">82</div></div>
+  <div><div class="k">60 分钟内</div><div class="v">108</div></div>
+  <div><div class="k">可及（通勤内 + 够得着）</div><div class="v">57</div></div>
+  <div><div class="k">主池（混校）</div><div class="v"><b>54</b></div></div>
+</div>
+<div class="note">通勤口径一放开，最该警惕的不是“选不到”，而是<b>被 54 所的数量淹没</b>。这里把取舍拆成两句话：<br>① <b>安全池很厚</b>——余量 ≥6 分的有 23 所，PR 同分劣势完全可以靠“多留 3–4 分”对冲；② <b>兴趣很稀缺</b>——机器人社团全池只有 Greendale +1、Yusof Ishak +0，而且余量都极低。<b>所以正确策略是“主体用厚的、冲刺给稀缺的”</b>，不是把 6 个位置全押在踩线校上。</div>
+
+<h3>漏斗怎么收到 54 所</h3>
+<table>
+<thead><tr><th style="width:44%">筛选步骤</th><th style="width:14%">剩余</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>全岛中学</td><td class="num">147</td><td>含专科校（不参与 S1 Posting）</td></tr>
+<tr><td>有 Posting Group 3 档</td><td class="num">130</td><td>纯 IP 校没有 PG3 行，报不了</td></tr>
+<tr><td>全国分数够得着（区间右端 ≥ 15）</td><td class="num">82</td><td>不限通勤</td></tr>
+<tr><td>60 分钟内可达</td><td class="num">108</td><td>步行 / 地铁取最快</td></tr>
+<tr><td>通勤内 + 够得着</td><td class="num">57</td><td>= 主池 + 单性别校</td></tr>
+<tr><td><b>其中混校</b></td><td class="num"><b>54</b></td><td>家长要求「混校优先」→ 单性别校另列</td></tr>
+</tbody>
+</table>
+
+
+<h3>因为性别偏好被单独列出的 3 所</h3>
+<p>孩子性别保密，报告按「混校优先」处理。这 3 所如果性别符合，是值得考虑的（都在 60 分钟内、分数够得着）：</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">类型</th><th class="mid">PG3 区间</th><th class="mid">余量</th><th class="mid">通勤</th></tr></thead>
+<tbody>
+<tr><td>Montfort</td><td class="mid">男校</td><td class="num mid">14–22</td><td class="num mid">+7</td><td class="num mid">地铁 24 分</td></tr>
+<tr><td>St. Anthony&#39;s Canossian</td><td class="mid">女校</td><td class="num mid">12–15</td><td class="num mid">0</td><td class="num mid">地铁 59 分</td></tr>
+<tr><td>St. Gabriel&#39;s</td><td class="mid">男校</td><td class="num mid">10–15</td><td class="num mid">0</td><td class="num mid">地铁 29 分</td></tr>
+</tbody>
+</table>
+
+<h3>够不着但值得知道的 37 所</h3>
+<p>60 分钟内、分数差一点的学校。列出来是为了说明「差多少」，不是建议填。完整名单见附录。</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">PG3 区间</th><th class="mid">差</th><th class="mid">通勤</th><th>性质</th></tr></thead>
+<tbody>
+<tr><td>CHIJ St. Joseph&#39;s Convent</td><td class="num mid">8–14</td><td class="num mid">-1</td><td class="num mid">地铁 23 分</td><td class="soft">政府</td></tr>
+<tr><td>Dunman</td><td class="num mid">6–14</td><td class="num mid">-1</td><td class="num mid">地铁 58 分</td><td class="soft">自主</td></tr>
+<tr><td>Edgefield</td><td class="num mid">5–14</td><td class="num mid">-1</td><td class="num mid">步行 10 分</td><td class="soft">政府</td></tr>
+<tr><td>Geylang Methodist School</td><td class="num mid">11–14</td><td class="num mid">-1</td><td class="num mid">地铁 43 分</td><td class="soft">政府</td></tr>
+<tr><td>Holy Innocents&#39; High School</td><td class="num mid">11–14</td><td class="num mid">-1</td><td class="num mid">地铁 23 分</td><td class="soft">政府</td></tr>
+<tr><td>Pei Hwa</td><td class="num mid">7–14</td><td class="num mid">-1</td><td class="num mid">地铁 37 分</td><td class="soft">政府</td></tr>
+<tr><td>Riverside</td><td class="num mid">8–14</td><td class="num mid">-1</td><td class="num mid">地铁 58 分</td><td class="soft">政府</td></tr>
+<tr><td>St. Hilda&#39;s</td><td class="num mid">12–14</td><td class="num mid">-1</td><td class="num mid">地铁 53 分</td><td class="soft">政府</td></tr>
+<tr><td>CHIJ St. Theresa&#39;s Convent</td><td class="num mid">11–13</td><td class="num mid">-2</td><td class="num mid">地铁 56 分</td><td class="soft">政府</td></tr>
+<tr><td>Clementi Town</td><td class="num mid">8–13</td><td class="num mid">-2</td><td class="num mid">地铁 58 分</td><td class="soft">政府</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>我的判断：</b>孩子 15 分属 PG3（4–20，越小越好）：全国 130 所有 PG3 档的学校里，区间右端 ≥ 15、也就是够得着的有 <b>82 所</b>（约 63%）。再叠加通勤 ≤60 分钟这一条，落到 <b>57 所</b>；其中混校 <b>54 所</b>进入主池。<br><br>值得注意的是：<b>这 54 所里余量 ≥6 的就有 23 所</b>——安全边际不是稀缺资源，真正稀缺的是“同时满足兴趣 + 短通勤 + 高余量”的交叉项。这才是这份报告要解决的问题。
+</div>
+</section>
+
+<section>
+<h2 id="s3"><span class="n">03</span>COP：最新的只有 2025 年度，别当门槛用</h2>
+<p class="lead">口径先说清：<b>2026 届的 COP 要到 2026 年 12 月才公布</b>。现在能拿到的最新数据是 <b>2025 年度 S1 Posting 的实际录取区间</b>——也就是「去年最后一名被录取的学生考了多少分」。它不是今年的门槛。</p>
+
+<div class="warnbox">
+<b>三条必须记住的波动事实（MOE 口径）：</b><br>
+① COP 每年<b>动 1 分是常态，动 2–3 分也可能</b>；<br>
+② 它反映的是<b>去年那批学生怎么填志愿</b>，不是学校的教学质量；<br>
+③ <b>踩线 ≠ 稳</b>：区间右端等于孩子的分数，只代表「去年最后一名和他同分」，今年同分还要过 tie-breaker，<b>必须按高风险处理</b>。
+</div>
+
+<h3>主池 54 所的 COP 与余量</h3>
+<p>余量 = 该校 PG3 非附属区间右端 − 孩子分数（15）。<b>余量为 0 = 踩线；负数是已经够不着</b>（不在此表）。</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>学校</th><th class="mid">PG3 区间<br><span class="soft">2025 年度</span></th><th class="mid">余量</th><th class="mid">风险</th><th class="mid">步行</th><th class="mid">地铁</th><th>风险说明</th></tr></thead>
+<tbody>
+<tr>
+    <td>Yusof Ishak</td>
+    <td class="num mid">7–15</td>
+    <td class="num mid"><b>0</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num"><b>8–21<sup class="soft">争议</sup></b></td><td class="num">20</td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Gan Eng Seng School</td>
+    <td class="num mid">9–15</td>
+    <td class="num mid"><b>0</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">&gt;60</td><td class="num"><b>52</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Evergreen</td>
+    <td class="num mid">10–15</td>
+    <td class="num mid"><b>0</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">&gt;60</td><td class="num"><b>59</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Greendale</td>
+    <td class="num mid">11–16</td>
+    <td class="num mid"><b>+1</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num"><b>27</b></td><td class="num">28</td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Bowen</td>
+    <td class="num mid">12–16</td>
+    <td class="num mid"><b>+1</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">&gt;60</td><td class="num"><b>37</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Bedok View</td>
+    <td class="num mid">12–16</td>
+    <td class="num mid"><b>+1</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">&gt;60</td><td class="num"><b>53</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Ang Mo Kio</td>
+    <td class="num mid">12–16</td>
+    <td class="num mid"><b>+1</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">&gt;60</td><td class="num"><b>48</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Deyi</td>
+    <td class="num mid">9–16</td>
+    <td class="num mid"><b>+1</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">&gt;60</td><td class="num"><b>44</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Outram</td>
+    <td class="num mid">9–17</td>
+    <td class="num mid"><b>+2</b></td>
+    <td class="mid soft">中</td>
+    <td class="num"><b>15–25<sup class="soft">争议</sup></b></td><td class="num">24</td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Christ Church</td>
+    <td class="num mid">12–17</td>
+    <td class="num mid"><b>+2</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">&gt;60</td><td class="num"><b>53</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Queensway</td>
+    <td class="num mid">13–17</td>
+    <td class="num mid"><b>+2</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">&gt;60</td><td class="num"><b>58</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Mayflower</td>
+    <td class="num mid">13–17</td>
+    <td class="num mid"><b>+2</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">&gt;60</td><td class="num"><b>50</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Pasir Ris</td>
+    <td class="num mid">11–17</td>
+    <td class="num mid"><b>+2</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">&gt;60</td><td class="num"><b>58</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>North Vista</td>
+    <td class="num mid">11–18</td>
+    <td class="num mid"><b>+3</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">38</td><td class="num"><b>25</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Beatty</td>
+    <td class="num mid">12–18</td>
+    <td class="num mid"><b>+3</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">&gt;60</td><td class="num"><b>44</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Compassvale</td>
+    <td class="num mid">14–18</td>
+    <td class="num mid"><b>+3</b></td>
+    <td class="mid soft">中</td>
+    <td class="num"><b>14–25<sup class="soft">争议</sup></b></td><td class="num">22</td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Bedok South</td>
+    <td class="num mid">13–18</td>
+    <td class="num mid"><b>+3</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">&gt;60</td><td class="num"><b>54</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Ahmad Ibrahim</td>
+    <td class="num mid">11–18</td>
+    <td class="num mid"><b>+3</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">&gt;60</td><td class="num"><b>55</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Seng Kang</td>
+    <td class="num mid">14–19</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">33</td><td class="num"><b>22</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Punggol</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">24</td><td class="num"><b>22</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Woodgrove</td>
+    <td class="num mid">14–19</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>55</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Naval Base</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>45</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Orchid Park</td>
+    <td class="num mid">10–19</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>49</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Tampines</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>57</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Hougang</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid"><b>+5</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">47</td><td class="num"><b>32</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Peicai</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid"><b>+5</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>34</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Peirce</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid"><b>+5</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>49</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Serangoon</td>
+    <td class="num mid">16–20</td>
+    <td class="num mid"><b>+5</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">51</td><td class="num"><b>32</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>New Town</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid"><b>+5</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>59</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Yishun</td>
+    <td class="num mid">12–20</td>
+    <td class="num mid"><b>+5</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>52</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Bedok Green</td>
+    <td class="num mid">12–20</td>
+    <td class="num mid"><b>+5</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>50</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Bartley</td>
+    <td class="num mid">16–21</td>
+    <td class="num mid"><b>+6</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>33</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Manjusri</td>
+    <td class="num mid">15–21</td>
+    <td class="num mid"><b>+6</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>44</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Junyuan</td>
+    <td class="num mid">14–21</td>
+    <td class="num mid"><b>+6</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>60</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Bendemeer</td>
+    <td class="num mid">11–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>34</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Yio Chu Kang</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>46</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Yuying</td>
+    <td class="num mid">11–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>28</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Broadrick</td>
+    <td class="num mid">5–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>40</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Bukit Merah</td>
+    <td class="num mid">8–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>56</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Guangyang</td>
+    <td class="num mid">9–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>40</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Changkat Changi</td>
+    <td class="num mid">11–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>55</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Damai</td>
+    <td class="num mid">10–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>53</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Northland</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>55</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Northbrooks</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>59</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Serangoon Garden</td>
+    <td class="num mid">12–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>44</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Whitley</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>42</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Marsiling</td>
+    <td class="num mid">14–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>60</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Sembawang</td>
+    <td class="num mid">18–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>54</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Woodlands Ring</td>
+    <td class="num mid">17–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>59</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Admiralty</td>
+    <td class="num mid">16–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>57</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>East Spring</td>
+    <td class="num mid">16–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>60</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Springfield</td>
+    <td class="num mid">10–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>60</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Canberra</td>
+    <td class="num mid">17–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>57</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+<tr>
+    <td>Queenstown</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid"><b>+7</b></td>
+    <td class="mid soft">低</td>
+    <td class="num">&gt;60</td><td class="num"><b>56</b></td>
+    <td class="soft" style="font-size:12.4px">明显优于往年 COP</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<h3>另一个官方信号：低位段有没有招满</h3>
+<p>MOE 在 SchoolFinder 里用星号 <code>*</code> 标注一个事实：<b>该档在 S1 posting 结束后仍有学额</b>。
+官方脚注的定义是「最后一名被录取者的分数优于 30，但学校仍有余位，所以记为 30」。
+这是唯一一个有官方背书的「学校紧不紧张」指标——不是估算，不用猜。</p>
+<p>我全量查了 147 所（另 8 所专科/特殊校不参与 PG 分配）：星号<b>只出现在 PG1 档，共 28 所</b>，
+<b>PG3 和 PG2 一所都没有</b>。含义很明确：没有学校在 PG3 段没招满，但有一批学校连最低档都没填满。</p>
+<p>落到这份候选池（54 所）里，有 <b>16 所</b>被标记：<b>Bartley、Manjusri、Yio Chu Kang、Broadrick、Guangyang、Peicai、Peirce、Changkat Changi、Damai、Whitley、New Town、Bedok Green、Bedok South、Springfield、Queenstown、Deyi</b>。
+它们都不在方案 A 的 6 个位置里——官方标记只是旁证，不构成加分的理由。</p>
+<p class="soft" style="font-size:12.6px">⚠️ 别过度解读：PG1 有余额 ≠ PG3 门槛会降。它是「学校整体不紧张」的旁证，不是「你更可能进」的保证。</p>
+
+<h3>够不着的那些：差多少才算「没戏」</h3>
+<p>把 SAP 与 IP 单独拎出来，因为家长明确说了「可以考虑」——但分数差得太远，这个「可以」在 15 分这个位置不成立。</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">类型</th><th class="mid">PG3 / IP 区间</th><th class="mid">差</th><th>为什么够不着</th></tr></thead>
+<tbody>
+<tr>
+  <td>Anglican High School</td>
+  <td class="mid">SAP</td>
+  <td class="num mid">4–12</td>
+  <td class="num mid">-3</td>
+  <td class="soft">SAP 校区间上端 12，差 3 分；且高华优先需 PSLE ≤ 14</td>
+</tr>
+<tr>
+  <td>Maris Stella High School</td>
+  <td class="mid">SAP</td>
+  <td class="num mid">7–12</td>
+  <td class="num mid">-3</td>
+  <td class="soft">SAP 校区间上端 12，差 3 分；且高华优先需 PSLE ≤ 14</td>
+</tr>
+<tr>
+  <td>Nan Chiau High School</td>
+  <td class="mid">SAP</td>
+  <td class="num mid">4–11(M)</td>
+  <td class="num mid">-4</td>
+  <td class="soft">SAP 校区间上端 11，差 4 分；且高华优先需 PSLE ≤ 14</td>
+</tr>
+<tr>
+  <td>Chung Cheng High School (Main)</td>
+  <td class="mid">SAP</td>
+  <td class="num mid">5–10(M)</td>
+  <td class="num mid">-5</td>
+  <td class="soft">SAP 校区间上端 10，差 5 分；且高华优先需 PSLE ≤ 14</td>
+</tr>
+<tr>
+  <td>Cedar Girls&#39;</td>
+  <td class="mid">IP</td>
+  <td class="num mid">6–9</td>
+  <td class="num mid">-6</td>
+  <td class="soft">IP 校走单行区间，门槛远高于 15</td>
+</tr>
+<tr>
+  <td>Anglo-Chinese School (Independent)</td>
+  <td class="mid">IP</td>
+  <td class="num mid">6–8</td>
+  <td class="num mid">-7</td>
+  <td class="soft">IP 校走单行区间，门槛远高于 15</td>
+</tr>
+<tr>
+  <td>Catholic High School</td>
+  <td class="mid">IP + SAP</td>
+  <td class="num mid">6–8(M)</td>
+  <td class="num mid">-7</td>
+  <td class="soft">IP 校走单行区间，门槛远高于 15</td>
+</tr>
+<tr>
+  <td>CHIJ St. Nicholas Girls&#39; School</td>
+  <td class="mid">IP + SAP</td>
+  <td class="num mid">6–8(M)</td>
+  <td class="num mid">-7</td>
+  <td class="soft">IP 校走单行区间，门槛远高于 15</td>
+</tr>
+<tr>
+  <td>Methodist Girls&#39; School</td>
+  <td class="mid">IP</td>
+  <td class="num mid">6–8</td>
+  <td class="num mid">-7</td>
+  <td class="soft">IP 校走单行区间，门槛远高于 15</td>
+</tr>
+<tr>
+  <td>Singapore Chinese Girls&#39; School</td>
+  <td class="mid">IP</td>
+  <td class="num mid">6–8</td>
+  <td class="num mid">-7</td>
+  <td class="soft">IP 校走单行区间，门槛远高于 15</td>
+</tr>
+<tr>
+  <td>St. Joseph&#39;s Institution</td>
+  <td class="mid">IP</td>
+  <td class="num mid">4–8</td>
+  <td class="num mid">-7</td>
+  <td class="soft">IP 校走单行区间，门槛远高于 15</td>
+</tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>我的判断：</b>54 所里余量最高的是 <b>Bendemeer</b>（+7 分，34 分钟通勤）。但“余量最大”不等于“最该填”——很多 +7 的学校在 50 分钟开外，且兴趣零命中。<br>本报告把候选按三条线看：<b>① 余量 ≥4 且通勤 ≤35 分钟</b>（PR 视角的真安全档）；<b>② 有机器人 / 戏剧社团的</b>（兴趣承接）；<b>③ 踩线但通勤极短的</b>（冲刺位）。机器人社团全池只有 2 所，且余量分别是 +1 / +0——都属冲刺级。
+</div>
+</section>
+
+<section>
+<h2 id="s4"><span class="n">04</span>逐校适配度：把「好学校」换成「适合他的学校」</h2>
+<p class="lead">下面按九项逐所评估。先看方案 A 的 6 所，再看 2 所关键对照（Bartley、Hougang）。其余学校的结论汇总在第五步的表里。</p>
+
+
+<article class="school">
+  <header>
+    <div class="sname">Greendale</div>
+    <div class="sbadges">
+      <span class="tier t-reach">第 1 志愿 · 冲刺</span>
+      <span class="badge">PG3 11–16</span>
+      <span class="badge badge-risk">余量 +1</span>
+      <span class="badge">风险 高</span>
+      <span class="badge">步行 27 分</span>
+      <span class="badge">综合 79</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>11–16</b>（2025 年度），孩子 15 分，余量 <b>+1</b>。踩线，COP 一动就落空。</td></tr>
+  <tr><td>② 通勤</td><td>步行 <b>27 分钟</b>（2143 米）；地铁方案 28 分钟。<b>计分取 步行 27 分</b>。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>19 项</b>（MOE 登记 7 项，另 12 项来自学校官网）。</td></tr>
+  <tr><td>④ 兴趣匹配</td><td><b>机器人</b>：Robotics；<b>戏剧</b>：Theatricks!<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>⑤ ALP</td><td>STEM - Sustainability</td></tr>
+  <tr><td>⑥ LLP</td><td>Sports &amp; Outdoor Education</td></tr>
+  <tr><td>⑦ 其他特色</td><td>CCA 19 项，主池最多；<b>Robotics 与 Theatricks! 是全池稀缺的机器人+戏剧组合</b>，恰好对口第 1 与第 3 兴趣。</td></tr>
+  <tr><td>⑧ 整体特点</td><td>盛港一带的社区中学，ALP 走设计、技术与工程，LLP 是户外与探险教育，整体偏动手与实践。步行 27 分钟可达。</td></tr>
+  <tr><td>⑨ 适合 / 不适合</td><td><b>适合：</b>机器人社团对口第 1 兴趣，戏剧对口第 3 兴趣，通勤也轻。<br><b>不适合：</b>余量 +1，踩线；PR 同分输公民，风险进一步放大——只能冲刺，不能兜底。<br><br><b>放进方案 A 的理由：</b>全池<b>机器人社团两所之一</b>（另一所是 Yusof Ishak），且有戏剧社团 Theatricks!——孩子的第 1 与第 3 兴趣都能落到实体社团。27 分钟步行可达，通勤也轻。放第 1 位：冲刺不占后面位置。<br><b>风险：</b><b>余量只有 +1 分</b>（PG3 11–16，孩子 15）。COP 右端若从 16 收紧到 15 就落空；<b>孩子是 PR，同分还输给公民</b>——这是全方案里风险最高的一位，所以它只占冲刺位，不承担兜底功能。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-greendale-secondary-school.html"><span>阅读《Greendale》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Yusof Ishak</div>
+    <div class="sbadges">
+      <span class="tier t-reach">第 2 志愿 · 冲刺</span>
+      <span class="badge">PG3 7–15</span>
+      <span class="badge badge-risk">余量 0</span>
+      <span class="badge">风险 高</span>
+      <span class="badge">步行 8–21 分<sup class="soft">争议</sup></span>
+      <span class="badge">综合 76</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>7–15</b>（2025 年度），孩子 15 分，余量 <b>0</b>。踩线，COP 一动就落空。</td></tr>
+  <tr><td>② 通勤</td><td>步行 <b>8–21 分钟</b>（667 米，两家引擎有分歧）；地铁方案 20 分钟。<b>计分取 步行 8–21 分<sup class="soft">争议</sup></b>。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>16 项</b>（MOE 登记 9 项，另 7 项来自学校官网）。</td></tr>
+  <tr><td>④ 兴趣匹配</td><td><b>机器人</b>：Robotics Club；<b>戏剧</b>：English Drama<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>⑤ ALP</td><td>STEM - Sustainability</td></tr>
+  <tr><td>⑥ LLP</td><td>Community Youth Leadership</td></tr>
+  <tr><td>⑦ 其他特色</td><td><b>Robotics + 信息科技（AI 近似）+ 戏剧三项兴趣全命中</b>，是全池兴趣匹配度最高的；步行 8 分钟（争议上限 21）。</td></tr>
+  <tr><td>⑧ 整体特点</td><td>榜鹅的年轻学校，全岛唯一以总统命名。STEM 竞赛记录在本区属密集一档。</td></tr>
+  <tr><td>⑨ 适合 / 不适合</td><td><b>适合：</b>兴趣最全、通勤最短，两项都全池第一。<br><b>不适合：</b>余量 0（去年末位就是 15 分），PR 同分再让位公民，实质抽签级风险。第 2 位用它，但别指望兜底。<br><br><b>放进方案 A 的理由：</b><b>兴趣匹配全池第一：机器人 + 信息科技（AI 近似）+ 戏剧三项同时对上</b>，步行仅 8 分钟（争议上限 21 分钟），是“最短通勤 + 最全兴趣”的组合。<br><b>风险：</b><b>余量 0 分</b>（PG3 7–15，去年末位就是 15 分）。踩线中的踩线，PR 同分再让位公民，实质是“抽签级”风险。第 2 位用它，代价是这一位基本不兜底。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-yusof-ishak-secondary-school.html"><span>阅读《Yusof Ishak》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Seng Kang</div>
+    <div class="sbadges">
+      <span class="tier t-safe">第 3 志愿 · 稳妥</span>
+      <span class="badge">PG3 14–19</span>
+      <span class="badge">余量 +4</span>
+      <span class="badge">风险 较低</span>
+      <span class="badge">地铁 22 分</span>
+      <span class="badge">综合 84</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>14–19</b>（2025 年度），孩子 15 分，余量 <b>+4</b>。相对从容。</td></tr>
+  <tr><td>② 通勤</td><td>地铁 <b>22 分钟</b>（途经 NE16 SENGKANG，最近站步行 658 米）；步行 33 分钟。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>17 项</b>（MOE 登记 10 项，另 7 项来自学校官网）。</td></tr>
+  <tr><td>④ 兴趣匹配</td><td><b>戏剧</b>：English Drama<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>⑤ ALP</td><td>STEM - Health and Food Science</td></tr>
+  <tr><td>⑥ LLP</td><td>Sports &amp; Outdoor Education</td></tr>
+  <tr><td>⑦ 其他特色</td><td><b>余量 +4、通勤 22 分钟，是高余量与短通勤的交叉点</b>；有 English Drama 承接戏剧兴趣，LLP 覆盖体育方向。</td></tr>
+  <tr><td>⑧ 整体特点</td><td>盛港邻里中学，ALP 偏食品科技。地铁 22 分钟，步行争议项 33 分钟。</td></tr>
+  <tr><td>⑨ 适合 / 不适合</td><td><b>适合：</b>+4 的缓冲足以对冲 PR 同分劣势，通勤又短——这是全方案最该保的承接位。<br><b>不适合：</b>没有机器人社团，科技类只有偏美术的 Art Club。<br><br><b>放进方案 A 的理由：</b><b>余量 +4，通勤仅 22 分钟</b>（地铁）——是“高余量 + 短通勤”的交叉点，且有 English Drama 承接戏剧兴趣。LLP 是 Sports &amp; Outdoor Education。PR 视角下，+4 的缓冲足以吸收同分让位。<br><b>风险：</b>没有机器人社团，科技类只有偏美术的 Art Club；ALP 是食品科技，与 Computing 关系弱。但作为承接位，它的“稳”比“兴趣全”更值钱。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-seng-kang-secondary-school.html"><span>阅读《Seng Kang》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">North Vista</div>
+    <div class="sbadges">
+      <span class="tier t-safe">第 4 志愿 · 稳妥</span>
+      <span class="badge">PG3 11–18</span>
+      <span class="badge">余量 +3</span>
+      <span class="badge">风险 中</span>
+      <span class="badge">地铁 25 分</span>
+      <span class="badge">综合 83</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>11–18</b>（2025 年度），孩子 15 分，余量 <b>+3</b>。有余量但不大。</td></tr>
+  <tr><td>② 通勤</td><td>地铁 <b>25 分钟</b>（途经 NE15 BUANGKOK，最近站步行 740 米）；步行 38 分钟。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>18 项</b>（MOE 登记 11 项，另 7 项来自学校官网）。</td></tr>
+  <tr><td>④ 兴趣匹配</td><td><b>戏剧</b>：Drama Club；<b>科技类</b>：Infocomm Club<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>⑤ ALP</td><td>STEM - Cities and Urban Landscapes</td></tr>
+  <tr><td>⑥ LLP</td><td>Visual Arts &amp; Design</td></tr>
+  <tr><td>⑦ 其他特色</td><td><b>AI（信息科技）与戏剧两项兴趣同时命中，且余量 +3、通勤 25 分钟</b>——是“有社团承接”里最稳的一所。</td></tr>
+  <tr><td>⑧ 整体特点</td><td>盛港/后港交界的社区型中学，LLP 是视觉艺术与设计。</td></tr>
+  <tr><td>⑨ 适合 / 不适合</td><td><b>适合：</b>两项兴趣落地 + 余量够用 + 通勤短，是安全与兴趣的最佳平衡点。<br><b>不适合：</b>ALP 名实不符——类别写城市与景观，实质是农业食品，与 Computing 关系很弱。<br><br><b>放进方案 A 的理由：</b><b>余量 +3，通勤 25 分钟</b>，且 <b>AI（信息科技）与戏剧两项兴趣同时命中</b>——是“有社团承接”的学校里余量最厚的一所。放第 4 位是安全与兴趣的最佳平衡。<br><b>风险：</b>ALP 名为 Farm-to-Table，实质是农业食品，与 Computing 关系很弱（别被 STEM 类别名骗）。余量 +3 比 Seng Kang 薄 1 分，但换来了两项兴趣命中。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-north-vista-secondary-school.html"><span>阅读《North Vista》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Bendemeer</div>
+    <div class="sbadges">
+      <span class="tier t-safe">第 5 志愿 · 稳妥</span>
+      <span class="badge">PG3 11–22</span>
+      <span class="badge">余量 +7</span>
+      <span class="badge">风险 低</span>
+      <span class="badge">地铁 34 分</span>
+      <span class="badge">综合 88</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>11–22</b>（2025 年度），孩子 15 分，余量 <b>+7</b>。明显优于往年 COP。</td></tr>
+  <tr><td>② 通勤</td><td>地铁 <b>34 分钟</b>（途经 NE9 BOON KENG，最近站步行 533 米）；步行 140 分钟。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>13 项</b>（MOE 登记 8 项，另 5 项来自学校官网）。</td></tr>
+  <tr><td>④ 兴趣匹配</td><td><b>戏剧</b>：English Drama；<b>科技类</b>：Media &amp; Tech Club<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>⑤ ALP</td><td>STEM - Emerging Technologies</td></tr>
+  <tr><td>⑥ LLP</td><td>Community Youth Leadership</td></tr>
+  <tr><td>⑦ 其他特色</td><td><b>全池总分第 1、余量 +7</b>，STEM - Emerging Technologies 方向，有表演艺术类社团。</td></tr>
+  <tr><td>⑧ 整体特点</td><td>加冷一带的政府中学，通勤 34 分钟靠地铁（步行 140 分钟不现实）。</td></tr>
+  <tr><td>⑨ 适合 / 不适合</td><td><b>适合：</b>+7 是全池最厚的安全边际，PR 家庭的兜底首选。<br><b>不适合：</b>通勤偏长，且没有机器人社团——它是“保险”，不是“兴趣落点”。<br><br><b>放进方案 A 的理由：</b><b>全池总分第 1、余量 +7，通勤 34 分钟</b>——是“极厚安全边际”的代表。有戏剧社团（Modern Dance / Choir 一类表演艺术），ALP 是 STEM - Emerging Technologies。PR 家长要的“兜底”就是这种 +7 的学校。<br><b>风险：</b>通勤 34 分钟靠地铁（步行要 140 分钟，不现实），比前面几所长；机器人社团没有。但作为第 5 位的保险，+7 的余量是全场最厚的之一。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-bendemeer-secondary-school.html"><span>阅读《Bendemeer》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Yuying</div>
+    <div class="sbadges">
+      <span class="tier t-safe">第 6 志愿 · 稳妥</span>
+      <span class="badge">PG3 11–22</span>
+      <span class="badge">余量 +7</span>
+      <span class="badge">风险 低</span>
+      <span class="badge">地铁 28 分</span>
+      <span class="badge">综合 86</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>11–22</b>（2025 年度），孩子 15 分，余量 <b>+7</b>。明显优于往年 COP。</td></tr>
+  <tr><td>② 通勤</td><td>地铁 <b>28 分钟</b>（途经 NE13 KOVAN，最近站步行 704 米）；步行 79 分钟。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>11 项</b>（MOE 登记 11 项）。</td></tr>
+  <tr><td>④ 兴趣匹配</td><td><b>科技类</b>：Infocomm Technology (Media Production)<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>⑤ ALP</td><td>Business &amp; Entrepreneurship</td></tr>
+  <tr><td>⑥ LLP</td><td>Community Youth Leadership</td></tr>
+  <tr><td>⑦ 其他特色</td><td><b>余量 +7、通勤仅 28 分钟</b>，是 +7 俱乐部里通勤最短的；信息科技社团命中 AI 兴趣近似。</td></tr>
+  <tr><td>⑧ 整体特点</td><td>后港一带的政府辅助学校，ALP 是商科方向。</td></tr>
+  <tr><td>⑨ 适合 / 不适合</td><td><b>适合：</b>又稳又近，作为最后一位的保险最合适。<br><b>不适合：</b>商科 ALP 与 STEM 方向不符，没有机器人或戏剧社团。<br><br><b>放进方案 A 的理由：</b><b>余量 +7，通勤仅 28 分钟</b>（地铁）——是 +7 俱乐部里通勤最短的几所之一，信息科技社团命中 AI 兴趣近似。放第 6 位，给“前面全落空”买最后一层保险：既安全又不算远。<br><b>风险：</b>ALP 是 Business &amp; Entrepreneurship（商科），与 STEM 方向不符；政府辅助学校，学费区间与政府校一致（PR 同费率）。没有机器人或戏剧社团。</td></tr>
+  </tbody>
+  </table>
+  
+</article>
+
+<h3>关键对照：Bartley / Hougang</h3>
+<p>这 2 所不在方案 A 的 6 个位置里，但值得看懂——这样才能理解「为什么不选」和「什么时候该选」。</p>
+
+<article class="school">
+  <header>
+    <div class="sname">Bartley</div>
+    <div class="sbadges">
+      
+      <span class="badge">PG3 16–21</span>
+      <span class="badge">余量 +6</span>
+      <span class="badge">风险 低</span>
+      <span class="badge">地铁 33 分</span>
+      <span class="badge">综合 87</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>16–21</b>（2025 年度），孩子 15 分，余量 <b>+6</b>。明显优于往年 COP。</td></tr>
+  <tr><td>② 通勤</td><td>地铁 <b>33 分钟</b>（途经 CC12 BARTLEY，最近站步行 401 米）；步行 110 分钟。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>11 项</b>（MOE 登记 11 项）。</td></tr>
+  <tr><td>④ 兴趣匹配</td><td><b>科技类</b>：Infocomm Technology (Media Production)<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>⑤ ALP</td><td>STEM - Health and Food Science</td></tr>
+  <tr><td>⑥ LLP</td><td>Community Youth Leadership</td></tr>
+  <tr><td>⑦ 其他特色</td><td><span class="soft">未查到独立于 ALP/LLP 的特色项目</span></td></tr>
+  <tr><td>⑧ 整体特点</td><td><span class="soft">—</span></td></tr>
+  <tr><td>⑨ 适合 / 不适合</td><td><span class="soft">这份报告没有为该校写逐项判断（它只在对照表里出现）。</span></td></tr>
+  </tbody>
+  </table>
+  
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Hougang</div>
+    <div class="sbadges">
+      
+      <span class="badge">PG3 14–20</span>
+      <span class="badge">余量 +5</span>
+      <span class="badge">风险 较低</span>
+      <span class="badge">地铁 32 分</span>
+      <span class="badge">综合 86</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>14–20</b>（2025 年度），孩子 15 分，余量 <b>+5</b>。相对从容。</td></tr>
+  <tr><td>② 通勤</td><td>地铁 <b>32 分钟</b>（途经 NE15 BUANGKOK，最近站步行 1349 米）；步行 47 分钟。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>16 项</b>（MOE 登记 10 项，另 6 项来自学校官网）。<span class="soft">清单缺口：制服团体官网分类页为空，3 项来自 MOE 登记；俱乐部一栏官网只列了 1 项</span></td></tr>
+  <tr><td>④ 兴趣匹配</td><td><b>戏剧</b>：ELDDS；<b>科技类</b>：Media Resource Club<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>⑤ ALP</td><td>STEM</td></tr>
+  <tr><td>⑥ LLP</td><td>Community Youth Leadership</td></tr>
+  <tr><td>⑦ 其他特色</td><td><span class="soft">未查到独立于 ALP/LLP 的特色项目</span></td></tr>
+  <tr><td>⑧ 整体特点</td><td><span class="soft">—</span></td></tr>
+  <tr><td>⑨ 适合 / 不适合</td><td><span class="soft">这份报告没有为该校写逐项判断（它只在对照表里出现）。</span></td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-hougang-secondary-school.html"><span>阅读《Hougang》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<div class="note">
+<b>我的判断：把 CCA 权重放高的三个理由</b><br>
+① ALP 是<b>课时内全体学生</b>都上的，孩子逃不掉也深化不了——它是「底座」，不是「特长」；<br>
+② CCA 是每周固定时段、可以连续做四年的东西，<b>真正的技能与人际关系从这里长出来</b>；<br>
+③ 孩子的第 1 兴趣是机器人。全部 54 所主池里，<b>真的有 Robotics 社团的只有 2 所（Greendale、Yusof Ishak）</b>——这个稀缺度本身就说明该往这一两所倾斜。
+</div>
+</section>
+
+<section>
+<h2 id="s5"><span class="n">05</span>梯度设计：为什么这样分三档</h2>
+<p class="lead">分档只看一件事：<b>余量</b>（区间右端 − 孩子分数）。它决定了「今年大概会不会落空」，而兴趣匹配决定「落空后值不值得」。两者都满足才算「匹配」。</p>
+
+<div class="grid2">
+  <div class="panel">
+    <h4>A · 冲刺（Reach）：余量 0–2 分</h4>
+    <ul>
+      <li>孩子有机会，但 COP 一动就落空</li>
+      <li>放前面的<b>唯一成本是占掉一个志愿位</b>（分数不够时 MOE 直接看下一志愿）</li>
+      <li>建议占 1–2 个位置</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h4>B · 匹配（Match）：余量 3–5 分</h4>
+    <ul>
+      <li>竞争力合理，但仍有 1–2 分的浮动风险</li>
+      <li>这是志愿表的主体，<b>应该占 2–3 个位置</b></li>
+      <li>优先选兴趣或通勤有明显优势的</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h4>C · 稳妥（Safe）：余量 ≥6 分</h4>
+    <ul>
+      <li>分数明显优于往年 COP，录取安全边际较大</li>
+      <li>MOE 建议至少放 2–3 所</li>
+      <li><b>不要因为「稳妥」就随便选</b>——它仍要能承接兴趣</li>
+    </ul>
+  </div>
+</div>
+
+
+<h3>冲刺档（13 所）</h3>
+<p class="soft" style="font-size:13px">余量 0、1、2 分，步行 / 地铁取最快 8–59 分钟。其中 <b>Yusof Ishak、Gan Eng Seng School、Evergreen</b> 余量 0——那是「抽签级」风险，不是「有希望」。</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">余量</th><th class="mid">通勤</th><th class="mid">综合</th><th>一句话</th></tr></thead>
+<tbody>
+<tr><td>Greendale</td><td class="num mid">+1</td><td class="num mid">步行 27 分</td><td class="num mid">79</td><td class="soft">命中：机器人 + 戏剧</td></tr>
+<tr><td>Yusof Ishak</td><td class="num mid">+0</td><td class="num mid">步行 8–21 分<sup class="soft">争议</sup></td><td class="num mid">76</td><td class="soft">命中：机器人 + AI + 戏剧</td></tr>
+<tr><td>Outram</td><td class="num mid">+2</td><td class="num mid">步行 15–25 分<sup class="soft">争议</sup></td><td class="num mid">75</td><td class="soft">命中：游泳</td></tr>
+<tr><td>Christ Church</td><td class="num mid">+2</td><td class="num mid">地铁 53 分</td><td class="num mid">73</td><td class="soft">命中：AI</td></tr>
+<tr><td>Queensway</td><td class="num mid">+2</td><td class="num mid">地铁 58 分</td><td class="num mid">71</td><td class="soft">命中：AI</td></tr>
+<tr><td>Bowen</td><td class="num mid">+1</td><td class="num mid">地铁 37 分</td><td class="num mid">70</td><td class="soft">命中：AI</td></tr>
+<tr><td>Mayflower</td><td class="num mid">+2</td><td class="num mid">地铁 50 分</td><td class="num mid">68</td><td class="soft">命中：AI</td></tr>
+<tr><td>Bedok View</td><td class="num mid">+1</td><td class="num mid">地铁 53 分</td><td class="num mid">65</td><td class="soft">命中：AI</td></tr>
+<tr><td>Ang Mo Kio</td><td class="num mid">+1</td><td class="num mid">地铁 48 分</td><td class="num mid">63</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Deyi</td><td class="num mid">+1</td><td class="num mid">地铁 44 分</td><td class="num mid">60</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Gan Eng Seng School</td><td class="num mid">+0</td><td class="num mid">地铁 52 分</td><td class="num mid">59</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Pasir Ris</td><td class="num mid">+2</td><td class="num mid">地铁 58 分</td><td class="num mid">57</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Evergreen</td><td class="num mid">+0</td><td class="num mid">地铁 59 分</td><td class="num mid">53</td><td class="soft">五项兴趣零命中</td></tr>
+</tbody>
+</table>
+
+<h3>匹配档（18 所）</h3>
+<p class="soft" style="font-size:13px">余量 3、4、5 分，步行 / 地铁取最快 14–59 分钟。</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">余量</th><th class="mid">通勤</th><th class="mid">综合</th><th>一句话</th></tr></thead>
+<tbody>
+<tr><td>Hougang</td><td class="num mid">+5</td><td class="num mid">地铁 32 分</td><td class="num mid">86</td><td class="soft">命中：戏剧</td></tr>
+<tr><td>Peicai</td><td class="num mid">+5</td><td class="num mid">地铁 34 分</td><td class="num mid">84</td><td class="soft">命中：AI</td></tr>
+<tr><td>Peirce</td><td class="num mid">+5</td><td class="num mid">地铁 49 分</td><td class="num mid">84</td><td class="soft">命中：AI</td></tr>
+<tr><td>Seng Kang</td><td class="num mid">+4</td><td class="num mid">地铁 22 分</td><td class="num mid">84</td><td class="soft">命中：戏剧</td></tr>
+<tr><td>North Vista</td><td class="num mid">+3</td><td class="num mid">地铁 25 分</td><td class="num mid">83</td><td class="soft">命中：AI + 戏剧</td></tr>
+<tr><td>Beatty</td><td class="num mid">+3</td><td class="num mid">地铁 44 分</td><td class="num mid">81</td><td class="soft">命中：AI</td></tr>
+<tr><td>Compassvale</td><td class="num mid">+3</td><td class="num mid">步行 14–25 分<sup class="soft">争议</sup></td><td class="num mid">79</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Serangoon</td><td class="num mid">+5</td><td class="num mid">地铁 32 分</td><td class="num mid">78</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Punggol</td><td class="num mid">+4</td><td class="num mid">地铁 22 分</td><td class="num mid">77</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>New Town</td><td class="num mid">+5</td><td class="num mid">地铁 59 分</td><td class="num mid">76</td><td class="soft">命中：AI</td></tr>
+<tr><td>Woodgrove</td><td class="num mid">+4</td><td class="num mid">地铁 55 分</td><td class="num mid">76</td><td class="soft">命中：AI</td></tr>
+<tr><td>Yishun</td><td class="num mid">+5</td><td class="num mid">地铁 52 分</td><td class="num mid">76</td><td class="soft">命中：AI</td></tr>
+<tr><td>Bedok Green</td><td class="num mid">+5</td><td class="num mid">地铁 50 分</td><td class="num mid">75</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Naval Base</td><td class="num mid">+4</td><td class="num mid">地铁 45 分</td><td class="num mid">75</td><td class="soft">命中：AI</td></tr>
+<tr><td>Orchid Park</td><td class="num mid">+4</td><td class="num mid">地铁 49 分</td><td class="num mid">73</td><td class="soft">命中：AI</td></tr>
+<tr><td>Bedok South</td><td class="num mid">+3</td><td class="num mid">地铁 54 分</td><td class="num mid">71</td><td class="soft">命中：AI</td></tr>
+<tr><td>Tampines</td><td class="num mid">+4</td><td class="num mid">地铁 57 分</td><td class="num mid">69</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Ahmad Ibrahim</td><td class="num mid">+3</td><td class="num mid">地铁 55 分</td><td class="num mid">62</td><td class="soft">五项兴趣零命中</td></tr>
+</tbody>
+</table>
+
+<h3>稳妥档（23 所）</h3>
+<p class="soft" style="font-size:13px">余量 6、7 分，步行 / 地铁取最快 28–60 分钟。共同代价是通勤偏长——这是「安全边际」的价格。</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">余量</th><th class="mid">通勤</th><th class="mid">综合</th><th>一句话</th></tr></thead>
+<tbody>
+<tr><td>Bendemeer</td><td class="num mid">+7</td><td class="num mid">地铁 34 分</td><td class="num mid">88</td><td class="soft">命中：戏剧</td></tr>
+<tr><td>Bartley</td><td class="num mid">+6</td><td class="num mid">地铁 33 分</td><td class="num mid">87</td><td class="soft">命中：AI</td></tr>
+<tr><td>Manjusri</td><td class="num mid">+6</td><td class="num mid">地铁 44 分</td><td class="num mid">86</td><td class="soft">命中：AI</td></tr>
+<tr><td>Yio Chu Kang</td><td class="num mid">+7</td><td class="num mid">地铁 46 分</td><td class="num mid">86</td><td class="soft">命中：AI</td></tr>
+<tr><td>Yuying</td><td class="num mid">+7</td><td class="num mid">地铁 28 分</td><td class="num mid">86</td><td class="soft">命中：AI</td></tr>
+<tr><td>Broadrick</td><td class="num mid">+7</td><td class="num mid">地铁 40 分</td><td class="num mid">85</td><td class="soft">命中：AI</td></tr>
+<tr><td>Bukit Merah</td><td class="num mid">+7</td><td class="num mid">地铁 56 分</td><td class="num mid">85</td><td class="soft">命中：AI</td></tr>
+<tr><td>Guangyang</td><td class="num mid">+7</td><td class="num mid">地铁 40 分</td><td class="num mid">85</td><td class="soft">命中：AI</td></tr>
+<tr><td>Changkat Changi</td><td class="num mid">+7</td><td class="num mid">地铁 55 分</td><td class="num mid">82</td><td class="soft">命中：AI</td></tr>
+<tr><td>Damai</td><td class="num mid">+7</td><td class="num mid">地铁 53 分</td><td class="num mid">82</td><td class="soft">命中：AI</td></tr>
+<tr><td>Northland</td><td class="num mid">+7</td><td class="num mid">地铁 55 分</td><td class="num mid">82</td><td class="soft">命中：AI</td></tr>
+<tr><td>Northbrooks</td><td class="num mid">+7</td><td class="num mid">地铁 59 分</td><td class="num mid">81</td><td class="soft">命中：AI</td></tr>
+<tr><td>Serangoon Garden</td><td class="num mid">+7</td><td class="num mid">地铁 44 分</td><td class="num mid">80</td><td class="soft">命中：AI</td></tr>
+<tr><td>Whitley</td><td class="num mid">+7</td><td class="num mid">地铁 42 分</td><td class="num mid">80</td><td class="soft">命中：AI</td></tr>
+<tr><td>Junyuan</td><td class="num mid">+6</td><td class="num mid">地铁 60 分</td><td class="num mid">79</td><td class="soft">命中：AI</td></tr>
+<tr><td>Marsiling</td><td class="num mid">+7</td><td class="num mid">地铁 60 分</td><td class="num mid">78</td><td class="soft">命中：AI</td></tr>
+<tr><td>Sembawang</td><td class="num mid">+7</td><td class="num mid">地铁 54 分</td><td class="num mid">76</td><td class="soft">命中：AI</td></tr>
+<tr><td>Woodlands Ring</td><td class="num mid">+7</td><td class="num mid">地铁 59 分</td><td class="num mid">76</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Admiralty</td><td class="num mid">+7</td><td class="num mid">地铁 57 分</td><td class="num mid">74</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>East Spring</td><td class="num mid">+7</td><td class="num mid">地铁 60 分</td><td class="num mid">73</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Springfield</td><td class="num mid">+7</td><td class="num mid">地铁 60 分</td><td class="num mid">71</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Canberra</td><td class="num mid">+7</td><td class="num mid">地铁 57 分</td><td class="num mid">69</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Queenstown</td><td class="num mid">+7</td><td class="num mid">地铁 56 分</td><td class="num mid">69</td><td class="soft">五项兴趣零命中</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>这一版和 abc3 的最大不同：这里不缺“稳”。</b>54 所候选中余量从 +0 到 +7，其中余量 ≥6 的有 <b>23 所</b>——PR 同分输公民的风险，完全可以用“选余量 ≥3 的学校”来对冲。<br><br>所以本报告的志愿策略回到常规做法：<b>前面 1–2 位冲刺（给稀缺的机器人社团）、中间 2 位用“高余量 + 短通勤”承接、最后 2 位用 +7 的学校兜底</b>。唯一要克制的是：<b>别把 6 个位置全填成 +7 的“安全校”</b>——那样机器人兴趣四年都没有落点，而“安全”在 6 个位置里其实只要 2 个就够。
+</div>
+</section>
+
+<section>
+<h2 id="s6"><span class="n">06</span>最终建议：评分表 + 三套方案</h2>
+<p class="lead">综合评分沿用五维加权：<b>录取安全性 30% ｜ 距离/通勤 25% ｜ 学术课程匹配 15% ｜ CCA 匹配 15% ｜ ALP/LLP 特色 15%</b>。分数衡量的是「对这个孩子」，不是学校办学水平。</p>
+
+<h3>方案 A 6 所的五维得分</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>志愿</th><th>学校</th><th class="mid">录取安全性<br><span class="soft">×30%</span></th><th class="mid">通勤<br><span class="soft">×25%</span></th><th class="mid">学术<br><span class="soft">×15%</span></th><th class="mid">CCA<br><span class="soft">×15%</span></th><th class="mid">ALP/LLP<br><span class="soft">×15%</span></th><th class="mid">合计</th></tr></thead>
+<tbody>
+<tr>
+    <td class="num mid">1</td>
+    <td><b>Greendale</b></td>
+    <td class="num mid">50</td><td class="num mid">97</td><td class="num mid">82</td><td class="num mid">100</td><td class="num mid">86</td>
+    <td class="num mid"><b>79</b></td>
+  </tr>
+<tr>
+    <td class="num mid">2</td>
+    <td><b>Yusof Ishak</b></td>
+    <td class="num mid">40</td><td class="num mid">100</td><td class="num mid">76</td><td class="num mid">100</td><td class="num mid">86</td>
+    <td class="num mid"><b>76</b></td>
+  </tr>
+<tr>
+    <td class="num mid">3</td>
+    <td><b>Seng Kang</b></td>
+    <td class="num mid">74</td><td class="num mid">100</td><td class="num mid">68</td><td class="num mid">92</td><td class="num mid">86</td>
+    <td class="num mid"><b>84</b></td>
+  </tr>
+<tr>
+    <td class="num mid">4</td>
+    <td><b>North Vista</b></td>
+    <td class="num mid">66</td><td class="num mid">99</td><td class="num mid">72</td><td class="num mid">99</td><td class="num mid">86</td>
+    <td class="num mid"><b>83</b></td>
+  </tr>
+<tr>
+    <td class="num mid">5</td>
+    <td><b>Bendemeer</b></td>
+    <td class="num mid">90</td><td class="num mid">89</td><td class="num mid">81</td><td class="num mid">90</td><td class="num mid">86</td>
+    <td class="num mid"><b>88</b></td>
+  </tr>
+<tr>
+    <td class="num mid">6</td>
+    <td><b>Yuying</b></td>
+    <td class="num mid">90</td><td class="num mid">96</td><td class="num mid">60</td><td class="num mid">94</td><td class="num mid">76</td>
+    <td class="num mid"><b>86</b></td>
+  </tr>
+</tbody>
+</table>
+</div>
+<p class="soft" style="font-size:12.6px">权重：安全性 30% / 通勤 25% / 学术 15% / CCA 15% / ALP·LLP 15%。CCA 那一维按孩子的五项兴趣加权：命中第 1 兴趣给 95 分以上，一项都不命中给 45 分。<b>45 分不代表学校差</b>，只代表社团对不上这个孩子。</p>
+
+
+<h3>方案 A · 安全优先（PR 推荐）</h3>
+<p class="soft" style="font-size:13px;margin:0 0 8px">主体用余量 ≥4 且通勤 ≤35 分钟的“厚安全档”，前两位留给唯一有机器人社团的踩线校</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th class="mid" style="width:5%">志愿</th><th style="width:19%">学校</th><th class="mid" style="width:9%">PG3 区间</th><th class="mid" style="width:8%">风险</th><th class="mid" style="width:11%">通勤</th><th class="mid" style="width:9%">CCA</th><th style="width:13%">ALP / LLP</th><th>推荐理由</th></tr></thead>
+<tbody>
+<tr>
+    <td class="num mid"><b>1</b></td>
+    <td><b>Greendale</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">11–16</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">步行 27 分</td>
+    <td class="mid" style="white-space:nowrap">机器人 + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Sustainability</td>
+    <td class="soft" style="font-size:12.4px">全池<b>机器人社团两所之一</b>（另一所是 Yusof Ishak），且有戏剧社团 Theatricks!——孩子的第 1 与第 3 兴趣都能落到实体社团。27 分钟步行可达，通勤也轻。放第 1 位：冲刺不占后面位置。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>2</b></td>
+    <td><b>Yusof Ishak</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">7–15</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">步行 8–21 分<sup class="soft">争议</sup></td>
+    <td class="mid" style="white-space:nowrap">机器人 + AI + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Sustainability</td>
+    <td class="soft" style="font-size:12.4px"><b>兴趣匹配全池第一：机器人 + 信息科技（AI 近似）+ 戏剧三项同时对上</b>，步行仅 8 分钟（争议上限 21 分钟），是“最短通勤 + 最全兴趣”的组合。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>3</b></td>
+    <td><b>Seng Kang</b><br><span class="tier t-safe" style="font-size:10px;margin-top:3px">稳妥</span></td>
+    <td class="num mid">14–19</td>
+    <td class="mid" style="white-space:nowrap">较低</td>
+    <td class="num mid" style="white-space:nowrap">地铁 22 分</td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Health and Food Science</td>
+    <td class="soft" style="font-size:12.4px"><b>余量 +4，通勤仅 22 分钟</b>（地铁）——是“高余量 + 短通勤”的交叉点，且有 English Drama 承接戏剧兴趣。LLP 是 Sports &amp; Outdoor Education。PR 视角下，+4 的缓冲足以吸收同分让位。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>4</b></td>
+    <td><b>North Vista</b><br><span class="tier t-safe" style="font-size:10px;margin-top:3px">稳妥</span></td>
+    <td class="num mid">11–18</td>
+    <td class="mid" style="white-space:nowrap">中</td>
+    <td class="num mid" style="white-space:nowrap">地铁 25 分</td>
+    <td class="mid" style="white-space:nowrap">AI + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Cities and Urban Landscapes</td>
+    <td class="soft" style="font-size:12.4px"><b>余量 +3，通勤 25 分钟</b>，且 <b>AI（信息科技）与戏剧两项兴趣同时命中</b>——是“有社团承接”的学校里余量最厚的一所。放第 4 位是安全与兴趣的最佳平衡。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>5</b></td>
+    <td><b>Bendemeer</b><br><span class="tier t-safe" style="font-size:10px;margin-top:3px">稳妥</span></td>
+    <td class="num mid">11–22</td>
+    <td class="mid" style="white-space:nowrap">低</td>
+    <td class="num mid" style="white-space:nowrap">地铁 34 分</td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Emerging Technologies</td>
+    <td class="soft" style="font-size:12.4px"><b>全池总分第 1、余量 +7，通勤 34 分钟</b>——是“极厚安全边际”的代表。有戏剧社团（Modern Dance / Choir 一类表演艺术），ALP 是 STEM - Emerging Technologies。PR 家长要的“兜底”就是这种 +7 的学校。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>6</b></td>
+    <td><b>Yuying</b><br><span class="tier t-safe" style="font-size:10px;margin-top:3px">稳妥</span></td>
+    <td class="num mid">11–22</td>
+    <td class="mid" style="white-space:nowrap">低</td>
+    <td class="num mid" style="white-space:nowrap">地铁 28 分</td>
+    <td class="mid" style="white-space:nowrap">AI</td>
+    <td style="font-size:12.4px">Business &amp; Entrepreneurship</td>
+    <td class="soft" style="font-size:12.4px"><b>余量 +7，通勤仅 28 分钟</b>（地铁）——是 +7 俱乐部里通勤最短的几所之一，信息科技社团命中 AI 兴趣近似。放第 6 位，给“前面全落空”买最后一层保险：既安全又不算远。</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<h3>方案 B · 兴趣最大化</h3>
+<p class="soft" style="font-size:13px;margin:0 0 8px">把有社团承接的踩线校全提到前面，接受更高的滑档概率——只适合“非机器人不读”的极端偏好</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th class="mid" style="width:5%">志愿</th><th style="width:19%">学校</th><th class="mid" style="width:9%">PG3 区间</th><th class="mid" style="width:8%">风险</th><th class="mid" style="width:11%">通勤</th><th class="mid" style="width:9%">CCA</th><th style="width:13%">ALP / LLP</th><th>推荐理由</th></tr></thead>
+<tbody>
+<tr>
+    <td class="num mid"><b>1</b></td>
+    <td><b>Yusof Ishak</b></td>
+    <td class="num mid">7–15</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">步行 8–21 分<sup class="soft">争议</sup></td>
+    <td class="mid" style="white-space:nowrap">机器人 + AI + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Sustainability</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability，步行 8–21 分<sup class="soft">争议</sup></td>
+  </tr>
+<tr>
+    <td class="num mid"><b>2</b></td>
+    <td><b>Greendale</b></td>
+    <td class="num mid">11–16</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">步行 27 分</td>
+    <td class="mid" style="white-space:nowrap">机器人 + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Sustainability</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability，步行 27 分</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>3</b></td>
+    <td><b>North Vista</b></td>
+    <td class="num mid">11–18</td>
+    <td class="mid" style="white-space:nowrap">中</td>
+    <td class="num mid" style="white-space:nowrap">地铁 25 分</td>
+    <td class="mid" style="white-space:nowrap">AI + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Cities and Urban Landscapes</td>
+    <td class="soft" style="font-size:12.4px">STEM - Cities and Urban Landscapes，地铁 25 分</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>4</b></td>
+    <td><b>Seng Kang</b></td>
+    <td class="num mid">14–19</td>
+    <td class="mid" style="white-space:nowrap">较低</td>
+    <td class="num mid" style="white-space:nowrap">地铁 22 分</td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Health and Food Science</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science，地铁 22 分</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>5</b></td>
+    <td><b>Hougang</b></td>
+    <td class="num mid">14–20</td>
+    <td class="mid" style="white-space:nowrap">较低</td>
+    <td class="num mid" style="white-space:nowrap">地铁 32 分</td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM</td>
+    <td class="soft" style="font-size:12.4px">STEM，地铁 32 分</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>6</b></td>
+    <td><b>Bendemeer</b></td>
+    <td class="num mid">11–22</td>
+    <td class="mid" style="white-space:nowrap">低</td>
+    <td class="num mid" style="white-space:nowrap">地铁 34 分</td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Emerging Technologies</td>
+    <td class="soft" style="font-size:12.4px">余量 7 分兜底，STEM - Emerging Technologies</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<h3>方案 C · 通勤最短</h3>
+<p class="soft" style="font-size:13px;margin:0 0 8px">优先 30 分钟内可达的学校，适合“每天通勤时间比社团更重要”的家庭</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th class="mid" style="width:5%">志愿</th><th style="width:19%">学校</th><th class="mid" style="width:9%">PG3 区间</th><th class="mid" style="width:8%">风险</th><th class="mid" style="width:11%">通勤</th><th class="mid" style="width:9%">CCA</th><th style="width:13%">ALP / LLP</th><th>推荐理由</th></tr></thead>
+<tbody>
+<tr>
+    <td class="num mid"><b>1</b></td>
+    <td><b>Yusof Ishak</b></td>
+    <td class="num mid">7–15</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">步行 8–21 分<sup class="soft">争议</sup></td>
+    <td class="mid" style="white-space:nowrap">机器人 + AI + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Sustainability</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability，步行 8–21 分<sup class="soft">争议</sup></td>
+  </tr>
+<tr>
+    <td class="num mid"><b>2</b></td>
+    <td><b>Compassvale</b></td>
+    <td class="num mid">14–18</td>
+    <td class="mid" style="white-space:nowrap">中</td>
+    <td class="num mid" style="white-space:nowrap">步行 14–25 分<sup class="soft">争议</sup></td>
+    <td class="mid" style="white-space:nowrap">零命中</td>
+    <td style="font-size:12.4px">STEM<br>Future of Transportation</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation，步行 14–25 分<sup class="soft">争议</sup></td>
+  </tr>
+<tr>
+    <td class="num mid"><b>3</b></td>
+    <td><b>Seng Kang</b></td>
+    <td class="num mid">14–19</td>
+    <td class="mid" style="white-space:nowrap">较低</td>
+    <td class="num mid" style="white-space:nowrap">地铁 22 分</td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Health and Food Science</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science，地铁 22 分</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>4</b></td>
+    <td><b>North Vista</b></td>
+    <td class="num mid">11–18</td>
+    <td class="mid" style="white-space:nowrap">中</td>
+    <td class="num mid" style="white-space:nowrap">地铁 25 分</td>
+    <td class="mid" style="white-space:nowrap">AI + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Cities and Urban Landscapes</td>
+    <td class="soft" style="font-size:12.4px">STEM - Cities and Urban Landscapes，地铁 25 分</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>5</b></td>
+    <td><b>Yuying</b></td>
+    <td class="num mid">11–22</td>
+    <td class="mid" style="white-space:nowrap">低</td>
+    <td class="num mid" style="white-space:nowrap">地铁 28 分</td>
+    <td class="mid" style="white-space:nowrap">AI</td>
+    <td style="font-size:12.4px">Business &amp; Entrepreneurship</td>
+    <td class="soft" style="font-size:12.4px">余量 7 分兜底，Business & Entrepreneurship</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>6</b></td>
+    <td><b>Punggol</b></td>
+    <td class="num mid">13–19</td>
+    <td class="mid" style="white-space:nowrap">较低</td>
+    <td class="num mid" style="white-space:nowrap">地铁 22 分</td>
+    <td class="mid" style="white-space:nowrap">零命中</td>
+    <td style="font-size:12.4px">STEM<br>Sustainability</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability，地铁 22 分</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div class="verdict">
+<h3>如果这是我的孩子，我会这样填</h3>
+<p>方案 A 的顺序是三条判断叠出来的：</p>
+<ul>
+<li><b>第 1–2 位给两所“真有机器人社团”的踩线校。</b>全池 54 所里，Robotics 只存在于 Greendale（+1）与 Yusof Ishak（0）。孩子第 1 兴趣是这个，不用前两位去争，四年就真的没有机器人社团可进。代价明确：这两所都是冲刺级，<b>而且孩子是 PR，同分输给公民，风险比公民家庭更高</b>——所以它们只占两位，不占后面。</li>
+<li><b>第 3–4 位用“高余量 + 短通勤 + 有社团”的交叉项。</b>Seng Kang（+4 / 22 分钟 / 戏剧）和 North Vista（+3 / 25 分钟 / AI+戏剧）是全池最符合“PR 安全 + 兴趣承接”的两所。这两位是真正的承接位，必须选它们，不能选兴趣更搭但更险的。</li>
+<li><b>第 5–6 位用两所 +7 的学校兜底。</b>Bendemeer（+7 / 34 分钟）和 Yuying（+7 / 28 分钟）是全池安全边际最厚的，Yuying 通勤还更短。落到这里说明前面都落空，此时“几乎肯定中”比“社团对口”更值钱。</li>
+</ul>
+<p><b>为什么不选方案 B：</b>B 把两所踩线校放前两位是对的，但把 Hougang 提到第 5 位、用 Bendemeer 兜第 6，等于把“+7 的保险”只留了 1 个。PR 家庭在同分段本来就让位公民，<b>只留 1 个 +7 太激进</b>；而且 Hougang 的余量只有 +5，谈不上比 A 的第 5–6 位更安全。</p>
+<p><b>为什么不选方案 C：</b>C 把 Compassvale 提到第 2 位——它通勤最短（14 分钟），但<b>五项兴趣零命中、余量只有 +3</b>，用第 2 位这种宝贵位置去换“走路近”不划算（放开通勤后 60 分钟内可选面很大，14 vs 25 分钟的差异没那么致命）。把 Punggol 放第 6 也是同样问题：余量 +4 但零兴趣，不如 Yuying 的 +7。</p>
+</div>
+
+<div class="warnbox">
+<b>提交前必须做的三件事：</b><br>
+① <b>确认 PR 身份的学费预算</b>：政府/政府辅助中学 PR 约 S$580–700/月（公民约 S$25/月），四年是笔实质开支；本池全是政府/政府辅助校，费率一致，不会因选校拉大差距，但要先和家人说清这个数；<br>
+② <b>实走两条短通勤路线</b>：Yusof Ishak（步行 8 vs 21 分钟有争议，来自能否穿私人公寓）、Compassvale（14 vs 25 分钟），这两所的“短通勤”卖点都依赖争议项，实地走一次再定要不要放前面；<br>
+③ <b>开放日问清两件事</b>：Greendale 的 Robotics 有没有选拔、Sec 1 名额多少（决定第 1 志愿值不值）；Yusof Ishak 的信息科技社团是否真涉及编程/AI，而不只是媒体制作。
+</div>
+</section>
+
+<section>
+<h2 id="s7"><span class="n">07</span>附录：全池 54 所速览</h2>
+<p class="lead">按余量从紧到松排列。这张表用于核对有没有漏掉值得考虑的学校。</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>学校</th><th class="mid">PG3 区间</th><th class="mid">余量</th><th class="mid">步行</th><th class="mid">地铁</th><th class="mid">CCA 项数</th><th>ALP 类别</th><th class="mid">综合</th></tr></thead>
+<tbody>
+<tr>
+    <td>Yusof Ishak</td>
+    <td class="num mid">7–15</td>
+    <td class="num mid">0</td>
+    <td class="num"><b>8–21<sup class="soft">争议</sup></b></td><td class="num">20</td>
+    <td class="num mid">16<span class="soft">/9</span></td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">76</td>
+  </tr>
+<tr>
+    <td>Gan Eng Seng School</td>
+    <td class="num mid">9–15</td>
+    <td class="num mid">0</td>
+    <td class="num">&gt;60</td><td class="num"><b>52</b></td>
+    <td class="num mid">1</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">59</td>
+  </tr>
+<tr>
+    <td>Evergreen</td>
+    <td class="num mid">10–15</td>
+    <td class="num mid">0</td>
+    <td class="num">&gt;60</td><td class="num"><b>59</b></td>
+    <td class="num mid">9</td>
+    <td class="soft" style="font-size:12.4px">Languages</td>
+    <td class="num mid">53</td>
+  </tr>
+<tr>
+    <td>Greendale</td>
+    <td class="num mid">11–16</td>
+    <td class="num mid">+1</td>
+    <td class="num"><b>27</b></td><td class="num">28</td>
+    <td class="num mid">19<span class="soft">/7</span></td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">79</td>
+  </tr>
+<tr>
+    <td>Bowen</td>
+    <td class="num mid">12–16</td>
+    <td class="num mid">+1</td>
+    <td class="num">&gt;60</td><td class="num"><b>37</b></td>
+    <td class="num mid">13</td>
+    <td class="soft" style="font-size:12.4px">Business &amp; Entrepreneurship</td>
+    <td class="num mid">70</td>
+  </tr>
+<tr>
+    <td>Bedok View</td>
+    <td class="num mid">12–16</td>
+    <td class="num mid">+1</td>
+    <td class="num">&gt;60</td><td class="num"><b>53</b></td>
+    <td class="num mid">11</td>
+    <td class="soft" style="font-size:12.4px">Humanities</td>
+    <td class="num mid">65</td>
+  </tr>
+<tr>
+    <td>Ang Mo Kio</td>
+    <td class="num mid">12–16</td>
+    <td class="num mid">+1</td>
+    <td class="num">&gt;60</td><td class="num"><b>48</b></td>
+    <td class="num mid">12</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">63</td>
+  </tr>
+<tr>
+    <td>Deyi</td>
+    <td class="num mid">9–16</td>
+    <td class="num mid">+1</td>
+    <td class="num">&gt;60</td><td class="num"><b>44</b></td>
+    <td class="num mid">6</td>
+    <td class="soft" style="font-size:12.4px">Languages</td>
+    <td class="num mid">60</td>
+  </tr>
+<tr>
+    <td>Outram</td>
+    <td class="num mid">9–17</td>
+    <td class="num mid">+2</td>
+    <td class="num"><b>15–25<sup class="soft">争议</sup></b></td><td class="num">24</td>
+    <td class="num mid">6</td>
+    <td class="soft" style="font-size:12.4px">Business &amp; Entrepreneurship</td>
+    <td class="num mid">75</td>
+  </tr>
+<tr>
+    <td>Christ Church</td>
+    <td class="num mid">12–17</td>
+    <td class="num mid">+2</td>
+    <td class="num">&gt;60</td><td class="num"><b>53</b></td>
+    <td class="num mid">10</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">73</td>
+  </tr>
+<tr>
+    <td>Queensway</td>
+    <td class="num mid">13–17</td>
+    <td class="num mid">+2</td>
+    <td class="num">&gt;60</td><td class="num"><b>58</b></td>
+    <td class="num mid">7</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">71</td>
+  </tr>
+<tr>
+    <td>Mayflower</td>
+    <td class="num mid">13–17</td>
+    <td class="num mid">+2</td>
+    <td class="num">&gt;60</td><td class="num"><b>50</b></td>
+    <td class="num mid">12</td>
+    <td class="soft" style="font-size:12.4px">Languages</td>
+    <td class="num mid">68</td>
+  </tr>
+<tr>
+    <td>Pasir Ris</td>
+    <td class="num mid">11–17</td>
+    <td class="num mid">+2</td>
+    <td class="num">&gt;60</td><td class="num"><b>58</b></td>
+    <td class="num mid">10</td>
+    <td class="soft" style="font-size:12.4px">—</td>
+    <td class="num mid">57</td>
+  </tr>
+<tr>
+    <td>North Vista</td>
+    <td class="num mid">11–18</td>
+    <td class="num mid">+3</td>
+    <td class="num">38</td><td class="num"><b>25</b></td>
+    <td class="num mid">18<span class="soft">/11</span></td>
+    <td class="soft" style="font-size:12.4px">STEM - Cities and Urban Landscapes</td>
+    <td class="num mid">83</td>
+  </tr>
+<tr>
+    <td>Beatty</td>
+    <td class="num mid">12–18</td>
+    <td class="num mid">+3</td>
+    <td class="num">&gt;60</td><td class="num"><b>44</b></td>
+    <td class="num mid">12</td>
+    <td class="soft" style="font-size:12.4px">STEM - Cities and Urban Landscapes</td>
+    <td class="num mid">81</td>
+  </tr>
+<tr>
+    <td>Compassvale</td>
+    <td class="num mid">14–18</td>
+    <td class="num mid">+3</td>
+    <td class="num"><b>14–25<sup class="soft">争议</sup></b></td><td class="num">22</td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation</td>
+    <td class="num mid">79</td>
+  </tr>
+<tr>
+    <td>Bedok South</td>
+    <td class="num mid">13–18</td>
+    <td class="num mid">+3</td>
+    <td class="num">&gt;60</td><td class="num"><b>54</b></td>
+    <td class="num mid">13</td>
+    <td class="soft" style="font-size:12.4px">Interdisciplinary</td>
+    <td class="num mid">71</td>
+  </tr>
+<tr>
+    <td>Ahmad Ibrahim</td>
+    <td class="num mid">11–18</td>
+    <td class="num mid">+3</td>
+    <td class="num">&gt;60</td><td class="num"><b>55</b></td>
+    <td class="num mid">11</td>
+    <td class="soft" style="font-size:12.4px">Humanities</td>
+    <td class="num mid">62</td>
+  </tr>
+<tr>
+    <td>Seng Kang</td>
+    <td class="num mid">14–19</td>
+    <td class="num mid">+4</td>
+    <td class="num">33</td><td class="num"><b>22</b></td>
+    <td class="num mid">17<span class="soft">/10</span></td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">84</td>
+  </tr>
+<tr>
+    <td>Punggol</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid">+4</td>
+    <td class="num">24</td><td class="num"><b>22</b></td>
+    <td class="num mid">12</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">77</td>
+  </tr>
+<tr>
+    <td>Woodgrove</td>
+    <td class="num mid">14–19</td>
+    <td class="num mid">+4</td>
+    <td class="num">&gt;60</td><td class="num"><b>55</b></td>
+    <td class="num mid">11</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">76</td>
+  </tr>
+<tr>
+    <td>Naval Base</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid">+4</td>
+    <td class="num">&gt;60</td><td class="num"><b>45</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">Aesthetics</td>
+    <td class="num mid">75</td>
+  </tr>
+<tr>
+    <td>Orchid Park</td>
+    <td class="num mid">10–19</td>
+    <td class="num mid">+4</td>
+    <td class="num">&gt;60</td><td class="num"><b>49</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">Aesthetics</td>
+    <td class="num mid">73</td>
+  </tr>
+<tr>
+    <td>Tampines</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid">+4</td>
+    <td class="num">&gt;60</td><td class="num"><b>57</b></td>
+    <td class="num mid">6</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">69</td>
+  </tr>
+<tr>
+    <td>Hougang</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid">+5</td>
+    <td class="num">47</td><td class="num"><b>32</b></td>
+    <td class="num mid">16<span class="soft">/10</span></td>
+    <td class="soft" style="font-size:12.4px">STEM</td>
+    <td class="num mid">86</td>
+  </tr>
+<tr>
+    <td>Peicai</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid">+5</td>
+    <td class="num">&gt;60</td><td class="num"><b>34</b></td>
+    <td class="num mid">7</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">84</td>
+  </tr>
+<tr>
+    <td>Peirce</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid">+5</td>
+    <td class="num">&gt;60</td><td class="num"><b>49</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM</td>
+    <td class="num mid">84</td>
+  </tr>
+<tr>
+    <td>Serangoon</td>
+    <td class="num mid">16–20</td>
+    <td class="num mid">+5</td>
+    <td class="num">51</td><td class="num"><b>32</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation</td>
+    <td class="num mid">78</td>
+  </tr>
+<tr>
+    <td>New Town</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid">+5</td>
+    <td class="num">&gt;60</td><td class="num"><b>59</b></td>
+    <td class="num mid">11</td>
+    <td class="soft" style="font-size:12.4px">Interdisciplinary</td>
+    <td class="num mid">76</td>
+  </tr>
+<tr>
+    <td>Yishun</td>
+    <td class="num mid">12–20</td>
+    <td class="num mid">+5</td>
+    <td class="num">&gt;60</td><td class="num"><b>52</b></td>
+    <td class="num mid">14</td>
+    <td class="soft" style="font-size:12.4px">Aesthetics</td>
+    <td class="num mid">76</td>
+  </tr>
+<tr>
+    <td>Bedok Green</td>
+    <td class="num mid">12–20</td>
+    <td class="num mid">+5</td>
+    <td class="num">&gt;60</td><td class="num"><b>50</b></td>
+    <td class="num mid">9</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation</td>
+    <td class="num mid">75</td>
+  </tr>
+<tr>
+    <td>Bartley</td>
+    <td class="num mid">16–21</td>
+    <td class="num mid">+6</td>
+    <td class="num">&gt;60</td><td class="num"><b>33</b></td>
+    <td class="num mid">11</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">87</td>
+  </tr>
+<tr>
+    <td>Manjusri</td>
+    <td class="num mid">15–21</td>
+    <td class="num mid">+6</td>
+    <td class="num">&gt;60</td><td class="num"><b>44</b></td>
+    <td class="num mid">12</td>
+    <td class="soft" style="font-size:12.4px">STEM - Cities and Urban Landscapes</td>
+    <td class="num mid">86</td>
+  </tr>
+<tr>
+    <td>Junyuan</td>
+    <td class="num mid">14–21</td>
+    <td class="num mid">+6</td>
+    <td class="num">&gt;60</td><td class="num"><b>60</b></td>
+    <td class="num mid">9</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">79</td>
+  </tr>
+<tr>
+    <td>Bendemeer</td>
+    <td class="num mid">11–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>34</b></td>
+    <td class="num mid">13<span class="soft">/8</span></td>
+    <td class="soft" style="font-size:12.4px">STEM - Emerging Technologies</td>
+    <td class="num mid">88</td>
+  </tr>
+<tr>
+    <td>Yio Chu Kang</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>46</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM - Emerging Technologies</td>
+    <td class="num mid">86</td>
+  </tr>
+<tr>
+    <td>Yuying</td>
+    <td class="num mid">11–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>28</b></td>
+    <td class="num mid">11</td>
+    <td class="soft" style="font-size:12.4px">Business &amp; Entrepreneurship</td>
+    <td class="num mid">86</td>
+  </tr>
+<tr>
+    <td>Broadrick</td>
+    <td class="num mid">5–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>40</b></td>
+    <td class="num mid">10</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">85</td>
+  </tr>
+<tr>
+    <td>Bukit Merah</td>
+    <td class="num mid">8–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>56</b></td>
+    <td class="num mid">4</td>
+    <td class="soft" style="font-size:12.4px">STEM - Emerging Technologies</td>
+    <td class="num mid">85</td>
+  </tr>
+<tr>
+    <td>Guangyang</td>
+    <td class="num mid">9–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>40</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">85</td>
+  </tr>
+<tr>
+    <td>Changkat Changi</td>
+    <td class="num mid">11–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>55</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation</td>
+    <td class="num mid">82</td>
+  </tr>
+<tr>
+    <td>Damai</td>
+    <td class="num mid">10–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>53</b></td>
+    <td class="num mid">9</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">82</td>
+  </tr>
+<tr>
+    <td>Northland</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>55</b></td>
+    <td class="num mid">10</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">82</td>
+  </tr>
+<tr>
+    <td>Northbrooks</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>59</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation</td>
+    <td class="num mid">81</td>
+  </tr>
+<tr>
+    <td>Serangoon Garden</td>
+    <td class="num mid">12–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>44</b></td>
+    <td class="num mid">11</td>
+    <td class="soft" style="font-size:12.4px">Humanities</td>
+    <td class="num mid">80</td>
+  </tr>
+<tr>
+    <td>Whitley</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>42</b></td>
+    <td class="num mid">10</td>
+    <td class="soft" style="font-size:12.4px">Languages</td>
+    <td class="num mid">80</td>
+  </tr>
+<tr>
+    <td>Marsiling</td>
+    <td class="num mid">14–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>60</b></td>
+    <td class="num mid">7</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">78</td>
+  </tr>
+<tr>
+    <td>Sembawang</td>
+    <td class="num mid">18–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>54</b></td>
+    <td class="num mid">9</td>
+    <td class="soft" style="font-size:12.4px">—</td>
+    <td class="num mid">76</td>
+  </tr>
+<tr>
+    <td>Woodlands Ring</td>
+    <td class="num mid">17–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>59</b></td>
+    <td class="num mid">10</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation</td>
+    <td class="num mid">76</td>
+  </tr>
+<tr>
+    <td>Admiralty</td>
+    <td class="num mid">16–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>57</b></td>
+    <td class="num mid">7</td>
+    <td class="soft" style="font-size:12.4px">STEM - Emerging Technologies</td>
+    <td class="num mid">74</td>
+  </tr>
+<tr>
+    <td>East Spring</td>
+    <td class="num mid">16–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>60</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">73</td>
+  </tr>
+<tr>
+    <td>Springfield</td>
+    <td class="num mid">10–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>60</b></td>
+    <td class="num mid">6</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">71</td>
+  </tr>
+<tr>
+    <td>Canberra</td>
+    <td class="num mid">17–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>57</b></td>
+    <td class="num mid">10</td>
+    <td class="soft" style="font-size:12.4px">Aesthetics</td>
+    <td class="num mid">69</td>
+  </tr>
+<tr>
+    <td>Queenstown</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid">+7</td>
+    <td class="num">&gt;60</td><td class="num"><b>56</b></td>
+    <td class="num mid">12</td>
+    <td class="soft" style="font-size:12.4px">Humanities</td>
+    <td class="num mid">69</td>
+  </tr>
+</tbody>
+</table>
+</div>
+<p class="soft" style="font-size:12.4px">CCA 列格式「总数/MOE 登记数」——斜杠后的数字是 MOE SchoolFinder 的登记数，比总数小说明学校官网列得更多（官网是更完整的口径）。</p>
+
+<h3>60 分钟内但够不着的完整名单（37 所）</h3>
+<table>
+<thead><tr><th>学校</th><th class="mid">PG3 区间</th><th class="mid">差</th><th class="mid">通勤</th></tr></thead>
+<tbody>
+<tr><td>CHIJ St. Joseph&#39;s Convent</td><td class="num mid">8–14</td><td class="num mid">-1</td><td class="num mid">地铁 23 分</td></tr>
+<tr><td>Dunman</td><td class="num mid">6–14</td><td class="num mid">-1</td><td class="num mid">地铁 58 分</td></tr>
+<tr><td>Edgefield</td><td class="num mid">5–14</td><td class="num mid">-1</td><td class="num mid">步行 10 分</td></tr>
+<tr><td>Geylang Methodist School</td><td class="num mid">11–14</td><td class="num mid">-1</td><td class="num mid">地铁 43 分</td></tr>
+<tr><td>Holy Innocents&#39; High School</td><td class="num mid">11–14</td><td class="num mid">-1</td><td class="num mid">地铁 23 分</td></tr>
+<tr><td>Pei Hwa</td><td class="num mid">7–14</td><td class="num mid">-1</td><td class="num mid">地铁 37 分</td></tr>
+<tr><td>Riverside</td><td class="num mid">8–14</td><td class="num mid">-1</td><td class="num mid">地铁 58 分</td></tr>
+<tr><td>St. Hilda&#39;s</td><td class="num mid">12–14</td><td class="num mid">-1</td><td class="num mid">地铁 53 分</td></tr>
+<tr><td>CHIJ St. Theresa&#39;s Convent</td><td class="num mid">11–13</td><td class="num mid">-2</td><td class="num mid">地铁 56 分</td></tr>
+<tr><td>Clementi Town</td><td class="num mid">8–13</td><td class="num mid">-2</td><td class="num mid">地铁 58 分</td></tr>
+<tr><td>Crescent Girls&#39; School</td><td class="num mid">7–13</td><td class="num mid">-2</td><td class="num mid">地铁 54 分</td></tr>
+<tr><td>Presbyterian High School</td><td class="num mid">8–13</td><td class="num mid">-2</td><td class="num mid">地铁 43 分</td></tr>
+<tr><td>Tanjong Katong Girls&#39; School</td><td class="num mid">7–13</td><td class="num mid">-2</td><td class="num mid">地铁 46 分</td></tr>
+<tr><td>Tanjong Katong</td><td class="num mid">7–13</td><td class="num mid">-2</td><td class="num mid">地铁 47 分</td></tr>
+<tr><td>Xinmin</td><td class="num mid">8–13</td><td class="num mid">-2</td><td class="num mid">地铁 31 分</td></tr>
+<tr><td>Yishun Town</td><td class="num mid">5–13</td><td class="num mid">-2</td><td class="num mid">地铁 49 分</td></tr>
+<tr><td>Anglican High School</td><td class="num mid">4–12</td><td class="num mid">-3</td><td class="num mid">地铁 56 分</td></tr>
+<tr><td>Maris Stella High School</td><td class="num mid">7–12</td><td class="num mid">-3</td><td class="num mid">地铁 32 分</td></tr>
+<tr><td>Ngee Ann</td><td class="num mid">6–12</td><td class="num mid">-3</td><td class="num mid">地铁 55 分</td></tr>
+<tr><td>Zhonghua</td><td class="num mid">8–12</td><td class="num mid">-3</td><td class="num mid">地铁 27 分</td></tr>
+<tr><td>Anderson</td><td class="num mid">7–11</td><td class="num mid">-4</td><td class="num mid">地铁 44 分</td></tr>
+<tr><td>Chung Cheng High School (Yishun)</td><td class="num mid">6–11</td><td class="num mid">-4</td><td class="num mid">地铁 48 分</td></tr>
+<tr><td>Fairfield Methodist School</td><td class="num mid">6–11</td><td class="num mid">-4</td><td class="num mid">地铁 52 分</td></tr>
+<tr><td>Nan Chiau High School</td><td class="num mid">4–11(M)</td><td class="num mid">-4</td><td class="num mid">地铁 22 分</td></tr>
+<tr><td>St. Margaret&#39;s School</td><td class="num mid">8–11</td><td class="num mid">-4</td><td class="num mid">地铁 46 分</td></tr>
+<tr><td>CHIJ Secondary (Toa Payoh)</td><td class="num mid">6–10</td><td class="num mid">-5</td><td class="num mid">地铁 43 分</td></tr>
+<tr><td>Chung Cheng High School (Main)</td><td class="num mid">5–10(M)</td><td class="num mid">-5</td><td class="num mid">地铁 42 分</td></tr>
+<tr><td>Paya Lebar Methodist Girls&#39; School</td><td class="num mid">7–10</td><td class="num mid">-5</td><td class="num mid">地铁 32 分</td></tr>
+<tr><td>Anglo-Chinese School (Barker Road)</td><td class="num mid">6–9</td><td class="num mid">-6</td><td class="num mid">地铁 49 分</td></tr>
+<tr><td>Cedar Girls&#39;</td><td class="num mid">6–9</td><td class="num mid">-6</td><td class="num mid">地铁 33 分</td></tr>
+<tr><td>St Andrew&#39;s School</td><td class="num mid">8–9</td><td class="num mid">-6</td><td class="num mid">地铁 30 分</td></tr>
+<tr><td>Anglo-Chinese School (Independent)</td><td class="num mid">6–8</td><td class="num mid">-7</td><td class="num mid">地铁 58 分</td></tr>
+<tr><td>Catholic High School</td><td class="num mid">6–8(M)</td><td class="num mid">-7</td><td class="num mid">地铁 40 分</td></tr>
+<tr><td>CHIJ St. Nicholas Girls&#39; School</td><td class="num mid">6–8(M)</td><td class="num mid">-7</td><td class="num mid">地铁 50 分</td></tr>
+<tr><td>Methodist Girls&#39; School</td><td class="num mid">6–8</td><td class="num mid">-7</td><td class="num mid">地铁 53 分</td></tr>
+<tr><td>Singapore Chinese Girls&#39; School</td><td class="num mid">6–8</td><td class="num mid">-7</td><td class="num mid">地铁 44 分</td></tr>
+<tr><td>St. Joseph&#39;s Institution</td><td class="num mid">4–8</td><td class="num mid">-7</td><td class="num mid">地铁 46 分</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与口径</h2>
+<table>
+<thead><tr><th style="width:22%">内容</th><th>来源</th><th class="mid">可信度</th></tr></thead>
+<tbody>
+<tr><td>2026 S1 Posting 规则、Posting Group 映射、tie-breaker、SAP 高华条件、附属优先、时间线</td><td>MOE 官网 <code>moe.gov.sg/secondary/s1-posting</code>（2026-11 核对）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>各校 PG3 非附属录取区间（2025 年度）</td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>学校类型 / IP / SAP / CCA 登记 / DSA / ALP / LLP / 地址</td><td>MOE SchoolFinder（2026-11 采集）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>完整 CCA 清单（含 MOE 未登记项）</td><td>13 所学校官网逐页核实，合并进 <code>data/cca-catalog.json</code></td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>步行时间与距离</td><td>FOSSGIS OSRM foot（OSM 步行路网），Valhalla 交叉校验</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>本报告的<b>通勤口径</b></td><td>按「<b>步行 / 地铁取最快</b>」参与门槛判定与评分（学生配置 <code>commuteMode: "fastest"</code>）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>地铁时间</td><td>自建 MRT 模型（站间 2 分 / 换乘 5 分 / 进站 4 分 + 站到校步行）</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td>五维加权分数</td><td>本项目评分模型，权重 30/25/15/15/15，CCA 按孩子兴趣加权</td><td class="mid"><span class="tag b">B</span></td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>事实 vs 判断的分界：</b>第一至三步（规则、候选池、COP）是可复核的事实，全部来自 MOE 口径与官方数据；第四至六步（适配度、梯度、推荐）是判断，标注了理由与风险。<b>每所学校的「为什么适合/不适合」都是我的判断，你可以不同意</b>——但只要事实部分没错，换个权重重排一遍就能得到你自己的答案。
+</div>
+
+<div class="warnbox">
+<b>三条必须知道的数据局限：</b><br>
+① <b>COP 是 2025 年度的</b>，2026 届的 12 月才出；区间每年动 1–3 分；<br>
+② <b>CCA 清单永远可能不全</b>：本报告引用 54 所主池，其中 MOE 登记数与官网实际项数不一致的学校已逐所标在第四步卡片里——「报告里没写某个社团」不等于「学校没有」，开放日必须问；<br>
+③ <b>步行时间有分歧</b>：两家引擎对「能否穿私人公寓通道」判定不同，本池有 3 所（Compassvale 14 vs 25、Yusof Ishak 8 vs 21、Outram 15 vs 25，单位分钟）。
+</div>
+</section>
+
+<div class="foot">
+<b>生成信息</b>　本报告由 <code>scripts/build-report-plan.cjs</code> 基于学生画像 <code>data/students/abc4.json</code> 生成，
+数据采集 2026-11，生成于 2026/11/21 22:39:52 SGT。<br>
+<b>口径</b>　COP = 2025 年度 S1 Posting 实际录取区间 · 学生 AL 15 / PG3 / 邮编 828765 / 通勤上限 60 分钟（步行 / 地铁取最快）·
+步行 = OSM 步行路网 · 地铁 = 自建 MRT 模型。<br>
+<b>免责</b>　个人研究工具输出，非 MOE 官方建议。COP 每年浮动，录取结果受志愿策略、同届竞争与 tie-breaker 影响，本报告不构成录取保证。
+开放日实地确认永远优先于任何二手资料。<br><br>
+<a href="../index.html">← 学校看板</a> ｜ <a href="../map.html">通勤地图</a>
+</div>
+
+</div>
+</body>
+</html>

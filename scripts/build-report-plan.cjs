@@ -59,6 +59,15 @@ const COMMUTE_RULE = WALK_ONLY
   : '按「<b>步行 / 地铁取最快</b>」计算：只要有一种方式够快就算达标';
 const LIMIT_LABEL = WALK_ONLY ? `全程步行 ≤ ${S.maxCommute} 分钟` : `${S.maxCommute} 分钟内`;
 
+/* 身份（可选）：目前只有 abc4 标了 PR。没有身份字段的学生保持原来的中性表述。
+   PR 的实质影响有官方依据（MOE tie-breakers：SC > PR > IS；MOE school fees：PR $580–700/月），
+   模板据此动态改写 tie-breaker 行并加一段 PR 专段，不臆造 IP/SAP 的额外限制。 */
+const CITIZEN = STU.citizenship && STU.citizenship.status ? String(STU.citizenship.status).toUpperCase() : null;
+const IS_PR = CITIZEN === 'PR';
+const CITIZEN_ROW = IS_PR
+  ? '<tr><td class="num">1</td><td>公民身份</td><td>新加坡公民 &gt; <b>永久居民（PR）</b> &gt; 国际学生。<b>孩子是 PR，排第二档：同分时输给公民、赢国际学生</b>——所以踩线校（余量 0–1）的风险比公民更高，选校时要多留安全边际</td></tr>'
+  : '<tr><td class="num">1</td><td>公民身份</td><td>新加坡公民 &gt; 永久居民 &gt; 国际学生。若孩子是公民，在同分段里排最前</td></tr>';
+
 /* 配置里的文案可以写成函数，拿到 S / S2 / R，便于算「与某个对照版本相比」这类话。
    必须定义在第一个模板字符串之前 —— STEP2 的 intro 会用到它。 */
 const cfgText = v => (typeof v === 'function' ? v({ S, S2, esc, STU, R }) : v);
@@ -219,11 +228,18 @@ const STEP1 = `
 <table>
 <thead><tr><th style="width:12%">顺序</th><th style="width:30%">tie-breaker</th><th>含义与对本案例的影响</th></tr></thead>
 <tbody>
-<tr><td class="num">1</td><td>公民身份</td><td>新加坡公民 &gt; 永久居民 &gt; 国际学生。若孩子是公民，在同分段里排最前</td></tr>
+${CITIZEN_ROW}
 <tr><td class="num">2</td><td><b>志愿顺序</b></td><td>同分 + 同身份时，把该校填得更靠前的学生优先。<b>这就是「最想去的必须往前放」的机制原因</b></td></tr>
 <tr><td class="num">3</td><td>电脑抽签</td><td>只有分数、身份、志愿顺序都相同才抽签。MOE 口径：约每 10 名学生有 1 名会经历抽签</td></tr>
 </tbody>
 </table>
+${IS_PR ? `
+<h3>②+ 孩子是永久居民（PR）：三处实际影响</h3>
+<div class="note">
+<b>① 同分竞争输给公民。</b>MOE 的 tie-breaker 第一位就是公民身份，顺序是<b>公民 &gt; PR &gt; 国际学生</b>。这意味着在踩线校（余量 0–1 分），只要最后一个学额有公民同分竞争，PR 就让位——所以本报告把<b>余量 ≥3 的学校当作真正的“稳”</b>，余量 0–1 的只能冲刺、不能兜底。<br><br>
+<b>② 学费差一个大数量级。</b>政府 / 政府辅助中学：<b>公民约 S$25/月，PR 约 S$580–700/月</b>（MOE school fees）。四年下来是笔实质开支，选校时值得纳入考虑——不过本报告候选池全是政府 / 政府辅助校，都在这个费率区间，没有因为选校而额外拉大差距。<br><br>
+<b>③ 入学通道与课程不额外设限。</b>PR 和公民一样走 S1 Posting、可用 6 个志愿、可参加 DSA、可报 SAP / IP——这些通道的准入条件不因身份而变（SAP 仍看高华 + AL≤14，IP 仍看 PSLE / DSA）。所以 PR 身份改变的是<b>“同分时排第几”</b>和<b>“学费多少”</b>，不是“能报什么”。
+</div>` : ''}
 
 <h3>③ SAP 学校：孩子<b>用不上</b>那个优势（这条最容易误解）</h3>
 <div class="warnbox">

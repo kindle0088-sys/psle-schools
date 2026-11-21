@@ -90,6 +90,7 @@ const ACTIVE = new Set([
   'constraints.maxCommuteMin', 'constraints.commuteFullMarkMin', 'constraints.commuteMode',
   'constraints.gender', 'constraints.hasAffiliation', 'constraints.weights',
   'interests.cca',
+  'citizenship.status',
   'outputs.planSlug',
 ]);
 const READONLY = new Set([
