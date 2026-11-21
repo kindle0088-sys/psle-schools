@@ -1,6 +1,6 @@
 {
   "_note": "单校深度报告索引：slug -> 报告文件。新增一份报告只需在此登记一行，看板卡片会自动出现「深度报告」入口。",
-  "generatedAt": "2026-11-21T15:24:08.561Z",
+  "generatedAt": "2026-11-21T15:24:20.762Z",
   "reports": {
     "bendemeer-secondary-school": {
       "file": "reports/school-bendemeer-secondary-school.html",
@@ -197,6 +197,66 @@
     },
     "northbrooks-secondary-school": {
       "file": "reports/school-northbrooks-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "broadrick-secondary-school": {
+      "file": "reports/school-broadrick-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "yuying-secondary-school": {
+      "file": "reports/school-yuying-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "whitley-secondary-school": {
+      "file": "reports/school-whitley-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "woodgrove-secondary-school": {
+      "file": "reports/school-woodgrove-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "mayflower-secondary-school": {
+      "file": "reports/school-mayflower-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "bedok-green-secondary-school": {
+      "file": "reports/school-bedok-green-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "sembawang-secondary-school": {
+      "file": "reports/school-sembawang-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "changkat-changi-secondary-school": {
+      "file": "reports/school-changkat-changi-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "bedok-view-secondary-school": {
+      "file": "reports/school-bedok-view-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "queenstown-secondary-school": {
+      "file": "reports/school-queenstown-secondary-school.html",
       "date": "2026-11-21",
       "version": "v1",
       "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
