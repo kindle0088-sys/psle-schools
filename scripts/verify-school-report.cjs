@@ -10,8 +10,12 @@
  */
 const fs = require('fs');
 const path = require('path');
+const Student = require('../lib/student.cjs');
 
 const BASE = path.join(__dirname, '..');
+/* 余量断言必须跟随报告所依据的学生画像。
+   默认 abc1 保持存量 15 份行为不变；生成/校验 abc4 报告时带 STUDENT=abc4。 */
+const STU = Student.load(process.env.STUDENT || undefined);
 const argFile = process.argv[2];
 if (!argFile) { console.error('用法: node verify-school-report.cjs <html路径> [--slug xxx]'); process.exit(2); }
 const slugIdx = process.argv.indexOf('--slug');
@@ -151,11 +155,11 @@ if (s) {
   if (pg3) {
     t(`PG3 区间与数据源一致（${pg3.min}–${pg3.max}）`,
       new RegExp(`${pg3.min}\\s*[–-]\\s*${pg3.max}`).test(html));
-    // 余量可为负（17 分高于该校 PG3 上限），正数带 + 号、负数带 − 号
-    const margin = pg3.max - 17;
+    // 余量可为负（学生分数高于该校 PG3 上限），正数带 + 号、负数带 − 号
+    const margin = pg3.max - STU.al;
     const mLabel = margin >= 0 ? `+${margin}` : String(margin);
     const mRe = margin >= 0 ? new RegExp(`\\+${margin}\\s*分`) : new RegExp(`−?-?${Math.abs(margin)}\\s*分`);
-    t(`余量计算正确（${mLabel}）`, mRe.test(html));
+    t(`余量计算正确（AL ${STU.al} → ${mLabel}）`, mRe.test(html));
   }
 
   // 学校性质（IP / SAP）如实标注
@@ -250,7 +254,11 @@ if (s) {
     const words = items[0].replace(/&amp;/g, '&').match(/[A-Za-z][A-Za-z-]{3,}/g) || [];
     const stems = words.slice(0, 2).map(w => w.slice(0, 5));
     const anchor = words.slice(0, 2).join(' ');
-    const ok = stems.length && stems.every(st => new RegExp(st, 'i').test(html));
+    /* 短名称（如 "ALP in Art"）取不到 4 字母以上的词干，别因此判假失败：
+       退回「整条登记名必须原样出现」。 */
+    const ok = stems.length
+      ? stems.every(st => new RegExp(st, 'i').test(html))
+      : norm(stripTags(html)).includes(norm(items[0]));
     t(`${isAlp ? 'ALP' : 'LLP'} 内容与数据源对应（${anchor || items[0].slice(0, 20)}）`, !!ok);
   }
 

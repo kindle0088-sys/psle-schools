@@ -1,6 +1,6 @@
 {
   "_note": "单校深度报告索引：slug -> 报告文件。新增一份报告只需在此登记一行，看板卡片会自动出现「深度报告」入口。",
-  "generatedAt": "2026-11-17T15:10:00.000Z",
+  "generatedAt": "2026-11-21T15:23:21.352Z",
   "reports": {
     "bendemeer-secondary-school": {
       "file": "reports/school-bendemeer-secondary-school.html",
@@ -80,6 +80,66 @@
       "date": "2026-11-17",
       "version": "v1",
       "note": "NE12 Serangoon 站 446m。1911 年创校（新加坡首所华文女校），政府自治混校，有 AEP 艺术选修；PG3 8–12（17 分差 5 分）"
+    },
+    "peicai-secondary-school": {
+      "file": "reports/school-peicai-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "bukit-merah-secondary-school": {
+      "file": "reports/school-bukit-merah-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "tampines-secondary-school": {
+      "file": "reports/school-tampines-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "admiralty-secondary-school": {
+      "file": "reports/school-admiralty-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "naval-base-secondary-school": {
+      "file": "reports/school-naval-base-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "queensway-secondary-school": {
+      "file": "reports/school-queensway-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "yio-chu-kang-secondary-school": {
+      "file": "reports/school-yio-chu-kang-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "springfield-secondary-school": {
+      "file": "reports/school-springfield-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "yishun-secondary-school": {
+      "file": "reports/school-yishun-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "deyi-secondary-school": {
+      "file": "reports/school-deyi-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
     }
   }
 }
