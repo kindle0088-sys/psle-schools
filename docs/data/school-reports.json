@@ -1,6 +1,6 @@
 {
   "_note": "单校深度报告索引：slug -> 报告文件。新增一份报告只需在此登记一行，看板卡片会自动出现「深度报告」入口。",
-  "generatedAt": "2026-11-21T15:24:20.762Z",
+  "generatedAt": "2026-11-21T15:24:37.269Z",
   "reports": {
     "bendemeer-secondary-school": {
       "file": "reports/school-bendemeer-secondary-school.html",
@@ -257,6 +257,60 @@
     },
     "queenstown-secondary-school": {
       "file": "reports/school-queenstown-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "gan-eng-seng-school": {
+      "file": "reports/school-gan-eng-seng-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "damai-secondary-school": {
+      "file": "reports/school-damai-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "northland-secondary-school": {
+      "file": "reports/school-northland-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "manjusri-secondary-school": {
+      "file": "reports/school-manjusri-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "east-spring-secondary-school": {
+      "file": "reports/school-east-spring-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "evergreen-secondary-school": {
+      "file": "reports/school-evergreen-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "bowen-secondary-school": {
+      "file": "reports/school-bowen-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "christ-church-secondary-school": {
+      "file": "reports/school-christ-church-secondary-school.html",
+      "date": "2026-11-21",
+      "version": "v1",
+      "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
+    },
+    "ahmad-ibrahim-secondary-school": {
+      "file": "reports/school-ahmad-ibrahim-secondary-school.html",
       "date": "2026-11-21",
       "version": "v1",
       "note": "按 abc4 学生画像（AL 15 / PR / 步行地铁取最快 ≤60 分钟）生成；兴趣证据由 MOE SchoolFinder 与学校官网交叉核对"
