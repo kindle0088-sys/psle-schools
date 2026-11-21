@@ -66,10 +66,14 @@ t('每所都能在 schools.json 找到', slugs.every(s => bySlug.has(s)),
   const missing = slugs.filter(s => !seg.includes(`<div class="sname">${short(bySlug.get(s).name)}</div>`));
   t('第 02 节里 13 所学校各有卡片', missing.length === 0, missing.map(s => short(bySlug.get(s).name)).join(',') || '13 所齐全');
 }
-t('深度报告索引与开放日数据是同一批学校',
-  JSON.stringify(slugs.slice().sort()) ===
-  JSON.stringify(Object.keys(JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/school-reports.json'), 'utf8')).reports).slice().sort()),
-  `${slugs.length} 所`);
+/* 2026-11-21：深度报告扩到 54 所，开放日只覆盖其中一部分。
+   这里应断言「开放日学校都有深度报告」（子集关系），不再是两批完全相同。 */
+{
+  const reportSlugs = Object.keys(JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/school-reports.json'), 'utf8')).reports);
+  const noReport = slugs.filter(s => !reportSlugs.includes(s));
+  t('开放日学校都有深度报告（子集关系）', noReport.length === 0 && reportSlugs.length >= slugs.length,
+    `开放日 ${slugs.length} 所 / 深度报告 ${reportSlugs.length} 所${noReport.length ? '，缺: ' + noReport.join(',') : ''}`);
+}
 
 console.log('\n══ 三、日期与状态：逐场重算');
 {
