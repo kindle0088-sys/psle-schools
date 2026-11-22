@@ -151,7 +151,18 @@ const inWindow = (ts, y) => {
         const pg3 = t.rows.PG3 && t.rows.PG3.nonAff;
         if (!pg3) { rec[y] = { status: 'no-pg3', archiveTs: ts, labelYear: t.year, basis: t.basis }; done = true; break; }
         if (pg3.min === 0 && pg3.max === 0) {
-          rec[y] = { status: 'anomaly', archiveTs: ts, labelYear: t.year, basis: t.basis, raw: pg3 };
+          /* 0–0 有两种成因，必须分清：官方明确写「当年无 S1 学生派位，故无 COP」
+             （Outram 2024，真实情况），或页面坏值。前者把 note 一起存下来，
+             否则重跑采集会把人工核实过的解释冲掉。 */
+          const plain = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
+          const noIntake = /no cut-off points available/i.test(plain)
+            && /no Secondary 1 \(S1\) students posted/i.test(plain);
+          rec[y] = {
+            status: 'anomaly', archiveTs: ts, labelYear: t.year, basis: t.basis, raw: pg3,
+            ...(noIntake ? {
+              note: 'MOE 存档页原文：There are no cut-off points available for Outram Secondary School as there were no Secondary 1 (S1) students posted to the school in 2024. 即该年无 S1 学生派位，不存在 COP；0–0 是页面占位显示，不是 0 分，也不是抓取坏值。'
+            } : {})
+          };
           done = true; break;
         }
         rec[y] = {

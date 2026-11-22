@@ -117,13 +117,17 @@ function render(pf) {
     const dMax = last.v.max - first.v.max;   // 上端 = 录取门槛，变大 = 变宽松
     const dMin = last.v.min - first.v.min;   // 下端 = 当年最强的那名考生
     const fmtD = n => (n === 0 ? '持平' : (n > 0 ? `+${n} 分` : `${n} 分`));
-    /* 缺口分两种，不能混为一谈：没有存档 vs 存档页本身是坏值（Outram 2024 显示 0–0）。
-       后者是「数据存在但不可用」，说成「无存档」会让人以为再去抓一次就有。 */
+    /* 缺口分三种，不能混为一谈：没有存档 / 官方明确说明该年无 S1 派位（Outram 2024，
+       页上 0–0 只是占位，COP 定义上不存在）/ 真正的坏值。说成「无存档」会让人以为
+       再去抓一次就有；说成「坏值」则掩盖了「那一年压根没招生」这个关键事实。 */
     const miss = trendCells.filter(c => !c.v).map(c => {
       const v = sc.copHistory && sc.copHistory[String(c.y)];
-      return v && v.status === 'anomaly'
-        ? `${c.y} 年（存档页显示 0–0，坏值，已弃用）`
-        : `${c.y} 年（没有可用存档）`;
+      if (v && v.status === 'anomaly') {
+        return v.note && /无 S1 学生派位/.test(v.note)
+          ? `${c.y} 年（MOE 存档页注明该年无 S1 学生派位，故无 COP；0–0 仅为占位）`
+          : `${c.y} 年（存档页显示 0–0，坏值，已弃用）`;
+      }
+      return `${c.y} 年（没有可用存档）`;
     }).join('、');
     const vac = sc.copFlags && sc.copFlags.PG1
       ? '<br>另外，MOE 用 <code>*</code> 标记该校 <b>PG1 档在 S1 posting 结束后仍有学额</b>——说明最低档没招满、学校整体不紧张（但不代表 PG3 门槛会降）。'

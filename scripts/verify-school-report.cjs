@@ -138,11 +138,18 @@ if (s) {
       t('三年年份全部出现（缺年以 ? 占位）',
         okYears.length >= 1 && yearsShown.length === 3 && (blk.match(/→/g) || []).length >= 2,
         yearsShown.join('/') || '块未找到');
-      /* 缺口必须分清「无存档」与「存档是坏值」，两者对读者的含义完全不同 */
+      /* 缺口必须分清「无存档」/「官方注明无 S1 派位」/「坏值」——
+         Outram 2024 是第一种事实：当年没招生，不是抓坏，也不该被再抓一次。 */
       const miss = ['2023', '2024'].filter(y => hist[y] && hist[y].status !== 'ok');
       if (miss.length) {
-        const kinds = miss.map(y => (hist[y].status === 'anomaly' ? '坏值，已弃用' : '没有可用存档'));
-        t('缺口写明原因（无存档 / 坏值）', kinds.every(k => html.includes(k)), kinds.join('、'));
+        const kinds = miss.map(y => {
+          const v = hist[y];
+          if (v.status !== 'anomaly') return '没有可用存档';
+          return v.note && /无 S1 学生派位/.test(v.note)
+            ? 'MOE 存档页注明该年无 S1 学生派位'
+            : '坏值，已弃用';
+        });
+        t('缺口写明原因（无存档 / 无派位 / 坏值）', kinds.every(k => html.includes(k)), kinds.join('、'));
       }
       t('缺年不用 0 分代替', !/<td class="num mid">0–0<\/td>/.test(html));
     } else {
