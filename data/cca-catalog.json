@@ -1,8 +1,8 @@
 {
   "_meta": {
     "note": "各校 CCA 完整清单（官网 ∪ MOE SchoolFinder 并集）。看板与深度报告均以此为准。",
-    "verifiedAt": "2026-11-12",
-    "why": "MOE SchoolFinder 的 CCA 清单会漏登官网已有的社团（实测 12 所中 8 所漏登），只按 MOE 数据择校会系统性低估学校。",
+    "verifiedAt": "2026-11-23",
+    "why": "2026-11-23 三方核实后，MOE SchoolFinder 已补齐多数官网社团（七校 MOE 登记 14–20 项）。旧版「MOE 系统性漏登、覆盖率低至 37%」的判断已过时；目录仍保留官网独有项并标注来源，避免把不同实体误合并。",
     "categories": {
       "sport": "体育",
       "arts": "表演艺术",
@@ -12,7 +12,9 @@
     "sourceTypes": {
       "website": "已核对官网完整清单",
       "moe-only": "官网未提供完整清单，仅有 MOE 登记数据",
-      "unverifiable": "官网 CCA 页面为空或缺失，无法核实"
+      "unverifiable": "官网 CCA 页面为空或缺失，无法核实",
+      "dsa-partial": "官网无完整 CCA 页，仅 DSA 页部分佐证 + MOE 当前登记",
+      "website+microsite": "官网主站 + 开放日 microsite 交叉核实"
     }
   },
   "schools": {
@@ -21,19 +23,102 @@
       "moeCount": 8,
       "note": "全岛少数公开每个社团训练日的学校，清单可信度最高",
       "items": [
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": true, "note": "周一、周二" },
-        { "name": "Concert Band", "zh": "管乐团", "cat": "arts", "moe": true, "note": "周一、周四" },
-        { "name": "English Drama", "zh": "英语戏剧", "cat": "arts", "moe": false, "note": "周一、周四；独立社团，非合并式" },
-        { "name": "Modern Dance", "zh": "现代舞", "cat": "arts", "moe": true, "note": "周三、周四" },
-        { "name": "Cross Country", "zh": "越野跑", "cat": "sport", "moe": false, "note": "周二、周四" },
-        { "name": "Football", "zh": "足球", "cat": "sport", "moe": false, "note": "周一/周三/周四，训练最频繁" },
-        { "name": "Tchoukball", "zh": "反弹球", "cat": "sport", "moe": false, "note": "男女分开训练；全岛开设此项目的中学不多" },
-        { "name": "Taekwondo", "zh": "跆拳道", "cat": "sport", "moe": true, "note": "周二、周三" },
-        { "name": "Girl Guides", "zh": "女童军", "cat": "uniformed", "moe": true, "sex": "girls", "note": "周四" },
-        { "name": "National Cadet Corps", "zh": "NCC 陆", "cat": "uniformed", "moe": true, "sex": "boys", "note": "周四" },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true, "note": "周四" },
-        { "name": "Red Cross Youth", "zh": "红十字青年团", "cat": "uniformed", "moe": false, "note": "周四" },
-        { "name": "Media & Tech Club", "zh": "媒体与科技社", "cat": "club", "moe": true, "aliases": ["Infocomm Technology (Media Production)"], "note": "周四；MOE 登记名为 Infocomm Technology" }
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true,
+          "note": "周一、周二"
+        },
+        {
+          "name": "Concert Band",
+          "zh": "管乐团",
+          "cat": "arts",
+          "moe": true,
+          "note": "周一、周四"
+        },
+        {
+          "name": "English Drama",
+          "zh": "英语戏剧",
+          "cat": "arts",
+          "moe": false,
+          "note": "周一、周四；独立社团，非合并式"
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "现代舞",
+          "cat": "arts",
+          "moe": true,
+          "note": "周三、周四"
+        },
+        {
+          "name": "Cross Country",
+          "zh": "越野跑",
+          "cat": "sport",
+          "moe": false,
+          "note": "周二、周四"
+        },
+        {
+          "name": "Football",
+          "zh": "足球",
+          "cat": "sport",
+          "moe": false,
+          "note": "周一/周三/周四，训练最频繁"
+        },
+        {
+          "name": "Tchoukball",
+          "zh": "反弹球",
+          "cat": "sport",
+          "moe": false,
+          "note": "男女分开训练；全岛开设此项目的中学不多"
+        },
+        {
+          "name": "Taekwondo",
+          "zh": "跆拳道",
+          "cat": "sport",
+          "moe": true,
+          "note": "周二、周三"
+        },
+        {
+          "name": "Girl Guides",
+          "zh": "女童军",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "girls",
+          "note": "周四"
+        },
+        {
+          "name": "National Cadet Corps",
+          "zh": "NCC 陆",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "boys",
+          "note": "周四"
+        },
+        {
+          "name": "National Police Cadet Corps",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true,
+          "note": "周四"
+        },
+        {
+          "name": "Red Cross Youth",
+          "zh": "红十字青年团",
+          "cat": "uniformed",
+          "moe": false,
+          "note": "周四"
+        },
+        {
+          "name": "Media & Tech Club",
+          "zh": "媒体与科技社",
+          "cat": "club",
+          "moe": true,
+          "aliases": [
+            "Infocomm Technology (Media Production)"
+          ],
+          "note": "周四；MOE 登记名为 Infocomm Technology"
+        }
       ]
     },
     "edgefield-secondary-school": {
@@ -41,54 +126,306 @@
       "moeCount": 12,
       "note": "CCA 数量在全部候选校中最多的之一，且独有青年飞行俱乐部",
       "items": [
-        { "name": "Badminton", "zh": "羽毛球", "cat": "sport", "moe": true },
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true },
-        { "name": "Shooting", "zh": "射击", "cat": "sport", "moe": true },
-        { "name": "Taekwondo", "zh": "跆拳道", "cat": "sport", "moe": true },
-        { "name": "Volleyball", "zh": "排球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Wushu", "zh": "武术", "cat": "sport", "moe": true },
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": true },
-        { "name": "Concert Band", "zh": "管乐团", "cat": "arts", "moe": true },
-        { "name": "Modern Dance", "zh": "现代舞", "cat": "arts", "moe": true },
-        { "name": "ELDDS", "zh": "英文·戏剧·辩论·演讲", "cat": "arts", "moe": false, "note": "合并社团，戏剧只占其中一部分" },
-        { "name": "Guzheng", "zh": "古筝", "cat": "arts", "moe": false },
-        { "name": "Festive Drums", "zh": "节令鼓", "cat": "arts", "moe": false },
-        { "name": "Harmonica", "zh": "口琴", "cat": "arts", "moe": false },
-        { "name": "Girl Guides", "zh": "女童军", "cat": "uniformed", "moe": true, "sex": "girls" },
-        { "name": "Scouts", "zh": "童军", "cat": "uniformed", "moe": true, "sex": "boys" },
-        { "name": "NCDCC", "zh": "民防少年团", "cat": "uniformed", "moe": false },
-        { "name": "NPCC (Sea)", "zh": "警察海岸少年团", "cat": "uniformed", "moe": false, "note": "海军版 NPCC，制服团体中较少见" },
-        { "name": "Infocomm Technology", "zh": "资讯科技（媒体制作）", "cat": "club", "moe": true },
-        { "name": "Robotics Club", "zh": "机器人社", "cat": "club", "moe": false, "note": "官网有独立页面" },
-        { "name": "SYFC", "zh": "新加坡青年飞行俱乐部", "cat": "club", "moe": false, "note": "全岛少数设 SYFC 的中学" },
-        { "name": "Art Club", "zh": "美术社", "cat": "club", "moe": false },
-        { "name": "New Media Club", "zh": "新媒体社", "cat": "club", "moe": false, "note": "与 ALP 的 Content Creator 模块衔接" }
+        {
+          "name": "Badminton",
+          "zh": "羽毛球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Shooting",
+          "zh": "射击",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Taekwondo",
+          "zh": "跆拳道",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Volleyball",
+          "zh": "排球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Wushu",
+          "zh": "武术",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Concert Band",
+          "zh": "管乐团",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "现代舞",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "ELDDS",
+          "zh": "英文·戏剧·辩论·演讲",
+          "cat": "arts",
+          "moe": false,
+          "note": "合并社团，戏剧只占其中一部分"
+        },
+        {
+          "name": "Guzheng",
+          "zh": "古筝",
+          "cat": "arts",
+          "moe": false
+        },
+        {
+          "name": "Festive Drums",
+          "zh": "节令鼓",
+          "cat": "arts",
+          "moe": false
+        },
+        {
+          "name": "Harmonica",
+          "zh": "口琴",
+          "cat": "arts",
+          "moe": false
+        },
+        {
+          "name": "Girl Guides",
+          "zh": "女童军",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "girls"
+        },
+        {
+          "name": "Scouts",
+          "zh": "童军",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "NCDCC",
+          "zh": "民防少年团",
+          "cat": "uniformed",
+          "moe": false
+        },
+        {
+          "name": "NPCC (Sea)",
+          "zh": "警察海岸少年团",
+          "cat": "uniformed",
+          "moe": false,
+          "note": "海军版 NPCC，制服团体中较少见"
+        },
+        {
+          "name": "Infocomm Technology",
+          "zh": "资讯科技（媒体制作）",
+          "cat": "club",
+          "moe": true
+        },
+        {
+          "name": "Robotics Club",
+          "zh": "机器人社",
+          "cat": "club",
+          "moe": false,
+          "note": "官网有独立页面"
+        },
+        {
+          "name": "SYFC",
+          "zh": "新加坡青年飞行俱乐部",
+          "cat": "club",
+          "moe": false,
+          "note": "全岛少数设 SYFC 的中学"
+        },
+        {
+          "name": "Art Club",
+          "zh": "美术社",
+          "cat": "club",
+          "moe": false
+        },
+        {
+          "name": "New Media Club",
+          "zh": "新媒体社",
+          "cat": "club",
+          "moe": false,
+          "note": "与 ALP 的 Content Creator 模块衔接"
+        }
       ]
     },
     "greendale-secondary-school": {
       "source": "website",
-      "moeCount": 7,
-      "note": "MOE 覆盖率在全部候选校中最低，且漏掉的正是机器人社与戏剧社",
+      "moeCount": 18,
+      "note": "2026-11-23 三方核实：MOE 当前 18 项、官网 18 项。MOE 已登记 Robotics 与 English Drama（官网 Theatricks!），旧版「MOE 漏登」结论作废。NCC 分支官网写 Air / MOE 写 Land，需开放日确认。",
       "items": [
-        { "name": "Canoeing", "zh": "皮划艇", "cat": "sport", "moe": true },
-        { "name": "Fencing", "zh": "击剑", "cat": "sport", "moe": false },
-        { "name": "Floorball", "zh": "地板球", "cat": "sport", "moe": false },
-        { "name": "Football", "zh": "足球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Softball", "zh": "垒球", "cat": "sport", "moe": true },
-        { "name": "Theatricks!", "zh": "戏剧社", "cat": "arts", "moe": false, "note": "2021/2023/2025 连续三届 SYF 获认可" },
-        { "name": "Angklung Ensemble", "zh": "昂格隆", "cat": "arts", "moe": false },
-        { "name": "Dance Ensemble", "zh": "舞蹈团", "cat": "arts", "moe": true, "aliases": ["Modern Dance"] },
-        { "name": "Greendale Chorale", "zh": "合唱团", "cat": "arts", "moe": false },
-        { "name": "Greendale Orchestra", "zh": "管弦乐团", "cat": "arts", "moe": false },
-        { "name": "Chinese Orchestra", "zh": "华乐团", "cat": "arts", "moe": true, "note": "MOE 有登记，官网 CCA 页未列出" },
-        { "name": "National Cadet Corps", "zh": "NCC 陆", "cat": "uniformed", "moe": true, "sex": "boys" },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true },
-        { "name": "Red Cross Youth", "zh": "红十字青年团", "cat": "uniformed", "moe": false },
-        { "name": "Robotics", "zh": "机器人社", "cat": "club", "moe": false, "note": "4 年进阶：SolidWorks/Fusion 360 + 3D 打印 + 激光切割 + Arduino + AI" },
-        { "name": "ODAC", "zh": "户外探险社", "cat": "club", "moe": false, "note": "2025 NORS B 组男子冠军；40km 海上皮划艇远征" },
-        { "name": "GBC", "zh": "广播社", "cat": "club", "moe": false, "note": "Greendale Broadcasting Corporation" },
-        { "name": "Art & Culture Club", "zh": "美术与文化社", "cat": "club", "moe": false },
-        { "name": "Green Club", "zh": "环保社", "cat": "club", "moe": false }
+        {
+          "name": "Angklung/kulintang Ensemble",
+          "zh": "昂格隆",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Angklung Ensemble"
+          ]
+        },
+        {
+          "name": "Art and Crafts",
+          "zh": "美术与手工",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Art & Culture Club"
+          ]
+        },
+        {
+          "name": "Canoeing",
+          "zh": "皮划艇",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Chinese Orchestra",
+          "zh": "华乐团",
+          "cat": "arts",
+          "moe": true,
+          "note": "MOE 有登记，官网 CCA 页未列出"
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱团",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Greendale Chorale"
+          ]
+        },
+        {
+          "name": "Digital Media",
+          "zh": "数码媒体",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "English Drama",
+          "zh": "英语戏剧",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Theatricks!"
+          ]
+        },
+        {
+          "name": "Fencing",
+          "zh": "击剑",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Floorball",
+          "zh": "地板球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Football",
+          "zh": "足球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Media Resource Library",
+          "zh": "媒体资源图书馆",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "舞蹈团",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Dance Ensemble"
+          ]
+        },
+        {
+          "name": "NCC (Land)",
+          "zh": "",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "NPCC",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Outdoor Adventure",
+          "zh": "户外探险社",
+          "cat": "club",
+          "moe": true,
+          "aliases": [
+            "ODAC"
+          ]
+        },
+        {
+          "name": "Red Cross Youth",
+          "zh": "红十字青年团",
+          "cat": "uniformed",
+          "moe": true,
+          "aliases": [
+            "SRCY"
+          ]
+        },
+        {
+          "name": "Robotics",
+          "zh": "机器人社",
+          "cat": "club",
+          "moe": true,
+          "note": "4 年进阶：SolidWorks/Fusion 360 + 3D 打印 + 激光切割 + Arduino + AI"
+        },
+        {
+          "name": "Softball",
+          "zh": "垒球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Green Club",
+          "zh": "环保社",
+          "cat": "club",
+          "moe": false,
+          "note": "官网列有，MOE 当前页未登记（2026-11-23 核实）"
+        },
+        {
+          "name": "GBC",
+          "zh": "广播社",
+          "cat": "club",
+          "moe": false,
+          "note": "官网列有，MOE 当前页未登记（2026-11-23 核实）"
+        },
+        {
+          "name": "Greendale Orchestra",
+          "zh": "管弦乐团",
+          "cat": "arts",
+          "moe": false,
+          "note": "官网明确为 Western orchestra（弦乐/木管/打击），与 MOE 的 Chinese Orchestra 是不同实体"
+        }
       ]
     },
     "hougang-secondary-school": {
@@ -97,22 +434,117 @@
       "note": "官网制服团体分类页为空，该类别沿用 MOE 登记",
       "gaps": "制服团体官网分类页为空，3 项来自 MOE 登记；俱乐部一栏官网只列了 1 项",
       "items": [
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Floorball", "zh": "地板球", "cat": "sport", "moe": false },
-        { "name": "Football", "zh": "足球", "cat": "sport", "moe": true, "sex": "boys", "note": "校队名 Hougang Warriors" },
-        { "name": "Judo", "zh": "柔道", "cat": "sport", "moe": false },
-        { "name": "Netball", "zh": "无板篮球", "cat": "sport", "moe": true, "sex": "girls" },
-        { "name": "Wushu", "zh": "武术", "cat": "sport", "moe": true },
-        { "name": "Angklung / Kulintang & Gamelan", "zh": "印尼竹乐／锣群／甘美兰", "cat": "arts", "moe": false },
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": true, "note": "团名 Voices of Joy" },
-        { "name": "ELDDS", "zh": "英文·戏剧·辩论·演讲", "cat": "arts", "moe": false, "note": "戏剧与辩论合并在同一社团，演戏约占四分之一时间" },
-        { "name": "Guzheng", "zh": "古筝", "cat": "arts", "moe": false },
-        { "name": "Modern Dance", "zh": "现代舞", "cat": "arts", "moe": false },
-        { "name": "Symphonic Band", "zh": "交响管乐团", "cat": "arts", "moe": true, "aliases": ["Concert Band"] },
-        { "name": "Media Resource Club", "zh": "媒体资源社", "cat": "club", "moe": true, "aliases": ["Infocomm Technology (Media Production)"], "note": "音视频制作、摄影、摄像" },
-        { "name": "Girl Guides", "zh": "女童军", "cat": "uniformed", "moe": true, "sex": "girls" },
-        { "name": "National Cadet Corps", "zh": "NCC 陆", "cat": "uniformed", "moe": true, "sex": "boys" },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true }
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Floorball",
+          "zh": "地板球",
+          "cat": "sport",
+          "moe": false
+        },
+        {
+          "name": "Football",
+          "zh": "足球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys",
+          "note": "校队名 Hougang Warriors"
+        },
+        {
+          "name": "Judo",
+          "zh": "柔道",
+          "cat": "sport",
+          "moe": false
+        },
+        {
+          "name": "Netball",
+          "zh": "无板篮球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "girls"
+        },
+        {
+          "name": "Wushu",
+          "zh": "武术",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Angklung / Kulintang & Gamelan",
+          "zh": "印尼竹乐／锣群／甘美兰",
+          "cat": "arts",
+          "moe": false
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true,
+          "note": "团名 Voices of Joy"
+        },
+        {
+          "name": "ELDDS",
+          "zh": "英文·戏剧·辩论·演讲",
+          "cat": "arts",
+          "moe": false,
+          "note": "戏剧与辩论合并在同一社团，演戏约占四分之一时间"
+        },
+        {
+          "name": "Guzheng",
+          "zh": "古筝",
+          "cat": "arts",
+          "moe": false
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "现代舞",
+          "cat": "arts",
+          "moe": false
+        },
+        {
+          "name": "Symphonic Band",
+          "zh": "交响管乐团",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Concert Band"
+          ]
+        },
+        {
+          "name": "Media Resource Club",
+          "zh": "媒体资源社",
+          "cat": "club",
+          "moe": true,
+          "aliases": [
+            "Infocomm Technology (Media Production)"
+          ],
+          "note": "音视频制作、摄影、摄像"
+        },
+        {
+          "name": "Girl Guides",
+          "zh": "女童军",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "girls"
+        },
+        {
+          "name": "National Cadet Corps",
+          "zh": "NCC 陆",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "National Police Cadet Corps",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true
+        }
       ]
     },
     "montfort-secondary-school": {
@@ -120,98 +552,586 @@
       "moeCount": 9,
       "note": "男校；官网清单与 MOE 登记完全一致，无漏登",
       "items": [
-        { "name": "Badminton", "zh": "羽毛球", "cat": "sport", "moe": true },
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true },
-        { "name": "Football", "zh": "足球", "cat": "sport", "moe": true },
-        { "name": "Wushu", "zh": "武术", "cat": "sport", "moe": true },
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": true },
-        { "name": "National Cadet Corps", "zh": "NCC 陆", "cat": "uniformed", "moe": true },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true },
-        { "name": "Scouts", "zh": "童军", "cat": "uniformed", "moe": true },
-        { "name": "Audio Visual Aid", "zh": "视听器材组", "cat": "club", "moe": true, "note": "AVA" }
+        {
+          "name": "Badminton",
+          "zh": "羽毛球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Football",
+          "zh": "足球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Wushu",
+          "zh": "武术",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "National Cadet Corps",
+          "zh": "NCC 陆",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "National Police Cadet Corps",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Scouts",
+          "zh": "童军",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Audio Visual Aid",
+          "zh": "视听器材组",
+          "cat": "club",
+          "moe": true,
+          "note": "AVA"
+        }
       ]
     },
     "north-vista-secondary-school": {
       "source": "website",
-      "moeCount": 11,
-      "note": "官网 18 项，MOE 登记 11 项",
+      "moeCount": 18,
+      "note": "2026-11-23 三方核实：MOE 与官网均 18 项、一一对应。Drama Club = English Drama、Infocomm Club = Infocomm Technology、ODAC = Outdoor Adventure、Symphonic Band = Concert Band。",
       "items": [
-        { "name": "Athletics", "zh": "田径", "cat": "sport", "moe": true, "aliases": ["Track and Field"] },
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true },
-        { "name": "Golf", "zh": "高尔夫", "cat": "sport", "moe": false, "note": "全岛开设高尔夫 CCA 的中学不多" },
-        { "name": "Netball", "zh": "无板篮球", "cat": "sport", "moe": true },
-        { "name": "Football", "zh": "足球", "cat": "sport", "moe": true },
-        { "name": "ODAC", "zh": "户外探险社", "cat": "sport", "moe": false, "note": "皮划艇、攀岩、定向越野、年度远征" },
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": false },
-        { "name": "Chinese Dance", "zh": "华族舞", "cat": "arts", "moe": false },
-        { "name": "Modern Dance", "zh": "现代舞", "cat": "arts", "moe": true, "note": "团名 Boogie Crew" },
-        { "name": "Drama Club", "zh": "戏剧社", "cat": "arts", "moe": false },
-        { "name": "String Ensemble", "zh": "弦乐团", "cat": "arts", "moe": true },
-        { "name": "Symphonic Band", "zh": "交响管乐团", "cat": "arts", "moe": true, "aliases": ["Concert Band"] },
-        { "name": "National Cadet Corps", "zh": "NCC 陆", "cat": "uniformed", "moe": true },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true },
-        { "name": "Girl Guides", "zh": "女童军", "cat": "uniformed", "moe": true },
-        { "name": "St John Brigade", "zh": "圣约翰救伤队", "cat": "uniformed", "moe": false },
-        { "name": "Infocomm Club", "zh": "信息社", "cat": "club", "moe": true, "aliases": ["Infocomm Technology (Media Production)"], "note": "摄影、摄像、技术、媒体" },
-        { "name": "Service Learning Club", "zh": "服务学习社", "cat": "club", "moe": false }
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Chinese Dance",
+          "zh": "华族舞",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Community Service",
+          "zh": "社区服务",
+          "cat": "club",
+          "moe": true,
+          "aliases": [
+            "Service Learning Club"
+          ]
+        },
+        {
+          "name": "Concert Band",
+          "zh": "交响管乐团",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Symphonic Band"
+          ]
+        },
+        {
+          "name": "English Drama",
+          "zh": "英语戏剧",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Drama Club"
+          ]
+        },
+        {
+          "name": "Football",
+          "zh": "足球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Girl Guides",
+          "zh": "女童军",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Golf",
+          "zh": "高尔夫",
+          "cat": "sport",
+          "moe": true,
+          "note": "全岛开设高尔夫 CCA 的中学不多"
+        },
+        {
+          "name": "Infocomm Technology (Media Production)",
+          "zh": "信息社",
+          "cat": "club",
+          "moe": true,
+          "note": "摄影、摄像、技术、媒体",
+          "aliases": [
+            "Infocomm Club"
+          ]
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "现代舞",
+          "cat": "arts",
+          "moe": true,
+          "note": "团名 Boogie Crew"
+        },
+        {
+          "name": "NCC (Land)",
+          "zh": "",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "NPCC",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Netball",
+          "zh": "无板篮球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Outdoor Adventure",
+          "zh": "户外探险社",
+          "cat": "club",
+          "moe": true,
+          "aliases": [
+            "ODAC"
+          ]
+        },
+        {
+          "name": "St John Brigade",
+          "zh": "圣约翰救伤队",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "String Ensemble",
+          "zh": "弦乐团",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Track and Field",
+          "zh": "田径",
+          "cat": "sport",
+          "moe": true,
+          "aliases": [
+            "Athletics"
+          ]
+        }
       ]
     },
     "outram-secondary-school": {
-      "source": "moe-only",
-      "moeCount": 6,
-      "note": "官网未提供完整 CCA 清单，仅有 MOE 登记数据；实际社团数可能更多",
-      "gaps": "官网未给出完整 CCA 清单，需在开放日确认",
+      "source": "website+microsite",
+      "moeCount": 14,
+      "note": "2026-11-23 三方核实：MOE 当前 14 项、官网主站 10 项、开放日 microsite 另列 English Drama / Maker’s Club / Environmental Science Club。主站 10 项三方共认；按并集 17 项。旧版「6 项、无戏剧」已作废；Swimming / Water Polo 仍确认。",
       "items": [
-        { "name": "Badminton", "zh": "羽毛球", "cat": "sport", "moe": true },
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true },
-        { "name": "Water Polo", "zh": "水球", "cat": "sport", "moe": true, "sex": "boys", "note": "需泳池，全岛开设此项目的中学不多" },
-        { "name": "Concert Band", "zh": "管乐团", "cat": "arts", "moe": true },
-        { "name": "Modern Dance", "zh": "现代舞", "cat": "arts", "moe": true },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true }
+        {
+          "name": "Badminton",
+          "zh": "羽毛球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Concert Band",
+          "zh": "管乐团",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Frisbee",
+          "zh": "飞盘",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "现代舞",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "NCC (Land)",
+          "zh": "",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "NCDCC",
+          "zh": "全国民防学员团",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "NPCC",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Rockwall Climbing",
+          "zh": "攀岩社",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Student Leadership (Council)",
+          "zh": "学生领袖",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Student Leadership (House)",
+          "zh": "学生领袖",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Student Leadership (Peer Support)",
+          "zh": "学生领袖",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Swimming",
+          "zh": "游泳",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Water Polo",
+          "zh": "水球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys",
+          "note": "需泳池，全岛开设此项目的中学不多"
+        },
+        {
+          "name": "English Drama",
+          "zh": "英语戏剧",
+          "cat": "arts",
+          "moe": false,
+          "note": "开放日 microsite 列出，官网主站与 MOE 当前页均未列；2027 是否开设需开放日确认"
+        },
+        {
+          "name": "Maker's Club",
+          "zh": "",
+          "cat": "club",
+          "moe": false,
+          "note": "开放日 microsite 列出，官网主站与 MOE 当前页均未列；2027 是否开设需开放日确认"
+        },
+        {
+          "name": "Environmental Science Club",
+          "zh": "",
+          "cat": "club",
+          "moe": false,
+          "note": "开放日 microsite 列出，官网主站与 MOE 当前页均未列；2027 是否开设需开放日确认"
+        }
       ]
     },
     "punggol-secondary-school": {
-      "source": "moe-only",
-      "moeCount": 12,
-      "note": "官网 CCA 总页按类别列出，但俱乐部一栏留空",
-      "gaps": "俱乐部一栏官网未列具体社团，需开放日确认",
+      "source": "website",
+      "moeCount": 20,
+      "note": "2026-11-23 三方核实：MOE 当前 20 项、官网 21 项（Volleyball 按男女分列）。俱乐部栏已补齐 Art / AVA / ELDDS / Environmental / ILDDS / Interact。Drama 命中；Robotics、Swimming、Cooking 仍无证据（Mobile Robotics 是科目不是 CCA）。",
       "items": [
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Football", "zh": "足球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Netball", "zh": "无板篮球", "cat": "sport", "moe": true, "sex": "girls" },
-        { "name": "Shooting", "zh": "射击", "cat": "sport", "moe": true },
-        { "name": "Table Tennis", "zh": "乒乓球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Volleyball", "zh": "排球", "cat": "sport", "moe": true },
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": true },
-        { "name": "Concert Band", "zh": "管乐团", "cat": "arts", "moe": true },
-        { "name": "Modern Dance", "zh": "现代舞", "cat": "arts", "moe": true },
-        { "name": "National Cadet Corps", "zh": "NCC 陆", "cat": "uniformed", "moe": true, "sex": "boys" },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true },
-        { "name": "Scouts", "zh": "童军", "cat": "uniformed", "moe": true, "sex": "boys" }
+        {
+          "name": "Art and Crafts",
+          "zh": "美术与手工",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Art Club"
+          ]
+        },
+        {
+          "name": "Audio Visual Aid",
+          "zh": "视听服务社",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "AVA Club"
+          ]
+        },
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Community Service (Rotary-Sponsored)",
+          "zh": "社区服务",
+          "cat": "club",
+          "moe": true,
+          "aliases": [
+            "Interact Club"
+          ]
+        },
+        {
+          "name": "Concert Band",
+          "zh": "管乐团",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "English Language, Drama and Debating",
+          "zh": "",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "English Language Drama and Debate Society"
+          ]
+        },
+        {
+          "name": "Environmental Science",
+          "zh": "环境科学社",
+          "cat": "club",
+          "moe": true,
+          "aliases": [
+            "Environmental Club"
+          ]
+        },
+        {
+          "name": "Football",
+          "zh": "足球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Guzheng Ensemble",
+          "zh": "古筝团",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Indian Language, Drama and Debating",
+          "zh": "",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Indian Language Drama and Debate Society"
+          ]
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "现代舞",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "NCC (Land)",
+          "zh": "",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "NPCC",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Netball",
+          "zh": "无板篮球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "girls"
+        },
+        {
+          "name": "Red Cross Youth",
+          "zh": "红十字青年团",
+          "cat": "uniformed",
+          "moe": true,
+          "aliases": [
+            "Red Cross"
+          ]
+        },
+        {
+          "name": "Scouts",
+          "zh": "童军",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Shooting",
+          "zh": "射击",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Table Tennis",
+          "zh": "乒乓球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Volleyball",
+          "zh": "排球",
+          "cat": "sport",
+          "moe": true
+        }
       ]
     },
     "seng-kang-secondary-school": {
       "source": "website",
-      "moeCount": 10,
-      "note": "MOE 登记 10 项，官网获奖记录另外暴露出 6 项真实存在的社团",
+      "moeCount": 14,
+      "note": "2026-11-23 三方核实：MOE 当前 14 项；官网明确 2027 起 Red Cross 与 NPCC 停办、引入 NCDCC，2027 入学按 15 项口径。第三方 16 项含旧制服团体，属过渡期数据。",
       "items": [
-        { "name": "Badminton", "zh": "羽毛球", "cat": "sport", "moe": true },
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true },
-        { "name": "Football", "zh": "足球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Netball", "zh": "无板篮球", "cat": "sport", "moe": true, "sex": "girls" },
-        { "name": "Hockey", "zh": "曲棍球", "cat": "sport", "moe": false, "note": "2024 年 B 组女子 League 1 冠军、C 组男子 League 1 冠军；2026 年 B 组男第 2" },
-        { "name": "Taekwondo", "zh": "跆拳道", "cat": "sport", "moe": false, "note": "2023 年 NSG B 组男子亚军" },
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": true },
-        { "name": "Concert Band", "zh": "管乐团", "cat": "arts", "moe": true, "aliases": ["Symphonic Band"] },
-        { "name": "Modern Dance", "zh": "现代舞", "cat": "arts", "moe": true, "aliases": ["AMPLIFY"], "note": "团队名 AMPLIFY；2025 SYF Certificate of Distinction" },
-        { "name": "English Drama", "zh": "英语戏剧", "cat": "arts", "moe": false, "note": "2025 SYF 演出《The Book Riot》获 Certificate of Accomplishment" },
-        { "name": "Guzheng", "zh": "古筝团", "cat": "arts", "moe": false, "note": "2025 SYF Certificate of Distinction（最高档）" },
-        { "name": "Symphonic Band", "zh": "交响管乐团", "cat": "arts", "moe": false, "note": "2025 SYF Certificate of Accomplishment；与 Concert Band 为不同团队" },
-        { "name": "Girl Guides", "zh": "女童军", "cat": "uniformed", "moe": true, "sex": "girls" },
-        { "name": "National Cadet Corps", "zh": "NCC 陆", "cat": "uniformed", "moe": true, "sex": "boys" },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true },
-        { "name": "Red Cross Youth", "zh": "红十字青年团", "cat": "uniformed", "moe": false, "note": "2023 年 Unit Gold Award 与 Director's Award" },
-        { "name": "Art Club", "zh": "美术社", "cat": "club", "moe": false, "note": "2024、2026 连续在 SYF Art Exhibition 获 Special Mention／Recognition" }
+        {
+          "name": "Art and Crafts",
+          "zh": "美术与手工",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Art Club"
+          ]
+        },
+        {
+          "name": "Audio Visual Aid",
+          "zh": "视听服务社",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Media Services Club"
+          ]
+        },
+        {
+          "name": "Badminton",
+          "zh": "羽毛球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Concert Band",
+          "zh": "管乐团",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Band"
+          ]
+        },
+        {
+          "name": "English Drama",
+          "zh": "英语戏剧",
+          "cat": "arts",
+          "moe": true,
+          "note": "2025 SYF 演出《The Book Riot》获 Certificate of Accomplishment",
+          "aliases": [
+            "Drama"
+          ]
+        },
+        {
+          "name": "Football",
+          "zh": "足球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Girl Guides",
+          "zh": "女童军",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "girls"
+        },
+        {
+          "name": "Guzheng Ensemble",
+          "zh": "古筝团",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Guzheng"
+          ]
+        },
+        {
+          "name": "Hockey",
+          "zh": "曲棍球",
+          "cat": "sport",
+          "moe": true,
+          "note": "2024 年 B 组女子 League 1 冠军、C 组男子 League 1 冠军；2026 年 B 组男第 2"
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "现代舞",
+          "cat": "arts",
+          "moe": true,
+          "note": "团队名 AMPLIFY；2025 SYF Certificate of Distinction",
+          "aliases": [
+            "Dance"
+          ]
+        },
+        {
+          "name": "NCC (Land)",
+          "zh": "",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Netball",
+          "zh": "无板篮球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "girls"
+        },
+        {
+          "name": "NCDCC",
+          "zh": "全国民防学员团",
+          "cat": "uniformed",
+          "moe": false,
+          "note": "官网明确 2027 起引入，替代停办的 Red Cross 与 NPCC；MOE 当前页尚未登记"
+        }
       ]
     },
     "serangoon-secondary-school": {
@@ -220,14 +1140,59 @@
       "note": "官网未提供完整 CCA 清单，仅有 MOE 登记数据",
       "gaps": "官网未给出完整 CCA 清单，需在开放日确认",
       "items": [
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Football", "zh": "足球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Netball", "zh": "无板篮球", "cat": "sport", "moe": true, "sex": "girls" },
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": true },
-        { "name": "Concert Band", "zh": "管乐团", "cat": "arts", "moe": true },
-        { "name": "Girl Guides", "zh": "女童军", "cat": "uniformed", "moe": true, "sex": "girls" },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true },
-        { "name": "Scouts", "zh": "童军", "cat": "uniformed", "moe": true, "sex": "boys" }
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Football",
+          "zh": "足球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Netball",
+          "zh": "无板篮球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "girls"
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Concert Band",
+          "zh": "管乐团",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Girl Guides",
+          "zh": "女童军",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "girls"
+        },
+        {
+          "name": "National Police Cadet Corps",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Scouts",
+          "zh": "童军",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "boys"
+        }
       ]
     },
     "serangoon-garden-secondary-school": {
@@ -235,61 +1200,362 @@
       "moeCount": 11,
       "note": "MOE 登记 11 项；DSA 另有 3 项有队伍但未登记为 CCA",
       "dsaOnly": [
-        { "name": "Floorball", "zh": "地板球", "cat": "sport", "sex": "girls", "note": "有球队，但不在 CCA 清单里" },
-        { "name": "Guzheng Ensemble", "zh": "古筝", "cat": "arts", "note": "有乐团，但不在 CCA 清单里" },
-        { "name": "Robotics", "zh": "机器人", "cat": "club", "note": "有机器人队，但不在 CCA 清单里；DSA 有此项目" }
+        {
+          "name": "Floorball",
+          "zh": "地板球",
+          "cat": "sport",
+          "sex": "girls",
+          "note": "有球队，但不在 CCA 清单里"
+        },
+        {
+          "name": "Guzheng Ensemble",
+          "zh": "古筝",
+          "cat": "arts",
+          "note": "有乐团，但不在 CCA 清单里"
+        },
+        {
+          "name": "Robotics",
+          "zh": "机器人",
+          "cat": "club",
+          "note": "有机器人队，但不在 CCA 清单里；DSA 有此项目"
+        }
       ],
       "items": [
-        { "name": "Badminton", "zh": "羽毛球", "cat": "sport", "moe": true },
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Football", "zh": "足球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Netball", "zh": "无板篮球", "cat": "sport", "moe": true, "sex": "girls" },
-        { "name": "Table Tennis", "zh": "乒乓球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": true },
-        { "name": "Concert Band", "zh": "管乐团", "cat": "arts", "moe": true },
-        { "name": "Modern Dance", "zh": "现代舞", "cat": "arts", "moe": true },
-        { "name": "National Cadet Corps", "zh": "NCC 陆", "cat": "uniformed", "moe": true, "sex": "boys" },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true },
-        { "name": "Infocomm Technology", "zh": "资讯科技（媒体制作）", "cat": "club", "moe": true }
+        {
+          "name": "Badminton",
+          "zh": "羽毛球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Football",
+          "zh": "足球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Netball",
+          "zh": "无板篮球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "girls"
+        },
+        {
+          "name": "Table Tennis",
+          "zh": "乒乓球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Concert Band",
+          "zh": "管乐团",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "现代舞",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "National Cadet Corps",
+          "zh": "NCC 陆",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "National Police Cadet Corps",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Infocomm Technology",
+          "zh": "资讯科技（媒体制作）",
+          "cat": "club",
+          "moe": true
+        }
       ]
     },
     "yusof-ishak-secondary-school": {
       "source": "website",
-      "moeCount": 9,
-      "note": "MOE 登记 9 项，官网另有 7 项；两个技术社团分工明确",
+      "moeCount": 19,
+      "note": "2026-11-23 三方核实：MOE 当前 19 项、官网 19 项。Robotics / Infocomm / Drama 三方共认。STEM Club 与 MOE 的 Environmental Science 是否同社团未证实，保守分列。",
       "items": [
-        { "name": "Badminton", "zh": "羽毛球", "cat": "sport", "moe": true },
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true, "sex": "boys" },
-        { "name": "Wushu", "zh": "武术", "cat": "sport", "moe": true },
-        { "name": "Fencing", "zh": "击剑", "cat": "sport", "moe": false, "note": "花剑（Foil）与重剑（Épée），从入门到竞技，参加 NSG" },
-        { "name": "Chinese Orchestra", "zh": "华乐团", "cat": "arts", "moe": true, "note": "团名 YICO" },
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": true },
-        { "name": "Concert Band", "zh": "管乐团", "cat": "arts", "moe": true },
-        { "name": "Modern Dance", "zh": "现代舞", "cat": "arts", "moe": true },
-        { "name": "English Drama", "zh": "英语戏剧", "cat": "arts", "moe": false, "note": "参加 SYF、校内演出、交流计划" },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true },
-        { "name": "Boys' Brigade", "zh": "男少年旅", "cat": "uniformed", "moe": false, "sex": "boys" },
-        { "name": "Girls' Brigade", "zh": "女少年旅", "cat": "uniformed", "moe": false, "sex": "girls" },
-        { "name": "National Cadet Corps", "zh": "NCC 陆", "cat": "uniformed", "moe": false, "note": "制服团体共 4 个，比多数学校多" },
-        { "name": "Robotics Club", "zh": "机器人社", "cat": "club", "moe": false, "note": "机器人技术、无人机飞行、Python 编程" },
-        { "name": "Infocomm Technology", "zh": "资讯科技（媒体制作）", "cat": "club", "moe": true, "note": "含 AI 与 AR" },
-        { "name": "Art Club", "zh": "美术社", "cat": "club", "moe": false, "note": "传统与数字艺术并重" }
+        {
+          "name": "Art and Crafts",
+          "zh": "美术与手工",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "Art Club"
+          ]
+        },
+        {
+          "name": "Badminton",
+          "zh": "羽毛球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Boys' Brigade",
+          "zh": "男少年旅",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "boys"
+        },
+        {
+          "name": "Chinese Orchestra",
+          "zh": "华乐团",
+          "cat": "arts",
+          "moe": true,
+          "note": "团名 YICO"
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Concert Band",
+          "zh": "管乐团",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "English Language, Drama and Debating",
+          "zh": "",
+          "cat": "arts",
+          "moe": true,
+          "aliases": [
+            "English Drama"
+          ]
+        },
+        {
+          "name": "Environmental Science",
+          "zh": "环境科学社",
+          "cat": "club",
+          "moe": true
+        },
+        {
+          "name": "Fencing",
+          "zh": "击剑",
+          "cat": "sport",
+          "moe": true,
+          "note": "花剑（Foil）与重剑（Épée），从入门到竞技，参加 NSG"
+        },
+        {
+          "name": "Girls' Brigade",
+          "zh": "女少年旅",
+          "cat": "uniformed",
+          "moe": true,
+          "sex": "girls"
+        },
+        {
+          "name": "Infocomm Technology (Media Production)",
+          "zh": "资讯科技（媒体制作）",
+          "cat": "club",
+          "moe": true,
+          "note": "含 AI 与 AR"
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "现代舞",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "NCC (Land)",
+          "zh": "",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "NPCC",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Robotics",
+          "zh": "机器人社",
+          "cat": "club",
+          "moe": true
+        },
+        {
+          "name": "Softball",
+          "zh": "垒球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Table Tennis",
+          "zh": "乒乓球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Wushu",
+          "zh": "武术",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "STEM Club",
+          "zh": "",
+          "cat": "club",
+          "moe": false,
+          "note": "官网列有；与 MOE 的 Environmental Science 是否同一社团尚无证据，保守分列（2026-11-23 核实）"
+        }
       ]
     },
     "compassvale-secondary-school": {
-      "source": "unverifiable",
-      "moeCount": 8,
-      "note": "官网 CCA 页面只有一句「The CCAs offered in CVSS are:」后面没有内容，已抓取完整 HTML 确认不是渲染问题",
-      "gaps": "官网 CCA 页面为空，网上流传的「20+ 个 CCA」无官方依据，需开放日确认",
+      "source": "dsa-partial",
+      "moeCount": 18,
+      "note": "2026-11-23 三方核实：MOE 当前 18 项，含 Robotics 与 English Drama；官网无完整 CCA 清单，但 2026 DSA 页明确列 Aeronautics Club / Robotics Club / Eco Leaders Club。旧版「8 项、无任何科技或戏剧社团」已作废。",
       "items": [
-        { "name": "Badminton", "zh": "羽毛球", "cat": "sport", "moe": true },
-        { "name": "Basketball", "zh": "篮球", "cat": "sport", "moe": true },
-        { "name": "Netball", "zh": "无板篮球", "cat": "sport", "moe": true },
-        { "name": "Choir", "zh": "合唱", "cat": "arts", "moe": true },
-        { "name": "Concert Band", "zh": "管乐团", "cat": "arts", "moe": true },
-        { "name": "Modern Dance", "zh": "现代舞", "cat": "arts", "moe": true },
-        { "name": "Girl Guides", "zh": "女童军", "cat": "uniformed", "moe": true },
-        { "name": "National Police Cadet Corps", "zh": "NPCC", "cat": "uniformed", "moe": true }
+        {
+          "name": "Aero-Modelling",
+          "zh": "航空模型社",
+          "cat": "club",
+          "moe": true,
+          "aliases": [
+            "Aeronautics Club"
+          ]
+        },
+        {
+          "name": "Badminton",
+          "zh": "羽毛球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Basketball",
+          "zh": "篮球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Boys' Brigade",
+          "zh": "男少年旅",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Choir",
+          "zh": "合唱",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Concert Band",
+          "zh": "管乐团",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "English Drama",
+          "zh": "英语戏剧",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Environmental Science",
+          "zh": "环境科学社",
+          "cat": "club",
+          "moe": true,
+          "aliases": [
+            "Eco Leaders Club"
+          ]
+        },
+        {
+          "name": "Floorball",
+          "zh": "地板球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Girl Guides",
+          "zh": "女童军",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Media Resource Library",
+          "zh": "媒体资源图书馆",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "Modern Dance",
+          "zh": "现代舞",
+          "cat": "arts",
+          "moe": true
+        },
+        {
+          "name": "NCC (Air)",
+          "zh": "",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "NPCC",
+          "zh": "NPCC",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Netball",
+          "zh": "无板篮球",
+          "cat": "sport",
+          "moe": true
+        },
+        {
+          "name": "Red Cross Youth",
+          "zh": "红十字青年团",
+          "cat": "uniformed",
+          "moe": true
+        },
+        {
+          "name": "Robotics",
+          "zh": "机器人社",
+          "cat": "club",
+          "moe": true,
+          "aliases": [
+            "Robotics Club"
+          ]
+        },
+        {
+          "name": "Softball",
+          "zh": "垒球",
+          "cat": "sport",
+          "moe": true
+        }
       ]
     }
   }

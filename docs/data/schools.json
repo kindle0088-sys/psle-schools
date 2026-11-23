@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-22T01:32:50.357Z",
+  "generatedAt": "2026-11-23T03:27:21.906Z",
   "total": 147,
   "copYear": 2025,
   "ipCount": 17,
@@ -19,8 +19,8 @@
   "cca": {
    "note": "cca = MOE SchoolFinder 登记项；ccaFull = 官网核实后的完整清单（含 MOE 未登记项）。择校请以 ccaFull 为准。",
    "verifiedSchools": 13,
-   "totalItems": 175,
-   "websiteOnlyItems": 54
+   "totalItems": 208,
+   "websiteOnlyItems": 29
   },
   "sources": {
    "schools": "MOE SchoolFinder (https://www.moe.gov.sg/schoolfinder)",
@@ -5320,21 +5320,31 @@
     "any": false
    },
    "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Girl Guides (Girls)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)"
+    "Aero-Modelling",
+    "Badminton",
+    "Basketball",
+    "Boys' Brigade",
+    "Choir",
+    "Concert Band",
+    "English Drama",
+    "Environmental Science",
+    "Floorball",
+    "Girl Guides",
+    "Media Resource Library",
+    "Modern Dance",
+    "NCC (Air)",
+    "NPCC",
+    "Netball",
+    "Red Cross Youth",
+    "Robotics",
+    "Softball (Boys)"
    ],
    "ccaFull": {
-    "source": "unverifiable",
-    "note": "官网 CCA 页面只有一句「The CCAs offered in CVSS are:」后面没有内容，已抓取完整 HTML 确认不是渲染问题",
-    "gaps": "官网 CCA 页面为空，网上流传的「20+ 个 CCA」无官方依据，需开放日确认",
-    "moeCount": 8,
-    "total": 8,
+    "source": "dsa-partial",
+    "note": "2026-11-23 三方核实：MOE 当前 18 项，含 Robotics 与 English Drama；官网无完整 CCA 清单，但 2026 DSA 页明确列 Aeronautics Club / Robotics Club / Eco Leaders Club。旧版「8 项、无任何科技或戏剧社团」已作废。",
+    "gaps": null,
+    "moeCount": 18,
+    "total": 18,
     "onlyWebsite": 0,
     "coveragePct": 100,
     "categories": {
@@ -5354,8 +5364,22 @@
        "note": null
       },
       {
+       "name": "Floorball",
+       "zh": "地板球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
        "name": "Netball",
        "zh": "无板篮球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Softball",
+       "zh": "垒球",
        "moe": true,
        "sex": null,
        "note": null
@@ -5377,6 +5401,20 @@
        "note": null
       },
       {
+       "name": "English Drama",
+       "zh": "英语戏剧",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Media Resource Library",
+       "zh": "媒体资源图书馆",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
        "name": "Modern Dance",
        "zh": "现代舞",
        "moe": true,
@@ -5386,6 +5424,13 @@
      ],
      "uniformed": [
       {
+       "name": "Boys' Brigade",
+       "zh": "男少年旅",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
        "name": "Girl Guides",
        "zh": "女童军",
        "moe": true,
@@ -5393,14 +5438,50 @@
        "note": null
       },
       {
-       "name": "National Police Cadet Corps",
+       "name": "NCC (Air)",
+       "zh": null,
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "NPCC",
        "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Red Cross Youth",
+       "zh": "红十字青年团",
        "moe": true,
        "sex": null,
        "note": null
       }
      ],
-     "club": []
+     "club": [
+      {
+       "name": "Aero-Modelling",
+       "zh": "航空模型社",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Environmental Science",
+       "zh": "环境科学社",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Robotics",
+       "zh": "机器人社",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ]
     },
     "dsaOnly": []
    },
@@ -7567,22 +7648,33 @@
     "any": false
    },
    "cca": [
-    "Canoeing (Girls and Boys)",
-    "Chinese Orchestra (Girls and Boys)",
+    "Angklung/kulintang Ensemble",
+    "Art and Crafts",
+    "Canoeing",
+    "Chinese Orchestra",
+    "Choir (Girls)",
+    "Digital Media",
+    "English Drama",
+    "Fencing",
+    "Floorball",
     "Football (Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Softball (Girls and Boys)"
+    "Media Resource Library",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "NPCC",
+    "Outdoor Adventure",
+    "Red Cross Youth",
+    "Robotics",
+    "Softball"
    ],
    "ccaFull": {
     "source": "website",
-    "note": "MOE 覆盖率在全部候选校中最低，且漏掉的正是机器人社与戏剧社",
+    "note": "2026-11-23 三方核实：MOE 当前 18 项、官网 18 项。MOE 已登记 Robotics 与 English Drama（官网 Theatricks!），旧版「MOE 漏登」结论作废。NCC 分支官网写 Air / MOE 写 Land，需开放日确认。",
     "gaps": null,
-    "moeCount": 7,
-    "total": 19,
-    "onlyWebsite": 12,
-    "coveragePct": 37,
+    "moeCount": 18,
+    "total": 21,
+    "onlyWebsite": 3,
+    "coveragePct": 86,
     "categories": {
      "sport": [
       {
@@ -7595,14 +7687,14 @@
       {
        "name": "Fencing",
        "zh": "击剑",
-       "moe": false,
+       "moe": true,
        "sex": null,
        "note": null
       },
       {
        "name": "Floorball",
        "zh": "地板球",
-       "moe": false,
+       "moe": true,
        "sex": null,
        "note": null
       },
@@ -7623,37 +7715,16 @@
      ],
      "arts": [
       {
-       "name": "Theatricks!",
-       "zh": "戏剧社",
-       "moe": false,
-       "sex": null,
-       "note": "2021/2023/2025 连续三届 SYF 获认可"
-      },
-      {
-       "name": "Angklung Ensemble",
+       "name": "Angklung/kulintang Ensemble",
        "zh": "昂格隆",
-       "moe": false,
-       "sex": null,
-       "note": null
-      },
-      {
-       "name": "Dance Ensemble",
-       "zh": "舞蹈团",
        "moe": true,
        "sex": null,
        "note": null
       },
       {
-       "name": "Greendale Chorale",
-       "zh": "合唱团",
-       "moe": false,
-       "sex": null,
-       "note": null
-      },
-      {
-       "name": "Greendale Orchestra",
-       "zh": "管弦乐团",
-       "moe": false,
+       "name": "Art and Crafts",
+       "zh": "美术与手工",
+       "moe": true,
        "sex": null,
        "note": null
       },
@@ -7663,18 +7734,60 @@
        "moe": true,
        "sex": null,
        "note": "MOE 有登记，官网 CCA 页未列出"
+      },
+      {
+       "name": "Choir",
+       "zh": "合唱团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Digital Media",
+       "zh": "数码媒体",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "English Drama",
+       "zh": "英语戏剧",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Media Resource Library",
+       "zh": "媒体资源图书馆",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Modern Dance",
+       "zh": "舞蹈团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Greendale Orchestra",
+       "zh": "管弦乐团",
+       "moe": false,
+       "sex": null,
+       "note": "官网明确为 Western orchestra（弦乐/木管/打击），与 MOE 的 Chinese Orchestra 是不同实体"
       }
      ],
      "uniformed": [
       {
-       "name": "National Cadet Corps",
-       "zh": "NCC 陆",
+       "name": "NCC (Land)",
+       "zh": null,
        "moe": true,
-       "sex": "boys",
+       "sex": null,
        "note": null
       },
       {
-       "name": "National Police Cadet Corps",
+       "name": "NPCC",
        "zh": "NPCC",
        "moe": true,
        "sex": null,
@@ -7683,46 +7796,39 @@
       {
        "name": "Red Cross Youth",
        "zh": "红十字青年团",
-       "moe": false,
+       "moe": true,
        "sex": null,
        "note": null
       }
      ],
      "club": [
       {
-       "name": "Robotics",
-       "zh": "机器人社",
-       "moe": false,
-       "sex": null,
-       "note": "4 年进阶：SolidWorks/Fusion 360 + 3D 打印 + 激光切割 + Arduino + AI"
-      },
-      {
-       "name": "ODAC",
+       "name": "Outdoor Adventure",
        "zh": "户外探险社",
-       "moe": false,
-       "sex": null,
-       "note": "2025 NORS B 组男子冠军；40km 海上皮划艇远征"
-      },
-      {
-       "name": "GBC",
-       "zh": "广播社",
-       "moe": false,
-       "sex": null,
-       "note": "Greendale Broadcasting Corporation"
-      },
-      {
-       "name": "Art & Culture Club",
-       "zh": "美术与文化社",
-       "moe": false,
+       "moe": true,
        "sex": null,
        "note": null
+      },
+      {
+       "name": "Robotics",
+       "zh": "机器人社",
+       "moe": true,
+       "sex": null,
+       "note": "4 年进阶：SolidWorks/Fusion 360 + 3D 打印 + 激光切割 + Arduino + AI"
       },
       {
        "name": "Green Club",
        "zh": "环保社",
        "moe": false,
        "sex": null,
-       "note": null
+       "note": "官网列有，MOE 当前页未登记（2026-11-23 核实）"
+      },
+      {
+       "name": "GBC",
+       "zh": "广播社",
+       "moe": false,
+       "sex": null,
+       "note": "官网列有，MOE 当前页未登记（2026-11-23 核实）"
       }
      ]
     },
@@ -12441,52 +12547,38 @@
     "any": false
    },
    "cca": [
-    "Basketball (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
+    "Basketball",
+    "Chinese Dance (Girls)",
+    "Choir (Girls)",
+    "Community Service",
+    "Concert Band",
+    "English Drama",
     "Football (Boys)",
-    "Girl Guides (Girls)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "String Ensemble (Girls and Boys)",
-    "Track and Field (Girls and Boys)"
+    "Girl Guides",
+    "Golf",
+    "Infocomm Technology (Media Production)",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "NPCC",
+    "Netball",
+    "Outdoor Adventure",
+    "St John Brigade",
+    "String Ensemble",
+    "Track and Field"
    ],
    "ccaFull": {
     "source": "website",
-    "note": "官网 18 项，MOE 登记 11 项",
+    "note": "2026-11-23 三方核实：MOE 与官网均 18 项、一一对应。Drama Club = English Drama、Infocomm Club = Infocomm Technology、ODAC = Outdoor Adventure、Symphonic Band = Concert Band。",
     "gaps": null,
-    "moeCount": 11,
+    "moeCount": 18,
     "total": 18,
-    "onlyWebsite": 7,
-    "coveragePct": 61,
+    "onlyWebsite": 0,
+    "coveragePct": 100,
     "categories": {
      "sport": [
       {
-       "name": "Athletics",
-       "zh": "田径",
-       "moe": true,
-       "sex": null,
-       "note": null
-      },
-      {
        "name": "Basketball",
        "zh": "篮球",
-       "moe": true,
-       "sex": null,
-       "note": null
-      },
-      {
-       "name": "Golf",
-       "zh": "高尔夫",
-       "moe": false,
-       "sex": null,
-       "note": "全岛开设高尔夫 CCA 的中学不多"
-      },
-      {
-       "name": "Netball",
-       "zh": "无板篮球",
        "moe": true,
        "sex": null,
        "note": null
@@ -12499,25 +12591,53 @@
        "note": null
       },
       {
-       "name": "ODAC",
-       "zh": "户外探险社",
-       "moe": false,
+       "name": "Golf",
+       "zh": "高尔夫",
+       "moe": true,
        "sex": null,
-       "note": "皮划艇、攀岩、定向越野、年度远征"
-      }
-     ],
-     "arts": [
+       "note": "全岛开设高尔夫 CCA 的中学不多"
+      },
       {
-       "name": "Choir",
-       "zh": "合唱",
-       "moe": false,
+       "name": "Netball",
+       "zh": "无板篮球",
+       "moe": true,
        "sex": null,
        "note": null
       },
       {
+       "name": "Track and Field",
+       "zh": "田径",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ],
+     "arts": [
+      {
        "name": "Chinese Dance",
        "zh": "华族舞",
-       "moe": false,
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Choir",
+       "zh": "合唱",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Concert Band",
+       "zh": "交响管乐团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "English Drama",
+       "zh": "英语戏剧",
+       "moe": true,
        "sex": null,
        "note": null
       },
@@ -12529,42 +12649,14 @@
        "note": "团名 Boogie Crew"
       },
       {
-       "name": "Drama Club",
-       "zh": "戏剧社",
-       "moe": false,
-       "sex": null,
-       "note": null
-      },
-      {
        "name": "String Ensemble",
        "zh": "弦乐团",
-       "moe": true,
-       "sex": null,
-       "note": null
-      },
-      {
-       "name": "Symphonic Band",
-       "zh": "交响管乐团",
        "moe": true,
        "sex": null,
        "note": null
       }
      ],
      "uniformed": [
-      {
-       "name": "National Cadet Corps",
-       "zh": "NCC 陆",
-       "moe": true,
-       "sex": null,
-       "note": null
-      },
-      {
-       "name": "National Police Cadet Corps",
-       "zh": "NPCC",
-       "moe": true,
-       "sex": null,
-       "note": null
-      },
       {
        "name": "Girl Guides",
        "zh": "女童军",
@@ -12573,25 +12665,46 @@
        "note": null
       },
       {
+       "name": "NCC (Land)",
+       "zh": null,
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "NPCC",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
        "name": "St John Brigade",
        "zh": "圣约翰救伤队",
-       "moe": false,
+       "moe": true,
        "sex": null,
        "note": null
       }
      ],
      "club": [
       {
-       "name": "Infocomm Club",
+       "name": "Community Service",
+       "zh": "社区服务",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Infocomm Technology (Media Production)",
        "zh": "信息社",
        "moe": true,
        "sex": null,
        "note": "摄影、摄像、技术、媒体"
       },
       {
-       "name": "Service Learning Club",
-       "zh": "服务学习社",
-       "moe": false,
+       "name": "Outdoor Adventure",
+       "zh": "户外探险社",
+       "moe": true,
        "sex": null,
        "note": null
       }
@@ -13313,21 +13426,29 @@
     "any": false
    },
    "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Badminton",
+    "Basketball",
+    "Concert Band",
+    "Frisbee",
+    "Modern Dance",
+    "NCC (Land)",
+    "NCDCC",
+    "NPCC",
+    "Rockwall Climbing",
+    "Student Leadership (Council)",
+    "Student Leadership (House)",
+    "Student Leadership (Peer Support)",
+    "Swimming",
     "Water Polo (Boys)"
    ],
    "ccaFull": {
-    "source": "moe-only",
-    "note": "官网未提供完整 CCA 清单，仅有 MOE 登记数据；实际社团数可能更多",
-    "gaps": "官网未给出完整 CCA 清单，需在开放日确认",
-    "moeCount": 6,
-    "total": 6,
-    "onlyWebsite": 0,
-    "coveragePct": 100,
+    "source": "website+microsite",
+    "note": "2026-11-23 三方核实：MOE 当前 14 项、官网主站 10 项、开放日 microsite 另列 English Drama / Maker’s Club / Environmental Science Club。主站 10 项三方共认；按并集 17 项。旧版「6 项、无戏剧」已作废；Swimming / Water Polo 仍确认。",
+    "gaps": null,
+    "moeCount": 14,
+    "total": 17,
+    "onlyWebsite": 3,
+    "coveragePct": 82,
     "categories": {
      "sport": [
       {
@@ -13340,6 +13461,27 @@
       {
        "name": "Basketball",
        "zh": "篮球",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Frisbee",
+       "zh": "飞盘",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Rockwall Climbing",
+       "zh": "攀岩社",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Swimming",
+       "zh": "游泳",
        "moe": true,
        "sex": null,
        "note": null
@@ -13366,18 +13508,75 @@
        "moe": true,
        "sex": null,
        "note": null
+      },
+      {
+       "name": "English Drama",
+       "zh": "英语戏剧",
+       "moe": false,
+       "sex": null,
+       "note": "开放日 microsite 列出，官网主站与 MOE 当前页均未列；2027 是否开设需开放日确认"
       }
      ],
      "uniformed": [
       {
-       "name": "National Police Cadet Corps",
+       "name": "NCC (Land)",
+       "zh": null,
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "NCDCC",
+       "zh": "全国民防学员团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "NPCC",
        "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Student Leadership (Council)",
+       "zh": "学生领袖",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Student Leadership (House)",
+       "zh": "学生领袖",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Student Leadership (Peer Support)",
+       "zh": "学生领袖",
        "moe": true,
        "sex": null,
        "note": null
       }
      ],
-     "club": []
+     "club": [
+      {
+       "name": "Maker's Club",
+       "zh": null,
+       "moe": false,
+       "sex": null,
+       "note": "开放日 microsite 列出，官网主站与 MOE 当前页均未列；2027 是否开设需开放日确认"
+      },
+      {
+       "name": "Environmental Science Club",
+       "zh": null,
+       "moe": false,
+       "sex": null,
+       "note": "开放日 microsite 列出，官网主站与 MOE 当前页均未列；2027 是否开设需开放日确认"
+      }
+     ]
     },
     "dsaOnly": []
    },
@@ -14464,25 +14663,33 @@
     "any": false
    },
    "cca": [
+    "Art and Crafts",
+    "Audio Visual Aid",
     "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
+    "Choir",
+    "Community Service (Rotary-Sponsored)",
+    "Concert Band",
+    "English Language, Drama and Debating",
+    "Environmental Science",
     "Football (Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Guzheng Ensemble",
+    "Indian Language, Drama and Debating",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "NPCC",
     "Netball (Girls)",
+    "Red Cross Youth",
     "Scouts (Boys)",
-    "Shooting (Girls and Boys)",
+    "Shooting",
     "Table Tennis (Boys)",
-    "Volleyball (Girls and Boys)"
+    "Volleyball"
    ],
    "ccaFull": {
-    "source": "moe-only",
-    "note": "官网 CCA 总页按类别列出，但俱乐部一栏留空",
-    "gaps": "俱乐部一栏官网未列具体社团，需开放日确认",
-    "moeCount": 12,
-    "total": 12,
+    "source": "website",
+    "note": "2026-11-23 三方核实：MOE 当前 20 项、官网 21 项（Volleyball 按男女分列）。俱乐部栏已补齐 Art / AVA / ELDDS / Environmental / ILDDS / Interact。Drama 命中；Robotics、Swimming、Cooking 仍无证据（Mobile Robotics 是科目不是 CCA）。",
+    "gaps": null,
+    "moeCount": 20,
+    "total": 20,
     "onlyWebsite": 0,
     "coveragePct": 100,
     "categories": {
@@ -14532,6 +14739,20 @@
      ],
      "arts": [
       {
+       "name": "Art and Crafts",
+       "zh": "美术与手工",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Audio Visual Aid",
+       "zh": "视听服务社",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
        "name": "Choir",
        "zh": "合唱",
        "moe": true,
@@ -14546,6 +14767,27 @@
        "note": null
       },
       {
+       "name": "English Language, Drama and Debating",
+       "zh": null,
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Guzheng Ensemble",
+       "zh": "古筝团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Indian Language, Drama and Debating",
+       "zh": null,
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
        "name": "Modern Dance",
        "zh": "现代舞",
        "moe": true,
@@ -14555,15 +14797,22 @@
      ],
      "uniformed": [
       {
-       "name": "National Cadet Corps",
-       "zh": "NCC 陆",
+       "name": "NCC (Land)",
+       "zh": null,
        "moe": true,
-       "sex": "boys",
+       "sex": null,
        "note": null
       },
       {
-       "name": "National Police Cadet Corps",
+       "name": "NPCC",
        "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Red Cross Youth",
+       "zh": "红十字青年团",
        "moe": true,
        "sex": null,
        "note": null
@@ -14576,7 +14825,22 @@
        "note": null
       }
      ],
-     "club": []
+     "club": [
+      {
+       "name": "Community Service (Rotary-Sponsored)",
+       "zh": "社区服务",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Environmental Science",
+       "zh": "环境科学社",
+       "moe": true,
+       "sex": null,
+       "note": null
+      }
+     ]
     },
     "dsaOnly": []
    },
@@ -15936,25 +16200,29 @@
     "any": false
    },
    "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
+    "Art and Crafts",
+    "Audio Visual Aid",
+    "Badminton",
+    "Basketball",
+    "Choir",
+    "Concert Band",
+    "English Drama",
     "Football (Boys)",
-    "Girl Guides (Girls)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)"
+    "Girl Guides",
+    "Guzheng Ensemble",
+    "Hockey",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "Netball"
    ],
    "ccaFull": {
     "source": "website",
-    "note": "MOE 登记 10 项，官网获奖记录另外暴露出 6 项真实存在的社团",
+    "note": "2026-11-23 三方核实：MOE 当前 14 项；官网明确 2027 起 Red Cross 与 NPCC 停办、引入 NCDCC，2027 入学按 15 项口径。第三方 16 项含旧制服团体，属过渡期数据。",
     "gaps": null,
-    "moeCount": 10,
-    "total": 17,
-    "onlyWebsite": 7,
-    "coveragePct": 59,
+    "moeCount": 14,
+    "total": 15,
+    "onlyWebsite": 1,
+    "coveragePct": 93,
     "categories": {
      "sport": [
       {
@@ -15979,28 +16247,35 @@
        "note": null
       },
       {
+       "name": "Hockey",
+       "zh": "曲棍球",
+       "moe": true,
+       "sex": null,
+       "note": "2024 年 B 组女子 League 1 冠军、C 组男子 League 1 冠军；2026 年 B 组男第 2"
+      },
+      {
        "name": "Netball",
        "zh": "无板篮球",
        "moe": true,
        "sex": "girls",
        "note": null
-      },
-      {
-       "name": "Hockey",
-       "zh": "曲棍球",
-       "moe": false,
-       "sex": null,
-       "note": "2024 年 B 组女子 League 1 冠军、C 组男子 League 1 冠军；2026 年 B 组男第 2"
-      },
-      {
-       "name": "Taekwondo",
-       "zh": "跆拳道",
-       "moe": false,
-       "sex": null,
-       "note": "2023 年 NSG B 组男子亚军"
       }
      ],
      "arts": [
+      {
+       "name": "Art and Crafts",
+       "zh": "美术与手工",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "Audio Visual Aid",
+       "zh": "视听服务社",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
       {
        "name": "Choir",
        "zh": "合唱",
@@ -16016,32 +16291,25 @@
        "note": null
       },
       {
+       "name": "English Drama",
+       "zh": "英语戏剧",
+       "moe": true,
+       "sex": null,
+       "note": "2025 SYF 演出《The Book Riot》获 Certificate of Accomplishment"
+      },
+      {
+       "name": "Guzheng Ensemble",
+       "zh": "古筝团",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
        "name": "Modern Dance",
        "zh": "现代舞",
        "moe": true,
        "sex": null,
        "note": "团队名 AMPLIFY；2025 SYF Certificate of Distinction"
-      },
-      {
-       "name": "English Drama",
-       "zh": "英语戏剧",
-       "moe": false,
-       "sex": null,
-       "note": "2025 SYF 演出《The Book Riot》获 Certificate of Accomplishment"
-      },
-      {
-       "name": "Guzheng",
-       "zh": "古筝团",
-       "moe": false,
-       "sex": null,
-       "note": "2025 SYF Certificate of Distinction（最高档）"
-      },
-      {
-       "name": "Symphonic Band",
-       "zh": "交响管乐团",
-       "moe": false,
-       "sex": null,
-       "note": "2025 SYF Certificate of Accomplishment；与 Concert Band 为不同团队"
       }
      ],
      "uniformed": [
@@ -16053,36 +16321,21 @@
        "note": null
       },
       {
-       "name": "National Cadet Corps",
-       "zh": "NCC 陆",
-       "moe": true,
-       "sex": "boys",
-       "note": null
-      },
-      {
-       "name": "National Police Cadet Corps",
-       "zh": "NPCC",
+       "name": "NCC (Land)",
+       "zh": null,
        "moe": true,
        "sex": null,
        "note": null
       },
       {
-       "name": "Red Cross Youth",
-       "zh": "红十字青年团",
+       "name": "NCDCC",
+       "zh": "全国民防学员团",
        "moe": false,
        "sex": null,
-       "note": "2023 年 Unit Gold Award 与 Director's Award"
+       "note": "官网明确 2027 起引入，替代停办的 Red Cross 与 NPCC；MOE 当前页尚未登记"
       }
      ],
-     "club": [
-      {
-       "name": "Art Club",
-       "zh": "美术社",
-       "moe": false,
-       "sex": null,
-       "note": "2024、2026 连续在 SYF Art Exhibition 获 Special Mention／Recognition"
-      }
-     ]
+     "club": []
     },
     "dsaOnly": []
    },
@@ -20907,24 +21160,34 @@
     "any": false
    },
    "cca": [
-    "Badminton (Girls and Boys)",
+    "Art and Crafts",
+    "Badminton",
     "Basketball (Boys)",
-    "Chinese Orchestra (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Wushu (Girls and Boys)"
+    "Boys' Brigade",
+    "Chinese Orchestra",
+    "Choir",
+    "Concert Band",
+    "English Language, Drama and Debating",
+    "Environmental Science",
+    "Fencing",
+    "Girls' Brigade",
+    "Infocomm Technology (Media Production)",
+    "Modern Dance",
+    "NCC (Land)",
+    "NPCC",
+    "Robotics",
+    "Softball (Girls)",
+    "Table Tennis",
+    "Wushu"
    ],
    "ccaFull": {
     "source": "website",
-    "note": "MOE 登记 9 项，官网另有 7 项；两个技术社团分工明确",
+    "note": "2026-11-23 三方核实：MOE 当前 19 项、官网 19 项。Robotics / Infocomm / Drama 三方共认。STEM Club 与 MOE 的 Environmental Science 是否同社团未证实，保守分列。",
     "gaps": null,
-    "moeCount": 9,
-    "total": 16,
-    "onlyWebsite": 7,
-    "coveragePct": 56,
+    "moeCount": 19,
+    "total": 20,
+    "onlyWebsite": 1,
+    "coveragePct": 95,
     "categories": {
      "sport": [
       {
@@ -20942,21 +21205,42 @@
        "note": null
       },
       {
-       "name": "Wushu",
-       "zh": "武术",
+       "name": "Fencing",
+       "zh": "击剑",
+       "moe": true,
+       "sex": null,
+       "note": "花剑（Foil）与重剑（Épée），从入门到竞技，参加 NSG"
+      },
+      {
+       "name": "Softball",
+       "zh": "垒球",
        "moe": true,
        "sex": null,
        "note": null
       },
       {
-       "name": "Fencing",
-       "zh": "击剑",
-       "moe": false,
+       "name": "Table Tennis",
+       "zh": "乒乓球",
+       "moe": true,
        "sex": null,
-       "note": "花剑（Foil）与重剑（Épée），从入门到竞技，参加 NSG"
+       "note": null
+      },
+      {
+       "name": "Wushu",
+       "zh": "武术",
+       "moe": true,
+       "sex": null,
+       "note": null
       }
      ],
      "arts": [
+      {
+       "name": "Art and Crafts",
+       "zh": "美术与手工",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
       {
        "name": "Chinese Orchestra",
        "zh": "华乐团",
@@ -20979,71 +21263,78 @@
        "note": null
       },
       {
+       "name": "English Language, Drama and Debating",
+       "zh": null,
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
        "name": "Modern Dance",
        "zh": "现代舞",
        "moe": true,
        "sex": null,
        "note": null
-      },
-      {
-       "name": "English Drama",
-       "zh": "英语戏剧",
-       "moe": false,
-       "sex": null,
-       "note": "参加 SYF、校内演出、交流计划"
       }
      ],
      "uniformed": [
       {
-       "name": "National Police Cadet Corps",
-       "zh": "NPCC",
-       "moe": true,
-       "sex": null,
-       "note": null
-      },
-      {
        "name": "Boys' Brigade",
        "zh": "男少年旅",
-       "moe": false,
+       "moe": true,
        "sex": "boys",
        "note": null
       },
       {
        "name": "Girls' Brigade",
        "zh": "女少年旅",
-       "moe": false,
+       "moe": true,
        "sex": "girls",
        "note": null
       },
       {
-       "name": "National Cadet Corps",
-       "zh": "NCC 陆",
-       "moe": false,
+       "name": "NCC (Land)",
+       "zh": null,
+       "moe": true,
        "sex": null,
-       "note": "制服团体共 4 个，比多数学校多"
+       "note": null
+      },
+      {
+       "name": "NPCC",
+       "zh": "NPCC",
+       "moe": true,
+       "sex": null,
+       "note": null
       }
      ],
      "club": [
       {
-       "name": "Robotics Club",
-       "zh": "机器人社",
-       "moe": false,
+       "name": "Environmental Science",
+       "zh": "环境科学社",
+       "moe": true,
        "sex": null,
-       "note": "机器人技术、无人机飞行、Python 编程"
+       "note": null
       },
       {
-       "name": "Infocomm Technology",
+       "name": "Infocomm Technology (Media Production)",
        "zh": "资讯科技（媒体制作）",
        "moe": true,
        "sex": null,
        "note": "含 AI 与 AR"
       },
       {
-       "name": "Art Club",
-       "zh": "美术社",
+       "name": "Robotics",
+       "zh": "机器人社",
+       "moe": true,
+       "sex": null,
+       "note": null
+      },
+      {
+       "name": "STEM Club",
+       "zh": null,
        "moe": false,
        "sex": null,
-       "note": "传统与数字艺术并重"
+       "note": "官网列有；与 MOE 的 Environmental Science 是否同一社团尚无证据，保守分列（2026-11-23 核实）"
       }
      ]
     },

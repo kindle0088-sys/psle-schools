@@ -162,11 +162,18 @@ if (s) {
   if (pg3) {
     t(`PG3 区间与数据源一致（${pg3.min}–${pg3.max}）`,
       new RegExp(`${pg3.min}\\s*[–-]\\s*${pg3.max}`).test(html));
+    /* 余量按「报告自己声明的学生画像」校验。
+       仓库里早期 15 份按 abc1 / AL 17 写、后来 39 份按 abc4 / AL 15 写，
+       统一用一个 STU.al 会把另一半全部判成假失败。摘要区的「AL N 余量」
+       是生成器固定输出的字段，可作为该报告口径的可靠标记；v1 手写存档
+       没有这个字段，才回退到全局学生画像。 */
+    const declaredAl = (html.match(/AL\s*(\d+)\s*余量/) || [])[1];
+    const al = declaredAl ? Number(declaredAl) : STU.al;
     // 余量可为负（学生分数高于该校 PG3 上限），正数带 + 号、负数带 − 号
-    const margin = pg3.max - STU.al;
+    const margin = pg3.max - al;
     const mLabel = margin >= 0 ? `+${margin}` : String(margin);
     const mRe = margin >= 0 ? new RegExp(`\\+${margin}\\s*分`) : new RegExp(`−?-?${Math.abs(margin)}\\s*分`);
-    t(`余量计算正确（AL ${STU.al} → ${mLabel}）`, mRe.test(html));
+    t(`余量计算正确（AL ${al} → ${mLabel}）`, mRe.test(html));
   }
 
   // 学校性质（IP / SAP）如实标注

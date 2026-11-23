@@ -33,6 +33,139 @@
  },
  "pool": [
   {
+   "slug": "compassvale-secondary-school",
+   "name": "Compassvale Secondary School",
+   "area": "Seng Kang",
+   "address": "51 Compassvale Crescent, S545083",
+   "postal": "545083",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 18,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610172913",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 15,
+      "max": 19,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 15,
+       "max": 19,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610172913/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=compassvale-secondary-school"
+    },
+    "2024": {
+     "status": "no-snapshot"
+    }
+   },
+   "margin": 3,
+   "minutes": 14,
+   "commuteBasis": "fastest",
+   "commuteMode": "walk",
+   "mrtMinutes": 22,
+   "walkMinutes": 14,
+   "walkUpperMinutes": 25,
+   "walkMeters": 1114,
+   "walkDisputed": true,
+   "walkRange": [
+    14,
+    25
+   ],
+   "rideMinutes": 13,
+   "walkMinutesToStation": 9,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 693,
+   "cca": [
+    "Aero-Modelling",
+    "Badminton",
+    "Basketball",
+    "Boys' Brigade",
+    "Choir",
+    "Concert Band",
+    "English Drama",
+    "Environmental Science",
+    "Floorball",
+    "Girl Guides",
+    "Media Resource Library",
+    "Modern Dance",
+    "NCC (Air)",
+    "NPCC",
+    "Netball",
+    "Red Cross Youth",
+    "Robotics",
+    "Softball (Boys)"
+   ],
+   "ccaHits": [
+    "机器人",
+    "戏剧"
+   ],
+   "alpCats": [
+    "STEM - Future of Transportation"
+   ],
+   "alpItems": [
+    "Applied Learning Programme – Aeronautics, Coding, Engineering and Sustainability (ACES)"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Green Compass Programme"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Environmental Science (Girls and Boys)",
+    "Floorball (Girls and Boys)",
+    "Netball (Girls)",
+    "Robotics (Girls and Boys)",
+    "Softball (Boys)",
+    "Stem - Aeronautics (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 66,
+    "commute": 100,
+    "academic": 100,
+    "cca": 100,
+    "feature": 83
+   },
+   "total": 87,
+   "rank": 1
+  },
+  {
    "slug": "bendemeer-secondary-school",
    "name": "Bendemeer Secondary School",
    "area": "Kallang",
@@ -173,7 +306,7 @@
     "feature": 86
    },
    "total": 85,
-   "rank": 1
+   "rank": 2
   },
   {
    "slug": "bartley-secondary-school",
@@ -259,7 +392,7 @@
     "feature": 86
    },
    "total": 83,
-   "rank": 2
+   "rank": 3
   },
   {
    "slug": "hougang-secondary-school",
@@ -410,7 +543,7 @@
     "feature": 86
    },
    "total": 83,
-   "rank": 3
+   "rank": 4
   },
   {
    "slug": "yuying-secondary-school",
@@ -496,7 +629,160 @@
     "feature": 76
    },
    "total": 83,
-   "rank": 4
+   "rank": 5
+  },
+  {
+   "slug": "punggol-secondary-school",
+   "name": "Punggol Secondary School",
+   "area": "Punggol",
+   "address": "51 Edgefield Plains, S828870",
+   "postal": "828870",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 13,
+    "max": 19,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610185006",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610185006/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20250916021134",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 19,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 19,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20250916021134/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school"
+    }
+   },
+   "margin": 4,
+   "minutes": 22,
+   "commuteBasis": "fastest",
+   "commuteMode": "mrt",
+   "mrtMinutes": 22,
+   "walkMinutes": 24,
+   "walkUpperMinutes": 24,
+   "walkMeters": 1936,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 11,
+   "walkMinutesToStation": 11,
+   "via": "NE17 PUNGGOL",
+   "accessWalkM": 841,
+   "cca": [
+    "Art and Crafts",
+    "Audio Visual Aid",
+    "Basketball (Boys)",
+    "Choir",
+    "Community Service (Rotary-Sponsored)",
+    "Concert Band",
+    "English Language, Drama and Debating",
+    "Environmental Science",
+    "Football (Boys)",
+    "Guzheng Ensemble",
+    "Indian Language, Drama and Debating",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "NPCC",
+    "Netball (Girls)",
+    "Red Cross Youth",
+    "Scouts (Boys)",
+    "Shooting",
+    "Table Tennis (Boys)",
+    "Volleyball"
+   ],
+   "ccaHits": [
+    "戏剧"
+   ],
+   "alpCats": [
+    "STEM - Sustainability"
+   ],
+   "alpItems": [
+    "Environmental Sustainability"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Serving with values, developing a community of confident leaders and learners."
+   ],
+   "dsaAreas": [
+    "Choir (Girls and Boys)",
+    "Environmental Science (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 74,
+    "commute": 93,
+    "academic": 71,
+    "cca": 92,
+    "feature": 83
+   },
+   "total": 82,
+   "rank": 6
   },
   {
    "slug": "seng-kang-secondary-school",
@@ -573,16 +859,20 @@
    "via": "NE16 SENGKANG",
    "accessWalkM": 658,
    "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
+    "Art and Crafts",
+    "Audio Visual Aid",
+    "Badminton",
+    "Basketball",
+    "Choir",
+    "Concert Band",
+    "English Drama",
     "Football (Boys)",
-    "Girl Guides (Girls)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)"
+    "Girl Guides",
+    "Guzheng Ensemble",
+    "Hockey",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "Netball"
    ],
    "ccaHits": [
     "戏剧"
@@ -616,7 +906,7 @@
     "feature": 86
    },
    "total": 82,
-   "rank": 5
+   "rank": 7
   },
   {
    "slug": "broadrick-secondary-school",
@@ -701,7 +991,7 @@
     "feature": 86
    },
    "total": 81,
-   "rank": 6
+   "rank": 8
   },
   {
    "slug": "guangyang-secondary-school",
@@ -785,7 +1075,7 @@
     "feature": 86
    },
    "total": 81,
-   "rank": 7
+   "rank": 9
   },
   {
    "slug": "manjusri-secondary-school",
@@ -875,7 +1165,7 @@
     "feature": 86
    },
    "total": 81,
-   "rank": 8
+   "rank": 10
   },
   {
    "slug": "north-vista-secondary-school",
@@ -952,17 +1242,24 @@
    "via": "NE15 BUANGKOK",
    "accessWalkM": 740,
    "cca": [
-    "Basketball (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
+    "Basketball",
+    "Chinese Dance (Girls)",
+    "Choir (Girls)",
+    "Community Service",
+    "Concert Band",
+    "English Drama",
     "Football (Boys)",
-    "Girl Guides (Girls)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "String Ensemble (Girls and Boys)",
-    "Track and Field (Girls and Boys)"
+    "Girl Guides",
+    "Golf",
+    "Infocomm Technology (Media Production)",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "NPCC",
+    "Netball",
+    "Outdoor Adventure",
+    "St John Brigade",
+    "String Ensemble",
+    "Track and Field"
    ],
    "ccaHits": [
     "AI",
@@ -1001,7 +1298,7 @@
     "feature": 86
    },
    "total": 81,
-   "rank": 9
+   "rank": 11
   },
   {
    "slug": "peicai-secondary-school",
@@ -1089,127 +1386,7 @@
     "feature": 86
    },
    "total": 81,
-   "rank": 10
-  },
-  {
-   "slug": "compassvale-secondary-school",
-   "name": "Compassvale Secondary School",
-   "area": "Seng Kang",
-   "address": "51 Compassvale Crescent, S545083",
-   "postal": "545083",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 14,
-    "max": 18,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "copFlags": {
-    "year": 2025,
-    "PG1": false,
-    "PG2": false,
-    "PG3": false,
-    "any": false
-   },
-   "copHistory": {
-    "2023": {
-     "status": "ok",
-     "archiveTs": "20240610172913",
-     "labelYear": 2023,
-     "basis": "PG",
-     "pg3": {
-      "min": 15,
-      "max": 19,
-      "vacanciesRemain": false
-     },
-     "allGroups": {
-      "PG3": {
-       "min": 15,
-       "max": 19,
-       "star": false
-      },
-      "PG2": {
-       "min": 21,
-       "max": 24,
-       "star": false
-      },
-      "PG1": {
-       "min": 25,
-       "max": 27,
-       "star": false
-      }
-     },
-     "archiveUrl": "https://web.archive.org/web/20240610172913/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=compassvale-secondary-school"
-    },
-    "2024": {
-     "status": "no-snapshot"
-    }
-   },
-   "margin": 3,
-   "minutes": 14,
-   "commuteBasis": "fastest",
-   "commuteMode": "walk",
-   "mrtMinutes": 22,
-   "walkMinutes": 14,
-   "walkUpperMinutes": 25,
-   "walkMeters": 1114,
-   "walkDisputed": true,
-   "walkRange": [
-    14,
-    25
-   ],
-   "rideMinutes": 13,
-   "walkMinutesToStation": 9,
-   "via": "NE16 SENGKANG",
-   "accessWalkM": 693,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Girl Guides (Girls)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)"
-   ],
-   "ccaHits": [],
-   "alpCats": [
-    "STEM - Future of Transportation"
-   ],
-   "alpItems": [
-    "Applied Learning Programme – Aeronautics, Coding, Engineering and Sustainability (ACES)"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Green Compass Programme"
-   ],
-   "dsaAreas": [
-    "Badminton (Girls and Boys)",
-    "Environmental Science (Girls and Boys)",
-    "Floorball (Girls and Boys)",
-    "Netball (Girls)",
-    "Robotics (Girls and Boys)",
-    "Softball (Boys)",
-    "Stem - Aeronautics (Girls and Boys)"
-   ],
-   "moeNearby": true,
-   "scores": {
-    "safety": 66,
-    "commute": 100,
-    "academic": 100,
-    "cca": 45,
-    "feature": 83
-   },
-   "total": 79,
-   "rank": 11
+   "rank": 12
   },
   {
    "slug": "greendale-secondary-school",
@@ -1312,13 +1489,24 @@
    "via": "NE17 PUNGGOL",
    "accessWalkM": 1363,
    "cca": [
-    "Canoeing (Girls and Boys)",
-    "Chinese Orchestra (Girls and Boys)",
+    "Angklung/kulintang Ensemble",
+    "Art and Crafts",
+    "Canoeing",
+    "Chinese Orchestra",
+    "Choir (Girls)",
+    "Digital Media",
+    "English Drama",
+    "Fencing",
+    "Floorball",
     "Football (Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Softball (Girls and Boys)"
+    "Media Resource Library",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "NPCC",
+    "Outdoor Adventure",
+    "Red Cross Youth",
+    "Robotics",
+    "Softball"
    ],
    "ccaHits": [
     "机器人",
@@ -1350,7 +1538,7 @@
     "feature": 86
    },
    "total": 77,
-   "rank": 12
+   "rank": 13
   },
   {
    "slug": "beatty-secondary-school",
@@ -1446,7 +1634,148 @@
     "feature": 86
    },
    "total": 76,
-   "rank": 13
+   "rank": 14
+  },
+  {
+   "slug": "outram-secondary-school",
+   "name": "Outram Secondary School",
+   "area": "Seng Kang",
+   "address": "48 Anchorvale Crescent, S549936",
+   "postal": "549936",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 9,
+    "max": 17,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615035901",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615035901/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=outram-secondary-school"
+    },
+    "2024": {
+     "status": "anomaly",
+     "archiveTs": "20250424113933",
+     "labelYear": 2024,
+     "basis": "PG",
+     "raw": {
+      "min": 0,
+      "max": 0,
+      "star": false
+     },
+     "note": "MOE 存档页原文：There are no cut-off points available for Outram Secondary School as there were no Secondary 1 (S1) students posted to the school in 2024. 即该年无 S1 学生派位，不存在 COP；0–0 是页面占位显示，不是 0 分，也不是抓取坏值。"
+    }
+   },
+   "margin": 2,
+   "minutes": 15,
+   "commuteBasis": "fastest",
+   "commuteMode": "walk",
+   "mrtMinutes": 24,
+   "walkMinutes": 15,
+   "walkUpperMinutes": 25,
+   "walkMeters": 1166,
+   "walkDisputed": true,
+   "walkRange": [
+    15,
+    25
+   ],
+   "rideMinutes": 13,
+   "walkMinutesToStation": 10,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 823,
+   "cca": [
+    "Badminton",
+    "Basketball",
+    "Concert Band",
+    "Frisbee",
+    "Modern Dance",
+    "NCC (Land)",
+    "NCDCC",
+    "NPCC",
+    "Rockwall Climbing",
+    "Student Leadership (Council)",
+    "Student Leadership (House)",
+    "Student Leadership (Peer Support)",
+    "Swimming",
+    "Water Polo (Boys)"
+   ],
+   "ccaHits": [
+    "AI",
+    "戏剧",
+    "游泳"
+   ],
+   "alpCats": [
+    "Business & Entrepreneurship"
+   ],
+   "alpItems": [
+    "Business and Enterprise"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Sports For Life@Outram"
+   ],
+   "dsaAreas": [
+    "Basketball (Girls and Boys)",
+    "Communication (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Entrepreneurship (Girls and Boys)",
+    "Environmental Science (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Swimming (Girls and Boys)",
+    "Water Polo (Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 58,
+    "commute": 100,
+    "academic": 52,
+    "cca": 99,
+    "feature": 76
+   },
+   "total": 76,
+   "rank": 15
   },
   {
    "slug": "whitley-secondary-school",
@@ -1529,7 +1858,7 @@
     "feature": 76
    },
    "total": 76,
-   "rank": 14
+   "rank": 16
   },
   {
    "slug": "yusof-ishak-secondary-school",
@@ -1635,15 +1964,25 @@
    "via": "NE17 PUNGGOL",
    "accessWalkM": 697,
    "cca": [
-    "Badminton (Girls and Boys)",
+    "Art and Crafts",
+    "Badminton",
     "Basketball (Boys)",
-    "Chinese Orchestra (Girls and Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Infocomm Technology (Media Production) (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Wushu (Girls and Boys)"
+    "Boys' Brigade",
+    "Chinese Orchestra",
+    "Choir",
+    "Concert Band",
+    "English Language, Drama and Debating",
+    "Environmental Science",
+    "Fencing",
+    "Girls' Brigade",
+    "Infocomm Technology (Media Production)",
+    "Modern Dance",
+    "NCC (Land)",
+    "NPCC",
+    "Robotics",
+    "Softball (Girls)",
+    "Table Tennis",
+    "Wushu"
    ],
    "ccaHits": [
     "机器人",
@@ -1683,279 +2022,6 @@
     "feature": 86
    },
    "total": 76,
-   "rank": 15
-  },
-  {
-   "slug": "outram-secondary-school",
-   "name": "Outram Secondary School",
-   "area": "Seng Kang",
-   "address": "48 Anchorvale Crescent, S549936",
-   "postal": "549936",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 9,
-    "max": 17,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "copFlags": {
-    "year": 2025,
-    "PG1": false,
-    "PG2": false,
-    "PG3": false,
-    "any": false
-   },
-   "copHistory": {
-    "2023": {
-     "status": "ok",
-     "archiveTs": "20240615035901",
-     "labelYear": 2023,
-     "basis": "PG",
-     "pg3": {
-      "min": 9,
-      "max": 22,
-      "vacanciesRemain": false
-     },
-     "allGroups": {
-      "PG3": {
-       "min": 9,
-       "max": 22,
-       "star": false
-      },
-      "PG2": {
-       "min": 23,
-       "max": 25,
-       "star": false
-      },
-      "PG1": {
-       "min": 26,
-       "max": 30,
-       "star": true
-      }
-     },
-     "archiveUrl": "https://web.archive.org/web/20240615035901/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=outram-secondary-school"
-    },
-    "2024": {
-     "status": "anomaly",
-     "archiveTs": "20250424113933",
-     "labelYear": 2024,
-     "basis": "PG",
-     "raw": {
-      "min": 0,
-      "max": 0,
-      "star": false
-     }
-    }
-   },
-   "margin": 2,
-   "minutes": 15,
-   "commuteBasis": "fastest",
-   "commuteMode": "walk",
-   "mrtMinutes": 24,
-   "walkMinutes": 15,
-   "walkUpperMinutes": 25,
-   "walkMeters": 1166,
-   "walkDisputed": true,
-   "walkRange": [
-    15,
-    25
-   ],
-   "rideMinutes": 13,
-   "walkMinutesToStation": 10,
-   "via": "NE16 SENGKANG",
-   "accessWalkM": 823,
-   "cca": [
-    "Badminton (Girls and Boys)",
-    "Basketball (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Water Polo (Boys)"
-   ],
-   "ccaHits": [
-    "游泳"
-   ],
-   "alpCats": [
-    "Business & Entrepreneurship"
-   ],
-   "alpItems": [
-    "Business and Enterprise"
-   ],
-   "llpCats": [
-    "Sports & Outdoor Education"
-   ],
-   "llpItems": [
-    "Sports For Life@Outram"
-   ],
-   "dsaAreas": [
-    "Basketball (Girls and Boys)",
-    "Communication (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Entrepreneurship (Girls and Boys)",
-    "Environmental Science (Girls and Boys)",
-    "Leadership (Girls and Boys)",
-    "Modern Dance (Girls and Boys)",
-    "Swimming (Girls and Boys)",
-    "Water Polo (Boys)"
-   ],
-   "moeNearby": true,
-   "scores": {
-    "safety": 58,
-    "commute": 100,
-    "academic": 52,
-    "cca": 88,
-    "feature": 76
-   },
-   "total": 75,
-   "rank": 16
-  },
-  {
-   "slug": "punggol-secondary-school",
-   "name": "Punggol Secondary School",
-   "area": "Punggol",
-   "address": "51 Edgefield Plains, S828870",
-   "postal": "828870",
-   "nature": "Co-Ed School",
-   "type": "Government School",
-   "ip": false,
-   "sap": false,
-   "autonomous": false,
-   "independent": false,
-   "cop": {
-    "min": 13,
-    "max": 19,
-    "markMax": null,
-    "kind": "PG",
-    "year": 2025
-   },
-   "copFlags": {
-    "year": 2025,
-    "PG1": false,
-    "PG2": false,
-    "PG3": false,
-    "any": false
-   },
-   "copHistory": {
-    "2023": {
-     "status": "ok",
-     "archiveTs": "20240610185006",
-     "labelYear": 2023,
-     "basis": "PG",
-     "pg3": {
-      "min": 14,
-      "max": 20,
-      "vacanciesRemain": false
-     },
-     "allGroups": {
-      "PG3": {
-       "min": 14,
-       "max": 20,
-       "star": false
-      },
-      "PG2": {
-       "min": 21,
-       "max": 23,
-       "star": false
-      },
-      "PG1": {
-       "min": 25,
-       "max": 27,
-       "star": false
-      }
-     },
-     "archiveUrl": "https://web.archive.org/web/20240610185006/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school"
-    },
-    "2024": {
-     "status": "ok",
-     "archiveTs": "20250916021134",
-     "labelYear": 2024,
-     "basis": "PG",
-     "pg3": {
-      "min": 13,
-      "max": 19,
-      "vacanciesRemain": false
-     },
-     "allGroups": {
-      "PG3": {
-       "min": 13,
-       "max": 19,
-       "star": false
-      },
-      "PG2": {
-       "min": 21,
-       "max": 23,
-       "star": false
-      },
-      "PG1": {
-       "min": 25,
-       "max": 27,
-       "star": false
-      }
-     },
-     "archiveUrl": "https://web.archive.org/web/20250916021134/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school"
-    }
-   },
-   "margin": 4,
-   "minutes": 22,
-   "commuteBasis": "fastest",
-   "commuteMode": "mrt",
-   "mrtMinutes": 22,
-   "walkMinutes": 24,
-   "walkUpperMinutes": 24,
-   "walkMeters": 1936,
-   "walkDisputed": false,
-   "walkRange": null,
-   "rideMinutes": 11,
-   "walkMinutesToStation": 11,
-   "via": "NE17 PUNGGOL",
-   "accessWalkM": 841,
-   "cca": [
-    "Basketball (Boys)",
-    "Choir (Girls and Boys)",
-    "Concert Band (Girls and Boys)",
-    "Football (Boys)",
-    "Modern Dance (Girls and Boys)",
-    "National Cadet Corps (NCC) (Land) (Boys)",
-    "National Police Cadet Corps (NPCC) (Girls and Boys)",
-    "Netball (Girls)",
-    "Scouts (Boys)",
-    "Shooting (Girls and Boys)",
-    "Table Tennis (Boys)",
-    "Volleyball (Girls and Boys)"
-   ],
-   "ccaHits": [],
-   "alpCats": [
-    "STEM - Sustainability"
-   ],
-   "alpItems": [
-    "Environmental Sustainability"
-   ],
-   "llpCats": [
-    "Community Youth Leadership"
-   ],
-   "llpItems": [
-    "Serving with values, developing a community of confident leaders and learners."
-   ],
-   "dsaAreas": [
-    "Choir (Girls and Boys)",
-    "Environmental Science (Girls and Boys)",
-    "Volleyball (Girls and Boys)"
-   ],
-   "moeNearby": true,
-   "scores": {
-    "safety": 74,
-    "commute": 93,
-    "academic": 71,
-    "cca": 45,
-    "feature": 83
-   },
-   "total": 75,
    "rank": 17
   },
   {

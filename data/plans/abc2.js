@@ -23,17 +23,17 @@ const PLANS = {
     picks: [
       {
         name: 'Greendale Secondary School', slot: 1, tier: '冲刺',
-        why: '全池<b>唯一同时有 Robotics 与戏剧（Theatricks!）的学校</b>，CCA 19 项也是全池最多——孩子的第 1 兴趣（机器人）和第 3 兴趣（戏剧）在这里都能落到社团，而不是只停留在课程表里。ALP 是 Design, Technology and Engineering（工程设计），与 STEM 方向一致。27 分钟步行（有争议区间 27–28，差异很小）。',
+        why: 'CCA <b>21 项仍是全池最多</b>；2026-11-23 核实后 <b>Robotics 与戏剧（Theatricks! / English Drama）在 MOE 当前登记与官网双侧均确认</b>——孩子的第 1 与第 3 兴趣都能落到实体社团。ALP 是 Design, Technology and Engineering（工程设计），与 STEM 方向一致。27 分钟步行（有争议区间 27–28，差异很小）。',
         risk: '余量只有 <b>1 分</b>（PG3 11–16，孩子 15）。这是真正的「踩线」——COP 每年动 1–2 分很常见，一旦区间右端从 16 <b>收紧到 15 或更低</b>就落空（去年最后一名是 16 分，孩子 15 分只领先 1 分；反之上限升到 17 是门槛放宽，更安全）。但它放第 1 志愿，落空不损失任何后续位置，所以风险可控。',
       },
       {
         name: 'Compassvale Secondary School', slot: 2, tier: '匹配',
         why: '<b>通勤最优的一所</b>：步行 14 分钟、1,114 米，四年下来每天省下的时间比任何排名都实在。ALP 是 ACES（Aeronautics, Coding, Engineering and Sustainability）——<b>全池唯一把 Coding 写进项目名称的学校</b>，且是低年级课时内必修，不是选拔班。',
-        risk: '余量 3 分。真正的不确定在 CCA：<b>官网 CCA 页面是空白的</b>（抓过完整 HTML 确认），MOE 只登记 8 项，且没有科技类社团——所以机器人兴趣在这里只能靠 ACES 课程承接，没有社团可进。另外步行 14 分钟存在争议（另一家引擎算 25 分钟），需实地走一次。',
+        risk: '余量 3 分。真正的不确定在<b>步行时间</b>：14 分钟存在争议（另一家引擎算 25 分钟），需实地走一次。CCA 已于 2026-11-23 核实为 <b>18 项，含 Robotics 与 English Drama</b>（官网 DSA 页也列 Robotics Club）；旧版「8 项、无科技社团」已作废，但官网确实没有完整清单页，社团活跃度仍需现场确认。',
       },
       {
         name: 'Seng Kang Secondary School', slot: 3, tier: '匹配',
-        why: '22 分钟地铁、余量 4 分，是「通勤 + 安全边际」平衡得最好的一所。<b>有 English Drama</b>（戏剧兴趣有社团落地），CCA 17 项，ALP 是 Food for the Future（食品科技），LLP 是体育与户外教育——孩子喜欢 Sports 的话 LLP 这条线能接上。',
+        why: '22 分钟地铁、余量 4 分，是「通勤 + 安全边际」平衡得最好的一所。<b>有 English Drama</b>（戏剧兴趣有社团落地），CCA 按 <b>2027 官网口径 15 项</b>（MOE 当前 14 项，旧版 17 项已作废），ALP 是 Food for the Future（食品科技），LLP 是体育与户外教育——孩子喜欢 Sports 的话 LLP 这条线能接上。',
         risk: 'ALP 偏食品科技而非编程，科技类社团只有 Art Club（偏美术）。如果孩子的第 1 兴趣是机器人，这里给不了。',
       },
       {
@@ -81,18 +81,18 @@ const PLANS = {
 
 const DETAIL = {
   'Greendale Secondary School': {
-    feature: 'CCA 19 项，是主池里最多的；且 MOE 只登记 7 项（覆盖率 37%）——<b>漏掉的正是 Robotics 与 Theatricks</b>，这两项恰好是孩子最对口的。',
+    feature: 'CCA <b>21 项，仍是主池最多</b>；2026-11-23 三方核实后 MOE 当前登记 18 项（覆盖率 86%），<b>Robotics 与 Theatricks!（英语戏剧）已在 MOE 与官网双侧确认</b>——旧版「MOE 只登记 7 项、漏掉这两项」的说法已作废。',
     profile: '盛港一带的社区中学，规模中等。ALP 走「设计、技术与工程」，LLP 是户外与探险教育（ODAC 是其 CCA 之一），整体偏动手与实践。',
     verdict: '<b>适合：</b>孩子的第 1 兴趣（机器人）与第 3 兴趣（戏剧）在这里都有实体社团，且是官网核实过的；ALP 方向与 STEM 一致。<br><b>不适合：</b>余量只有 1 分，属于踩线；27 分钟步行对每天两趟来说不算轻松。',
   },
   'Compassvale Secondary School': {
     feature: 'ACES 项目把物理、D&amp;T、数学串成实体项目；低年级公开样例是玩具车、收纳架、太阳能充电器——<b>「航空」更像切入口，不是深度内容</b>，飞行相关的深度部分多半在高年级或 CCA。',
     profile: '2000 年随盛港新镇建校，约 1,400 人。校风偏严（手机违规要家长到校领回，严重违纪有鞭刑条款）。2024 年 5 科及格 89.7%、Poly 资格率 96.3%，出口以 Poly 为主。',
-    verdict: '<b>适合：</b>通勤全池最短（14 分钟步行），Coding 是唯一写进 ALP 名称的，且课时内必修、不是选拔班。<br><b>不适合：</b>官网 CCA 页面空白，MOE 只登记 8 项且<b>没有任何科技类社团</b>——机器人兴趣只能靠课程，进不了社团；英文 Distinction 仅 19%，若以 JC 为目标需要自己补。',
+    verdict: '<b>适合：</b>通勤全池最短（14 分钟步行），Coding 是唯一写进 ALP 名称的，且课时内必修、不是选拔班；<b>CCA 核实后为 18 项，Robotics 与 English Drama 均有 MOE 当前登记</b>。<br><b>不适合：</b>官网没有完整 CCA 清单页，社团活跃度需现场确认；步行 14 vs 25 分钟有分歧；英文 Distinction 仅 19%，若以 JC 为目标需要自己补。<b>旧版「无科技/戏剧」结论已作废</b>。',
   },
   'Seng Kang Secondary School': {
     feature: 'LLP 是 <b>Sports &amp; Outdoor Education（TREK for Life）</b>——孩子喜欢 Sports 的话这条线是全校性的，不只社团层面。',
-    profile: '盛港的邻里中学，CCA 17 项。ALP 偏食品科技（Food for the Future），与实际产业结合紧密。',
+    profile: '盛港的邻里中学。CCA 按 2027 官网口径 15 项（MOE 当前 14 项；官网 2027 起 Red Cross / NPCC 停办、引入 NCDCC）。ALP 偏食品科技（Food for the Future），与实际产业结合紧密。',
     verdict: '<b>适合：</b>22 分钟是「通勤 + 余量 4 分」平衡最好的一所；有 English Drama；LLP 覆盖体育方向。<br><b>不适合：</b>没有机器人社团，科技类只有偏美术的 Art Club；ALP 与编程无关。',
   },
   'North Vista Secondary School': {
@@ -116,9 +116,9 @@ const DETAIL = {
     verdict: `<b>适合：</b>兴趣匹配度全池最高，且步行只要 8 分钟（争议区间 8–21）。<br><b>不适合：</b><b>余量 0 分</b>——踩线中的踩线，去年最后一名就是 {{score}} 分。今年同分还要过 tie-breaker，实质上是「抽签级」风险。`,
   },
   'Punggol Secondary School': {
-    feature: 'CCA 12 项，其中 Shooting（射击）在全岛中学里不常见；但俱乐部一栏官网未列具体社团。',
+    feature: 'CCA <b>20 项</b>（官网 21 项，差额只是 Volleyball 按男女分列）；俱乐部栏已补齐 Art / AVA / ELDDS / Environmental / ILDDS / Interact。Shooting（射击）在全岛中学里不常见。',
     profile: '榜鹅最新的一批邻里中学之一，22 分钟地铁。ALP 是 Environmental Sustainability。',
-    verdict: '<b>适合：</b>通勤 22 分钟、余量 4 分，位置舒服；有射击这类少见项目。<br><b>不适合：</b>12 项社团里<b>没有一项对上孩子的五个兴趣</b>（无机器人、无戏剧、无游泳、无烹饪）；ALP 偏环境可持续，与 Computing 无关。',
+    verdict: '<b>适合：</b>通勤 22 分钟、余量 4 分，位置舒服；有射击这类少见项目；<b>核实后有英语 / 印度语 Drama &amp; Debating，戏剧兴趣已落地</b>。<br><b>不适合：</b>机器人、游泳、烹饪仍无 CCA 证据；ALP 偏环境可持续，与 Computing 无关。<b>旧版「12 项、零命中」已作废</b>。',
   },
 };
 

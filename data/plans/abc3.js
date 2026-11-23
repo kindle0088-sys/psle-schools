@@ -60,7 +60,7 @@ const PLANS = {
         name: 'Greendale Secondary School',
         slot: 1,
         tier: '冲刺',
-        why: '全池<b>唯一同时有 Robotics 与戏剧（Theatricks!）的学校</b>，CCA 19 项也是全池最多——孩子的第 1 兴趣（机器人）和第 3 兴趣（戏剧）在这里都能落到实体社团。ALP 是 Design, Technology and Engineering，与 STEM 方向一致。步行 27 分钟，2,143 米。',
+        why: 'CCA <b>21 项仍是全池最多</b>，<b>Robotics 与戏剧（Theatricks! / English Drama）在 MOE 当前登记与官网双侧均确认</b>——孩子的第 1 兴趣（机器人）和第 3 兴趣（戏剧）都能落到实体社团。ALP 是 Design, Technology and Engineering，与 STEM 方向一致。步行 27 分钟，2,143 米。',
         risk: '余量只有 <b>1 分</b>（PG3 11–16，孩子 15）。COP 每年动 1–2 分很常见，一旦区间右端从 16 <b>收紧到 15 或更低</b>就落空（去年最后一名是 16 分，孩子 15 分只领先 1 分；反之上限升到 17 是门槛放宽，更安全）。但它放第 1 志愿，落空不损失任何后续位置。',
       },
       {
@@ -74,7 +74,7 @@ const PLANS = {
         name: 'Seng Kang Secondary School',
         slot: 3,
         tier: '匹配',
-        why: '<b>余量 +4 分是并列最高，同时有 English Drama</b>（戏剧兴趣有社团落地），CCA 17 项。LLP 是 Sports &amp; Outdoor Education（TREK for Life），孩子喜欢 Sports 的话这条线是全校性的。步行 33 分钟。',
+        why: '<b>余量 +4 分是并列最高，同时有 English Drama</b>（戏剧兴趣有社团落地）。CCA 按 <b>2027 官网口径 15 项</b>（MOE 当前 14 项）——官网明确 2027 起 Red Cross 与 NPCC 停办、引入 NCDCC。LLP 是 Sports &amp; Outdoor Education（TREK for Life），孩子喜欢 Sports 的话这条线是全校性的。步行 33 分钟。',
         risk: '没有机器人社团，科技类只有偏美术的 Art Club；ALP 是 Food for the Future（食品科技），与 Computing 无关。33 分钟步行在当前池子里已属偏长。',
       },
       {
@@ -89,14 +89,14 @@ const PLANS = {
         slot: 5,
         tier: '匹配',
         why: '<b>全池唯一有游泳池与 Water Polo 的学校</b>（1977 年建成），对应孩子的第 4 兴趣游泳。2026 年刚搬进盛港 Anchorvale 新校区，所以走路 15–25 分钟就到，设施是新的。余量 +2 分。',
-        risk: 'CCA 只有 6 项，是全池最少；ALP 是 Business &amp; Enterprise，与 STEM 方向不符。而且 <b>2027 年底前是双校区运营</b>（York Hill + Anchorvale），师资与活动会被摊薄，孩子 2027 年入学正好卡在这个转折点上。',
+        risk: 'CCA 核实后是 <b>MOE 当前 14 项、三方并集 17 项</b>——旧版「只有 6 项」已作废；但 <b>English Drama 只见于开放日 microsite，官网主站与 MOE 均未列</b>，2027 是否开必须现场问，机器人与烹饪仍无证据。ALP 是 Business &amp; Enterprise，与 STEM 方向不符。而且 <b>2027 年底前是双校区运营</b>（York Hill + Anchorvale），师资与活动会被摊薄，孩子 2027 年入学正好卡在这个转折点上。',
       },
       {
         name: 'Compassvale Secondary School',
         slot: 6,
         tier: '匹配',
         why: '<b>步行 14 分钟、1,114 米，是全池唯一「走路一刻钟」的学校</b>。ALP 是 ACES（Aeronautics, Coding, Engineering and Sustainability）——<b>全池唯一把 Coding 写进项目名称的学校</b>，且低年级课时内必修，不是选拔班。放第 6 位，是给「前面全落空」买的最后一层保险：落到这里至少通勤最轻。',
-        risk: '两位引擎的步行结果有分歧（14 vs 25 分钟），需实地走一次。CCA 只有 8 项且<b>没有任何科技类或戏剧社团</b>——机器人兴趣只能靠课程承接，进不了社团。',
+        risk: '两位引擎的步行结果有分歧（14 vs 25 分钟），需实地走一次——这是它仍排第 6 而非提前的主因。<b>CCA 核实后已从 8 项更正为 18 项，Robotics 与 English Drama 均由 MOE 当前登记确认，官网 DSA 页也列 Robotics Club</b>；旧版「无科技/戏剧」结论作废。若实地确认步行 14 分钟属实、且 Robotics 的 Sec 1 名额可进，应把它上调到第 3–4 位。',
       },
     ],
     /* 第四步单独特判的对照校（7 所里唯一没进方案 A 的） */
@@ -148,11 +148,11 @@ const PLANS = {
     return `<h3>如果这是我的孩子，我会这样填</h3>
 <p>方案 A 的顺序是三条判断叠出来的，不是按分数排的：</p>
 <ul>
-<li><b>第 1–2 位给两所「真有机器人社团」的学校。</b>全池 7 所里，Robotics 只存在于 Greendale 与 Yusof Ishak。孩子的第 1 兴趣是这个，如果不用前两位去争，四年里就真的没有机器人社团可进——这是整份报告里唯一「过了这村没这店」的东西。代价是这两所的余量分别是 +1 和 0，<b>前两志愿的命中率是全部方案里最低的</b>。</li>
+<li><b>第 1–2 位给机器人社团证据最扎实的两所（Greendale、Yusof Ishak）。</b>2026-11-23 三方核实后，全池有 Robotics 的从 2 所增至 <b>3 所</b>（加上 Compassvale），所以「没这村就没这店」的说法已不成立；但 Greendale 与 Yusof Ishak 的机器人社有官网 + MOE 双重证据，Yusof 还同时有 Infocomm，优先级仍最高。代价是这两所余量分别 +1 和 0，<b>前两志愿命中率仍是全部方案里最低的</b>。</li>
 <li><b>第 3–4 位用余量最大的两所（Seng Kang +4 / North Vista +3）。</b>它们没有机器人，但都有 English Drama / Drama Club——第 3 兴趣有落地。这两所是「前两个落空后」的实际承接位，所以必须选余量大的，不能选兴趣更搭但更险的。</li>
-<li><b>第 5–6 位放「各有唯一性」的两所。</b>Outram 是全池唯一有游泳池的（对应第 4 兴趣游泳），Compassvale 是步行最短的（14 分钟，争议项按 25 分钟过闸）。落到这里说明前四位都落空，此时「还有点特色」比「综合分高 3 分」更值钱。</li>
+<li><b>第 5–6 位放「各有唯一性」的两所。</b>Outram 是全池唯一有游泳池的（对应第 4 兴趣游泳）。Compassvale 核实后同时有 Robotics 与 English Drama，综合分已升到全池第一，<b>它排第 6 的唯一原因是步行 14 vs 25 分钟两引擎分歧未解决</b>——不是兴趣不匹配。落到这里说明前四位都落空，此时「还有点特色」比「综合分高 3 分」更值钱。</li>
 </ul>
-<p><b>为什么不选方案 B：</b>B 把 North Vista 提到第 3、把 Compassvale 整所拿掉、用 Punggol 兜底。它换来的兴趣匹配提升很小（North Vista 与 Seng Kang 都只有戏剧），却把「余量 +4 的 Seng Kang」推到了第 4，<b>等于用安全边际换了一个并不存在的兴趣升级</b>；而且 Punggol 五项兴趣零命中，作为最后一位比 Compassvale 更「白填」。</p>
+<p><b>为什么不选方案 B：</b>B 把 North Vista 提到第 3、把 Compassvale 整所拿掉、用 Punggol 兜底。核实后 Punggol 已从「零命中」更正为<b>命中戏剧（英语 / 印度语 Drama &amp; Debating）</b>，但机器人、游泳、烹饪仍无；North Vista 与 Seng Kang 同样只有戏剧，<b>所以 B 换来的兴趣升级依然有限</b>，还把「余量 +4 的 Seng Kang」推到了第 4。<b>更关键的是：把有 Robotics 的 Compassvale 整所拿掉，等于放弃了核实后新确认的第 3 个机器人落点</b>——除非实地确认它步行确实要 25 分钟，否则 B 的代价被低估了。</p>
 <p><b>为什么不选方案 C：</b>C 把 Greendale 压到第 6 位。逻辑上这是「稳健」，但在这份池子里它有个隐藏后果：<b>第 6 位的余量只有 +1，比第 1–5 位都低</b>——前 5 位若因 COP 上浮而落空，第 6 位大概率一起落空。稳健方案反而把最薄的一所放在了最后。<b>要稳健，正确做法是承认「本池没有真正稳健的位置」，而不是把最险的挪到队尾。</b></p>`;
   },
 
@@ -167,7 +167,7 @@ const PLANS = {
 
 const DETAIL = {
   'Greendale Secondary School': {
-    feature: 'CCA 19 项，是主池里最多的；MOE 只登记 7 项（覆盖率 37%）——<b>漏掉的正是 Robotics 与 Theatricks!</b>，这两项恰好是孩子最对口的。',
+    feature: 'CCA <b>21 项，仍是主池最多</b>；2026-11-23 三方核实后 MOE 当前登记 18 项（覆盖率 86%），<b>Robotics 与 Theatricks!（英语戏剧）已在 MOE 与官网双侧确认</b>——旧版「MOE 只登记 7 项、漏掉这两项」的说法已作废。官网独有的 Green Club / GBC / Greendale Orchestra 仍保留（后者是西式管弦乐团，与 MOE 的 Chinese Orchestra 不是同一个）。',
     profile: '盛港一带的社区中学，规模中等。ALP 走「设计、技术与工程」，LLP 是户外与探险教育（ODAC 是其 CCA 之一），整体偏动手与实践。',
     verdict: '<b>适合：</b>孩子的第 1 兴趣（机器人）与第 3 兴趣（戏剧）在这里都有实体社团，且是官网核实过的；ALP 方向与 STEM 一致；步行 27 分钟在本池属中等。<br><b>不适合：</b>余量只有 1 分，属于踩线；COP 区间 11–16 说明它这几年在收紧，不是「稳定好捡」的学校。',
   },
@@ -177,7 +177,7 @@ const DETAIL = {
     verdict: '<b>适合：</b>兴趣匹配度全池最高，且步行只要 8 分钟；离家最近意味着四年的时间成本最低。<br><b>不适合：</b><b>余量 0 分</b>——踩线中的踩线，去年最后一名就是 {{score}} 分。今年同分还要过 tie-breaker，实质上是「抽签级」风险。放第 1 或第 2 志愿都可以，但不能指望它兜底。',
   },
   'Seng Kang Secondary School': {
-    feature: 'LLP 是 <b>Sports &amp; Outdoor Education（TREK for Life）</b>——孩子喜欢 Sports 的话这条线是全校性的，不只社团层面。CCA 17 项，含 English Drama。',
+    feature: 'LLP 是 <b>Sports &amp; Outdoor Education（TREK for Life）</b>——孩子喜欢 Sports 的话这条线是全校性的，不只社团层面。CCA 按 <b>2027 官网口径 15 项</b>（MOE 当前 14 项），含 English Drama；官网明确 2027 起 Red Cross / NPCC 停办、引入 NCDCC。',
     profile: '盛港的邻里中学。ALP 偏食品科技（Food for the Future），与实际产业结合紧密。步行 33 分钟、2,668 米。',
     verdict: '<b>适合：</b>余量 +4 是并列最高，同时有 English Drama；LLP 覆盖体育方向。<br><b>不适合：</b>没有机器人社团，科技类只有偏美术的 Art Club；ALP 与编程无关；33 分钟步行每天两趟对四年来说不轻松。',
   },
@@ -189,17 +189,17 @@ const DETAIL = {
   'Compassvale Secondary School': {
     feature: 'ACES 项目把物理、D&amp;T、数学串成实体项目；低年级公开样例是玩具车、收纳架、太阳能充电器——<b>「航空」更像切入口，不是深度内容</b>，飞行相关的深度部分多半在高年级或 CCA。',
     profile: '2000 年随盛港新镇建校，约 1,400 人。校风偏严（手机违规要家长到校领回，严重违纪有鞭刑条款）。2024 年 5 科及格 89.7%、Poly 资格率 96.3%，出口以 Poly 为主。步行 14 分钟、1,114 米。',
-    verdict: '<b>适合：</b>通勤全池最短（14 分钟步行），Coding 是唯一写进 ALP 名称的，且课时内必修、不是选拔班。<br><b>不适合：</b>官网 CCA 页面空白，MOE 只登记 8 项且<b>没有任何科技类或戏剧社团</b>——机器人兴趣只能靠课程，进不了社团；英文 Distinction 仅 19%，若以 JC 为目标需要自己补。',
+    verdict: '<b>适合：</b>通勤在两引擎口径下最短（14 分钟，争议按 25 分钟过闸），Coding 是唯一写进 ALP 名称的，且课时内必修、不是选拔班；<b>CCA 核实后为 18 项，Robotics 与 English Drama 均有 MOE 当前登记，官网 DSA 页也列 Robotics Club</b>。<br><b>不适合：</b>官网确实没有完整 CCA 清单页，18 项主要靠 MOE + 第三方交叉；步行 14 vs 25 分钟分歧未实地验证；英文 Distinction 仅 19%，若以 JC 为目标需要自己补。<b>旧版「无科技/戏剧」结论已作废</b>。',
   },
   'Outram Secondary School': {
     feature: '1977 年建成游泳池，<b>全池唯一有 Swimming / Water Polo 的学校</b>，也是唯一开游泳 DSA 的。DSA 项目开 9 项，比社团数量还多——说明它在主动扩张特长生源。',
     profile: '1906 年创办的 120 年老校，<b>2026 年刚迁入盛港 Anchorvale 新校区</b>，York Hill 旧校区 2027 年底才关闭，目前双校区运营。ALP 是 Business &amp; Enterprise，主打商科传统（1969–1973 年是全岛唯一把商业教育办到 H.S.C. 级别的学校）。不公布 O-Level 成绩。',
-    verdict: '<b>适合：</b>孩子的第 4 兴趣游泳在这里是全池唯一的落点；步行 15–25 分钟就到盛港校区；新校舍设施最新。<br><b>不适合：</b><b>CCA 只有 6 项，全池最少</b>——没有机器人、没有戏剧、没有烹饪；ALP 偏商业与 STEM 方向不符；<b>双校区过渡期还有两年</b>，师资与活动会被摊薄，孩子 2027 年入学正好卡在转折点上。',
+    verdict: '<b>适合：</b>孩子的第 4 兴趣游泳在这里是全池唯一的落点；步行 15–25 分钟就到盛港校区；新校舍设施最新。<br><b>不适合：</b>CCA 核实后为 <b>MOE 14 项 / 并集 17 项</b>（旧版「只有 6 项」作废），机器人与烹饪仍无证据；<b>English Drama 只见于开放日 microsite，官网主站与 MOE 均未列</b>，2027 是否开设必须现场问；ALP 偏商业与 STEM 方向不符；<b>双校区过渡期还有两年</b>，师资与活动会被摊薄，孩子 2027 年入学正好卡在转折点上。',
   },
   'Punggol Secondary School': {
-    feature: 'CCA 12 项，其中 Shooting（射击）在全岛中学里不常见；但俱乐部一栏官网未列具体社团。',
+    feature: 'CCA <b>20 项</b>（官网 21 项，差额只是 Volleyball 按男女分列）。俱乐部栏已补齐 Art / AVA / ELDDS / Environmental / ILDDS / Interact；Shooting（射击）在全岛中学里不常见。',
     profile: '榜鹅最新的一批邻里中学之一。ALP 是 Environmental Sustainability，LLP 是社区青年领导力。步行 24 分钟、1,936 米。',
-    verdict: '<b>适合：</b>余量 +4 并列最高，步行 24 分钟在本池属中上，是「保录取」角度最舒服的一所。<br><b>不适合：</b>12 项社团里<b>没有一项对上孩子的五个兴趣</b>（无机器人、无戏剧、无游泳、无烹饪）；ALP 偏环境可持续，与 Computing 无关。它是本池唯一「安全和兴趣完全不重叠」的学校——这正是它没进方案 A 的原因。',
+    verdict: '<b>适合：</b>余量 +4 并列最高，步行 24 分钟在本池属中上，是「保录取」角度最舒服的一所；<b>核实后有 English Language / Indian Language Drama &amp; Debating，戏剧兴趣已落地</b>。<br><b>不适合：</b>机器人、游泳、烹饪三项仍无 CCA 证据（Mobile Robotics 是科目不是社团）；ALP 偏环境可持续，与 Computing 无关。<b>旧版「五项兴趣零命中」已作废</b>——它没进方案 A 的原因是机器人缺位，不是完全不匹配。',
   },
 };
 

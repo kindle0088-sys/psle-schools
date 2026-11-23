@@ -197,7 +197,30 @@ const robSchools = R.pool.filter(x => {
   const names = s && s.ccaFull ? Object.values(s.ccaFull.categories).flat().map(i => i.name) : (x.cca || []);
   return names.some(n => /robot/i.test(n));
 });
-t('「真有 Robotics 的只有 2 所」成立', robSchools.length === 2, robSchools.map(x => x.name.replace(/ Secondary School/, '')).join('、') || '0 所');
+/* 数量必须跟数据走：2026-11-23 三方核实后 Compassvale 也确认有 Robotics，
+   主池从 2 所变 3 所。旧版断言写死 === 2，数据一更新就变成假失败。 */
+const robClaims = [...text.matchAll(/Robotics[^。；]{0,50}?(?:只有|增至|共有|共|有)\s*(\d+)\s*所/g)].map(m => +m[1]);
+t(`报告声明的 Robotics 校数与数据源一致（${robSchools.length} 所）`,
+  robClaims.every(n => n === robSchools.length),
+  '报告声明 ' + (robClaims.join('/') || '无') + ' / 数据源 ' + robSchools.length + '（' + robSchools.map(x => x.name.replace(/ Secondary School/, '')).join('、') + '）');
+
+/* CCA 三方核实回归防线：旧版（2026-11-08）的四条错误结论不得再以「陈述」形式出现。
+   文案里引用旧结论并明确作废是允许的，所以只匹配旧句的完整措辞。 */
+if (studentId === 'abc3') {
+  const stale = [
+    ['Compassvale 无科技/戏剧社团', /MOE 只登记 8 项且.{0,10}没有任何科技类或戏剧社团/],
+    ['Compassvale 只有 8 项 CCA', /共 8 项（MOE 登记 8 项）/],
+    ['Punggol 五项兴趣零命中', /12 项社团里没有一项对上孩子的五个兴趣/],
+    ['Punggol 只有 12 项 CCA', /共 12 项（MOE 登记 12 项）/],
+    ['Outram 只有 6 项且全池最少', /CCA 只有 6 项，是全池最少/],
+    ['Greendale MOE 漏登机器人与戏剧', /MOE 只登记 7 项（覆盖率 37%）/],
+    ['Seng Kang 17 项旧口径', /共 17 项（MOE 登记 10 项）/],
+    ['Yusof Ishak 16 项旧口径', /共 16 项（MOE 登记 9 项）/],
+  ];
+  for (const [label, re] of stale) t(`已清除旧结论：${label}`, !re.test(text));
+  t('含 2026-11-23 三方核实说明', /2026-11-23/.test(text) && /SchoolFinder/.test(text));
+  t('说明综合分排名与志愿顺序不一致的原因', /综合分排名与第六步的志愿顺序不完全一致/.test(text) && /14 vs 25/.test(text));
+}
 
 /* ── 事实一致性回归（2026-11-17 review 新增）──────────────
    这轮 review 抓到的错误：模板残留 {{score}}、COP 方向说反、段位判断说反、

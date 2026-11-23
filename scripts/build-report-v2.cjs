@@ -51,7 +51,7 @@ const PICK = [
           : `地铁 ${x.minutes} 分钟`;
       return `全部 ${S2.withinCommuteReachable} 所可及学校里，ALP 与 Computing 最对口的一所——「Aeronautics, Coding, Engineering and Sustainability (ACES)」，Coding 直接写在项目名称里。${t}、最近站步行 693m，也是最短档。`;
     })(),
-    caveat: '余量只有 1 分（PG3 14–18，你 17 分），是本次推荐里最紧的一所。若今年报的人多导致下限上移，有落空风险——但它在第 1 志愿，落空不影响后续。MOE 登记的 8 项里没有科技类社团，而且它官网的 CCA 页面是空的（抓过完整 HTML 确认不是渲染问题），真实社团数无法核实——所以编程兴趣主要还是靠 ALP 课程承接。',
+    caveat: '余量只有 1 分（PG3 14–18，你 17 分），是本次推荐里最紧的一所。若今年报的人多导致下限上移，有落空风险——但它在第 1 志愿，落空不影响后续。2026-11-23 三方核实后 CCA 已从 8 项更正为 <b>18 项</b>，MOE 当前登记含 Robotics 与 English Drama，官网 DSA 页也列 Robotics Club——旧版「没有科技类社团」的判断已作废；但官网仍无完整清单页，社团活跃度需现场确认。',
   },
   {
     name: 'North Vista Secondary School', slot: 2, tier: '冲刺',
@@ -60,13 +60,13 @@ const PICK = [
   },
   {
     name: 'Punggol Secondary School', slot: 3, tier: '匹配',
-    why: '余量 2 分，22 分钟到家门口。CCA 多达 12 项，其中「Shooting（射击）」在全岛中学里不常见。ALP 是环境可持续方向，LLP 是社区青年领袖。',
+    why: '余量 2 分，22 分钟到家门口。CCA <b>20 项</b>（官网 21 项，差额只是 Volleyball 按男女分列），其中「Shooting（射击）」在全岛中学里不常见；2026-11-23 核实后已有英语 / 印度语 Drama &amp; Debating。ALP 是环境可持续方向，LLP 是社区青年领袖。',
     caveat: 'ALP 的「Environmental Sustainability」与孩子的 Computing 兴趣基本不相干。最近站 841m，日常要走 10 分钟。',
   },
   {
     name: 'Seng Kang Secondary School', slot: 4, tier: '匹配',
     why: '余量 2 分，22 分钟、步行 658m（是几所里步行最短的）。ALP 是「Food for the Future」，LLP 是体育与户外教育。',
-    caveat: 'ALP 偏食品科技，不是编程。官网核实 CCA 17 项（MOE 只登记 10 项），但确实没有 Infocomm；科技类只有 Art Club，且偏美术。',
+    caveat: 'ALP 偏食品科技，不是编程。CCA 按 <b>2027 官网口径 15 项</b>（MOE 当前 14 项；官网 2027 起 Red Cross / NPCC 停办、引入 NCDCC），确实没有 Infocomm；科技类只有 Art Club，且偏美术。旧版「17 项 / MOE 10 项」已作废。',
   },
   {
     name: 'Hougang Secondary School', slot: 5, tier: '匹配',
@@ -88,7 +88,7 @@ const ALT = [
   },
   {
     name: 'Outram Secondary School', tag: '唯一「压线」的学校，24 分钟',
-    note: 'PG3 只有 9–17，你的 17 分正好卡在上限，**没有任何余量**——这是真正意义上的「冲」。ALP 是商业与创业，与孩子兴趣不符，CCA 只有 6 项。放第 1 志愿可以，但要知道风险。',
+    note: 'PG3 只有 9–17，你的 17 分正好卡在上限，**没有任何余量**——这是真正意义上的「冲」。ALP 是商业与创业，与孩子兴趣不符。CCA 2026-11-23 核实为 <b>MOE 当前 14 项 / 并集 17 项</b>（旧版「只有 6 项」作废），游泳 / 水球仍确认；放第 1 志愿可以，但要知道风险。',
   },
   {
     name: 'Montfort Secondary School', tag: '⚠️ 男校 · ALP 是「Design, Code, Make」',
@@ -543,7 +543,7 @@ ${['A', 'B', 'C'].map(k => {
 <p>理由：<b>在 AL ${S.score} 这个分数段，「余量」比「名校」值钱得多。</b>你的分数在 PG3 里属于中下段（PG3 覆盖 4–20，17 已经很靠近上限），所以能选的学校全部集中在余量 0–5 分之间。这种情况下把宝贵的志愿位置浪费在 +0 的压线学校上，风险收益并不划算。</p>
 <p>方案 A 的结构是：<b>第 1–2 志愿交给「ALP 最对口」的两所</b>（Compassvale 的 ACES Coding、North Vista 的 Infocomm 社团），它们的余量都只有 1 分，本质上就是「冲」；<b>第 3–5 志愿放余量 2–3 分、通勤 22–32 分钟的学校</b>；<b>第 6 志愿 Bendemeer 余量 5 分兜底</b>。</p>
 <p><b>关于 Montfort：</b>它的 ALP 项目叫「Made In Montfort – Design, Code, Make」，是全部候选中编程匹配度最高的之一，余量 5 分（最安全）、24 分钟、步行 548m。唯一的门槛是「男校」。你的资料里性别保密，所以我把它单列在 Step 4b——如果孩子是男孩，它比 North Vista 更值得放前面；如果是女孩，直接忽略。</p>
-<p><b>我不会选的：</b>Outram。它是 19 所里唯一「压线」的（PG3 9–17，你正好 17），零余量；同时 ALP 是商业与创业、CCA 只有 6 项且无科技类社团，与孩子的兴趣方向完全不符。用零余量去换一个不匹配的学校，不值。</p>
+<p><b>我不会选的：</b>Outram。它是 19 所里唯一「压线」的（PG3 9–17，你正好 17），零余量；同时 ALP 是商业与创业、CCA 虽有 14–17 项但仍无科技类社团，与孩子的兴趣方向不符。用零余量去换一个不匹配的学校，不值。（旧版「6 项」口径已于 2026-11-23 作废。）</p>
 <p><b>我也不选 Serangoon Garden：</b>虽然它是 MOE 附近余量最大的混校（+5），但 44 分钟 + 步行 1991m，模型没算巴士接驳，实际单程很可能超过 45 分钟。每天往返一个多小时，四年下来是真实的消耗。</p>
 </div>
 

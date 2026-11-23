@@ -736,7 +736,7 @@ ${[...R.pool].sort((a, b) => a.margin - b.margin).map(x => {
 </tbody>
 </table>
 </div>
-<p class="soft" style="font-size:12.4px">CCA 列格式「总数/MOE 登记数」——斜杠后的数字是 MOE SchoolFinder 的登记数，比总数小说明学校官网列得更多（官网是更完整的口径）。</p>
+<p class="soft" style="font-size:12.4px">CCA 列格式「总数/MOE 登记数」——2026-11-23 已对主池 7 校逐校核实（学校官网 + MOE SchoolFinder 当前页 + 第三方交叉），斜杠后的数字是 MOE 当前登记数。旧版快照（2026-11-08）的社团数与结论已作废；同一社团的中英文异名按已确认对应关系合并，官网独有项保留并标注来源。</p>
 
 <h3>${LIMIT_LABEL}但够不着的完整名单（${R.outOfReach.length} 所）</h3>
 <table>
@@ -755,7 +755,7 @@ ${R.outOfReach.sort((a, b) => b.margin - a.margin).map(x => `<tr><td>${esc(short
 <tr><td>2026 S1 Posting 规则、Posting Group 映射、tie-breaker、SAP 高华条件、附属优先、时间线</td><td>MOE 官网 <code>moe.gov.sg/secondary/s1-posting</code>（2026-11 核对）</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>各校 PG3 非附属录取区间（2025 年度）</td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>学校类型 / IP / SAP / CCA 登记 / DSA / ALP / LLP / 地址</td><td>MOE SchoolFinder（2026-11 采集）</td><td class="mid"><span class="tag a">A</span></td></tr>
-<tr><td>完整 CCA 清单（含 MOE 未登记项）</td><td>13 所学校官网逐页核实，合并进 <code>data/cca-catalog.json</code></td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>完整 CCA 清单（含 MOE 未登记项）</td><td>13 所学校官网逐页核实；主池 7 校于 <b>2026-11-23 三方复核</b>后更新 <code>data/cca-catalog.json</code></td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>步行时间与距离</td><td>FOSSGIS OSRM foot（OSM 步行路网），Valhalla 交叉校验</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>本报告的<b>通勤口径</b></td><td>${WALK_ONLY
   ? `只认<b>全程步行</b>（学生配置 <code>commuteMode: "walk"</code>）：地铁时间仅作参考，不参与门槛判定与评分；步行争议项按<b>区间上端</b>过闸`
@@ -772,7 +772,7 @@ ${R.outOfReach.sort((a, b) => b.margin - a.margin).map(x => `<tr><td>${esc(short
 <div class="warnbox">
 <b>三条必须知道的数据局限：</b><br>
 ① <b>COP 是 2025 年度的</b>，2026 届的 12 月才出；区间每年动 1–3 分；<br>
-② <b>CCA 清单永远可能不全</b>：本报告引用 ${S2.poolMixed} 所主池，其中 MOE 登记数与官网实际项数不一致的学校已逐所标在第四步卡片里——「报告里没写某个社团」不等于「学校没有」，开放日必须问；<br>
+② <b>CCA 清单仍可能不全</b>：本报告引用 ${S2.poolMixed} 所主池，2026-11-23 已逐校三方核实，但 Outram 的 English Drama 等仅见于开放日 microsite，官网主站与 MOE 均未列——<b>「报告里没写某个社团」不等于「学校没有」</b>，开放日必须问；<br>
 ③ <b>步行时间有分歧</b>：两家引擎对「能否穿私人公寓通道」判定不同${(() => {
   const d = R.pool.filter(x => x.walkDisputed && x.walkRange);
   return d.length
@@ -839,6 +839,14 @@ ${TOC.map((t, i) => `  <a href="#s${i + 1}">${'①②③④⑤⑥⑦⑧'[i]} ${e
   ? `按<b>全程步行</b>计算（地铁时间仅列出、不参与判定），步行争议项按区间上端过闸`
   : '按「步行 / 地铁取最快」计算'}，争议项已标注。
 </div>
+
+${STU.id === 'abc3' ? `<div class="note" style="margin-top:14px;border-left-color:var(--warn)">
+<b>CCA 口径更新（2026-11-23）——旧版结论已作废。</b>主池 7 校的社团清单已逐校用<b>学校官网 + MOE SchoolFinder 当前页 + 第三方</b>交叉核实，旧版（2026-11-08）的数字与判断不再适用，三处关键更正：<br>
+① <b>Compassvale</b> 不是「8 项、无科技/戏剧」——现为 <b>18 项</b>，Robotics 与 English Drama 均由 MOE 当前登记确认，官网 DSA 页也有 Robotics Club；<br>
+② <b>Punggol</b> 不是「五项兴趣零命中」——现为 <b>20 项</b>，有 English / Indian Language Drama &amp; Debating；<br>
+③ <b>Outram</b> 不是「只有 6 项、无戏剧」——MOE 当前 <b>14 项</b>、三方并集 17 项，游泳/水球仍确认。<br>
+兴趣命中分与综合分已随之重算，因此<b>第五步的综合分排名与第六步的志愿顺序不完全一致</b>：综合分是模型输出，志愿顺序是结合风险与实地验证状态的人工判断，两者不可混为一谈。Compassvale 综合分已升至全池第一但仍排第 6，<b>唯一原因是步行 14 vs 25 分钟的分歧尚未实地验证</b>——若确认 14 分钟属实且 Robotics 的 Sec 1 名额可进，应上调到第 3–4 位。
+</div>` : ''}
 
 ${STEP1}
 ${STEP2}
