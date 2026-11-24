@@ -1,0 +1,974 @@
+{
+ "_note": "MOE SchoolFinder 线上详情页直接公开的 PG3 COP（Non-affiliated）。2026-11-24 采集：改版后页面同时给出 2024 与 2025 两个年度，故 2024 由官方线上补齐，不再依赖 Wayback。0–0 且页面注明当年无 S1 派位者标 anomaly。",
+ "checkedAt": "2026-11-24",
+ "columns": [
+  2024,
+  2025
+ ],
+ "schools": {
+  "bendemeer-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 8,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "compassvale-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 18
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 18
+    },
+    "source": "moe-live"
+   }
+  },
+  "hougang-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 20
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 20
+    },
+    "source": "moe-live"
+   }
+  },
+  "montfort-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "north-vista-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 10,
+     "max": 17
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 18
+    },
+    "source": "moe-live"
+   }
+  },
+  "outram-secondary-school": {
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 9,
+     "max": 17
+    },
+    "source": "moe-live"
+   }
+  },
+  "punggol-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 19
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 19
+    },
+    "source": "moe-live"
+   }
+  },
+  "seng-kang-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 19
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 19
+    },
+    "source": "moe-live"
+   }
+  },
+  "serangoon-garden-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 8,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "serangoon-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 16,
+     "max": 20
+    },
+    "source": "moe-live"
+   }
+  },
+  "edgefield-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 7,
+     "max": 13
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 5,
+     "max": 14
+    },
+    "source": "moe-live"
+   }
+  },
+  "yusof-ishak-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 6,
+     "max": 14
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 7,
+     "max": 15
+    },
+    "source": "moe-live"
+   }
+  },
+  "greendale-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 9,
+     "max": 16
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 16
+    },
+    "source": "moe-live"
+   }
+  },
+  "st-gabriels-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 10,
+     "max": 15
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 10,
+     "max": 15
+    },
+    "source": "moe-live"
+   }
+  },
+  "zhonghua-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 6,
+     "max": 12
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 8,
+     "max": 12
+    },
+    "source": "moe-live"
+   }
+  },
+  "peicai-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 21
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 20
+    },
+    "source": "moe-live"
+   }
+  },
+  "bukit-merah-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 7,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 8,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "tampines-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 18
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 19
+    },
+    "source": "moe-live"
+   }
+  },
+  "admiralty-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 20
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 16,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "naval-base-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 18
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 19
+    },
+    "source": "moe-live"
+   }
+  },
+  "queensway-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 16
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 17
+    },
+    "source": "moe-live"
+   }
+  },
+  "yio-chu-kang-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 7,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "springfield-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 10,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "yishun-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 19
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 20
+    },
+    "source": "moe-live"
+   }
+  },
+  "deyi-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 16
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 9,
+     "max": 16
+    },
+    "source": "moe-live"
+   }
+  },
+  "woodlands-ring-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 17,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "marsiling-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "bedok-south-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 18
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 18
+    },
+    "source": "moe-live"
+   }
+  },
+  "orchid-park-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 18
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 10,
+     "max": 19
+    },
+    "source": "moe-live"
+   }
+  },
+  "beatty-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 17
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 18
+    },
+    "source": "moe-live"
+   }
+  },
+  "ang-mo-kio-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 10,
+     "max": 15
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 16
+    },
+    "source": "moe-live"
+   }
+  },
+  "peirce-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 19
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 20
+    },
+    "source": "moe-live"
+   }
+  },
+  "bartley-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 7,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 16,
+     "max": 21
+    },
+    "source": "moe-live"
+   }
+  },
+  "new-town-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 21
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 20
+    },
+    "source": "moe-live"
+   }
+  },
+  "northbrooks-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "broadrick-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 7,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 5,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "yuying-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 8,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "whitley-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 6,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "woodgrove-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 19
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 19
+    },
+    "source": "moe-live"
+   }
+  },
+  "mayflower-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 17
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 13,
+     "max": 17
+    },
+    "source": "moe-live"
+   }
+  },
+  "bedok-green-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 14,
+     "max": 20
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 20
+    },
+    "source": "moe-live"
+   }
+  },
+  "sembawang-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 18,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "changkat-changi-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 6,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "bedok-view-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 16
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 16
+    },
+    "source": "moe-live"
+   }
+  },
+  "queenstown-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "gan-eng-seng-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 9,
+     "max": 14
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 9,
+     "max": 15
+    },
+    "source": "moe-live"
+   }
+  },
+  "damai-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 8,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 10,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "northland-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 8,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "manjusri-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 8,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 15,
+     "max": 21
+    },
+    "source": "moe-live"
+   }
+  },
+  "east-spring-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 8,
+     "max": 22
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 16,
+     "max": 22
+    },
+    "source": "moe-live"
+   }
+  },
+  "evergreen-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 14
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 10,
+     "max": 15
+    },
+    "source": "moe-live"
+   }
+  },
+  "bowen-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 10,
+     "max": 15
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 16
+    },
+    "source": "moe-live"
+   }
+  },
+  "christ-church-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 17
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 17
+    },
+    "source": "moe-live"
+   }
+  },
+  "ahmad-ibrahim-secondary-school": {
+   "2024": {
+    "status": "ok",
+    "pg3": {
+     "min": 12,
+     "max": 17
+    },
+    "source": "moe-live"
+   },
+   "2025": {
+    "status": "ok",
+    "pg3": {
+     "min": 11,
+     "max": 18
+    },
+    "source": "moe-live"
+   }
+  }
+ }
+}

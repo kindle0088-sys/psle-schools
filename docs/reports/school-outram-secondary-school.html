@@ -151,6 +151,20 @@ tbody tr:hover{background:var(--hover)}
 .checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
 .checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
 
+/* 开设科目 chips：中性强调色，强=warm、特色=accent、兼有=两者叠加。
+   刻意不用红/绿——红绿在本项目另有语义（涨/跌），且这里不暗示科目好坏。 */
+.subject-chips{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 4px}
+.subj-chip{display:inline-flex;align-items:center;gap:5px;font-size:12.6px;padding:4px 9px;border:1px solid var(--line);border-radius:6px;background:var(--chip);color:var(--tx2)}
+.subj-chip.strong{border-color:var(--warm-line);background:var(--warm-bg);color:var(--tx)}
+.subj-chip.rare{border-color:var(--accent-line);background:var(--accent-bg);color:var(--tx)}
+.subj-chip.both{border-color:var(--warm-line);background:linear-gradient(135deg,var(--warm-bg),var(--accent-bg));color:var(--tx)}
+.sbadge{font-size:10px;font-weight:600;letter-spacing:.2px;padding:0 5px;border-radius:3px;line-height:1.6}
+.sbadge.s{background:var(--warm);color:var(--accent-ink)}
+.sbadge.r{background:var(--accent);color:var(--accent-ink)}
+.sbadge.sr{background:var(--tx2);color:var(--bg)}
+.strong-demo{border-color:var(--warm-line);background:var(--warm-bg)}
+.rare-demo{border-color:var(--accent-line);background:var(--accent-bg)}
+
 .foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
 .foot b{color:var(--tx2)}
 .foot a{color:var(--accent)}
@@ -227,8 +241,50 @@ tbody tr:hover{background:var(--hover)}
 <p style="margin:0 0 6px;font-size:13px">
 2023 → 2025：<b>上端 -5 分</b>（上端 = 录取门槛，变大表示变宽松）、<b>下端 持平</b>（下端 = 当年最强的那名考生）。</p>
 <p class="soft" style="font-size:12.4px;margin:0">
-历史值来自 <b>Wayback 存档的 MOE SchoolFinder 页面</b>（官方内容，不是二手整理表）；2025 年值来自 SchoolFinder 线上页面。
+2024／2025 年值来自 <b>MOE SchoolFinder 线上页面</b>（改版后直接公开相邻两届，官方 A 级）；更早年份来自 <b>Wayback 存档的 MOE SchoolFinder 页面</b>（同为官方内容，不是二手整理表）。
 「?」= 2024 年（MOE 存档页注明该年无 S1 学生派位，故无 COP；0–0 仅为占位）——不是「该年为 0 分」。</p>
+</div>
+
+<div class="note subjects-block">
+<b>开设科目（SchoolFinder，2026-11 官方快照）</b>
+<p class="soft" style="font-size:12.4px;margin:6px 0 10px">
+这是<b>本届在读学生</b>实际开设的科目，下一届可能调整；列出科目≠组合一定排得出（还要看年级与选课组合）。当前cohort快照145所普通课程校参与统计。</p>
+<div class="subject-chips">
+<span class="subj-chip">Additional Mathematics</span>
+<span class="subj-chip">Art</span>
+<span class="subj-chip">Basic Chinese Language</span>
+<span class="subj-chip">Basic Malay Language</span>
+<span class="subj-chip">Basic Tamil Language</span>
+<span class="subj-chip">Biology</span>
+<span class="subj-chip rare">Business Studies<span class="sbadge r">特色</span></span>
+<span class="subj-chip">CCE</span>
+<span class="subj-chip">Chemistry</span>
+<span class="subj-chip">Chinese Language</span>
+<span class="subj-chip">Chinese Language Syllabus B</span>
+<span class="subj-chip">Computer Applications</span>
+<span class="subj-chip">Design &amp; Technology</span>
+<span class="subj-chip strong">Elements of Business Skills<span class="sbadge s">强项</span></span>
+<span class="subj-chip">English Language</span>
+<span class="subj-chip">Food &amp; Consumer Education</span>
+<span class="subj-chip">Higher Chinese Language</span>
+<span class="subj-chip">Humanities (Geography)</span>
+<span class="subj-chip">Malay Language</span>
+<span class="subj-chip">Mathematics</span>
+<span class="subj-chip">Music</span>
+<span class="subj-chip">Physical Education</span>
+<span class="subj-chip">Physics</span>
+<span class="subj-chip strong">Principles of Accounts<span class="sbadge s">强项</span></span>
+<span class="subj-chip">Science</span>
+<span class="subj-chip">Science (Chem, Bio)</span>
+<span class="subj-chip">Social Studies</span>
+<span class="subj-chip">Tamil Language</span>
+</div>
+<p class="soft" style="font-size:12.4px;margin:10px 0 0"><b>校方列出的重点／选修项目：</b>Business and Enterprise　·　Sports For Life@Outram</p>
+<p class="soft" style="font-size:12.4px;margin:10px 0 0">
+<b>高亮口径（客观标注，不代表好坏）：</b>
+<span class="subj-chip strong strong-demo">强项示例</span> = 校方 ALP／LLP／选修项目名里点名的学科领域（本次命中 2 项：Elements of Business Skills、Principles of Accounts）；
+<span class="subj-chip rare rare-demo">特色示例</span> = 全岛 ≤40/145 所校开设的科目（本次 1 项：Business Studies）；
+两者兼有标「强·特」。口径由 <code>lib/subjects.cjs</code> 统一判定，阈值随报告公开，便于复核。科目清单以 <b>MOE SchoolFinder</b>（官方一手，本届在读）为准；校方重点／选修项目同时出现在 SchoolFinder 与学校官网的 curriculum／programmes 页，各校官网来源见第八节。</p>
 </div>
 <div class="toc">
   <b>目录</b>

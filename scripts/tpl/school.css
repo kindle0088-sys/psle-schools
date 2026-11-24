@@ -83,6 +83,20 @@ tbody tr:hover{background:var(--hover)}
 .checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
 .checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
 
+/* 开设科目 chips：中性强调色，强=warm、特色=accent、兼有=两者叠加。
+   刻意不用红/绿——红绿在本项目另有语义（涨/跌），且这里不暗示科目好坏。 */
+.subject-chips{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 4px}
+.subj-chip{display:inline-flex;align-items:center;gap:5px;font-size:12.6px;padding:4px 9px;border:1px solid var(--line);border-radius:6px;background:var(--chip);color:var(--tx2)}
+.subj-chip.strong{border-color:var(--warm-line);background:var(--warm-bg);color:var(--tx)}
+.subj-chip.rare{border-color:var(--accent-line);background:var(--accent-bg);color:var(--tx)}
+.subj-chip.both{border-color:var(--warm-line);background:linear-gradient(135deg,var(--warm-bg),var(--accent-bg));color:var(--tx)}
+.sbadge{font-size:10px;font-weight:600;letter-spacing:.2px;padding:0 5px;border-radius:3px;line-height:1.6}
+.sbadge.s{background:var(--warm);color:var(--accent-ink)}
+.sbadge.r{background:var(--accent);color:var(--accent-ink)}
+.sbadge.sr{background:var(--tx2);color:var(--bg)}
+.strong-demo{border-color:var(--warm-line);background:var(--warm-bg)}
+.rare-demo{border-color:var(--accent-line);background:var(--accent-bg)}
+
 .foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
 .foot b{color:var(--tx2)}
 .foot a{color:var(--accent)}

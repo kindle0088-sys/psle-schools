@@ -625,7 +625,7 @@ ${CHECKLIST}
 <tr><td>Posting Group 分档与 tie-breaker</td><td>MOE S1 Posting 官网</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>学费与杂费（2023–2026）</td><td>MOE 新闻稿 2023-10-18</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>SEC / Full SBB 时点与规则</td><td>SEAB《Secondary Education Certificate》· MOE Full SBB</td><td class="mid"><span class="tag a">A</span></td></tr>
-<tr><td>三年 COP 走向</td><td>Wayback 存档的 MOE SchoolFinder 页面</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>三年 COP 走向</td><td>MOE SchoolFinder 线上页面（2024／2025）＋ Wayback 存档的官方页面（2023）</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>「低位段未招满」星号</td><td>MOE SchoolFinder 官方脚注 · 全量 139 所采集</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>通勤小时数换算</td><td>本项目计算（每年 ${DAYS} 个上学日 × 往返 2 趟 × 4 年）</td><td class="mid"><span class="tag b">B</span></td></tr>
 </tbody>

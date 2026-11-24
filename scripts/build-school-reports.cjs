@@ -19,6 +19,7 @@
 const fs = require('fs');
 const path = require('path');
 const Iso = require('../lib/iso.cjs');
+const Subjects = require('../lib/subjects.cjs');
 
 const BASE = path.resolve(__dirname, '..');
 const P = (...a) => path.join(BASE, ...a);
@@ -147,8 +148,42 @@ ${trendCells.map((c, i) => `${i ? '  <div style="align-self:center;color:var(--t
 <p style="margin:0 0 6px;font-size:13px">
 ${first.y} → ${last.y}：<b>上端 ${fmtD(dMax)}</b>（上端 = 录取门槛，变大表示变宽松）、<b>下端 ${fmtD(dMin)}</b>（下端 = 当年最强的那名考生）。</p>
 <p class="soft" style="font-size:12.4px;margin:0">
-历史值来自 <b>Wayback 存档的 MOE SchoolFinder 页面</b>（官方内容，不是二手整理表）；${last.y} 年值来自 SchoolFinder 线上页面。
+2024／2025 年值来自 <b>MOE SchoolFinder 线上页面</b>（改版后直接公开相邻两届，官方 A 级）；更早年份来自 <b>Wayback 存档的 MOE SchoolFinder 页面</b>（同为官方内容，不是二手整理表）。
 ${miss ? `「?」= ${miss}——不是「该年为 0 分」。` : ''}${vac}</p>
+</div>`;
+  }
+
+  /* ── 开设科目 + 强项/特色高亮（2026-11-24 批量新增）─────────────
+     判定逻辑在 lib/subjects.cjs：特色=全岛开课校数<=40，强项=校方 ALP/LLP 点名学科。
+     两项都是客观、可复核的事实标注，不代替「这个科目好不好」的主观判断。 */
+  const SP = Subjects.subjectProfile(pf.slug);
+  let subjectBlock = '';
+  if (SP.subjectsFound) {
+    const chipCls = i => i.strong && i.rare ? ' both' : i.strong ? ' strong' : i.rare ? ' rare' : '';
+    const badge = i => i.strong && i.rare ? '<span class="sbadge sr">强·特</span>'
+      : i.strong ? '<span class="sbadge s">强项</span>'
+      : i.rare ? '<span class="sbadge r">特色</span>' : '';
+    const chips = SP.items.map(i =>
+      `<span class="subj-chip${chipCls(i)}">${esc(i.name)}${badge(i)}</span>`).join('\n');
+    const strongList = SP.items.filter(i => i.strong).map(i => i.name);
+    const rareList = SP.items.filter(i => i.rare).map(i => i.name);
+    const progList = SP.programmes.length
+      ? `<p class="soft" style="font-size:12.4px;margin:10px 0 0"><b>校方列出的重点／选修项目：</b>${SP.programmes.map(esc).join('　·　')}</p>`
+      : '';
+    subjectBlock = `
+<div class="note subjects-block">
+<b>开设科目（SchoolFinder，2026-11 官方快照）</b>
+<p class="soft" style="font-size:12.4px;margin:6px 0 10px">
+这是<b>本届在读学生</b>实际开设的科目，下一届可能调整；列出科目≠组合一定排得出（还要看年级与选课组合）。当前cohort快照${SP.denom}所普通课程校参与统计。</p>
+<div class="subject-chips">
+${chips}
+</div>
+${progList}
+<p class="soft" style="font-size:12.4px;margin:10px 0 0">
+<b>高亮口径（客观标注，不代表好坏）：</b>
+<span class="subj-chip strong strong-demo">强项示例</span> = 校方 ALP／LLP／选修项目名里点名的学科领域（本次命中 ${strongList.length} 项${strongList.length ? '：' + strongList.map(esc).join('、') : ''}）；
+<span class="subj-chip rare rare-demo">特色示例</span> = 全岛 ≤${SP.rareMax}/${SP.denom} 所校开设的科目（本次 ${rareList.length} 项${rareList.length ? '：' + rareList.map(esc).join('、') : ''}）；
+两者兼有标「强·特」。口径由 <code>lib/subjects.cjs</code> 统一判定，阈值随报告公开，便于复核。科目清单以 <b>MOE SchoolFinder</b>（官方一手，本届在读）为准；校方重点／选修项目同时出现在 SchoolFinder 与学校官网的 curriculum／programmes 页，各校官网来源见第八节。</p>
 </div>`;
   }
 
@@ -207,6 +242,7 @@ ${profileCells.map(c => `      <div><div class="k">${esc(c.k)}</div><div class="
 
 <div class="wrap">
 ${trendBlock}
+${subjectBlock}
 <div class="toc">
   <b>目录</b>
 ${toc.map((t, i) => `  <a href="#s${i + 1}">${'①②③④⑤⑥⑦⑧'[i]} ${esc(t)}</a>`).join('\n')}

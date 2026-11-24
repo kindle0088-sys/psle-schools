@@ -11,6 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 const Student = require('../lib/student.cjs');
+const Subjects = require('../lib/subjects.cjs');
 
 const BASE = path.join(__dirname, '..');
 /* 余量断言必须跟随报告所依据的学生画像。
@@ -129,22 +130,21 @@ if (s) {
     if (hist) {
       const okYears = ['2023', '2024'].filter(y => hist[y] && hist[y].status === 'ok');
       t('有历史数据时报告出现三年走向', hasTrend);
-      t('走向注明来源是 Wayback 存档', /Wayback 存档的 MOE SchoolFinder/.test(html));
+      t('走向注明来源是 SchoolFinder 线上 + Wayback', /SchoolFinder 线上页面/.test(html) && /Wayback 存档的 MOE SchoolFinder/.test(html));
       /* ⚠️ 这条不要写成「匹配 <th class="mid">2023」——那是绑死了表格实现，
          一改成卡片布局就全线误报（本次踩过）。只验语义：三年都出现、两个箭头。 */
-      const blk = (html.match(/PG3 录取区间：[\s\S]{0,2600}?不是「该年为 0 分」/) || [''])[0]
-        || (html.match(/PG3 录取区间：[\s\S]{0,2200}?线上页面。/) || [''])[0];
+      const blk = (html.match(/PG3 录取区间：[\s\S]{0,3000}?<p class="soft"/) || [''])[0];
       const yearsShown = ['2023', '2024', '2025'].filter(y => blk.includes(y));
       t('三年年份全部出现（缺年以 ? 占位）',
         okYears.length >= 1 && yearsShown.length === 3 && (blk.match(/→/g) || []).length >= 2,
         yearsShown.join('/') || '块未找到');
       /* 缺口必须分清「无存档」/「官方注明无 S1 派位」/「坏值」——
          Outram 2024 是第一种事实：当年没招生，不是抓坏，也不该被再抓一次。 */
-      const miss = ['2023', '2024'].filter(y => hist[y] && hist[y].status !== 'ok');
+      const miss = ['2023', '2024'].filter(y => !hist[y] || hist[y].status !== 'ok');
       if (miss.length) {
         const kinds = miss.map(y => {
           const v = hist[y];
-          if (v.status !== 'anomaly') return '没有可用存档';
+          if (!v || v.status !== 'anomaly') return '没有可用存档';
           return v.note && /无 S1 学生派位/.test(v.note)
             ? 'MOE 存档页注明该年无 S1 学生派位'
             : '坏值，已弃用';
@@ -154,6 +154,27 @@ if (s) {
       t('缺年不用 0 分代替', !/<td class="num mid">0–0<\/td>/.test(html));
     } else {
       t('无历史数据时不渲染三年走向', !hasTrend);
+    }
+  }
+
+  /* ── 开设科目与高亮（2026-11-24 新增）───────────────────
+     与 lib/subjects.cjs 同源判定：报告里出现的科目 chip 数、强项/特色数
+     必须与该校客观统计一致，防止生成器换了口径而报告没跟上。 */
+  if (isV2Template) {
+    const sp = Subjects.subjectProfile(s.slug);
+    if (sp.subjectsFound) {
+      t('报告含开设科目块', html.includes('subjects-block') && html.includes('开设科目（SchoolFinder'));
+      const chipCount = (html.match(/<span class="subj-chip/g) || []).length;
+      /* 报告里的 chip = 科目 chips（含 demo 2 个）。允许 demo，用 >= 科目数校验下界。 */
+      t('科目 chip 数不少于科目清单', chipCount >= sp.items.length,
+        `报告 ${chipCount} / 数据 ${sp.items.length}`);
+      t('高亮口径阈值写进报告', html.includes(`≤${sp.rareMax}/${sp.denom}`));
+      if (sp.strongCount) t('强项项已高亮标注', /subj-chip (strong|both)/.test(html) && html.includes('强项'));
+      if (sp.rareCount) t('特色项已高亮标注', /subj-chip (rare|both)/.test(html) && html.includes('特色'));
+      /* 每门科目名都应出现在报告里（HTML 转义后比对）*/
+      const esc = v => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const missing = sp.items.map(i => esc(i.name)).filter(n => !html.includes(n));
+      t('全部科目逐项出现在报告', missing.length === 0, missing.length ? '缺:' + missing.slice(0, 4).join(',') : `${sp.items.length} 项齐全`);
     }
   }
 

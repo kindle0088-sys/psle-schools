@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-23T03:27:21.906Z",
+  "generatedAt": "2026-11-24T14:48:55.278Z",
   "total": 147,
   "copYear": 2025,
   "ipCount": 17,
@@ -102,7 +102,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 20
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 16,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -237,7 +254,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 17
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 18
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -512,7 +546,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 15
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 16
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -1310,7 +1361,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 7,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 16,
+      "max": 21
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -1443,7 +1511,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 17
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 18
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -1575,7 +1660,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 20
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 20
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -1696,7 +1798,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 18
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 18
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -1834,7 +1953,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 16
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 16
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -2031,6 +2167,14 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20251006050535/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bendemeer-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 22
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -2403,7 +2547,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 15
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 16
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -2528,7 +2689,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 7,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 5,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -2799,7 +2977,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 7,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -3627,7 +3822,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 6,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -4478,7 +4690,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 17
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 17
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -5310,6 +5539,14 @@
     },
     "2024": {
      "status": "no-snapshot"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 18
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -5772,7 +6009,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -5894,7 +6148,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 16
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 9,
+      "max": 16
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -6407,7 +6678,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 16,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -6592,6 +6880,14 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20251006021413/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=edgefield-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 5,
+      "max": 14
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -6904,7 +7200,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 14
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 15
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -7315,7 +7628,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 9,
+      "max": 14
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 9,
+      "max": 15
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -7638,6 +7968,14 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20250916011654/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=greendale-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 16
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -8681,6 +9019,14 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20251216181956/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=hougang-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 20
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -10461,7 +10807,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 21
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -10742,7 +11105,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -10870,7 +11250,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 17
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 17
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -11365,6 +11762,14 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20250828233458/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=montfort-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 22
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -12090,7 +12495,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 18
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 19
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -12219,7 +12641,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 21
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 20
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -12537,6 +12976,14 @@
     },
     "2024": {
      "status": "no-snapshot"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 18
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -12829,7 +13276,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -12964,7 +13428,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -13231,7 +13712,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 18
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 19
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -13416,6 +13914,14 @@
       "star": false
      },
      "note": "MOE 存档页原文：There are no cut-off points available for Outram Secondary School as there were no Secondary 1 (S1) students posted to the school in 2024. 即该年无 S1 学生派位，不存在 COP；0–0 是页面占位显示，不是 0 分，也不是抓取坏值。"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 9,
+      "max": 17
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -14205,7 +14711,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 21
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 20
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -14331,7 +14854,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 19
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 20
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -14653,6 +15193,14 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20250916021134/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 19
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -14943,7 +15491,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -15081,7 +15646,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 16
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 17
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -16037,7 +16619,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 18,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -16190,6 +16789,14 @@
     },
     "2024": {
      "status": "no-snapshot"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 19
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -16510,6 +17117,14 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20251006010421/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=serangoon-garden-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 22
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -16822,6 +17437,14 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20251118014845/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Serangoon%20Secondary%20School"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 16,
+      "max": 20
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -17287,7 +17910,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -17716,7 +18356,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 15
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 15
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -18620,7 +19277,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 18
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 19
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -19773,7 +20447,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 6,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -19903,7 +20594,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 19
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 19
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -20034,7 +20742,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 17,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -20417,7 +21142,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 7,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": true,
@@ -20558,7 +21300,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 19
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 20
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -21150,6 +21909,14 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20250429232840/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yusof-ishak-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 7,
+      "max": 15
+     },
+     "source": "moe-live"
     }
    },
    "copFlags": {
@@ -21460,7 +22227,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,
@@ -21726,7 +22510,24 @@
      }
     ]
    },
-   "copHistory": null,
+   "copHistory": {
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 6,
+      "max": 12
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 12
+     },
+     "source": "moe-live"
+    }
+   },
    "copFlags": {
     "year": 2025,
     "PG1": false,

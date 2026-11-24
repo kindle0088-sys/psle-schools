@@ -27,6 +27,22 @@ const optionalJson = (f) => {
 };
 const COP_HIST = optionalJson('data/cop-history.json').schools || {};
 const COP_FLAGS = optionalJson('data/cop-flags.json').schools || {};
+const COP_LIVE = optionalJson('data/cop-official.json').schools || {};
+
+/* 合并历史 COP：2026-11-24 起 SchoolFinder 线上直接给 2024+2025，
+   故 2024 用官方线上值补齐（覆盖全部深度报告校），不再依赖被限流的 Wayback。
+   优先级：cop-history 已核实值（含 Outram 2024 anomaly / 2023 存档）> cop-official 线上值。
+   2023 仅 cop-history 的 13 校有，其余校如实留空 —— 不拿二手表填空。 */
+function mergedCopHistory(slug) {
+  const hist = COP_HIST[slug] || {};
+  const live = COP_LIVE[slug] || {};
+  const out = { ...hist };
+  for (const y of ['2024', '2025']) {
+    if (out[y] && out[y].status) continue;       // 已核实（含 anomaly）优先
+    if (live[y] && live[y].status) out[y] = live[y];
+  }
+  return Object.keys(out).length ? out : null;
+}
 
 /* ── 通勤：地铁模型 + 真实步行路网，取最快 ────────────────────────
    看板是单一学生的个人工具，起点就是 data/students/<id>.json 的家。
@@ -139,7 +155,7 @@ for (const s of schools) {
     cop,
     /* 历史 PG3 COP：只对已采集的学校有值（目前 13 所深度报告校）。
        结构 { '2023': {status, pg3:{min,max,vacanciesRemain}}, '2024': {...} } */
-    copHistory: COP_HIST[s.slug] || null,
+    copHistory: mergedCopHistory(s.slug),
     /* MOE 官方 * 标记：某 Posting Group 在 S1 posting 后仍有学额。
        实测 139 所里只有 PG1 档出现（28 所），PG3/PG2 一所都没有。 */
     copFlags: COP_FLAGS[s.slug] ? {
