@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-24T15:06:49.773Z",
+  "generatedAt": "2026-11-24T15:21:50.249Z",
   "total": 147,
   "copYear": 2025,
   "ipCount": 17,
@@ -1975,7 +1975,7 @@
    "copHistory": {
     "2023": {
      "status": "no-snapshot",
-     "note": "Wayback 2024 窗口内无该校 SchoolFinder 存档"
+     "note": "Wayback 2026-11-24 二次核验：该校 SchoolFinder 页在 2023 派位窗口（2023-12-20~2024-12-18）无任何存档；已有抓取仅 2021/2022/2025，官方 2024+ 用 cop-official.json 覆盖。不用二手表填空。"
     },
     "2024": {
      "status": "ok",
@@ -2134,7 +2134,7 @@
    "copHistory": {
     "2023": {
      "status": "no-snapshot",
-     "note": "Wayback 2024 窗口内无该校 SchoolFinder 存档"
+     "note": "Wayback 2026-11-24 二次核验：该校 SchoolFinder 页在 2023 派位窗口（2023-12-20~2024-12-18）无任何存档；已有抓取仅 2021/2022/2025，官方 2024+ 用 cop-official.json 覆盖。不用二手表填空。"
     },
     "2024": {
      "status": "ok",
