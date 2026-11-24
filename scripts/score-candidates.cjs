@@ -26,6 +26,17 @@ const Walk = require('../lib/walk.cjs');
 /* 步行路网数据（data/walk-<id>.json）。没有就只用地铁单源，不报错。 */
 const WALK = Walk.load(STU.id);
 
+/* 公交数据（data/bus-<id>.json）：只给 commuteMode=bus 的学生用。
+   结构是「从指定起点站上车、不换乘、下车步行到校」的最快方案，
+   纯步行仍由 WALK 提供；两者取快者，MRT 完全不参与。 */
+const BUS_FILE = path.join(BASE, `data/bus-${STU.id}.json`);
+const BUS = fs.existsSync(BUS_FILE) ? JSON.parse(fs.readFileSync(BUS_FILE, 'utf8')) : null;
+if (STU.commuteMode === 'bus' && !BUS) {
+  console.error(`\n✗ commuteMode=bus 需要 ${BUS_FILE}，找不到\n`);
+  process.exit(1);
+}
+const BUS_BY_SLUG = BUS ? new Map(BUS.rows.filter(r => r.bus).map(r => [r.slug, r.bus])) : new Map();
+
 // MOE 邮编筛选结果按邮编天然区分学生；缺失时降级为「未做附近筛选」
 const MOE_NEARBY = (() => {
   const f = Stu.nearbyFile(STU);
@@ -265,8 +276,19 @@ function gate(sc) {
     const g = gate(sc);
     const t = tmap.get(sc.slug);
     // 通勤：fastest → 步行/地铁取最快；walk → 只认全程步行（争议项取区间上端）
+    //      bus → min(不换乘公交总时间, 全程步行时间)；地铁只留作参考列，不参与门槛
     const cm = Walk.merge(WALK ? WALK.bySlug.get(sc.slug) : null, t ? t.minutes : null);
-    const commuteMin = Walk.scored(cm, MODE);
+    let commuteMin = Walk.scored(cm, MODE);
+    let busPick = null;
+    if (MODE === 'bus') {
+      const walkGate = cm && cm.walkMin != null
+        ? (cm.walkUpperMin != null ? cm.walkUpperMin : cm.walkMin) : null;
+      busPick = BUS_BY_SLUG.get(sc.slug) || null;
+      const busMin = busPick ? busPick.total : null;
+      if (busMin == null) commuteMin = walkGate;
+      else if (walkGate == null) commuteMin = busMin;
+      else commuteMin = Math.min(busMin, walkGate);
+    }
     const alpCats = (sc.electives || []).filter(x => x.type.startsWith('Applied Learning')).map(x => x.category || '');
     const llpCats = (sc.electives || []).filter(x => x.type.startsWith('Learning for Life')).map(x => x.category || '');
     const alpItems = (sc.electives || []).filter(x => x.type.startsWith('Applied Learning')).flatMap(x => x.items || []);
@@ -302,8 +324,19 @@ function gate(sc) {
          walk 口径下是「全程步行（争议项取区间上端）」。
          mrtMinutes / walkMinutes 始终分开保留，仅供展示。 */
       minutes: commuteMin,
-      commuteBasis: MODE,          // 'fastest' | 'walk' —— 报告据此决定文案，不再靠猜
-      commuteMode: cm ? cm.best : null,
+      commuteBasis: MODE,          // 'fastest' | 'walk' | 'bus' —— 报告据此决定文案，不再靠猜
+      commuteMode: MODE === 'bus'
+        ? (busPick && (Walk.scored(cm, 'walk') == null || busPick.total <= (cm.walkUpperMin ?? cm.walkMin)) ? 'bus' : 'walk')
+        : (cm ? cm.best : null),
+      /* bus 口径专属：公交方案明细。MRT 时间仍保留在 mrtMinutes，但仅作参考。 */
+      busMinutes: busPick ? busPick.total : null,
+      busService: busPick ? busPick.svc : null,
+      busDirection: busPick ? busPick.dir : null,
+      busStopCode: busPick ? busPick.stop : null,
+      busStopName: busPick ? busPick.stopName : null,
+      busHops: busPick ? busPick.hops : null,
+      busRideMinutes: busPick ? busPick.rideMin : null,
+      busWalkMinutes: busPick ? busPick.walkFromStopMin : null,
       mrtMinutes: cm ? cm.mrtMin : null,
       walkMinutes: cm ? cm.walkMin : null,
       walkUpperMinutes: cm ? cm.walkUpperMin : null,
@@ -356,15 +389,17 @@ function gate(sc) {
     .sort((a, b) => b.margin - a.margin);
 
   console.log('▸ 起点:', origin.label, origin.lat.toFixed(5), origin.lon.toFixed(5));
-  console.log(`▸ 通勤口径: ${MODE === 'walk' ? '只认全程步行（争议项取区间上端）' : '步行 / 地铁取最快'}`);
+  console.log(`▸ 通勤口径: ${MODE === 'walk' ? '只认全程步行（争议项取区间上端）' : MODE === 'bus' ? 'min(不换乘公交+步行, 全程步行)；地铁不计' : '步行 / 地铁取最快'}`);
   console.log(`▸ 候选池（${wantSex === 'any' ? '混校' : wantSex === 'boys' ? '混校+男校' : '混校+女校'} / ${MAX_MIN}min / margin≥0）:`, pool.length, '所');
   console.log('');
   console.log('排名  总分  通勤  余量  COP       校名 / ALP   （通勤 = ' +
-    (MODE === 'walk' ? '步行' : '步行/地铁取最快') + '，带 * 为争议项）');
+    (MODE === 'walk' ? '步行' : MODE === 'bus' ? '公交/步行取快' : '步行/地铁取最快') + '，带 * 为争议项）');
   pool.forEach((x, i) => {
     console.log(
       String(i + 1).padStart(3) + '  ' + String(x.total).padStart(4) + '  ' +
-      (String(x.minutes).padStart(2) + (MODE === 'walk' ? 'W' : (x.commuteMode === 'walk' ? 'W' : 'M')) +
+      (String(x.minutes).padStart(2) + (MODE === 'walk' ? 'W' : MODE === 'bus'
+        ? (x.commuteMode === 'bus' ? 'B' : 'W')
+        : (x.commuteMode === 'walk' ? 'W' : 'M')) +
         (x.walkDisputed ? '*' : ' ')).padStart(6) + ' ' + String(x.margin).padStart(4) + '  ' +
       (x.cop.min + '-' + x.cop.max + (x.cop.markMax || '')).padEnd(9) + ' ' +
       (x.moeNearby ? '*' : ' ') + x.name.replace(/ Secondary School| \(Secondary\)/, '') +
@@ -432,6 +467,28 @@ function gate(sc) {
       sap: !!x.sap, ip: !!x.ip, autonomous: !!x.autonomous,
       nature: x.nature,
     })),
+    /* bus 口径专属统计。报告里「公交可达多少所」「几所靠公交入池」都从这里取。 */
+    busUsed: MODE === 'bus',
+    busReachableTotal: MODE === 'bus' ? all.filter(x => x.busMinutes != null && x.busMinutes <= MAX_MIN).length : null,
+    busReachableInPool: MODE === 'bus' ? pool.filter(x => x.busMinutes != null && x.busMinutes <= MAX_MIN).length : null,
+    busInPool: MODE === 'bus' ? pool.filter(x => x.commuteMode === 'bus').length : null,
+    walkInPool: MODE === 'bus' ? pool.filter(x => x.commuteMode === 'walk').length : null,
+    busBoardingStop: MODE === 'bus' && BUS ? BUS.boardingStop : null,
+    busParams: MODE === 'bus' && BUS ? BUS.params : null,
+    busCutCount: MODE === 'bus' ? all.filter(x =>
+      x.margin >= 0 && (x.minutes == null || x.minutes > MAX_MIN) &&
+      x.mrtMinutes != null && x.mrtMinutes <= MAX_MIN).length : null,
+    busCutDetail: MODE === 'bus' ? all.filter(x =>
+      x.margin >= 0 && (x.minutes == null || x.minutes > MAX_MIN) &&
+      x.mrtMinutes != null && x.mrtMinutes <= MAX_MIN)
+      .sort((a, b) => a.mrtMinutes - b.mrtMinutes).slice(0, 12).map(x => ({
+        name: x.name.replace(/ Secondary School| \(Secondary\)/, ''),
+        mrtMinutes: x.mrtMinutes,
+        busMinutes: x.busMinutes,
+        walkMinutes: x.walkMinutes,
+        walkUpperMinutes: x.walkUpperMinutes,
+        margin: x.margin,
+      })) : [],
     // MOE 邮编筛选
     nearbyUsed: MOE_NEARBY.size > 0,
     nearbyCount: MOE_NEARBY.size,
@@ -477,7 +534,9 @@ function gate(sc) {
         source: WALK.source,
         rule: MODE === 'walk'
           ? '只认全程步行；两家引擎分歧 >1.4× 的标为争议项，展示区间并按上端过闸与计分'
-          : '步行与地铁取最快者参与通勤评分；两家引擎分歧 >1.4× 的标为争议项，展示区间并按上端计分',
+          : MODE === 'bus'
+            ? '只认不换乘公交+步行或纯步行；争议项按区间上端过闸；地铁不参与'
+            : '步行与地铁取最快者参与通勤评分；两家引擎分歧 >1.4× 的标为争议项，展示区间并按上端计分',
       } : null,
     },
     origin, pool, singleSex, outOfReach, stats,

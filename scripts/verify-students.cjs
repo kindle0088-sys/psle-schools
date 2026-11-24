@@ -88,6 +88,8 @@ const ACTIVE = new Set([
   'psle.al',
   'home.postal', 'home.lat', 'home.lon',
   'constraints.maxCommuteMin', 'constraints.commuteFullMarkMin', 'constraints.commuteMode',
+  // bus 口径的起点站：collect-bus.cjs 读 code，报告展示 name / road
+  'constraints.boardingStop.code', 'constraints.boardingStop.name', 'constraints.boardingStop.road',
   'constraints.gender', 'constraints.hasAffiliation', 'constraints.weights',
   'interests.cca',
   'citizenship.status',

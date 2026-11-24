@@ -150,7 +150,8 @@ if (S.score > 14) {
 t('明确说明本案例用不上 SAP 优势', /用不上|不成立|拿不到/.test(text));
 t('附属学校规则说明（20% 学额）', /20%/.test(text) || /非附属生/.test(text));
 t('踩线按高风险处理', /踩线/.test(text) && /高/.test(text));
-t('通勤两列（步行 / 地铁）', /步行/.test(text) && /地铁/.test(text));
+t(`通勤两列（步行 / ${S.commuteMode === 'bus' ? '公交' : '地铁'}）`,
+  /步行/.test(text) && (S.commuteMode === 'bus' ? /公交/.test(text) : /地铁/.test(text)));
 t('争议项已标注', /争议/.test(text));
 
 /* ── 身份回归（2026-11-21 abc4 新增）：PR 学生的三处差异必须在报告里落地 ──
@@ -167,6 +168,9 @@ if (String(citizenStatus || '').toUpperCase() === 'PR') {
     `配置 ${S.maxCommute}，报告是否写明`);
   if (S.commuteMode === 'fastest') {
     t('fastest 口径写明「取最快」', /取最快/.test(text));
+  } else if (S.commuteMode === 'bus') {
+    t('bus 口径写明「不换乘公交」与「纯步行」',
+      /不换乘公交/.test(text) && /纯步行/.test(text));
   } else {
     t('PR + walk 口径写明「只认全程步行」', /只认.?全程步行/.test(text));
   }
@@ -191,6 +195,29 @@ if (S.commuteMode === 'walk') {
     .map(m => Math.max(+m[1], m[2] != null ? +m[2] : +m[1]));
   t('方案 A 内所有步行时间 ≤ 上限', walkNums.length > 0 && walkNums.every(v => v <= S.maxCommute),
     walkNums.length ? '出现 ' + [...new Set(walkNums)].sort((a, b) => a - b).join('/') + ' 分，上限 ' + S.maxCommute : '方案表内没找到步行时间');
+}
+
+/* ── bus 口径回归（2026-11-24 abcd1）─────────────────────────
+   症状：画像写「只坐不换乘公交 + 步行或纯步行」，报告却沿用 fastest 的
+   「步行 / 地铁取最快」文案与地铁分钟，等于把被家长明确排除的路线算进池子。 */
+if (S.commuteMode === 'bus') {
+  t('写明 commuteMode 为 bus', /commuteMode:\s*"bus"/.test(text));
+  t('明确地铁不参与门槛与评分', /地铁.{0,12}(不参与|不计入|仅作参考|仅参考)/.test(text));
+  t('写明起点公交站与站码', /65431/.test(text) && /Twin Waterfalls/.test(text));
+  t('写明不换乘与单一站边界', /不换乘/.test(text) && /单一站/.test(text));
+  t('写明候车与车内时间模型', /候车\s*\d+\s*分/.test(text) && /\d+\s*分\/站/.test(text));
+  t('列出被地铁口径淘汰的学校', /地铁不认/.test(text) && /硬约束淘汰/.test(text));
+  t('第二通勤列改成公交', /公交/.test(text) && /不换乘 · 计分取快/.test(text));
+  const busPicks = (S2.busInPool || 0) === R.pool.length;
+  t('主池全部按 bus 口径计分', busPicks, 'bus 计分 ' + S2.busInPool + ' / 主池 ' + R.pool.length);
+
+  const aRows = [...segA.matchAll(/公交\s*(\d+)\s*分/g)].map(m => +m[1]);
+  t('方案 A 的公交时间均 ≤ 上限',
+    aRows.length > 0 && aRows.every(v => v <= S.maxCommute),
+    aRows.length ? '出现 ' + [...new Set(aRows)].sort((a, b) => a - b).join('/') + ' 分' : '方案表内没找到公交时间');
+
+  t('不得把地铁可达当成入池理由',
+    !/地铁\s*\d+\s*分.{0,20}(所以|因此).{0,10}(入池|入选|可及)/.test(text));
 }
 
 // 反向断言：不得把 COP 说成保证

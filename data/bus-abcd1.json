@@ -1,0 +1,1313 @@
+{
+ "generatedAt": "2026-11-24T10:16:56.297Z",
+ "studentId": "abcd1",
+ "boardingStop": {
+  "code": "65431",
+  "name": "Twin Waterfalls",
+  "road": "Punggol Way",
+  "lat": 1.40238938083661,
+  "lon": 103.89673562171807
+ },
+ "homeWalkMeters": 203,
+ "homeWalkMin": 3,
+ "params": {
+  "walkMetersPerMin": 80,
+  "waitMin": 5,
+  "rideMinPerStop": 2,
+  "maxWalkFromStopMin": 18,
+  "transferAllowed": false
+ },
+ "source": {
+  "routes": "buslah.com/bus/<service>/",
+  "stopCoordinates": "buslah.com/stop/<code>/",
+  "walking": "FOSSGIS OSRM routed-foot table",
+  "note": "不换乘；仅从 65431 单一站上车及其下游方向"
+ },
+ "rows": [
+  {
+   "slug": "admiralty-secondary-school",
+   "name": "Admiralty Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "ahmad-ibrahim-secondary-school",
+   "name": "Ahmad Ibrahim Secondary School",
+   "bus": {
+    "total": 70,
+    "svc": "117",
+    "dir": 1,
+    "stop": "59251",
+    "stopName": "Opp Darul Makmur Mque",
+    "hops": 27,
+    "rideMin": 54,
+    "walkFromStopM": 633,
+    "walkFromStopMin": 8,
+    "straightM": 446
+   }
+  },
+  {
+   "slug": "anderson-secondary-school",
+   "name": "Anderson Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "ang-mo-kio-secondary-school",
+   "name": "Ang Mo Kio Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "anglican-high-school",
+   "name": "Anglican High School",
+   "bus": null
+  },
+  {
+   "slug": "anglo-chinese-school-barker-road",
+   "name": "Anglo-Chinese School (Barker Road)",
+   "bus": null
+  },
+  {
+   "slug": "anglo-chinese-school-independent-secondary",
+   "name": "Anglo-Chinese School (Independent) (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "assumption-english-school",
+   "name": "Assumption English School",
+   "bus": null
+  },
+  {
+   "slug": "assumption-pathway-school",
+   "name": "Assumption Pathway School",
+   "bus": null
+  },
+  {
+   "slug": "bartley-secondary-school",
+   "name": "Bartley Secondary School",
+   "bus": {
+    "total": 67,
+    "svc": "43",
+    "dir": 1,
+    "stop": "62019",
+    "stopName": "Aft Rochdale Rd",
+    "hops": 26,
+    "rideMin": 52,
+    "walkFromStopM": 545,
+    "walkFromStopMin": 7,
+    "straightM": 281
+   }
+  },
+  {
+   "slug": "beatty-secondary-school",
+   "name": "Beatty Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "bedok-green-secondary-school",
+   "name": "Bedok Green Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "bedok-south-secondary-school",
+   "name": "Bedok South Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "bedok-view-secondary-school",
+   "name": "Bedok View Secondary School",
+   "bus": {
+    "total": 130,
+    "svc": "43",
+    "dir": 1,
+    "stop": "94041",
+    "stopName": "Aft Parbury Ave",
+    "hops": 54,
+    "rideMin": 108,
+    "walkFromStopM": 1074,
+    "walkFromStopMin": 14,
+    "straightM": 887
+   }
+  },
+  {
+   "slug": "bendemeer-secondary-school",
+   "name": "Bendemeer Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "boon-lay-secondary-school",
+   "name": "Boon Lay Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "bowen-secondary-school",
+   "name": "Bowen Secondary School",
+   "bus": {
+    "total": 36,
+    "svc": "43",
+    "dir": 1,
+    "stop": "64109",
+    "stopName": "Gracehaven S Army",
+    "hops": 12,
+    "rideMin": 24,
+    "walkFromStopM": 308,
+    "walkFromStopMin": 4,
+    "straightM": 203
+   }
+  },
+  {
+   "slug": "broadrick-secondary-school",
+   "name": "Broadrick Secondary School",
+   "bus": {
+    "total": 59,
+    "svc": "43e",
+    "dir": 1,
+    "stop": "82089",
+    "stopName": "Aft Ipoh Lane",
+    "hops": 18,
+    "rideMin": 36,
+    "walkFromStopM": 1189,
+    "walkFromStopMin": 15,
+    "straightM": 923
+   }
+  },
+  {
+   "slug": "bukit-batok-secondary-school",
+   "name": "Bukit Batok Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "bukit-merah-secondary-school",
+   "name": "Bukit Merah Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "bukit-panjang-govt-high-school",
+   "name": "Bukit Panjang Govt. High School",
+   "bus": null
+  },
+  {
+   "slug": "bukit-view-secondary-school",
+   "name": "Bukit View Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "canberra-secondary-school",
+   "name": "Canberra Secondary School",
+   "bus": {
+    "total": 92,
+    "svc": "117",
+    "dir": 1,
+    "stop": "58211",
+    "stopName": "Sembawang Stn",
+    "hops": 36,
+    "rideMin": 72,
+    "walkFromStopM": 945,
+    "walkFromStopMin": 12,
+    "straightM": 760
+   }
+  },
+  {
+   "slug": "catholic-high-school-secondary",
+   "name": "Catholic High School (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "cedar-girls-secondary-school",
+   "name": "Cedar Girls' Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "changkat-changi-secondary-school",
+   "name": "Changkat Changi Secondary School",
+   "bus": {
+    "total": 49,
+    "svc": "118",
+    "dir": 1,
+    "stop": "96289",
+    "stopName": "Changi General Hosp",
+    "hops": 14,
+    "rideMin": 28,
+    "walkFromStopM": 962,
+    "walkFromStopMin": 13,
+    "straightM": 546
+   }
+  },
+  {
+   "slug": "chij-katong-convent",
+   "name": "CHIJ Katong Convent",
+   "bus": {
+    "total": 69,
+    "svc": "43e",
+    "dir": 1,
+    "stop": "92051",
+    "stopName": "Marine Pde Stn Exit 4",
+    "hops": 23,
+    "rideMin": 46,
+    "walkFromStopM": 1123,
+    "walkFromStopMin": 15,
+    "straightM": 1047
+   }
+  },
+  {
+   "slug": "chij-secondary-toa-payoh",
+   "name": "CHIJ Secondary (Toa Payoh)",
+   "bus": null
+  },
+  {
+   "slug": "chij-st-josephs-convent",
+   "name": "CHIJ St. Joseph's Convent",
+   "bus": {
+    "total": 20,
+    "svc": "119",
+    "dir": 1,
+    "stop": "67111",
+    "stopName": "CHIJ St. Joseph's Convent",
+    "hops": 5,
+    "rideMin": 10,
+    "walkFromStopM": 106,
+    "walkFromStopMin": 2,
+    "straightM": 78
+   }
+  },
+  {
+   "slug": "chij-st-nicholas-girls-school-secondary",
+   "name": "CHIJ St. Nicholas Girls' School (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "chij-st-theresas-convent",
+   "name": "CHIJ St. Theresa's Convent",
+   "bus": null
+  },
+  {
+   "slug": "christ-church-secondary-school",
+   "name": "Christ Church Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "chua-chu-kang-secondary-school",
+   "name": "Chua Chu Kang Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "chung-cheng-high-school-main",
+   "name": "Chung Cheng High School (Main)",
+   "bus": {
+    "total": 58,
+    "svc": "43e",
+    "dir": 1,
+    "stop": "82079",
+    "stopName": "Tg Katong Girls' Sch",
+    "hops": 19,
+    "rideMin": 38,
+    "walkFromStopM": 925,
+    "walkFromStopMin": 12,
+    "straightM": 510
+   }
+  },
+  {
+   "slug": "chung-cheng-high-school-yishun",
+   "name": "Chung Cheng High School (Yishun)",
+   "bus": {
+    "total": 34,
+    "svc": "39",
+    "dir": 1,
+    "stop": "59041",
+    "stopName": "Bef Khatib Stn",
+    "hops": 6,
+    "rideMin": 12,
+    "walkFromStopM": 1101,
+    "walkFromStopMin": 14,
+    "straightM": 628
+   }
+  },
+  {
+   "slug": "clementi-town-secondary-school",
+   "name": "Clementi Town Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "commonwealth-secondary-school",
+   "name": "Commonwealth Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "compassvale-secondary-school",
+   "name": "Compassvale Secondary School",
+   "bus": {
+    "total": 21,
+    "svc": "43",
+    "dir": 1,
+    "stop": "67591",
+    "stopName": "Blk 286B",
+    "hops": 1,
+    "rideMin": 2,
+    "walkFromStopM": 852,
+    "walkFromStopMin": 11,
+    "straightM": 535
+   }
+  },
+  {
+   "slug": "crescent-girls-school",
+   "name": "Crescent Girls' School",
+   "bus": null
+  },
+  {
+   "slug": "crest-secondary-school",
+   "name": "Crest Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "damai-secondary-school",
+   "name": "Damai Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "deyi-secondary-school",
+   "name": "Deyi Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "dunearn-secondary-school",
+   "name": "Dunearn Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "dunman-high-school-secondary",
+   "name": "Dunman High School (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "dunman-secondary-school",
+   "name": "Dunman Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "east-spring-secondary-school",
+   "name": "East Spring Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "edgefield-secondary-school",
+   "name": "Edgefield Secondary School",
+   "bus": {
+    "total": 20,
+    "svc": "118",
+    "dir": 1,
+    "stop": "65199",
+    "stopName": "Aft Punggol Rd",
+    "hops": 1,
+    "rideMin": 2,
+    "walkFromStopM": 799,
+    "walkFromStopMin": 10,
+    "straightM": 603
+   }
+  },
+  {
+   "slug": "evergreen-secondary-school",
+   "name": "Evergreen Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "fairfield-methodist-school-secondary",
+   "name": "Fairfield Methodist School (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "fuhua-secondary-school",
+   "name": "Fuhua Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "gan-eng-seng-school",
+   "name": "Gan Eng Seng School",
+   "bus": null
+  },
+  {
+   "slug": "geylang-methodist-school-secondary",
+   "name": "Geylang Methodist School (Secondary)",
+   "bus": {
+    "total": 52,
+    "svc": "43e",
+    "dir": 1,
+    "stop": "81101",
+    "stopName": "Paya Lebar Green",
+    "hops": 14,
+    "rideMin": 28,
+    "walkFromStopM": 1254,
+    "walkFromStopMin": 16,
+    "straightM": 1058
+   }
+  },
+  {
+   "slug": "greendale-secondary-school",
+   "name": "Greendale Secondary School",
+   "bus": {
+    "total": 24,
+    "svc": "118",
+    "dir": 1,
+    "stop": "65199",
+    "stopName": "Aft Punggol Rd",
+    "hops": 1,
+    "rideMin": 2,
+    "walkFromStopM": 1070,
+    "walkFromStopMin": 14,
+    "straightM": 707
+   }
+  },
+  {
+   "slug": "greenridge-secondary-school",
+   "name": "Greenridge Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "guangyang-secondary-school",
+   "name": "Guangyang Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "hai-sing-catholic-school",
+   "name": "Hai Sing Catholic School",
+   "bus": null
+  },
+  {
+   "slug": "hillgrove-secondary-school",
+   "name": "Hillgrove Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "holy-innocents-high-school",
+   "name": "Holy Innocents' High School",
+   "bus": {
+    "total": 38,
+    "svc": "43e",
+    "dir": 1,
+    "stop": "67711",
+    "stopName": "Bef Sengkang Fire Stn",
+    "hops": 6,
+    "rideMin": 12,
+    "walkFromStopM": 1362,
+    "walkFromStopMin": 18,
+    "straightM": 972
+   }
+  },
+  {
+   "slug": "hougang-secondary-school",
+   "name": "Hougang Secondary School",
+   "bus": {
+    "total": 32,
+    "svc": "43",
+    "dir": 1,
+    "stop": "66499",
+    "stopName": "Blk 911",
+    "hops": 9,
+    "rideMin": 18,
+    "walkFromStopM": 418,
+    "walkFromStopMin": 6,
+    "straightM": 185
+   }
+  },
+  {
+   "slug": "hua-yi-secondary-school",
+   "name": "Hua Yi Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "hwa-chong-institution-secondary",
+   "name": "Hwa Chong Institution (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "junyuan-secondary-school",
+   "name": "Junyuan Secondary School",
+   "bus": {
+    "total": 29,
+    "svc": "118",
+    "dir": 1,
+    "stop": "75159",
+    "stopName": "Blk 874",
+    "hops": 8,
+    "rideMin": 16,
+    "walkFromStopM": 387,
+    "walkFromStopMin": 5,
+    "straightM": 273
+   }
+  },
+  {
+   "slug": "jurong-secondary-school",
+   "name": "Jurong Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "jurong-west-secondary-school",
+   "name": "Jurong West Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "jurongville-secondary-school",
+   "name": "Jurongville Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "juying-secondary-school",
+   "name": "Juying Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "kent-ridge-secondary-school",
+   "name": "Kent Ridge Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "kranji-secondary-school",
+   "name": "Kranji Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "kuo-chuan-presbyterian-secondary-school",
+   "name": "Kuo Chuan Presbyterian Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "loyang-view-secondary-school",
+   "name": "Loyang View Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "manjusri-secondary-school",
+   "name": "Manjusri Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "maris-stella-high-school-secondary",
+   "name": "Maris Stella High School (Secondary)",
+   "bus": {
+    "total": 67,
+    "svc": "104",
+    "dir": 1,
+    "stop": "61121",
+    "stopName": "Opp Blk 212",
+    "hops": 26,
+    "rideMin": 52,
+    "walkFromStopM": 487,
+    "walkFromStopMin": 7,
+    "straightM": 254
+   }
+  },
+  {
+   "slug": "marsiling-secondary-school",
+   "name": "Marsiling Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "mayflower-secondary-school",
+   "name": "Mayflower Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "meridian-secondary-school",
+   "name": "Meridian Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "methodist-girls-school-secondary",
+   "name": "Methodist Girls' School (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "montfort-secondary-school",
+   "name": "Montfort Secondary School",
+   "bus": {
+    "total": 33,
+    "svc": "43",
+    "dir": 1,
+    "stop": "67629",
+    "stopName": "Blk 557",
+    "hops": 6,
+    "rideMin": 12,
+    "walkFromStopM": 985,
+    "walkFromStopMin": 13,
+    "straightM": 727
+   }
+  },
+  {
+   "slug": "nan-chiau-high-school",
+   "name": "Nan Chiau High School",
+   "bus": {
+    "total": 26,
+    "svc": "43",
+    "dir": 1,
+    "stop": "67441",
+    "stopName": "Sengkang Community Hub",
+    "hops": 3,
+    "rideMin": 6,
+    "walkFromStopM": 949,
+    "walkFromStopMin": 12,
+    "straightM": 555
+   }
+  },
+  {
+   "slug": "nan-hua-high-school",
+   "name": "Nan Hua High School",
+   "bus": null
+  },
+  {
+   "slug": "nanyang-girls-high-school",
+   "name": "Nanyang Girls' High School",
+   "bus": null
+  },
+  {
+   "slug": "national-junior-college-secondary",
+   "name": "National Junior College (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "naval-base-secondary-school",
+   "name": "Naval Base Secondary School",
+   "bus": {
+    "total": 30,
+    "svc": "39",
+    "dir": 1,
+    "stop": "59041",
+    "stopName": "Bef Khatib Stn",
+    "hops": 6,
+    "rideMin": 12,
+    "walkFromStopM": 720,
+    "walkFromStopMin": 10,
+    "straightM": 387
+   }
+  },
+  {
+   "slug": "new-town-secondary-school",
+   "name": "New Town Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "ngee-ann-secondary-school",
+   "name": "Ngee Ann Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "north-vista-secondary-school",
+   "name": "North Vista Secondary School",
+   "bus": {
+    "total": 26,
+    "svc": "43e",
+    "dir": 1,
+    "stop": "67721",
+    "stopName": "The Rivervale",
+    "hops": 7,
+    "rideMin": 14,
+    "walkFromStopM": 273,
+    "walkFromStopMin": 4,
+    "straightM": 193
+   }
+  },
+  {
+   "slug": "northbrooks-secondary-school",
+   "name": "Northbrooks Secondary School",
+   "bus": {
+    "total": 52,
+    "svc": "117",
+    "dir": 1,
+    "stop": "59479",
+    "stopName": "Opp Blk 430B",
+    "hops": 15,
+    "rideMin": 30,
+    "walkFromStopM": 1050,
+    "walkFromStopMin": 14,
+    "straightM": 393
+   }
+  },
+  {
+   "slug": "northland-secondary-school",
+   "name": "Northland Secondary School",
+   "bus": {
+    "total": 73,
+    "svc": "117",
+    "dir": 1,
+    "stop": "59091",
+    "stopName": "Blk 154",
+    "hops": 26,
+    "rideMin": 52,
+    "walkFromStopM": 1035,
+    "walkFromStopMin": 13,
+    "straightM": 722
+   }
+  },
+  {
+   "slug": "northlight-school",
+   "name": "Northlight School",
+   "bus": null
+  },
+  {
+   "slug": "nus-high-school-of-mathematics-and-science",
+   "name": "NUS High School of Mathematics and Science",
+   "bus": null
+  },
+  {
+   "slug": "orchid-park-secondary-school",
+   "name": "Orchid Park Secondary School",
+   "bus": {
+    "total": 30,
+    "svc": "39",
+    "dir": 1,
+    "stop": "59041",
+    "stopName": "Bef Khatib Stn",
+    "hops": 6,
+    "rideMin": 12,
+    "walkFromStopM": 749,
+    "walkFromStopMin": 10,
+    "straightM": 595
+   }
+  },
+  {
+   "slug": "outram-secondary-school",
+   "name": "Outram Secondary School",
+   "bus": {
+    "total": 19,
+    "svc": "43",
+    "dir": 1,
+    "stop": "67591",
+    "stopName": "Blk 286B",
+    "hops": 1,
+    "rideMin": 2,
+    "walkFromStopM": 640,
+    "walkFromStopMin": 9,
+    "straightM": 460
+   }
+  },
+  {
+   "slug": "pasir-ris-crest-secondary-school",
+   "name": "Pasir Ris Crest Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "pasir-ris-secondary-school",
+   "name": "Pasir Ris Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "paya-lebar-methodist-girls-school-secondary",
+   "name": "Paya Lebar Methodist Girls' School (Secondary)",
+   "bus": {
+    "total": 62,
+    "svc": "43",
+    "dir": 1,
+    "stop": "62059",
+    "stopName": "Blk 161",
+    "hops": 22,
+    "rideMin": 44,
+    "walkFromStopM": 774,
+    "walkFromStopMin": 10,
+    "straightM": 730
+   }
+  },
+  {
+   "slug": "pei-hwa-secondary-school",
+   "name": "Pei Hwa Secondary School",
+   "bus": {
+    "total": 29,
+    "svc": "104",
+    "dir": 1,
+    "stop": "67791",
+    "stopName": "Opp Blk 415A",
+    "hops": 8,
+    "rideMin": 16,
+    "walkFromStopM": 335,
+    "walkFromStopMin": 5,
+    "straightM": 262
+   }
+  },
+  {
+   "slug": "peicai-secondary-school",
+   "name": "Peicai Secondary School",
+   "bus": {
+    "total": 51,
+    "svc": "43",
+    "dir": 1,
+    "stop": "63189",
+    "stopName": "Aft S'goon Gdn Way",
+    "hops": 16,
+    "rideMin": 32,
+    "walkFromStopM": 852,
+    "walkFromStopMin": 11,
+    "straightM": 451
+   }
+  },
+  {
+   "slug": "peirce-secondary-school",
+   "name": "Peirce Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "presbyterian-high-school",
+   "name": "Presbyterian High School",
+   "bus": null
+  },
+  {
+   "slug": "punggol-secondary-school",
+   "name": "Punggol Secondary School",
+   "bus": {
+    "total": 21,
+    "svc": "118",
+    "dir": 1,
+    "stop": "65199",
+    "stopName": "Aft Punggol Rd",
+    "hops": 1,
+    "rideMin": 2,
+    "walkFromStopM": 862,
+    "walkFromStopMin": 11,
+    "straightM": 802
+   }
+  },
+  {
+   "slug": "queenstown-secondary-school",
+   "name": "Queenstown Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "queensway-secondary-school",
+   "name": "Queensway Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "raffles-girls-school-secondary",
+   "name": "Raffles Girls' School (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "raffles-institution-secondary",
+   "name": "Raffles Institution (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "regent-secondary-school",
+   "name": "Regent Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "river-valley-high-school-secondary",
+   "name": "River Valley High School (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "riverside-secondary-school",
+   "name": "Riverside Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "school-of-science-and-technology-singapore",
+   "name": "School of Science and Technology, Singapore",
+   "bus": null
+  },
+  {
+   "slug": "school-of-the-arts-singapore",
+   "name": "School of the Arts, Singapore",
+   "bus": null
+  },
+  {
+   "slug": "sembawang-secondary-school",
+   "name": "Sembawang Secondary School",
+   "bus": {
+    "total": 90,
+    "svc": "117",
+    "dir": 1,
+    "stop": "58251",
+    "stopName": "Sun Plaza/ Sembawang Stn",
+    "hops": 37,
+    "rideMin": 74,
+    "walkFromStopM": 619,
+    "walkFromStopMin": 8,
+    "straightM": 382
+   }
+  },
+  {
+   "slug": "seng-kang-secondary-school",
+   "name": "Seng Kang Secondary School",
+   "bus": {
+    "total": 26,
+    "svc": "43",
+    "dir": 1,
+    "stop": "67611",
+    "stopName": "Blk 204C",
+    "hops": 4,
+    "rideMin": 8,
+    "walkFromStopM": 759,
+    "walkFromStopMin": 10,
+    "straightM": 477
+   }
+  },
+  {
+   "slug": "serangoon-garden-secondary-school",
+   "name": "Serangoon Garden Secondary School",
+   "bus": {
+    "total": 47,
+    "svc": "43",
+    "dir": 1,
+    "stop": "63219",
+    "stopName": "Bef Yio Chu Kang Chapel",
+    "hops": 13,
+    "rideMin": 26,
+    "walkFromStopM": 1024,
+    "walkFromStopMin": 13,
+    "straightM": 772
+   }
+  },
+  {
+   "slug": "serangoon-secondary-school",
+   "name": "Serangoon Secondary School",
+   "bus": {
+    "total": 38,
+    "svc": "43e",
+    "dir": 1,
+    "stop": "67721",
+    "stopName": "The Rivervale",
+    "hops": 7,
+    "rideMin": 14,
+    "walkFromStopM": 1258,
+    "walkFromStopMin": 16,
+    "straightM": 713
+   }
+  },
+  {
+   "slug": "singapore-chinese-girls-school",
+   "name": "Singapore Chinese Girls' School",
+   "bus": null
+  },
+  {
+   "slug": "singapore-sports-school",
+   "name": "Singapore Sports School",
+   "bus": null
+  },
+  {
+   "slug": "spectra-secondary-school",
+   "name": "Spectra Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "springfield-secondary-school",
+   "name": "Springfield Secondary School",
+   "bus": {
+    "total": 32,
+    "svc": "118",
+    "dir": 1,
+    "stop": "75039",
+    "stopName": "Springfield Sec Sch",
+    "hops": 9,
+    "rideMin": 18,
+    "walkFromStopM": 422,
+    "walkFromStopMin": 6,
+    "straightM": 149
+   }
+  },
+  {
+   "slug": "st-andrews-school-secondary",
+   "name": "St Andrew's School (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "st-anthonys-canossian-secondary-school",
+   "name": "St. Anthony's Canossian Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "st-gabriels-secondary-school",
+   "name": "St. Gabriel's Secondary School",
+   "bus": {
+    "total": 58,
+    "svc": "43",
+    "dir": 1,
+    "stop": "66359",
+    "stopName": "S'goon Stn Exit C/Blk 201",
+    "hops": 20,
+    "rideMin": 40,
+    "walkFromStopM": 756,
+    "walkFromStopMin": 10,
+    "straightM": 573
+   }
+  },
+  {
+   "slug": "st-hildas-secondary-school",
+   "name": "St. Hilda's Secondary School",
+   "bus": {
+    "total": 41,
+    "svc": "118",
+    "dir": 1,
+    "stop": "75159",
+    "stopName": "Blk 874",
+    "hops": 8,
+    "rideMin": 16,
+    "walkFromStopM": 1296,
+    "walkFromStopMin": 17,
+    "straightM": 834
+   }
+  },
+  {
+   "slug": "st-josephs-institution-secondary",
+   "name": "St. Joseph's Institution (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "st-margarets-school-secondary",
+   "name": "St. Margaret's School (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "st-patricks-school",
+   "name": "St. Patrick's School",
+   "bus": {
+    "total": 99,
+    "svc": "43",
+    "dir": 1,
+    "stop": "92081",
+    "stopName": "St. Patrick's Sch",
+    "hops": 45,
+    "rideMin": 90,
+    "walkFromStopM": 8,
+    "walkFromStopMin": 1,
+    "straightM": 42
+   }
+  },
+  {
+   "slug": "swiss-cottage-secondary-school",
+   "name": "Swiss Cottage Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "tampines-secondary-school",
+   "name": "Tampines Secondary School",
+   "bus": {
+    "total": 47,
+    "svc": "118",
+    "dir": 1,
+    "stop": "75051",
+    "stopName": "Tampines West Stn Exit B",
+    "hops": 13,
+    "rideMin": 26,
+    "walkFromStopM": 961,
+    "walkFromStopMin": 13,
+    "straightM": 654
+   }
+  },
+  {
+   "slug": "tanjong-katong-girls-school",
+   "name": "Tanjong Katong Girls' School",
+   "bus": {
+    "total": 48,
+    "svc": "43e",
+    "dir": 1,
+    "stop": "82079",
+    "stopName": "Tg Katong Girls' Sch",
+    "hops": 19,
+    "rideMin": 38,
+    "walkFromStopM": 146,
+    "walkFromStopMin": 2,
+    "straightM": 113
+   }
+  },
+  {
+   "slug": "tanjong-katong-secondary-school",
+   "name": "Tanjong Katong Secondary School",
+   "bus": {
+    "total": 50,
+    "svc": "43e",
+    "dir": 1,
+    "stop": "82089",
+    "stopName": "Aft Ipoh Lane",
+    "hops": 18,
+    "rideMin": 36,
+    "walkFromStopM": 477,
+    "walkFromStopMin": 6,
+    "straightM": 412
+   }
+  },
+  {
+   "slug": "temasek-junior-college-secondary",
+   "name": "Temasek Junior College (Secondary)",
+   "bus": null
+  },
+  {
+   "slug": "temasek-secondary-school",
+   "name": "Temasek Secondary School",
+   "bus": {
+    "total": 123,
+    "svc": "43",
+    "dir": 1,
+    "stop": "94051",
+    "stopName": "Opp Temasek Sec Sch",
+    "hops": 55,
+    "rideMin": 110,
+    "walkFromStopM": 398,
+    "walkFromStopMin": 5,
+    "straightM": 133
+   }
+  },
+  {
+   "slug": "unity-secondary-school",
+   "name": "Unity Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "victoria-school",
+   "name": "Victoria School",
+   "bus": {
+    "total": 106,
+    "svc": "43",
+    "dir": 1,
+    "stop": "93031",
+    "stopName": "Siglap Stn/Opp Victoria Sch",
+    "hops": 48,
+    "rideMin": 96,
+    "walkFromStopM": 123,
+    "walkFromStopMin": 2,
+    "straightM": 129
+   }
+  },
+  {
+   "slug": "west-spring-secondary-school",
+   "name": "West Spring Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "westwood-secondary-school",
+   "name": "Westwood Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "whitley-secondary-school",
+   "name": "Whitley Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "woodgrove-secondary-school",
+   "name": "Woodgrove Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "woodlands-ring-secondary-school",
+   "name": "Woodlands Ring Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "woodlands-secondary-school",
+   "name": "Woodlands Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "xinmin-secondary-school",
+   "name": "Xinmin Secondary School",
+   "bus": {
+    "total": 44,
+    "svc": "43",
+    "dir": 1,
+    "stop": "66499",
+    "stopName": "Blk 911",
+    "hops": 9,
+    "rideMin": 18,
+    "walkFromStopM": 1374,
+    "walkFromStopMin": 18,
+    "straightM": 730
+   }
+  },
+  {
+   "slug": "yio-chu-kang-secondary-school",
+   "name": "Yio Chu Kang Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "yishun-secondary-school",
+   "name": "Yishun Secondary School",
+   "bus": {
+    "total": 39,
+    "svc": "39",
+    "dir": 1,
+    "stop": "58991",
+    "stopName": "Blk 767",
+    "hops": 8,
+    "rideMin": 16,
+    "walkFromStopM": 1162,
+    "walkFromStopMin": 15,
+    "straightM": 798
+   }
+  },
+  {
+   "slug": "yishun-town-secondary-school",
+   "name": "Yishun Town Secondary School",
+   "bus": {
+    "total": 37,
+    "svc": "39",
+    "dir": 1,
+    "stop": "59009",
+    "stopName": "Yishun Int",
+    "hops": 9,
+    "rideMin": 18,
+    "walkFromStopM": 824,
+    "walkFromStopMin": 11,
+    "straightM": 489
+   }
+  },
+  {
+   "slug": "yuan-ching-secondary-school",
+   "name": "Yuan Ching Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "yuhua-secondary-school",
+   "name": "Yuhua Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "yusof-ishak-secondary-school",
+   "name": "Yusof Ishak Secondary School",
+   "bus": {
+    "total": 25,
+    "svc": "43",
+    "dir": 1,
+    "stop": "67591",
+    "stopName": "Blk 286B",
+    "hops": 1,
+    "rideMin": 2,
+    "walkFromStopM": 1171,
+    "walkFromStopMin": 15,
+    "straightM": 1010
+   }
+  },
+  {
+   "slug": "yuying-secondary-school",
+   "name": "Yuying Secondary School",
+   "bus": {
+    "total": 56,
+    "svc": "119",
+    "dir": 1,
+    "stop": "63049",
+    "stopName": "Glad Tidings Ch",
+    "hops": 19,
+    "rideMin": 38,
+    "walkFromStopM": 799,
+    "walkFromStopMin": 10,
+    "straightM": 636
+   }
+  },
+  {
+   "slug": "zhenghua-secondary-school",
+   "name": "Zhenghua Secondary School",
+   "bus": null
+  },
+  {
+   "slug": "zhonghua-secondary-school",
+   "name": "Zhonghua Secondary School",
+   "bus": {
+    "total": 58,
+    "svc": "43",
+    "dir": 1,
+    "stop": "66379",
+    "stopName": "Blk 206",
+    "hops": 19,
+    "rideMin": 38,
+    "walkFromStopM": 910,
+    "walkFromStopMin": 12,
+    "straightM": 673
+   }
+  }
+ ]
+}

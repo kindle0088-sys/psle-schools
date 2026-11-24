@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-24T04:45:51.510Z",
+ "generatedAt": "2026-11-24T10:17:04.161Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -313,6 +313,58 @@
     ],
     "report": "reports/abc6-s1-choice-2026.html",
     "generatedAt": "2026-11-24T04:45:51.507Z"
+   }
+  },
+  {
+   "id": "abcd1",
+   "label": "abcd1",
+   "al": 18,
+   "pgShort": "PG3",
+   "postal": "828765",
+   "maxCommuteMin": 60,
+   "commuteMode": "bus",
+   "planSlug": "abcd1-s1-choice-2026",
+   "updatedAt": "2026-11-24T10:17:04.157Z",
+   "plan": {
+    "picks": [
+     {
+      "slot": 1,
+      "name": "Compassvale Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 2,
+      "name": "North Vista Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 3,
+      "name": "Junyuan Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 4,
+      "name": "Hougang Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 5,
+      "name": "Punggol Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 6,
+      "name": "Seng Kang Secondary School",
+      "tier": "冲刺"
+     }
+    ],
+    "poolMixed": 18,
+    "withinCommuteReachable": 19,
+    "kinds": [
+     "plan"
+    ],
+    "report": "reports/abcd1-s1-choice-2026.html",
+    "generatedAt": "2026-11-24T10:17:04.157Z"
    }
   }
  ]

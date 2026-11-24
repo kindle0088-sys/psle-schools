@@ -53,11 +53,14 @@ const S = R.student, S2 = R.stats;
    自相矛盾的报告：门槛说 40 分钟步行，表里全是地铁 33/34 分钟。 */
 const MODE = S.commuteMode || S2.commuteMode || 'fastest';
 const WALK_ONLY = MODE === 'walk';
-const COMMUTE_SHORT = WALK_ONLY ? '全程步行' : '步行 / 地铁取最快';
+const BUS_ONLY = MODE === 'bus';
+const COMMUTE_SHORT = WALK_ONLY ? '全程步行' : BUS_ONLY ? '不换乘公交+步行 / 纯步行' : '步行 / 地铁取最快';
 const COMMUTE_RULE = WALK_ONLY
   ? '只认<b>全程步行</b>：地铁再快也不算达标；争议项按区间上端过闸'
-  : '按「<b>步行 / 地铁取最快</b>」计算：只要有一种方式够快就算达标';
-const LIMIT_LABEL = WALK_ONLY ? `全程步行 ≤ ${S.maxCommute} 分钟` : `${S.maxCommute} 分钟内`;
+  : BUS_ONLY
+    ? `只认「<b>${S2.busBoardingStop ? S2.busBoardingStop.name + '（' + S2.busBoardingStop.code + '）站上车、不换乘公交 + 步行</b>' : '不换乘公交 + 步行'}」或<b>纯步行</b>：地铁不参与门槛与评分；争议步行项按区间上端过闸。候车按 ${S2.busParams ? S2.busParams.waitMin : 5} 分钟、车内按 ${S2.busParams ? S2.busParams.rideMinPerStop : 2} 分钟/站估算，下车后步行 ≤ ${S2.busParams ? S2.busParams.maxWalkFromStopMin : 18} 分钟才计入`
+    : '按「<b>步行 / 地铁取最快</b>」计算：只要有一种方式够快就算达标';
+const LIMIT_LABEL = WALK_ONLY ? `全程步行 ≤ ${S.maxCommute} 分钟` : BUS_ONLY ? `${S.maxCommute} 分钟内（公交不换乘 / 纯步行）` : `${S.maxCommute} 分钟内`;
 
 /* 身份（可选）：目前只有 abc4 标了 PR。没有身份字段的学生保持原来的中性表述。
    PR 的实质影响有官方依据（MOE tie-breakers：SC > PR > IS；MOE school fees：PR $580–700/月），
@@ -85,7 +88,13 @@ const walkCol = x => {
   if (x.walkMinutes > 60) return '&gt;60';
   return String(x.walkMinutes);
 };
-const mrtCol = x => (x.mrtMinutes == null ? '—' : String(x.mrtMinutes));
+/* 第二通勤列：fastest / walk 口径是地铁；bus 口径改成不换乘公交方案的时间。
+   列名也由 SEC_HEADER 跟着换，避免出现「写 60 分钟公交、表里却是地铁分钟」的自相矛盾。 */
+const mrtCol = x => {
+  if (BUS_ONLY) return x.busMinutes == null ? '—' : String(x.busMinutes);
+  return x.mrtMinutes == null ? '—' : String(x.mrtMinutes);
+};
+const SEC_HEADER = BUS_ONLY ? '公交' : '地铁';
 /* 「这一档是否参与门槛判定」：fastest 口径看谁更快，walk 口径恒为步行。 */
 const countedByWalk = x => WALK_ONLY || x.commuteMode === 'walk';
 const cellWalk = x => `<td class="num">${countedByWalk(x) ? '<b>' + walkCol(x) + '</b>' : walkCol(x)}</td>`;
@@ -99,6 +108,13 @@ const fastTxt = x => {
     return x.walkRange
       ? `步行 ${x.walkRange[0]}–${x.walkRange[1]} 分<sup class="soft">争议·按 ${hi} 分过闸</sup>`
       : `步行 ${hi} 分`;
+  }
+  if (BUS_ONLY) {
+    if (x.commuteMode === 'bus' && x.busMinutes != null) {
+      return `公交 ${x.busMinutes} 分<sup class="soft">${esc(x.busService || '')} · ${x.busHops} 站 · 走 ${x.busWalkMinutes} 分</sup>`;
+    }
+    const hi = x.walkUpperMinutes != null ? x.walkUpperMinutes : x.walkMinutes;
+    return hi == null ? '无可用通勤数据' : `步行 ${hi} 分`;
   }
   return countedByWalk(x)
     ? (x.walkRange
@@ -273,7 +289,9 @@ const STEP2 = `
 <h2 id="s2"><span class="n">02</span>候选池：以家为圆心，先划范围再看质量</h2>
 <p class="lead">起点：<b>${esc(S.postal)}</b>（${esc(STU.home.address || '')}）。单程上限 <b>${S.maxCommute} 分钟</b>，${COMMUTE_RULE}。${WALK_ONLY
   ? '<br><b>这一条是硬约束，不是偏好</b>：本报告不收录任何「坐地铁能到、但走不到」的学校——哪怕它综合分更高。因为家长要的是「孩子自己能走去上学」，而不是「通勤时间够短」。'
-  : ''}</p>
+  : BUS_ONLY
+    ? `<br><b>这一条是硬约束，不是偏好</b>：起点是 <b>${S2.busBoardingStop ? S2.busBoardingStop.name + ' 公交站（' + S2.busBoardingStop.code + '，' + S2.busBoardingStop.road + '）</b>' : '指定公交站'}，只认从这一站上车、不换乘的公交，或者纯步行。<b>地铁再快也不算达标</b>——这正是它与 abc6（步行/地铁取最快 ≤40 分钟）最本质的差别。`
+    : ''}</p>
 
 <div class="profile" style="margin-top:16px">
   <div><div class="k">全岛中学</div><div class="v">${S2.totalSchools}</div></div>
@@ -310,6 +328,24 @@ ${S2.walkCutDetail.map(x => `<tr>
   <td class="num mid"><b>${x.walkUpperMinutes != null ? x.walkUpperMinutes : x.walkMinutes} 分</b></td>
   <td class="num mid">${x.mrtMinutes != null ? x.mrtMinutes + ' 分' : '—'}</td>
   <td class="soft" style="font-size:12.4px">步行比上限多 ${(x.walkUpperMinutes != null ? x.walkUpperMinutes : x.walkMinutes) - S.maxCommute} 分钟；地铁 ${x.mrtMinutes} 分钟虽达标，但本口径不认</td>
+</tr>`).join('\n')}
+</tbody>
+</table>
+</div>` : ''}
+${BUS_ONLY ? `
+<h3>被「地铁不认」这条硬约束淘汰的 ${S2.busCutCount} 所</h3>
+<p>这 ${S2.busCutCount} 所<b>分数都够得着，坐地铁也都在 ${S.maxCommute} 分钟内</b>，但既没有从 ${S2.busBoardingStop ? esc(S2.busBoardingStop.name) : '指定站'} 出发的不换乘公交可达，纯步行也超时。这里只列地铁最快的 12 所。完整含义是：<b>「地铁能到」在本报告里完全不作数</b>。若家长接受换乘或地铁，池子会完全不同——那是另一份报告的事。</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>学校</th><th class="mid">余量</th><th class="mid">地铁（不计）</th><th class="mid">不换乘公交</th><th class="mid">纯步行</th><th>为什么出局</th></tr></thead>
+<tbody>
+${S2.busCutDetail.map(x => `<tr>
+  <td>${esc(x.name)}</td>
+  <td class="num mid">+${x.margin}</td>
+  <td class="num mid"><b>${x.mrtMinutes} 分</b></td>
+  <td class="num mid">${x.busMinutes != null ? x.busMinutes + ' 分' : '—'}</td>
+  <td class="num mid">${x.walkUpperMinutes != null ? x.walkUpperMinutes + ' 分' : (x.walkMinutes != null ? x.walkMinutes + ' 分' : '—')}</td>
+  <td class="soft" style="font-size:12.4px">地铁 ${x.mrtMinutes} 分虽达标但不计；本口径下通勤超过 ${S.maxCommute} 分钟或不可达</td>
 </tr>`).join('\n')}
 </tbody>
 </table>
@@ -356,7 +392,7 @@ const STEP3 = `
 <p>余量 = 该校 PG3 非附属区间右端 − 孩子分数（${S.score}）。<b>余量为 0 = 踩线；负数是已经够不着</b>（不在此表）。</p>
 <div style="overflow-x:auto">
 <table>
-<thead><tr><th>学校</th><th class="mid">PG3 区间<br><span class="soft">2025 年度</span></th><th class="mid">余量</th><th class="mid">风险</th><th class="mid">步行${WALK_ONLY ? '<br><span class="soft">过闸口径</span>' : ''}</th><th class="mid">地铁${WALK_ONLY ? '<br><span class="soft">仅供参考</span>' : ''}</th><th>风险说明</th></tr></thead>
+<thead><tr><th>学校</th><th class="mid">PG3 区间<br><span class="soft">2025 年度</span></th><th class="mid">余量</th><th class="mid">风险</th><th class="mid">步行${WALK_ONLY ? '<br><span class="soft">过闸口径</span>' : BUS_ONLY ? '<br><span class="soft">全程</span>' : ''}</th><th class="mid">${SEC_HEADER}${WALK_ONLY ? '<br><span class="soft">仅供参考</span>' : BUS_ONLY ? '<br><span class="soft">不换乘 · 计分取快</span>' : ''}</th><th>风险说明</th></tr></thead>
 <tbody>
 ${[...R.pool].sort((a, b) => a.margin - b.margin).map(x => {
   const rk = riskOf(x);
@@ -458,7 +494,11 @@ function schoolCard(x, extra) {
   <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>${fmtCop(x)}</b>（2025 年度），孩子 ${S.score} 分，余量 <b>${x.margin > 0 ? '+' : ''}${x.margin}</b>。${rk.note}。</td></tr>
   <tr><td>② 通勤</td><td>${WALK_ONLY
     ? `全程步行 <b>${x.walkRange ? x.walkRange[0] + '–' + x.walkRange[1] : x.walkMinutes} 分钟</b>（${x.walkMeters} 米${x.walkDisputed ? '，两家引擎有分歧，按区间上端 <b>' + gateMin(x) + ' 分钟</b>过闸' : ''}）。${S.maxCommute - gateMin(x) >= 0 ? `距上限还剩 <b>${S.maxCommute - gateMin(x)} 分钟</b>余量` : `已超上限 ${gateMin(x) - S.maxCommute} 分钟`}；地铁 ${fmtM(x.mrtMinutes)} 分钟<b>不计入本口径</b>，仅作参考。`
-    : countedByWalk(x)
+    : BUS_ONLY
+      ? (x.commuteMode === 'bus' && x.busMinutes != null
+        ? `从 <b>${esc(S2.busBoardingStop ? S2.busBoardingStop.name : 'Twin Waterfalls')} 站（${esc(S2.busBoardingStop ? S2.busBoardingStop.code : '65431')}）</b>乘 <b>${esc(x.busService)}</b>（第 ${x.busDirection} 方向）坐 <b>${x.busHops} 站</b>、车内约 ${x.busRideMinutes} 分钟，在 <b>${esc(x.busStopName)}</b>（${esc(x.busStopCode)}）下车，再步行 <b>${x.busWalkMinutes} 分钟</b>；已含家到站步行与候车 ${S2.busParams ? S2.busParams.waitMin : 5} 分钟，合计 <b>${x.busMinutes} 分钟</b>。纯步行 ${fmtM(x.walkMinutes)} 分钟（争议项按上端），<b>计分取较快者 ${gateMin(x)} 分钟</b>；地铁 ${fmtM(x.mrtMinutes)} 分钟<b>不计入</b>。`
+        : `纯步行 <b>${x.walkUpperMinutes != null ? x.walkUpperMinutes : x.walkMinutes} 分钟</b>（${x.walkMeters} 米${x.walkDisputed ? '，两家引擎有分歧，按区间上端过闸' : ''}）；不换乘公交 ${fmtM(x.busMinutes)} 分钟${x.busMinutes != null ? '，步行更快故按步行计' : '，本口径下不可达'}。地铁 ${fmtM(x.mrtMinutes)} 分钟<b>不计入</b>。`)
+      : countedByWalk(x)
       ? `步行 <b>${x.walkRange ? x.walkRange[0] + '–' + x.walkRange[1] : x.walkMinutes} 分钟</b>（${x.walkMeters} 米${x.walkDisputed ? '，两家引擎有分歧' : ''}）；地铁方案 ${fmtM(x.mrtMinutes)} 分钟。<b>计分取 ${fastTxt(x)}</b>。`
       : `地铁 <b>${x.mrtMinutes} 分钟</b>（途经 ${esc(x.via || '—')}，最近站步行 ${fmtM(x.accessWalkM)} 米）；步行 ${x.walkMinutes != null ? x.walkMinutes + ' 分钟' : '不现实'}。`}</td></tr>
   <tr><td>③ 主要 CCA</td><td>共 <b>${c.total} 项</b>（MOE 登记 ${c.moe} 项${c.total > c.moe ? '，另 ' + (c.total - c.moe) + ' 项来自学校官网' : ''}）。${c.gaps ? `<span class="soft">清单缺口：${esc(c.gaps)}</span>` : ''}</td></tr>
@@ -721,7 +761,7 @@ ${PLANS.todo ? fillScore(cfgText(PLANS.todo)) : (() => {
 <p class="lead">按余量从紧到松排列。这张表用于核对有没有漏掉值得考虑的学校。</p>
 <div style="overflow-x:auto">
 <table>
-<thead><tr><th>学校</th><th class="mid">PG3 区间</th><th class="mid">余量</th><th class="mid">步行</th><th class="mid">地铁</th><th class="mid">CCA 项数</th><th>ALP 类别</th><th class="mid">综合</th></tr></thead>
+<thead><tr><th>学校</th><th class="mid">PG3 区间</th><th class="mid">余量</th><th class="mid">步行</th><th class="mid">${SEC_HEADER}</th><th class="mid">CCA 项数</th><th>ALP 类别</th><th class="mid">综合</th></tr></thead>
 <tbody>
 ${[...R.pool].sort((a, b) => a.margin - b.margin).map(x => {
   const c = ccaOf(x);
@@ -759,10 +799,14 @@ ${R.outOfReach.sort((a, b) => b.margin - a.margin).map(x => `<tr><td>${esc(short
 <tr><td>学校类型 / IP / SAP / CCA 登记 / DSA / ALP / LLP / 地址</td><td>MOE SchoolFinder（2026-11 采集）</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>完整 CCA 清单（含 MOE 未登记项）</td><td>13 所学校官网逐页核实；主池 7 校于 <b>2026-11-23 三方复核</b>后更新 <code>data/cca-catalog.json</code></td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>步行时间与距离</td><td>FOSSGIS OSRM foot（OSM 步行路网），Valhalla 交叉校验</td><td class="mid"><span class="tag a">A</span></td></tr>
+${BUS_ONLY ? `<tr><td>公交线路与站点</td><td>Buslah <code>buslah.com/bus/&lt;service&gt;/</code> 与 <code>/stop/&lt;code&gt;/</code>，2026-11-24 抓取；起点站 <b>${esc(S2.busBoardingStop ? S2.busBoardingStop.name + '（' + S2.busBoardingStop.code + '）' : '')}</b>，13 条线路、195 个下游站，仅取该站的下游方向</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td>公交通勤时间模型</td><td>家→站步行 ${esc(S2.busParams ? S2.busParams.walkMetersPerMin : 80)} m/min；候车 ${esc(S2.busParams ? S2.busParams.waitMin : 5)} 分；车内 ${esc(S2.busParams ? S2.busParams.rideMinPerStop : 2)} 分/站；下车后步行 ≤ ${esc(S2.busParams ? S2.busParams.maxWalkFromStopMin : 18)} 分。采用时刻表均值，不是实时到站</td><td class="mid"><span class="tag b">B</span></td></tr>` : ''}
 <tr><td>本报告的<b>通勤口径</b></td><td>${WALK_ONLY
   ? `只认<b>全程步行</b>（学生配置 <code>commuteMode: "walk"</code>）：地铁时间仅作参考，不参与门槛判定与评分；步行争议项按<b>区间上端</b>过闸`
-  : `按「<b>步行 / 地铁取最快</b>」参与门槛判定与评分（学生配置 <code>commuteMode: "fastest"</code>）`}</td><td class="mid"><span class="tag a">A</span></td></tr>
-<tr><td>地铁时间</td><td>自建 MRT 模型（站间 2 分 / 换乘 5 分 / 进站 4 分 + 站到校步行）</td><td class="mid"><span class="tag b">B</span></td></tr>
+  : BUS_ONLY
+    ? `只认「<b>从 Twin Waterfalls 站上车、不换乘公交 + 步行</b>」或<b>纯步行</b>（学生配置 <code>commuteMode: "bus"</code>），取两者较快者过闸与计分；地铁仅作参考列，<b>不参与</b>门槛与评分；步行争议项按<b>区间上端</b>过闸`
+    : `按「<b>步行 / 地铁取最快</b>」参与门槛判定与评分（学生配置 <code>commuteMode: "fastest"</code>）`}</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>地铁时间${BUS_ONLY ? '（本报告不计）' : ''}</td><td>自建 MRT 模型（站间 2 分 / 换乘 5 分 / 进站 4 分 + 站到校步行）</td><td class="mid"><span class="tag b">B</span></td></tr>
 <tr><td>五维加权分数</td><td>本项目评分模型，权重 30/25/15/15/15，CCA 按孩子兴趣加权</td><td class="mid"><span class="tag b">B</span></td></tr>
 </tbody>
 </table>
@@ -780,7 +824,8 @@ ${R.outOfReach.sort((a, b) => b.margin - a.margin).map(x => `<tr><td>${esc(short
   return d.length
     ? `，本池有 ${d.length} 所（${d.map(x => esc(short(x.name)) + ' ' + x.walkRange.join(' vs ')).join('、')}，单位分钟）${WALK_ONLY ? '，已按<b>上端</b>过闸——即使按乐观端算也不会多收进一所，只是排名会小动' : ''}`
     : '，本池内没有争议项';
-})()}。
+})()}。${BUS_ONLY ? `<br>
+④ <b>公交时间是模型值，不是实时到站</b>：候车按 ${S2.busParams ? S2.busParams.waitMin : 5} 分钟、车内按 ${S2.busParams ? S2.busParams.rideMinPerStop : 2} 分钟/站估算，实际班次与拥堵会让它上下浮动 5–10 分钟；<b>只从 ${esc(S2.busBoardingStop ? S2.busBoardingStop.name + ' ' + S2.busBoardingStop.code : '65431')} 单一站上车</b>，马路对面的反向站（65439）按家长口径不纳入；下车后步行超过 ${S2.busParams ? S2.busParams.maxWalkFromStopMin : 18} 分钟的方案不算可达；⑤ <b>地铁完全不计</b>——表中「地铁」列只是让你看到被这并不认同的口径砍掉了什么，不是备选。` : ''}
 </div>
 </section>`;
 
@@ -791,7 +836,7 @@ const TOC = ['录取规则', '候选池', 'COP 与风险', '逐校适配度', '�
    不跨学生比较 —— 否则换一个分数/通勤上限就会印出「多 -2 所」这种话。 */
 const heroSub = typeof PLANS.hero === 'function'
   ? cfgText(PLANS.hero)
-  : `AL <b>${S.score}</b> 分 · ${S.pgShort} · 邮编 ${esc(S.postal)} · ${WALK_ONLY ? '<b>全程步行</b>上限' : '单程上限'} ${S.maxCommute} 分钟。
+  : `AL <b>${S.score}</b> 分 · ${S.pgShort} · 邮编 ${esc(S.postal)} · ${WALK_ONLY ? '<b>全程步行</b>上限' : BUS_ONLY ? '<b>公交不换乘 / 纯步行</b>上限' : '单程上限'} ${S.maxCommute} 分钟。
 主池（混校）<b>${S2.poolMixed} 所</b>，可及总数 ${S2.withinCommuteReachable} 所。
 这份报告要回答的不是「哪所学校最好」，而是「这 ${PLANS.A.picks.length} 个位置怎么排，才在保住录取的同时不浪费孩子的兴趣」。`;
 
@@ -839,7 +884,9 @@ ${TOC.map((t, i) => `  <a href="#s${i + 1}">${'①②③④⑤⑥⑦⑧'[i]} ${e
 每一节末尾的灰框是<b>我的判断</b>，其余是可复核的事实。<b>数据口径</b>：COP 取各校 <b>${S.pgLabel} 行的非附属区间</b>（${SC.meta.copYear} 年度），
 孩子 AL ${S.score} 属 ${S.pgShort}，只与同档学生竞争；通勤${WALK_ONLY
   ? `按<b>全程步行</b>计算（地铁时间仅列出、不参与判定），步行争议项按区间上端过闸`
-  : '按「步行 / 地铁取最快」计算'}，争议项已标注。
+  : BUS_ONLY
+    ? `按「<b>不换乘公交 + 步行 或 纯步行，取较快者</b>」计算（地铁不参与判定），步行争议项按区间上端过闸`
+    : '按「步行 / 地铁取最快」计算'}，争议项已标注。
 </div>
 
 ${STU.id === 'abc3' ? `<div class="note" style="margin-top:14px;border-left-color:var(--warn)">
@@ -861,7 +908,7 @@ ${STEP6}
 <b>生成信息</b>　本报告由 <code>scripts/build-report-plan.cjs</code> 基于学生画像 <code>data/students/${esc(STU.id)}.json</code> 生成，
 数据采集 2026-11，生成于 ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Singapore' })} SGT。<br>
 <b>口径</b>　COP = ${SC.meta.copYear} 年度 S1 Posting 实际录取区间 · 学生 AL ${S.score} / ${S.pgShort} / 邮编 ${esc(S.postal)} / ${WALK_ONLY ? '步行上限' : '通勤上限'} ${S.maxCommute} 分钟（${COMMUTE_SHORT}）·
-步行 = OSM 步行路网 · 地铁 = 自建 MRT 模型${WALK_ONLY ? '（仅参考，不参与判定）' : ''}。<br>
+步行 = OSM 步行路网 · ${BUS_ONLY ? `公交 = Buslah 线路站序 + 候车/站间时间模型（起点 65431，不换乘）· 地铁 = 自建 MRT 模型（仅参考，不参与判定）` : `地铁 = 自建 MRT 模型${WALK_ONLY ? '（仅参考，不参与判定）' : ''}`}。<br>
 <b>免责</b>　个人研究工具输出，非 MOE 官方建议。COP 每年浮动，录取结果受志愿策略、同届竞争与 tie-breaker 影响，本报告不构成录取保证。
 开放日实地确认永远优先于任何二手资料。<br><br>
 <a href="../index.html">← 学校看板</a> ｜ <a href="../map.html">通勤地图</a>

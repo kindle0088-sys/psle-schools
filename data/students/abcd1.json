@@ -1,0 +1,45 @@
+{
+  "id": "abcd1",
+  "label": "abcd1",
+  "createdAt": "2026-11-24",
+  "psle": {
+    "al": 18,
+    "_note": "AL 4–30，越小越好。PG3 = 4–20。与 abc5 / abc6 同为 AL 18，余量结构相同，差别只在通勤口径。"
+  },
+  "home": {
+    "postal": "828765",
+    "address": "110 Punggol Walk, Twin Waterfalls, Singapore 828765",
+    "lat": 1.402186278027678,
+    "lon": 103.8972807400701,
+    "_note": "与 abc3–abc6 完全同址 → 步行路网数据复用（复制为 data/walk-abcd1.json）。"
+  },
+  "constraints": {
+    "maxCommuteMin": 60,
+    "commuteFullMarkMin": 16,
+    "commuteMode": "bus",
+    "boardingStop": {
+      "code": "65431",
+      "name": "Twin Waterfalls",
+      "road": "Punggol Way",
+      "_note": "家长指定的公交站；只从此站上车，仅取该站的下游方向，反向站 65439 不纳入。"
+    },
+    "gender": "any",
+    "hasAffiliation": false,
+    "_note": "家长口径：从 Twin Waterfalls 公交站出发，只坐公交（不换乘）+ 步行，或者纯步行；总共 60 分钟内；通勤评分满分线 16 分钟。项目此前只有步行路网 + 自建 MRT 模型，本次新增 BUS 数据层：起点站 65431（Twin Waterfalls，Punggol Way，家步行 3 分钟到），13 条线路的下游站点 + OSRM 站点到校步行；候车按 5 分钟、车内按 2 分钟/站估算。MRT 完全不参与门槛与评分，只在表格中作为参考列并明确标注不计。"
+  },
+  "citizenship": {
+    "status": "PR",
+    "_note": "永久居民。实质影响：① S1 tie-breaker 顺序 SC > PR > IS，同分输公民；② 政府/政府辅助中学学费 PR 约 S$580–700/月；③ 入学通道不因身份额外设限。"
+  },
+  "interests": {
+    "academic": ["Science", "Computing", "Math", "Languages", "Humanities"],
+    "cca": ["Robotics", "AI", "Drama", "Swimming", "Cooking"],
+    "_note": "与 abc3–abc6 完全一致，顺序即优先级。"
+  },
+  "outputs": {
+    "planSlug": "abcd1-s1-choice-2026",
+    "_note": "报告落地为 docs/reports/<planSlug>.html。"
+  },
+  "notes": "第七个孩子案例。AL 18 / PR / 同址 / 同兴趣；通勤改为「不换乘公交 + 步行 或 纯步行，≤60 分钟」。与 abc6（步行/地铁最快 ≤40）不是同一口径，候选池不可直接比较。",
+  "_生效说明": "commuteMode=bus 需要 data/bus-abcd1.json；纯步行仍取 data/walk-abcd1.json（争议项按区间上端）；MRT 仅参考不计分。"
+}
