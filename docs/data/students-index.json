@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-24T03:58:28.776Z",
+ "generatedAt": "2026-11-24T04:45:51.510Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -64,7 +64,7 @@
    "maxCommuteMin": 45,
    "commuteMode": "fastest",
    "planSlug": "abc2-s1-choice-2026",
-   "updatedAt": "2026-11-24T03:58:27.594Z",
+   "updatedAt": "2026-11-24T04:45:48.958Z",
    "plan": {
     "picks": [
      {
@@ -104,7 +104,7 @@
      "plan"
     ],
     "report": "reports/abc2-s1-choice-2026.html",
-    "generatedAt": "2026-11-24T03:58:27.594Z"
+    "generatedAt": "2026-11-24T04:45:48.958Z"
    }
   },
   {
@@ -116,7 +116,7 @@
    "maxCommuteMin": 40,
    "commuteMode": "walk",
    "planSlug": "abc3-s1-choice-2026",
-   "updatedAt": "2026-11-24T03:58:28.197Z",
+   "updatedAt": "2026-11-24T04:45:49.527Z",
    "plan": {
     "picks": [
      {
@@ -156,7 +156,7 @@
      "plan"
     ],
     "report": "reports/abc3-s1-choice-2026.html",
-    "generatedAt": "2026-11-24T03:58:28.197Z"
+    "generatedAt": "2026-11-24T04:45:49.527Z"
    }
   },
   {
@@ -168,7 +168,7 @@
    "maxCommuteMin": 60,
    "commuteMode": "fastest",
    "planSlug": "abc4-s1-choice-2026",
-   "updatedAt": "2026-11-24T03:58:28.773Z",
+   "updatedAt": "2026-11-24T04:45:50.111Z",
    "plan": {
     "picks": [
      {
@@ -208,7 +208,7 @@
      "plan"
     ],
     "report": "reports/abc4-s1-choice-2026.html",
-    "generatedAt": "2026-11-24T03:58:28.774Z"
+    "generatedAt": "2026-11-24T04:45:50.111Z"
    }
   },
   {
@@ -220,7 +220,7 @@
    "maxCommuteMin": 40,
    "commuteMode": "walk",
    "planSlug": "abc5-s1-choice-2026",
-   "updatedAt": "2026-11-24T03:58:21.617Z",
+   "updatedAt": "2026-11-24T04:45:50.752Z",
    "plan": {
     "picks": [
      {
@@ -260,7 +260,59 @@
      "plan"
     ],
     "report": "reports/abc5-s1-choice-2026.html",
-    "generatedAt": "2026-11-24T03:58:21.617Z"
+    "generatedAt": "2026-11-24T04:45:50.752Z"
+   }
+  },
+  {
+   "id": "abc6",
+   "label": "abc6",
+   "al": 18,
+   "pgShort": "PG3",
+   "postal": "828765",
+   "maxCommuteMin": 40,
+   "commuteMode": "fastest",
+   "planSlug": "abc6-s1-choice-2026",
+   "updatedAt": "2026-11-24T04:45:51.507Z",
+   "plan": {
+    "picks": [
+     {
+      "slot": 1,
+      "name": "Compassvale Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 2,
+      "name": "Yuying Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 3,
+      "name": "Bendemeer Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 4,
+      "name": "Bartley Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 5,
+      "name": "Hougang Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 6,
+      "name": "Punggol Secondary School",
+      "tier": "冲刺"
+     }
+    ],
+    "poolMixed": 12,
+    "withinCommuteReachable": 13,
+    "kinds": [
+     "plan"
+    ],
+    "report": "reports/abc6-s1-choice-2026.html",
+    "generatedAt": "2026-11-24T04:45:51.507Z"
    }
   }
  ]

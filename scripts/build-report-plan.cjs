@@ -244,7 +244,7 @@ ${IS_PR ? `
 <h3>③ SAP 学校：孩子<b>用不上</b>那个优势（这条最容易误解）</h3>
 <div class="warnbox">
 <b>事实：</b>高级华文（HCL）的 posting advantage 有<b>两个前置条件同时成立</b>——① HCL 考到 Pass / Merit / Distinction；② <b>PSLE 总分 ≤ 14</b>。
-孩子是 <b>AL ${S.score}</b>，比 14 高 1 分，<b>即使高华考了 Distinction 也拿不到这个优先权</b>，只能按普通 COP 竞争。
+孩子是 <b>AL ${S.score}</b>${S.score > 14 ? `，比 14 高 ${S.score - 14} 分` : '，已满足总分门槛（若高华等级也达标，才可能享有优势）'}，<b>${S.score > 14 ? '即使高华考了 Distinction 也拿不到这个优先权' : '高华优势仍需等级达标才成立'}</b>，只能按普通 COP 竞争。
 <br><br>
 <b>判断：</b>所以「可以考虑 SAP 学校」这一条，在 ${S.score} 分这个位置实际上是不成立的。SAP 校的 COP 普遍在 4–12，本案例 ${SAP_TXT}。详见第三步。
 </div>

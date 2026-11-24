@@ -1,0 +1,39 @@
+{
+  "id": "abc6",
+  "label": "abc6",
+  "createdAt": "2026-11-24",
+  "psle": {
+    "al": 18,
+    "_note": "AL 4–30，越小越好。PG3 = 4–20。与 abc5 同为 AL 18，余量结构相同，差别只在通勤口径。"
+  },
+  "home": {
+    "postal": "828765",
+    "address": "110 Punggol Walk Twin Waterfalls Singapore 828765",
+    "lat": 1.402186278027678,
+    "lon": 103.8972807400701,
+    "_note": "与 abc3 / abc4 / abc5 完全同址 → 步行路网数据复用 data/walk-abc3.json（复制为 walk-abc6.json）。"
+  },
+  "constraints": {
+    "maxCommuteMin": 40,
+    "commuteFullMarkMin": 16,
+    "commuteMode": "fastest",
+    "gender": "any",
+    "hasAffiliation": false,
+    "_note": "与 abc5 的唯一实质差别：abc5 只认全程步行（commuteMode=walk），abc6 按「步行 / 地铁取最快」过闸（commuteMode=fastest），上限仍 40 分钟、满分线 16 分钟。家长表述为「走路 + 公交和地铁」；⚠️ 项目数据只有步行路网 + 自建 MRT 模型，没有独立公交路网，故按 fastest 口径实现并在报告与信息图中明确标注这一边界，不假装算进了公交。"
+  },
+  "citizenship": {
+    "status": "PR",
+    "_note": "永久居民。对 S1 Posting 的实质影响：① tie-breaker 公民 > PR > 国际学生，同分输给公民；② 政府/政府辅助中学学费 PR 约 S$580–700/月，公民约 S$25/月；③ 入学通道（S1 / DSA / SAP / IP）不因身份额外设限。来源：MOE tie-breakers + MOE school fees。"
+  },
+  "interests": {
+    "academic": ["Science", "Computing", "Math", "Languages", "Humanities"],
+    "cca": ["Robotics", "AI", "Drama", "Swimming", "Cooking"],
+    "_note": "与 abc3 / abc4 / abc5 完全一致，顺序即优先级。"
+  },
+  "outputs": {
+    "planSlug": "abc6-s1-choice-2026",
+    "_note": "报告落地为 docs/reports/<planSlug>.html。"
+  },
+  "notes": "第六个孩子案例。与 abc5 同为 AL 18 + PR + 同址 + 同兴趣，唯一变化是通勤口径：从「只认全程步行 ≤40 分钟」改为「步行 / 地铁取最快 ≤40 分钟」（家长表述为『走路➕坐公交和地铁』，项目无公交路网，按 fastest 实现并标注）。预期池子会从 abc5 的 4 所显著扩大，地铁可达的邻里中学重新入池；PR 同分劣势不变。",
+  "_生效说明": "参与计算字段同 abc5，唯 commuteMode 由 walk 改 fastest；citizenship.status 仅供文案/PR 专段，不参与评分算法。"
+}

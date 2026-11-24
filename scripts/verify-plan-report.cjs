@@ -142,6 +142,11 @@ t('给出「别过度解读」的边界', /PG1 有余额 ≠ PG3 门槛会降/.t
 t('写明 2026 届 COP 要 12 月才出', /12 月/.test(text) && /COP/.test(text));
 t('三条 tie-breaker 齐全', /公民/.test(text) && /志愿顺序/.test(text) && /抽签/.test(text));
 t('SAP 高华条件写对（PSLE ≤ 14）', /≤ 14|14 或更好|14 分/.test(text) && /高华|HCL/.test(text));
+/* 旧模板写死「比 14 高 1 分」，AL≠15 时直接印错。这里从学生分数反查。 */
+if (S.score > 14) {
+  t(`SAP 分差与学生分数一致（比 14 高 ${S.score - 14} 分）`,
+    text.includes(`比 14 高 ${S.score - 14} 分`) && (S.score === 15 || !text.includes('比 14 高 1 分')));
+}
 t('明确说明本案例用不上 SAP 优势', /用不上|不成立|拿不到/.test(text));
 t('附属学校规则说明（20% 学额）', /20%/.test(text) || /非附属生/.test(text));
 t('踩线按高风险处理', /踩线/.test(text) && /高/.test(text));
