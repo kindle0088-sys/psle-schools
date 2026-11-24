@@ -484,8 +484,10 @@ const STEP4 = `
 <p class="lead">下面按九项逐所评估。先看方案 A 的 ${DETAIL_PICKS.length} 所${FOCUS_PAIR.length ? `，再看 ${FOCUS_PAIR.length} 所关键对照（${FOCUS_PAIR.map(n => short(n)).join('、')}）` : ''}。其余学校的结论汇总在第五步的表里。</p>
 
 ${DETAIL_PICKS.map(n => {
-  const x = byName.get(n);
-  if (!x) return '';                       // 不在主池 → 不渲染空卡片
+  /* 方案 A 可以包含「分数差一点」的冲刺校（如 abc5 的 Greendale / Yusof Ishak），
+     它们不在主池但在 outOfReach。用全量查找表，否则卡片被静默跳过、验证器只报缺卡片。 */
+  const x = byNameAll.get(n);
+  if (!x) return '';                       // 数据里根本没有 → 不渲染空卡片
   const p = PLANS.A.picks.find(z => z.name === n) || {};
   const d = DETAIL[n] || {};
   return schoolCard(x, {
@@ -500,7 +502,7 @@ ${DETAIL_PICKS.map(n => {
 ${FOCUS_PAIR.length ? `<h3>关键对照：${FOCUS_PAIR.map(n => esc(short(n))).join(' / ')}</h3>
 <p>这 ${FOCUS_PAIR.length} 所不在方案 A 的 6 个位置里，但值得看懂——这样才能理解「为什么不选」和「什么时候该选」。</p>
 ${FOCUS_PAIR.map(n => {
-  const x = byName.get(n);
+  const x = byNameAll.get(n);
   return x ? schoolCard(x, { ...(DETAIL[n] || {}) }) : '';
 }).join('\n')}` : ''}
 

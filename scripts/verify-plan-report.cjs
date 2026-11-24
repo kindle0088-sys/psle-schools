@@ -156,9 +156,15 @@ if (String(citizenStatus || '').toUpperCase() === 'PR') {
   t('PR 身份已标注', /永久居民|PR/.test(text));
   t('tie-breaker 写明 PR 排公民之后', /孩子是 PR，排第二档|公民\s*>\s*.*PR|新加坡公民.*永久居民/.test(text) && /输给公民/.test(text));
   t('PR 专段三处影响齐全', /孩子是永久居民（PR）：三处实际影响/.test(text) && /580.?700/.test(text));
-  t('通勤上限与配置一致（60 分钟）', S.maxCommute === 60 && new RegExp(`≤\\s*${S.maxCommute}\\s*分钟`).test(text),
+  /* 通勤上限不能写死 60（那是 abc4 的）：abc5 同为 PR 但走 walk / 40 分钟。 */
+  t(`通勤上限与配置一致（${S.maxCommute} 分钟）`,
+    new RegExp(`≤\\s*${S.maxCommute}\\s*分钟`).test(text),
     `配置 ${S.maxCommute}，报告是否写明`);
-  t('fastest 口径写明「取最快」', /取最快/.test(text) && S.commuteMode === 'fastest');
+  if (S.commuteMode === 'fastest') {
+    t('fastest 口径写明「取最快」', /取最快/.test(text));
+  } else {
+    t('PR + walk 口径写明「只认全程步行」', /只认.?全程步行/.test(text));
+  }
 } else {
   t('非 PR 学生不出现 PR 专段', !/孩子是永久居民（PR）：三处实际影响/.test(text));
 }

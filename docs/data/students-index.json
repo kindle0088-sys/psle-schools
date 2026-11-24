@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-23T03:27:23.122Z",
+ "generatedAt": "2026-11-24T03:58:28.776Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -64,7 +64,7 @@
    "maxCommuteMin": 45,
    "commuteMode": "fastest",
    "planSlug": "abc2-s1-choice-2026",
-   "updatedAt": "2026-11-23T03:27:22.749Z",
+   "updatedAt": "2026-11-24T03:58:27.594Z",
    "plan": {
     "picks": [
      {
@@ -104,7 +104,7 @@
      "plan"
     ],
     "report": "reports/abc2-s1-choice-2026.html",
-    "generatedAt": "2026-11-23T03:27:22.750Z"
+    "generatedAt": "2026-11-24T03:58:27.594Z"
    }
   },
   {
@@ -116,7 +116,7 @@
    "maxCommuteMin": 40,
    "commuteMode": "walk",
    "planSlug": "abc3-s1-choice-2026",
-   "updatedAt": "2026-11-23T03:27:22.928Z",
+   "updatedAt": "2026-11-24T03:58:28.197Z",
    "plan": {
     "picks": [
      {
@@ -156,7 +156,7 @@
      "plan"
     ],
     "report": "reports/abc3-s1-choice-2026.html",
-    "generatedAt": "2026-11-23T03:27:22.929Z"
+    "generatedAt": "2026-11-24T03:58:28.197Z"
    }
   },
   {
@@ -168,7 +168,7 @@
    "maxCommuteMin": 60,
    "commuteMode": "fastest",
    "planSlug": "abc4-s1-choice-2026",
-   "updatedAt": "2026-11-23T03:27:23.118Z",
+   "updatedAt": "2026-11-24T03:58:28.773Z",
    "plan": {
     "picks": [
      {
@@ -208,7 +208,59 @@
      "plan"
     ],
     "report": "reports/abc4-s1-choice-2026.html",
-    "generatedAt": "2026-11-23T03:27:23.118Z"
+    "generatedAt": "2026-11-24T03:58:28.774Z"
+   }
+  },
+  {
+   "id": "abc5",
+   "label": "abc5",
+   "al": 18,
+   "pgShort": "PG3",
+   "postal": "828765",
+   "maxCommuteMin": 40,
+   "commuteMode": "walk",
+   "planSlug": "abc5-s1-choice-2026",
+   "updatedAt": "2026-11-24T03:58:21.617Z",
+   "plan": {
+    "picks": [
+     {
+      "slot": 1,
+      "name": "Compassvale Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 2,
+      "name": "Punggol Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 3,
+      "name": "Seng Kang Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 4,
+      "name": "North Vista Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 5,
+      "name": "Greendale Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 6,
+      "name": "Yusof Ishak Secondary School",
+      "tier": "冲刺"
+     }
+    ],
+    "poolMixed": 4,
+    "withinCommuteReachable": 4,
+    "kinds": [
+     "plan"
+    ],
+    "report": "reports/abc5-s1-choice-2026.html",
+    "generatedAt": "2026-11-24T03:58:21.617Z"
    }
   }
  ]
