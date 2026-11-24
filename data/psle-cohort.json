@@ -1,7 +1,7 @@
 {
   "_note": "PSLE 考生人数与出生基数。这是 COP 年际波动的上游变量：考生多 → 同一批学额被更多人抢 → 热门校 COP 数值下行（门槛收紧）。所有数字都标了来源等级，A = 官方新闻稿可核，B = 项目推算。",
-  "updatedAt": "2026-11-14",
-  "revision": "2026-11-14 修订：① 更正「S1 Portal 可查逐校 vacancies」的错误表述（官方定义中无此项）② 均值口径 5 年→6 年 ③ 统一 COP 方向的表述（数值下行 = 门槛收紧）④ 补 Sec 1 班均与在册交叉校验 ⑤ 补 MOE 分配结果的概率基准 ⑥ 补 2026 时间线",
+  "updatedAt": "2026-11-24",
+  "revision": "2026-11-24 修订：① 回填 SEAB 官方 2026 考生数 40,906 与适合升读 98.5%（原为预测 ≈40,800 / 未公布）② 补 2022–2026 五年官方对照：考生数、同比、适合升读比例 ③ 2026 参与 S1 Posting 学校数 141 ④ 时间线改为官方已确认日期 ⑤ 模型点估计保留为事后回看，不再当官方值。2026-11-14 修订：① 更正「S1 Portal 可查逐校 vacancies」的错误表述（官方定义中无此项）② 均值口径 5 年→6 年 ③ 统一 COP 方向的表述（数值下行 = 门槛收紧）④ 补 Sec 1 班均与在册交叉校验 ⑤ 补 MOE 分配结果的概率基准 ⑥ 补 2026 时间线",
   "sources": {
     "seab": "SEAB / MOE 每年 'Release of PSLE Results' 新闻稿（考生总人数、参与 S1 Posting 的学校数）",
     "esd": "MOE Education Statistics Digest 2026 统计表（在册人数、班级数、学校数）",
@@ -33,6 +33,8 @@
       "citizenBirths": [30000, 30000],
       "psleCandidates": 37095,
       "psleSource": "A",
+      "suitablePct": 98.4,
+      "suitableSource": "A",
       "forecast": null,
       "forecastNote": "明显高估（早期误用总出生数）",
       "note": "回测偏差最大的年份。总出生数 ≠ 公民出生数，是这一年暴露出来的"
@@ -43,6 +45,8 @@
       "citizenBirths": [31000, 31700],
       "psleCandidates": 38088,
       "psleSource": "A",
+      "suitablePct": 98.4,
+      "suitableSource": "A",
       "forecast": [37900, 38900],
       "note": "拟合最好的年份之一，误差仅数百人"
     },
@@ -53,6 +57,8 @@
       "citizenBirths": [32400, 33200],
       "psleCandidates": 40894,
       "psleSource": "A",
+      "suitablePct": 98.5,
+      "suitableSource": "A",
       "forecast": [40200, 41200],
       "note": "龙年基数抬升 → 考生人数高峰；COP 数值普遍下行（见 cases）"
     },
@@ -62,6 +68,8 @@
       "citizenBirths": [31000, 31700],
       "psleCandidates": 37926,
       "psleSource": "A",
+      "suitablePct": 98.5,
+      "suitableSource": "A",
       "forecast": [38000, 39000],
       "note": "模型轻微高估数百人，趋势判断正确"
     },
@@ -69,11 +77,14 @@
       "year": 2026,
       "birthYear": 2014,
       "citizenBirths": [33000, 33000],
-      "psleCandidates": null,
-      "psleSource": "pending",
+      "psleCandidates": 40906,
+      "psleSource": "A",
+      "suitablePct": 98.5,
+      "suitableSource": "A",
       "forecast": [40000, 41000],
       "forecastPoint": 40800,
-      "note": "预测值。基于修订后的公民出生基数（约 33,000），不是总出生数 42,232。SEAB 公布的暂定放榜窗口为 2026-11-24 或 11-25"
+      "forecastNote": "模型当时点估计，仅作事后回看；实际 40,906 落在区间内，误差 -106 人",
+      "note": "官方值，SEAB / MOE 2026-11-24《Release of 2026 PSLE Results》：40,906 人应考，98.5% 评定适合升读中学。与 2024 龙年峰值 40,894 仅差 12 人。"
     }
   ],
   "ratioBacktest": {
@@ -90,7 +101,15 @@
     "max": 1.2697,
     "mean": 1.2376,
     "base2026": 33000,
-    "bandFor2026": [39900, 41900]
+    "bandFor2026": [39900, 41900],
+    "actual2026": {
+      "_note": "事后验证，不并入训练样本：min/max/mean 仍只用 2020–2025，否则会有 look-ahead bias（用答案验证自己）。",
+      "candidates": 40906,
+      "ratio": 1.2396,
+      "withinBand": true,
+      "pointError": -106,
+      "pointErrorPct": -0.3
+    }
   },
   "postingOutcomes": {
     "_note": "MOE 对 2024 龙年那届 S1 Posting 结果的说明（Straits Times 引述 MOE 发言人）。这是「落空」这件事的基准概率 —— 不给基准只说「有人全落空」，会让人误判风险量级。",
@@ -125,6 +144,7 @@
     "sec1AverageClassSize": 34.9,
     "secondarySchoolsPure": 131,
     "mixedLevelSchools": 16,
+    "schoolsInS1Posting2026": 141,
     "schoolsInS1Posting2025": 141,
     "schoolsInS1Posting2024": 140,
     "avgSec1PerSchool": 292,
@@ -138,10 +158,12 @@
     }
   },
   "timeline2026": {
-    "_note": "MOE S1 Posting 官网与 SEAB 重要日期页（2026-11 核对）。2026 届考生 2027 年 1 月才入学，所以「学额」指的是 2027 S1 intake。",
-    "psleResults": "2026-11-24 或 11-25（暂定，11:00 放榜）",
-    "choiceWindow": "放榜日起 7 个日历日（11:30 开放 → 最后一日 16:30 截止）",
-    "postingResults": "2026-12-18（暂定）",
-    "enrolment": "2027 年 1 月入学"
+    "_note": "SEAB 2026-11-24《Release of 2026 PSLE Results》与 MOE S1 Posting 官网核对。2026 届考生 2027 年 1 月才入学，所以「学额」指的是 2027 S1 intake。",
+    "psleResults": "2026-11-24（官方，11:00 放榜）",
+    "choiceWindow": "2026-11-24 11:30 – 2026-11-30 16:30（7 个日历日）",
+    "postingResults": "2026-12-18（tentative，官方暂定）",
+    "enrolment": "2027 年 1 月入学",
+    "schoolsInS1": 141,
+    "eligiblePct": 98.5
   }
 }

@@ -12,6 +12,12 @@
  *   这条断言本身在**强制页面保留一个错误事实**（S1 Portal 并不显示学额）。
  *   教训：断言只能验「有没有说」，不能验「说得对不对」——
  *   凡是把某个具体说法写进断言，就要同时问一句「这个说法本身核实过吗」。
+ *
+ * ⚠️ 2026-11-24 再次撞上同一个坑：旧断言
+ *     t('2026 标注为推算', /推算|预测/.test(text) && text.includes('40,800'))
+ *     t('写明官方 2026 人数尚未公布', /未公布/.test(text) && /11-24|11-25/.test(text))
+ *   在页面已改为官方 40,906 后**依然全绿**——因为修订记录里还留着「原为预测 / 未公布」这些字。
+ *   所以本版把断言改为：跟随 JSON 的官方值 + 反向断言 + 只在正文（剥掉修订记录）里查旧说法。
  */
 const fs = require('fs');
 const path = require('path');
@@ -32,6 +38,12 @@ const t = (name, ok, detail = '') => {
   else { fail++; console.log('  ❌ ' + name + (detail ? ' — ' + detail : '')); }
 };
 const known = D.years.filter(y => y.psleCandidates);
+const CUR = D.years[D.years.length - 1];                 // 2026：官方已公布
+const MODEL = D.years.find(y => y.forecastPoint);        // 当时的模型点估计，只作回看
+const FIVE = D.years.filter(y => y.suitablePct);         // 2022–2026 官方适合升读比例
+/* 修订记录里会写「原为预测 / 未公布」这类历史描述，查旧说法时必须剥掉，否则假阳性 */
+const body = text.split('本次修订')[0];
+const notSuitable = y => Math.round(y.psleCandidates * (100 - y.suitablePct) / 100);
 
 console.log('\n══ 一、结构与残留');
 t('无未替换变量', !/\$\{|undefined|NaN/.test(html));
@@ -45,9 +57,30 @@ t('无裸露的 Markdown 标记', !/\*\*/.test(html.replace(/<style[\s\S]*?<\/st
 console.log('\n══ 二、官方数字一致性');
 const bad = known.filter(y => !text.includes(y.psleCandidates.toLocaleString('en-US')));
 t(`官方考生数全部出现（${known.length} 年）`, bad.length === 0, bad.map(y => y.year).join(',') || '全部一致');
-t('2026 标注为推算', /推算|预测/.test(text) && text.includes('40,800'));
-t('写明官方 2026 人数尚未公布', /未公布/.test(text) && /11-24|11-25/.test(text));
-t('参与 S1 Posting 的学校数用官方值', text.includes(String(D.capacity.schoolsInS1Posting2025)));
+t('2026 用官方实数并标 A 级',
+  text.includes(CUR.psleCandidates.toLocaleString('en-US')) &&
+  /Release of 2026 PSLE Results/.test(text) && /A 级/.test(text),
+  `${CUR.year}: ${CUR.psleCandidates.toLocaleString('en-US')}`);
+t('正文不再声称 2026 人数未公布', !/(?:2026|今年)[^。；\n]{0,40}未公布/.test(body));
+t('模型点估计只作事后回看',
+  text.includes(MODEL.forecastPoint.toLocaleString('en-US')) &&
+  /回看|点估计/.test(text) && /不能混用|不是官方值/.test(text),
+  `模型 ${MODEL.forecastPoint} vs 官方 ${CUR.psleCandidates}`);
+t('五年适合升读比例全部出现',
+  FIVE.every(y => text.includes(y.suitablePct.toFixed(1) + '%')),
+  FIVE.map(y => `${y.year}:${y.suitablePct}%`).join(' '));
+t('五年同比与官方考生数自洽', FIVE.slice(1).every(y => {
+  const prev = D.years[D.years.indexOf(y) - 1];
+  const pct = ((y.psleCandidates - prev.psleCandidates) / prev.psleCandidates * 100).toFixed(1);
+  return text.includes((+pct > 0 ? '+' : '') + pct + '%');
+}));
+t('倒推未适合人数出现且标注为估算',
+  /倒推未适合/.test(text) && /估算/.test(text) &&
+  FIVE.every(y => text.includes('≈ ' + notSuitable(y).toLocaleString('en-US'))),
+  FIVE.map(y => `${y.year}:≈${notSuitable(y)}`).join(' '));
+t('参与 S1 Posting 的学校数用官方值',
+  [D.capacity.schoolsInS1Posting2026, D.capacity.schoolsInS1Posting2025, D.capacity.schoolsInS1Posting2024]
+    .every(v => text.includes(String(v))));
 
 console.log('\n══ 三、口径算术（这几条都是上一版错过的）');
 /* 上一版把 6 年（2020–2025）的均值标成「5 年均值」 */
@@ -112,10 +145,14 @@ t('区分「总量够」与「逐校不够」', /总量/.test(text) && /不保�
 t('有独立旁证（联合早报 25 所）', /25 所/.test(text));
 
 console.log('\n══ 八、时间线与口径');
-t('2026 时间线含分配结果日', text.includes('2026-12-18'));
+t('2026 时间线含分配结果日', text.includes(D.timeline2026.postingResults.split('（')[0]));
 t('写明入学年份是 2027', /2027 年 1 月/.test(text));
-t('标出「暂定」性质', /暂定/.test(text));
-t('柱状图截断轴已说明', /从 36,000 起/.test(text) && /不是 0/.test(text));
+t('放榜标为官方，暂定只留给派位结果',
+  /2026-11-24（官方/.test(text) && /派位结果仍标 tentative/.test(text));
+t('2026 填报窗口用官方时刻', /11:30/.test(text) && /11-30 16:30/.test(text));
+const axisFloor = Math.floor((Math.min(...known.map(y => y.psleCandidates)) - 900) / 1000) * 1000;
+t('柱状图截断轴已说明',
+  text.includes('从 ' + axisFloor.toLocaleString('en-US') + ' 起') && /不是 0/.test(text));
 t('标出来源等级', html.includes('class="tag a"') || html.includes('class="src a"'));
 t('说明公民出生数 vs 总出生数', /公民出生数/.test(text) && /总出生数/.test(text));
 t('无承诺式表述', !/(一定|必然|百分之百)\s*(能|可以)?\s*(进|录取)/.test(text));

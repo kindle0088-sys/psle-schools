@@ -26,12 +26,25 @@ const KNOWN = D.years.filter(y => y.psleCandidates);
 const MAX = Math.max(...KNOWN.map(y => y.psleCandidates));
 const MIN = Math.min(...KNOWN.map(y => y.psleCandidates));
 const AVG = Math.round(KNOWN.reduce((a, y) => a + y.psleCandidates, 0) / KNOWN.length);
+/* 2026 已是官方值（A），不再是「预测」。MODEL 只留作事后回看 ——
+   把模型的 ≈40,800 当今年的数字，是这一页上一版最严重的错。 */
+const CURRENT = D.years[D.years.length - 1];
+const PREV = D.years[D.years.indexOf(CURRENT) - 1];
+const MODEL = D.years.find(y => y.forecastPoint);
+/* 只有官方明确公布「适合升读」比例的年份才进五年对照；2020/2021 本轮没核到，留空不猜 */
+const FIVE = D.years.filter(y => y.suitablePct);
+const AXIS_FLOOR = Math.floor((MIN - 900) / 1000) * 1000;
 
 const yoy = y => {
   const prev = D.years[D.years.indexOf(y) - 1];
   if (!prev || !prev.psleCandidates || !y.psleCandidates) return null;
   return ((y.psleCandidates - prev.psleCandidates) / prev.psleCandidates) * 100;
 };
+const yoyAbs = y => {
+  const prev = D.years[D.years.indexOf(y) - 1];
+  return prev && prev.psleCandidates ? y.psleCandidates - prev.psleCandidates : null;
+};
+const notSuitable = y => Math.round(y.psleCandidates * (100 - y.suitablePct) / 100);
 
 /* 柱状图：用行内宽度，不引依赖 */
 const bar = (v, label, sub, highlight) => {
@@ -43,7 +56,6 @@ const bar = (v, label, sub, highlight) => {
   </div>${sub ? `<div style="font-size:11.5px;color:var(--tx3);margin:-2px 0 6px 96px">${sub}</div>` : ''}`;
 };
 
-const forecastRow = D.years.find(y => y.forecastPoint);
 
 const html = `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -79,18 +91,20 @@ ${CSS}
   <div class="wrap">
     <a class="backlink" href="index.html">← 返回学校看板</a>
     <div class="eyebrow">PSLE · 上游变量</div>
-    <h1>考生人数与学额<small>2020–2026 年新加坡 PSLE 考生数、出生基数与学校学额</small></h1>
+    <h1>考生人数与学额<small>2020–2026 年新加坡 PSLE 考生数、适合升读比例、出生基数与学校学额</small></h1>
     <div class="sub">
       <b>COP 不是随机浮动的。</b>它的上游是两件事：这一届有多少考生，以及学校有多少学额。
-      2024 年考生一年内从 ${n(38088)} 涨到 ${n(40894)}（<b>+7.4%</b>），Raffles Girls' 的 COP 数值从 6 收紧到 5、
-      St Patrick's 从 14 收紧到 11——有孩子拿 12 分却六个志愿全落空。<b>这张表就是为了让你在填志愿前知道今年站在哪一年的水位上。</b>
+      官方刚公布的 2026 届有 <b>${n(CURRENT.psleCandidates)}</b> 人应考、<b>${CURRENT.suitablePct}%</b> 评定适合升读中学——
+      比 2025 年多 ${n(yoyAbs(CURRENT))} 人（<b>+${yoy(CURRENT).toFixed(1)}%</b>），几乎回到 2024 龙年峰值（${n(D.cases.psleCandidates)}）。
+      2024 年 Raffles Girls' 的 COP 数值从 6 收紧到 5、St Patrick's 从 14 收紧到 11——有孩子拿 12 分却六个志愿全落空。
+      <b>这张表就是为了让你在填志愿前知道今年站在哪一年的水位上。</b>
     </div>
     <div class="profile">
-      <div><div class="k">2025 考生</div><div class="v">${n(37926)}</div></div>
-      <div><div class="k">2026 预测</div><div class="v">≈ ${n(forecastRow.forecastPoint)}</div></div>
+      <div><div class="k">2026 考生</div><div class="v">${n(CURRENT.psleCandidates)}</div></div>
+      <div><div class="k">适合升读</div><div class="v">${CURRENT.suitablePct}%</div></div>
       <div><div class="k">${KNOWN.length} 年均值</div><div class="v">${n(AVG)}</div></div>
-      <div><div class="k">2026 vs 2025</div><div class="v">+${(((forecastRow.forecastPoint - 37926) / 37926) * 100).toFixed(1)}%</div></div>
-      <div><div class="k">Sec 1 在册</div><div class="v">${n(D.capacity.sec1Enrolment)}</div></div>
+      <div><div class="k">2026 vs 2025</div><div class="v">+${yoy(CURRENT).toFixed(1)}%</div></div>
+      <div><div class="k">近五年区间</div><div class="v">${n(Math.min(...FIVE.map(y => y.psleCandidates)))}–${n(Math.max(...FIVE.map(y => y.psleCandidates)))}</div></div>
       <div><div class="k">平均每校</div><div class="v">≈ ${D.capacity.avgSec1PerSchool}</div></div>
     </div>
   </div>
@@ -118,24 +132,46 @@ ${CSS}
 
 <section>
 <h2 id="s1"><span class="n">01</span>七年考生数：一个完整的起伏</h2>
-<p class="lead">从 2020 到 2025 是一条完整的波浪：${n(39995)} → ${n(39119)} → <b>${n(37095)}（谷底）</b> → ${n(38088)} → <b>${n(40894)}（峰值，龙年）</b> → ${n(37926)}。峰谷差 <b>${n(40894 - 37095)}</b> 人，相当于 ${((40894 - 37095) / 37095 * 100).toFixed(0)}%。</p>
+<p class="lead">从 2020 到 2026 是一条完整的波浪：${KNOWN.map(y => n(y.psleCandidates) + (y.year === 2022 ? '（谷底）' : y.year === 2024 ? '（龙年峰值）' : y.year === CURRENT.year ? '（官方，七年最高）' : '')).join(' → ')}。峰谷差 <b>${n(MAX - MIN)}</b> 人，相当于 ${((MAX - MIN) / MIN * 100).toFixed(1)}%。2026 年的 ${n(MAX)} 是官方实数，不是推算。</p>
 
 ${KNOWN.map(y => bar(
   y.psleCandidates,
   `${y.year}`,
-  y.year === 2024 ? '龙年 · 峰值' : y.year === 2022 ? '谷底' : (yoy(y) != null ? `同比 ${yoy(y) > 0 ? '+' : ''}${yoy(y).toFixed(1)}%` : ''),
-  y.year === 2024 || y.year === 2022
+  y.year === CURRENT.year ? '官方 · 七年最高' : y.year === 2024 ? '龙年 · 上一个峰值' : y.year === 2022 ? '谷底' : (yoy(y) != null ? `同比 ${yoy(y) > 0 ? '+' : ''}${yoy(y).toFixed(1)}%` : ''),
+  y.year === CURRENT.year || y.year === 2024 || y.year === 2022
 )).join('\n')}
 
-<p class="soft" style="font-size:12.4px">柱状图纵轴从 36,000 起画（不是 0）——因为六年区间只有 ${n(40894 - 37095)} 人、约 ${((40894 - 37095) / 37095 * 100).toFixed(0)}%，从 0 起画会全部拉平看不出起伏。<b>看长度对比可以，看比例不行</b>；要比例请用下表。</p>
+<p class="soft" style="font-size:12.4px">柱状图纵轴从 ${n(AXIS_FLOOR)} 起画（不是 0）——因为七年区间只有 ${n(MAX - MIN)} 人、约 ${((MAX - MIN) / MIN * 100).toFixed(1)}%，从 0 起画会全部拉平看不出起伏。<b>看长度对比可以，看比例不行</b>；要比例请用下表。</p>
 
-<h3>完整对照表</h3>
+<h3>近五年官方对照（2022–2026）</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr>
+  <th class="mid">年份</th><th class="mid">考生人数</th><th class="mid">同比</th>
+  <th class="mid">适合升读</th><th class="mid">倒推未适合</th><th>水位判断</th>
+</tr></thead>
+<tbody>
+${FIVE.map(y => `<tr>
+  <td class="num mid"><b>${y.year}</b></td>
+  <td class="num mid">${n(y.psleCandidates)}</td>
+  <td class="num mid">${yoy(y) == null ? '—' : `${yoy(y) > 0 ? '+' : ''}${yoy(y).toFixed(1)}%`}</td>
+  <td class="num mid">${y.suitablePct.toFixed(1)}%</td>
+  <td class="num mid">≈ ${n(notSuitable(y))}</td>
+  <td class="soft" style="font-size:12.4px">${y.year === 2024 ? '龙年 · 上一个峰值' : y.year === CURRENT.year ? `官方 · 与 2024 峰值仅差 ${n(y.psleCandidates - D.cases.psleCandidates)} 人` : y.year === 2022 ? '谷底 · 相对宽松' : y.year === 2025 ? '回落 · 相对宽松' : '温和回升'}</td>
+</tr>`).join('\n')}
+</tbody>
+</table>
+</div>
+<p class="soft" style="font-size:12.4px">「倒推未适合」= 考生数 ×（100 − 公布百分比）。官方只给四舍五入后的百分比，<b>这一列是估算，不是官方人数</b>。
+适合升读比例五年只从 ${FIVE[0].suitablePct.toFixed(1)}% 变到 ${FIVE[FIVE.length - 1].suitablePct.toFixed(1)}%，<b>真正波动的是考生数，不是合格比例</b>。</p>
+
+<h3>完整对照表（含出生基数）</h3>
 <div style="overflow-x:auto">
 <table>
 <thead><tr>
   <th class="mid">PSLE 年份</th><th class="mid">对应出生年</th>
   <th class="mid">公民出生数<br><span class="soft">推算基数</span></th>
-  <th class="mid">官方考生数</th>
+  <th class="mid">官方考生数</th><th class="mid">适合升读</th>
   <th class="mid">推算区间</th><th>备注</th>
 </tr></thead>
 <tbody>
@@ -144,12 +180,14 @@ ${D.years.map(y => `<tr>
   <td class="num mid">${y.birthYear}${y.birthYearNote ? `<br><span class="soft" style="font-size:11px">${y.birthYearNote}</span>` : ''}</td>
   <td class="num mid">${y.citizenBirths[0] === y.citizenBirths[1] ? '约 ' + n(y.citizenBirths[0]) : n(y.citizenBirths[0]) + '–' + n(y.citizenBirths[1])}</td>
   <td class="num mid">${y.psleCandidates ? '<b>' + n(y.psleCandidates) + '</b>' : '<span class="soft">未公布</span>'}</td>
-  <td class="num mid">${y.forecast ? n(y.forecast[0]) + '–' + n(y.forecast[1]) : (y.forecastPoint ? '≈ ' + n(y.forecastPoint) : '<span class="soft">' + esc(y.forecastNote || '—') + '</span>')}</td>
+  <td class="num mid">${y.suitablePct ? y.suitablePct.toFixed(1) + '%' : '<span class="soft">—</span>'}</td>
+  <td class="num mid">${y.forecastPoint ? '<span class="soft">模型回看 ≈ ' + n(y.forecastPoint) + '</span>' : (y.forecast ? n(y.forecast[0]) + '–' + n(y.forecast[1]) : '<span class="soft">' + esc(y.forecastNote || '—') + '</span>')}</td>
   <td class="soft" style="font-size:12.4px">${esc(y.note)}</td>
 </tr>`).join('\n')}
 </tbody>
 </table>
 </div>
+<p class="soft" style="font-size:12.4px">2020、2021 的「适合升读」本轮未核到官方原文，留空不猜；2026 的「模型回看」是当时预测值，<b>不是官方数字</b>。</p>
 </section>
 
 <section>
@@ -214,7 +252,7 @@ ${md(D.cases.narrative)}
 <tr><td><b>Sec 1 在册人数</b></td><td class="num mid"><b>${n(D.capacity.sec1Enrolment)}</b></td><td class="soft">2025 学年在校的 Sec 1（即 2024 年考 PSLE 那一届）</td></tr>
 <tr><td>Sec 1 班级数 / 班均</td><td class="num mid">${n(D.capacity.sec1Classes)} / ${D.capacity.sec1AverageClassSize} 人</td><td class="soft">推算单校学额时用这个，比全校班均 ${D.capacity.averageClassSize} 更贴</td></tr>
 <tr><td>纯中学 / 含中学部的混合校</td><td class="num mid">${D.capacity.secondarySchoolsPure} / ${D.capacity.mixedLevelSchools}</td><td class="soft">2025 年</td></tr>
-<tr><td>参与 S1 Posting 的学校</td><td class="num mid">${D.capacity.schoolsInS1Posting2025}</td><td class="soft">2025 年（2024 年为 ${D.capacity.schoolsInS1Posting2024} 所）</td></tr>
+<tr><td>参与 S1 Posting 的学校</td><td class="num mid">${D.capacity.schoolsInS1Posting2026}</td><td class="soft">2026 年（2025 年 ${D.capacity.schoolsInS1Posting2025} 所、2024 年 ${D.capacity.schoolsInS1Posting2024} 所）</td></tr>
 <tr><td><b>平均每校 Sec 1 人数</b></td><td class="num mid"><b>≈ ${D.capacity.avgSec1PerSchool}</b></td><td class="soft">${n(D.capacity.sec1Enrolment)} ÷ ${D.capacity.schoolsInS1Posting2025}</td></tr>
 </tbody>
 </table>
@@ -285,18 +323,18 @@ MOE 对 S1 Portal 的功能定义原文是「view their child's S1 Posting eligi
 </section>
 
 <section>
-<h2 id="s4"><span class="n">04</span>2026：站在峰值附近的一年</h2>
-<p class="lead">2026 届对应 2014 年出生，公民出生数约 ${n(33000)}——比 2013 年（约 ${n(31400)}）高。</p>
+<h2 id="s4"><span class="n">04</span>2026：官方数字已公布，站在峰值附近</h2>
+<p class="lead">2026 届对应 2014 年出生，公民出生数约 ${n(33000)}——比 2013 年（约 ${n(31400)}）高。SEAB 2026-11-24 官方文告给出实数：<b>${n(CURRENT.psleCandidates)} 人应考、${CURRENT.suitablePct}% 适合升读中学</b>。</p>
 
 <div class="verdict">
-<h3>推算结论</h3>
+<h3>官方数字与模型回看</h3>
 <ul>
-<li><b>考生人数：约 ${n(forecastRow.forecastPoint)}</b>（模型区间 ${n(forecastRow.forecast[0])}–${n(forecastRow.forecast[1])}）。官方数字预计 <b>2026-11-24 或 11-25</b> 公布。</li>
-<li><b>与 2025 年（${n(37926)}）相比 +${(((forecastRow.forecastPoint - 37926) / 37926) * 100).toFixed(1)}%</b>，与 2024 龙年峰值（${n(40894)}）基本持平。</li>
-<li><b>趋势判断可靠，精确值不可靠。</b>趋势来自出生基数（2014 年公民出生比 2013 年多约 1,600），这个方向不太会错。</li>
-<li><b>真实误差带比上面那个区间宽。</b>拿 2020–2025 六年的实际「考生 ÷ 公民出生」比值（${D.ratioBacktest.min}–${D.ratioBacktest.max}）套到 ${n(D.ratioBacktest.base2026)} 上，
-得到 <b>${n(D.ratioBacktest.bandFor2026[0])}–${n(D.ratioBacktest.bandFor2026[1])}</b>——点估计两侧各约 ±1,000 人。<br>
-<span class="soft" style="font-size:12.6px">之前那版写的「±500」是拍出来的，没有依据。用同一套方法回测自己，才是诚实的态度。</span></li>
+<li><b>考生人数：${n(CURRENT.psleCandidates)}</b>（SEAB / MOE《Release of 2026 PSLE Results》，<span class="src a">A</span>）。不再是「≈ ${n(MODEL.forecastPoint)} 预测」。</li>
+<li><b>适合升读：${CURRENT.suitablePct}%</b>，按公布比例倒推约 ${n(notSuitable(CURRENT))} 人未适合升读（<b>估算，官方只给百分比</b>）。其余学生可重考 PSLE，或申请 Assumption Pathway School / NorthLight School。</li>
+<li><b>与 2025 年（${n(PREV.psleCandidates)}）相比 +${n(yoyAbs(CURRENT))}（+${yoy(CURRENT).toFixed(1)}%）</b>，与 2024 龙年峰值（${n(D.cases.psleCandidates)}）只差 ${n(CURRENT.psleCandidates - D.cases.psleCandidates)} 人。</li>
+<li><b>模型回看：点估计 ${n(MODEL.forecastPoint)}，区间 ${n(MODEL.forecast[0])}–${n(MODEL.forecast[1])}</b>；实际落在区间内，<b>比点估计高 ${n(CURRENT.psleCandidates - MODEL.forecastPoint)} 人</b>（${Math.abs(D.ratioBacktest.actual2026.pointErrorPct)}%）。更宽的经验带 ${n(D.ratioBacktest.bandFor2026[0])}–${n(D.ratioBacktest.bandFor2026[1])} 同样覆盖。<br>
+<span class="soft" style="font-size:12.6px">2020–2025 六年的比值区间是 ${D.ratioBacktest.min}–${D.ratioBacktest.max}，2026 实际 ${D.ratioBacktest.actual2026.ratio} 落在其中——方向判断成立，但不等于能精确到个位。</span></li>
+<li><b>参与学校：${D.capacity.schoolsInS1Posting2026} 所</b>中学参加 2026 S1 Posting（官方文告原文）。</li>
 </ul>
 </div>
 
@@ -304,19 +342,19 @@ MOE 对 S1 Portal 的功能定义原文是「view their child's S1 Posting eligi
 <table>
 <thead><tr><th style="width:26%">节点</th><th>时间</th><th class="mid">性质</th></tr></thead>
 <tbody>
-<tr><td>PSLE 放榜</td><td>${esc(D.timeline2026.psleResults)}</td><td class="mid"><span class="src b">暂定</span></td></tr>
+<tr><td>PSLE 放榜</td><td>${esc(D.timeline2026.psleResults)}</td><td class="mid"><span class="src a">官方</span></td></tr>
 <tr><td>提交 6 个志愿</td><td>${esc(D.timeline2026.choiceWindow)}</td><td class="mid">规则</td></tr>
 <tr><td>S1 分配结果</td><td>${esc(D.timeline2026.postingResults)}，通过 S1 Portal / SMS / 小学查询</td><td class="mid"><span class="src b">暂定</span></td></tr>
 <tr><td>入学</td><td>${esc(D.timeline2026.enrolment)}</td><td class="mid">规则</td></tr>
 </tbody>
 </table>
-<p class="soft" style="font-size:12.4px">「暂定」= SEAB 原文用的是 tentative，实际日期要等全部流程完成才在媒体公布。别按去年的日期反推今年。</p>
+<p class="soft" style="font-size:12.4px">放榜与填报窗口已是官方确认日期；<b>只有 S1 派位结果仍标 tentative</b>（SEAB 原文：will be released tentatively on Friday, 18 December 2026），实际日期会另行确认。</p>
 
 <div class="warnbox">
 <b>对 2026 填志愿的三个直接含义：</b><br>
 ① <b>不要把「去年 COP + 0」当稳妥。</b>考生人数回到峰值附近，<b>COP 数值下行 1–3 分</b>（门槛收紧）是常态 ——
 注意方向别搞反：数值变小就是更难进。<br>
-② <b>稳妥档要留出 5 分以上余量</b>，而不是往年的 3 分。这也是 MOE 自己在成绩单上给的建议：六个志愿里至少 2–3 所的 COP 要明显宽松于孩子分数。<br>
+② <b>六个志愿里至少 2–3 所的 COP 要明显宽松于孩子分数。</b>这是 SEAB 2026 文告原文建议（at least 2 to 3 schools whose previous years' COPs are less stringent），不是本项目自己加的保守系数。<br>
 ③ <b>别拿「顶尖校只降 1 分」外推到你填的中段校。</b>2024 年 RGS / HCI 各降 1 分，St Patrick's 降了 3 分 ——
 中段校波动更大，而那批家长判断失误恰恰全落在这里。
 </div>
@@ -335,8 +373,8 @@ MOE 对 S1 Portal 的功能定义原文是「view their child's S1 Posting eligi
 </table>
 
 <p>用总出生数回测 2022 年（对应 2010 年出生）时，预测明显高于实际的 ${n(37095)}；
-换成公民出生数后，其余年份的误差都收敛到数百人量级。<b>2026 的预测之所以修正到 ${n(forecastRow.forecastPoint)}，
-也是因为把基数从「总出生 42,232」换成了「公民出生约 33,000」。</b></p>
+换成公民出生数后，其余年份的误差都收敛到数百人量级。<b>2026 年模型当时把点估计定在 ${n(MODEL.forecastPoint)}，
+正是因为把基数从「总出生 42,232」换成了「公民出生约 ${n(D.ratioBacktest.base2026)}」；官方实数 ${n(CURRENT.psleCandidates)} 落在模型区间内。</b></p>
 
 <div class="note">
 <b>为什么不能直接说「1 个公民出生 ≈ 1 个 PSLE 考生」。</b>
@@ -372,22 +410,23 @@ MOE 对 S1 Portal 的功能定义原文是「view their child's S1 Posting eligi
 <table>
 <thead><tr><th style="width:34%">数据</th><th>来源</th><th class="mid">等级</th></tr></thead>
 <tbody>
-<tr><td>2020–2025 年 PSLE 考生人数</td><td>SEAB / MOE 各年「Release of PSLE Results」新闻稿</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>2020–2026 年 PSLE 考生人数</td><td>SEAB / MOE 各年「Release of PSLE Results」新闻稿（2026 篇：2026-11-24）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>2022–2026 年「评定适合升读中学」百分比</td><td>SEAB / MOE 各年成绩新闻稿；2026 原文「of which 98.5% are assessed suitable for secondary school」</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>2024 年 COP 变动与落空案例</td><td>The Straits Times 报道（引 MOE 回应与家长采访）</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>中学在册人数 / 班级数 / 班均 / 学校数 / Sec 1 在册</td><td>MOE Education Statistics Digest 2026 统计表（Sheet 4 / 7 / 9）</td><td class="mid"><span class="tag a">A</span></td></tr>
-<tr><td>参与 S1 Posting 的学校数（141 / 140）</td><td>MOE 2025 / 2024 PSLE 成绩新闻稿</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>参与 S1 Posting 的学校数（${D.capacity.schoolsInS1Posting2026} / ${D.capacity.schoolsInS1Posting2025} / ${D.capacity.schoolsInS1Posting2024}）</td><td>SEAB 2026 / MOE 2025 / 2024 PSLE 成绩新闻稿</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>公民出生数（各年区间）</td><td>项目整理，用于回测与预测</td><td class="mid"><span class="tag b">B</span></td></tr>
-<tr><td>2026 年考生数推算（≈ ${n(forecastRow.forecastPoint)}）</td><td>本项目模型，基于 2014 年公民出生基数</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td>2026 年模型点估计（≈ ${n(MODEL.forecastPoint)}）</td><td>本项目模型，基于 2014 年公民出生基数；<b>仅作事后回看，不是官方值</b></td><td class="mid"><span class="tag b">B</span></td></tr>
 <tr><td>逐校 S1 学额</td><td><b>无任何公开来源</b>（S1 Portal 亦不显示，官方定义中无此项）</td><td class="mid">—</td></tr>
-<tr><td>S1 Portal 功能范围 / 2026 时间线</td><td>MOE S1 Posting 官网 s1.placement.moe.gov.sg · SEAB 重要日期页（2026-11 核对）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>S1 Portal 功能范围 / 2026 时间线</td><td>MOE S1 Posting 官网 s1.placement.moe.gov.sg · SEAB《Release of 2026 PSLE Results》（2026-11-24 核对）</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>分配结果比例（80% / 90% / 抽签 1/10）</td><td>MOE 发言人回复 Straits Times（2024 龙年那届）</td><td class="mid"><span class="tag a">A</span></td></tr>
 </tbody>
 </table>
 
 <div class="warnbox">
 <b>两条必须知道的局限：</b><br>
-① <b>2026 的 40,800 是推算，不是官方数字。</b>官方预计 11 月底公布，出来后这个页面的数要更新；<br>
-② <b>考生数与 COP 的因果关系是统计性的，不是机械的。</b>同样是 40,800 人，如果今年学额也扩了，COP 数值可能不动；
+① <b>2026 的 ${n(CURRENT.psleCandidates)} 已是官方实数（A 级）；${n(MODEL.forecastPoint)} 只是此前模型的点估计</b>，两者不能混用；<br>
+② <b>考生数与 COP 的因果关系是统计性的，不是机械的。</b>同样是 ${n(CURRENT.psleCandidates)} 人，如果今年学额也扩了，COP 数值可能不动；
 如果学额冻结，<b>中段校的 COP 数值会明显下行（门槛收紧）</b>——方向别记反：COP 变小 = 更难进。
 </div>
 </section>
@@ -408,4 +447,4 @@ MOE 对 S1 Portal 的功能定义原文是「view their child's S1 Posting eligi
 const out = P('docs/cohort.html');
 fs.writeFileSync(out, html, 'utf8');
 console.log(`▸ 输出 ${out}（${(html.length / 1024).toFixed(0)}KB）`);
-console.log(`  已知年份 ${KNOWN.length} 个 · 均值 ${AVG} · 2026 预测 ${forecastRow.forecastPoint}`);
+console.log(`  已知年份 ${KNOWN.length} 个 · 均值 ${AVG} · 2026 官方 ${CURRENT.psleCandidates} · 模型回看 ${MODEL.forecastPoint}`);

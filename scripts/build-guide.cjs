@@ -316,7 +316,7 @@ ${toc.map(([id, t], i) => `  <a href="#${id}">${'①②③④⑤⑥⑦⑧⑨'[i]
 <thead><tr><th style="width:26%">时间</th><th style="width:26%">发生什么</th><th>你要做什么</th></tr></thead>
 <tbody>
 <tr>
-  <td><b>${esc(TL.psleResults)}</b><br><span class="soft" style="font-size:11.5px">暂定</span></td>
+  <td><b>${esc(TL.psleResults)}</b><br><span class="soft" style="font-size:11.5px">${/暂定|tentative/.test(TL.psleResults) ? '暂定' : '官方已公布'}</span></td>
   <td>放榜，上午 11:00</td>
   <td>拿成绩单 + <b>S1 Option Form</b>（上面有 S1 PIN）。当场核对总分与 Posting Group 有没有印错。</td>
 </tr>

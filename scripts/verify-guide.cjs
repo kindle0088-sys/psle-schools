@@ -77,7 +77,13 @@ console.log('\n══ 三、时间线：4 个日期必须与 timeline2026 相等
   const iso = s => (String(s).match(/\d{4}-\d{2}-\d{2}/g) || []);
   const need = [...iso(TL.psleResults), ...iso(TL.postingResults)];
   t('出分与放榜日期原样出现', need.every(d => text.includes(d)), need.join(' / '));
-  t('写明「暂定」性质', /暂定/.test(text) && /tentative/.test(text));
+  t('写明「暂定」性质（仅 S1 派位结果）', /暂定/.test(text) && /tentative/.test(text));
+  /* 2026-11-24 修：旧版出分行也硬贴「暂定」，官方放榜后就成了错误标签。
+     标签必须跟随数据源，不能用「页面里有没有暂定」这种假阳性断言。 */
+  t('出分行定性跟随数据源（已公布 ≠ 暂定）',
+    /暂定|tentative/.test(TL.psleResults)
+      ? /暂定/.test(text)
+      : text.includes('官方已公布') && !/2026-11-24（官方[^。；\n]{0,40}暂定/.test(text));
   t('写明填报窗口是 7 个日历日', /7 个日历日/.test(text));
   t('写明最多 6 所', /最多 6 所|6 个志愿/.test(text));
 }
