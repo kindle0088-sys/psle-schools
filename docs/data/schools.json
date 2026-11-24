@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-24T14:48:55.278Z",
+  "generatedAt": "2026-11-24T15:06:49.773Z",
   "total": 147,
   "copYear": 2025,
   "ipCount": 17,
@@ -103,6 +103,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615022834",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 21,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 21,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615022834/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=admiralty-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -255,6 +284,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615070430",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 17,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 17,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615070430/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=ahmad-ibrahim-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -547,6 +605,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610075516",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 16,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 16,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610075516/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=ang-mo-kio-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -1362,6 +1449,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615040854",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615040854/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bartley-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -1512,6 +1628,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615040954",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 18,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 18,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615040954/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=beatty-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -1661,6 +1806,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610051546",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610051546/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bedok-green-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -1799,6 +1973,10 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "no-snapshot",
+     "note": "Wayback 2024 窗口内无该校 SchoolFinder 存档"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -1954,6 +2132,10 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "no-snapshot",
+     "note": "Wayback 2024 窗口内无该校 SchoolFinder 存档"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -2548,6 +2730,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615031110",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 16,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 16,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615031110/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bowen-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -2690,6 +2901,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610141225",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610141225/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=broadrick-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -2978,6 +3218,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610202722",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610202722/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bukit-merah-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -3823,6 +4092,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615040458",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 5,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 5,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615040458/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=changkat-changi-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -4691,6 +4989,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610052045",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 18,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 18,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610052045/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=christ-church-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -5538,7 +5865,12 @@
      "archiveUrl": "https://web.archive.org/web/20240610172913/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=compassvale-secondary-school"
     },
     "2024": {
-     "status": "no-snapshot"
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 18
+     },
+     "source": "moe-live"
     },
     "2025": {
      "status": "ok",
@@ -6010,6 +6342,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610154745",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610154745/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=damai-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -6149,6 +6510,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610044807",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 17,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 17,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610044807/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=deyi-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -6679,6 +7069,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615024727",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615024727/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=east-spring-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -7201,6 +7620,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610090754",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 16,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 16,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610090754/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=evergreen-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -7629,6 +8077,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615035204",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 6,
+      "max": 15,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 6,
+       "max": 15,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615035204/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=gan-eng-seng-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -10808,6 +11285,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615040858",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615040858/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=manjusri-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -11106,6 +11612,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240613023028",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240613023028/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=marsiling-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -11251,6 +11786,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20241204162108",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 18,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 18,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20241204162108/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Mayflower Secondary School"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -12496,6 +13060,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610071911",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 19,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 19,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610071911/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=naval-base-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -12642,6 +13235,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20241204162616",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20241204162616/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=New Town Secondary School"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -12975,7 +13597,12 @@
      "archiveUrl": "https://web.archive.org/web/20240615022342/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=north-vista-secondary-school"
     },
     "2024": {
-     "status": "no-snapshot"
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 17
+     },
+     "source": "moe-live"
     },
     "2025": {
      "status": "ok",
@@ -13277,6 +13904,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20241204162653",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20241204162653/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Northbrooks Secondary School"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -13429,6 +14085,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610090626",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610090626/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=northland-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -13713,6 +14398,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615072722",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 18,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 18,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615072722/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=orchid-park-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -14712,6 +15426,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615035312",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615035312/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=peicai-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -14855,6 +15598,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240611060854",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240611060854/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=peirce-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -15492,6 +16264,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610092834",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610092834/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=queenstown-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -15647,6 +16448,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615033523",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 17,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 17,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615033523/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=queensway-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -16620,6 +17450,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615071951",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615071951/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=sembawang-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -16788,7 +17647,12 @@
      "archiveUrl": "https://web.archive.org/web/20240610051334/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=seng-kang-secondary-school"
     },
     "2024": {
-     "status": "no-snapshot"
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 19
+     },
+     "source": "moe-live"
     },
     "2025": {
      "status": "ok",
@@ -17911,6 +18775,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615050958",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 11,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 11,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615050958/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=springfield-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -18357,6 +19250,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615073135",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 17,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 17,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615073135/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=st-gabriels-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -19278,6 +20200,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610071056",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 15,
+      "max": 19,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 15,
+       "max": 19,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610071056/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=tampines-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -20448,6 +21399,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20241204162440",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 11,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 11,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20241204162440/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Whitley Secondary School"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -20595,6 +21575,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20241204170707",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20241204170707/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Woodgrove Secondary School"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -20743,6 +21752,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610084641",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610084641/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=woodlands-ring-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -21143,6 +22181,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610092030",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610092030/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yio-chu-kang-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -21301,6 +22368,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610070652",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610070652/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yishun-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -22228,6 +23324,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615041309",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615041309/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yuying-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {
@@ -22511,6 +23636,35 @@
     ]
    },
    "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615071053",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 13,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 13,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615071053/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=zhonghua-secondary-school"
+    },
     "2024": {
      "status": "ok",
      "pg3": {

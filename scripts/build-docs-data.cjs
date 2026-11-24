@@ -31,15 +31,19 @@ const COP_LIVE = optionalJson('data/cop-official.json').schools || {};
 
 /* 合并历史 COP：2026-11-24 起 SchoolFinder 线上直接给 2024+2025，
    故 2024 用官方线上值补齐（覆盖全部深度报告校），不再依赖被限流的 Wayback。
-   优先级：cop-history 已核实值（含 Outram 2024 anomaly / 2023 存档）> cop-official 线上值。
-   2023 仅 cop-history 的 13 校有，其余校如实留空 —— 不拿二手表填空。 */
+   优先级：cop-history 已核实值（ok / anomaly，含 Outram 2024 无派位）> cop-official 线上值。
+   ⚠️ no-snapshot / cdx-fail / fetch-fail 等采集占位不是「已核实」，
+      必须让位给官方线上值 —— 否则 2023 补齐脚本给 41 校写入的 2024 占位
+      会把官方 2024 值挡掉（2026-11-24 踩过，compassvale 三年趋势的 2024 变「?」）。
+   2023 只有 cop-history 有（Wayback 存档），官方线上不给，如实留空 —— 不拿二手表填空。 */
+const VERIFIED_COP = new Set(['ok', 'anomaly']);
 function mergedCopHistory(slug) {
   const hist = COP_HIST[slug] || {};
   const live = COP_LIVE[slug] || {};
   const out = { ...hist };
   for (const y of ['2024', '2025']) {
-    if (out[y] && out[y].status) continue;       // 已核实（含 anomaly）优先
-    if (live[y] && live[y].status) out[y] = live[y];
+    if (out[y] && VERIFIED_COP.has(out[y].status)) continue;   // 仅已核实值优先
+    if (live[y] && live[y].status === 'ok') out[y] = live[y];  // 线上有效值覆盖占位
   }
   return Object.keys(out).length ? out : null;
 }
