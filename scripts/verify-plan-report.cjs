@@ -220,6 +220,42 @@ if (S.commuteMode === 'bus') {
     !/地铁\s*\d+\s*分.{0,20}(所以|因此).{0,10}(入池|入选|可及)/.test(text));
 }
 
+/* ── 学术科目维度（2026-11-24 abcd2 新增）────────────────────────
+   只对配置了 interests.subjects 的学生生效。这里验的不是「文字出现过」，
+   而是「逐校全量列出 + 高亮口径 + 命中数与数据源一致」。 */
+if (rawStu.interests && Array.isArray(rawStu.interests.subjects) && rawStu.interests.subjects.length) {
+  group('学术科目地图（abcd2 起）');
+  const wants = rawStu.interests.subjects;
+  const mapStart = html.indexOf('04A 学术科目地图');
+  const mapEnd = html.indexOf('<article', mapStart > -1 ? mapStart : 0);
+  const mapHtml = mapStart > -1 ? html.slice(mapStart, mapEnd > -1 ? mapEnd : html.length) : '';
+  const mapText = strip(mapHtml);
+
+  t('含逐校学术科目地图', mapStart > -1 && /offered subjects/.test(mapText));
+  t('高亮样式已注入', /\.sbj-hit/.test(html) && /\.sbj-rare/.test(html) && /\.sbj-soft/.test(html));
+  t('列出全部主池学校', R.pool.every(x => mapText.includes(x.name.replace(/ Secondary School| \(Secondary\)/, ''))),
+    `${R.pool.length} 所`);
+  t('每校命中数与数据源一致', R.pool.every(x =>
+    mapText.includes(`${x.subjectFit} / ${wants.length} 命中`)), `分母 ${wants.length}`);
+  t('逐校卡片含 offered subjects 行', (html.match(/④ offered subjects/g) || []).length >= 6,
+    `${(html.match(/④ offered subjects/g) || []).length} 处`);
+
+  t('区分 Computer Applications 与 G3 Computing',
+    /Computer Applications/.test(mapText) && /仅 G1/.test(mapText) && /G2\/G3 Computing/.test(mapText));
+  t('披露 Applied Subjects 映射', /Applied Subjects/.test(mapText) && /Exercise & Sports Science/.test(mapText));
+  t('披露稀缺门槛', new RegExp(`≤\\s*${R.stats.subjectRarityMax}\\s*校列出`).test(mapText));
+  t('披露科目快照边界', /current student cohort|当前 cohort/.test(mapText) && /不等于|不代表/.test(mapText));
+
+  const fullFit = R.pool.filter(x => x.subjectFit === Math.max(...R.pool.map(y => y.subjectFit))).length;
+  const fullClaims = [...text.matchAll(/达到满分的只有\s*(\d+)\s*所/g)].map(m => +m[1]);
+  t('全命中校数与数据源一致', fullClaims.every(n => n === fullFit),
+    '报告 ' + (fullClaims.join('/') || '无') + ' / 数据 ' + fullFit);
+  const exactComputing = R.pool.filter(x => (x.subjectHits || []).includes('Computing')).length;
+  const compClaims = [...text.matchAll(/(\d+)\s*所明确列 Computing/g)].map(m => +m[1]);
+  t('明确 Computing 的校数与数据源一致', compClaims.every(n => n === exactComputing),
+    '报告 ' + (compClaims.join('/') || '无') + ' / 数据 ' + exactComputing);
+}
+
 // 反向断言：不得把 COP 说成保证
 /* 反向断言：不得出现「承诺式」表述。
    注意不能只匹配「保证录取」——报告里合法地写着「方案 C 几乎保证录取，

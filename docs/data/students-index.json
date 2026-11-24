@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-24T10:17:04.161Z",
+ "generatedAt": "2026-11-24T11:04:39.570Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -365,6 +365,58 @@
     ],
     "report": "reports/abcd1-s1-choice-2026.html",
     "generatedAt": "2026-11-24T10:17:04.157Z"
+   }
+  },
+  {
+   "id": "abcd2",
+   "label": "abcd2",
+   "al": 18,
+   "pgShort": "PG3",
+   "postal": "828765",
+   "maxCommuteMin": 60,
+   "commuteMode": "bus",
+   "planSlug": "abcd2-s1-choice-2026",
+   "updatedAt": "2026-11-24T11:04:39.567Z",
+   "plan": {
+    "picks": [
+     {
+      "slot": 1,
+      "name": "Hougang Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 2,
+      "name": "Springfield Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 3,
+      "name": "Serangoon Garden Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 4,
+      "name": "Punggol Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 5,
+      "name": "Seng Kang Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 6,
+      "name": "Junyuan Secondary School",
+      "tier": "匹配"
+     }
+    ],
+    "poolMixed": 18,
+    "withinCommuteReachable": 19,
+    "kinds": [
+     "plan"
+    ],
+    "report": "reports/abcd2-s1-choice-2026.html",
+    "generatedAt": "2026-11-24T11:04:39.568Z"
    }
   }
  ]

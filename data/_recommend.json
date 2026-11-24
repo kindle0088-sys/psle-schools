@@ -1,7 +1,7 @@
 {
  "student": {
-  "id": "abcd1",
-  "label": "abcd1",
+  "id": "abcd2",
+  "label": "abcd2",
   "score": 18,
   "pg": "Posting Group 3",
   "postal": "828765",
@@ -95,6 +95,109 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in Malay)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Health and Food Science"
    ],
@@ -186,6 +289,98 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language (Special Programme)",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Chinese Language (Special Programme)"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Future of Transportation"
    ],
@@ -329,6 +524,104 @@
     "机器人",
     "戏剧"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Malay Language",
+    "Mathematics",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Future of Transportation"
    ],
@@ -423,6 +716,111 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Food & Consumer Education",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Humanities Exposure Modules)",
+    "Humanities (SS, Literature in English)",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Future of Transportation"
    ],
@@ -580,6 +978,120 @@
    "ccaHits": [
     "戏剧"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "CCE",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Design and Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Food & Consumer Education",
+    "Higher Chinese Language",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (Literature in English)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Humanities Exposure Modules)",
+    "Humanities (SS, Literature in English)",
+    "Humanities (SS, Literature in Malay)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology",
+      "Design and Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Design and Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM"
    ],
@@ -749,6 +1261,118 @@
    "ccaHits": [
     "戏剧"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Higher Chinese Language",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (History)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Humanities Exposure Modules)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Mobile Robotics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language",
+    "Tamil Language Syllabus B"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Mobile Robotics"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Sustainability"
    ],
@@ -841,6 +1465,116 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "CCE-3",
+    "CCE-4",
+    "CCE-5",
+    "CCE-S1",
+    "CCE-S2",
+    "Chemistry",
+    "Chinese Language",
+    "Computing",
+    "Design & Technology",
+    "Design and Technology",
+    "English Language",
+    "Food & Consumer Education",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology",
+      "Design and Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computing",
+      "Design & Technology",
+      "Design and Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Sustainability"
    ],
@@ -971,6 +1705,116 @@
    "ccaHits": [
     "戏剧"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Exercise & Sports Science",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Exercise & Sports Science",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Exercise & Sports Science"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Health and Food Science"
    ],
@@ -1108,6 +1952,113 @@
     "AI",
     "戏剧"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Exercise & Sports Science",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (Literature in English)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Exercise & Sports Science",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Exercise & Sports Science"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Cities and Urban Landscapes"
    ],
@@ -1267,6 +2218,116 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language",
+    "Tamil Language Syllabus B"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Humanities"
    ],
@@ -1358,6 +2419,113 @@
     "Taekwondo (Girls and Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Health and Food Science"
    ],
@@ -1452,6 +2620,109 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Exercise & Sports Science",
+    "Higher Chinese Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Bio)",
+    "Science (Phy, Chem)"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Exercise & Sports Science",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Exercise & Sports Science"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Business & Entrepreneurship"
    ],
@@ -1542,6 +2813,110 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Health and Food Science"
    ],
@@ -1645,6 +3020,110 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Character and Citizenship Education",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Exercise & Sports Science",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Retail Operations",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Exercise & Sports Science",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Exercise & Sports Science",
+    "Retail Operations"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Aesthetics"
    ],
@@ -1742,6 +3221,114 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Humanities (Geography)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language",
+    "Tamil Language Syllabus B"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [
+    "Enhanced Art Programme"
+   ],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Aesthetics"
    ],
@@ -1836,6 +3423,111 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [
+    "Enhanced Art Programme"
+   ],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Aesthetics"
    ],
@@ -1991,6 +3683,105 @@
     "Scouts (Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Malay Language",
+    "Mathematics",
+    "Mobile Robotics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Mobile Robotics"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Future of Transportation"
    ],
@@ -2076,6 +3867,113 @@
     "National Cadet Corps (NCC) (Land) (Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Applied Learning Programme (Sec 1)",
+    "Applied Learning Programme (Sec 2)",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language (Special Programme)",
+    "Mathematics",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Malay Language (Special Programme)"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Sustainability"
    ],
@@ -2232,6 +4130,103 @@
     "Wushu (Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Emerging Technologies"
    ],
@@ -2379,6 +4374,111 @@
     "戏剧",
     "游泳"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Business Studies",
+    "CCE",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Design and Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Food & Consumer Education",
+    "Higher Chinese Language",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (Literature in English)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Humanities Exposure Modules)",
+    "Humanities (SS, Literature in English)",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology",
+      "Design and Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Design and Technology",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Business Studies"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Business & Entrepreneurship"
    ],
@@ -2479,6 +4579,112 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Business & Entrepreneurship"
    ],
@@ -2640,6 +4846,102 @@
     "机器人",
     "戏剧"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Higher Chinese Language",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (Literature in English)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Smart Electrical Technology",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Smart Electrical Technology"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Sustainability"
    ],
@@ -2726,6 +5028,99 @@
     "Scouts (Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Future of Transportation"
    ],
@@ -2903,6 +5298,95 @@
     "AI",
     "戏剧"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Sustainability"
    ],
@@ -2993,6 +5477,85 @@
     "Volleyball (Girls)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 4,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Languages"
    ],
@@ -3151,6 +5714,108 @@
     "AI",
     "戏剧"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Business & Entrepreneurship"
    ],
@@ -3245,6 +5910,99 @@
     "Volleyball (Girls)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Exercise & Sports Science",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Exercise & Sports Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Exercise & Sports Science"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [],
    "alpItems": [],
    "llpCats": [
@@ -3333,6 +6091,109 @@
     "Wushu (Girls and Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Languages"
    ],
@@ -3430,6 +6291,114 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Future Leader Programme",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [
+    "Future Leader Programme"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Emerging Technologies"
    ],
@@ -3518,6 +6487,111 @@
     "Volleyball (Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "Languages"
    ],
@@ -3601,6 +6675,80 @@
     "Netball (Girls)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Higher Music",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Higher Music",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 4,
+   "rareSubjects": [
+    "Higher Music"
+   ],
+   "strongProgrammes": [
+    "Music Elective Programme"
+   ],
+   "subjectRarityMax": 20,
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -3689,6 +6837,98 @@
     "Track and Field (Girls and Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Design & Technology",
+    "Design and Technology",
+    "English Language",
+    "Exercise & Sports Science",
+    "Food & Consumer Education",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "History",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Humanities (SS, Literature in Malay)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Bio)",
+    "Science (Phy, Chem)"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology",
+      "Design and Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Design & Technology",
+      "Design and Technology",
+      "Exercise & Sports Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Exercise & Sports Science"
+   ],
+   "strongProgrammes": [
+    "Elective Programme in Malay Language for Secondary School (Emas)",
+    "Language Elective Programme (Malay)"
+   ],
+   "subjectRarityMax": 20,
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -3770,6 +7010,124 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Drama",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "History",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (Literature in English)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Humanities Exposure Modules)",
+    "Humanities (SS, Literature in Chinese)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "MAKERS@Xinmin",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Drama",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [
+    "Drama",
+    "MAKERS@Xinmin"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -3860,6 +7218,106 @@
     "Volleyball (Girls)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Art",
+    "Higher Chinese Language",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in Tamil)",
+    "Literature in English",
+    "Literature in Tamil",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Higher Art",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Higher Art",
+    "Literature in Tamil"
+   ],
+   "strongProgrammes": [
+    "Language Elective Programme (Tamil)"
+   ],
+   "subjectRarityMax": 20,
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -3947,6 +7405,117 @@
    "ccaHits": [
     "AI"
    ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Art",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language (Special Programme)",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Higher Art",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [
+    "Higher Art",
+    "Malay Language (Special Programme)"
+   ],
+   "strongProgrammes": [
+    "Art Elective Programme"
+   ],
+   "subjectRarityMax": 20,
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -4033,6 +7602,109 @@
     "Wushu (Girls and Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Higher Chinese Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Health and Food Science"
    ],
@@ -4128,6 +7800,93 @@
     "Wushu (Girls and Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Music",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in Chinese)",
+    "Humanities (SS, Literature in English)",
+    "Literature in Chinese",
+    "Literature in English",
+    "Malay Language (Special Programme)",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Puppetry",
+    "Science"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Design & Technology",
+      "Higher Music",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Higher Music",
+    "Literature in Chinese",
+    "Malay Language (Special Programme)",
+    "Puppetry"
+   ],
+   "strongProgrammes": [
+    "Special Assistance Plan (SAP)",
+    "Enhanced Art Programme",
+    "Language Elective Programme (Chinese)"
+   ],
+   "subjectRarityMax": 20,
    "alpCats": [
     "STEM - Emerging Technologies"
    ],
@@ -4225,6 +7984,86 @@
     "Wushu (Girls and Boys)"
    ],
    "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Appreciation of Chinese Culture",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "English Language",
+    "Geography",
+    "Higher Art",
+    "Higher Chinese Language",
+    "Higher Music",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in Chinese)",
+    "Humanities (SS, Literature in English)",
+    "Literature in Chinese",
+    "Literature in English",
+    "Malay Language (Special Programme)",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Science"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Higher Art",
+      "Higher Music",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 4,
+   "rareSubjects": [
+    "Appreciation of Chinese Culture",
+    "Higher Art",
+    "Higher Music",
+    "Literature in Chinese",
+    "Malay Language (Special Programme)"
+   ],
+   "strongProgrammes": [
+    "Special Assistance Plan (SAP)",
+    "Enhanced Music Programme",
+    "Language Elective Programme (Chinese)"
+   ],
+   "subjectRarityMax": 20,
    "alpCats": [],
    "alpItems": [],
    "llpCats": [],
@@ -4260,6 +8099,236 @@
   "poolMixed": 18,
   "poolSingleSex": 1,
   "outOfReach": 19,
+  "subjectInterests": [
+   "Higher Chinese",
+   "Additional Mathematics",
+   "Science",
+   "Computing",
+   "Design & Technology",
+   "Nutrition and Food Science",
+   "Applied Subjects"
+  ],
+  "subjectRarityMax": 20,
+  "subjectFitInPool": [
+   {
+    "name": "Junyuan Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Changkat Changi Secondary School",
+    "fit": 5,
+    "hits": [
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Compassvale Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Northbrooks Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Hougang Secondary School",
+    "fit": 7,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Computing",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Punggol Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Broadrick Secondary School",
+    "fit": 7,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Computing",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Seng Kang Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "North Vista Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Serangoon Garden Secondary School",
+    "fit": 7,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Computing",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Springfield Secondary School",
+    "fit": 7,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Computing",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Yuying Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Peicai Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Yishun Secondary School",
+    "fit": 5,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Naval Base Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Orchid Park Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Serangoon Secondary School",
+    "fit": 6,
+    "hits": [
+     "Additional Mathematics",
+     "Science",
+     "Computing",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Tampines Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   }
+  ],
   "walkDataUsed": true,
   "commuteMode": "bus",
   "walkFasterTotal": 99,

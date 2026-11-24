@@ -1,0 +1,62 @@
+{
+  "id": "abcd2",
+  "label": "abcd2",
+  "createdAt": "2026-11-24",
+  "psle": {
+    "al": 18,
+    "_note": "AL 4–30，越小越好。PG3 = 4–20。与 abcd1 完全同分，通勤口径也相同；差别只在学术兴趣改成具体科目。"
+  },
+  "home": {
+    "postal": "828765",
+    "address": "110 Punggol Walk, Twin Waterfalls, Singapore 828765",
+    "lat": 1.402186278027678,
+    "lon": 103.8972807400701,
+    "_note": "与 abcd1 完全同址 → 步行与公交路网数据均可复用（复制为 walk-abcd2.json / bus-abcd2.json）。"
+  },
+  "constraints": {
+    "maxCommuteMin": 60,
+    "commuteFullMarkMin": 16,
+    "commuteMode": "bus",
+    "boardingStop": {
+      "code": "65431",
+      "name": "Twin Waterfalls",
+      "road": "Punggol Way",
+      "_note": "家长指定的公交站；只从此站上车，仅取该站的下游方向，反向站 65439 不纳入。"
+    },
+    "gender": "any",
+    "hasAffiliation": false,
+    "_note": "家长口径：从 Twin Waterfalls 公交站出发，只坐公交（不换乘）+ 步行，或者纯步行；总共 60 分钟内；通勤评分满分线 16 分钟。与 abcd1 一致，不重算路网。"
+  },
+  "citizenship": {
+    "status": "PR",
+    "_note": "永久居民。实质影响：① S1 tie-breaker 顺序 SC > PR > IS，同分输公民；② 政府/政府辅助中学学费 PR 约 S$580–700/月；③ 入学通道不因身份额外设限。"
+  },
+  "interests": {
+    "academic": [
+      "Higher Chinese",
+      "Additional Mathematics",
+      "Science",
+      "Computing",
+      "Design & Technology",
+      "Nutrition and Food Science",
+      "Applied Subjects"
+    ],
+    "subjects": [
+      "Higher Chinese",
+      "Additional Mathematics",
+      "Science",
+      "Computing",
+      "Design & Technology",
+      "Nutrition and Food Science",
+      "Applied Subjects"
+    ],
+    "cca": ["Robotics", "AI", "Drama", "Swimming", "Cooking"],
+    "_note": "学术兴趣这次是可核对的科目清单（subjects），不再只是宽泛方向；CCA 兴趣与 abcd1–abc6 一致，顺序即优先级。subjects 只参与报告高亮与科目地图，不改五维综合分。"
+  },
+  "outputs": {
+    "planSlug": "abcd2-s1-choice-2026",
+    "_note": "报告落地为 docs/reports/<planSlug>.html。"
+  },
+  "notes": "第八个孩子案例。与 abcd1 唯一差别：学术兴趣具体化为 7 个科目/类别，并要求报告逐校列 offered subjects，把匹配项与稀缺/强项加粗高亮。通勤、身份、CCA、分数全部沿用 abcd1。",
+  "_生效说明": "commuteMode=bus 需要 data/bus-abcd2.json；纯步行取 data/walk-abcd2.json；MRT 仅参考不计分。科目事实源为 data/schools.json 的 subjects 字段（docs/data/schools.json 为体积刻意不输出该字段）。"
+}

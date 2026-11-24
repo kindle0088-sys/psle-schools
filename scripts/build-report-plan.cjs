@@ -23,6 +23,18 @@ const P = (...a) => path.join(BASE, ...a);
 const Stu = require('../lib/student.cjs');
 const STU = Stu.load();
 const PLAN_CSS = fs.readFileSync(P('scripts/tpl/tokens.css'), 'utf8') + fs.readFileSync(P('scripts/tpl/plan.css'), 'utf8');
+/* 科目高亮样式只给配置了 interests.subjects 的学生注入，其他报告 DOM 保持不变。 */
+const SUBJECT_ACTIVE = !!(STU.interests && STU.interests.subjects && STU.interests.subjects.length);
+const SUBJECT_CSS = SUBJECT_ACTIVE ? `
+.sbj{display:inline-block;margin:1px 2px;padding:1px 4px;border-radius:4px;font-size:11.6px;line-height:1.55}
+.sbj-hit{background:#fde68a;color:#3b2606;font-weight:600}
+.sbj-soft{background:#dbeafe;color:#1e3a8a;font-weight:600;border-bottom:1px dashed #2563eb}
+.sbj-rare{background:#ccfbf1;color:#134e4a;font-weight:600;border-bottom:2px solid #0f766e}
+.sbj-both{background:#fde68a;color:#3b2606;font-weight:600;border-bottom:2px solid #0f766e}
+.sbj-prog{background:#ede9fe;color:#4c1d95;font-weight:600}
+.sbj-cell{font-size:11.7px;line-height:1.75;word-break:break-word}
+.sbj-legend{font-size:12.2px;line-height:1.8}
+` : '';
 
 const recFile = P(`data/_recommend-${STU.id}.json`);
 if (!fs.existsSync(recFile)) {
@@ -60,7 +72,7 @@ const COMMUTE_RULE = WALK_ONLY
   : BUS_ONLY
     ? `只认「<b>${S2.busBoardingStop ? S2.busBoardingStop.name + '（' + S2.busBoardingStop.code + '）站上车、不换乘公交 + 步行</b>' : '不换乘公交 + 步行'}」或<b>纯步行</b>：地铁不参与门槛与评分；争议步行项按区间上端过闸。候车按 ${S2.busParams ? S2.busParams.waitMin : 5} 分钟、车内按 ${S2.busParams ? S2.busParams.rideMinPerStop : 2} 分钟/站估算，下车后步行 ≤ ${S2.busParams ? S2.busParams.maxWalkFromStopMin : 18} 分钟才计入`
     : '按「<b>步行 / 地铁取最快</b>」计算：只要有一种方式够快就算达标';
-const LIMIT_LABEL = WALK_ONLY ? `全程步行 ≤ ${S.maxCommute} 分钟` : BUS_ONLY ? `${S.maxCommute} 分钟内（公交不换乘 / 纯步行）` : `${S.maxCommute} 分钟内`;
+const LIMIT_LABEL = WALK_ONLY ? `全程步行 ≤ ${S.maxCommute} 分钟` : BUS_ONLY ? `≤ ${S.maxCommute} 分钟（公交不换乘 / 纯步行）` : `${S.maxCommute} 分钟内`;
 
 /* 身份（可选）：目前只有 abc4 标了 PR。没有身份字段的学生保持原来的中性表述。
    PR 的实质影响有官方依据（MOE tie-breakers：SC > PR > IS；MOE school fees：PR $580–700/月），
@@ -78,6 +90,40 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 const short = n => n.replace(/ Secondary School| \(Secondary\)/, '');
 const fmtCop = x => (x.cop ? `${x.cop.min}–${x.cop.max}${x.cop.markMax ? '(' + x.cop.markMax + ')' : ''}` : '—');
 const fmtM = v => (v == null ? '—' : String(v));
+
+/* ── 学术科目展示（abcd2 起）─────────────────────────────
+   高亮只表达两件事：① 命中画像里的科目；② 全岛 ≤20 校列出的稀缺条目或学校公开特色项目。
+   两者都命中时用 sbj-both。所有判断从 _recommend 的字段反查，不在模板里手写校名。 */
+const q = n => n + (SUBJECT_ACTIVE && n >= 4 ? 1 : 0);
+const sbjChip = (label, cls, title) =>
+  `<span class="sbj ${cls}"${title ? ` title="${esc(title)}"` : ''}>${esc(label)}</span>`;
+const subjMatchOf = (x, v) => {
+  let exact = false, related = false, note = '';
+  for (const o of Object.values(x.subjectHitDetail || {})) {
+    if ((o.exact || []).includes(v)) exact = true;
+    if ((o.related || []).includes(v)) { related = true; note = o.relatedNote || note; }
+  }
+  return { exact, related, note };
+};
+const subjChips = x => (x.subjects || []).map(v => {
+  const m = subjMatchOf(x, v);
+  const rare = (x.rareSubjects || []).includes(v);
+  if (m.exact && rare) return sbjChip(v, 'sbj-both', '命中兴趣科目，且全岛 ≤' + x.subjectRarityMax + ' 校列出');
+  if (m.exact) return sbjChip(v, 'sbj-hit', '命中画像科目');
+  if (m.related && rare) return sbjChip(v + '（G1）', 'sbj-soft', m.note || '仅 G1 关联');
+  if (m.related) return sbjChip(v + '（G1）', 'sbj-soft', m.note || '仅 G1 关联');
+  if (rare) return sbjChip(v, 'sbj-rare', '全岛 ≤' + x.subjectRarityMax + ' 校列出');
+  return sbjChip(v, 'sbj', '');
+}).join(' ');
+const subjHitChips = x => Object.entries(x.subjectHitDetail || {}).map(([k, o]) =>
+  (o.exact || []).length
+    ? sbjChip(k + ' ✓', 'sbj-hit', (o.exact || []).join(' / '))
+    : sbjChip(k + '（仅 G1）', 'sbj-soft', o.relatedNote || (o.related || []).join(' / '))
+).join(' ') || '<span class="soft">无命中</span>';
+const subjStrongChips = x => [
+  ...(x.rareSubjects || []).map(v => sbjChip(v, 'sbj-rare', '全岛 ≤' + x.subjectRarityMax + ' 校列出')),
+  ...(x.strongProgrammes || []).map(v => sbjChip(v, 'sbj-prog', '学校公开 Electives / Programmes')),
+].join(' ') || '<span class="soft">无</span>';
 
 /** 通勤两列：步行来自 OSM 路网，地铁来自 MRT 模型。
  *  哪一列是「过闸口径」由 MODE 决定 —— walk 口径下加粗的永远是步行列。 */
@@ -457,6 +503,29 @@ const FOCUS_PAIR = PLANS.focusPair
   || R.pool.filter(x => !PLANS.A.picks.some(p => p.name === x.name))
     .sort((a, b) => b.total - a.total).slice(0, 2).map(x => x.name);
 
+/* 学术科目地图：把主池每一所的 offered subjects 全量列出并高亮。
+   插入在第四步内部，不新增 s9 锚点，以免破坏全站验证器的「8 章」契约。 */
+const SUBJECT_MAP = SUBJECT_ACTIVE ? `
+<h3>04A 学术科目地图：全池 ${R.pool.length} 所逐校列示</h3>
+<p class="lead">这张表只回答「学校到底开了什么课」，不承诺组合一定排得出来。高亮沿用统一口径：<b>${sbjChip('黄色', 'sbj-hit')} 命中画像科目</b>；${sbjChip('G1 关联', 'sbj-soft')} 仅 Computer Applications（原 G1 Computing），<b>PG3 必须向学校确认是否有 G2/G3 Computing</b>；${sbjChip('青色下划线', 'sbj-rare')} 全岛 ≤${S2.subjectRarityMax} 校列出；${sbjChip('紫色', 'sbj-prog')} 学校公开 Electives / Programmes。</p>
+<div class="note sbj-legend">
+<b>口径说明：</b>科目来自 MOE SchoolFinder 的 <code>subjects offered</code> 快照（2026-11 采集），原页写明「offered to the current student cohort. They may change for subsequent intakes」——<b>这届开，不等于下一届一定开</b>。「Applied Subjects」在本报告按 MOE 页面列举映射为 Computing / Computer Applications / Design &amp; Technology / Nutrition and Food Science / Drama / Exercise &amp; Sports Science / Art / Music / Electronics；稀缺度以 142 所普通课程校为分母，归并 CCE 与 Humanities 的异名，剔除低年级共同课程。<b>科目匹配只做展示与判断，不进入五维综合分</b>，避免悄悄改变既有学生的排名口径。
+</div>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th style="width:16%">学校</th><th style="width:20%">命中画像科目</th><th style="width:20%">独特 / 强项</th><th>offered subjects（全量）</th></tr></thead>
+<tbody>
+${[...R.pool].sort((a, b) => a.rank - b.rank).map(x => `<tr>
+  <td><b>${esc(short(x.name))}</b><br><span class="soft">${x.subjectFit} / ${S2.subjectInterests.length} 命中 · 综合 ${x.total}</span></td>
+  <td class="sbj-cell">${subjHitChips(x)}</td>
+  <td class="sbj-cell">${subjStrongChips(x)}</td>
+  <td class="sbj-cell">${subjChips(x)}</td>
+</tr>`).join('\n')}
+</tbody>
+</table>
+</div>
+` : '';
+
 function schoolCard(x, extra) {
   const c = ccaOf(x);
   const rob = has(c.list, /robot/i);
@@ -502,12 +571,13 @@ function schoolCard(x, extra) {
       ? `步行 <b>${x.walkRange ? x.walkRange[0] + '–' + x.walkRange[1] : x.walkMinutes} 分钟</b>（${x.walkMeters} 米${x.walkDisputed ? '，两家引擎有分歧' : ''}）；地铁方案 ${fmtM(x.mrtMinutes)} 分钟。<b>计分取 ${fastTxt(x)}</b>。`
       : `地铁 <b>${x.mrtMinutes} 分钟</b>（途经 ${esc(x.via || '—')}，最近站步行 ${fmtM(x.accessWalkM)} 米）；步行 ${x.walkMinutes != null ? x.walkMinutes + ' 分钟' : '不现实'}。`}</td></tr>
   <tr><td>③ 主要 CCA</td><td>共 <b>${c.total} 项</b>（MOE 登记 ${c.moe} 项${c.total > c.moe ? '，另 ' + (c.total - c.moe) + ' 项来自学校官网' : ''}）。${c.gaps ? `<span class="soft">清单缺口：${esc(c.gaps)}</span>` : ''}</td></tr>
-  <tr><td>④ 兴趣匹配</td><td>${hitList.length ? hitList.join('；') : '<span class="soft">没有与孩子五项 CCA 兴趣直接对应的社团</span>'}${swim.length === 0 ? '<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span>' : ''}</td></tr>
-  <tr><td>⑤ ALP</td><td>${esc(ALP_OF(x) || '未列出')}</td></tr>
-  <tr><td>⑥ LLP</td><td>${esc(LLP_OF(x) || '未列出')}</td></tr>
-  <tr><td>⑦ 其他特色</td><td>${extra.feature || '<span class="soft">未查到独立于 ALP/LLP 的特色项目</span>'}</td></tr>
-  <tr><td>⑧ 整体特点</td><td>${extra.profile || '<span class="soft">—</span>'}</td></tr>
-  <tr><td>⑨ 适合 / 不适合</td><td>${extra.verdict || '<span class="soft">这份报告没有为该校写逐项判断（它只在对照表里出现）。</span>'}</td></tr>
+  ${SUBJECT_ACTIVE ? `<tr><td>④ offered subjects</td><td class="sbj-cell">${subjChips(x)}<br><span class="soft">命中 ${x.subjectFit} / ${S2.subjectInterests.length} 项；黄色=画像科目，蓝虚线=仅 G1 Computing，青色下划线=全岛 ≤${x.subjectRarityMax} 校列出，紫色=学校公开特色项目。</span></td></tr>` : ''}
+  <tr><td>${q(4)} 兴趣匹配</td><td>${hitList.length ? hitList.join('；') : '<span class="soft">没有与孩子五项 CCA 兴趣直接对应的社团</span>'}${swim.length === 0 ? '<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span>' : ''}</td></tr>
+  <tr><td>${q(5)} ALP</td><td>${esc(ALP_OF(x) || '未列出')}</td></tr>
+  <tr><td>${q(6)} LLP</td><td>${esc(LLP_OF(x) || '未列出')}</td></tr>
+  <tr><td>${q(7)} 其他特色</td><td>${extra.feature || '<span class="soft">未查到独立于 ALP/LLP 的特色项目</span>'}</td></tr>
+  <tr><td>${q(8)} 整体特点</td><td>${extra.profile || '<span class="soft">—</span>'}</td></tr>
+  <tr><td>${q(9)} 适合 / 不适合</td><td>${extra.verdict || '<span class="soft">这份报告没有为该校写逐项判断（它只在对照表里出现）。</span>'}</td></tr>
   </tbody>
   </table>
   ${rep ? `<a class="deeplink" href="${esc(rep.file)}"><span>阅读《${esc(short(x.name))}》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>` : ''}
@@ -521,7 +591,9 @@ const ROB_IN_POOL = R.pool.filter(x => has(ccaOf(x).list, /robot/i).length);
 const STEP4 = `
 <section>
 <h2 id="s4"><span class="n">04</span>逐校适配度：把「好学校」换成「适合他的学校」</h2>
-<p class="lead">下面按九项逐所评估。先看方案 A 的 ${DETAIL_PICKS.length} 所${FOCUS_PAIR.length ? `，再看 ${FOCUS_PAIR.length} 所关键对照（${FOCUS_PAIR.map(n => short(n)).join('、')}）` : ''}。其余学校的结论汇总在第五步的表里。</p>
+<p class="lead">下面按${SUBJECT_ACTIVE ? '十' : '九'}项逐所评估。先看方案 A 的 ${DETAIL_PICKS.length} 所${FOCUS_PAIR.length ? `，再看 ${FOCUS_PAIR.length} 所关键对照（${FOCUS_PAIR.map(n => short(n)).join('、')}）` : ''}。其余学校的结论汇总在第五步的表里。</p>
+
+${SUBJECT_MAP}
 
 ${DETAIL_PICKS.map(n => {
   /* 方案 A 可以包含「分数差一点」的冲刺校（如 abc5 的 Greendale / Yusof Ishak），
@@ -546,7 +618,7 @@ ${FOCUS_PAIR.map(n => {
   return x ? schoolCard(x, { ...(DETAIL[n] || {}) }) : '';
 }).join('\n')}` : ''}
 
-<div class="note">
+${PLANS.step4Note ? `<div class="note">${fillScore(cfgText(PLANS.step4Note))}</div>` : `<div class="note">
 <b>我的判断：把 CCA 权重放高的三个理由</b><br>
 ① ALP 是<b>课时内全体学生</b>都上的，孩子逃不掉也深化不了——它是「底座」，不是「特长」；<br>
 ② CCA 是每周固定时段、可以连续做四年的东西，<b>真正的技能与人际关系从这里长出来</b>；<br>
@@ -555,7 +627,7 @@ ${FOCUS_PAIR.map(n => {
   : ROB_IN_POOL.length
     ? '这个稀缺度本身就说明该往这一两所倾斜。'
     : '一所都没有，所以「机器人」这个兴趣只能靠 ALP 课程承接，进不了社团——这一点必须提前告诉家长。'}
-</div>
+</div>`}
 </section>`;
 
 /* ── 第五步：梯度 ─────────────────────────────────────── */
@@ -798,6 +870,7 @@ ${R.outOfReach.sort((a, b) => b.margin - a.margin).map(x => `<tr><td>${esc(short
 <tr><td>各校 PG3 非附属录取区间（2025 年度）</td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>学校类型 / IP / SAP / CCA 登记 / DSA / ALP / LLP / 地址</td><td>MOE SchoolFinder（2026-11 采集）</td><td class="mid"><span class="tag a">A</span></td></tr>
 <tr><td>完整 CCA 清单（含 MOE 未登记项）</td><td>13 所学校官网逐页核实；主池 7 校于 <b>2026-11-23 三方复核</b>后更新 <code>data/cca-catalog.json</code></td><td class="mid"><span class="tag a">A</span></td></tr>
+${SUBJECT_ACTIVE ? `<tr><td>各校 offered subjects 与 Electives / Programmes</td><td>MOE SchoolFinder <code>subjects offered</code>（2026-11 采集，源 <code>data/schools.json</code>）；原页注明只覆盖当前 cohort、后续届次可能变动。稀缺度按 142 所普通课程校归并统计，≤${S2.subjectRarityMax} 校列出才标青色</td><td class="mid"><span class="tag a">A</span></td></tr>` : ''}
 <tr><td>步行时间与距离</td><td>FOSSGIS OSRM foot（OSM 步行路网），Valhalla 交叉校验</td><td class="mid"><span class="tag a">A</span></td></tr>
 ${BUS_ONLY ? `<tr><td>公交线路与站点</td><td>Buslah <code>buslah.com/bus/&lt;service&gt;/</code> 与 <code>/stop/&lt;code&gt;/</code>，2026-11-24 抓取；起点站 <b>${esc(S2.busBoardingStop ? S2.busBoardingStop.name + '（' + S2.busBoardingStop.code + '）' : '')}</b>，13 条线路、195 个下游站，仅取该站的下游方向</td><td class="mid"><span class="tag b">B</span></td></tr>
 <tr><td>公交通勤时间模型</td><td>家→站步行 ${esc(S2.busParams ? S2.busParams.walkMetersPerMin : 80)} m/min；候车 ${esc(S2.busParams ? S2.busParams.waitMin : 5)} 分；车内 ${esc(S2.busParams ? S2.busParams.rideMinPerStop : 2)} 分/站；下车后步行 ≤ ${esc(S2.busParams ? S2.busParams.maxWalkFromStopMin : 18)} 分。采用时刻表均值，不是实时到站</td><td class="mid"><span class="tag b">B</span></td></tr>` : ''}
@@ -825,7 +898,8 @@ ${BUS_ONLY ? `<tr><td>公交线路与站点</td><td>Buslah <code>buslah.com/bus/
     ? `，本池有 ${d.length} 所（${d.map(x => esc(short(x.name)) + ' ' + x.walkRange.join(' vs ')).join('、')}，单位分钟）${WALK_ONLY ? '，已按<b>上端</b>过闸——即使按乐观端算也不会多收进一所，只是排名会小动' : ''}`
     : '，本池内没有争议项';
 })()}。${BUS_ONLY ? `<br>
-④ <b>公交时间是模型值，不是实时到站</b>：候车按 ${S2.busParams ? S2.busParams.waitMin : 5} 分钟、车内按 ${S2.busParams ? S2.busParams.rideMinPerStop : 2} 分钟/站估算，实际班次与拥堵会让它上下浮动 5–10 分钟；<b>只从 ${esc(S2.busBoardingStop ? S2.busBoardingStop.name + ' ' + S2.busBoardingStop.code : '65431')} 单一站上车</b>，马路对面的反向站（65439）按家长口径不纳入；下车后步行超过 ${S2.busParams ? S2.busParams.maxWalkFromStopMin : 18} 分钟的方案不算可达；⑤ <b>地铁完全不计</b>——表中「地铁」列只是让你看到被这并不认同的口径砍掉了什么，不是备选。` : ''}
+④ <b>公交时间是模型值，不是实时到站</b>：候车按 ${S2.busParams ? S2.busParams.waitMin : 5} 分钟、车内按 ${S2.busParams ? S2.busParams.rideMinPerStop : 2} 分钟/站估算，实际班次与拥堵会让它上下浮动 5–10 分钟；<b>只从 ${esc(S2.busBoardingStop ? S2.busBoardingStop.name + ' ' + S2.busBoardingStop.code : '65431')} 单一站上车</b>，马路对面的反向站（65439）按家长口径不纳入；下车后步行超过 ${S2.busParams ? S2.busParams.maxWalkFromStopMin : 18} 分钟的方案不算可达；⑤ <b>地铁完全不计</b>——表中「地铁」列只是让你看到被这并不认同的口径砍掉了什么，不是备选。` : ''}${SUBJECT_ACTIVE ? `<br>
+⑥ <b>subjects offered 是当前 cohort 快照，不是四年承诺</b>：列出科目 ≠ 每个组合都开得出来，学校仍按资格、选课人数与师资排课；<b>Computer Applications 只等于 G1 Computing</b>，PG3 若想要 G3 Computing 必须逐校确认；「独特 / 强项」只是相对全岛出现频率与学校公开特色项目，<b>不是教学质量排名</b>。` : ''}
 </div>
 </section>`;
 
@@ -850,6 +924,7 @@ const html = `<!DOCTYPE html>
 <title>PSLE 2026 志愿规划 · AL ${S.score} 分 · 6 个志愿方案</title>
 <style>
 ${PLAN_CSS}
+${SUBJECT_CSS}
 </style>
 </head>
 <body>

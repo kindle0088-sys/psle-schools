@@ -17,6 +17,10 @@ const Iso = require('../lib/iso.cjs');
 const BASE = path.join(__dirname, '..');
 const net = JSON.parse(fs.readFileSync(path.join(BASE, 'data/network.json'), 'utf8'));
 const schools = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/schools.json'), 'utf8')).schools;
+/* docs/data/schools.json 为了体积刻意不输出 subjects（95KB），源数据仍完整保留在 data/schools.json。
+   2026-11-24 abcd2 需要「逐校 offered subjects」：只读源数据补这一维，不把大字段塞回前端产物。 */
+const RAW_SCHOOLS = JSON.parse(fs.readFileSync(path.join(BASE, 'data/schools.json'), 'utf8'));
+const RAW_BY_SLUG = new Map(RAW_SCHOOLS.map(s => [s.slug, s]));
 const graph = Iso.buildGraph(net);
 
 const Stu = require('../lib/student.cjs');
@@ -220,6 +224,123 @@ function ccaHitLabels(ccaList, interests) {
   return out;
 }
 
+/* ── 学术科目维度（2026-11-24 abcd2 新增）──────────────────────────
+   与五维综合分刻意分开：subjects offered 是「这届开了什么」的事实快照，
+   不能冒充「这个孩子适不适合这所学校」的分数。这里只产出匹配与稀缺标注，
+   由报告决定是否高亮；综合分算式保持原样，避免悄悄改变既有学生口径。 */
+const SUBJECT_NOTE_RE = /offered to the current student cohort|Tamil Language will have to attend/i;
+const SUBJECT_SPECIAL_SCHOOLS = new Set([
+  'School of the Arts, Singapore', 'Singapore Sports School',
+  'Crest Secondary School', 'Spectra Secondary School', 'Assumption Pathway School',
+]);
+const SUBJECT_INTERESTS = STU.interests && STU.interests.subjects ? STU.interests.subjects : [];
+const normSubject = s => String(s).toLowerCase().replace(/&/g, 'and').replace(/\s+/g, ' ').trim();
+const cleanSubjects = arr => (arr || []).filter(v => !SUBJECT_NOTE_RE.test(v));
+const SUBJECT_RARITY_MAX = 20;   // ≤20/142 判为「稀缺」；门槛写进报告，便于复核
+/* 低年级共同课程 / 同一门课的写法变体不算「独特或强项」，否则 CCE、Food & Consumer
+   Education、Humanities 变体会因为各校写法不同而假稀缺。 */
+const RARE_IGNORE = new Set([
+  'character and citizenship education', 'food and consumer education',
+  'humanities general', 'humanities geography', 'humanities history',
+  'humanities literature', 'humanities exposure modules', 'combined science',
+  'physical education', 'social studies',
+]);
+
+/* 同一门课在 snapshot 里有多种写法（CCE / CCE-S1 / Humanities (Geography) /
+   Humanities (SS, Geography) / Science (Phy, Chem)…）。不归并就会把「写法不同」
+   误判成「稀缺」，所以先做一层保守归一；归一后反而是真稀缺的留下。 */
+function canonicalSubject(v) {
+  const s = normSubject(v);
+  if (!s) return null;
+  if (/^cce(?:[- ]|$)/.test(s) || s.startsWith('character and citizenship')) return 'character and citizenship education';
+  if (s.startsWith('applied learning programme')) return null;
+  if (/syllabus b/.test(s)) return null;   // 同一语种的版本标记，不是独立科目
+  if (s.startsWith('food and consumer education')) return 'food and consumer education';
+  if (s.startsWith('humanities')) {
+    if (/literature/.test(s)) return 'humanities literature';
+    if (/exposure/.test(s)) return 'humanities exposure modules';
+    if (/geography/.test(s)) return 'humanities geography';
+    if (/history/.test(s)) return 'humanities history';
+    return 'humanities general';
+  }
+  if (/^science\s*\(/.test(s)) return 'combined science';
+  return s;
+}
+
+/* 稀缺度只在 142 所普通课程校之间比，专门课程校（IP 以外的 SOTA / Sports /
+   Crest / Spectra / Assumption Pathway）不进分母，否则它们的 0–8 项会污染基准。 */
+const SUBJECT_COUNTS = (() => {
+  const m = new Map();
+  for (const s of RAW_SCHOOLS) {
+    if (SUBJECT_SPECIAL_SCHOOLS.has(s.name)) continue;
+    const keys = new Set(cleanSubjects(s.subjects).map(canonicalSubject).filter(Boolean));
+    for (const k of keys) m.set(k, (m.get(k) || 0) + 1);
+  }
+  return m;
+})();
+
+/* applied subjects 的官方列举见 MOE「Subjects for Express course」：
+   Computing / Exercise & Sports Science / Drama 等；本地快照另常见 D&T、NFS、Art、Music、Electronics。
+   映射写死在这里并在报告披露，避免把「Applied Subjects」解释成玄学。 */
+const APPLIED_RES = [
+  /^computing$/i, /computer applications/i, /design\s*(?:and|&)\s*technology/i,
+  /nutrition\s*(?:and|&)\s*food science/i, /drama/i, /exercise\s*(?:and|&)\s*sports science/i,
+  /^(?:higher\s+)?art$/i, /^(?:higher\s+)?music$/i, /electronics/i,
+];
+const SUBJECT_RULES = [
+  { key: 'Higher Chinese', exact: /higher chinese/i },
+  { key: 'Additional Mathematics', exact: /additional mathematics/i },
+  { key: 'Science', exact: /^science(?:\s|\(|$)/i },
+  { key: 'Computing', exact: /^computing$/i, related: /computer applications/i,
+    relatedNote: 'Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3' },
+  { key: 'Design & Technology', exact: /design\s*(?:and|&)\s*technology/i },
+  { key: 'Nutrition and Food Science', exact: /nutrition\s*(?:and|&)\s*food science/i },
+  { key: 'Applied Subjects', applied: true },
+];
+
+function subjectProfile(slug, electives) {
+  const subjects = cleanSubjects(RAW_BY_SLUG.get(slug) && RAW_BY_SLUG.get(slug).subjects);
+  const wanted = new Set(SUBJECT_INTERESTS.map(normSubject));
+  const detail = {};
+  for (const rule of SUBJECT_RULES) {
+    if (!wanted.has(normSubject(rule.key))) continue;
+    const exact = rule.applied
+      ? subjects.filter(v => APPLIED_RES.some(re => re.test(v)))
+      : subjects.filter(v => rule.exact.test(v));
+    const related = rule.related
+      ? subjects.filter(v => rule.related.test(v) && !exact.includes(v)) : [];
+    if (exact.length || related.length) {
+      detail[rule.key] = { exact, related, relatedNote: rule.relatedNote || null };
+    }
+  }
+  const seenRare = new Set();
+  const rare = subjects.filter(v => {
+    const k = canonicalSubject(v);
+    if (!k || seenRare.has(k) || RARE_IGNORE.has(k)) return false;
+    seenRare.add(k);
+    return (SUBJECT_COUNTS.get(k) ?? 999) <= SUBJECT_RARITY_MAX;
+  });
+  /* 「强项」不用主观排名，用学校公开的 Electives / Programmes 栏目：
+     CLEP、SAP、IP、音乐/艺术 elective programme 这类是真正的逐校差异。 */
+  const strong = (electives || [])
+    .filter(e => /^(?:Electives|Programmes)$/i.test(e.type || ''))
+    .flatMap(e => e.items || []);
+  /* 「Computer Applications」只算 G1 关联，不冒充 G3 Computing 的完整命中；
+     但它仍要出现在表上并注明，否则家长看到学校没 Computing 会误以为完全没有计算机课。 */
+  const subjectHits = Object.keys(detail).filter(k => detail[k].exact.length);
+  const subjectSoftHits = Object.keys(detail).filter(k => !detail[k].exact.length && detail[k].related.length);
+  return {
+    subjects,
+    subjectHits,
+    subjectSoftHits,
+    subjectHitDetail: detail,
+    subjectFit: subjectHits.length,
+    rareSubjects: rare,
+    strongProgrammes: strong,
+    subjectRarityMax: SUBJECT_RARITY_MAX,
+  };
+}
+
 /** ALP / LLP 与学校特色 */
 function scoreFeature(sc, alpCats, llpCats) {
   let s = 55;
@@ -351,6 +472,8 @@ function gate(sc) {
       /* 命中孩子哪几项兴趣（中文标签，空数组 = 五项都没社团承接）。
          报告里的「一句话」列直接用它，不再用「机器人/戏剧有没有」这种二元判断。 */
       ccaHits: ccaHitLabels(ccaList, STU.interests.cca),
+      /* abcd2 起：学术科目事实与匹配。没有 interests.subjects 的学生完全不输出这些字段。 */
+      ...(SUBJECT_INTERESTS.length ? subjectProfile(sc.slug, sc.electives) : {}),
       alpCats, alpItems, llpCats, llpItems,
       dsaAreas: sc.dsaAreas || [],
       moeNearby: MOE_NEARBY.has(sc.name),
@@ -445,6 +568,12 @@ function gate(sc) {
     poolMixed: pool.length,
     poolSingleSex: singleSex.length,
     outOfReach: outOfReach.length,
+    /* 学术科目维度（abcd2 起）。没有配置的学生是空数组/null，报告据此不渲染科目段。 */
+    subjectInterests: SUBJECT_INTERESTS,
+    subjectRarityMax: SUBJECT_INTERESTS.length ? SUBJECT_RARITY_MAX : null,
+    subjectFitInPool: SUBJECT_INTERESTS.length
+      ? pool.map(x => ({ name: x.name, fit: x.subjectFit, hits: x.subjectHits }))
+      : [],
     // 通勤口径：步行 vs 地铁的分工，报告里引用这些数字而非写死
     walkDataUsed: !!WALK,
     /* 口径本身 —— 报告据此决定「通勤」列怎么写、门槛怎么解释。

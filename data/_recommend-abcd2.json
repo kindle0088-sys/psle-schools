@@ -1,0 +1,8484 @@
+{
+ "student": {
+  "id": "abcd2",
+  "label": "abcd2",
+  "score": 18,
+  "pg": "Posting Group 3",
+  "postal": "828765",
+  "maxCommute": 60,
+  "commuteFullMarkMin": 16,
+  "pgShort": "PG3",
+  "pgLabel": "Posting Group 3",
+  "gender": "any",
+  "hasAffiliation": false,
+  "commuteMode": "bus",
+  "moeNearbyUsed": true,
+  "walkData": {
+   "generatedAt": "2026-11-12T15:06:44.910Z",
+   "schoolCount": 147,
+   "walkMetersPerMin": 80,
+   "source": {
+    "primary": "FOSSGIS OSRM foot (routing.openstreetmap.de/routed-foot), OSM 步行路网",
+    "crossCheck": "Valhalla pedestrian (valhalla1.openstreetmap.de)",
+    "policy": "无需 API key；FOSSGIS 条款限 1 请求/秒、禁止抓取",
+    "attribution": "© OpenStreetMap contributors, ODbL"
+   },
+   "rule": "只认不换乘公交+步行或纯步行；争议项按区间上端过闸；地铁不参与"
+  }
+ },
+ "origin": {
+  "lat": 1.402186278027678,
+  "lon": 103.8972807400701,
+  "label": "110 Punggol Walk, Twin Waterfalls, Singapore 828765"
+ },
+ "pool": [
+  {
+   "slug": "junyuan-secondary-school",
+   "name": "Junyuan Secondary School",
+   "area": "Tampines",
+   "address": "11 Tampines Street 84, S528933",
+   "postal": "528933",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 21,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": 3,
+   "minutes": 29,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 29,
+   "busService": "118",
+   "busDirection": 1,
+   "busStopCode": "75159",
+   "busStopName": "Blk 874",
+   "busHops": 8,
+   "busRideMinutes": 16,
+   "busWalkMinutes": 5,
+   "mrtMinutes": 60,
+   "walkMinutes": 113,
+   "walkUpperMinutes": 113,
+   "walkMeters": 9021,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 47,
+   "walkMinutesToStation": 13,
+   "via": "DT31 TAMPINES WEST",
+   "accessWalkM": 1033,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Concert Band (Girls and Boys)",
+    "Guitar Ensemble (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Track and Field (Girls and Boys)",
+    "Volleyball (Girls)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in Malay)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Health and Food Science"
+   ],
+   "alpItems": [
+    "Developing Application-based Learning through Food Science"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Cultivating Community Champions through Youth Leadership"
+   ],
+   "dsaAreas": [
+    "Basketball (Boys)",
+    "Community Youth Leadership (Girls and Boys)",
+    "Rugby (Boys)",
+    "Volleyball (Girls)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 66,
+    "commute": 88,
+    "academic": 68,
+    "cca": 94,
+    "feature": 86
+   },
+   "total": 79,
+   "rank": 1
+  },
+  {
+   "slug": "changkat-changi-secondary-school",
+   "name": "Changkat Changi Secondary School",
+   "area": "Tampines",
+   "address": "23 Simei St 3, S529894",
+   "postal": "529894",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 11,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
+   "copHistory": null,
+   "margin": 4,
+   "minutes": 49,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 49,
+   "busService": "118",
+   "busDirection": 1,
+   "busStopCode": "96289",
+   "busStopName": "Changi General Hosp",
+   "busHops": 14,
+   "busRideMinutes": 28,
+   "busWalkMinutes": 13,
+   "mrtMinutes": 55,
+   "walkMinutes": 148,
+   "walkUpperMinutes": 148,
+   "walkMeters": 11843,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 49,
+   "walkMinutesToStation": 5,
+   "via": "EW3 SIMEI",
+   "accessWalkM": 411,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Malay Dance (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Netball (Girls)",
+    "Track and Field (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language (Special Programme)",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Chinese Language (Special Programme)"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Future of Transportation"
+   ],
+   "alpItems": [
+    "SOAR @ CCSS - Student Centered Opportunities for AeRospace industries at CCSS"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Leaders in Sustainability"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Chinese Instrumental Ensemble (Girls and Boys)",
+    "Community Youth Leadership (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Malay Dance (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Netball (Girls)",
+    "Stem - Aerospace and Aviation (Girls and Boys)",
+    "Track and Field (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 74,
+    "commute": 70,
+    "academic": 76,
+    "cca": 94,
+    "feature": 86
+   },
+   "total": 78,
+   "rank": 2
+  },
+  {
+   "slug": "compassvale-secondary-school",
+   "name": "Compassvale Secondary School",
+   "area": "Seng Kang",
+   "address": "51 Compassvale Crescent, S545083",
+   "postal": "545083",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 18,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610172913",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 15,
+      "max": 19,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 15,
+       "max": 19,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610172913/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=compassvale-secondary-school"
+    },
+    "2024": {
+     "status": "no-snapshot"
+    }
+   },
+   "margin": 0,
+   "minutes": 21,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 21,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "67591",
+   "busStopName": "Blk 286B",
+   "busHops": 1,
+   "busRideMinutes": 2,
+   "busWalkMinutes": 11,
+   "mrtMinutes": 22,
+   "walkMinutes": 14,
+   "walkUpperMinutes": 25,
+   "walkMeters": 1114,
+   "walkDisputed": true,
+   "walkRange": [
+    14,
+    25
+   ],
+   "rideMinutes": 13,
+   "walkMinutesToStation": 9,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 693,
+   "cca": [
+    "Aero-Modelling",
+    "Badminton",
+    "Basketball",
+    "Boys' Brigade",
+    "Choir",
+    "Concert Band",
+    "English Drama",
+    "Environmental Science",
+    "Floorball",
+    "Girl Guides",
+    "Media Resource Library",
+    "Modern Dance",
+    "NCC (Air)",
+    "NPCC",
+    "Netball",
+    "Red Cross Youth",
+    "Robotics",
+    "Softball (Boys)"
+   ],
+   "ccaHits": [
+    "机器人",
+    "戏剧"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Malay Language",
+    "Mathematics",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Future of Transportation"
+   ],
+   "alpItems": [
+    "Applied Learning Programme – Aeronautics, Coding, Engineering and Sustainability (ACES)"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Green Compass Programme"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Environmental Science (Girls and Boys)",
+    "Floorball (Girls and Boys)",
+    "Netball (Girls)",
+    "Robotics (Girls and Boys)",
+    "Softball (Boys)",
+    "Stem - Aeronautics (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 95,
+    "academic": 100,
+    "cca": 100,
+    "feature": 83
+   },
+   "total": 78,
+   "rank": 3
+  },
+  {
+   "slug": "northbrooks-secondary-school",
+   "name": "Northbrooks Secondary School",
+   "area": "Yishun",
+   "address": "585 Yishun Ring Road, S768692",
+   "postal": "768692",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 15,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": 4,
+   "minutes": 52,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 52,
+   "busService": "117",
+   "busDirection": 1,
+   "busStopCode": "59479",
+   "busStopName": "Opp Blk 430B",
+   "busHops": 15,
+   "busRideMinutes": 30,
+   "busWalkMinutes": 14,
+   "mrtMinutes": 59,
+   "walkMinutes": 120,
+   "walkUpperMinutes": 120,
+   "walkMeters": 9621,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 41,
+   "walkMinutesToStation": 18,
+   "via": "NS14 KHATIB",
+   "accessWalkM": 1405,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Bowling (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Guitar Ensemble (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Food & Consumer Education",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Humanities Exposure Modules)",
+    "Humanities (SS, Literature in English)",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Future of Transportation"
+   ],
+   "alpItems": [
+    "Northbrooks Aerospace Programme (Applied Learning In Aerospace)"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Northbrooks Outdoor Education: Adventure, Character, Environment (A.C.E.) Programme"
+   ],
+   "dsaAreas": [
+    "Aerospace (Girls and Boys)",
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Floorball (Boys)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Outdoor Adventure (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 74,
+    "commute": 67,
+    "academic": 76,
+    "cca": 94,
+    "feature": 89
+   },
+   "total": 78,
+   "rank": 4
+  },
+  {
+   "slug": "hougang-secondary-school",
+   "name": "Hougang Secondary School",
+   "area": "Hougang",
+   "address": "2 Hougang Street 93, S534256",
+   "postal": "534256",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 20,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610095957",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 16,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 16,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610095957/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=hougang-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20251216181956",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20251216181956/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=hougang-secondary-school"
+    }
+   },
+   "margin": 2,
+   "minutes": 32,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 32,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "66499",
+   "busStopName": "Blk 911",
+   "busHops": 9,
+   "busRideMinutes": 18,
+   "busWalkMinutes": 6,
+   "mrtMinutes": 32,
+   "walkMinutes": 47,
+   "walkUpperMinutes": 47,
+   "walkMeters": 3784,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 15,
+   "walkMinutesToStation": 17,
+   "via": "NE15 BUANGKOK",
+   "accessWalkM": 1349,
+   "cca": [
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "戏剧"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "CCE",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Design and Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Food & Consumer Education",
+    "Higher Chinese Language",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (Literature in English)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Humanities Exposure Modules)",
+    "Humanities (SS, Literature in English)",
+    "Humanities (SS, Literature in Malay)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology",
+      "Design and Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Design and Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM"
+   ],
+   "alpItems": [
+    "HS Innovates, For Life!"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Values in action, a Hougean way of life"
+   ],
+   "dsaAreas": [
+    "Angklung/Kulintang Ensemble (Girls and Boys)",
+    "Debating (Girls and Boys)",
+    "English Drama (Girls and Boys)",
+    "Floorball (Girls and Boys)",
+    "Football (Boys)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Judo (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Modern Dance (Girls)",
+    "Netball (Girls)",
+    "Stem (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 58,
+    "commute": 85,
+    "academic": 78,
+    "cca": 92,
+    "feature": 86
+   },
+   "total": 77,
+   "rank": 5
+  },
+  {
+   "slug": "punggol-secondary-school",
+   "name": "Punggol Secondary School",
+   "area": "Punggol",
+   "address": "51 Edgefield Plains, S828870",
+   "postal": "828870",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 13,
+    "max": 19,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610185006",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610185006/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20250916021134",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 19,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 19,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20250916021134/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school"
+    }
+   },
+   "margin": 1,
+   "minutes": 21,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 21,
+   "busService": "118",
+   "busDirection": 1,
+   "busStopCode": "65199",
+   "busStopName": "Aft Punggol Rd",
+   "busHops": 1,
+   "busRideMinutes": 2,
+   "busWalkMinutes": 11,
+   "mrtMinutes": 22,
+   "walkMinutes": 24,
+   "walkUpperMinutes": 24,
+   "walkMeters": 1936,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 11,
+   "walkMinutesToStation": 11,
+   "via": "NE17 PUNGGOL",
+   "accessWalkM": 841,
+   "cca": [
+    "Art and Crafts",
+    "Audio Visual Aid",
+    "Basketball (Boys)",
+    "Choir",
+    "Community Service (Rotary-Sponsored)",
+    "Concert Band",
+    "English Language, Drama and Debating",
+    "Environmental Science",
+    "Football (Boys)",
+    "Guzheng Ensemble",
+    "Indian Language, Drama and Debating",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "NPCC",
+    "Netball (Girls)",
+    "Red Cross Youth",
+    "Scouts (Boys)",
+    "Shooting",
+    "Table Tennis (Boys)",
+    "Volleyball"
+   ],
+   "ccaHits": [
+    "戏剧"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Higher Chinese Language",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (History)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Humanities Exposure Modules)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Mobile Robotics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language",
+    "Tamil Language Syllabus B"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Mobile Robotics"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Sustainability"
+   ],
+   "alpItems": [
+    "Environmental Sustainability"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Serving with values, developing a community of confident leaders and learners."
+   ],
+   "dsaAreas": [
+    "Choir (Girls and Boys)",
+    "Environmental Science (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 50,
+    "commute": 95,
+    "academic": 71,
+    "cca": 92,
+    "feature": 83
+   },
+   "total": 76,
+   "rank": 6
+  },
+  {
+   "slug": "broadrick-secondary-school",
+   "name": "Broadrick Secondary School",
+   "area": "Geylang",
+   "address": "61 Dakota Crescent, S399935",
+   "postal": "399935",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 5,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
+   "copHistory": null,
+   "margin": 4,
+   "minutes": 59,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 59,
+   "busService": "43e",
+   "busDirection": 1,
+   "busStopCode": "82089",
+   "busStopName": "Aft Ipoh Lane",
+   "busHops": 18,
+   "busRideMinutes": 36,
+   "busWalkMinutes": 15,
+   "mrtMinutes": 40,
+   "walkMinutes": 161,
+   "walkUpperMinutes": 161,
+   "walkMeters": 12874,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 36,
+   "walkMinutesToStation": 4,
+   "via": "CC8 DAKOTA",
+   "accessWalkM": 303,
+   "cca": [
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Shooting (Girls and Boys)",
+    "Taekwondo (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "CCE-3",
+    "CCE-4",
+    "CCE-5",
+    "CCE-S1",
+    "CCE-S2",
+    "Chemistry",
+    "Chinese Language",
+    "Computing",
+    "Design & Technology",
+    "Design and Technology",
+    "English Language",
+    "Food & Consumer Education",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology",
+      "Design and Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computing",
+      "Design & Technology",
+      "Design and Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Sustainability"
+   ],
+   "alpItems": [
+    "Sustainability in Broadrick"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Nurturing Grateful, Respectful and Compassionate (GRC) Leaders through Service in the Community"
+   ],
+   "dsaAreas": [
+    "Basketball (Boys)",
+    "Leadership (Girls and Boys)",
+    "Shooting (Girls and Boys)",
+    "Tchoukball (Girls)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 74,
+    "commute": 61,
+    "academic": 71,
+    "cca": 94,
+    "feature": 86
+   },
+   "total": 75,
+   "rank": 7
+  },
+  {
+   "slug": "seng-kang-secondary-school",
+   "name": "Seng Kang Secondary School",
+   "area": "Seng Kang",
+   "address": "10 Compassvale Lane, S545090",
+   "postal": "545090",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 19,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610051334",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 15,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 15,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610051334/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=seng-kang-secondary-school"
+    },
+    "2024": {
+     "status": "no-snapshot"
+    }
+   },
+   "margin": 1,
+   "minutes": 26,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 26,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "67611",
+   "busStopName": "Blk 204C",
+   "busHops": 4,
+   "busRideMinutes": 8,
+   "busWalkMinutes": 10,
+   "mrtMinutes": 22,
+   "walkMinutes": 33,
+   "walkUpperMinutes": 33,
+   "walkMeters": 2668,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 13,
+   "walkMinutesToStation": 8,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 658,
+   "cca": [
+    "Art and Crafts",
+    "Audio Visual Aid",
+    "Badminton",
+    "Basketball",
+    "Choir",
+    "Concert Band",
+    "English Drama",
+    "Football (Boys)",
+    "Girl Guides",
+    "Guzheng Ensemble",
+    "Hockey",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "Netball"
+   ],
+   "ccaHits": [
+    "戏剧"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Exercise & Sports Science",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Exercise & Sports Science",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Exercise & Sports Science"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Health and Food Science"
+   ],
+   "alpItems": [
+    "Food for the Future"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "TREK for Life"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Football (Boys)",
+    "Hockey (Girls and Boys)",
+    "Netball (Girls)",
+    "Stem (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 50,
+    "commute": 91,
+    "academic": 68,
+    "cca": 92,
+    "feature": 86
+   },
+   "total": 75,
+   "rank": 8
+  },
+  {
+   "slug": "north-vista-secondary-school",
+   "name": "North Vista Secondary School",
+   "area": "Seng Kang",
+   "address": "11 Rivervale Link, S545081",
+   "postal": "545081",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 11,
+    "max": 18,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615022342",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 18,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 18,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615022342/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=north-vista-secondary-school"
+    },
+    "2024": {
+     "status": "no-snapshot"
+    }
+   },
+   "margin": 0,
+   "minutes": 26,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 26,
+   "busService": "43e",
+   "busDirection": 1,
+   "busStopCode": "67721",
+   "busStopName": "The Rivervale",
+   "busHops": 7,
+   "busRideMinutes": 14,
+   "busWalkMinutes": 4,
+   "mrtMinutes": 25,
+   "walkMinutes": 38,
+   "walkUpperMinutes": 38,
+   "walkMeters": 3032,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 15,
+   "walkMinutesToStation": 9,
+   "via": "NE15 BUANGKOK",
+   "accessWalkM": 740,
+   "cca": [
+    "Basketball",
+    "Chinese Dance (Girls)",
+    "Choir (Girls)",
+    "Community Service",
+    "Concert Band",
+    "English Drama",
+    "Football (Boys)",
+    "Girl Guides",
+    "Golf",
+    "Infocomm Technology (Media Production)",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "NPCC",
+    "Netball",
+    "Outdoor Adventure",
+    "St John Brigade",
+    "String Ensemble",
+    "Track and Field"
+   ],
+   "ccaHits": [
+    "AI",
+    "戏剧"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Exercise & Sports Science",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (Literature in English)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Exercise & Sports Science",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Exercise & Sports Science"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Cities and Urban Landscapes"
+   ],
+   "alpItems": [
+    "Farm-to-Table"
+   ],
+   "llpCats": [
+    "Visual Arts & Design"
+   ],
+   "llpItems": [
+    "Nurture Caring Vistarians through Design and the Arts"
+   ],
+   "dsaAreas": [
+    "Basketball (Girls and Boys)",
+    "Chinese Dance (Girls)",
+    "Choir (Girls)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Golf (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Netball (Girls)",
+    "String Ensemble (Girls and Boys)",
+    "Track and Field (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 91,
+    "academic": 72,
+    "cca": 99,
+    "feature": 86
+   },
+   "total": 73,
+   "rank": 9
+  },
+  {
+   "slug": "serangoon-garden-secondary-school",
+   "name": "Serangoon Garden Secondary School",
+   "area": "Serangoon",
+   "address": "21 Serangoon North Avenue 1, S555889",
+   "postal": "555889",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 12,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610160337",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610160337/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=serangoon-garden-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20251006010421",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20251006010421/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=serangoon-garden-secondary-school"
+    }
+   },
+   "margin": 4,
+   "minutes": 47,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 47,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "63219",
+   "busStopName": "Bef Yio Chu Kang Chapel",
+   "busHops": 13,
+   "busRideMinutes": 26,
+   "busWalkMinutes": 13,
+   "mrtMinutes": 44,
+   "walkMinutes": 75,
+   "walkUpperMinutes": 75,
+   "walkMeters": 6032,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 19,
+   "walkMinutesToStation": 25,
+   "via": "NE13 KOVAN",
+   "accessWalkM": 1991,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Table Tennis (Boys)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language",
+    "Tamil Language Syllabus B"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Humanities"
+   ],
+   "alpItems": [
+    "Researching Society through Media Literacy"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Nurturing Confident and Compassionate Leaders"
+   ],
+   "dsaAreas": [
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Floorball (Girls)",
+    "Football (Boys)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Netball (Girls)",
+    "Robotics (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 74,
+    "commute": 72,
+    "academic": 50,
+    "cca": 94,
+    "feature": 76
+   },
+   "total": 73,
+   "rank": 10
+  },
+  {
+   "slug": "springfield-secondary-school",
+   "name": "Springfield Secondary School",
+   "area": "Tampines",
+   "address": "30 Tampines Avenue 8, S529593",
+   "postal": "529593",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 10,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
+   "copHistory": null,
+   "margin": 4,
+   "minutes": 32,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 32,
+   "busService": "118",
+   "busDirection": 1,
+   "busStopCode": "75039",
+   "busStopName": "Springfield Sec Sch",
+   "busHops": 9,
+   "busRideMinutes": 18,
+   "busWalkMinutes": 6,
+   "mrtMinutes": 60,
+   "walkMinutes": 122,
+   "walkUpperMinutes": 122,
+   "walkMeters": 9743,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 47,
+   "walkMinutesToStation": 13,
+   "via": "DT31 TAMPINES WEST",
+   "accessWalkM": 1005,
+   "cca": [
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "Netball (Girls)",
+    "Taekwondo (Girls and Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Health and Food Science"
+   ],
+   "alpItems": [
+    "Health and Food Science"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "GEARing Springfielders for Success"
+   ],
+   "dsaAreas": [
+    "Floorball (Girls and Boys)",
+    "Rockwall Climbing (Girls and Boys)",
+    "Stem (Girls and Boys)",
+    "Taekwondo (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 74,
+    "commute": 85,
+    "academic": 68,
+    "cca": 45,
+    "feature": 83
+   },
+   "total": 73,
+   "rank": 11
+  },
+  {
+   "slug": "yuying-secondary-school",
+   "name": "Yuying Secondary School",
+   "area": "Hougang",
+   "address": "47 Hougang Avenue 1, S538884",
+   "postal": "538884",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 11,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": 4,
+   "minutes": 56,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 56,
+   "busService": "119",
+   "busDirection": 1,
+   "busStopCode": "63049",
+   "busStopName": "Glad Tidings Ch",
+   "busHops": 19,
+   "busRideMinutes": 38,
+   "busWalkMinutes": 10,
+   "mrtMinutes": 28,
+   "walkMinutes": 79,
+   "walkUpperMinutes": 79,
+   "walkMeters": 6312,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 19,
+   "walkMinutesToStation": 9,
+   "via": "NE13 KOVAN",
+   "accessWalkM": 704,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Concert Band (Girls and Boys)",
+    "Guitar Ensemble (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Malay Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Table Tennis (Boys)",
+    "Volleyball (Girls)",
+    "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Exercise & Sports Science",
+    "Higher Chinese Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Bio)",
+    "Science (Phy, Chem)"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Exercise & Sports Science",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Exercise & Sports Science"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Business & Entrepreneurship"
+   ],
+   "alpItems": [
+    "Fostering Innovation through Design Thinking"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "YUYING C.A.R.E.S - Collaborate, Act, Reflect, Empathise, Serve"
+   ],
+   "dsaAreas": [
+    "Community Youth Leadership (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Volleyball (Girls)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 74,
+    "commute": 64,
+    "academic": 60,
+    "cca": 94,
+    "feature": 76
+   },
+   "total": 73,
+   "rank": 12
+  },
+  {
+   "slug": "peicai-secondary-school",
+   "name": "Peicai Secondary School",
+   "area": "Serangoon",
+   "address": "10 Serangoon Avenue 4, S556094",
+   "postal": "556094",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 20,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
+   "copHistory": null,
+   "margin": 2,
+   "minutes": 51,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 51,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "63189",
+   "busStopName": "Aft S'goon Gdn Way",
+   "busHops": 16,
+   "busRideMinutes": 32,
+   "busWalkMinutes": 11,
+   "mrtMinutes": 34,
+   "walkMinutes": 86,
+   "walkUpperMinutes": 86,
+   "walkMeters": 6899,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 21,
+   "walkMinutesToStation": 13,
+   "via": "CC13/NE12 SERANGOON",
+   "accessWalkM": 1034,
+   "cca": [
+    "Basketball (Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Health and Food Science"
+   ],
+   "alpItems": [
+    "Applied food science & processing"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Becoming Persons for Others – Developing Leadership through and for the Community"
+   ],
+   "dsaAreas": [
+    "Basketball (Boys)",
+    "Concert Band (Girls and Boys)",
+    "English Drama (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Leadership (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) Sea (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Softball (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 58,
+    "commute": 68,
+    "academic": 68,
+    "cca": 94,
+    "feature": 86
+   },
+   "total": 72,
+   "rank": 13
+  },
+  {
+   "slug": "yishun-secondary-school",
+   "name": "Yishun Secondary School",
+   "area": "Yishun",
+   "address": "4 Yishun Street 71, S768516",
+   "postal": "768516",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 12,
+    "max": 20,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": 2,
+   "minutes": 39,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 39,
+   "busService": "39",
+   "busDirection": 1,
+   "busStopCode": "58991",
+   "busStopName": "Blk 767",
+   "busHops": 8,
+   "busRideMinutes": 16,
+   "busWalkMinutes": 15,
+   "mrtMinutes": 52,
+   "walkMinutes": 146,
+   "walkUpperMinutes": 146,
+   "walkMeters": 11660,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 43,
+   "walkMinutesToStation": 9,
+   "via": "NS13 YISHUN",
+   "accessWalkM": 709,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "Indian Dance (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Malay Dance (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Volleyball (Girls)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Character and Citizenship Education",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Exercise & Sports Science",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Retail Operations",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Exercise & Sports Science",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Exercise & Sports Science",
+    "Retail Operations"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Aesthetics"
+   ],
+   "alpItems": [
+    "ALP in Sonic Arts (Music, Media & Technology)"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Leading with Empathy, Serving with Compassion through the Arts"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "English Drama (Girls and Boys)",
+    "Football (Boys)",
+    "Indian Dance (Girls and Boys)",
+    "Malay Dance (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Music (Girls and Boys)",
+    "Netball (Girls)",
+    "Volleyball (Girls)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 58,
+    "commute": 79,
+    "academic": 58,
+    "cca": 96,
+    "feature": 76
+   },
+   "total": 72,
+   "rank": 14
+  },
+  {
+   "slug": "naval-base-secondary-school",
+   "name": "Naval Base Secondary School",
+   "area": "Yishun",
+   "address": "901 Yishun Ring Road, S768689",
+   "postal": "768689",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 13,
+    "max": 19,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": 1,
+   "minutes": 30,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 30,
+   "busService": "39",
+   "busDirection": 1,
+   "busStopCode": "59041",
+   "busStopName": "Bef Khatib Stn",
+   "busHops": 6,
+   "busRideMinutes": 12,
+   "busWalkMinutes": 10,
+   "mrtMinutes": 45,
+   "walkMinutes": 140,
+   "walkUpperMinutes": 140,
+   "walkMeters": 11200,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 41,
+   "walkMinutesToStation": 4,
+   "via": "NS14 KHATIB",
+   "accessWalkM": 309,
+   "cca": [
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Humanities (Geography)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language",
+    "Tamil Language Syllabus B"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [
+    "Enhanced Art Programme"
+   ],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Aesthetics"
+   ],
+   "alpItems": [
+    "ALP in Art"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Character Education through Sports"
+   ],
+   "dsaAreas": [
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Indian Dance (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Table Tennis (Girls and Boys)",
+    "Visual Arts (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 50,
+    "commute": 87,
+    "academic": 50,
+    "cca": 94,
+    "feature": 79
+   },
+   "total": 70,
+   "rank": 15
+  },
+  {
+   "slug": "orchid-park-secondary-school",
+   "name": "Orchid Park Secondary School",
+   "area": "Yishun",
+   "address": "10 Yishun Street 81, S768454",
+   "postal": "768454",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 10,
+    "max": 19,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": 1,
+   "minutes": 30,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 30,
+   "busService": "39",
+   "busDirection": 1,
+   "busStopCode": "59041",
+   "busStopName": "Bef Khatib Stn",
+   "busHops": 6,
+   "busRideMinutes": 12,
+   "busWalkMinutes": 10,
+   "mrtMinutes": 49,
+   "walkMinutes": 130,
+   "walkUpperMinutes": 130,
+   "walkMeters": 10404,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 41,
+   "walkMinutesToStation": 7,
+   "via": "NS14 KHATIB",
+   "accessWalkM": 589,
+   "cca": [
+    "Basketball (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Guitar Ensemble (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Malay Language",
+    "Malay Language Syllabus B",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [
+    "Enhanced Art Programme"
+   ],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Aesthetics"
+   ],
+   "alpItems": [
+    "ARTopIA"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Community OutReach Education (CORE) Programme"
+   ],
+   "dsaAreas": [
+    "Basketball (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "English Drama (Girls and Boys)",
+    "Floorball (Girls and Boys)",
+    "Football (Boys)",
+    "Guitar Ensemble (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Netball (Girls)",
+    "Visual Arts (Girls and Boys)",
+    "Volleyball (Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 50,
+    "commute": 87,
+    "academic": 50,
+    "cca": 94,
+    "feature": 76
+   },
+   "total": 70,
+   "rank": 16
+  },
+  {
+   "slug": "serangoon-secondary-school",
+   "name": "Serangoon Secondary School",
+   "area": "Hougang",
+   "address": "11 Upper Serangoon View, S534237",
+   "postal": "534237",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 16,
+    "max": 20,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610215225",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610215225/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=serangoon-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20251118014845",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 15,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 15,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20251118014845/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Serangoon%20Secondary%20School"
+    }
+   },
+   "margin": 2,
+   "minutes": 38,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 38,
+   "busService": "43e",
+   "busDirection": 1,
+   "busStopCode": "67721",
+   "busStopName": "The Rivervale",
+   "busHops": 7,
+   "busRideMinutes": 14,
+   "busWalkMinutes": 16,
+   "mrtMinutes": 32,
+   "walkMinutes": 51,
+   "walkUpperMinutes": 51,
+   "walkMeters": 4069,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 17,
+   "walkMinutesToStation": 15,
+   "via": "NE14 HOUGANG",
+   "accessWalkM": 1198,
+   "cca": [
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Scouts (Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Malay Language",
+    "Mathematics",
+    "Mobile Robotics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Mobile Robotics"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Future of Transportation"
+   ],
+   "alpItems": [
+    "Real-world Explorations in ICT"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Project Ablaze: Harnessing Student Leadership in the Service of Community"
+   ],
+   "dsaAreas": [
+    "Community Youth Leadership (Girls and Boys)",
+    "Programming and 3D Modelling (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 58,
+    "commute": 80,
+    "academic": 76,
+    "cca": 45,
+    "feature": 83
+   },
+   "total": 68,
+   "rank": 17
+  },
+  {
+   "slug": "tampines-secondary-school",
+   "name": "Tampines Secondary School",
+   "area": "Tampines",
+   "address": "252 Tampines St 12, S529427",
+   "postal": "529427",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 13,
+    "max": 19,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": 1,
+   "minutes": 47,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 47,
+   "busService": "118",
+   "busDirection": 1,
+   "busStopCode": "75051",
+   "busStopName": "Tampines West Stn Exit B",
+   "busHops": 13,
+   "busRideMinutes": 26,
+   "busWalkMinutes": 13,
+   "mrtMinutes": 57,
+   "walkMinutes": 131,
+   "walkUpperMinutes": 131,
+   "walkMeters": 10507,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 47,
+   "walkMinutesToStation": 10,
+   "via": "DT31 TAMPINES WEST",
+   "accessWalkM": 770,
+   "cca": [
+    "Basketball (Girls and Boys)",
+    "Chinese Dance (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Applied Learning Programme (Sec 1)",
+    "Applied Learning Programme (Sec 2)",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language (Special Programme)",
+    "Mathematics",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [
+    "Malay Language (Special Programme)"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Sustainability"
+   ],
+   "alpItems": [
+    "Creative Engineering : Inter-disciplinary Authentic Problem Solving"
+   ],
+   "llpCats": [
+    "Music & Performing Arts"
+   ],
+   "llpItems": [
+    "Creative Expressions: Character development through visual and performing arts"
+   ],
+   "dsaAreas": [
+    "Chinese and Modern Dance (Girls)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "English Drama (Girls and Boys)",
+    "Football (Girls and Boys)",
+    "Malay Dance (Girls)",
+    "Modern Dance (Girls and Boys)",
+    "Stem - Creative Engineering and Modelling (Girls and Boys)",
+    "Visual Arts (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 50,
+    "commute": 72,
+    "academic": 82,
+    "cca": 45,
+    "feature": 83
+   },
+   "total": 65,
+   "rank": 18
+  }
+ ],
+ "singleSex": [
+  {
+   "slug": "montfort-secondary-school",
+   "name": "Montfort Secondary School",
+   "area": "Hougang",
+   "address": "50 Hougang Avenue 8, S538785",
+   "postal": "538785",
+   "nature": "Boys School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 14,
+    "max": 22,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615040706",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 21,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 21,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 27,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615040706/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=montfort-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20250828233458",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20250828233458/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=montfort-secondary-school"
+    }
+   },
+   "margin": 4,
+   "minutes": 33,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 33,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "67629",
+   "busStopName": "Blk 557",
+   "busHops": 6,
+   "busRideMinutes": 12,
+   "busWalkMinutes": 13,
+   "mrtMinutes": 24,
+   "walkMinutes": 47,
+   "walkUpperMinutes": 47,
+   "walkMeters": 3751,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 17,
+   "walkMinutesToStation": 7,
+   "via": "NE14 HOUGANG",
+   "accessWalkM": 548,
+   "cca": [
+    "Audio Visual Aid (Boys)",
+    "Badminton (Boys)",
+    "Basketball (Boys)",
+    "Choir (Boys)",
+    "Football (Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Boys)",
+    "Scouts (Boys)",
+    "Wushu (Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Emerging Technologies"
+   ],
+   "alpItems": [
+    "Made In Montfort – Design, Code, Make"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Student Leadership through Outdoor Adventure & Sports"
+   ],
+   "dsaAreas": [
+    "Badminton (Boys)",
+    "Basketball (Boys)",
+    "Football (Boys)",
+    "Rugby (Boys)",
+    "Softball (Boys)",
+    "Wushu (Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 74,
+    "commute": 85,
+    "academic": 78,
+    "cca": 45,
+    "feature": 86
+   },
+   "total": 75
+  }
+ ],
+ "outOfReach": [
+  {
+   "slug": "outram-secondary-school",
+   "name": "Outram Secondary School",
+   "area": "Seng Kang",
+   "address": "48 Anchorvale Crescent, S549936",
+   "postal": "549936",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 9,
+    "max": 17,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615035901",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615035901/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=outram-secondary-school"
+    },
+    "2024": {
+     "status": "anomaly",
+     "archiveTs": "20250424113933",
+     "labelYear": 2024,
+     "basis": "PG",
+     "raw": {
+      "min": 0,
+      "max": 0,
+      "star": false
+     },
+     "note": "MOE 存档页原文：There are no cut-off points available for Outram Secondary School as there were no Secondary 1 (S1) students posted to the school in 2024. 即该年无 S1 学生派位，不存在 COP；0–0 是页面占位显示，不是 0 分，也不是抓取坏值。"
+    }
+   },
+   "margin": -1,
+   "minutes": 19,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 19,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "67591",
+   "busStopName": "Blk 286B",
+   "busHops": 1,
+   "busRideMinutes": 2,
+   "busWalkMinutes": 9,
+   "mrtMinutes": 24,
+   "walkMinutes": 15,
+   "walkUpperMinutes": 25,
+   "walkMeters": 1166,
+   "walkDisputed": true,
+   "walkRange": [
+    15,
+    25
+   ],
+   "rideMinutes": 13,
+   "walkMinutesToStation": 10,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 823,
+   "cca": [
+    "Badminton",
+    "Basketball",
+    "Concert Band",
+    "Frisbee",
+    "Modern Dance",
+    "NCC (Land)",
+    "NCDCC",
+    "NPCC",
+    "Rockwall Climbing",
+    "Student Leadership (Council)",
+    "Student Leadership (House)",
+    "Student Leadership (Peer Support)",
+    "Swimming",
+    "Water Polo (Boys)"
+   ],
+   "ccaHits": [
+    "AI",
+    "戏剧",
+    "游泳"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Business Studies",
+    "CCE",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Design and Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Food & Consumer Education",
+    "Higher Chinese Language",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (Literature in English)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Humanities Exposure Modules)",
+    "Humanities (SS, Literature in English)",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology",
+      "Design and Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Design and Technology",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Business Studies"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Business & Entrepreneurship"
+   ],
+   "alpItems": [
+    "Business and Enterprise"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Sports For Life@Outram"
+   ],
+   "dsaAreas": [
+    "Basketball (Girls and Boys)",
+    "Communication (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Entrepreneurship (Girls and Boys)",
+    "Environmental Science (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Swimming (Girls and Boys)",
+    "Water Polo (Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 97,
+    "academic": 52,
+    "cca": 99,
+    "feature": 76
+   },
+   "total": 70
+  },
+  {
+   "slug": "bowen-secondary-school",
+   "name": "Bowen Secondary School",
+   "area": "Hougang",
+   "address": "2 Lorong Napiri, S547529",
+   "postal": "547529",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 12,
+    "max": 16,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -2,
+   "minutes": 36,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 36,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "64109",
+   "busStopName": "Gracehaven S Army",
+   "busHops": 12,
+   "busRideMinutes": 24,
+   "busWalkMinutes": 4,
+   "mrtMinutes": 37,
+   "walkMinutes": 63,
+   "walkUpperMinutes": 63,
+   "walkMeters": 5052,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 19,
+   "walkMinutesToStation": 17,
+   "via": "NE13 KOVAN",
+   "accessWalkM": 1389,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Indian Dance (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Malay Dance (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Boys)",
+    "Netball (Girls)",
+    "Table Tennis (Boys)",
+    "Taekwondo (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Business & Entrepreneurship"
+   ],
+   "alpItems": [
+    "Nurturing Creativity, Empathy and Enterprise through Social Entrepreneurship"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Bowen ChANgemakers Programme"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Community Youth Leadership (Girls and Boys)",
+    "Entrepreneurship (Girls and Boys)",
+    "Football (Girls and Boys)",
+    "Marching Band (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 82,
+    "academic": 52,
+    "cca": 94,
+    "feature": 76
+   },
+   "total": 66
+  },
+  {
+   "slug": "greendale-secondary-school",
+   "name": "Greendale Secondary School",
+   "area": "Punggol",
+   "address": "51 Edgedale Plains, S828866",
+   "postal": "828866",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 11,
+    "max": 16,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610061252",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 17,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 17,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610061252/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=greendale-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20250916011654",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 16,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 16,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20250916011654/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=greendale-secondary-school"
+    }
+   },
+   "margin": -2,
+   "minutes": 24,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 24,
+   "busService": "118",
+   "busDirection": 1,
+   "busStopCode": "65199",
+   "busStopName": "Aft Punggol Rd",
+   "busHops": 1,
+   "busRideMinutes": 2,
+   "busWalkMinutes": 14,
+   "mrtMinutes": 28,
+   "walkMinutes": 27,
+   "walkUpperMinutes": 27,
+   "walkMeters": 2143,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 11,
+   "walkMinutesToStation": 17,
+   "via": "NE17 PUNGGOL",
+   "accessWalkM": 1363,
+   "cca": [
+    "Angklung/kulintang Ensemble",
+    "Art and Crafts",
+    "Canoeing",
+    "Chinese Orchestra",
+    "Choir (Girls)",
+    "Digital Media",
+    "English Drama",
+    "Fencing",
+    "Floorball",
+    "Football (Boys)",
+    "Media Resource Library",
+    "Modern Dance",
+    "NCC (Land) (Boys)",
+    "NPCC",
+    "Outdoor Adventure",
+    "Red Cross Youth",
+    "Robotics",
+    "Softball"
+   ],
+   "ccaHits": [
+    "机器人",
+    "戏剧"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Higher Chinese Language",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (Literature in English)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Smart Electrical Technology",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Smart Electrical Technology"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Sustainability"
+   ],
+   "alpItems": [
+    "Design, Technology and Engineering ALP Programme"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Character Development through Outdoor and Adventure Education"
+   ],
+   "dsaAreas": [
+    "Design, Technology and Engineering (DTE) (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Outdoor Adventure (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 93,
+    "academic": 82,
+    "cca": 100,
+    "feature": 86
+   },
+   "total": 75
+  },
+  {
+   "slug": "st-gabriels-secondary-school",
+   "name": "St. Gabriel's Secondary School",
+   "area": "Serangoon",
+   "address": "24 Serangoon Avenue 1, S556140",
+   "postal": "556140",
+   "nature": "Boys School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 10,
+    "max": 15,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -3,
+   "minutes": 58,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 58,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "66359",
+   "busStopName": "S'goon Stn Exit C/Blk 201",
+   "busHops": 20,
+   "busRideMinutes": 40,
+   "busWalkMinutes": 10,
+   "mrtMinutes": 29,
+   "walkMinutes": 101,
+   "walkUpperMinutes": 101,
+   "walkMeters": 8080,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 21,
+   "walkMinutesToStation": 7,
+   "via": "CC13/NE12 SERANGOON",
+   "accessWalkM": 591,
+   "cca": [
+    "Audio Visual Aid (Boys)",
+    "Badminton (Boys)",
+    "Football (Boys)",
+    "Judo (Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Boys)",
+    "Scouts (Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Future of Transportation"
+   ],
+   "alpItems": [
+    "Future of Transportation (Flight & Aerospace)"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Integrated Character and Citizenship Education of growing Community Youth Leaders through Service and Leadership."
+   ],
+   "dsaAreas": [
+    "Badminton (Boys)",
+    "Concert Band (Boys)",
+    "Debating (Boys)",
+    "English Drama (Boys)",
+    "Floorball (Boys)",
+    "Football (Boys)",
+    "Golf (Boys)",
+    "Guitar Ensemble (Boys)",
+    "Judo (Boys)",
+    "National Cadet Corps (NCC) Air (Boys)",
+    "National Cadet Corps (NCC) Land (Boys)",
+    "National Police Cadet Corps (NPCC) (Boys)",
+    "Red Cross Youth (Boys)",
+    "Scouts (Boys)",
+    "Softball (Boys)",
+    "Table Tennis (Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 62,
+    "academic": 76,
+    "cca": 45,
+    "feature": 83
+   },
+   "total": 58
+  },
+  {
+   "slug": "yusof-ishak-secondary-school",
+   "name": "Yusof Ishak Secondary School",
+   "area": "Punggol",
+   "address": "8 Sumang Walk, S828676",
+   "postal": "828676",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 7,
+    "max": 15,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240613014208",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 15,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 15,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 26,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240613014208/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yusof-ishak-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20250429232840",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 6,
+      "max": 14,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 6,
+       "max": 14,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 22,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 26,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20250429232840/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yusof-ishak-secondary-school"
+    }
+   },
+   "margin": -3,
+   "minutes": 21,
+   "commuteBasis": "bus",
+   "commuteMode": "walk",
+   "busMinutes": 25,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "67591",
+   "busStopName": "Blk 286B",
+   "busHops": 1,
+   "busRideMinutes": 2,
+   "busWalkMinutes": 15,
+   "mrtMinutes": 20,
+   "walkMinutes": 8,
+   "walkUpperMinutes": 21,
+   "walkMeters": 667,
+   "walkDisputed": true,
+   "walkRange": [
+    8,
+    21
+   ],
+   "rideMinutes": 11,
+   "walkMinutesToStation": 9,
+   "via": "NE17 PUNGGOL",
+   "accessWalkM": 697,
+   "cca": [
+    "Art and Crafts",
+    "Badminton",
+    "Basketball (Boys)",
+    "Boys' Brigade",
+    "Chinese Orchestra",
+    "Choir",
+    "Concert Band",
+    "English Language, Drama and Debating",
+    "Environmental Science",
+    "Fencing",
+    "Girls' Brigade",
+    "Infocomm Technology (Media Production)",
+    "Modern Dance",
+    "NCC (Land)",
+    "NPCC",
+    "Robotics",
+    "Softball (Girls)",
+    "Table Tennis",
+    "Wushu"
+   ],
+   "ccaHits": [
+    "机器人",
+    "AI",
+    "戏剧"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Sustainability"
+   ],
+   "alpItems": [
+    "STEM for the Strategic Development of a Sustainable and Smart City (S4TEM@YI)"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Nurturing Honourable Leaders for Tomorrow (YI LEAD+)"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Community Youth Leadership (Girls and Boys)",
+    "Fencing (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Robotics (Girls and Boys)",
+    "Softball (Girls)",
+    "Stem (Girls and Boys)",
+    "Table Tennis (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 95,
+    "academic": 76,
+    "cca": 100,
+    "feature": 86
+   },
+   "total": 75
+  },
+  {
+   "slug": "chij-st-josephs-convent",
+   "name": "CHIJ St. Joseph's Convent",
+   "area": "Seng Kang",
+   "address": "62 Sengkang East Way, S548595",
+   "postal": "548595",
+   "nature": "Girls School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 8,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -4,
+   "minutes": 20,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 20,
+   "busService": "119",
+   "busDirection": 1,
+   "busStopCode": "67111",
+   "busStopName": "CHIJ St. Joseph's Convent",
+   "busHops": 5,
+   "busRideMinutes": 10,
+   "busWalkMinutes": 2,
+   "mrtMinutes": 23,
+   "walkMinutes": 24,
+   "walkUpperMinutes": 24,
+   "walkMeters": 1960,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 13,
+   "walkMinutesToStation": 10,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 776,
+   "cca": [
+    "Girl Guides (Girls)",
+    "Netball (Girls)",
+    "Table Tennis (Girls)",
+    "Volleyball (Girls)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 4,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Languages"
+   ],
+   "alpItems": [
+    "The Art of Communication through Theatre and Debates"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Bringing L.I.G.H.T. Into The Community"
+   ],
+   "dsaAreas": [
+    "Choir (Girls)",
+    "Concert Band (Girls)",
+    "Debate and Theatre (Girls)",
+    "Leadership (Girls)",
+    "Netball (Girls)",
+    "Table Tennis (Girls)",
+    "Volleyball (Girls)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 96,
+    "academic": 50,
+    "cca": 45,
+    "feature": 73
+   },
+   "total": 61
+  },
+  {
+   "slug": "edgefield-secondary-school",
+   "name": "Edgefield Secondary School",
+   "area": "Punggol",
+   "address": "36 Punggol Field, S828814",
+   "postal": "828814",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 5,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610060520",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 14,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 14,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 22,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 26,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610060520/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=edgefield-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20251006021413",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 13,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 13,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 22,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 26,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20251006021413/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=edgefield-secondary-school"
+    }
+   },
+   "margin": -4,
+   "minutes": 10,
+   "commuteBasis": "bus",
+   "commuteMode": "walk",
+   "busMinutes": 20,
+   "busService": "118",
+   "busDirection": 1,
+   "busStopCode": "65199",
+   "busStopName": "Aft Punggol Rd",
+   "busHops": 1,
+   "busRideMinutes": 2,
+   "busWalkMinutes": 10,
+   "mrtMinutes": 17,
+   "walkMinutes": 10,
+   "walkUpperMinutes": 10,
+   "walkMeters": 829,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 11,
+   "walkMinutesToStation": 6,
+   "via": "NE17 PUNGGOL",
+   "accessWalkM": 445,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Scouts (Boys)",
+    "Shooting (Girls and Boys)",
+    "Taekwondo (Girls and Boys)",
+    "Volleyball (Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "机器人",
+    "AI",
+    "戏剧"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Business & Entrepreneurship"
+   ],
+   "alpItems": [
+    "Growing the Edgefield Mindset (G.E.M)"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Character Education Through Sports (Anchored on Taekwondo)"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Innovation (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Softball (Girls)",
+    "Taekwondo (Girls and Boys)",
+    "Volleyball (Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 100,
+    "academic": 52,
+    "cca": 100,
+    "feature": 79
+   },
+   "total": 72
+  },
+  {
+   "slug": "geylang-methodist-school-secondary",
+   "name": "Geylang Methodist School (Secondary)",
+   "area": "Geylang",
+   "address": "2 Geylang East Central, S389705",
+   "postal": "389705",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 11,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": true,
+    "PG2": false,
+    "PG3": false,
+    "any": true
+   },
+   "copHistory": null,
+   "margin": -4,
+   "minutes": 52,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 52,
+   "busService": "43e",
+   "busDirection": 1,
+   "busStopCode": "81101",
+   "busStopName": "Paya Lebar Green",
+   "busHops": 14,
+   "busRideMinutes": 28,
+   "busWalkMinutes": 16,
+   "mrtMinutes": 43,
+   "walkMinutes": 146,
+   "walkUpperMinutes": 146,
+   "walkMeters": 11665,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 41,
+   "walkMinutesToStation": 2,
+   "via": "EW9 ALJUNIED",
+   "accessWalkM": 138,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "National Police Cadet Corps (NPCC) (Boys)",
+    "Netball (Girls)",
+    "Track and Field (Girls and Boys)",
+    "Volleyball (Girls)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Exercise & Sports Science",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Exercise & Sports Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Exercise & Sports Science"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Nurturing Confident, Compassionate and Courageous Leaders"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Chinese Dance (Girls)",
+    "Leadership (Girls and Boys)",
+    "Volleyball (Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 67,
+    "academic": 55,
+    "cca": 45,
+    "feature": 63
+   },
+   "total": 53
+  },
+  {
+   "slug": "holy-innocents-high-school",
+   "name": "Holy Innocents' High School",
+   "area": "Hougang",
+   "address": "1191 Upper Serangoon Road, S534786",
+   "postal": "534786",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 11,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -4,
+   "minutes": 38,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 38,
+   "busService": "43e",
+   "busDirection": 1,
+   "busStopCode": "67711",
+   "busStopName": "Bef Sengkang Fire Stn",
+   "busHops": 6,
+   "busRideMinutes": 12,
+   "busWalkMinutes": 18,
+   "mrtMinutes": 23,
+   "walkMinutes": 54,
+   "walkUpperMinutes": 54,
+   "walkMeters": 4315,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 17,
+   "walkMinutesToStation": 6,
+   "via": "NE14 HOUGANG",
+   "accessWalkM": 479,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Bowling (Girls and Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Football (Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Scouts (Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Languages"
+   ],
+   "alpItems": [
+    "Journalism and Broadcasting -- Developing Critical Thinkers and Effective Communicators"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Good Samaritan Programme (GSP)"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Leadership (Girls and Boys)",
+    "Media/Journalism (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Scouts (Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 80,
+    "academic": 50,
+    "cca": 45,
+    "feature": 73
+   },
+   "total": 57
+  },
+  {
+   "slug": "pei-hwa-secondary-school",
+   "name": "Pei Hwa Secondary School",
+   "area": "Seng Kang",
+   "address": "21 Fernvale Link, S797702",
+   "postal": "797702",
+   "nature": "Co-Ed School",
+   "type": "Government School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 7,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -4,
+   "minutes": 29,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 29,
+   "busService": "104",
+   "busDirection": 1,
+   "busStopCode": "67791",
+   "busStopName": "Opp Blk 415A",
+   "busHops": 8,
+   "busRideMinutes": 16,
+   "busWalkMinutes": 5,
+   "mrtMinutes": 37,
+   "walkMinutes": 43,
+   "walkUpperMinutes": 43,
+   "walkMeters": 3446,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 13,
+   "walkMinutesToStation": 24,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 1898,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Football (Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Taekwondo (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Future Leader Programme",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [
+    "Future Leader Programme"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Emerging Technologies"
+   ],
+   "alpItems": [
+    "Coding and Making"
+   ],
+   "llpCats": [
+    "Community Youth Leadership"
+   ],
+   "llpItems": [
+    "Nurturing Leaders, Contributors and Changemakers"
+   ],
+   "dsaAreas": [
+    "Chinese and Modern Dance (Girls and Boys)",
+    "Floorball (Girls)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Robotics (Girls and Boys)",
+    "Taekwondo (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 88,
+    "academic": 100,
+    "cca": 94,
+    "feature": 86
+   },
+   "total": 76
+  },
+  {
+   "slug": "st-hildas-secondary-school",
+   "name": "St. Hilda's Secondary School",
+   "area": "Tampines",
+   "address": "2 Tampines Street 82, S528986",
+   "postal": "528986",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 12,
+    "max": 14,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -4,
+   "minutes": 41,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 41,
+   "busService": "118",
+   "busDirection": 1,
+   "busStopCode": "75159",
+   "busStopName": "Blk 874",
+   "busHops": 8,
+   "busRideMinutes": 16,
+   "busWalkMinutes": 17,
+   "mrtMinutes": 53,
+   "walkMinutes": 123,
+   "walkUpperMinutes": 123,
+   "walkMeters": 9851,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 47,
+   "walkMinutesToStation": 6,
+   "via": "DT31 TAMPINES WEST",
+   "accessWalkM": 479,
+   "cca": [
+    "Badminton (Boys)",
+    "Concert Band (Girls and Boys)",
+    "Guitar Ensemble (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Volleyball (Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Basic Tamil Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Chinese Language Syllabus B",
+    "Computer Applications",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 6,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "Languages"
+   ],
+   "alpItems": [
+    "The Hildan Approach to Teaching Thinking through English Language Learning"
+   ],
+   "llpCats": [
+    "Sports & Outdoor Education"
+   ],
+   "llpItems": [
+    "Develop a Whole Person through Sports and Outdoor Education"
+   ],
+   "dsaAreas": [
+    "Badminton (Boys)",
+    "Floorball (Girls)",
+    "Hockey (Boys)",
+    "Netball (Girls)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 77,
+    "academic": 50,
+    "cca": 45,
+    "feature": 76
+   },
+   "total": 57
+  },
+  {
+   "slug": "tanjong-katong-girls-school",
+   "name": "Tanjong Katong Girls' School",
+   "area": "Marine Parade",
+   "address": "20 Dunman Lane, S439272",
+   "postal": "439272",
+   "nature": "Girls School",
+   "type": "Government School / Autonomous",
+   "ip": false,
+   "sap": false,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 7,
+    "max": 13,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -5,
+   "minutes": 48,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 48,
+   "busService": "43e",
+   "busDirection": 1,
+   "busStopCode": "82079",
+   "busStopName": "Tg Katong Girls' Sch",
+   "busHops": 19,
+   "busRideMinutes": 38,
+   "busWalkMinutes": 2,
+   "mrtMinutes": 46,
+   "walkMinutes": 157,
+   "walkUpperMinutes": 157,
+   "walkMeters": 12529,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 36,
+   "walkMinutesToStation": 10,
+   "via": "CC8 DAKOTA",
+   "accessWalkM": 766,
+   "cca": [
+    "Girl Guides (Girls)",
+    "Netball (Girls)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "Higher Music",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Higher Music",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 4,
+   "rareSubjects": [
+    "Higher Music"
+   ],
+   "strongProgrammes": [
+    "Music Elective Programme"
+   ],
+   "subjectRarityMax": 20,
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Badminton (Girls)",
+    "Bowling (Girls)",
+    "Choir (Girls)",
+    "Concert Band (Girls)",
+    "Floorball (Girls)",
+    "Modern Dance (Girls)",
+    "Music Elective Programme (Girls)",
+    "Netball (Girls)",
+    "Softball (Girls)",
+    "String Ensemble (Girls)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 71,
+    "academic": 55,
+    "cca": 45,
+    "feature": 63
+   },
+   "total": 54
+  },
+  {
+   "slug": "tanjong-katong-secondary-school",
+   "name": "Tanjong Katong Secondary School",
+   "area": "Marine Parade",
+   "address": "130 Haig Road, S438796",
+   "postal": "438796",
+   "nature": "Co-Ed School",
+   "type": "Government School / Autonomous",
+   "ip": false,
+   "sap": false,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 7,
+    "max": 13,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -5,
+   "minutes": 50,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 50,
+   "busService": "43e",
+   "busDirection": 1,
+   "busStopCode": "82089",
+   "busStopName": "Aft Ipoh Lane",
+   "busHops": 18,
+   "busRideMinutes": 36,
+   "busWalkMinutes": 6,
+   "mrtMinutes": 47,
+   "walkMinutes": 155,
+   "walkUpperMinutes": 155,
+   "walkMeters": 12393,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 36,
+   "walkMinutesToStation": 11,
+   "via": "CC8 DAKOTA",
+   "accessWalkM": 885,
+   "cca": [
+    "Basketball (Boys)",
+    "Choir (Girls and Boys)",
+    "Football (Boys)",
+    "Girl Guides (Girls)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Scouts (Boys)",
+    "Shooting (Girls and Boys)",
+    "Track and Field (Girls and Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Design & Technology",
+    "Design and Technology",
+    "English Language",
+    "Exercise & Sports Science",
+    "Food & Consumer Education",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "History",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in English)",
+    "Humanities (SS, Literature in Malay)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Physical Education",
+    "Physics",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Bio)",
+    "Science (Phy, Chem)"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology",
+      "Design and Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Design & Technology",
+      "Design and Technology",
+      "Exercise & Sports Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Exercise & Sports Science"
+   ],
+   "strongProgrammes": [
+    "Elective Programme in Malay Language for Secondary School (Emas)",
+    "Language Elective Programme (Malay)"
+   ],
+   "subjectRarityMax": 20,
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Basketball (Boys)",
+    "Floorball (Girls)",
+    "Football (Boys)",
+    "Malay Language (Girls and Boys)",
+    "Netball (Girls)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 69,
+    "academic": 55,
+    "cca": 45,
+    "feature": 63
+   },
+   "total": 54
+  },
+  {
+   "slug": "xinmin-secondary-school",
+   "name": "Xinmin Secondary School",
+   "area": "Hougang",
+   "address": "11 Hougang Avenue 8, S538789",
+   "postal": "538789",
+   "nature": "Co-Ed School",
+   "type": "Government School / Autonomous",
+   "ip": false,
+   "sap": false,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 8,
+    "max": 13,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -5,
+   "minutes": 44,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 44,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "66499",
+   "busStopName": "Blk 911",
+   "busHops": 9,
+   "busRideMinutes": 18,
+   "busWalkMinutes": 18,
+   "mrtMinutes": 31,
+   "walkMinutes": 56,
+   "walkUpperMinutes": 56,
+   "walkMeters": 4459,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 17,
+   "walkMinutesToStation": 13,
+   "via": "NE14 HOUGANG",
+   "accessWalkM": 1053,
+   "cca": [
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "Shooting (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Drama",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Malay Language",
+    "History",
+    "Humanities (Geography)",
+    "Humanities (History)",
+    "Humanities (Literature in English)",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Humanities Exposure Modules)",
+    "Humanities (SS, Literature in Chinese)",
+    "Humanities (SS, Literature in English)",
+    "Literature in English",
+    "MAKERS@Xinmin",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Drama",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [
+    "Drama",
+    "MAKERS@Xinmin"
+   ],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Badminton (Girls)",
+    "Boys&#x27; Brigade (Boys)",
+    "Chinese Dance (Girls)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Cross Country (Girls and Boys)",
+    "English Drama (Girls and Boys)",
+    "Floorball (Boys)",
+    "Girls&#x27; Brigade (Girls)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Rockwall Climbing (Girls and Boys)",
+    "Shooting (Girls and Boys)",
+    "St John Brigade (Girls and Boys)",
+    "Volleyball (Girls and Boys)"
+   ],
+   "moeNearby": true,
+   "scores": {
+    "safety": 40,
+    "commute": 75,
+    "academic": 55,
+    "cca": 94,
+    "feature": 66
+   },
+   "total": 63
+  },
+  {
+   "slug": "yishun-town-secondary-school",
+   "name": "Yishun Town Secondary School",
+   "area": "Yishun",
+   "address": "6 Yishun Street 21, S768610",
+   "postal": "768610",
+   "nature": "Co-Ed School",
+   "type": "Government School / Autonomous",
+   "ip": false,
+   "sap": false,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 5,
+    "max": 13,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -5,
+   "minutes": 37,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 37,
+   "busService": "39",
+   "busDirection": 1,
+   "busStopCode": "59009",
+   "busStopName": "Yishun Int",
+   "busHops": 9,
+   "busRideMinutes": 18,
+   "busWalkMinutes": 11,
+   "mrtMinutes": 49,
+   "walkMinutes": 128,
+   "walkUpperMinutes": 128,
+   "walkMeters": 10257,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 43,
+   "walkMinutesToStation": 6,
+   "via": "NS13 YISHUN",
+   "accessWalkM": 469,
+   "cca": [
+    "Basketball (Girls and Boys)",
+    "Bowling (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Shooting (Girls and Boys)",
+    "Volleyball (Girls)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Art",
+    "Higher Chinese Language",
+    "Higher Tamil Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in Tamil)",
+    "Literature in English",
+    "Literature in Tamil",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies",
+    "Tamil Language"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [
+    "Computing"
+   ],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Design & Technology",
+      "Higher Art",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Higher Art",
+    "Literature in Tamil"
+   ],
+   "strongProgrammes": [
+    "Language Elective Programme (Tamil)"
+   ],
+   "subjectRarityMax": 20,
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Basketball (Girls and Boys)",
+    "Bilingualism (Girls and Boys)",
+    "Bowling (Girls and Boys)",
+    "Chinese Dance (Girls)",
+    "English Drama (Girls and Boys)",
+    "Shooting (Girls and Boys)",
+    "Table Tennis (Girls and Boys)",
+    "Volleyball (Girls)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 81,
+    "academic": 55,
+    "cca": 45,
+    "feature": 63
+   },
+   "total": 57
+  },
+  {
+   "slug": "zhonghua-secondary-school",
+   "name": "Zhonghua Secondary School",
+   "area": "Serangoon",
+   "address": "13 Serangoon Avenue 3, S556123",
+   "postal": "556123",
+   "nature": "Co-Ed School",
+   "type": "Government School / Autonomous",
+   "ip": false,
+   "sap": false,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 8,
+    "max": 12,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -6,
+   "minutes": 58,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 58,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "66379",
+   "busStopName": "Blk 206",
+   "busHops": 19,
+   "busRideMinutes": 38,
+   "busWalkMinutes": 12,
+   "mrtMinutes": 27,
+   "walkMinutes": 99,
+   "walkUpperMinutes": 99,
+   "walkMeters": 7927,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 21,
+   "walkMinutesToStation": 6,
+   "via": "CC13/NE12 SERANGOON",
+   "accessWalkM": 446,
+   "cca": [
+    "Chinese Dance (Girls and Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Infocomm Technology (Media Production) (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Table Tennis (Boys)",
+    "Volleyball (Boys)"
+   ],
+   "ccaHits": [
+    "AI"
+   ],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Geography",
+    "Higher Art",
+    "Higher Chinese Language",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Malay Language (Special Programme)",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Higher Art",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [
+    "Higher Art",
+    "Malay Language (Special Programme)"
+   ],
+   "strongProgrammes": [
+    "Art Elective Programme"
+   ],
+   "subjectRarityMax": 20,
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Badminton (Girls)",
+    "Basketball (Girls)",
+    "Chinese Dance (Girls and Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Leadership and Character (Girls and Boys)",
+    "Table Tennis (Boys)",
+    "Volleyball (Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 62,
+    "academic": 55,
+    "cca": 94,
+    "feature": 66
+   },
+   "total": 60
+  },
+  {
+   "slug": "chung-cheng-high-school-yishun",
+   "name": "Chung Cheng High School (Yishun)",
+   "area": "Yishun",
+   "address": "11 Yishun Street 61, S768547",
+   "postal": "768547",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": false,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 6,
+    "max": 11,
+    "markMax": null,
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -7,
+   "minutes": 34,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 34,
+   "busService": "39",
+   "busDirection": 1,
+   "busStopCode": "59041",
+   "busStopName": "Bef Khatib Stn",
+   "busHops": 6,
+   "busRideMinutes": 12,
+   "busWalkMinutes": 14,
+   "mrtMinutes": 48,
+   "walkMinutes": 130,
+   "walkUpperMinutes": 130,
+   "walkMeters": 10385,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 41,
+   "walkMinutesToStation": 7,
+   "via": "NS14 KHATIB",
+   "accessWalkM": 531,
+   "cca": [
+    "Basketball (Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Volleyball (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Basic Chinese Language",
+    "Basic Malay Language",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Computer Applications",
+    "Computing",
+    "Design & Technology",
+    "Elements of Business Skills",
+    "English Language",
+    "Higher Chinese Language",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Literature in English",
+    "Malay Language",
+    "Mathematics",
+    "Music",
+    "Nutrition and Food Science",
+    "Physical Education",
+    "Physics",
+    "Principles of Accounts",
+    "Science",
+    "Science (Chem, Bio)",
+    "Science (Phy, Chem)",
+    "Social Studies"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Computing",
+    "Design & Technology",
+    "Nutrition and Food Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science",
+      "Science (Chem, Bio)",
+      "Science (Phy, Chem)"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Computing": {
+     "exact": [
+      "Computing"
+     ],
+     "related": [
+      "Computer Applications"
+     ],
+     "relatedNote": "Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3"
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Nutrition and Food Science": {
+     "exact": [
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Computer Applications",
+      "Computing",
+      "Design & Technology",
+      "Music",
+      "Nutrition and Food Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 7,
+   "rareSubjects": [],
+   "strongProgrammes": [],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Health and Food Science"
+   ],
+   "alpItems": [
+    "Our Story Of Food"
+   ],
+   "llpCats": [
+    "Music & Performing Arts"
+   ],
+   "llpItems": [
+    "HeARTs for the Arts"
+   ],
+   "dsaAreas": [
+    "Basketball (Boys)",
+    "Chinese Dance (Girls)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Guzheng Ensemble (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "Volleyball (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 84,
+    "academic": 68,
+    "cca": 45,
+    "feature": 83
+   },
+   "total": 62
+  },
+  {
+   "slug": "nan-chiau-high-school",
+   "name": "Nan Chiau High School",
+   "area": "Seng Kang",
+   "address": "20 Anchorvale Link, S545079",
+   "postal": "545079",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School",
+   "ip": false,
+   "sap": true,
+   "autonomous": false,
+   "independent": false,
+   "cop": {
+    "min": 4,
+    "max": 11,
+    "markMax": "M",
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -7,
+   "minutes": 26,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 26,
+   "busService": "43",
+   "busDirection": 1,
+   "busStopCode": "67441",
+   "busStopName": "Sengkang Community Hub",
+   "busHops": 3,
+   "busRideMinutes": 6,
+   "busWalkMinutes": 12,
+   "mrtMinutes": 22,
+   "walkMinutes": 27,
+   "walkUpperMinutes": 27,
+   "walkMeters": 2164,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 13,
+   "walkMinutesToStation": 9,
+   "via": "NE16 SENGKANG",
+   "accessWalkM": 689,
+   "cca": [
+    "Basketball (Girls and Boys)",
+    "Chinese Dance (Girls and Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Track and Field (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "Design & Technology",
+    "English Language",
+    "Geography",
+    "Higher Chinese Language",
+    "Higher Music",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in Chinese)",
+    "Humanities (SS, Literature in English)",
+    "Literature in Chinese",
+    "Literature in English",
+    "Malay Language (Special Programme)",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Puppetry",
+    "Science"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Design & Technology",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Design & Technology": {
+     "exact": [
+      "Design & Technology"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Design & Technology",
+      "Higher Music",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 5,
+   "rareSubjects": [
+    "Higher Music",
+    "Literature in Chinese",
+    "Malay Language (Special Programme)",
+    "Puppetry"
+   ],
+   "strongProgrammes": [
+    "Special Assistance Plan (SAP)",
+    "Enhanced Art Programme",
+    "Language Elective Programme (Chinese)"
+   ],
+   "subjectRarityMax": 20,
+   "alpCats": [
+    "STEM - Emerging Technologies"
+   ],
+   "alpItems": [
+    "Emerging Technologies"
+   ],
+   "llpCats": [
+    "Music & Performing Arts"
+   ],
+   "llpItems": [
+    "Harmonising Education and ARTS through Synergy (heARTS)"
+   ],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Bilingualism (Girls and Boys)",
+    "Chinese Dance (Girls)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Table Tennis (Girls and Boys)",
+    "Visual Arts (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 91,
+    "academic": 86,
+    "cca": 45,
+    "feature": 87
+   },
+   "total": 67
+  },
+  {
+   "slug": "chung-cheng-high-school-main",
+   "name": "Chung Cheng High School (Main)",
+   "area": "Marine Parade",
+   "address": "50 Goodman Road, S439012",
+   "postal": "439012",
+   "nature": "Co-Ed School",
+   "type": "Government-Aided School / Autonomous",
+   "ip": false,
+   "sap": true,
+   "autonomous": true,
+   "independent": false,
+   "cop": {
+    "min": 5,
+    "max": 10,
+    "markMax": "M",
+    "kind": "PG",
+    "year": 2025
+   },
+   "copFlags": {
+    "year": 2025,
+    "PG1": false,
+    "PG2": false,
+    "PG3": false,
+    "any": false
+   },
+   "copHistory": null,
+   "margin": -8,
+   "minutes": 58,
+   "commuteBasis": "bus",
+   "commuteMode": "bus",
+   "busMinutes": 58,
+   "busService": "43e",
+   "busDirection": 1,
+   "busStopCode": "82079",
+   "busStopName": "Tg Katong Girls' Sch",
+   "busHops": 19,
+   "busRideMinutes": 38,
+   "busWalkMinutes": 12,
+   "mrtMinutes": 42,
+   "walkMinutes": 164,
+   "walkUpperMinutes": 164,
+   "walkMeters": 13082,
+   "walkDisputed": false,
+   "walkRange": null,
+   "rideMinutes": 36,
+   "walkMinutesToStation": 6,
+   "via": "CC8 DAKOTA",
+   "accessWalkM": 456,
+   "cca": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Choir (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Girl Guides (Girls)",
+    "Modern Dance (Girls and Boys)",
+    "National Cadet Corps (NCC) (Land) (Boys)",
+    "National Police Cadet Corps (NPCC) (Girls and Boys)",
+    "Netball (Girls)",
+    "Scouts (Boys)",
+    "Volleyball (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "ccaHits": [],
+   "subjects": [
+    "Additional Mathematics",
+    "Appreciation of Chinese Culture",
+    "Art",
+    "Biology",
+    "Chemistry",
+    "Chinese Language",
+    "English Language",
+    "Geography",
+    "Higher Art",
+    "Higher Chinese Language",
+    "Higher Music",
+    "History",
+    "Humanities (SS, Geography)",
+    "Humanities (SS, History)",
+    "Humanities (SS, Literature in Chinese)",
+    "Humanities (SS, Literature in English)",
+    "Literature in Chinese",
+    "Literature in English",
+    "Malay Language (Special Programme)",
+    "Mathematics",
+    "Music",
+    "Physical Education",
+    "Physics",
+    "Science"
+   ],
+   "subjectHits": [
+    "Higher Chinese",
+    "Additional Mathematics",
+    "Science",
+    "Applied Subjects"
+   ],
+   "subjectSoftHits": [],
+   "subjectHitDetail": {
+    "Higher Chinese": {
+     "exact": [
+      "Higher Chinese Language"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Additional Mathematics": {
+     "exact": [
+      "Additional Mathematics"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Science": {
+     "exact": [
+      "Science"
+     ],
+     "related": [],
+     "relatedNote": null
+    },
+    "Applied Subjects": {
+     "exact": [
+      "Art",
+      "Higher Art",
+      "Higher Music",
+      "Music"
+     ],
+     "related": [],
+     "relatedNote": null
+    }
+   },
+   "subjectFit": 4,
+   "rareSubjects": [
+    "Appreciation of Chinese Culture",
+    "Higher Art",
+    "Higher Music",
+    "Literature in Chinese",
+    "Malay Language (Special Programme)"
+   ],
+   "strongProgrammes": [
+    "Special Assistance Plan (SAP)",
+    "Enhanced Music Programme",
+    "Language Elective Programme (Chinese)"
+   ],
+   "subjectRarityMax": 20,
+   "alpCats": [],
+   "alpItems": [],
+   "llpCats": [],
+   "llpItems": [],
+   "dsaAreas": [
+    "Badminton (Girls and Boys)",
+    "Basketball (Girls and Boys)",
+    "Chinese Language (Girls and Boys)",
+    "Chinese Orchestra (Girls and Boys)",
+    "Concert Band (Girls and Boys)",
+    "Netball (Girls)",
+    "Table Tennis (Girls and Boys)",
+    "Volleyball (Girls and Boys)",
+    "Wushu (Girls and Boys)"
+   ],
+   "moeNearby": false,
+   "scores": {
+    "safety": 40,
+    "commute": 62,
+    "academic": 55,
+    "cca": 45,
+    "feature": 67
+   },
+   "total": 53
+  }
+ ],
+ "stats": {
+  "totalSchools": 147,
+  "withStudentPG": 130,
+  "reachableNationwide": 62,
+  "withinCommute": 38,
+  "withinCommuteReachable": 19,
+  "poolMixed": 18,
+  "poolSingleSex": 1,
+  "outOfReach": 19,
+  "subjectInterests": [
+   "Higher Chinese",
+   "Additional Mathematics",
+   "Science",
+   "Computing",
+   "Design & Technology",
+   "Nutrition and Food Science",
+   "Applied Subjects"
+  ],
+  "subjectRarityMax": 20,
+  "subjectFitInPool": [
+   {
+    "name": "Junyuan Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Changkat Changi Secondary School",
+    "fit": 5,
+    "hits": [
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Compassvale Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Northbrooks Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Hougang Secondary School",
+    "fit": 7,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Computing",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Punggol Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Broadrick Secondary School",
+    "fit": 7,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Computing",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Seng Kang Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "North Vista Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Serangoon Garden Secondary School",
+    "fit": 7,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Computing",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Springfield Secondary School",
+    "fit": 7,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Computing",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Yuying Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Peicai Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Yishun Secondary School",
+    "fit": 5,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Naval Base Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Orchid Park Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Serangoon Secondary School",
+    "fit": 6,
+    "hits": [
+     "Additional Mathematics",
+     "Science",
+     "Computing",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   },
+   {
+    "name": "Tampines Secondary School",
+    "fit": 6,
+    "hits": [
+     "Higher Chinese",
+     "Additional Mathematics",
+     "Science",
+     "Design & Technology",
+     "Nutrition and Food Science",
+     "Applied Subjects"
+    ]
+   }
+  ],
+  "walkDataUsed": true,
+  "commuteMode": "bus",
+  "walkFasterTotal": 99,
+  "walkFasterInPool": 0,
+  "walkDisputedInPool": 1,
+  "walkCutCount": 0,
+  "walkCutNames": [],
+  "walkCutDetail": [],
+  "busUsed": true,
+  "busReachableTotal": 38,
+  "busReachableInPool": 18,
+  "busInPool": 18,
+  "walkInPool": 0,
+  "busBoardingStop": {
+   "code": "65431",
+   "name": "Twin Waterfalls",
+   "road": "Punggol Way",
+   "lat": 1.40238938083661,
+   "lon": 103.89673562171807
+  },
+  "busParams": {
+   "walkMetersPerMin": 80,
+   "waitMin": 5,
+   "rideMinPerStop": 2,
+   "maxWalkFromStopMin": 18,
+   "transferAllowed": false
+  },
+  "busCutCount": 37,
+  "busCutDetail": [
+   {
+    "name": "Bartley",
+    "mrtMinutes": 33,
+    "busMinutes": 67,
+    "walkMinutes": 110,
+    "walkUpperMinutes": 110,
+    "margin": 3
+   },
+   {
+    "name": "Bendemeer",
+    "mrtMinutes": 34,
+    "busMinutes": null,
+    "walkMinutes": 140,
+    "walkUpperMinutes": 140,
+    "margin": 4
+   },
+   {
+    "name": "Northlight School",
+    "mrtMinutes": 36,
+    "busMinutes": null,
+    "walkMinutes": 152,
+    "walkUpperMinutes": 152,
+    "margin": null
+   },
+   {
+    "name": "Kuo Chuan Presbyterian",
+    "mrtMinutes": 37,
+    "busMinutes": null,
+    "walkMinutes": 129,
+    "walkUpperMinutes": 129,
+    "margin": null
+   },
+   {
+    "name": "School of the Arts, Singapore",
+    "mrtMinutes": 37,
+    "busMinutes": null,
+    "walkMinutes": 178,
+    "walkUpperMinutes": 178,
+    "margin": null
+   },
+   {
+    "name": "Raffles Institution",
+    "mrtMinutes": 39,
+    "busMinutes": null,
+    "walkMinutes": 134,
+    "walkUpperMinutes": 134,
+    "margin": null
+   },
+   {
+    "name": "Guangyang",
+    "mrtMinutes": 40,
+    "busMinutes": null,
+    "walkMinutes": 132,
+    "walkUpperMinutes": 132,
+    "margin": 4
+   },
+   {
+    "name": "Whitley",
+    "mrtMinutes": 42,
+    "busMinutes": null,
+    "walkMinutes": 128,
+    "walkUpperMinutes": 128,
+    "margin": 4
+   },
+   {
+    "name": "Raffles Girls' School",
+    "mrtMinutes": 43,
+    "busMinutes": null,
+    "walkMinutes": 141,
+    "walkUpperMinutes": 141,
+    "margin": null
+   },
+   {
+    "name": "Beatty",
+    "mrtMinutes": 44,
+    "busMinutes": null,
+    "walkMinutes": 127,
+    "walkUpperMinutes": 127,
+    "margin": 0
+   },
+   {
+    "name": "Manjusri",
+    "mrtMinutes": 44,
+    "busMinutes": null,
+    "walkMinutes": 131,
+    "walkUpperMinutes": 131,
+    "margin": 3
+   },
+   {
+    "name": "Hwa Chong Institution",
+    "mrtMinutes": 46,
+    "busMinutes": null,
+    "walkMinutes": 214,
+    "walkUpperMinutes": 214,
+    "margin": null
+   }
+  ],
+  "nearbyUsed": true,
+  "nearbyCount": 17,
+  "nearbyReachable": 8,
+  "nearbyReachableMixed": 7,
+  "nearbyReachableSingle": 1,
+  "nearbyOutOfReachNames": [
+   "Outram",
+   "Bowen",
+   "Greendale",
+   "Yusof Ishak",
+   "CHIJ St. Joseph's Convent",
+   "Edgefield",
+   "Holy Innocents' High School",
+   "Pei Hwa",
+   "Xinmin"
+  ],
+  "nearbySingleSexName": "Montfort",
+  "nearbySingleSexType": "boys"
+ },
+ "weights": {
+  "safety": 0.3,
+  "commute": 0.25,
+  "academic": 0.15,
+  "cca": 0.15,
+  "feature": 0.15
+ }
+}

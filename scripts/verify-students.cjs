@@ -97,7 +97,7 @@ const ACTIVE = new Set([
 ]);
 const READONLY = new Set([
   'id', 'label', 'createdAt', 'notes', 'home.address',
-  'interests.academic', '_note', '_生效说明',
+  'interests.academic', 'interests.subjects', '_note', '_生效说明',
 ]);
 const leafPaths = (o, pre = '') => Object.entries(o).flatMap(([k, v]) => {
   if (k.startsWith('_')) return [];
