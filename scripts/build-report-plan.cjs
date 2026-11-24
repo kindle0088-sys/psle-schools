@@ -964,6 +964,8 @@ ${TOC.map((t, i) => `  <a href="#s${i + 1}">${'①②③④⑤⑥⑦⑧'[i]} ${e
     : '按「步行 / 地铁取最快」计算'}，争议项已标注。
 </div>
 
+${PLANS.audit ? `\n<div class="reverse-audit">${fillScore(cfgText(PLANS.audit))}</div>` : ''}
+
 ${STU.id === 'abc3' ? `<div class="note" style="margin-top:14px;border-left-color:var(--warn)">
 <b>CCA 口径更新（2026-11-23）——旧版结论已作废。</b>主池 7 校的社团清单已逐校用<b>学校官网 + MOE SchoolFinder 当前页 + 第三方</b>交叉核实，旧版（2026-11-08）的数字与判断不再适用，三处关键更正：<br>
 ① <b>Compassvale</b> 不是「8 项、无科技/戏剧」——现为 <b>18 项</b>，Robotics 与 English Drama 均由 MOE 当前登记确认，官网 DSA 页也有 Robotics Club；<br>

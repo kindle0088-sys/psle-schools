@@ -1,0 +1,62 @@
+{
+  "id": "abcd2-reverse",
+  "label": "abcd2-reverse",
+  "createdAt": "2026-11-24",
+  "psle": {
+    "al": 18,
+    "_note": "与 abcd2 完全同分（AL 18 / PG3）。这一版不是新画像，而是从家长已选的六校出发做反向校验，所以分数、身份、通勤、兴趣都不改。"
+  },
+  "home": {
+    "postal": "828765",
+    "address": "110 Punggol Walk, Twin Waterfalls, Singapore 828765",
+    "lat": 1.402186278027678,
+    "lon": 103.8972807400701,
+    "_note": "与 abcd2 同址，直接复用 walk/bus 路网。"
+  },
+  "constraints": {
+    "maxCommuteMin": 60,
+    "commuteFullMarkMin": 16,
+    "commuteMode": "bus",
+    "boardingStop": {
+      "code": "65431",
+      "name": "Twin Waterfalls",
+      "road": "Punggol Way",
+      "_note": "与 abcd2 同一起点站；仅取下游方向，不换乘，反向站 65439 不纳入。"
+    },
+    "gender": "any",
+    "hasAffiliation": false,
+    "_note": "家长原口径：Twin Waterfalls 站上车，不换乘公交 + 步行或纯步行，≤60 分钟。"
+  },
+  "citizenship": {
+    "status": "PR",
+    "_note": "PR 同分输公民，这是反向校验里所有「余量 0/1 不算稳」判断的直接依据。"
+  },
+  "interests": {
+    "academic": [
+      "Higher Chinese",
+      "Additional Mathematics",
+      "Science",
+      "Computing",
+      "Design & Technology",
+      "Nutrition and Food Science",
+      "Applied Subjects"
+    ],
+    "subjects": [
+      "Higher Chinese",
+      "Additional Mathematics",
+      "Science",
+      "Computing",
+      "Design & Technology",
+      "Nutrition and Food Science",
+      "Applied Subjects"
+    ],
+    "cca": ["Robotics", "AI", "Drama", "Swimming", "Cooking"],
+    "_note": "沿用 abcd2：学术科目清单 + 五项 CCA 兴趣，未因反向校验改写。"
+  },
+  "outputs": {
+    "planSlug": "abcd2-reverse-s1-choice-2026",
+    "_note": "报告落地为 docs/reports/abcd2-reverse-s1-choice-2026.html。"
+  },
+  "notes": "第九个孩子案例（abcd2 的反向校验版）。家长已选六校：Outram / Compassvale / Punggol / Naval Base / Junyuan / Hougang。本报告不改画像，只校验这组选择与顺序，并提出两套新顺序。",
+  "_生效说明": "commuteMode=bus 需要 data/bus-abcd2-reverse.json；纯步行取 data/walk-abcd2-reverse.json；研究事实源 data/research/abcd2-reverse.json。"
+}

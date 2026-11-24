@@ -1,0 +1,166 @@
+{
+  "_note": "abcd2-reverse 专项研究数据。只放可回溯到官方页面或项目已核实数据层的事实；判断写在 data/plans/abcd2-reverse.js。A = 官方/学校原文，B = 项目模型或第三方交叉。2026-11-24 核对。",
+  "checkedAt": "2026-11-24",
+  "cohort": {
+    "candidates2026": 40906,
+    "suitablePct2026": 98.5,
+    "candidates2024": 40894,
+    "deltaVs2024": 12,
+    "schoolsInS1Posting2026": 141,
+    "schoolsInS1Posting2024": 140,
+    "choiceWindow": "2026-11-24 11:30 至 2026-11-30 16:30",
+    "postingResults": "2026-12-18（暂定）",
+    "sourceGrade": "A",
+    "sourceId": "seab2026",
+    "interpretation": "2026 考生数与 2024 龙年峰值几乎持平（+12 人，+0.03%），但比 2025 的 37,926 多 3,980 人（+10.5%）。这提示总体竞争回到 2024 量级，不等于这六所学校 2026 的 COP 必然重演 2024；COP 仍取决于同届学生的选择分布。"
+  },
+  "capacity": {
+    "perSchoolVacanciesPublic": false,
+    "finding": "截至 2026-11-24，MOE/SEAB 的 2026 PSLE 文告、S1 Posting 页面与 SchoolFinder 均未公布逐校 S1 学额，也未公布这六所学校的 2027 入学扩招计划。SchoolFinder 只有学校类型、科目、CCA、DSA、ALP/LLP、地址与历年 COP，没有 intake/vacancy 字段。",
+    "cityAverageSec1PerSchool": 292,
+    "cityAverageBasis": "2025 学年 Sec 1 在册 41,144 人 ÷ 141 所参与 S1 的学校；这是全市均值，不是任何一所学校的学额。",
+    "sourceIds": ["moeS1", "moeShortlist", "cohortPage"],
+    "sourceGrade": "A/B"
+  },
+  "schools": {
+    "Outram Secondary School": {
+      "familyRank": 1,
+      "code": "3215",
+      "address": "48 Anchorvale Crescent, Singapore 549936",
+      "cop": [
+        { "year": 2023, "min": 9, "max": 22, "status": "ok", "sourceId": "copHistory" },
+        { "year": 2024, "status": "no-s1", "note": "MOE 存档页原文：no cut-off points available ... no Secondary 1 (S1) students posted to the school in 2024。0–0 是占位，不是 0 分。", "sourceId": "copHistory" },
+        { "year": 2025, "min": 9, "max": 17, "status": "ok", "sourceId": "moeOutram" }
+      ],
+      "campusNote": "MOE SchoolFinder 原文：The school has relocated to its new site at 48 Anchorvale Crescent. Students currently studying at the campus at 3 York Hill will continue at the same location until they graduate by 2027.",
+      "subjectNote": "5/7 命中；Computing 只有 Computer Applications（G1）；另有 Business Studies 全岛稀缺标签。",
+      "ccaNote": "游泳 / 水球由 MOE 与学校 DSA 双重确认；English Drama、Maker's Club、Environmental Science Club 来自开放日 microsite，MOE 主站未登记。AI 命中来自科技类 CCA 归类，不是名为 AI 的社团。",
+      "programmeNote": "ALP Business & Entrepreneurship；LLP Sports & Outdoor Education。游泳 DSA 仅适用于 2026 DSA 通道，普通 S1 入学不等于自动进泳队。",
+      "expansionNote": "迁往 Anchorvale 新校区是可核实的结构变化；学校开放日页与 MOE 均未公布本届 S1 扩招人数。2024 无 S1 派位、2025 首次给出 9–17 的区间，不能据此推断扩招或门槛必松。",
+      "verdict": "作为唯一游泳特色校，放第 1 冲刺位可以理解；但 AL 18 比 2025 区间上端 17 还差 1 分，PR 同分又输公民，绝不能当稳位。"
+    },
+    "Compassvale Secondary School": {
+      "familyRank": 2,
+      "code": "3622",
+      "address": "51 Compassvale Crescent, S545083",
+      "cop": [
+        { "year": 2023, "min": 15, "max": 19, "status": "ok", "sourceId": "copHistory" },
+        { "year": 2024, "min": 14, "max": 18, "status": "ok", "sourceId": "moeCompassvale" },
+        { "year": 2025, "min": 14, "max": 18, "status": "ok", "sourceId": "moeCompassvale" }
+      ],
+      "subjectNote": "6/7 命中；Computing 只有 Computer Applications（G1），需问 G2/G3 是否开班。",
+      "ccaNote": "MOE 当前登记 18 项，Robotics 与 English Drama 均确认；学校 2026 DSA 也有 Robotics 与 STEM - Aeronautics。",
+      "programmeNote": "ALP ACES（Aeronautics, Coding, Engineering and Sustainability）；LLP Green Compass。官网显示 2025 年更新学习空间，但不是扩招公告。",
+      "expansionNote": "未见 2027 S1 扩招计划或逐校学额公告。",
+      "verdict": "这份名单里真正的「现实第一志愿」：21 分钟公交、6/7 科目、机器人+戏剧双命中；但余量 0，PR 踩线风险不低。"
+    },
+    "Punggol Secondary School": {
+      "familyRank": 3,
+      "code": "3070",
+      "address": "51 Edgefield Plains, S828870",
+      "cop": [
+        { "year": 2023, "min": 14, "max": 20, "status": "ok", "sourceId": "copHistory" },
+        { "year": 2024, "min": 13, "max": 19, "status": "ok", "sourceId": "moePunggol" },
+        { "year": 2025, "min": 13, "max": 19, "status": "ok", "sourceId": "moePunggol" }
+      ],
+      "subjectNote": "6/7 命中；Mobile Robotics 是全岛 ≤20 校列出的稀缺科目；Computing 仍只有 G1。",
+      "ccaNote": "MOE 当前 20 项，English Language, Drama and Debating 与 Indian Language, Drama and Debating 确认戏剧命中。Mobile Robotics 是科目，不是机器人社团；不要把它当成 Robotics CCA。",
+      "programmeNote": "ALP STEM - Sustainability（Environmental Sustainability）；LLP Community Youth Leadership。",
+      "expansionNote": "未见 2027 S1 扩招计划或逐校学额公告。",
+      "verdict": "21 分钟公交 + 戏剧 + 稀缺科目，位置合理；但余量只有 +1，属于「能冲但有风险」。"
+    },
+    "Naval Base Secondary School": {
+      "familyRank": 4,
+      "code": "3214",
+      "address": "901 Yishun Ring Road, S768689",
+      "cop": [
+        { "year": 2023, "min": 13, "max": 19, "status": "ok", "sourceId": "waybackNavalBase" },
+        { "year": 2024, "min": 13, "max": 18, "status": "ok", "sourceId": "moeNavalBase" },
+        { "year": 2025, "min": 13, "max": 19, "status": "ok", "sourceId": "moeNavalBase" }
+      ],
+      "subjectNote": "6/7 命中；Computing 只有 Computer Applications（G1）。",
+      "ccaNote": "MOE CCA 含 English Drama 与 Infocomm Technology (Media Production)。项目兴趣模型把后者归为「AI/科技」命中，但学校并没有名为 AI 的社团。",
+      "programmeNote": "MOE 官方 EAP 九校之一；EAP 是高二起的 2 年课程，必须在中二通过校内选拔，S1 填报不构成 EAP 录取。ALP in Art、LLP Character Education through Sports。",
+      "expansionNote": "未见 2027 S1 扩招计划或逐校学额公告。",
+      "verdict": "艺术强项是真的，但它不在孩子的 7 项学术兴趣里；30 分钟、余量 +1、综合分 70（六校最低），放第 4 会先于 Hougang 接住孩子，是本名单最值得挑战的位置。"
+    },
+    "Junyuan Secondary School": {
+      "familyRank": 5,
+      "code": "3608",
+      "address": "11 Tampines Street 84, S528933",
+      "cop": [
+        { "year": 2023, "min": 14, "max": 22, "status": "ok", "sourceId": "waybackJunyuan" },
+        { "year": 2024, "min": 13, "max": 22, "status": "ok", "sourceId": "moeJunyuan" },
+        { "year": 2025, "min": 14, "max": 21, "status": "ok", "sourceId": "moeJunyuan" }
+      ],
+      "subjectNote": "6/7 命中；Nutrition and Food Science 明确列出；Computing 只有 G1。",
+      "ccaNote": "MOE CCA 含 English Drama、Infocomm Technology (Computing) 与 Infocomm Technology (Media Production)。科技类命中同样是归类，不是 AI 社团。",
+      "programmeNote": "ALP STEM - Health and Food Science（Developing Application-based Learning through Food Science）；LLP Community Youth Leadership。官网 2026 开放日为 11 月 21 日。",
+      "expansionNote": "未见 2027 S1 扩招计划或逐校学额公告。",
+      "verdict": "六校里唯一余量 ≥3 的学校，综合分 79 也是六校最高；第 5 位合理，若更看重安全边际可再前移。"
+    },
+    "Hougang Secondary School": {
+      "familyRank": 6,
+      "code": "3046",
+      "address": "2 Hougang Street 93, S534256",
+      "cop": [
+        { "year": 2023, "min": 16, "max": 22, "status": "ok", "sourceId": "copHistory" },
+        { "year": 2024, "min": 14, "max": 20, "status": "ok", "sourceId": "moeHougang" },
+        { "year": 2025, "min": 14, "max": 20, "status": "ok", "sourceId": "moeHougang" }
+      ],
+      "subjectNote": "7/7 命中，且是六校里唯一明确列 Computing（G2/G3 课程名）的学校；仍需向学校确认 PG3 学生能否选。",
+      "ccaNote": "MOE 当前登记含 Speech and Drama，2026 DSA 也有 English Drama；戏剧命中扎实。",
+      "programmeNote": "ALP STEM（HS Innovates, For Life!）；LLP Community Youth Leadership。",
+      "expansionNote": "未见 2027 S1 扩招计划或逐校学额公告。",
+      "verdict": "科目匹配最强、余量 +2、戏剧社团明确，却被放第 6。只要第 4 位的 Naval Base（+1）录上，就没有轮到它的机会——这是名单里最明显的顺序错配。"
+    }
+  },
+  "alternativeOrders": {
+    "B": {
+      "name": "方案 B · 六校不换，科目与安全边际归位",
+      "order": [
+        "Outram Secondary School",
+        "Compassvale Secondary School",
+        "Hougang Secondary School",
+        "Punggol Secondary School",
+        "Junyuan Secondary School",
+        "Naval Base Secondary School"
+      ],
+      "rationale": "保留游泳冲刺位，但把 7/7 且明确 Computing 的 Hougang 从第 6 提到第 3；把唯一余量 ≥3 的 Junyuan 放在第 5 兜底；Naval Base 因艺术强项不在学术兴趣清单、余量仅 +1，退到末位。",
+      "tradeoff": "牺牲的是 Naval Base 的 EAP 机会；但 EAP 本来就要到中二校内选拔，S1 填报并不保证。"
+    },
+    "C": {
+      "name": "方案 C · 换掉游泳冲刺位，换成科目 + 缓冲",
+      "order": [
+        "Compassvale Secondary School",
+        "Hougang Secondary School",
+        "Springfield Secondary School",
+        "Punggol Secondary School",
+        "Junyuan Secondary School",
+        "Naval Base Secondary School"
+      ],
+      "rationale": "若游泳不是非谈条件，把余量 -1 的 Outram 换成 Springfield（7/7 命中、明确 Computing、余量 +4、公交 32 分钟）；前两位改成真正够得着的 Compassvale 与 Hougang。",
+      "tradeoff": "失去 Outram 的泳池 / 水球与迁校新校区；换取两所 7/7 + Computing 的学校与更厚的安全边际。"
+    }
+  },
+  "sources": [
+    { "id": "seab2026", "title": "SEAB《Release of 2026 PSLE Results》(2026-11-24)", "url": "https://www.seab.gov.sg/newsroom/release-of-2026-psle-results", "grade": "A", "usedFor": "40,906 人应考 / 98.5% 适合升读 / 141 校 / 2–3 个较宽松志愿建议 / 12 月公布 COP" },
+    { "id": "moeS1", "title": "MOE S1 Posting — Submit school choices", "url": "https://moe.gov.sg/secondary/s1-posting/school-choices", "grade": "A", "usedFor": "填报时间 11-24 11:30 至 11-30 16:30 / 最多 6 志愿 / 未填派位规则" },
+    { "id": "moeShortlist", "title": "MOE S1 Posting — Shortlist schools", "url": "https://moe.gov.sg/secondary/s1-posting/how-to-choose/shortlisting-schools", "grade": "A", "usedFor": "往年 COP 只作参考 / 建议 2–3 所较宽松学校 / 达到 COP 不等于录取" },
+    { "id": "moeTieBreaker", "title": "MOE S1 Posting — How to choose schools", "url": "https://moe.gov.sg/secondary/s1-posting/how-to-choose", "grade": "A", "usedFor": "tie-breaker 公民 > PR > 国际学生 / 志愿顺序 / 抽签；附属 20% 规则；SAP ≤14" },
+    { "id": "moeEap", "title": "MOE Enhanced Art Programme (EAP) for secondary", "url": "https://moe.gov.sg/education-in-sg/our-programmes/eap-sec", "grade": "A", "usedFor": "Naval Base 是 9 所 EAP 校之一；中二校内选拔；不额外收费" },
+    { "id": "moeOutram", "title": "MOE SchoolFinder — Outram Secondary School", "url": "https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=outram-secondary-school", "grade": "A", "usedFor": "2025 COP 9–17 / 迁校说明 / 科目 / CCA / DSA / ALP / LLP" },
+    { "id": "moeCompassvale", "title": "MOE SchoolFinder — Compassvale Secondary School", "url": "https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=compassvale-secondary-school", "grade": "A", "usedFor": "2024/2025 COP 14–18 / 科目 / CCA / DSA / ALP / LLP" },
+    { "id": "moePunggol", "title": "MOE SchoolFinder — Punggol Secondary School", "url": "https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school", "grade": "A", "usedFor": "2024/2025 COP 13–19 / Mobile Robotics / CCA / DSA / ALP / LLP" },
+    { "id": "moeNavalBase", "title": "MOE SchoolFinder — Naval Base Secondary School", "url": "https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=naval-base-secondary-school", "grade": "A", "usedFor": "2024 COP 13–18 / 2025 COP 13–19 / EAP / 科目 / CCA" },
+    { "id": "moeJunyuan", "title": "MOE SchoolFinder — Junyuan Secondary School", "url": "https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=junyuan-secondary-school", "grade": "A", "usedFor": "2024 COP 13–22 / 2025 COP 14–21 / Food Science ALP / 科目 / CCA" },
+    { "id": "moeHougang", "title": "MOE SchoolFinder — Hougang Secondary School", "url": "https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=hougang-secondary-school", "grade": "A", "usedFor": "2024/2025 COP 14–20 / Computing / Speech and Drama / DSA / ALP / LLP" },
+    { "id": "waybackNavalBase", "title": "Wayback 存档 MOE SchoolFinder — Naval Base (PSLE score range of 2023)", "url": "https://web.archive.org/web/20240610000000/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=naval-base-secondary-school", "grade": "A", "usedFor": "2023 PG3 COP 13–19" },
+    { "id": "waybackJunyuan", "title": "Wayback 存档 MOE SchoolFinder — Junyuan (PSLE score range of 2023)", "url": "https://web.archive.org/web/20240610000000/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=junyuan-secondary-school", "grade": "A", "usedFor": "2023 PG3 COP 14–22" },
+    { "id": "copHistory", "title": "项目数据 data/cop-history.json（Wayback + 页面年份标签校验）", "url": "data/cop-history.json", "grade": "A/B", "usedFor": "2023 COP 与 Outram 2024 无 S1 派位原文" },
+    { "id": "cohortPage", "title": "项目数据 data/psle-cohort.json / docs/cohort.html", "url": "cohort.html", "grade": "A/B", "usedFor": "2022–2026 考生数、龙年案例、全市学额均值、逐校学额不公开" },
+    { "id": "outramSite", "title": "Outram Secondary School 官网 / Anchorvale Open House", "url": "https://www.outramsec.moe.edu.sg/", "grade": "A", "usedFor": "Anchorvale 新校区与开放日入口；未公布扩招人数" },
+    { "id": "compassvaleSite", "title": "Compassvale Secondary School 官网", "url": "https://www.compassvalesec.moe.edu.sg/", "grade": "A", "usedFor": "ACES /  refreshed learning spaces / 2027 booklists；未公布扩招" },
+    { "id": "junyuanSite", "title": "Junyuan Secondary School 官网", "url": "https://junyuansec.moe.edu.sg/", "grade": "A", "usedFor": "2026-11-21 开放日 / DSA 项目；未公布扩招" }
+  ]
+}

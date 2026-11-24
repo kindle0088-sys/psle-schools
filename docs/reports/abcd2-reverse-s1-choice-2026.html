@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="generator" content="psle-plan-report/v1">
+<title>PSLE 2026 志愿规划 · AL 18 分 · 6 个志愿方案</title>
+<style>
+/* ─────────────────────────────────────────────────────────────
+   PSLE 择校 · 共享色板（深色）
+
+   唯一的颜色来源。plan.css / school.css 里不允许再出现硬编码色值，
+   一律走这里的 token；生成器把本文件拼在模板前面。
+
+   取值与 docs/assets/style.css（看板）的 :root 保持一致 —— 两处必须同步，
+   scripts/verify-theme.cjs 会做比对。
+
+   配色约定：红绿只用于「涨跌」语义（本项目没有），所以只用中性色阶 +
+   一种强调色；琥珀/红/绿仅表达「风险/不确定/达标」，不表达学校好坏。
+   ───────────────────────────────────────────────────────────── */
+:root{
+  /* 底与面 */
+  --bg:#0a0f1a;
+  --bg-soft:#0e1526;
+  --card:#121a2a;
+  --line:#1e2b40;
+  --line2:#182338;
+
+  /* 文字 */
+  --tx:#e8eef7;
+  --tx2:#93a4bd;
+  --tx3:#78879f;
+
+  /* 强调（天蓝，与看板同色） */
+  --accent:#38bdf8;
+  --accent-dim:#0e7490;
+  --accent-bg:rgba(56,189,248,.10);
+  --accent-line:rgba(56,189,248,.30);
+  --accent-ink:#06212f;        /* 铺在 accent 底色上的文字 */
+
+  /* 语义色：琥珀＝注意 / 红＝风险 / 绿＝达成 */
+  --warm:#fbbf24;
+  --warm-bg:rgba(251,191,36,.10);
+  --warm-line:rgba(251,191,36,.30);
+
+  --risk:#f87171;
+  --risk-bg:rgba(248,113,113,.10);
+  --risk-line:rgba(248,113,113,.28);
+
+  --ok:#34d399;
+  --ok-bg:rgba(52,211,153,.10);
+  --ok-line:rgba(52,211,153,.28);
+
+  /* 交互与容器 */
+  --hover:rgba(255,255,255,.035);
+  --surface:rgba(255,255,255,.03);        /* 卡片内的次级面（数据格、note） */
+  --surface-line:rgba(255,255,255,.055);  /* 次级面的描边 */
+  --accent-hover:rgba(56,189,248,.16);    /* 强调块 hover */
+  --chip:rgba(255,255,255,.055);
+  --code:rgba(255,255,255,.07);
+  --hero-a:#0c1424;
+  --hero-b:#0a0f1a;
+
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+/* plan.css —— 手册 / 考生数据 / 方案看板 / 志愿报告的公共组件
+   颜色全部来自 tpl/tokens.css（生成器会把它拼在本文件前面）。
+   ⚠️ 这个文件里不要写任何色值字面量，否则换主题时会漏掉。 */
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--tx3);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:var(--tx)}
+.hero{background:linear-gradient(180deg,var(--hero-a),var(--hero-b));color:var(--tx);padding:40px 0 36px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);opacity:.85}
+.hero h1{margin:10px 0 6px;font-size:26px;font-weight:650;letter-spacing:-.4px;line-height:1.35}
+/* 副标题行：单校报告与志愿报告的 h1 都带 <small>，没有这条会与主标题粘连 */
+.hero h1 small{display:block;font-size:14.5px;font-weight:400;color:var(--tx2);margin-top:7px;line-height:1.5}
+.hero .sub{color:var(--tx2);font-size:14px;max-width:660px}
+
+/* 两栏对照块。这两个类原先只在 school.css 里定义，而本模板的使用者
+   （填报手册、考生人数页）只引 plan.css —— 于是「有结构、没样式」，
+   两块内容会静默堆成普通段落。定义在这里，两边都能用。 */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:14px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.panel h4{margin:0;font-size:13.5px;font-weight:650;color:var(--tx)}
+/* 每格独立成卡：否则格子数不满一行时，容器底色会露出一块空的「假格子」 */
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:6px;margin-top:24px}
+.profile div{background:var(--surface);border:1px solid var(--surface-line);border-radius:8px;padding:11px 14px}
+.profile .k{font-size:11.5px;color:var(--tx3);letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+
+section{margin:0 0 38px}
+h2{font-size:18px;font-weight:640;margin:42px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px}
+h2 .n{font-size:12px;font-weight:600;color:var(--accent-ink);background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 16px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.fixbox{background:var(--risk-bg);border:1px solid var(--risk-line);border-left:4px solid var(--risk);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.fixbox h3{margin:0 0 8px;font-size:15.5px;color:var(--risk)}
+.fixbox p{margin:8px 0;font-size:14.3px}
+
+.verdict{background:var(--accent-bg);border:1px solid var(--accent-line);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:26px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict p{margin:8px 0;font-size:14.3px}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+
+table{width:100%;border-collapse:collapse;font-size:13.4px;margin:14px 0}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:12px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+/* 单元格居中。这条规则原先只写在 school.css（还是只有 td、没有 th），
+   而本模板的使用者（手册 / 考生页 / 两份志愿报告）只引 plan.css —— 于是
+   这三类页面里 866 个 class="mid" 一直没有任何效果，表格左对齐到底。
+   刻意不给 td.num 加对齐：num 只表示「等宽数字」，对齐交给 mid 决定。 */
+th.mid,td.mid{text-align:center}
+td.soft,.soft{color:var(--tx3)}
+tbody tr:hover{background:var(--hover)}
+.tight{color:var(--warm)}
+
+.school{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px;margin:16px 0}
+.school header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.sname{font-size:16px;font-weight:640;letter-spacing:-.2px;line-height:1.35}
+.sbadges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--chip);color:var(--tx2);border:1px solid var(--line)}
+/* 风险提示徽章：与普通 badge 同形，只换配色。
+   志愿报告的「余量 ≤1」和开放日页的「需报名」都用它 —— 之前这个类名一直没定义。 */
+.badge-risk{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
+.badge-moe{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-line);font-weight:600}
+.badge-over{background:var(--risk-bg);color:var(--risk);border-color:var(--risk-line);font-weight:600}
+.gap-line{font-size:13px;color:var(--tx2);margin:10px 0 0;padding-left:12px;border-left:2px solid var(--risk);line-height:1.7}
+.tier{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:600}
+.t-reach{background:var(--warm-bg);color:var(--warm);border:1px solid var(--warm-line)}
+.t-match{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent-line)}
+.t-safe{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-line)}
+
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:13px}
+.kv div{background:var(--card);padding:9px 12px}
+.kv .k{display:block;font-size:11px;color:var(--tx3);letter-spacing:.3px}
+.kv .v{display:block;font-size:14px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+
+.why,.caveat{font-size:13.7px;margin:10px 0;padding:10px 13px;border-radius:8px}
+/* 只有段落首个 <b> 当小标题用；正文内的 <b> 保持内联加粗，
+   否则每个加粗词都会变成独立的大写块（曾导致 STEP 4c 排版炸裂） */
+.why>b:first-child,.caveat>b:first-child{display:block;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.why b,.caveat b{font-weight:600}
+.why{background:var(--accent-bg);color:var(--tx)}
+.why b{color:var(--accent)}
+.caveat{background:var(--warm-bg);color:var(--tx)}
+.caveat b{color:var(--warm)}
+.deeplink{display:block;margin:14px 0 2px;padding:11px 15px;background:var(--accent-bg);border:1px solid var(--accent-line);border-radius:9px;text-decoration:none;transition:background .15s,border-color .15s}
+.deeplink span{display:block;font-size:13.6px;font-weight:600;color:var(--accent)}
+.deeplink em{display:block;font-style:normal;font-size:11.6px;color:var(--tx3);margin-top:3px}
+.deeplink:hover{background:var(--accent-hover);border-color:var(--accent)}
+
+dl.detail{margin:12px 0 0;font-size:13.2px}
+dl.detail dt{font-size:11.5px;color:var(--tx3);letter-spacing:.4px;margin-top:11px;text-transform:uppercase}
+dl.detail dd{margin:3px 0 0;color:var(--tx2)}
+.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:5px;background:var(--chip);border:1px solid var(--line);color:var(--tx2);margin:2px 3px 2px 0}
+.chip.hit{background:var(--accent-bg);border-color:var(--accent-line);color:var(--accent);font-weight:500}
+
+.ok{color:var(--ok);font-size:12px}
+.warn{color:var(--warm);font-size:12px;font-weight:500}
+
+.plans{display:grid;gap:14px;margin:18px 0}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.plan.rec{border-color:var(--accent-line);box-shadow:0 0 0 3px var(--accent-bg)}
+.plan h3{margin:0 0 3px;font-size:15px;display:flex;align-items:center;gap:8px}
+.plan .pdesc{font-size:12.8px;color:var(--tx3);margin:0 0 11px}
+.plan ol{margin:0;padding-left:22px;font-size:13.7px}
+.plan li{margin:5px 0}
+.pill{font-size:10.5px;padding:2px 7px;border-radius:4px;background:var(--accent);color:var(--accent-ink);font-weight:600}
+
+.note{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+/* ── 三个共享组件（2026-11-15 从 school.css 补齐）──────────────────
+   .warnbox / .tag / .toc 一直只定义在 school.css，而本模板的使用者
+   （手册 / 考生页 / 两份志愿报告）只引 plan.css —— 于是手册里所有警示框
+   都是「背景透明、边框 0px」的普通段落，来源等级标签也只是一串文字。
+   规则逐字复制自 school.css，两份必须保持一致（verify-theme 会比对）。 */
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.warnbox{background:var(--warm-bg);border:1px solid var(--warm-line);border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:var(--chip);margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:var(--accent-line);background:var(--accent-bg);color:var(--accent)}
+.tag.b{border-color:var(--line);background:var(--chip);color:var(--tx2)}
+.tag.c{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
+.foot{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 50px;font-size:12.3px;color:var(--tx3);line-height:1.85}
+.foot code{font-family:var(--mono);font-size:11.4px;background:var(--code);padding:1px 5px;border-radius:3px;color:var(--tx2)}
+
+/* 通勤表里的「争议」上标：与数字留 2px，避免粘连 */
+.num sup,.kv sup{font-size:9px;opacity:.72;margin-left:2px;vertical-align:2px}
+
+/* 打印：把色板整体翻回浅色。
+   只改 token 就够了 —— 前提是所有规则都走变量、没有写死色值。 */
+@media print{
+  :root{
+    --bg:#fff; --card:#fff; --line:#d7dde5; --line2:#eceff3;
+    --tx:#111827; --tx2:#374151; --tx3:#6b7280;
+    --accent:#0b6b8a; --accent-bg:#eef7fb; --accent-line:#bfe0ec; --accent-ink:#fff;
+    --warm:#8a5a00; --warm-bg:#fdf6e7; --warm-line:#ecd9b0;
+    --risk:#8c2f2f; --risk-bg:#fbf0ef; --risk-line:#efd6d4;
+    --ok:#1f5c3a; --ok-bg:#eef7f1; --ok-line:#cfe6d8;
+    --hover:transparent; --chip:#f4f5f7; --code:#f1f2f4;
+  }
+  .hero{background:#fff!important;color:var(--tx)!important;border-bottom:1px solid var(--line)}
+  .hero .profile div{background:#fafbfc;border-color:#e3e8ee}
+  .school,.plan,.note{break-inside:avoid}
+}
+@media(max-width:600px){.hero h1{font-size:21px}.kv{grid-template-columns:1fr 1fr}table{font-size:12.4px}th,td{padding:7px 6px}}
+
+
+.sbj{display:inline-block;margin:1px 2px;padding:1px 4px;border-radius:4px;font-size:11.6px;line-height:1.55}
+.sbj-hit{background:#fde68a;color:#3b2606;font-weight:600}
+.sbj-soft{background:#dbeafe;color:#1e3a8a;font-weight:600;border-bottom:1px dashed #2563eb}
+.sbj-rare{background:#ccfbf1;color:#134e4a;font-weight:600;border-bottom:2px solid #0f766e}
+.sbj-both{background:#fde68a;color:#3b2606;font-weight:600;border-bottom:2px solid #0f766e}
+.sbj-prog{background:#ede9fe;color:#4c1d95;font-weight:600}
+.sbj-cell{font-size:11.7px;line-height:1.75;word-break:break-word}
+.sbj-legend{font-size:12.2px;line-height:1.8}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">PSLE 2026 · Secondary 1 Posting · abcd2-reverse</div>
+    <h1>AL 18 分，6 个志愿怎么排<small>新加坡中学 S1 Posting 完整分析 · 邮编 828765</small></h1>
+    <div class="sub">AL <b>18</b> · PG3 · PR · 邮编 <b>828765</b> · Twin Waterfalls（65431）不换乘公交 / 纯步行 ≤60 分钟。
+这不是新画像，而是<b>反向校验</b>：家长已选 <b>6 所</b>学校，其中 <b>1 所（Outram）按 2025 COP 还够不着</b>。
+结论先说：<b>第 1 位 Outram 可以留，但只能当冲刺位；第 6 位 Hougang 是本名单最明显的顺序错配</b>。六校中余量 ≥2 的只有 Junyuan（+3）与 Hougang（+2），而 Hougang 被放最后。</div>
+    <div class="profile">
+      <div><div class="k">PSLE 总分</div><div class="v">AL 18</div></div>
+      <div><div class="k">Posting Group</div><div class="v">PG3</div></div>
+      <div><div class="k">邮编</div><div class="v">828765</div></div>
+      <div><div class="k">通勤上限</div><div class="v">60 分钟</div></div>
+      <div><div class="k">主池（混校）</div><div class="v">18 所</div></div>
+      <div><div class="k">可及总数</div><div class="v">19 所</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 录取规则</a>
+  <a href="#s2">② 候选池</a>
+  <a href="#s3">③ COP 与风险</a>
+  <a href="#s4">④ 逐校适配度</a>
+  <a href="#s5">⑤ 梯度设计</a>
+  <a href="#s6">⑥ 最终建议</a>
+  <a href="#s7">⑦ 附录</a>
+  <a href="#s8">⑧ 数据来源</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>这份报告怎么读。</b>主体六步（规则 → 候选池 → COP → 逐校适配 → 梯度 → 建议）+ 两节参考（附录速览、数据来源与口径）。
+<br><br><b>⚠️ 人工分析边界：</b>候选池、COP、通勤、五维分数都是按这份配置算出来的；但<b>选校理由、逐校「适合/不适合」结论、方案 A/B/C 的取舍</b>是人工判断，<b>没有随配置自动改写</b>——换一个分数、兴趣或邮编，这几节的文字需要重新核对，不能直接沿用。
+每一节末尾的灰框是<b>我的判断</b>，其余是可复核的事实。<b>数据口径</b>：COP 取各校 <b>Posting Group 3 行的非附属区间</b>（2025 年度），
+孩子 AL 18 属 PG3，只与同档学生竞争；通勤按「<b>不换乘公交 + 步行 或 纯步行，取较快者</b>」计算（地铁不参与判定），步行争议项按区间上端过闸，争议项已标注。
+</div>
+
+
+<div class="reverse-audit"><h2 style="margin-top:26px">00 反向校验：家长六志愿逐条核对</h2>
+<p class="lead">这一节是本次报告的新增内容。事实来自 MOE SchoolFinder、学校官网、SEAB 2026 文告与项目数据层；判断在灰框与第六步里明确标出。</p>
+
+<h3>① 2026 大盘：与 2024 龙年几乎同量</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>年份</th><th>PSLE 考生</th><th>同比</th><th>适合升读</th><th>官方备注</th></tr></thead>
+<tbody><tr><td class="num">2022</td><td class="num"><b>37,095</b></td><td class="num">—</td><td class="num">98.4%</td><td class="soft">回测偏差最大的年份。总出生数 ≠ 公民出生数，是这一年暴露出来的</td></tr>
+<tr><td class="num">2023</td><td class="num"><b>38,088</b></td><td class="num">+993</td><td class="num">98.4%</td><td class="soft">拟合最好的年份之一，误差仅数百人</td></tr>
+<tr><td class="num">2024</td><td class="num"><b>40,894</b></td><td class="num">+2,806</td><td class="num">98.5%</td><td class="soft">龙年基数抬升 → 考生人数高峰；COP 数值普遍下行（见 cases）</td></tr>
+<tr><td class="num">2025</td><td class="num"><b>37,926</b></td><td class="num">-2,968</td><td class="num">98.5%</td><td class="soft">模型轻微高估数百人，趋势判断正确</td></tr>
+<tr><td class="num">2026</td><td class="num"><b>40,906</b></td><td class="num">+2,980</td><td class="num">98.5%</td><td class="soft">官方值，SEAB / MOE 2026-11-24《Release of 2026 PSLE Results》：40,906 人应考，98.5% 评定适合升读中学。与 2024 龙年峰值 40,894 仅差 12 人。</td></tr></tbody>
+</table>
+</div>
+<div class="note">
+<b>判断：</b>2026 的 40,906 人比 2024 龙年只多 12 人（+0.03%），但比 2025 多 2980 人（约 +10.5%）。
+参与 2026 S1 的学校有 141 所，比 2024 的 140 所多 1 所。
+<b>这说明总体回到 2024 的竞争量级，不能证明这六校今年一定收紧或放松</b>——COP 还取决于同届家长怎么填。SEAB 的官方建议仍是：6 个志愿里放 2–3 个往年 COP 较宽松的学校。
+</div>
+
+<h3>② 六校逐年 COP、科目、社团与通勤核对</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>家长序位</th><th>学校 / 余量</th><th>PG3 COP 2023 → 2024 → 2025</th><th>2025 区间</th><th>科目</th><th>社团 / 通勤</th><th>反向核对结论</th></tr></thead>
+<tbody><tr>
+  <td class="num"><b>1</b></td>
+  <td><b>Outram</b><br><span class="soft">综合 70 · 余量 -1</span></td>
+  <td class="soft" style="font-size:12.2px">2023 9–22 → 2024 无 S1 派位 → 2025 9–17<br>2025 为迁校后首个可用区间</td>
+  <td class="num">9–17</td>
+  <td class="num">5/7<br><span class="soft">Computing 仅 G1</span></td>
+  <td class="soft" style="font-size:12.2px">AI+戏剧+游泳<br>43 路 19 分</td>
+  <td class="soft" style="font-size:12.2px">作为唯一游泳特色校，放第 1 冲刺位可以理解；但 AL 18 比 2025 区间上端 17 还差 1 分，PR 同分又输公民，绝不能当稳位。</td>
+</tr>
+<tr>
+  <td class="num"><b>2</b></td>
+  <td><b>Compassvale</b><br><span class="soft">综合 78 · 余量 0</span></td>
+  <td class="soft" style="font-size:12.2px">2023 15–19 → 2024 14–18 → 2025 14–18</td>
+  <td class="num">14–18</td>
+  <td class="num">6/7<br><span class="soft">Computing 仅 G1</span></td>
+  <td class="soft" style="font-size:12.2px">机器人+戏剧<br>43 路 21 分</td>
+  <td class="soft" style="font-size:12.2px">这份名单里真正的「现实第一志愿」：21 分钟公交、6/7 科目、机器人+戏剧双命中；但余量 0，PR 踩线风险不低。</td>
+</tr>
+<tr>
+  <td class="num"><b>3</b></td>
+  <td><b>Punggol</b><br><span class="soft">综合 76 · 余量 +1</span></td>
+  <td class="soft" style="font-size:12.2px">2023 14–20 → 2024 13–19 → 2025 13–19</td>
+  <td class="num">13–19</td>
+  <td class="num">6/7<br><span class="soft">Computing 仅 G1</span></td>
+  <td class="soft" style="font-size:12.2px">戏剧<br>118 路 21 分</td>
+  <td class="soft" style="font-size:12.2px">21 分钟公交 + 戏剧 + 稀缺科目，位置合理；但余量只有 +1，属于「能冲但有风险」。</td>
+</tr>
+<tr>
+  <td class="num"><b>4</b></td>
+  <td><b>Naval Base</b><br><span class="soft">综合 70 · 余量 +1</span></td>
+  <td class="soft" style="font-size:12.2px">2023 13–19 → 2024 13–18 → 2025 13–19</td>
+  <td class="num">13–19</td>
+  <td class="num">6/7<br><span class="soft">Computing 仅 G1</span></td>
+  <td class="soft" style="font-size:12.2px">AI<br>39 路 30 分</td>
+  <td class="soft" style="font-size:12.2px">艺术强项是真的，但它不在孩子的 7 项学术兴趣里；30 分钟、余量 +1、综合分 70（六校最低），放第 4 会先于 Hougang 接住孩子，是本名单最值得挑战的位置。</td>
+</tr>
+<tr>
+  <td class="num"><b>5</b></td>
+  <td><b>Junyuan</b><br><span class="soft">综合 79 · 余量 +3</span></td>
+  <td class="soft" style="font-size:12.2px">2023 14–22 → 2024 13–22 → 2025 14–21</td>
+  <td class="num">14–21</td>
+  <td class="num">6/7<br><span class="soft">Computing 仅 G1</span></td>
+  <td class="soft" style="font-size:12.2px">AI<br>118 路 29 分</td>
+  <td class="soft" style="font-size:12.2px">六校里唯一余量 ≥3 的学校，综合分 79 也是六校最高；第 5 位合理，若更看重安全边际可再前移。</td>
+</tr>
+<tr>
+  <td class="num"><b>6</b></td>
+  <td><b>Hougang</b><br><span class="soft">综合 77 · 余量 +2</span></td>
+  <td class="soft" style="font-size:12.2px">2023 16–22 → 2024 14–20 → 2025 14–20</td>
+  <td class="num">14–20</td>
+  <td class="num">7/7<br><b>明确 Computing</b></td>
+  <td class="soft" style="font-size:12.2px">戏剧<br>43 路 32 分</td>
+  <td class="soft" style="font-size:12.2px">科目匹配最强、余量 +2、戏剧社团明确，却被放第 6。只要第 4 位的 Naval Base（+1）录上，就没有轮到它的机会——这是名单里最明显的顺序错配。</td>
+</tr></tbody>
+</table>
+</div>
+<p class="soft" style="font-size:12.4px">口径：COP 只取 PG3 非附属行，数值越小越难；「余量」= 2025 区间上端 − 18。Outram 不在主池，余量为 -1。兴趣模型把 Infocomm Technology / Media Production / Maker 类社团归为「AI」命中，<b>不等于学校有名为 AI 的社团</b>；Mobile Robotics 是科目，不是机器人社团。</p>
+
+<h3>③ 扩招：目前没有能支撑「某校会松」的官方证据</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th style="width:18%">学校</th><th>公开资料核对结果</th></tr></thead>
+<tbody><tr><td>Outram</td><td class="soft" style="font-size:12.2px">迁往 Anchorvale 新校区是可核实的结构变化；学校开放日页与 MOE 均未公布本届 S1 扩招人数。2024 无 S1 派位、2025 首次给出 9–17 的区间，不能据此推断扩招或门槛必松。</td></tr>
+<tr><td>Compassvale</td><td class="soft" style="font-size:12.2px">未见 2027 S1 扩招计划或逐校学额公告。</td></tr>
+<tr><td>Punggol</td><td class="soft" style="font-size:12.2px">未见 2027 S1 扩招计划或逐校学额公告。</td></tr>
+<tr><td>Naval Base</td><td class="soft" style="font-size:12.2px">未见 2027 S1 扩招计划或逐校学额公告。</td></tr>
+<tr><td>Junyuan</td><td class="soft" style="font-size:12.2px">未见 2027 S1 扩招计划或逐校学额公告。</td></tr>
+<tr><td>Hougang</td><td class="soft" style="font-size:12.2px">未见 2027 S1 扩招计划或逐校学额公告。</td></tr></tbody>
+</table>
+</div>
+<p class="soft" style="font-size:12.4px">Outram 官方地址：<b>48 Anchorvale Crescent, Singapore 549936</b>。MOE SchoolFinder 原文说明，York Hill 旧校区在读生将继续在原址就读至 2027 年毕业。</p>
+<div class="note">
+<b>结论：</b>截至 2026-11-24，MOE / SEAB 的 2026 PSLE 文告、S1 Posting 页面与 SchoolFinder <b>都没有逐校 S1 学额字段，也没有这六所的扩招计划</b>。
+项目全量查证过：逐校 S1 学额不存在公开来源；能严谨给的只有全市均值约 292 人/校（2025 学年 Sec 1 在册 41,144 ÷ 141 所），<b>这不是任何一所学校的承诺名额</b>。
+唯一可核实的结构变化是 Outram 迁往 Anchorvale 新校区；2024 无 S1 派位、2025 才出现 9–17 区间，不能倒推成「扩招所以门槛会松」。
+Naval Base 的 EAP 虽是官方九校之一，但按 MOE 原文必须在<b>中二</b>通过校内选拔，S1 填报不构成 EAP 录取。
+</div>
+
+<h3>④ 两套新顺序，一眼对照</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>志愿位</th><th>家长原顺序（方案 A）</th><th>方案 B · 不换校</th><th>方案 C · 换 1 校</th></tr></thead>
+<tbody><tr><td class="num">1</td><td>Outram</td><td>Outram</td><td>Compassvale</td></tr>
+<tr><td class="num">2</td><td>Compassvale</td><td>Compassvale</td><td>Hougang</td></tr>
+<tr><td class="num">3</td><td>Punggol</td><td>Hougang</td><td>Springfield</td></tr>
+<tr><td class="num">4</td><td>Naval Base</td><td>Punggol</td><td>Punggol</td></tr>
+<tr><td class="num">5</td><td>Junyuan</td><td>Junyuan</td><td>Junyuan</td></tr>
+<tr><td class="num">6</td><td>Hougang</td><td>Naval Base</td><td>Naval Base</td></tr></tbody>
+</table>
+</div>
+<p class="soft">方案 B 把 Hougang 从第 6 提到第 3、Naval Base 退到第 6；方案 C 进一步把余量 -1 的 Outram 换成 Springfield（7/7 命中、明确 Computing、余量 +4、公交 32 分钟）。<br><b>取舍：</b>牺牲的是 Naval Base 的 EAP 机会；但 EAP 本来就要到中二校内选拔，S1 填报并不保证。 失去 Outram 的泳池 / 水球与迁校新校区；换取两所 7/7 + Computing 的学校与更厚的安全边际。 两套顺序的完整理由与风险见第六步。</p>
+
+<h3>⑥ 主要来源与等级</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>等级</th><th>来源</th><th>用途</th></tr></thead>
+<tbody><tr><td class="num"><span class="tag a">A</span></td><td>SEAB《Release of 2026 PSLE Results》(2026-11-24)<br><span class="soft" style="font-size:11.8px">https://www.seab.gov.sg/newsroom/release-of-2026-psle-results</span></td><td class="soft" style="font-size:12.2px">40,906 人应考 / 98.5% 适合升读 / 141 校 / 2–3 个较宽松志愿建议 / 12 月公布 COP</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>MOE S1 Posting — Submit school choices<br><span class="soft" style="font-size:11.8px">https://moe.gov.sg/secondary/s1-posting/school-choices</span></td><td class="soft" style="font-size:12.2px">填报时间 11-24 11:30 至 11-30 16:30 / 最多 6 志愿 / 未填派位规则</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>MOE S1 Posting — Shortlist schools<br><span class="soft" style="font-size:11.8px">https://moe.gov.sg/secondary/s1-posting/how-to-choose/shortlisting-schools</span></td><td class="soft" style="font-size:12.2px">往年 COP 只作参考 / 建议 2–3 所较宽松学校 / 达到 COP 不等于录取</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>MOE S1 Posting — How to choose schools<br><span class="soft" style="font-size:11.8px">https://moe.gov.sg/secondary/s1-posting/how-to-choose</span></td><td class="soft" style="font-size:12.2px">tie-breaker 公民 &gt; PR &gt; 国际学生 / 志愿顺序 / 抽签；附属 20% 规则；SAP ≤14</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>MOE Enhanced Art Programme (EAP) for secondary<br><span class="soft" style="font-size:11.8px">https://moe.gov.sg/education-in-sg/our-programmes/eap-sec</span></td><td class="soft" style="font-size:12.2px">Naval Base 是 9 所 EAP 校之一；中二校内选拔；不额外收费</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>MOE SchoolFinder — Outram Secondary School<br><span class="soft" style="font-size:11.8px">https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=outram-secondary-school</span></td><td class="soft" style="font-size:12.2px">2025 COP 9–17 / 迁校说明 / 科目 / CCA / DSA / ALP / LLP</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>MOE SchoolFinder — Compassvale Secondary School<br><span class="soft" style="font-size:11.8px">https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=compassvale-secondary-school</span></td><td class="soft" style="font-size:12.2px">2024/2025 COP 14–18 / 科目 / CCA / DSA / ALP / LLP</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>MOE SchoolFinder — Punggol Secondary School<br><span class="soft" style="font-size:11.8px">https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school</span></td><td class="soft" style="font-size:12.2px">2024/2025 COP 13–19 / Mobile Robotics / CCA / DSA / ALP / LLP</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>MOE SchoolFinder — Naval Base Secondary School<br><span class="soft" style="font-size:11.8px">https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=naval-base-secondary-school</span></td><td class="soft" style="font-size:12.2px">2024 COP 13–18 / 2025 COP 13–19 / EAP / 科目 / CCA</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>MOE SchoolFinder — Junyuan Secondary School<br><span class="soft" style="font-size:11.8px">https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=junyuan-secondary-school</span></td><td class="soft" style="font-size:12.2px">2024 COP 13–22 / 2025 COP 14–21 / Food Science ALP / 科目 / CCA</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>MOE SchoolFinder — Hougang Secondary School<br><span class="soft" style="font-size:11.8px">https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=hougang-secondary-school</span></td><td class="soft" style="font-size:12.2px">2024/2025 COP 14–20 / Computing / Speech and Drama / DSA / ALP / LLP</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>Wayback 存档 MOE SchoolFinder — Naval Base (PSLE score range of 2023)<br><span class="soft" style="font-size:11.8px">https://web.archive.org/web/20240610000000/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=naval-base-secondary-school</span></td><td class="soft" style="font-size:12.2px">2023 PG3 COP 13–19</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>Wayback 存档 MOE SchoolFinder — Junyuan (PSLE score range of 2023)<br><span class="soft" style="font-size:11.8px">https://web.archive.org/web/20240610000000/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=junyuan-secondary-school</span></td><td class="soft" style="font-size:12.2px">2023 PG3 COP 14–22</td></tr>
+<tr><td class="num"><span class="tag b">A/B</span></td><td>项目数据 data/cop-history.json（Wayback + 页面年份标签校验）<br><span class="soft" style="font-size:11.8px">data/cop-history.json</span></td><td class="soft" style="font-size:12.2px">2023 COP 与 Outram 2024 无 S1 派位原文</td></tr>
+<tr><td class="num"><span class="tag b">A/B</span></td><td>项目数据 data/psle-cohort.json / docs/cohort.html<br><span class="soft" style="font-size:11.8px">cohort.html</span></td><td class="soft" style="font-size:12.2px">2022–2026 考生数、龙年案例、全市学额均值、逐校学额不公开</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>Outram Secondary School 官网 / Anchorvale Open House<br><span class="soft" style="font-size:11.8px">https://www.outramsec.moe.edu.sg/</span></td><td class="soft" style="font-size:12.2px">Anchorvale 新校区与开放日入口；未公布扩招人数</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>Compassvale Secondary School 官网<br><span class="soft" style="font-size:11.8px">https://www.compassvalesec.moe.edu.sg/</span></td><td class="soft" style="font-size:12.2px">ACES /  refreshed learning spaces / 2027 booklists；未公布扩招</td></tr>
+<tr><td class="num"><span class="tag a">A</span></td><td>Junyuan Secondary School 官网<br><span class="soft" style="font-size:11.8px">https://junyuansec.moe.edu.sg/</span></td><td class="soft" style="font-size:12.2px">2026-11-21 开放日 / DSA 项目；未公布扩招</td></tr></tbody>
+</table>
+</div>
+
+<div class="warnbox">
+<b>反向校验的一句话：</b>这份名单的「选校」基本合理，真正的问题是顺序——<b>Outram 只配做第 1 个冲刺位，Compassvale 才是现实第一志愿；Hougang 不该排第 6，Naval Base 不该挡在它前面</b>。
+如果游泳是硬需求，选 B；如果不是，选 C。</div></div>
+
+
+
+
+<section>
+<h2 id="s1"><span class="n">01</span>录取规则：先把「怎么分」搞清楚</h2>
+<p class="lead">这一节只讲事实（MOE 官方口径），判断放在每节末尾的灰框里。</p>
+
+<h3>① 孩子的 Posting Group 是锁定的</h3>
+<p>2026 年 PSLE 仍按 <b>AL 总分（4–30，越小越好）</b>划分三个 Posting Group。孩子 <b>AL 18</b> 落在 <b>4–20 区间 → Posting Group 3</b>，而且这是<b>唯一</b>可选的档位（只有当分数是 21/22 或 25 时才有两档可选）。</p>
+<table>
+<thead><tr><th>PSLE 总分</th><th>Posting Group</th><th>S1 开始时多数科目的层级</th><th>本案</th></tr></thead>
+<tbody>
+<tr><td class="num">4 – 20</td><td class="num">3</td><td>G3</td><td><b>✅ AL 18 在这里</b></td></tr>
+<tr><td class="num">21 – 22</td><td class="num">2 或 3（自选）</td><td>G2 或 G3</td><td>—</td></tr>
+<tr><td class="num">23 – 24</td><td class="num">2</td><td>G2</td><td>—</td></tr>
+<tr><td class="num">25</td><td class="num">1 或 2（自选）</td><td>G1 或 G2</td><td>—</td></tr>
+<tr><td class="num">26 – 30</td><td class="num">1</td><td>G1</td><td>—</td></tr>
+</tbody>
+</table>
+<p><b>实务含义：</b>孩子只和<b>同样被分到 PG3</b> 的学生竞争同一批学额。所以查 COP 时只看各校的 <b>Posting Group 3 那一行</b>，PG2/PG1 的区间与他无关——这也是很多二手资料最容易搞错的地方（把三行混在一起看，会把门槛估低 8–10 分）。</p>
+
+<h3>② 录取的排序逻辑：分数优先，志愿顺序只在同分时起作用</h3>
+<p>MOE 的处理顺序是：<b>按 PSLE 分数从高到低</b>依次处理每个学生，每个学生投到他填的<b>第一个还有空位</b>的志愿。所以「志愿顺序」不是加分项，它只在两个学生<b>同分</b>抢最后一个位子时才成为 tie-breaker。</p>
+<table>
+<thead><tr><th style="width:12%">顺序</th><th style="width:30%">tie-breaker</th><th>含义与对本案例的影响</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>公民身份</td><td>新加坡公民 &gt; <b>永久居民（PR）</b> &gt; 国际学生。<b>孩子是 PR，排第二档：同分时输给公民、赢国际学生</b>——所以踩线校（余量 0–1）的风险比公民更高，选校时要多留安全边际</td></tr>
+<tr><td class="num">2</td><td><b>志愿顺序</b></td><td>同分 + 同身份时，把该校填得更靠前的学生优先。<b>这就是「最想去的必须往前放」的机制原因</b></td></tr>
+<tr><td class="num">3</td><td>电脑抽签</td><td>只有分数、身份、志愿顺序都相同才抽签。MOE 口径：约每 10 名学生有 1 名会经历抽签</td></tr>
+</tbody>
+</table>
+
+<h3>②+ 孩子是永久居民（PR）：三处实际影响</h3>
+<div class="note">
+<b>① 同分竞争输给公民。</b>MOE 的 tie-breaker 第一位就是公民身份，顺序是<b>公民 &gt; PR &gt; 国际学生</b>。这意味着在踩线校（余量 0–1 分），只要最后一个学额有公民同分竞争，PR 就让位——所以本报告把<b>余量 ≥3 的学校当作真正的“稳”</b>，余量 0–1 的只能冲刺、不能兜底。<br><br>
+<b>② 学费差一个大数量级。</b>政府 / 政府辅助中学：<b>公民约 S$25/月，PR 约 S$580–700/月</b>（MOE school fees）。四年下来是笔实质开支，选校时值得纳入考虑——不过本报告候选池全是政府 / 政府辅助校，都在这个费率区间，没有因为选校而额外拉大差距。<br><br>
+<b>③ 入学通道与课程不额外设限。</b>PR 和公民一样走 S1 Posting、可用 6 个志愿、可参加 DSA、可报 SAP / IP——这些通道的准入条件不因身份而变（SAP 仍看高华 + AL≤14，IP 仍看 PSLE / DSA）。所以 PR 身份改变的是<b>“同分时排第几”</b>和<b>“学费多少”</b>，不是“能报什么”。
+</div>
+
+<h3>③ SAP 学校：孩子<b>用不上</b>那个优势（这条最容易误解）</h3>
+<div class="warnbox">
+<b>事实：</b>高级华文（HCL）的 posting advantage 有<b>两个前置条件同时成立</b>——① HCL 考到 Pass / Merit / Distinction；② <b>PSLE 总分 ≤ 14</b>。
+孩子是 <b>AL 18</b>，比 14 高 4 分，<b>即使高华考了 Distinction 也拿不到这个优先权</b>，只能按普通 COP 竞争。
+<br><br>
+<b>判断：</b>所以「可以考虑 SAP 学校」这一条，在 18 分这个位置实际上是不成立的。SAP 校的 COP 普遍在 4–12，本案例 ≤ 60 分钟（公交不换乘 / 纯步行） 能到的 2 所 SAP / IP 校（Nan Chiau High School 4–11(M)、Chung Cheng High School (Main) 5–10(M)）<b>全部差 7–8 分</b>，不是「有风险」而是「基本没可能」。详见第三步。
+</div>
+
+<h3>④ 附属学校（affiliation）：本案例不适用</h3>
+<p>孩子没有附属中学，所以：不会占用「附属优先」的学额池，也不需要把它填第一志愿来激活优先权。<b>反过来是好事</b>——每所学校每个 Posting Group 至少有 20% 学额是保留给非附属生的，孩子竞争的正是这部分。</p>
+
+<h3>⑤ 时间线（2026 届）</h3>
+<table>
+<thead><tr><th style="width:26%">节点</th><th>时间</th></tr></thead>
+<tbody>
+<tr><td>PSLE 成绩公布</td><td>2026-11-24 或 11-25（暂定，11:00）—— 成绩单、S1 Option Form、Eligibility Letter 一起发</td></tr>
+<tr><td>提交 6 个志愿</td><td>成绩日 11:30 起 <b>7 个日历日</b>内，通过 S1 Portal（Singpass）或回小学填；期内可随时修改</td></tr>
+<tr><td><b>本届 COP 公布</b></td><td><b>2026 年 12 月</b>——所以现在能拿到的<b>最新 COP 是 2025 年度</b>的，这正是本报告用的口径</td></tr>
+<tr><td>S1 Posting 结果</td><td>2026-12-18（暂定），S1 Portal + SMS + 小学</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>我的判断：</b>这套规则里最容易被家长忽略的是第 ② 条——「志愿顺序只在同分时起作用」。它的反直觉后果是：<b>把一所明显够不着的学校放第一志愿，不会伤害任何后续志愿</b>（因为分数不够时根本轮不到你，直接看下一个）。所以「冲刺校」真正的成本只有一个：占掉一个志愿位。6 个位置里用 1–2 个去冲，是合理的。
+</div>
+</section>
+
+<section>
+<h2 id="s2"><span class="n">02</span>候选池：以家为圆心，先划范围再看质量</h2>
+<p class="lead">起点：<b>828765</b>（110 Punggol Walk, Twin Waterfalls, Singapore 828765）。单程上限 <b>60 分钟</b>，只认「<b>Twin Waterfalls（65431）站上车、不换乘公交 + 步行</b>」或<b>纯步行</b>：地铁不参与门槛与评分；争议步行项按区间上端过闸。候车按 5 分钟、车内按 2 分钟/站估算，下车后步行 ≤ 18 分钟才计入。<br><b>这一条是硬约束，不是偏好</b>：起点是 <b>Twin Waterfalls 公交站（65431，Punggol Way）</b>，只认从这一站上车、不换乘的公交，或者纯步行。<b>地铁再快也不算达标</b>——这正是它与 abc6（步行/地铁取最快 ≤40 分钟）最本质的差别。</p>
+
+<div class="profile" style="margin-top:16px">
+  <div><div class="k">全岛中学</div><div class="v">147</div></div>
+  <div><div class="k">有 PG3 档</div><div class="v">130</div></div>
+  <div><div class="k">全国够得着</div><div class="v">62</div></div>
+  <div><div class="k">≤ 60 分钟（公交不换乘 / 纯步行）</div><div class="v">38</div></div>
+  <div><div class="k">可及（通勤内 + 够得着）</div><div class="v">19</div></div>
+  <div><div class="k">主池（混校）</div><div class="v"><b>18</b></div></div>
+</div>
+<div class="note">这份报告沿用 abcd2 的全部画像与评分口径：<b>分数不变、路网不变、科目匹配不入五维分</b>。变的只是问题方向——不是「系统推荐哪六所」，而是「家长选的这六所和这个顺序，在 MOE 官方规则与 2026 大盘下站不站得住」。<br>① <b>大盘</b>：2026 考生 40,906 人，与 2024 龙年 40,894 人几乎持平；141 校参与 S1，比 2024 多 1 所。<br>② <b>规则</b>：PR 同分排公民之后；往年 COP 只是参考，达到 COP 不代表录取。<br>③ <b>科目</b>：六校里只有 Hougang 明确列 Computing；其余五校都只列 Computer Applications（G1）。<br>④ <b>顺序</b>：MOE 按分数从高到低依次投档，所以「把更稳的学校放前面」不会伤害冲刺校；但把更想去的学校放最后，基本等于放弃。</div>
+
+<h3>漏斗怎么收到 18 所</h3>
+<table>
+<thead><tr><th style="width:44%">筛选步骤</th><th style="width:14%">剩余</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>全岛中学</td><td class="num">147</td><td>含专科校（不参与 S1 Posting）</td></tr>
+<tr><td>有 Posting Group 3 档</td><td class="num">130</td><td>纯 IP 校没有 PG3 行，报不了</td></tr>
+<tr><td>全国分数够得着（区间右端 ≥ 18）</td><td class="num">62</td><td>不限通勤</td></tr>
+<tr><td>≤ 60 分钟（公交不换乘 / 纯步行）可达</td><td class="num">38</td><td>不换乘公交+步行 / 纯步行</td></tr>
+<tr><td>通勤内 + 够得着</td><td class="num">19</td><td>= 主池 + 单性别校</td></tr>
+<tr><td><b>其中混校</b></td><td class="num"><b>18</b></td><td>家长要求「混校优先」→ 单性别校另列</td></tr>
+</tbody>
+</table>
+
+
+<h3>被「地铁不认」这条硬约束淘汰的 37 所</h3>
+<p>这 37 所<b>分数都够得着，坐地铁也都在 60 分钟内</b>，但既没有从 Twin Waterfalls 出发的不换乘公交可达，纯步行也超时。这里只列地铁最快的 12 所。完整含义是：<b>「地铁能到」在本报告里完全不作数</b>。若家长接受换乘或地铁，池子会完全不同——那是另一份报告的事。</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>学校</th><th class="mid">余量</th><th class="mid">地铁（不计）</th><th class="mid">不换乘公交</th><th class="mid">纯步行</th><th>为什么出局</th></tr></thead>
+<tbody>
+<tr>
+  <td>Bartley</td>
+  <td class="num mid">+3</td>
+  <td class="num mid"><b>33 分</b></td>
+  <td class="num mid">67 分</td>
+  <td class="num mid">110 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 33 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>Bendemeer</td>
+  <td class="num mid">+4</td>
+  <td class="num mid"><b>34 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">140 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 34 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>Northlight School</td>
+  <td class="num mid">+null</td>
+  <td class="num mid"><b>36 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">152 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 36 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>Kuo Chuan Presbyterian</td>
+  <td class="num mid">+null</td>
+  <td class="num mid"><b>37 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">129 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 37 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>School of the Arts, Singapore</td>
+  <td class="num mid">+null</td>
+  <td class="num mid"><b>37 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">178 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 37 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>Raffles Institution</td>
+  <td class="num mid">+null</td>
+  <td class="num mid"><b>39 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">134 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 39 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>Guangyang</td>
+  <td class="num mid">+4</td>
+  <td class="num mid"><b>40 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">132 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 40 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>Whitley</td>
+  <td class="num mid">+4</td>
+  <td class="num mid"><b>42 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">128 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 42 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>Raffles Girls&#39; School</td>
+  <td class="num mid">+null</td>
+  <td class="num mid"><b>43 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">141 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 43 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>Beatty</td>
+  <td class="num mid">+0</td>
+  <td class="num mid"><b>44 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">127 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 44 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>Manjusri</td>
+  <td class="num mid">+3</td>
+  <td class="num mid"><b>44 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">131 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 44 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+<tr>
+  <td>Hwa Chong Institution</td>
+  <td class="num mid">+null</td>
+  <td class="num mid"><b>46 分</b></td>
+  <td class="num mid">—</td>
+  <td class="num mid">214 分</td>
+  <td class="soft" style="font-size:12.4px">地铁 46 分虽达标但不计；本口径下通勤超过 60 分钟或不可达</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>因为性别偏好被单独列出的 1 所</h3>
+<p>孩子性别保密，报告按「混校优先」处理。这 1 所如果性别符合，是值得考虑的（都在 ≤ 60 分钟（公交不换乘 / 纯步行）、分数够得着）：</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">类型</th><th class="mid">PG3 区间</th><th class="mid">余量</th><th class="mid">通勤</th></tr></thead>
+<tbody>
+<tr><td>Montfort</td><td class="mid">男校</td><td class="num mid">14–22</td><td class="num mid">+4</td><td class="num mid">公交 33 分<sup class="soft">43 · 6 站 · 走 13 分</sup></td></tr>
+</tbody>
+</table>
+
+<h3>够不着但值得知道的 19 所</h3>
+<p>≤ 60 分钟（公交不换乘 / 纯步行）、分数差一点的学校。列出来是为了说明「差多少」，不是建议填。完整名单见附录。</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">PG3 区间</th><th class="mid">差</th><th class="mid">通勤</th><th>性质</th></tr></thead>
+<tbody>
+<tr><td>Outram</td><td class="num mid">9–17</td><td class="num mid">-1</td><td class="num mid">公交 19 分<sup class="soft">43 · 1 站 · 走 9 分</sup></td><td class="soft">政府</td></tr>
+<tr><td>Bowen</td><td class="num mid">12–16</td><td class="num mid">-2</td><td class="num mid">公交 36 分<sup class="soft">43 · 12 站 · 走 4 分</sup></td><td class="soft">政府</td></tr>
+<tr><td>Greendale</td><td class="num mid">11–16</td><td class="num mid">-2</td><td class="num mid">公交 24 分<sup class="soft">118 · 1 站 · 走 14 分</sup></td><td class="soft">政府</td></tr>
+<tr><td>St. Gabriel&#39;s</td><td class="num mid">10–15</td><td class="num mid">-3</td><td class="num mid">公交 58 分<sup class="soft">43 · 20 站 · 走 10 分</sup></td><td class="soft">政府</td></tr>
+<tr><td>Yusof Ishak</td><td class="num mid">7–15</td><td class="num mid">-3</td><td class="num mid">步行 21 分</td><td class="soft">政府</td></tr>
+<tr><td>CHIJ St. Joseph&#39;s Convent</td><td class="num mid">8–14</td><td class="num mid">-4</td><td class="num mid">公交 20 分<sup class="soft">119 · 5 站 · 走 2 分</sup></td><td class="soft">政府</td></tr>
+<tr><td>Edgefield</td><td class="num mid">5–14</td><td class="num mid">-4</td><td class="num mid">步行 10 分</td><td class="soft">政府</td></tr>
+<tr><td>Geylang Methodist School</td><td class="num mid">11–14</td><td class="num mid">-4</td><td class="num mid">公交 52 分<sup class="soft">43e · 14 站 · 走 16 分</sup></td><td class="soft">政府</td></tr>
+<tr><td>Holy Innocents&#39; High School</td><td class="num mid">11–14</td><td class="num mid">-4</td><td class="num mid">公交 38 分<sup class="soft">43e · 6 站 · 走 18 分</sup></td><td class="soft">政府</td></tr>
+<tr><td>Pei Hwa</td><td class="num mid">7–14</td><td class="num mid">-4</td><td class="num mid">公交 29 分<sup class="soft">104 · 8 站 · 走 5 分</sup></td><td class="soft">政府</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>我的判断：</b>候选池仍是 <b>18 所</b>（公交入池 18、纯步行 0，地铁不计）。家长名单里 5 所在池内，Outram 在「够不着」名单（余量 -1）。<b>这不等于不能填</b>——冲刺位只占一个志愿位；但它意味着六校里有 1 所不是真实候选，而是愿望位。
+</div>
+</section>
+
+<section>
+<h2 id="s3"><span class="n">03</span>COP：最新的只有 2025 年度，别当门槛用</h2>
+<p class="lead">口径先说清：<b>2026 届的 COP 要到 2026 年 12 月才公布</b>。现在能拿到的最新数据是 <b>2025 年度 S1 Posting 的实际录取区间</b>——也就是「去年最后一名被录取的学生考了多少分」。它不是今年的门槛。</p>
+
+<div class="warnbox">
+<b>三条必须记住的波动事实（MOE 口径）：</b><br>
+① COP 每年<b>动 1 分是常态，动 2–3 分也可能</b>；<br>
+② 它反映的是<b>去年那批学生怎么填志愿</b>，不是学校的教学质量；<br>
+③ <b>踩线 ≠ 稳</b>：区间右端等于孩子的分数，只代表「去年最后一名和他同分」，今年同分还要过 tie-breaker，<b>必须按高风险处理</b>。
+</div>
+
+<h3>主池 18 所的 COP 与余量</h3>
+<p>余量 = 该校 PG3 非附属区间右端 − 孩子分数（18）。<b>余量为 0 = 踩线；负数是已经够不着</b>（不在此表）。</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>学校</th><th class="mid">PG3 区间<br><span class="soft">2025 年度</span></th><th class="mid">余量</th><th class="mid">风险</th><th class="mid">步行<br><span class="soft">全程</span></th><th class="mid">公交<br><span class="soft">不换乘 · 计分取快</span></th><th>风险说明</th></tr></thead>
+<tbody>
+<tr>
+    <td style="font-weight:600">Compassvale</td>
+    <td class="num mid">14–18</td>
+    <td class="num mid"><b>0</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">14–25<sup class="soft">争议</sup></td><td class="num"><b>21</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>North Vista</td>
+    <td class="num mid">11–18</td>
+    <td class="num mid"><b>0</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">38</td><td class="num"><b>26</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Punggol</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid"><b>+1</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">24</td><td class="num"><b>21</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Seng Kang</td>
+    <td class="num mid">14–19</td>
+    <td class="num mid"><b>+1</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">33</td><td class="num"><b>26</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Naval Base</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid"><b>+1</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">&gt;60</td><td class="num"><b>30</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Orchid Park</td>
+    <td class="num mid">10–19</td>
+    <td class="num mid"><b>+1</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">&gt;60</td><td class="num"><b>30</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td>Tampines</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid"><b>+1</b></td>
+    <td class="mid "><b>高</b></td>
+    <td class="num">&gt;60</td><td class="num"><b>47</b></td>
+    <td class="soft" style="font-size:12.4px">踩线，COP 一动就落空</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Hougang</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid"><b>+2</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">47</td><td class="num"><b>32</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Peicai</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid"><b>+2</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">&gt;60</td><td class="num"><b>51</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Yishun</td>
+    <td class="num mid">12–20</td>
+    <td class="num mid"><b>+2</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">&gt;60</td><td class="num"><b>39</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td>Serangoon</td>
+    <td class="num mid">16–20</td>
+    <td class="num mid"><b>+2</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">51</td><td class="num"><b>38</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Junyuan</td>
+    <td class="num mid">14–21</td>
+    <td class="num mid"><b>+3</b></td>
+    <td class="mid soft">中</td>
+    <td class="num">&gt;60</td><td class="num"><b>29</b></td>
+    <td class="soft" style="font-size:12.4px">有余量但不大</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Changkat Changi</td>
+    <td class="num mid">11–22</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>49</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td style="font-weight:600">Northbrooks</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>52</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Broadrick</td>
+    <td class="num mid">5–22</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>59</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Serangoon Garden</td>
+    <td class="num mid">12–22</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>47</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Springfield</td>
+    <td class="num mid">10–22</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>32</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+<tr>
+    <td>Yuying</td>
+    <td class="num mid">11–22</td>
+    <td class="num mid"><b>+4</b></td>
+    <td class="mid soft">较低</td>
+    <td class="num">&gt;60</td><td class="num"><b>56</b></td>
+    <td class="soft" style="font-size:12.4px">相对从容</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<h3>另一个官方信号：低位段有没有招满</h3>
+<p>MOE 在 SchoolFinder 里用星号 <code>*</code> 标注一个事实：<b>该档在 S1 posting 结束后仍有学额</b>。
+官方脚注的定义是「最后一名被录取者的分数优于 30，但学校仍有余位，所以记为 30」。
+这是唯一一个有官方背书的「学校紧不紧张」指标——不是估算，不用猜。</p>
+<p>我全量查了 147 所（另 8 所专科/特殊校不参与 PG 分配）：星号<b>只出现在 PG1 档，共 28 所</b>，
+<b>PG3 和 PG2 一所都没有</b>。含义很明确：没有学校在 PG3 段没招满，但有一批学校连最低档都没填满。</p>
+<p>落到这份候选池（18 所）里，有 <b>4 所</b>被标记：<b>Changkat Changi、Broadrick、Springfield、Peicai</b>。
+它们都不在方案 A 的 6 个位置里——官方标记只是旁证，不构成加分的理由。</p>
+<p class="soft" style="font-size:12.6px">⚠️ 别过度解读：PG1 有余额 ≠ PG3 门槛会降。它是「学校整体不紧张」的旁证，不是「你更可能进」的保证。</p>
+
+<h3>够不着的那些：差多少才算「没戏」</h3>
+<p>把 SAP 与 IP 单独拎出来，因为家长明确说了「可以考虑」——但分数差得太远，这个「可以」在 18 分这个位置不成立。</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">类型</th><th class="mid">PG3 / IP 区间</th><th class="mid">差</th><th>为什么够不着</th></tr></thead>
+<tbody>
+<tr>
+  <td>Nan Chiau High School</td>
+  <td class="mid">SAP</td>
+  <td class="num mid">4–11(M)</td>
+  <td class="num mid">-7</td>
+  <td class="soft">SAP 校区间上端 11，差 7 分；且高华优先需 PSLE ≤ 14</td>
+</tr>
+<tr>
+  <td>Chung Cheng High School (Main)</td>
+  <td class="mid">SAP</td>
+  <td class="num mid">5–10(M)</td>
+  <td class="num mid">-8</td>
+  <td class="soft">SAP 校区间上端 10，差 8 分；且高华优先需 PSLE ≤ 14</td>
+</tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>我的判断：</b>把 COP 拉长到三年来看：Compassvale（14–18 → 14–18）与 Punggol（13–19 → 13–19）2024/2025 完全稳定；Hougang 2023 的 16–22 到 2024/2025 的 14–20 明显回落；Junyuan 上限从 2024 的 22 收到 2025 的 21；Naval Base 反而从 13–18 放宽到 13–19。<b>Outram 2024 没有 S1 派位、2025 才有 9–17</b>，迁校断裂让它最难判断。数值更小 = 门槛更紧；PR 在踩线位还要让公民，余量 0/1 都不该当兜底。
+</div>
+</section>
+
+<section>
+<h2 id="s4"><span class="n">04</span>逐校适配度：把「好学校」换成「适合他的学校」</h2>
+<p class="lead">下面按十项逐所评估。先看方案 A 的 6 所，再看 2 所关键对照（Springfield、Seng Kang）。其余学校的结论汇总在第五步的表里。</p>
+
+
+<h3>04A 学术科目地图：全池 18 所逐校列示</h3>
+<p class="lead">这张表只回答「学校到底开了什么课」，不承诺组合一定排得出来。高亮沿用统一口径：<b><span class="sbj sbj-hit">黄色</span> 命中画像科目</b>；<span class="sbj sbj-soft">G1 关联</span> 仅 Computer Applications（原 G1 Computing），<b>PG3 必须向学校确认是否有 G2/G3 Computing</b>；<span class="sbj sbj-rare">青色下划线</span> 全岛 ≤20 校列出；<span class="sbj sbj-prog">紫色</span> 学校公开 Electives / Programmes。</p>
+<div class="note sbj-legend">
+<b>口径说明：</b>科目来自 MOE SchoolFinder 的 <code>subjects offered</code> 快照（2026-11 采集），原页写明「offered to the current student cohort. They may change for subsequent intakes」——<b>这届开，不等于下一届一定开</b>。「Applied Subjects」在本报告按 MOE 页面列举映射为 Computing / Computer Applications / Design &amp; Technology / Nutrition and Food Science / Drama / Exercise &amp; Sports Science / Art / Music / Electronics；稀缺度以 142 所普通课程校为分母，归并 CCE 与 Humanities 的异名，剔除低年级共同课程。<b>科目匹配只做展示与判断，不进入五维综合分</b>，避免悄悄改变既有学生的排名口径。
+</div>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th style="width:16%">学校</th><th style="width:20%">命中画像科目</th><th style="width:20%">独特 / 强项</th><th>offered subjects（全量）</th></tr></thead>
+<tbody>
+<tr>
+  <td><b>Junyuan</b><br><span class="soft">6 / 7 命中 · 综合 79</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="soft">无</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in Malay)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span></td>
+</tr>
+<tr>
+  <td><b>Changkat Changi</b><br><span class="soft">5 / 7 命中 · 综合 78</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-rare" title="全岛 ≤20 校列出">Chinese Language (Special Programme)</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-rare" title="全岛 ≤20 校列出">Chinese Language (Special Programme)</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span></td>
+</tr>
+<tr>
+  <td><b>Compassvale</b><br><span class="soft">6 / 7 命中 · 综合 78</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="soft">无</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Malay Language</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span></td>
+</tr>
+<tr>
+  <td><b>Northbrooks</b><br><span class="soft">6 / 7 命中 · 综合 78</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="soft">无</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Food &amp; Consumer Education</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Malay Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Humanities Exposure Modules)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span></td>
+</tr>
+<tr>
+  <td><b>Hougang</b><br><span class="soft">7 / 7 命中 · 综合 77</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-hit" title="Computing">Computing ✓</span> <span class="sbj sbj-hit" title="Design &amp; Technology / Design and Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Computing / Design &amp; Technology / Design and Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="soft">无</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">CCE</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Computing</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj-hit" title="命中画像科目">Design and Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Food &amp; Consumer Education</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Humanities (Geography)</span> <span class="sbj sbj">Humanities (History)</span> <span class="sbj sbj">Humanities (Literature in English)</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Humanities Exposure Modules)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Humanities (SS, Literature in Malay)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span></td>
+</tr>
+<tr>
+  <td><b>Punggol</b><br><span class="soft">6 / 7 命中 · 综合 76</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-rare" title="全岛 ≤20 校列出">Mobile Robotics</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Tamil Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (History)</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Humanities Exposure Modules)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-rare" title="全岛 ≤20 校列出">Mobile Robotics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span> <span class="sbj sbj">Tamil Language Syllabus B</span></td>
+</tr>
+<tr>
+  <td><b>Broadrick</b><br><span class="soft">7 / 7 命中 · 综合 75</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-hit" title="Computing">Computing ✓</span> <span class="sbj sbj-hit" title="Design &amp; Technology / Design and Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computing / Design &amp; Technology / Design and Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="soft">无</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">CCE-3</span> <span class="sbj sbj">CCE-4</span> <span class="sbj sbj">CCE-5</span> <span class="sbj sbj">CCE-S1</span> <span class="sbj sbj">CCE-S2</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computing</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj-hit" title="命中画像科目">Design and Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Food &amp; Consumer Education</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span></td>
+</tr>
+<tr>
+  <td><b>Seng Kang</b><br><span class="soft">6 / 7 命中 · 综合 75</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Exercise &amp; Sports Science / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-rare" title="全岛 ≤20 校列出">Exercise &amp; Sports Science</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj-both" title="命中兴趣科目，且全岛 ≤20 校列出">Exercise &amp; Sports Science</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Malay Language</span> <span class="sbj sbj">Higher Tamil Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span></td>
+</tr>
+<tr>
+  <td><b>North Vista</b><br><span class="soft">6 / 7 命中 · 综合 73</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Exercise &amp; Sports Science / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-rare" title="全岛 ≤20 校列出">Exercise &amp; Sports Science</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj-both" title="命中兴趣科目，且全岛 ≤20 校列出">Exercise &amp; Sports Science</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (Geography)</span> <span class="sbj sbj">Humanities (History)</span> <span class="sbj sbj">Humanities (Literature in English)</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span></td>
+</tr>
+<tr>
+  <td><b>Serangoon Garden</b><br><span class="soft">7 / 7 命中 · 综合 73</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-hit" title="Computing">Computing ✓</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Computing / Design &amp; Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="soft">无</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Computing</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span> <span class="sbj sbj">Tamil Language Syllabus B</span></td>
+</tr>
+<tr>
+  <td><b>Springfield</b><br><span class="soft">7 / 7 命中 · 综合 73</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-hit" title="Computing">Computing ✓</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Computing / Design &amp; Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="soft">无</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Computing</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Malay Language</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span></td>
+</tr>
+<tr>
+  <td><b>Yuying</b><br><span class="soft">6 / 7 命中 · 综合 73</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Exercise &amp; Sports Science / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-rare" title="全岛 ≤20 校列出">Exercise &amp; Sports Science</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj-both" title="命中兴趣科目，且全岛 ≤20 校列出">Exercise &amp; Sports Science</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span></td>
+</tr>
+<tr>
+  <td><b>Peicai</b><br><span class="soft">6 / 7 命中 · 综合 72</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="soft">无</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span></td>
+</tr>
+<tr>
+  <td><b>Yishun</b><br><span class="soft">5 / 7 命中 · 综合 72</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Exercise &amp; Sports Science / Music">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-rare" title="全岛 ≤20 校列出">Exercise &amp; Sports Science</span> <span class="sbj sbj-rare" title="全岛 ≤20 校列出">Retail Operations</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Character and Citizenship Education</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj-both" title="命中兴趣科目，且全岛 ≤20 校列出">Exercise &amp; Sports Science</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Malay Language</span> <span class="sbj sbj">Higher Tamil Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-rare" title="全岛 ≤20 校列出">Retail Operations</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span></td>
+</tr>
+<tr>
+  <td><b>Naval Base</b><br><span class="soft">6 / 7 命中 · 综合 70</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-prog" title="学校公开 Electives / Programmes">Enhanced Art Programme</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Humanities (Geography)</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span> <span class="sbj sbj">Tamil Language Syllabus B</span></td>
+</tr>
+<tr>
+  <td><b>Orchid Park</b><br><span class="soft">6 / 7 命中 · 综合 70</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-prog" title="学校公开 Electives / Programmes">Enhanced Art Programme</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Malay Language</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span></td>
+</tr>
+<tr>
+  <td><b>Serangoon</b><br><span class="soft">6 / 7 命中 · 综合 68</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-hit" title="Computing">Computing ✓</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Computing / Design &amp; Technology / Music / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-rare" title="全岛 ≤20 校列出">Mobile Robotics</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Computing</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-rare" title="全岛 ≤20 校列出">Mobile Robotics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span></td>
+</tr>
+<tr>
+  <td><b>Tampines</b><br><span class="soft">6 / 7 命中 · 综合 65</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="Higher Chinese Language">Higher Chinese ✓</span> <span class="sbj sbj-hit" title="Additional Mathematics">Additional Mathematics ✓</span> <span class="sbj sbj-hit" title="Science / Science (Chem, Bio) / Science (Phy, Chem)">Science ✓</span> <span class="sbj sbj-soft" title="Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3">Computing（仅 G1）</span> <span class="sbj sbj-hit" title="Design &amp; Technology">Design &amp; Technology ✓</span> <span class="sbj sbj-hit" title="Nutrition and Food Science">Nutrition and Food Science ✓</span> <span class="sbj sbj-hit" title="Art / Computer Applications / Design &amp; Technology / Nutrition and Food Science">Applied Subjects ✓</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-rare" title="全岛 ≤20 校列出">Malay Language (Special Programme)</span></td>
+  <td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj">Applied Learning Programme (Sec 1)</span> <span class="sbj sbj">Applied Learning Programme (Sec 2)</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (Geography)</span> <span class="sbj sbj">Humanities (History)</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj-rare" title="全岛 ≤20 校列出">Malay Language (Special Programme)</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+<article class="school">
+  <header>
+    <div class="sname">Outram</div>
+    <div class="sbadges">
+      <span class="tier t-reach">第 1 志愿 · 冲刺</span>
+      <span class="badge">PG3 9–17</span>
+      <span class="badge badge-risk">余量 -1</span>
+      <span class="badge">风险 高</span>
+      <span class="badge">公交 19 分<sup class="soft">43 · 1 站 · 走 9 分</sup></span>
+      <span class="badge">综合 70</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>9–17</b>（2025 年度），孩子 18 分，余量 <b>-1</b>。踩线，COP 一动就落空。</td></tr>
+  <tr><td>② 通勤</td><td>从 <b>Twin Waterfalls 站（65431）</b>乘 <b>43</b>（第 1 方向）坐 <b>1 站</b>、车内约 2 分钟，在 <b>Blk 286B</b>（67591）下车，再步行 <b>9 分钟</b>；已含家到站步行与候车 5 分钟，合计 <b>19 分钟</b>。纯步行 15 分钟（争议项按上端），<b>计分取较快者 19 分钟</b>；地铁 24 分钟<b>不计入</b>。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>17 项</b>（MOE 登记 14 项，另 3 项来自学校官网）。</td></tr>
+  <tr><td>④ offered subjects</td><td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj-rare" title="全岛 ≤20 校列出">Business Studies</span> <span class="sbj sbj">CCE</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj-hit" title="命中画像科目">Design and Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Food &amp; Consumer Education</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Humanities (Geography)</span> <span class="sbj sbj">Humanities (History)</span> <span class="sbj sbj">Humanities (Literature in English)</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Humanities Exposure Modules)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span><br><span class="soft">命中 5 / 7 项；黄色=画像科目，蓝虚线=仅 G1 Computing，青色下划线=全岛 ≤20 校列出，紫色=学校公开特色项目。</span></td></tr>
+  <tr><td>5 兴趣匹配</td><td><b>戏剧</b>：English Drama；<b>水上</b>：Swimming、Water Polo；<b>科技类</b>：Maker&#39;s Club</td></tr>
+  <tr><td>6 ALP</td><td>Business &amp; Entrepreneurship</td></tr>
+  <tr><td>7 LLP</td><td>Sports &amp; Outdoor Education</td></tr>
+  <tr><td>8 其他特色</td><td>ALP Business &amp; Entrepreneurship；LLP Sports &amp; Outdoor Education。游泳 DSA 仅适用于 2026 DSA 通道，普通 S1 入学不等于自动进泳队。 游泳 / 水球由 MOE 与学校 DSA 双重确认；English Drama、Maker's Club、Environmental Science Club 来自开放日 microsite，MOE 主站未登记。AI 命中来自科技类 CCA 归类，不是名为 AI 的社团。 科目命中 5/7（Computing 仅 G1）。</td></tr>
+  <tr><td>9 整体特点</td><td>Outram，PG3 9–17，公交 19 分（43，1 站，下车走 9 分）；COP 轨迹 2023 9–22 → 2024 无 S1 派位 → 2025 9–17。全程纯步行 15 分钟。</td></tr>
+  <tr><td>10 适合 / 不适合</td><td><b>反向判断：</b>作为唯一游泳特色校，放第 1 冲刺位可以理解；但 AL 18 比 2025 区间上端 17 还差 1 分，PR 同分又输公民，绝不能当稳位。<br><b>余量：</b>-1 · <b>通勤：</b>19 分 · <b>科目：</b>5/7 · <b>综合：</b>70。<br><br><b>放进方案 A 的理由：</b>唯一有游泳 / 水球 DSA 与 CCA 的学校，Anchorvale 新校区已启用，公交 19 分钟。家长把特色放第 1，方向上说得通。<br><b>风险：</b>2025 PG3 区间 9–17，AL 18 差 1 分；2024 无 S1 派位，迁校后只有一年区间可参考。PR 同分输公民，不能当稳位。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-outram-secondary-school.html"><span>阅读《Outram》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Compassvale</div>
+    <div class="sbadges">
+      <span class="tier t-reach">第 2 志愿 · 冲刺</span>
+      <span class="badge">PG3 14–18</span>
+      <span class="badge badge-risk">余量 0</span>
+      <span class="badge">风险 高</span>
+      <span class="badge">公交 21 分<sup class="soft">43 · 1 站 · 走 11 分</sup></span>
+      <span class="badge">综合 78</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>14–18</b>（2025 年度），孩子 18 分，余量 <b>0</b>。踩线，COP 一动就落空。</td></tr>
+  <tr><td>② 通勤</td><td>从 <b>Twin Waterfalls 站（65431）</b>乘 <b>43</b>（第 1 方向）坐 <b>1 站</b>、车内约 2 分钟，在 <b>Blk 286B</b>（67591）下车，再步行 <b>11 分钟</b>；已含家到站步行与候车 5 分钟，合计 <b>21 分钟</b>。纯步行 14 分钟（争议项按上端），<b>计分取较快者 21 分钟</b>；地铁 22 分钟<b>不计入</b>。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>18 项</b>（MOE 登记 18 项）。</td></tr>
+  <tr><td>④ offered subjects</td><td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Malay Language</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span><br><span class="soft">命中 6 / 7 项；黄色=画像科目，蓝虚线=仅 G1 Computing，青色下划线=全岛 ≤20 校列出，紫色=学校公开特色项目。</span></td></tr>
+  <tr><td>5 兴趣匹配</td><td><b>机器人</b>：Robotics；<b>戏剧</b>：English Drama<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>6 ALP</td><td>STEM - Future of Transportation</td></tr>
+  <tr><td>7 LLP</td><td>Community Youth Leadership</td></tr>
+  <tr><td>8 其他特色</td><td>ALP ACES（Aeronautics, Coding, Engineering and Sustainability）；LLP Green Compass。官网显示 2025 年更新学习空间，但不是扩招公告。 MOE 当前登记 18 项，Robotics 与 English Drama 均确认；学校 2026 DSA 也有 Robotics 与 STEM - Aeronautics。 科目命中 6/7（Computing 仅 G1）。</td></tr>
+  <tr><td>9 整体特点</td><td>Compassvale，PG3 14–18，公交 21 分（43，1 站，下车走 11 分）；COP 轨迹 2023 15–19 → 2024 14–18 → 2025 14–18。全程纯步行 14 分钟。</td></tr>
+  <tr><td>10 适合 / 不适合</td><td><b>反向判断：</b>这份名单里真正的「现实第一志愿」：21 分钟公交、6/7 科目、机器人+戏剧双命中；但余量 0，PR 踩线风险不低。<br><b>余量：</b>0 · <b>通勤：</b>21 分 · <b>科目：</b>6/7 · <b>综合：</b>78。<br><br><b>放进方案 A 的理由：</b>实质上的第一候选：21 分钟、6/7 科目、机器人 + 戏剧双命中，2024/2025 COP 都稳定在 14–18。<br><b>风险：</b>余量 0，是踩线；Computing 只有 Computer Applications（G1），G2/G3 组合要向学校确认。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-compassvale-secondary-school.html"><span>阅读《Compassvale》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Punggol</div>
+    <div class="sbadges">
+      <span class="tier t-reach">第 3 志愿 · 冲刺</span>
+      <span class="badge">PG3 13–19</span>
+      <span class="badge badge-risk">余量 +1</span>
+      <span class="badge">风险 高</span>
+      <span class="badge">公交 21 分<sup class="soft">118 · 1 站 · 走 11 分</sup></span>
+      <span class="badge">综合 76</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>13–19</b>（2025 年度），孩子 18 分，余量 <b>+1</b>。踩线，COP 一动就落空。</td></tr>
+  <tr><td>② 通勤</td><td>从 <b>Twin Waterfalls 站（65431）</b>乘 <b>118</b>（第 1 方向）坐 <b>1 站</b>、车内约 2 分钟，在 <b>Aft Punggol Rd</b>（65199）下车，再步行 <b>11 分钟</b>；已含家到站步行与候车 5 分钟，合计 <b>21 分钟</b>。纯步行 24 分钟（争议项按上端），<b>计分取较快者 21 分钟</b>；地铁 22 分钟<b>不计入</b>。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>20 项</b>（MOE 登记 20 项）。</td></tr>
+  <tr><td>④ offered subjects</td><td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Tamil Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (History)</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Humanities Exposure Modules)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-rare" title="全岛 ≤20 校列出">Mobile Robotics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span> <span class="sbj sbj">Tamil Language Syllabus B</span><br><span class="soft">命中 6 / 7 项；黄色=画像科目，蓝虚线=仅 G1 Computing，青色下划线=全岛 ≤20 校列出，紫色=学校公开特色项目。</span></td></tr>
+  <tr><td>5 兴趣匹配</td><td><b>戏剧</b>：English Language, Drama and Debating、Indian Language, Drama and Debating<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>6 ALP</td><td>STEM - Sustainability</td></tr>
+  <tr><td>7 LLP</td><td>Community Youth Leadership</td></tr>
+  <tr><td>8 其他特色</td><td>ALP STEM - Sustainability（Environmental Sustainability）；LLP Community Youth Leadership。 MOE 当前 20 项，English Language, Drama and Debating 与 Indian Language, Drama and Debating 确认戏剧命中。Mobile Robotics 是科目，不是机器人社团；不要把它当成 Robotics CCA。 科目命中 6/7（Computing 仅 G1）。</td></tr>
+  <tr><td>9 整体特点</td><td>Punggol，PG3 13–19，公交 21 分（118，1 站，下车走 11 分）；COP 轨迹 2023 14–20 → 2024 13–19 → 2025 13–19。全程纯步行 24 分钟。</td></tr>
+  <tr><td>10 适合 / 不适合</td><td><b>反向判断：</b>21 分钟公交 + 戏剧 + 稀缺科目，位置合理；但余量只有 +1，属于「能冲但有风险」。<br><b>余量：</b>+1 · <b>通勤：</b>21 分 · <b>科目：</b>6/7 · <b>综合：</b>76。<br><br><b>放进方案 A 的理由：</b>21 分钟、6/7 科目、戏剧社团，Mobile Robotics 是全岛稀缺科目；作为第 3 位合理。<br><b>风险：</b>余量 +1；Mobile Robotics 是科目不是机器人社团，戏剧命中来自语言辩论社团，不是独立剧社。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-punggol-secondary-school.html"><span>阅读《Punggol》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Naval Base</div>
+    <div class="sbadges">
+      <span class="tier t-reach">第 4 志愿 · 冲刺</span>
+      <span class="badge">PG3 13–19</span>
+      <span class="badge badge-risk">余量 +1</span>
+      <span class="badge">风险 高</span>
+      <span class="badge">公交 30 分<sup class="soft">39 · 6 站 · 走 10 分</sup></span>
+      <span class="badge">综合 70</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>13–19</b>（2025 年度），孩子 18 分，余量 <b>+1</b>。踩线，COP 一动就落空。</td></tr>
+  <tr><td>② 通勤</td><td>从 <b>Twin Waterfalls 站（65431）</b>乘 <b>39</b>（第 1 方向）坐 <b>6 站</b>、车内约 12 分钟，在 <b>Bef Khatib Stn</b>（59041）下车，再步行 <b>10 分钟</b>；已含家到站步行与候车 5 分钟，合计 <b>30 分钟</b>。纯步行 140 分钟（争议项按上端），<b>计分取较快者 30 分钟</b>；地铁 45 分钟<b>不计入</b>。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>8 项</b>（MOE 登记 8 项）。</td></tr>
+  <tr><td>④ offered subjects</td><td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Humanities (Geography)</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span> <span class="sbj sbj">Tamil Language Syllabus B</span><br><span class="soft">命中 6 / 7 项；黄色=画像科目，蓝虚线=仅 G1 Computing，青色下划线=全岛 ≤20 校列出，紫色=学校公开特色项目。</span></td></tr>
+  <tr><td>5 兴趣匹配</td><td><b>科技类</b>：Infocomm Technology (Media Production)<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>6 ALP</td><td>Aesthetics</td></tr>
+  <tr><td>7 LLP</td><td>Sports &amp; Outdoor Education</td></tr>
+  <tr><td>8 其他特色</td><td>MOE 官方 EAP 九校之一；EAP 是高二起的 2 年课程，必须在中二通过校内选拔，S1 填报不构成 EAP 录取。ALP in Art、LLP Character Education through Sports。 MOE CCA 含 English Drama 与 Infocomm Technology (Media Production)。项目兴趣模型把后者归为「AI/科技」命中，但学校并没有名为 AI 的社团。 科目命中 6/7（Computing 仅 G1）。</td></tr>
+  <tr><td>9 整体特点</td><td>Naval Base，PG3 13–19，公交 30 分（39，6 站，下车走 10 分）；COP 轨迹 2023 13–19 → 2024 13–18 → 2025 13–19。全程纯步行 140 分钟。</td></tr>
+  <tr><td>10 适合 / 不适合</td><td><b>反向判断：</b>艺术强项是真的，但它不在孩子的 7 项学术兴趣里；30 分钟、余量 +1、综合分 70（六校最低），放第 4 会先于 Hougang 接住孩子，是本名单最值得挑战的位置。<br><b>余量：</b>+1 · <b>通勤：</b>30 分 · <b>科目：</b>6/7 · <b>综合：</b>70。<br><br><b>放进方案 A 的理由：</b>Enhanced Art Programme 是 9 所官方 EAP 校之一，30 分钟、6/7 科目；若艺术是家庭优先级，第 4 位可解释。<br><b>风险：</b>余量 +1、综合分 70 为六校最低；EAP 在中二校内选拔，S1 填报不等于进 EAP。AI 命中只是科技类 CCA 归类。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-naval-base-secondary-school.html"><span>阅读《Naval Base》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Junyuan</div>
+    <div class="sbadges">
+      <span class="tier t-match">第 5 志愿 · 匹配</span>
+      <span class="badge">PG3 14–21</span>
+      <span class="badge">余量 +3</span>
+      <span class="badge">风险 中</span>
+      <span class="badge">公交 29 分<sup class="soft">118 · 8 站 · 走 5 分</sup></span>
+      <span class="badge">综合 79</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>14–21</b>（2025 年度），孩子 18 分，余量 <b>+3</b>。有余量但不大。</td></tr>
+  <tr><td>② 通勤</td><td>从 <b>Twin Waterfalls 站（65431）</b>乘 <b>118</b>（第 1 方向）坐 <b>8 站</b>、车内约 16 分钟，在 <b>Blk 874</b>（75159）下车，再步行 <b>5 分钟</b>；已含家到站步行与候车 5 分钟，合计 <b>29 分钟</b>。纯步行 113 分钟（争议项按上端），<b>计分取较快者 29 分钟</b>；地铁 60 分钟<b>不计入</b>。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>9 项</b>（MOE 登记 9 项）。</td></tr>
+  <tr><td>④ offered subjects</td><td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in Malay)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span><br><span class="soft">命中 6 / 7 项；黄色=画像科目，蓝虚线=仅 G1 Computing，青色下划线=全岛 ≤20 校列出，紫色=学校公开特色项目。</span></td></tr>
+  <tr><td>5 兴趣匹配</td><td><b>科技类</b>：Infocomm Technology (Media Production)<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>6 ALP</td><td>STEM - Health and Food Science</td></tr>
+  <tr><td>7 LLP</td><td>Community Youth Leadership</td></tr>
+  <tr><td>8 其他特色</td><td>ALP STEM - Health and Food Science（Developing Application-based Learning through Food Science）；LLP Community Youth Leadership。官网 2026 开放日为 11 月 21 日。 MOE CCA 含 English Drama、Infocomm Technology (Computing) 与 Infocomm Technology (Media Production)。科技类命中同样是归类，不是 AI 社团。 科目命中 6/7（Computing 仅 G1）。</td></tr>
+  <tr><td>9 整体特点</td><td>Junyuan，PG3 14–21，公交 29 分（118，8 站，下车走 5 分）；COP 轨迹 2023 14–22 → 2024 13–22 → 2025 14–21。全程纯步行 113 分钟。</td></tr>
+  <tr><td>10 适合 / 不适合</td><td><b>反向判断：</b>六校里唯一余量 ≥3 的学校，综合分 79 也是六校最高；第 5 位合理，若更看重安全边际可再前移。<br><b>余量：</b>+3 · <b>通勤：</b>29 分 · <b>科目：</b>6/7 · <b>综合：</b>79。<br><br><b>放进方案 A 的理由：</b>六校里唯一余量 ≥3（+3），综合分 79 最高，ALP 正是 Food Science；第 5 位承担相对稳妥角色。<br><b>风险：</b>Computing 只有 G1；虽然余量 +3，但还没到 ≥6，PR 下仍是「相对稳」而非「稳」。</td></tr>
+  </tbody>
+  </table>
+  
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Hougang</div>
+    <div class="sbadges">
+      <span class="tier t-reach">第 6 志愿 · 冲刺</span>
+      <span class="badge">PG3 14–20</span>
+      <span class="badge">余量 +2</span>
+      <span class="badge">风险 中</span>
+      <span class="badge">公交 32 分<sup class="soft">43 · 9 站 · 走 6 分</sup></span>
+      <span class="badge">综合 77</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>14–20</b>（2025 年度），孩子 18 分，余量 <b>+2</b>。有余量但不大。</td></tr>
+  <tr><td>② 通勤</td><td>从 <b>Twin Waterfalls 站（65431）</b>乘 <b>43</b>（第 1 方向）坐 <b>9 站</b>、车内约 18 分钟，在 <b>Blk 911</b>（66499）下车，再步行 <b>6 分钟</b>；已含家到站步行与候车 5 分钟，合计 <b>32 分钟</b>。纯步行 47 分钟（争议项按上端），<b>计分取较快者 32 分钟</b>；地铁 32 分钟<b>不计入</b>。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>16 项</b>（MOE 登记 10 项，另 6 项来自学校官网）。<span class="soft">清单缺口：制服团体官网分类页为空，3 项来自 MOE 登记；俱乐部一栏官网只列了 1 项</span></td></tr>
+  <tr><td>④ offered subjects</td><td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">CCE</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Computing</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj-hit" title="命中画像科目">Design and Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Food &amp; Consumer Education</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Humanities (Geography)</span> <span class="sbj sbj">Humanities (History)</span> <span class="sbj sbj">Humanities (Literature in English)</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Humanities Exposure Modules)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Humanities (SS, Literature in Malay)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span><br><span class="soft">命中 7 / 7 项；黄色=画像科目，蓝虚线=仅 G1 Computing，青色下划线=全岛 ≤20 校列出，紫色=学校公开特色项目。</span></td></tr>
+  <tr><td>5 兴趣匹配</td><td><b>戏剧</b>：ELDDS；<b>科技类</b>：Media Resource Club<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>6 ALP</td><td>STEM</td></tr>
+  <tr><td>7 LLP</td><td>Community Youth Leadership</td></tr>
+  <tr><td>8 其他特色</td><td>ALP STEM（HS Innovates, For Life!）；LLP Community Youth Leadership。 MOE 当前登记含 Speech and Drama，2026 DSA 也有 English Drama；戏剧命中扎实。 科目命中 7/7（明确 Computing）。</td></tr>
+  <tr><td>9 整体特点</td><td>Hougang，PG3 14–20，公交 32 分（43，9 站，下车走 6 分）；COP 轨迹 2023 16–22 → 2024 14–20 → 2025 14–20。全程纯步行 47 分钟。</td></tr>
+  <tr><td>10 适合 / 不适合</td><td><b>反向判断：</b>科目匹配最强、余量 +2、戏剧社团明确，却被放第 6。只要第 4 位的 Naval Base（+1）录上，就没有轮到它的机会——这是名单里最明显的顺序错配。<br><b>余量：</b>+2 · <b>通勤：</b>32 分 · <b>科目：</b>7/7 · <b>综合：</b>77。<br><br><b>放进方案 A 的理由：</b>7/7 科目全命中且明确列 Computing，还有 Speech and Drama 社团、余量 +2；放在最后实际很难轮到。<br><b>风险：</b>32 分钟公交、步行 47 分钟，早高峰缓冲有限；第 6 位意味着前面 +1 的 Naval Base 若录取，它就不会被考虑。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-hougang-secondary-school.html"><span>阅读《Hougang》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<h3>关键对照：Springfield / Seng Kang</h3>
+<p>这 2 所不在方案 A 的 6 个位置里，但值得看懂——这样才能理解「为什么不选」和「什么时候该选」。</p>
+
+<article class="school">
+  <header>
+    <div class="sname">Springfield</div>
+    <div class="sbadges">
+      
+      <span class="badge">PG3 10–22</span>
+      <span class="badge">余量 +4</span>
+      <span class="badge">风险 较低</span>
+      <span class="badge">公交 32 分<sup class="soft">118 · 9 站 · 走 6 分</sup></span>
+      <span class="badge">综合 73</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>10–22</b>（2025 年度），孩子 18 分，余量 <b>+4</b>。相对从容。</td></tr>
+  <tr><td>② 通勤</td><td>从 <b>Twin Waterfalls 站（65431）</b>乘 <b>118</b>（第 1 方向）坐 <b>9 站</b>、车内约 18 分钟，在 <b>Springfield Sec Sch</b>（75039）下车，再步行 <b>6 分钟</b>；已含家到站步行与候车 5 分钟，合计 <b>32 分钟</b>。纯步行 122 分钟（争议项按上端），<b>计分取较快者 32 分钟</b>；地铁 60 分钟<b>不计入</b>。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>6 项</b>（MOE 登记 6 项）。</td></tr>
+  <tr><td>④ offered subjects</td><td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Computing</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Malay Language</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Humanities (SS, Literature in English)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Malay Language Syllabus B</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj">Principles of Accounts</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span><br><span class="soft">命中 7 / 7 项；黄色=画像科目，蓝虚线=仅 G1 Computing，青色下划线=全岛 ≤20 校列出，紫色=学校公开特色项目。</span></td></tr>
+  <tr><td>5 兴趣匹配</td><td><span class="soft">没有与孩子五项 CCA 兴趣直接对应的社团</span><br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>6 ALP</td><td>STEM - Health and Food Science</td></tr>
+  <tr><td>7 LLP</td><td>Community Youth Leadership</td></tr>
+  <tr><td>8 其他特色</td><td>五项 CCA 兴趣没有直接命中。 科目命中 7/7（明确 Computing）。</td></tr>
+  <tr><td>9 整体特点</td><td>Springfield，PG3 10–22，公交 32 分（118，9 站，下车走 6 分）；COP 轨迹 —。全程纯步行 122 分钟。</td></tr>
+  <tr><td>10 适合 / 不适合</td><td><b>反向判断：</b>余量相对较宽，可作为兜底。<br><b>余量：</b>+4 · <b>通勤：</b>32 分 · <b>科目：</b>7/7 · <b>综合：</b>73。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-springfield-secondary-school.html"><span>阅读《Springfield》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<article class="school">
+  <header>
+    <div class="sname">Seng Kang</div>
+    <div class="sbadges">
+      
+      <span class="badge">PG3 14–19</span>
+      <span class="badge badge-risk">余量 +1</span>
+      <span class="badge">风险 高</span>
+      <span class="badge">公交 26 分<sup class="soft">43 · 4 站 · 走 10 分</sup></span>
+      <span class="badge">综合 75</span>
+    </div>
+  </header>
+
+  <table style="margin:12px 0 0">
+  <thead><tr><th style="width:20%">评估项</th><th>内容</th></tr></thead>
+  <tbody>
+  <tr><td>① COP 与风险</td><td>PG3 非附属区间 <b>14–19</b>（2025 年度），孩子 18 分，余量 <b>+1</b>。踩线，COP 一动就落空。</td></tr>
+  <tr><td>② 通勤</td><td>从 <b>Twin Waterfalls 站（65431）</b>乘 <b>43</b>（第 1 方向）坐 <b>4 站</b>、车内约 8 分钟，在 <b>Blk 204C</b>（67611）下车，再步行 <b>10 分钟</b>；已含家到站步行与候车 5 分钟，合计 <b>26 分钟</b>。纯步行 33 分钟（争议项按上端），<b>计分取较快者 26 分钟</b>；地铁 22 分钟<b>不计入</b>。</td></tr>
+  <tr><td>③ 主要 CCA</td><td>共 <b>15 项</b>（MOE 登记 14 项，另 1 项来自学校官网）。</td></tr>
+  <tr><td>④ offered subjects</td><td class="sbj-cell"><span class="sbj sbj-hit" title="命中画像科目">Additional Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Art</span> <span class="sbj sbj">Basic Chinese Language</span> <span class="sbj sbj">Basic Malay Language</span> <span class="sbj sbj">Basic Tamil Language</span> <span class="sbj sbj">Biology</span> <span class="sbj sbj">Chemistry</span> <span class="sbj sbj">Chinese Language</span> <span class="sbj sbj">Chinese Language Syllabus B</span> <span class="sbj sbj-hit" title="命中画像科目">Computer Applications</span> <span class="sbj sbj-hit" title="命中画像科目">Design &amp; Technology</span> <span class="sbj sbj">Elements of Business Skills</span> <span class="sbj sbj">English Language</span> <span class="sbj sbj-both" title="命中兴趣科目，且全岛 ≤20 校列出">Exercise &amp; Sports Science</span> <span class="sbj sbj">Geography</span> <span class="sbj sbj-hit" title="命中画像科目">Higher Chinese Language</span> <span class="sbj sbj">Higher Malay Language</span> <span class="sbj sbj">Higher Tamil Language</span> <span class="sbj sbj">History</span> <span class="sbj sbj">Humanities (SS, Geography)</span> <span class="sbj sbj">Humanities (SS, History)</span> <span class="sbj sbj">Literature in English</span> <span class="sbj sbj">Malay Language</span> <span class="sbj sbj">Mathematics</span> <span class="sbj sbj-hit" title="命中画像科目">Music</span> <span class="sbj sbj-hit" title="命中画像科目">Nutrition and Food Science</span> <span class="sbj sbj">Physical Education</span> <span class="sbj sbj">Physics</span> <span class="sbj sbj-hit" title="命中画像科目">Science</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Chem, Bio)</span> <span class="sbj sbj-hit" title="命中画像科目">Science (Phy, Chem)</span> <span class="sbj sbj">Social Studies</span> <span class="sbj sbj">Tamil Language</span><br><span class="soft">命中 6 / 7 项；黄色=画像科目，蓝虚线=仅 G1 Computing，青色下划线=全岛 ≤20 校列出，紫色=学校公开特色项目。</span></td></tr>
+  <tr><td>5 兴趣匹配</td><td><b>戏剧</b>：English Drama<br><span class="soft">注：本校无游泳 / 水上项目 CCA</span></td></tr>
+  <tr><td>6 ALP</td><td>STEM - Health and Food Science</td></tr>
+  <tr><td>7 LLP</td><td>Sports &amp; Outdoor Education</td></tr>
+  <tr><td>8 其他特色</td><td>兴趣命中：<b>戏剧</b>。 科目命中 6/7（Computing 仅 G1）。</td></tr>
+  <tr><td>9 整体特点</td><td>Seng Kang，PG3 14–19，公交 26 分（43，4 站，下车走 10 分）；COP 轨迹 —。全程纯步行 33 分钟。</td></tr>
+  <tr><td>10 适合 / 不适合</td><td><b>反向判断：</b>余量偏薄，PR 下不能当稳位。<br><b>余量：</b>+1 · <b>通勤：</b>26 分 · <b>科目：</b>6/7 · <b>综合：</b>75。</td></tr>
+  </tbody>
+  </table>
+  <a class="deeplink" href="reports/school-seng-kang-secondary-school.html"><span>阅读《Seng Kang》单校深度报告</span><em>校史 · 升学 · CCA 解析 · 真实声音 · 开放日必问 →</em></a>
+</article>
+
+<div class="note"><b>逐校核对后，最该改的不是「选哪六所」，而是「谁排第 4、谁排第 6」。</b><br>① <b>Hougang 被浪费了</b>：它 7/7 命中且明确 Computing，余量 +2、戏剧社团明确，却排第 6；前一位 Naval Base 只有 +1，先录上就不会轮到它。<br>② <b>Naval Base 的艺术强项不在孩子兴趣清单</b>：EAP 是真的（MOE 九校之一），但中二校内选拔才决定能不能进，S1 填报不是入场券。<br>③ <b>Outram 的游泳是真的，但 DSA 通道已过</b>：普通 S1 入学后能否进泳队要单独问；2025 区间 9–17 又比 AL 18 高一位。<br>④ <b>「AI 命中」要打折看</b>：Naval Base / Junyuan / Outram 的 AI 命中来自资讯科技 / 媒体制作 / Maker 类社团归类，不是学校设有名为 AI 的社团。</div>
+</section>
+
+<section>
+<h2 id="s5"><span class="n">05</span>梯度设计：为什么这样分三档</h2>
+<p class="lead">分档只看一件事：<b>余量</b>（区间右端 − 孩子分数）。它决定了「今年大概会不会落空」，而兴趣匹配决定「落空后值不值得」。两者都满足才算「匹配」。</p>
+
+<div class="grid2">
+  <div class="panel">
+    <h4>A · 冲刺（Reach）：余量 0–2 分</h4>
+    <ul>
+      <li>孩子有机会，但 COP 一动就落空</li>
+      <li>放前面的<b>唯一成本是占掉一个志愿位</b>（分数不够时 MOE 直接看下一志愿）</li>
+      <li>建议占 1–2 个位置</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h4>B · 匹配（Match）：余量 3–5 分</h4>
+    <ul>
+      <li>竞争力合理，但仍有 1–2 分的浮动风险</li>
+      <li>这是志愿表的主体，<b>应该占 2–3 个位置</b></li>
+      <li>优先选兴趣或通勤有明显优势的</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h4>C · 稳妥（Safe）：余量 ≥6 分</h4>
+    <ul>
+      <li>分数明显优于往年 COP，录取安全边际较大</li>
+      <li>MOE 建议至少放 2–3 所</li>
+      <li><b>不要因为「稳妥」就随便选</b>——它仍要能承接兴趣</li>
+    </ul>
+  </div>
+</div>
+
+
+<h3>冲刺档（11 所）</h3>
+<p class="soft" style="font-size:13px">余量 0、1、2 分，不换乘公交+步行 / 纯步行 21–51 分钟。其中 <b>Compassvale、North Vista</b> 余量 0——那是「抽签级」风险，不是「有希望」。</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">余量</th><th class="mid">通勤</th><th class="mid">综合</th><th>一句话</th></tr></thead>
+<tbody>
+<tr><td>Compassvale</td><td class="num mid">+0</td><td class="num mid">公交 21 分<sup class="soft">43 · 1 站 · 走 11 分</sup></td><td class="num mid">78</td><td class="soft">命中：机器人 + 戏剧</td></tr>
+<tr><td>Hougang</td><td class="num mid">+2</td><td class="num mid">公交 32 分<sup class="soft">43 · 9 站 · 走 6 分</sup></td><td class="num mid">77</td><td class="soft">命中：戏剧</td></tr>
+<tr><td>Punggol</td><td class="num mid">+1</td><td class="num mid">公交 21 分<sup class="soft">118 · 1 站 · 走 11 分</sup></td><td class="num mid">76</td><td class="soft">命中：戏剧</td></tr>
+<tr><td>Seng Kang</td><td class="num mid">+1</td><td class="num mid">公交 26 分<sup class="soft">43 · 4 站 · 走 10 分</sup></td><td class="num mid">75</td><td class="soft">命中：戏剧</td></tr>
+<tr><td>North Vista</td><td class="num mid">+0</td><td class="num mid">公交 26 分<sup class="soft">43e · 7 站 · 走 4 分</sup></td><td class="num mid">73</td><td class="soft">命中：AI + 戏剧</td></tr>
+<tr><td>Peicai</td><td class="num mid">+2</td><td class="num mid">公交 51 分<sup class="soft">43 · 16 站 · 走 11 分</sup></td><td class="num mid">72</td><td class="soft">命中：AI</td></tr>
+<tr><td>Yishun</td><td class="num mid">+2</td><td class="num mid">公交 39 分<sup class="soft">39 · 8 站 · 走 15 分</sup></td><td class="num mid">72</td><td class="soft">命中：AI</td></tr>
+<tr><td>Naval Base</td><td class="num mid">+1</td><td class="num mid">公交 30 分<sup class="soft">39 · 6 站 · 走 10 分</sup></td><td class="num mid">70</td><td class="soft">命中：AI</td></tr>
+<tr><td>Orchid Park</td><td class="num mid">+1</td><td class="num mid">公交 30 分<sup class="soft">39 · 6 站 · 走 10 分</sup></td><td class="num mid">70</td><td class="soft">命中：AI</td></tr>
+<tr><td>Serangoon</td><td class="num mid">+2</td><td class="num mid">公交 38 分<sup class="soft">43e · 7 站 · 走 16 分</sup></td><td class="num mid">68</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Tampines</td><td class="num mid">+1</td><td class="num mid">公交 47 分<sup class="soft">118 · 13 站 · 走 13 分</sup></td><td class="num mid">65</td><td class="soft">五项兴趣零命中</td></tr>
+</tbody>
+</table>
+
+<h3>匹配档（7 所）</h3>
+<p class="soft" style="font-size:13px">余量 3、4 分，不换乘公交+步行 / 纯步行 29–59 分钟。</p>
+<table>
+<thead><tr><th>学校</th><th class="mid">余量</th><th class="mid">通勤</th><th class="mid">综合</th><th>一句话</th></tr></thead>
+<tbody>
+<tr><td>Junyuan</td><td class="num mid">+3</td><td class="num mid">公交 29 分<sup class="soft">118 · 8 站 · 走 5 分</sup></td><td class="num mid">79</td><td class="soft">命中：AI</td></tr>
+<tr><td>Changkat Changi</td><td class="num mid">+4</td><td class="num mid">公交 49 分<sup class="soft">118 · 14 站 · 走 13 分</sup></td><td class="num mid">78</td><td class="soft">命中：AI</td></tr>
+<tr><td>Northbrooks</td><td class="num mid">+4</td><td class="num mid">公交 52 分<sup class="soft">117 · 15 站 · 走 14 分</sup></td><td class="num mid">78</td><td class="soft">命中：AI</td></tr>
+<tr><td>Broadrick</td><td class="num mid">+4</td><td class="num mid">公交 59 分<sup class="soft">43e · 18 站 · 走 15 分</sup></td><td class="num mid">75</td><td class="soft">命中：AI</td></tr>
+<tr><td>Serangoon Garden</td><td class="num mid">+4</td><td class="num mid">公交 47 分<sup class="soft">43 · 13 站 · 走 13 分</sup></td><td class="num mid">73</td><td class="soft">命中：AI</td></tr>
+<tr><td>Springfield</td><td class="num mid">+4</td><td class="num mid">公交 32 分<sup class="soft">118 · 9 站 · 走 6 分</sup></td><td class="num mid">73</td><td class="soft">五项兴趣零命中</td></tr>
+<tr><td>Yuying</td><td class="num mid">+4</td><td class="num mid">公交 56 分<sup class="soft">119 · 19 站 · 走 10 分</sup></td><td class="num mid">73</td><td class="soft">命中：AI</td></tr>
+</tbody>
+</table>
+
+<h3>稳妥档（0 所）</h3>
+<p class="soft" style="font-size:13px">这一档在本池里是空的——说明本口径下没有这个风险级别的学校，志愿设计要在别的档里凑。</p>
+
+
+<div class="note">
+主池 18 所的档位：冲刺（余量 0–2）11 所、匹配（3–5）7 所、稳妥（≥6）0 所。家长名单里余量 >0 的有 4 所，但 ≥2 的只有 Junyuan → Hougang。<b>官方建议 6 个志愿里放 2–3 个往年 COP 较宽松的学校</b>——这份名单数量达标，质量偏薄，且最厚的两所之一排在最末。
+</div>
+</section>
+
+<section>
+<h2 id="s6"><span class="n">06</span>最终建议：评分表 + 三套方案</h2>
+<p class="lead">综合评分沿用五维加权：<b>录取安全性 30% ｜ 距离/通勤 25% ｜ 学术课程匹配 15% ｜ CCA 匹配 15% ｜ ALP/LLP 特色 15%</b>。分数衡量的是「对这个孩子」，不是学校办学水平。</p>
+
+<h3>方案 A 6 所的五维得分</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>志愿</th><th>学校</th><th class="mid">录取安全性<br><span class="soft">×30%</span></th><th class="mid">通勤<br><span class="soft">×25%</span></th><th class="mid">学术<br><span class="soft">×15%</span></th><th class="mid">CCA<br><span class="soft">×15%</span></th><th class="mid">ALP/LLP<br><span class="soft">×15%</span></th><th class="mid">合计</th></tr></thead>
+<tbody>
+<tr>
+    <td class="num mid">1</td>
+    <td><b>Outram</b></td>
+    <td class="num mid">40</td><td class="num mid">97</td><td class="num mid">52</td><td class="num mid">99</td><td class="num mid">76</td>
+    <td class="num mid"><b>70</b></td>
+  </tr>
+<tr>
+    <td class="num mid">2</td>
+    <td><b>Compassvale</b></td>
+    <td class="num mid">40</td><td class="num mid">95</td><td class="num mid">100</td><td class="num mid">100</td><td class="num mid">83</td>
+    <td class="num mid"><b>78</b></td>
+  </tr>
+<tr>
+    <td class="num mid">3</td>
+    <td><b>Punggol</b></td>
+    <td class="num mid">50</td><td class="num mid">95</td><td class="num mid">71</td><td class="num mid">92</td><td class="num mid">83</td>
+    <td class="num mid"><b>76</b></td>
+  </tr>
+<tr>
+    <td class="num mid">4</td>
+    <td><b>Naval Base</b></td>
+    <td class="num mid">50</td><td class="num mid">87</td><td class="num mid">50</td><td class="num mid">94</td><td class="num mid">79</td>
+    <td class="num mid"><b>70</b></td>
+  </tr>
+<tr>
+    <td class="num mid">5</td>
+    <td><b>Junyuan</b></td>
+    <td class="num mid">66</td><td class="num mid">88</td><td class="num mid">68</td><td class="num mid">94</td><td class="num mid">86</td>
+    <td class="num mid"><b>79</b></td>
+  </tr>
+<tr>
+    <td class="num mid">6</td>
+    <td><b>Hougang</b></td>
+    <td class="num mid">58</td><td class="num mid">85</td><td class="num mid">78</td><td class="num mid">92</td><td class="num mid">86</td>
+    <td class="num mid"><b>77</b></td>
+  </tr>
+</tbody>
+</table>
+</div>
+<p class="soft" style="font-size:12.6px">权重：安全性 30% / 通勤 25% / 学术 15% / CCA 15% / ALP·LLP 15%。CCA 那一维按孩子的五项兴趣加权：命中第 1 兴趣给 95 分以上，一项都不命中给 45 分。<b>45 分不代表学校差</b>，只代表社团对不上这个孩子。</p>
+
+
+<h3>方案 A · 家长原顺序（反向校验基准）</h3>
+<p class="soft" style="font-size:13px;margin:0 0 8px">Outram → Compassvale → Punggol → Naval Base → Junyuan → Hougang；保留家长判断，逐条给出风险管理</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th class="mid" style="width:5%">志愿</th><th style="width:19%">学校</th><th class="mid" style="width:9%">PG3 区间</th><th class="mid" style="width:8%">风险</th><th class="mid" style="width:11%">通勤</th><th class="mid" style="width:9%">CCA</th><th style="width:13%">ALP / LLP</th><th>推荐理由</th></tr></thead>
+<tbody>
+<tr>
+    <td class="num mid"><b>1</b></td>
+    <td><b>Outram</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">9–17</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 19 分<sup class="soft">43 · 1 站 · 走 9 分</sup></td>
+    <td class="mid" style="white-space:nowrap">AI + 戏剧 + 游泳</td>
+    <td style="font-size:12.4px">Business &amp; Entrepreneurship</td>
+    <td class="soft" style="font-size:12.4px">唯一有游泳 / 水球 DSA 与 CCA 的学校，Anchorvale 新校区已启用，公交 19 分钟。家长把特色放第 1，方向上说得通。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>2</b></td>
+    <td><b>Compassvale</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">14–18</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 21 分<sup class="soft">43 · 1 站 · 走 11 分</sup></td>
+    <td class="mid" style="white-space:nowrap">机器人 + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Future of Transportation</td>
+    <td class="soft" style="font-size:12.4px">实质上的第一候选：21 分钟、6/7 科目、机器人 + 戏剧双命中，2024/2025 COP 都稳定在 14–18。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>3</b></td>
+    <td><b>Punggol</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">13–19</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 21 分<sup class="soft">118 · 1 站 · 走 11 分</sup></td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Sustainability</td>
+    <td class="soft" style="font-size:12.4px">21 分钟、6/7 科目、戏剧社团，Mobile Robotics 是全岛稀缺科目；作为第 3 位合理。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>4</b></td>
+    <td><b>Naval Base</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">13–19</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 30 分<sup class="soft">39 · 6 站 · 走 10 分</sup></td>
+    <td class="mid" style="white-space:nowrap">AI</td>
+    <td style="font-size:12.4px">Aesthetics</td>
+    <td class="soft" style="font-size:12.4px">Enhanced Art Programme 是 9 所官方 EAP 校之一，30 分钟、6/7 科目；若艺术是家庭优先级，第 4 位可解释。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>5</b></td>
+    <td><b>Junyuan</b><br><span class="tier t-match" style="font-size:10px;margin-top:3px">匹配</span></td>
+    <td class="num mid">14–21</td>
+    <td class="mid" style="white-space:nowrap">中</td>
+    <td class="num mid" style="white-space:nowrap">公交 29 分<sup class="soft">118 · 8 站 · 走 5 分</sup></td>
+    <td class="mid" style="white-space:nowrap">AI</td>
+    <td style="font-size:12.4px">STEM<br>Health and Food Science</td>
+    <td class="soft" style="font-size:12.4px">六校里唯一余量 ≥3（+3），综合分 79 最高，ALP 正是 Food Science；第 5 位承担相对稳妥角色。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>6</b></td>
+    <td><b>Hougang</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">14–20</td>
+    <td class="mid" style="white-space:nowrap">中</td>
+    <td class="num mid" style="white-space:nowrap">公交 32 分<sup class="soft">43 · 9 站 · 走 6 分</sup></td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM</td>
+    <td class="soft" style="font-size:12.4px">7/7 科目全命中且明确列 Computing，还有 Speech and Drama 社团、余量 +2；放在最后实际很难轮到。</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<h3>方案 B · 六校不换，科目与安全边际归位</h3>
+<p class="soft" style="font-size:13px;margin:0 0 8px">保留游泳冲刺位；Hougang 提到第 3，Naval Base 退到第 6，Junyuan 留在第 5 兜底</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th class="mid" style="width:5%">志愿</th><th style="width:19%">学校</th><th class="mid" style="width:9%">PG3 区间</th><th class="mid" style="width:8%">风险</th><th class="mid" style="width:11%">通勤</th><th class="mid" style="width:9%">CCA</th><th style="width:13%">ALP / LLP</th><th>推荐理由</th></tr></thead>
+<tbody>
+<tr>
+    <td class="num mid"><b>1</b></td>
+    <td><b>Outram</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">9–17</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 19 分<sup class="soft">43 · 1 站 · 走 9 分</sup></td>
+    <td class="mid" style="white-space:nowrap">AI + 戏剧 + 游泳</td>
+    <td style="font-size:12.4px">Business &amp; Entrepreneurship</td>
+    <td class="soft" style="font-size:12.4px">唯一有游泳 / 水球 DSA 与 CCA 的学校，Anchorvale 新校区已启用，公交 19 分钟。家长把特色放第 1，方向上说得通。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>2</b></td>
+    <td><b>Compassvale</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">14–18</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 21 分<sup class="soft">43 · 1 站 · 走 11 分</sup></td>
+    <td class="mid" style="white-space:nowrap">机器人 + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Future of Transportation</td>
+    <td class="soft" style="font-size:12.4px">实质上的第一候选：21 分钟、6/7 科目、机器人 + 戏剧双命中，2024/2025 COP 都稳定在 14–18。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>3</b></td>
+    <td><b>Hougang</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">14–20</td>
+    <td class="mid" style="white-space:nowrap">中</td>
+    <td class="num mid" style="white-space:nowrap">公交 32 分<sup class="soft">43 · 9 站 · 走 6 分</sup></td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM</td>
+    <td class="soft" style="font-size:12.4px">7/7 科目全命中且明确列 Computing，还有 Speech and Drama 社团、余量 +2；放在最后实际很难轮到。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>4</b></td>
+    <td><b>Punggol</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">13–19</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 21 分<sup class="soft">118 · 1 站 · 走 11 分</sup></td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Sustainability</td>
+    <td class="soft" style="font-size:12.4px">21 分钟、6/7 科目、戏剧社团，Mobile Robotics 是全岛稀缺科目；作为第 3 位合理。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>5</b></td>
+    <td><b>Junyuan</b><br><span class="tier t-match" style="font-size:10px;margin-top:3px">匹配</span></td>
+    <td class="num mid">14–21</td>
+    <td class="mid" style="white-space:nowrap">中</td>
+    <td class="num mid" style="white-space:nowrap">公交 29 分<sup class="soft">118 · 8 站 · 走 5 分</sup></td>
+    <td class="mid" style="white-space:nowrap">AI</td>
+    <td style="font-size:12.4px">STEM<br>Health and Food Science</td>
+    <td class="soft" style="font-size:12.4px">六校里唯一余量 ≥3（+3），综合分 79 最高，ALP 正是 Food Science；第 5 位承担相对稳妥角色。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>6</b></td>
+    <td><b>Naval Base</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">13–19</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 30 分<sup class="soft">39 · 6 站 · 走 10 分</sup></td>
+    <td class="mid" style="white-space:nowrap">AI</td>
+    <td style="font-size:12.4px">Aesthetics</td>
+    <td class="soft" style="font-size:12.4px">Enhanced Art Programme 是 9 所官方 EAP 校之一，30 分钟、6/7 科目；若艺术是家庭优先级，第 4 位可解释。</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<h3>方案 C · 换掉游泳冲刺位，换成科目 + 缓冲</h3>
+<p class="soft" style="font-size:13px;margin:0 0 8px">把 Outram 换成 Springfield：多一所 7/7 + 明确 Computing 的学校，也多 4 分余量；代价是失去泳池</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th class="mid" style="width:5%">志愿</th><th style="width:19%">学校</th><th class="mid" style="width:9%">PG3 区间</th><th class="mid" style="width:8%">风险</th><th class="mid" style="width:11%">通勤</th><th class="mid" style="width:9%">CCA</th><th style="width:13%">ALP / LLP</th><th>推荐理由</th></tr></thead>
+<tbody>
+<tr>
+    <td class="num mid"><b>1</b></td>
+    <td><b>Compassvale</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">14–18</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 21 分<sup class="soft">43 · 1 站 · 走 11 分</sup></td>
+    <td class="mid" style="white-space:nowrap">机器人 + 戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Future of Transportation</td>
+    <td class="soft" style="font-size:12.4px">实质上的第一候选：21 分钟、6/7 科目、机器人 + 戏剧双命中，2024/2025 COP 都稳定在 14–18。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>2</b></td>
+    <td><b>Hougang</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">14–20</td>
+    <td class="mid" style="white-space:nowrap">中</td>
+    <td class="num mid" style="white-space:nowrap">公交 32 分<sup class="soft">43 · 9 站 · 走 6 分</sup></td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM</td>
+    <td class="soft" style="font-size:12.4px">7/7 科目全命中且明确列 Computing，还有 Speech and Drama 社团、余量 +2；放在最后实际很难轮到。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>3</b></td>
+    <td><b>Springfield</b><br><span class="tier t-match" style="font-size:10px;margin-top:3px">匹配</span></td>
+    <td class="num mid">10–22</td>
+    <td class="mid" style="white-space:nowrap">较低</td>
+    <td class="num mid" style="white-space:nowrap">公交 32 分<sup class="soft">118 · 9 站 · 走 6 分</sup></td>
+    <td class="mid" style="white-space:nowrap">零命中</td>
+    <td style="font-size:12.4px">STEM<br>Health and Food Science</td>
+    <td class="soft" style="font-size:12.4px">7/7 命中、余量 +4、公交 32 分（118，9 站，下车走 6 分）；ALP STEM - Health and Food Science。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>4</b></td>
+    <td><b>Punggol</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">13–19</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 21 分<sup class="soft">118 · 1 站 · 走 11 分</sup></td>
+    <td class="mid" style="white-space:nowrap">戏剧</td>
+    <td style="font-size:12.4px">STEM<br>Sustainability</td>
+    <td class="soft" style="font-size:12.4px">21 分钟、6/7 科目、戏剧社团，Mobile Robotics 是全岛稀缺科目；作为第 3 位合理。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>5</b></td>
+    <td><b>Junyuan</b><br><span class="tier t-match" style="font-size:10px;margin-top:3px">匹配</span></td>
+    <td class="num mid">14–21</td>
+    <td class="mid" style="white-space:nowrap">中</td>
+    <td class="num mid" style="white-space:nowrap">公交 29 分<sup class="soft">118 · 8 站 · 走 5 分</sup></td>
+    <td class="mid" style="white-space:nowrap">AI</td>
+    <td style="font-size:12.4px">STEM<br>Health and Food Science</td>
+    <td class="soft" style="font-size:12.4px">六校里唯一余量 ≥3（+3），综合分 79 最高，ALP 正是 Food Science；第 5 位承担相对稳妥角色。</td>
+  </tr>
+<tr>
+    <td class="num mid"><b>6</b></td>
+    <td><b>Naval Base</b><br><span class="tier t-reach" style="font-size:10px;margin-top:3px">冲刺</span></td>
+    <td class="num mid">13–19</td>
+    <td class="mid" style="white-space:nowrap">高</td>
+    <td class="num mid" style="white-space:nowrap">公交 30 分<sup class="soft">39 · 6 站 · 走 10 分</sup></td>
+    <td class="mid" style="white-space:nowrap">AI</td>
+    <td style="font-size:12.4px">Aesthetics</td>
+    <td class="soft" style="font-size:12.4px">Enhanced Art Programme 是 9 所官方 EAP 校之一，30 分钟、6/7 科目；若艺术是家庭优先级，第 4 位可解释。</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div class="verdict">
+<h3>如果这是我的孩子，我会这样填</h3>
+<p><b>先回答家长名单对不对：学校基本选对了，顺序需要动。</b>六校里有 5 所在通勤与分数口径内，Outram 是唯一够不着的冲刺位；科目、社团、通勤都过得去。问题集中在两个位置。</p>
+<ul>
+<li><b>第 1 位 Outram：保留，但按「彩票」看待。</b>它是唯一游泳 / 水球校，新校区也确实在 Anchorvale；但 2025 PG3 上端 17，AL 18 差 1 分，PR 又输公民。放第 1 的成本只是占一个志愿位，放第 6 则完全无效——所以如果留它，只能放第 1。</li>
+<li><b>第 2 位 Compassvale：不要被「第 2」骗了。</b>它是这份名单真正的现实第一候选：21 分钟、6/7、机器人 + 戏剧、2024/2025 COP 稳定。余量 0 意味着踩线，所以第 2 位既是首选也是风险位。</li>
+<li><b>第 4 位 Naval Base 与第 6 位 Hougang：这是最该挑战的一对。</b>Naval Base 余量 +1、综合 70、Computing 仅 G1；Hougang 余量 +2、综合 77、7/7 且明确 Computing、戏剧社团也扎实。MOE 按分数从高到低投档，前一位录上就不会看后一位——把 Hougang 放第 6，相当于主动降低它的作用。</li>
+<li><b>第 5 位 Junyuan：位置合理，但可以更前。</b>它是六校唯一余量 ≥3 的学校，ALP 正好是 Food Science。若家庭把「有学上」放在特色之前，它应升到第 4。</li>
+</ul>
+<p><b>我推荐的顺序：</b>游泳不是硬需求就选<b>方案 C</b>（Compassvale → Hougang → Springfield → Punggol → Junyuan → Naval Base），把 -1 的 Outram 换成 +4 且 7/7 的 Springfield；游泳是硬需求就选<b>方案 B</b>（Outram → Compassvale → Hougang → Punggol → Junyuan → Naval Base），六校全留，只把 Hougang 与 Naval Base 对调到位次 3 与 6。</p>
+<p class="soft">相对家长原顺序：方案 B 改动 3 个位置（3位 Punggol→Hougang；4位 Naval Base→Punggol；6位 Hougang→Naval Base）；方案 C 改动 5 个位置，并新增 Springfield、移出 Outram。综合分排名与志愿顺序仍不完全一致：综合分衡量适配度，志愿顺序衡量落空风险与兴趣保留，两者不能互相替代。</p>
+</div>
+
+<div class="warnbox">
+<b>提交前必须做的五件事（窗口到 2026-11-30 16:30）：</b><br>
+① <b>先定「游泳是不是硬需求」</b>：是 → 用方案 B，Outram 留第 1；不是 → 用方案 C，把 Outram 换成 Springfield。这个决定比微调第 3–6 位重要得多。<br>
+② <b>开放日问清科目组合</b>：Hougang / Springfield 的 G3 Computing 是否向 PG3 学生开放、Higher Chinese 与 A-Maths 能否同时选；其余五校的 Computer Applications 只是 G1，不等于 Computing。<br>
+③ <b>问清社团入场规则</b>：Outram 泳队 / 水球队普通 S1 生能否进、Compassvale Robotics 与 English Drama 的 Sec 1 名额、Naval Base EAP 的中二选拔条件。<br>
+④ <b>实测早高峰公交</b>：本口径从 65431 单向、不换乘，候车 5 分 + 车内 2 分/站是模型值；Broadrick、Yuying 已接近 60 分钟上限。<br>
+⑤ <b>12 月本届 COP 公布后复核</b>：本报告用的是 2025 年度区间；Outram -1、Compassvale 0、Punggol / Naval Base +1 都是 PR 下的高风险位。六个都落空时接受 MOE 分配的退路也要提前谈好。
+</div>
+</section>
+
+<section>
+<h2 id="s7"><span class="n">07</span>附录：全池 18 所速览</h2>
+<p class="lead">按余量从紧到松排列。这张表用于核对有没有漏掉值得考虑的学校。</p>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>学校</th><th class="mid">PG3 区间</th><th class="mid">余量</th><th class="mid">步行</th><th class="mid">公交</th><th class="mid">CCA 项数</th><th>ALP 类别</th><th class="mid">综合</th></tr></thead>
+<tbody>
+<tr>
+    <td>Compassvale</td>
+    <td class="num mid">14–18</td>
+    <td class="num mid">0</td>
+    <td class="num">14–25<sup class="soft">争议</sup></td><td class="num"><b>21</b></td>
+    <td class="num mid">18</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation</td>
+    <td class="num mid">78</td>
+  </tr>
+<tr>
+    <td>North Vista</td>
+    <td class="num mid">11–18</td>
+    <td class="num mid">0</td>
+    <td class="num">38</td><td class="num"><b>26</b></td>
+    <td class="num mid">18</td>
+    <td class="soft" style="font-size:12.4px">STEM - Cities and Urban Landscapes</td>
+    <td class="num mid">73</td>
+  </tr>
+<tr>
+    <td>Punggol</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid">+1</td>
+    <td class="num">24</td><td class="num"><b>21</b></td>
+    <td class="num mid">20</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">76</td>
+  </tr>
+<tr>
+    <td>Seng Kang</td>
+    <td class="num mid">14–19</td>
+    <td class="num mid">+1</td>
+    <td class="num">33</td><td class="num"><b>26</b></td>
+    <td class="num mid">15<span class="soft">/14</span></td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">75</td>
+  </tr>
+<tr>
+    <td>Naval Base</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid">+1</td>
+    <td class="num">&gt;60</td><td class="num"><b>30</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">Aesthetics</td>
+    <td class="num mid">70</td>
+  </tr>
+<tr>
+    <td>Orchid Park</td>
+    <td class="num mid">10–19</td>
+    <td class="num mid">+1</td>
+    <td class="num">&gt;60</td><td class="num"><b>30</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">Aesthetics</td>
+    <td class="num mid">70</td>
+  </tr>
+<tr>
+    <td>Tampines</td>
+    <td class="num mid">13–19</td>
+    <td class="num mid">+1</td>
+    <td class="num">&gt;60</td><td class="num"><b>47</b></td>
+    <td class="num mid">6</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">65</td>
+  </tr>
+<tr>
+    <td>Hougang</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid">+2</td>
+    <td class="num">47</td><td class="num"><b>32</b></td>
+    <td class="num mid">16<span class="soft">/10</span></td>
+    <td class="soft" style="font-size:12.4px">STEM</td>
+    <td class="num mid">77</td>
+  </tr>
+<tr>
+    <td>Peicai</td>
+    <td class="num mid">14–20</td>
+    <td class="num mid">+2</td>
+    <td class="num">&gt;60</td><td class="num"><b>51</b></td>
+    <td class="num mid">7</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">72</td>
+  </tr>
+<tr>
+    <td>Yishun</td>
+    <td class="num mid">12–20</td>
+    <td class="num mid">+2</td>
+    <td class="num">&gt;60</td><td class="num"><b>39</b></td>
+    <td class="num mid">14</td>
+    <td class="soft" style="font-size:12.4px">Aesthetics</td>
+    <td class="num mid">72</td>
+  </tr>
+<tr>
+    <td>Serangoon</td>
+    <td class="num mid">16–20</td>
+    <td class="num mid">+2</td>
+    <td class="num">51</td><td class="num"><b>38</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation</td>
+    <td class="num mid">68</td>
+  </tr>
+<tr>
+    <td>Junyuan</td>
+    <td class="num mid">14–21</td>
+    <td class="num mid">+3</td>
+    <td class="num">&gt;60</td><td class="num"><b>29</b></td>
+    <td class="num mid">9</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">79</td>
+  </tr>
+<tr>
+    <td>Changkat Changi</td>
+    <td class="num mid">11–22</td>
+    <td class="num mid">+4</td>
+    <td class="num">&gt;60</td><td class="num"><b>49</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation</td>
+    <td class="num mid">78</td>
+  </tr>
+<tr>
+    <td>Northbrooks</td>
+    <td class="num mid">15–22</td>
+    <td class="num mid">+4</td>
+    <td class="num">&gt;60</td><td class="num"><b>52</b></td>
+    <td class="num mid">8</td>
+    <td class="soft" style="font-size:12.4px">STEM - Future of Transportation</td>
+    <td class="num mid">78</td>
+  </tr>
+<tr>
+    <td>Broadrick</td>
+    <td class="num mid">5–22</td>
+    <td class="num mid">+4</td>
+    <td class="num">&gt;60</td><td class="num"><b>59</b></td>
+    <td class="num mid">10</td>
+    <td class="soft" style="font-size:12.4px">STEM - Sustainability</td>
+    <td class="num mid">75</td>
+  </tr>
+<tr>
+    <td>Serangoon Garden</td>
+    <td class="num mid">12–22</td>
+    <td class="num mid">+4</td>
+    <td class="num">&gt;60</td><td class="num"><b>47</b></td>
+    <td class="num mid">11</td>
+    <td class="soft" style="font-size:12.4px">Humanities</td>
+    <td class="num mid">73</td>
+  </tr>
+<tr>
+    <td>Springfield</td>
+    <td class="num mid">10–22</td>
+    <td class="num mid">+4</td>
+    <td class="num">&gt;60</td><td class="num"><b>32</b></td>
+    <td class="num mid">6</td>
+    <td class="soft" style="font-size:12.4px">STEM - Health and Food Science</td>
+    <td class="num mid">73</td>
+  </tr>
+<tr>
+    <td>Yuying</td>
+    <td class="num mid">11–22</td>
+    <td class="num mid">+4</td>
+    <td class="num">&gt;60</td><td class="num"><b>56</b></td>
+    <td class="num mid">11</td>
+    <td class="soft" style="font-size:12.4px">Business &amp; Entrepreneurship</td>
+    <td class="num mid">73</td>
+  </tr>
+</tbody>
+</table>
+</div>
+<p class="soft" style="font-size:12.4px">CCA 列格式「总数/MOE 登记数」——2026-11-23 已对主池 7 校逐校核实（学校官网 + MOE SchoolFinder 当前页 + 第三方交叉），斜杠后的数字是 MOE 当前登记数。旧版快照（2026-11-08）的社团数与结论已作废；同一社团的中英文异名按已确认对应关系合并，官网独有项保留并标注来源。</p>
+
+<h3>≤ 60 分钟（公交不换乘 / 纯步行）但够不着的完整名单（19 所）</h3>
+<table>
+<thead><tr><th>学校</th><th class="mid">PG3 区间</th><th class="mid">差</th><th class="mid">通勤</th></tr></thead>
+<tbody>
+<tr><td>Outram</td><td class="num mid">9–17</td><td class="num mid">-1</td><td class="num mid">公交 19 分<sup class="soft">43 · 1 站 · 走 9 分</sup></td></tr>
+<tr><td>Bowen</td><td class="num mid">12–16</td><td class="num mid">-2</td><td class="num mid">公交 36 分<sup class="soft">43 · 12 站 · 走 4 分</sup></td></tr>
+<tr><td>Greendale</td><td class="num mid">11–16</td><td class="num mid">-2</td><td class="num mid">公交 24 分<sup class="soft">118 · 1 站 · 走 14 分</sup></td></tr>
+<tr><td>St. Gabriel&#39;s</td><td class="num mid">10–15</td><td class="num mid">-3</td><td class="num mid">公交 58 分<sup class="soft">43 · 20 站 · 走 10 分</sup></td></tr>
+<tr><td>Yusof Ishak</td><td class="num mid">7–15</td><td class="num mid">-3</td><td class="num mid">步行 21 分</td></tr>
+<tr><td>CHIJ St. Joseph&#39;s Convent</td><td class="num mid">8–14</td><td class="num mid">-4</td><td class="num mid">公交 20 分<sup class="soft">119 · 5 站 · 走 2 分</sup></td></tr>
+<tr><td>Edgefield</td><td class="num mid">5–14</td><td class="num mid">-4</td><td class="num mid">步行 10 分</td></tr>
+<tr><td>Geylang Methodist School</td><td class="num mid">11–14</td><td class="num mid">-4</td><td class="num mid">公交 52 分<sup class="soft">43e · 14 站 · 走 16 分</sup></td></tr>
+<tr><td>Holy Innocents&#39; High School</td><td class="num mid">11–14</td><td class="num mid">-4</td><td class="num mid">公交 38 分<sup class="soft">43e · 6 站 · 走 18 分</sup></td></tr>
+<tr><td>Pei Hwa</td><td class="num mid">7–14</td><td class="num mid">-4</td><td class="num mid">公交 29 分<sup class="soft">104 · 8 站 · 走 5 分</sup></td></tr>
+<tr><td>St. Hilda&#39;s</td><td class="num mid">12–14</td><td class="num mid">-4</td><td class="num mid">公交 41 分<sup class="soft">118 · 8 站 · 走 17 分</sup></td></tr>
+<tr><td>Tanjong Katong Girls&#39; School</td><td class="num mid">7–13</td><td class="num mid">-5</td><td class="num mid">公交 48 分<sup class="soft">43e · 19 站 · 走 2 分</sup></td></tr>
+<tr><td>Tanjong Katong</td><td class="num mid">7–13</td><td class="num mid">-5</td><td class="num mid">公交 50 分<sup class="soft">43e · 18 站 · 走 6 分</sup></td></tr>
+<tr><td>Xinmin</td><td class="num mid">8–13</td><td class="num mid">-5</td><td class="num mid">公交 44 分<sup class="soft">43 · 9 站 · 走 18 分</sup></td></tr>
+<tr><td>Yishun Town</td><td class="num mid">5–13</td><td class="num mid">-5</td><td class="num mid">公交 37 分<sup class="soft">39 · 9 站 · 走 11 分</sup></td></tr>
+<tr><td>Zhonghua</td><td class="num mid">8–12</td><td class="num mid">-6</td><td class="num mid">公交 58 分<sup class="soft">43 · 19 站 · 走 12 分</sup></td></tr>
+<tr><td>Chung Cheng High School (Yishun)</td><td class="num mid">6–11</td><td class="num mid">-7</td><td class="num mid">公交 34 分<sup class="soft">39 · 6 站 · 走 14 分</sup></td></tr>
+<tr><td>Nan Chiau High School</td><td class="num mid">4–11(M)</td><td class="num mid">-7</td><td class="num mid">公交 26 分<sup class="soft">43 · 3 站 · 走 12 分</sup></td></tr>
+<tr><td>Chung Cheng High School (Main)</td><td class="num mid">5–10(M)</td><td class="num mid">-8</td><td class="num mid">公交 58 分<sup class="soft">43e · 19 站 · 走 12 分</sup></td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与口径</h2>
+<table>
+<thead><tr><th style="width:22%">内容</th><th>来源</th><th class="mid">可信度</th></tr></thead>
+<tbody>
+<tr><td>2026 S1 Posting 规则、Posting Group 映射、tie-breaker、SAP 高华条件、附属优先、时间线</td><td>MOE 官网 <code>moe.gov.sg/secondary/s1-posting</code>（2026-11 核对）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>各校 PG3 非附属录取区间（2025 年度）</td><td>MOE SchoolFinder</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>学校类型 / IP / SAP / CCA 登记 / DSA / ALP / LLP / 地址</td><td>MOE SchoolFinder（2026-11 采集）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>完整 CCA 清单（含 MOE 未登记项）</td><td>13 所学校官网逐页核实；主池 7 校于 <b>2026-11-23 三方复核</b>后更新 <code>data/cca-catalog.json</code></td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>各校 offered subjects 与 Electives / Programmes</td><td>MOE SchoolFinder <code>subjects offered</code>（2026-11 采集，源 <code>data/schools.json</code>）；原页注明只覆盖当前 cohort、后续届次可能变动。稀缺度按 142 所普通课程校归并统计，≤20 校列出才标青色</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>步行时间与距离</td><td>FOSSGIS OSRM foot（OSM 步行路网），Valhalla 交叉校验</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>公交线路与站点</td><td>Buslah <code>buslah.com/bus/&lt;service&gt;/</code> 与 <code>/stop/&lt;code&gt;/</code>，2026-11-24 抓取；起点站 <b>Twin Waterfalls（65431）</b>，13 条线路、195 个下游站，仅取该站的下游方向</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td>公交通勤时间模型</td><td>家→站步行 80 m/min；候车 5 分；车内 2 分/站；下车后步行 ≤ 18 分。采用时刻表均值，不是实时到站</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td>本报告的<b>通勤口径</b></td><td>只认「<b>从 Twin Waterfalls 站上车、不换乘公交 + 步行</b>」或<b>纯步行</b>（学生配置 <code>commuteMode: "bus"</code>），取两者较快者过闸与计分；地铁仅作参考列，<b>不参与</b>门槛与评分；步行争议项按<b>区间上端</b>过闸</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td>地铁时间（本报告不计）</td><td>自建 MRT 模型（站间 2 分 / 换乘 5 分 / 进站 4 分 + 站到校步行）</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td>五维加权分数</td><td>本项目评分模型，权重 30/25/15/15/15，CCA 按孩子兴趣加权</td><td class="mid"><span class="tag b">B</span></td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>事实 vs 判断的分界：</b>第一至三步（规则、候选池、COP）是可复核的事实，全部来自 MOE 口径与官方数据；第四至六步（适配度、梯度、推荐）是判断，标注了理由与风险。<b>每所学校的「为什么适合/不适合」都是我的判断，你可以不同意</b>——但只要事实部分没错，换个权重重排一遍就能得到你自己的答案。
+</div>
+
+<div class="warnbox">
+<b>三条必须知道的数据局限：</b><br>
+① <b>COP 是 2025 年度的</b>，2026 届的 12 月才出；区间每年动 1–3 分；<br>
+② <b>CCA 清单仍可能不全</b>：本报告引用 18 所主池，2026-11-23 已逐校三方核实，但 Outram 的 English Drama 等仅见于开放日 microsite，官网主站与 MOE 均未列——<b>「报告里没写某个社团」不等于「学校没有」</b>，开放日必须问；<br>
+③ <b>步行时间有分歧</b>：两家引擎对「能否穿私人公寓通道」判定不同，本池有 1 所（Compassvale 14 vs 25，单位分钟）。<br>
+④ <b>公交时间是模型值，不是实时到站</b>：候车按 5 分钟、车内按 2 分钟/站估算，实际班次与拥堵会让它上下浮动 5–10 分钟；<b>只从 Twin Waterfalls 65431 单一站上车</b>，马路对面的反向站（65439）按家长口径不纳入；下车后步行超过 18 分钟的方案不算可达；⑤ <b>地铁完全不计</b>——表中「地铁」列只是让你看到被这并不认同的口径砍掉了什么，不是备选。<br>
+⑥ <b>subjects offered 是当前 cohort 快照，不是四年承诺</b>：列出科目 ≠ 每个组合都开得出来，学校仍按资格、选课人数与师资排课；<b>Computer Applications 只等于 G1 Computing</b>，PG3 若想要 G3 Computing 必须逐校确认；「独特 / 强项」只是相对全岛出现频率与学校公开特色项目，<b>不是教学质量排名</b>。
+</div>
+</section>
+
+<div class="foot">
+<b>生成信息</b>　本报告由 <code>scripts/build-report-plan.cjs</code> 基于学生画像 <code>data/students/abcd2-reverse.json</code> 生成，
+数据采集 2026-11，生成于 2026/11/24 20:14:18 SGT。<br>
+<b>口径</b>　COP = 2025 年度 S1 Posting 实际录取区间 · 学生 AL 18 / PG3 / 邮编 828765 / 通勤上限 60 分钟（不换乘公交+步行 / 纯步行）·
+步行 = OSM 步行路网 · 公交 = Buslah 线路站序 + 候车/站间时间模型（起点 65431，不换乘）· 地铁 = 自建 MRT 模型（仅参考，不参与判定）。<br>
+<b>免责</b>　个人研究工具输出，非 MOE 官方建议。COP 每年浮动，录取结果受志愿策略、同届竞争与 tie-breaker 影响，本报告不构成录取保证。
+开放日实地确认永远优先于任何二手资料。<br><br>
+<a href="../index.html">← 学校看板</a> ｜ <a href="../map.html">通勤地图</a>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-24T11:04:39.570Z",
+ "generatedAt": "2026-11-24T12:14:18.927Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -417,6 +417,58 @@
     ],
     "report": "reports/abcd2-s1-choice-2026.html",
     "generatedAt": "2026-11-24T11:04:39.568Z"
+   }
+  },
+  {
+   "id": "abcd2-reverse",
+   "label": "abcd2-reverse",
+   "al": 18,
+   "pgShort": "PG3",
+   "postal": "828765",
+   "maxCommuteMin": 60,
+   "commuteMode": "bus",
+   "planSlug": "abcd2-reverse-s1-choice-2026",
+   "updatedAt": "2026-11-24T12:14:18.925Z",
+   "plan": {
+    "picks": [
+     {
+      "slot": 1,
+      "name": "Outram Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 2,
+      "name": "Compassvale Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 3,
+      "name": "Punggol Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 4,
+      "name": "Naval Base Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 5,
+      "name": "Junyuan Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 6,
+      "name": "Hougang Secondary School",
+      "tier": "冲刺"
+     }
+    ],
+    "poolMixed": 18,
+    "withinCommuteReachable": 19,
+    "kinds": [
+     "plan"
+    ],
+    "report": "reports/abcd2-reverse-s1-choice-2026.html",
+    "generatedAt": "2026-11-24T12:14:18.925Z"
    }
   }
  ]
