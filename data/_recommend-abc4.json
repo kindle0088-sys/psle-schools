@@ -116,12 +116,28 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20251006050535/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bendemeer-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 22
+     },
+     "source": "moe-live"
     }
    },
    "margin": 7,
    "minutes": 34,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 34,
    "walkMinutes": 140,
    "walkUpperMinutes": 140,
@@ -201,11 +217,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615040854",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615040854/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bartley-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 7,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 16,
+      "max": 21
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 6,
    "minutes": 33,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 33,
    "walkMinutes": 110,
    "walkUpperMinutes": 110,
@@ -318,13 +388,34 @@
      "archiveUrl": "https://web.archive.org/web/20240610172913/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=compassvale-secondary-school"
     },
     "2024": {
-     "status": "no-snapshot"
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 18
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 18
+     },
+     "source": "moe-live"
     }
    },
    "margin": 3,
    "minutes": 14,
    "commuteBasis": "fastest",
    "commuteMode": "walk",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 22,
    "walkMinutes": 14,
    "walkUpperMinutes": 25,
@@ -478,12 +569,28 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20251216181956/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=hougang-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 20
+     },
+     "source": "moe-live"
     }
    },
    "margin": 5,
    "minutes": 32,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 32,
    "walkMinutes": 47,
    "walkUpperMinutes": 47,
@@ -571,11 +678,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615040858",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615040858/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=manjusri-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 21
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 6,
    "minutes": 44,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 44,
    "walkMinutes": 131,
    "walkUpperMinutes": 131,
@@ -661,11 +822,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610092030",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610092030/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yio-chu-kang-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 7,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 46,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 46,
    "walkMinutes": 106,
    "walkUpperMinutes": 106,
@@ -755,11 +970,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615041309",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 23,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615041309/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yuying-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 28,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 28,
    "walkMinutes": 79,
    "walkUpperMinutes": 79,
@@ -841,11 +1110,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610141225",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610141225/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=broadrick-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 7,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 5,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 40,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 40,
    "walkMinutes": 161,
    "walkUpperMinutes": 161,
@@ -926,11 +1249,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610202722",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610202722/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bukit-merah-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 7,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 56,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 56,
    "walkMinutes": 245,
    "walkUpperMinutes": 245,
@@ -1010,6 +1387,14 @@
    "minutes": 40,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 40,
    "walkMinutes": 132,
    "walkUpperMinutes": 132,
@@ -1089,11 +1474,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615035312",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615035312/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=peicai-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 21
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 20
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 5,
    "minutes": 34,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 34,
    "walkMinutes": 86,
    "walkUpperMinutes": 86,
@@ -1177,11 +1616,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240611060854",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240611060854/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=peirce-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 19
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 20
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 5,
    "minutes": 49,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 49,
    "walkMinutes": 137,
    "walkUpperMinutes": 137,
@@ -1318,12 +1811,28 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20250916021134/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=punggol-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 19
+     },
+     "source": "moe-live"
     }
    },
    "margin": 4,
    "minutes": 22,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 22,
    "walkMinutes": 24,
    "walkUpperMinutes": 24,
@@ -1444,13 +1953,34 @@
      "archiveUrl": "https://web.archive.org/web/20240610051334/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=seng-kang-secondary-school"
     },
     "2024": {
-     "status": "no-snapshot"
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 19
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 19
+     },
+     "source": "moe-live"
     }
    },
    "margin": 4,
    "minutes": 22,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 22,
    "walkMinutes": 33,
    "walkUpperMinutes": 33,
@@ -1568,13 +2098,34 @@
      "archiveUrl": "https://web.archive.org/web/20240615022342/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=north-vista-secondary-school"
     },
     "2024": {
-     "status": "no-snapshot"
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 17
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 18
+     },
+     "source": "moe-live"
     }
    },
    "margin": 3,
    "minutes": 25,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 25,
    "walkMinutes": 38,
    "walkUpperMinutes": 38,
@@ -1670,11 +2221,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615040458",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 5,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 5,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615040458/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=changkat-changi-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 6,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 55,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 55,
    "walkMinutes": 148,
    "walkUpperMinutes": 148,
@@ -1758,11 +2363,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610154745",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 9,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 9,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610154745/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=damai-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 53,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 53,
    "walkMinutes": 151,
    "walkUpperMinutes": 151,
@@ -1844,11 +2503,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610090626",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610090626/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=northland-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 55,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 55,
    "walkMinutes": 127,
    "walkUpperMinutes": 127,
@@ -1930,11 +2643,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615040954",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 18,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 18,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615040954/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=beatty-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 17
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 18
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 3,
    "minutes": 44,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 44,
    "walkMinutes": 127,
    "walkUpperMinutes": 127,
@@ -2026,11 +2793,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20241204162653",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20241204162653/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Northbrooks Secondary School"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 59,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 59,
    "walkMinutes": 120,
    "walkUpperMinutes": 120,
@@ -2172,12 +2993,28 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20251006010421/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=serangoon-garden-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 22
+     },
+     "source": "moe-live"
     }
    },
    "margin": 7,
    "minutes": 44,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 44,
    "walkMinutes": 75,
    "walkUpperMinutes": 75,
@@ -2263,11 +3100,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20241204162440",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 11,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 11,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20241204162440/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Whitley Secondary School"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 6,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 42,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 42,
    "walkMinutes": 128,
    "walkUpperMinutes": 128,
@@ -2404,12 +3295,28 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20250916011654/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=greendale-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 16
+     },
+     "source": "moe-live"
     }
    },
    "margin": 1,
    "minutes": 27,
    "commuteBasis": "fastest",
    "commuteMode": "walk",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 28,
    "walkMinutes": 27,
    "walkUpperMinutes": 27,
@@ -2503,6 +3410,14 @@
    "minutes": 60,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 60,
    "walkMinutes": 113,
    "walkUpperMinutes": 113,
@@ -2582,11 +3497,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240613023028",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240613023028/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=marsiling-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 60,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 60,
    "walkMinutes": 235,
    "walkUpperMinutes": 235,
@@ -2724,12 +3693,28 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20251118014845/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Serangoon%20Secondary%20School"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 16,
+      "max": 20
+     },
+     "source": "moe-live"
     }
    },
    "margin": 5,
    "minutes": 32,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 32,
    "walkMinutes": 51,
    "walkUpperMinutes": 51,
@@ -2804,11 +3789,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20241204162616",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20241204162616/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=New Town Secondary School"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 21
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 20
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 5,
    "minutes": 59,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 59,
    "walkMinutes": 278,
    "walkUpperMinutes": 278,
@@ -2933,12 +3972,28 @@
       "star": false
      },
      "note": "MOE 存档页原文：There are no cut-off points available for Outram Secondary School as there were no Secondary 1 (S1) students posted to the school in 2024. 即该年无 S1 学生派位，不存在 COP；0–0 是页面占位显示，不是 0 分，也不是抓取坏值。"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 9,
+      "max": 17
+     },
+     "source": "moe-live"
     }
    },
    "margin": 2,
    "minutes": 15,
    "commuteBasis": "fastest",
    "commuteMode": "walk",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 24,
    "walkMinutes": 15,
    "walkUpperMinutes": 25,
@@ -3033,11 +4088,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615071951",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615071951/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=sembawang-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 18,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 54,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 54,
    "walkMinutes": 172,
    "walkUpperMinutes": 172,
@@ -3110,11 +4219,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20241204170707",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20241204170707/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Woodgrove Secondary School"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 19
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 19
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 4,
    "minutes": 55,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 55,
    "walkMinutes": 209,
    "walkUpperMinutes": 209,
@@ -3194,11 +4357,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610084641",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610084641/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=woodlands-ring-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 17,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 59,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 59,
    "walkMinutes": 229,
    "walkUpperMinutes": 229,
@@ -3282,11 +4499,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610070652",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610070652/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yishun-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 19
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 20
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 5,
    "minutes": 52,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 52,
    "walkMinutes": 146,
    "walkUpperMinutes": 146,
@@ -3435,12 +4706,28 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20250429232840/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=yusof-ishak-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 7,
+      "max": 15
+     },
+     "source": "moe-live"
     }
    },
    "margin": 0,
    "minutes": 8,
    "commuteBasis": "fastest",
    "commuteMode": "walk",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 20,
    "walkMinutes": 8,
    "walkUpperMinutes": 21,
@@ -3541,11 +4828,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610051546",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 20,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 20,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610051546/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bedok-green-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 20
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 20
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 5,
    "minutes": 50,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 50,
    "walkMinutes": 149,
    "walkUpperMinutes": 149,
@@ -3624,11 +4965,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610071911",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 19,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 19,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610071911/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=naval-base-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 18
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 19
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 4,
    "minutes": 45,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 45,
    "walkMinutes": 140,
    "walkUpperMinutes": 140,
@@ -3710,11 +5105,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615022834",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 21,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 21,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615022834/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=admiralty-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 20
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 16,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 57,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 57,
    "walkMinutes": 191,
    "walkUpperMinutes": 191,
@@ -3796,11 +5245,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610052045",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 18,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 18,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610052045/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=christ-church-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 17
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 17
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 2,
    "minutes": 53,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 53,
    "walkMinutes": 214,
    "walkUpperMinutes": 214,
@@ -3880,11 +5383,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615024727",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615024727/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=east-spring-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 16,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 60,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 60,
    "walkMinutes": 135,
    "walkUpperMinutes": 135,
@@ -3958,11 +5515,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615072722",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 18,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 18,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615072722/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=orchid-park-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 18
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 19
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 4,
    "minutes": 49,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 49,
    "walkMinutes": 130,
    "walkUpperMinutes": 130,
@@ -4048,11 +5659,40 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "no-snapshot",
+     "note": "Wayback 2026-11-24 二次核验：该校 SchoolFinder 页在 2023 派位窗口（2023-12-20~2024-12-18）无任何存档；已有抓取仅 2021/2022/2025，官方 2024+ 用 cop-official.json 覆盖。不用二手表填空。"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 18
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 18
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 3,
    "minutes": 54,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 54,
    "walkMinutes": 173,
    "walkUpperMinutes": 173,
@@ -4139,11 +5779,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615033523",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 17,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 17,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615033523/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=queensway-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 16
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 17
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 2,
    "minutes": 58,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 58,
    "walkMinutes": 241,
    "walkUpperMinutes": 241,
@@ -4226,11 +5920,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615050958",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 11,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 11,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 22,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615050958/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=springfield-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 60,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 60,
    "walkMinutes": 122,
    "walkUpperMinutes": 122,
@@ -4305,11 +6053,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615031110",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 16,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 16,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615031110/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=bowen-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 15
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 16
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 1,
    "minutes": 37,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 37,
    "walkMinutes": 63,
    "walkUpperMinutes": 63,
@@ -4399,6 +6201,14 @@
    "minutes": 57,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 57,
    "walkMinutes": 176,
    "walkUpperMinutes": 176,
@@ -4477,11 +6287,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610092834",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 25,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610092834/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=queenstown-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 22
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 15,
+      "max": 22
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 7,
    "minutes": 56,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 56,
    "walkMinutes": 239,
    "walkUpperMinutes": 239,
@@ -4566,11 +6430,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610071056",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 15,
+      "max": 19,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 15,
+       "max": 19,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610071056/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=tampines-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 18
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 19
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 4,
    "minutes": 57,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 57,
    "walkMinutes": 131,
    "walkUpperMinutes": 131,
@@ -4650,11 +6568,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20241204162108",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 18,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 18,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 30,
+       "star": true
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20241204162108/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=Mayflower Secondary School"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 17
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 13,
+      "max": 17
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 2,
    "minutes": 50,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 50,
    "walkMinutes": 122,
    "walkUpperMinutes": 122,
@@ -4747,11 +6719,40 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "no-snapshot",
+     "note": "Wayback 2026-11-24 二次核验：该校 SchoolFinder 页在 2023 派位窗口（2023-12-20~2024-12-18）无任何存档；已有抓取仅 2021/2022/2025，官方 2024+ 用 cop-official.json 覆盖。不用二手表填空。"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 16
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 16
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 1,
    "minutes": 53,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 53,
    "walkMinutes": 174,
    "walkUpperMinutes": 174,
@@ -4839,11 +6840,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610075516",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 16,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 16,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610075516/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=ang-mo-kio-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 15
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 16
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 1,
    "minutes": 48,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 48,
    "walkMinutes": 113,
    "walkUpperMinutes": 113,
@@ -4930,11 +6985,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615070430",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 17,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 17,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615070430/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=ahmad-ibrahim-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 12,
+      "max": 17
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 18
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 3,
    "minutes": 55,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 55,
    "walkMinutes": 145,
    "walkUpperMinutes": 145,
@@ -5016,11 +7125,65 @@
     "PG3": false,
     "any": true
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610044807",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 12,
+      "max": 17,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 12,
+       "max": 17,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610044807/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=deyi-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 16
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 9,
+      "max": 16
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 1,
    "minutes": 44,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 44,
    "walkMinutes": 102,
    "walkUpperMinutes": 102,
@@ -5106,11 +7269,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615035204",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 6,
+      "max": 15,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 6,
+       "max": 15,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615035204/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=gan-eng-seng-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 9,
+      "max": 14
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 9,
+      "max": 15
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 0,
    "minutes": 52,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 52,
    "walkMinutes": 228,
    "walkUpperMinutes": 228,
@@ -5190,6 +7407,14 @@
    "minutes": 58,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 58,
    "walkMinutes": 126,
    "walkUpperMinutes": 126,
@@ -5268,11 +7493,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240610090754",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 8,
+      "max": 16,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 8,
+       "max": 16,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240610090754/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=evergreen-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 11,
+      "max": 14
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 15
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 0,
    "minutes": 59,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 59,
    "walkMinutes": 203,
    "walkUpperMinutes": 203,
@@ -5417,12 +7696,28 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20250828233458/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=montfort-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 14,
+      "max": 22
+     },
+     "source": "moe-live"
     }
    },
    "margin": 7,
    "minutes": 24,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 24,
    "walkMinutes": 47,
    "walkUpperMinutes": 47,
@@ -5506,6 +7801,14 @@
    "minutes": 59,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 59,
    "walkMinutes": 158,
    "walkUpperMinutes": 158,
@@ -5576,11 +7879,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615073135",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 10,
+      "max": 17,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 10,
+       "max": 17,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 28,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615073135/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=st-gabriels-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 15
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 10,
+      "max": 15
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": 0,
    "minutes": 29,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 29,
    "walkMinutes": 101,
    "walkUpperMinutes": 101,
@@ -5674,6 +8031,14 @@
    "minutes": 23,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 23,
    "walkMinutes": 24,
    "walkUpperMinutes": 24,
@@ -5753,6 +8118,14 @@
    "minutes": 58,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 58,
    "walkMinutes": 124,
    "walkUpperMinutes": 124,
@@ -5887,12 +8260,28 @@
       }
      },
      "archiveUrl": "https://web.archive.org/web/20251006021413/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=edgefield-secondary-school"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 5,
+      "max": 14
+     },
+     "source": "moe-live"
     }
    },
    "margin": -1,
    "minutes": 10,
    "commuteBasis": "fastest",
    "commuteMode": "walk",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 17,
    "walkMinutes": 10,
    "walkUpperMinutes": 10,
@@ -5985,6 +8374,14 @@
    "minutes": 43,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 43,
    "walkMinutes": 146,
    "walkUpperMinutes": 146,
@@ -6063,6 +8460,14 @@
    "minutes": 23,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 23,
    "walkMinutes": 54,
    "walkUpperMinutes": 54,
@@ -6152,6 +8557,14 @@
    "minutes": 37,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 37,
    "walkMinutes": 43,
    "walkUpperMinutes": 43,
@@ -6238,6 +8651,14 @@
    "minutes": 58,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 58,
    "walkMinutes": 214,
    "walkUpperMinutes": 214,
@@ -6327,6 +8748,14 @@
    "minutes": 53,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 53,
    "walkMinutes": 123,
    "walkUpperMinutes": 123,
@@ -6406,6 +8835,14 @@
    "minutes": 56,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 56,
    "walkMinutes": 245,
    "walkUpperMinutes": 245,
@@ -6483,6 +8920,14 @@
    "minutes": 58,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 58,
    "walkMinutes": 291,
    "walkUpperMinutes": 291,
@@ -6577,6 +9022,14 @@
    "minutes": 54,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 54,
    "walkMinutes": 230,
    "walkUpperMinutes": 230,
@@ -6651,6 +9104,14 @@
    "minutes": 43,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 43,
    "walkMinutes": 108,
    "walkUpperMinutes": 108,
@@ -6737,6 +9198,14 @@
    "minutes": 46,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 46,
    "walkMinutes": 157,
    "walkUpperMinutes": 157,
@@ -6809,6 +9278,14 @@
    "minutes": 47,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 47,
    "walkMinutes": 155,
    "walkUpperMinutes": 155,
@@ -6884,6 +9361,14 @@
    "minutes": 31,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 31,
    "walkMinutes": 56,
    "walkUpperMinutes": 56,
@@ -6966,6 +9451,14 @@
    "minutes": 49,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 49,
    "walkMinutes": 128,
    "walkUpperMinutes": 128,
@@ -7042,6 +9535,14 @@
    "minutes": 56,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 56,
    "walkMinutes": 164,
    "walkUpperMinutes": 164,
@@ -7130,6 +9631,14 @@
    "minutes": 32,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 32,
    "walkMinutes": 113,
    "walkUpperMinutes": 113,
@@ -7227,6 +9736,14 @@
    "minutes": 55,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 55,
    "walkMinutes": 134,
    "walkUpperMinutes": 134,
@@ -7302,11 +9819,65 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240615071053",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 7,
+      "max": 13,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 7,
+       "max": 13,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 23,
+       "star": false
+      },
+      "PG1": {
+       "min": 25,
+       "max": 27,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240615071053/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=zhonghua-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "pg3": {
+      "min": 6,
+      "max": 12
+     },
+     "source": "moe-live"
+    },
+    "2025": {
+     "status": "ok",
+     "pg3": {
+      "min": 8,
+      "max": 12
+     },
+     "source": "moe-live"
+    }
+   },
    "margin": -3,
    "minutes": 27,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 27,
    "walkMinutes": 99,
    "walkUpperMinutes": 99,
@@ -7388,6 +9959,14 @@
    "minutes": 44,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 44,
    "walkMinutes": 93,
    "walkUpperMinutes": 93,
@@ -7471,6 +10050,14 @@
    "minutes": 48,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 48,
    "walkMinutes": 130,
    "walkUpperMinutes": 130,
@@ -7556,6 +10143,14 @@
    "minutes": 52,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 52,
    "walkMinutes": 264,
    "walkUpperMinutes": 264,
@@ -7634,6 +10229,14 @@
    "minutes": 22,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 22,
    "walkMinutes": 27,
    "walkUpperMinutes": 27,
@@ -7720,6 +10323,14 @@
    "minutes": 46,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 46,
    "walkMinutes": 210,
    "walkUpperMinutes": 210,
@@ -7798,6 +10409,14 @@
    "minutes": 43,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 43,
    "walkMinutes": 156,
    "walkUpperMinutes": 156,
@@ -7870,6 +10489,14 @@
    "minutes": 42,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 42,
    "walkMinutes": 164,
    "walkUpperMinutes": 164,
@@ -7952,6 +10579,14 @@
    "minutes": 32,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 32,
    "walkMinutes": 90,
    "walkUpperMinutes": 90,
@@ -8025,6 +10660,14 @@
    "minutes": 49,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 49,
    "walkMinutes": 189,
    "walkUpperMinutes": 189,
@@ -8125,6 +10768,14 @@
    "minutes": 33,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 33,
    "walkMinutes": 129,
    "walkUpperMinutes": 129,
@@ -8209,6 +10860,14 @@
    "minutes": 30,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 30,
    "walkMinutes": 124,
    "walkUpperMinutes": 124,
@@ -8296,6 +10955,14 @@
    "minutes": 58,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 58,
    "walkMinutes": 269,
    "walkUpperMinutes": 269,
@@ -8428,6 +11095,14 @@
    "minutes": 40,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 40,
    "walkMinutes": 129,
    "walkUpperMinutes": 129,
@@ -8544,6 +11219,14 @@
    "minutes": 50,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 50,
    "walkMinutes": 119,
    "walkUpperMinutes": 119,
@@ -8633,6 +11316,14 @@
    "minutes": 53,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 53,
    "walkMinutes": 255,
    "walkUpperMinutes": 255,
@@ -8719,6 +11410,14 @@
    "minutes": 44,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 44,
    "walkMinutes": 194,
    "walkUpperMinutes": 194,
@@ -8814,6 +11513,14 @@
    "minutes": 46,
    "commuteBasis": "fastest",
    "commuteMode": "mrt",
+   "busMinutes": null,
+   "busService": null,
+   "busDirection": null,
+   "busStopCode": null,
+   "busStopName": null,
+   "busHops": null,
+   "busRideMinutes": null,
+   "busWalkMinutes": null,
    "mrtMinutes": 46,
    "walkMinutes": 188,
    "walkUpperMinutes": 188,
@@ -8908,6 +11615,9 @@
   "poolMixed": 54,
   "poolSingleSex": 3,
   "outOfReach": 37,
+  "subjectInterests": [],
+  "subjectRarityMax": null,
+  "subjectFitInPool": [],
   "walkDataUsed": true,
   "commuteMode": "fastest",
   "walkFasterTotal": 5,
@@ -8916,6 +11626,15 @@
   "walkCutCount": 0,
   "walkCutNames": [],
   "walkCutDetail": [],
+  "busUsed": false,
+  "busReachableTotal": null,
+  "busReachableInPool": null,
+  "busInPool": null,
+  "walkInPool": null,
+  "busBoardingStop": null,
+  "busParams": null,
+  "busCutCount": null,
+  "busCutDetail": [],
   "nearbyUsed": true,
   "nearbyCount": 17,
   "nearbyReachable": 12,

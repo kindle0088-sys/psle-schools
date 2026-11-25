@@ -60,7 +60,7 @@ const FULL_MARK = STU.commuteFullMarkMin;
 
 /* 评分权重：学生可覆盖，默认值保持不变。
    之前 30/25/15/15/15 硬编码在算式里，配置里写什么都不影响 —— 
-   而 _recommend.json 还输出了一份 weights，看起来像是可配的。 */
+   而 _recommend 产物还输出了一份 weights，看起来像是可配的。 */
 const DEFAULT_WEIGHTS = { safety: .30, commute: .25, academic: .15, cca: .15, feature: .15 };
 const W = (() => {
   const raw = STU.weights || {};
@@ -671,8 +671,8 @@ function gate(sc) {
     origin, pool, singleSex, outOfReach, stats,
     weights: W,
   }, null, 1);
-  // 按学生分文件，多学生共存互不覆盖；同时写一份 _recommend.json 指向当前学生
+  // 只写学生专属文件。旧版另写全局 _recommend.json 当兜底，结果漏跑
+  // score 的新学生会拿别人的数据出报告、验证器还全绿（2026-11-25 复盘）。
   fs.writeFileSync(path.join(BASE, `data/_recommend-${STU.id}.json`), payload);
-  fs.writeFileSync(path.join(BASE, 'data/_recommend.json'), payload);
-  console.log(`\n▸ 已存 data/_recommend-${STU.id}.json（并同步 data/_recommend.json）`);
+  console.log(`\n▸ 已存 data/_recommend-${STU.id}.json`);
 })();

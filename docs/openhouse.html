@@ -242,7 +242,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="wrap">
     <a class="backlink" href="index.html">← 返回学校看板</a>
     <div class="eyebrow">PSLE 2026 · 2027 年 1 月入学</div>
-    <h1>13 所深度报告学校的开放日<small>共 14 场活动 · 按 2026-11-24 计算，还剩 4 场没结束</small></h1>
+    <h1>13 所深度报告学校的开放日<small>共 14 场活动 · 状态按打开当天实时计算（SGT）</small></h1>
     <div class="sub">
       这一页只回答三件事：<b>哪天有空</b>、<b>去了能看什么</b>、<b>哪几条信息互相矛盾</b>。
       日期时间来自 MOE 官方汇总，活动内容只有在学校自己讲清楚时才写，没公布的一律标「未公布」——不替学校编节目单。
@@ -250,8 +250,8 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
     <div class="profile">
       <div><div class="k">收录学校</div><div class="v">13 所</div></div>
       <div><div class="k">活动场次</div><div class="v">14 场</div></div>
-      <div><div class="k">还能去</div><div class="v">4 场</div></div>
-      <div><div class="k">已结束</div><div class="v">10 场</div></div>
+      <div><div class="k">还能去</div><div class="v" id="ohUpcoming">—</div></div>
+      <div><div class="k">已结束</div><div class="v" id="ohPast">—</div></div>
       <div><div class="k">有活动细节</div><div class="v">6/14</div></div>
     </div>
   </div>
@@ -271,16 +271,16 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 
 <div class="note" style="margin-top:20px">
 <b>先说三个容易搞错的地方。</b>
-① <b>今天是 2026-11-24</b>，13 所里有 10 场已在 11-14 办完 —— 这一批邻里学校习惯在 PSLE 出分前两周的周六集中办；
+① <b>今天是 <span id="ohToday">—</span></b>（新加坡时间），13 所里有一批在 11-14 集中办完 —— 邻里学校习惯在 PSLE 出分前两周的周六办；后续场次状态按打开当天实时更新；
 ② <b>开放日不是录取环节</b>，去不去不影响 S1 分配，也不会让 COP 变低；
 ③ <b>「官方未公布活动」不等于没安排</b>，只是没人写出来，这种时候打电话问比到现场碰运气靠谱。
 </div>
 
 <section>
 <h2 id="s1"><span class="n">01</span>一眼看完：14 场按时间排</h2>
-<p class="lead">同一所学校的多场活动分行列出。状态按 2026-11-24 计算 —— 重新构建本页就会跟着变，不是写死的。</p>
+<p class="lead">同一所学校的多场活动分行列出。状态按<b>打开页面的当天</b>实时计算（新加坡时间），不需要重新构建本页。</p>
 <div style="overflow-x:auto">
-<table>
+<table id="oh-overview">
 <thead><tr>
   <th style="width:20%">学校</th>
   <th class="mid" style="width:11%">2025 PG3<br><span class="soft">非附属</span></th>
@@ -295,7 +295,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">08:00–13:00</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">未说明</td>
-  <td class="mid"><span class="st st-past">已结束</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-14">—</span></td>
 </tr>
 <tr>
   <td><b>Seng Kang</b></td>
@@ -304,7 +304,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">08:00–12:00</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">未说明</td>
-  <td class="mid"><span class="st st-past">已结束</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-14">—</span></td>
 </tr>
 <tr>
   <td><b>Greendale</b></td>
@@ -313,7 +313,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">09:00–13:00</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">无需报名</td>
-  <td class="mid"><span class="st st-past">已结束</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-14">—</span></td>
 </tr>
 <tr>
   <td><b>Outram</b></td>
@@ -322,7 +322,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">14:30–16:30</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">未说明</td>
-  <td class="mid"><span class="st st-past">已结束</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-14">—</span></td>
 </tr>
 <tr>
   <td><b>Punggol</b></td>
@@ -331,7 +331,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">时间未公布</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">未说明</td>
-  <td class="mid"><span class="st st-past">已结束</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-14">—</span></td>
 </tr>
 <tr>
   <td><b>Montfort</b></td>
@@ -340,7 +340,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">时间未公布</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">需报名</td>
-  <td class="mid"><span class="st st-past">已结束</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-18">—</span></td>
 </tr>
 <tr>
   <td><b>Yusof Ishak</b></td>
@@ -349,7 +349,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">08:00–12:30</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">需报名</td>
-  <td class="mid"><span class="st st-past">已结束</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-21">—</span></td>
 </tr>
 <tr>
   <td><b>Bendemeer</b></td>
@@ -358,7 +358,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">08:30–13:00</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">无需报名</td>
-  <td class="mid"><span class="st st-past">已结束</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-21">—</span></td>
 </tr>
 <tr>
   <td><b>Edgefield</b></td>
@@ -367,7 +367,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">09:00–13:00</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">未说明</td>
-  <td class="mid"><span class="st st-past">已结束</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-21">—</span></td>
 </tr>
 <tr>
   <td><b>Compassvale</b></td>
@@ -376,7 +376,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">10:00–14:30</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">无需报名</td>
-  <td class="mid"><span class="st st-past">已结束</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-21">—</span></td>
 </tr>
 <tr>
   <td><b>Bendemeer</b></td>
@@ -385,7 +385,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">18:00–19:00</td>
   <td class="mid">线上</td>
   <td class="mid soft" style="font-size:12.2px">报名 11-23 开放</td>
-  <td class="mid"><span class="st st-upcoming">还有 2 天</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-26">—</span></td>
 </tr>
 <tr>
   <td><b>Bendemeer</b></td>
@@ -394,7 +394,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">09:00–11:00</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">未说明</td>
-  <td class="mid"><span class="st st-upcoming">还有 4 天</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-28">—</span></td>
 </tr>
 <tr>
   <td><b>Hougang</b></td>
@@ -403,7 +403,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">09:00–12:30</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">未说明</td>
-  <td class="mid"><span class="st st-upcoming">还有 4 天</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-28">—</span></td>
 </tr>
 <tr>
   <td><b>Serangoon</b></td>
@@ -412,7 +412,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <td class="num mid">09:00–12:00</td>
   <td class="mid">实体</td>
   <td class="mid soft" style="font-size:12.2px">未说明</td>
-  <td class="mid"><span class="st st-upcoming">还有 4 天</span></td>
+  <td class="mid"><span class="st" data-evdate="2026-11-28">—</span></td>
 </tr>
 </tbody>
 </table>
@@ -436,7 +436,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 14 日 · 周六</span>
-          <span class="st st-past">已结束</span>
+          <span class="st" data-evdate="2026-11-14">—</span>
           <span class="ev-time">08:00–13:00</span>
           <span class="badge">实体</span>
           <span class="badge">未说明</span>
@@ -460,7 +460,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 14 日 · 周六</span>
-          <span class="st st-past">已结束</span>
+          <span class="st" data-evdate="2026-11-14">—</span>
           <span class="ev-time">08:00–12:00</span>
           <span class="badge">实体</span>
           <span class="badge">未说明</span>
@@ -484,7 +484,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 14 日 · 周六</span>
-          <span class="st st-past">已结束</span>
+          <span class="st" data-evdate="2026-11-14">—</span>
           <span class="ev-time">09:00–13:00</span>
           <span class="badge">实体</span>
           <span class="badge">无需报名</span>
@@ -508,7 +508,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 14 日 · 周六</span>
-          <span class="st st-past">已结束</span>
+          <span class="st" data-evdate="2026-11-14">—</span>
           <span class="ev-time">14:30–16:30</span>
           <span class="badge">实体</span>
           <span class="badge">未说明</span>
@@ -532,7 +532,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 14 日 · 周六</span>
-          <span class="st st-past">已结束</span>
+          <span class="st" data-evdate="2026-11-14">—</span>
           <span class="ev-time">时间未公布</span>
           <span class="badge">实体</span>
           <span class="badge">未说明</span>
@@ -556,7 +556,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 18 日–11 月 20 日 · 周三</span>
-          <span class="st st-past">已结束</span>
+          <span class="st" data-evdate="2026-11-18">—</span>
           <span class="ev-time">时间未公布</span>
           <span class="badge">实体</span>
           <span class="badge badge-risk">需报名</span>
@@ -580,7 +580,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 21 日 · 周六</span>
-          <span class="st st-past">已结束</span>
+          <span class="st" data-evdate="2026-11-21">—</span>
           <span class="ev-time">08:00–12:30</span>
           <span class="badge">实体</span>
           <span class="badge badge-risk">需报名</span>
@@ -604,7 +604,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 21 日 · 周六</span>
-          <span class="st st-past">已结束</span>
+          <span class="st" data-evdate="2026-11-21">—</span>
           <span class="ev-time">08:30–13:00</span>
           <span class="badge">实体</span>
           <span class="badge">无需报名</span>
@@ -617,7 +617,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 26 日 · 周四</span>
-          <span class="st st-upcoming">还有 2 天</span>
+          <span class="st" data-evdate="2026-11-26">—</span>
           <span class="ev-time">18:00–19:00</span>
           <span class="badge">线上</span>
           <span class="badge badge-risk">报名 11-23 开放</span>
@@ -630,7 +630,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 28 日 · 周六</span>
-          <span class="st st-upcoming">还有 4 天</span>
+          <span class="st" data-evdate="2026-11-28">—</span>
           <span class="ev-time">09:00–11:00</span>
           <span class="badge">实体</span>
           <span class="badge">未说明</span>
@@ -654,7 +654,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 21 日 · 周六</span>
-          <span class="st st-past">已结束</span>
+          <span class="st" data-evdate="2026-11-21">—</span>
           <span class="ev-time">09:00–13:00</span>
           <span class="badge">实体</span>
           <span class="badge">未说明</span>
@@ -678,7 +678,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 21 日 · 周六</span>
-          <span class="st st-past">已结束</span>
+          <span class="st" data-evdate="2026-11-21">—</span>
           <span class="ev-time">10:00–14:30</span>
           <span class="badge">实体</span>
           <span class="badge">无需报名</span>
@@ -702,7 +702,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 28 日 · 周六</span>
-          <span class="st st-upcoming">还有 4 天</span>
+          <span class="st" data-evdate="2026-11-28">—</span>
           <span class="ev-time">09:00–12:30</span>
           <span class="badge">实体</span>
           <span class="badge">未说明</span>
@@ -726,7 +726,7 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
   <div class="ev">
         <div class="ev-hd">
           <span class="ev-date">11 月 28 日 · 周六</span>
-          <span class="st st-upcoming">还有 4 天</span>
+          <span class="st" data-evdate="2026-11-28">—</span>
           <span class="ev-time">09:00–12:00</span>
           <span class="badge">实体</span>
           <span class="badge">未说明</span>
@@ -804,15 +804,52 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 
 <section>
 <h2 id="s4"><span class="n">04</span>方案 A 的 6 所，还赶得上吗</h2>
-<p class="lead">志愿报告里排的 6 个位置，逐所对照开放日状态。按 2026-11-24 算。</p>
-<table>
+<p class="lead">志愿报告里排的 6 个位置，逐所对照开放日状态，按打开当天实时计算。一所学校有多场时先显示最近一场未结束的；若全结束，留最后一场作参考。</p>
+<table id="oh-plan">
 <thead><tr><th style="width:34%">志愿校</th><th class="mid">日期</th><th class="mid">时间</th><th class="mid">状态</th></tr></thead>
 <tbody>
-<tr><td>Greendale</td><td class="num mid">11 月 14 日 · 周六</td><td class="num mid">09:00–13:00</td><td class="mid"><span class="st st-past">已结束</span></td></tr>
-<tr><td>Compassvale</td><td class="num mid">11 月 21 日 · 周六</td><td class="num mid">10:00–14:30</td><td class="mid"><span class="st st-past">已结束</span></td></tr>
-<tr><td>Seng Kang</td><td class="num mid">11 月 14 日 · 周六</td><td class="num mid">08:00–12:00</td><td class="mid"><span class="st st-past">已结束</span></td></tr>
-<tr><td>North Vista</td><td class="num mid">11 月 14 日 · 周六</td><td class="num mid">08:00–13:00</td><td class="mid"><span class="st st-past">已结束</span></td></tr>
-<tr><td><b>Bendemeer</b></td><td class="num mid">11 月 26 日 · 周四</td><td class="num mid">18:00–19:00</td><td class="mid"><span class="st st-upcoming">还有 2 天</span></td></tr>
+<tr data-plan-school="greendale-secondary-school">
+  <td><b>Greendale</b></td>
+  <td class="num mid">11 月 14 日 · 周六</td>
+  <td class="num mid">09:00–13:00</td>
+  <td class="mid"><span class="st" data-evdate="2026-11-14">—</span></td>
+</tr>
+<tr data-plan-school="compassvale-secondary-school">
+  <td><b>Compassvale</b></td>
+  <td class="num mid">11 月 21 日 · 周六</td>
+  <td class="num mid">10:00–14:30</td>
+  <td class="mid"><span class="st" data-evdate="2026-11-21">—</span></td>
+</tr>
+<tr data-plan-school="seng-kang-secondary-school">
+  <td><b>Seng Kang</b></td>
+  <td class="num mid">11 月 14 日 · 周六</td>
+  <td class="num mid">08:00–12:00</td>
+  <td class="mid"><span class="st" data-evdate="2026-11-14">—</span></td>
+</tr>
+<tr data-plan-school="north-vista-secondary-school">
+  <td><b>North Vista</b></td>
+  <td class="num mid">11 月 14 日 · 周六</td>
+  <td class="num mid">08:00–13:00</td>
+  <td class="mid"><span class="st" data-evdate="2026-11-14">—</span></td>
+</tr>
+<tr data-plan-school="bendemeer-secondary-school">
+  <td><b>Bendemeer</b></td>
+  <td class="num mid">11 月 21 日 · 周六</td>
+  <td class="num mid">08:30–13:00</td>
+  <td class="mid"><span class="st" data-evdate="2026-11-21">—</span></td>
+</tr>
+<tr data-plan-school="bendemeer-secondary-school">
+  <td><b>Bendemeer</b></td>
+  <td class="num mid">11 月 26 日 · 周四</td>
+  <td class="num mid">18:00–19:00</td>
+  <td class="mid"><span class="st" data-evdate="2026-11-26">—</span></td>
+</tr>
+<tr data-plan-school="bendemeer-secondary-school">
+  <td><b>Bendemeer</b></td>
+  <td class="num mid">11 月 28 日 · 周六</td>
+  <td class="num mid">09:00–11:00</td>
+  <td class="mid"><span class="st" data-evdate="2026-11-28">—</span></td>
+</tr>
 <tr><td class="soft">Bartley</td><td class="num mid soft">—</td><td class="num mid soft">—</td><td class="mid soft">无记录</td></tr>
 </tbody>
 </table>
@@ -856,15 +893,53 @@ dl.detail dd{margin:3px 0 0;color:var(--tx2)}
 <b>四条边界，说清楚免得误用：</b><br>
 ① 开放日不是录取环节：去不去不影响 S1 分配，也不会改变 COP。它的作用是让你判断「这所学校适不适合」，以及提前排掉通勤与氛围上的误判。<br>② 时间与活动都可能临时调整。MOE 列表自身标注「准确截至 2026-11-06」，学校网站才是最终口径。<br>③ 「官方未公布具体活动」不等于没有安排 —— 多数学校现场就是校园参观 + 科目/CCA 摊位 + 校长讲座，但这句话是我的经验判断，不是学校说的，所以页面上不写成事实。<br>④ 已结束的场次仍然保留在表里：一是对照（谁家办得早、办得久），二是明年这套时间规律大概率重复（多数学校固定在 PSLE 出分前两周的周六）。
 </div>
-<p class="soft" style="font-size:12.4px">本页生成于 2026/11/24 22:55:34 SGT；状态按 2026-11-24 计算，数据更新于 2026-11-15。</p>
+<p class="soft" style="font-size:12.4px">本页数据更新于 2026-11-15；开放日状态按打开当天实时计算（SGT），不依赖页面生成时间。</p>
 </section>
 
 <div class="foot">
-<b>关联页面</b>　<a href="index.html">学校看板</a> ｜ <a href="map.html">通勤地图</a> ｜ <a href="guide.html">填报手册</a> ｜ <a href="cohort.html">考生数据</a> ｜ <a href="plans.html">志愿方案</a><br>
+<b>数据快照</b>　学校主数据（147 所 / COP 2025 年度）更新于 2026-11-25 SGT。<br>
+<b>关联页面</b>　<a href="index.html">学校看板</a> ｜ <a href="map.html">通勤地图</a> ｜ <a href="guide.html">填报手册</a> ｜ <a href="full-sbb.html">Full SBB</a> ｜ <a href="openhouse.html" class="on">开放日</a> ｜ <a href="cohort.html">考生数据</a> ｜ <a href="plans.html">志愿方案</a><br>
 <b>口径</b>　日期时间以 MOE Schoolbag 官方汇总为准；活动内容仅在来源明确时列出；地址电话取自 MOE SchoolFinder。<br>
 <b>免责</b>　开放日时间可能临时调整，出发前请以学校官网或电话确认为准。个人研究工具输出，非 MOE 官方建议。
 </div>
 
 </div>
+
+<script>
+/* 状态实时化：构建时只写入 data-evdate，这里按浏览器当天（SGT）重算。
+   放在 body 末尾同步执行，用户不会先看到占位符再跳变。 */
+(function(){
+  function sgtISO(){
+    var d=new Date(Date.now()+8*3600*1000);
+    return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+  }
+  function dn(iso){return Date.UTC(+iso.slice(0,4),+iso.slice(5,7)-1,+iso.slice(8,10))/86400000;}
+  function setTxt(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+  var T=dn(sgtISO());
+  setTxt('ohToday',sgtISO());
+  var sts=[].slice.call(document.querySelectorAll('.st[data-evdate]'));
+  sts.forEach(function(el){
+    var diff=dn(el.getAttribute('data-evdate'))-T;
+    var key=diff<0?'past':(diff===0?'today':'upcoming');
+    el.className='st st-'+key;
+    el.textContent=diff<0?'已结束':(diff===0?'就是今天':'还有 '+diff+' 天');
+  });
+  var overview=document.querySelector('#oh-overview tbody');
+  var cells=overview?[].slice.call(overview.querySelectorAll('.st[data-evdate]')):[];
+  var up=cells.filter(function(e){return !e.classList.contains('st-past');}).length;
+  setTxt('ohUpcoming',up+' 场');
+  setTxt('ohPast',(cells.length-up)+' 场');
+  var groups={};
+  [].slice.call(document.querySelectorAll('#oh-plan tbody tr[data-plan-school]')).forEach(function(r){
+    var k=r.getAttribute('data-plan-school');
+    (groups[k]=groups[k]||[]).push(r);
+  });
+  Object.keys(groups).forEach(function(k){
+    var g=groups[k];
+    var pick=g.filter(function(r){var s=r.querySelector('.st[data-evdate]');return s&&!s.classList.contains('st-past');})[0]||g[g.length-1];
+    g.forEach(function(r){r.style.display=(r===pick?'':'none');});
+  });
+})();
+</script>
 </body>
 </html>

@@ -17,6 +17,8 @@
  */
 const fs = require('fs');
 const path = require('path');
+const Nav = require('../lib/nav.cjs');
+const Snapshot = require('../lib/snapshot.cjs');
 
 const BASE = path.join(__dirname, '..');
 const P = (...a) => path.join(BASE, ...a);
@@ -42,6 +44,10 @@ if (!fs.existsSync(recFile)) {
   process.exit(1);
 }
 const R = JSON.parse(fs.readFileSync(recFile, 'utf8'));
+if (R.student?.id !== STU.id) {
+  console.error(`✗ ${recFile} 属于学生 ${R.student?.id || '未知'}，与当前 ${STU.id} 不符`);
+  process.exit(1);
+}
 const SC = JSON.parse(fs.readFileSync(P('docs/data/schools.json'), 'utf8'));
 
 /* MOE 的 * 标记：某档在 S1 posting 结束后仍有学额（官方脚注）。
@@ -921,6 +927,7 @@ const html = `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <meta name="generator" content="psle-plan-report/v1">
+<meta name="student" content="${STU.id}">
 <title>PSLE 2026 志愿规划 · AL ${S.score} 分 · 6 个志愿方案</title>
 <style>
 ${PLAN_CSS}
@@ -982,13 +989,14 @@ ${STEP5}
 ${STEP6}
 
 <div class="foot">
+${Snapshot.line()}<br>
 <b>生成信息</b>　本报告由 <code>scripts/build-report-plan.cjs</code> 基于学生画像 <code>data/students/${esc(STU.id)}.json</code> 生成，
 数据采集 2026-11，生成于 ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Singapore' })} SGT。<br>
 <b>口径</b>　COP = ${SC.meta.copYear} 年度 S1 Posting 实际录取区间 · 学生 AL ${S.score} / ${S.pgShort} / 邮编 ${esc(S.postal)} / ${WALK_ONLY ? '步行上限' : '通勤上限'} ${S.maxCommute} 分钟（${COMMUTE_SHORT}）·
 步行 = OSM 步行路网 · ${BUS_ONLY ? `公交 = Buslah 线路站序 + 候车/站间时间模型（起点 65431，不换乘）· 地铁 = 自建 MRT 模型（仅参考，不参与判定）` : `地铁 = 自建 MRT 模型${WALK_ONLY ? '（仅参考，不参与判定）' : ''}`}。<br>
 <b>免责</b>　个人研究工具输出，非 MOE 官方建议。COP 每年浮动，录取结果受志愿策略、同届竞争与 tie-breaker 影响，本报告不构成录取保证。
 开放日实地确认永远优先于任何二手资料。<br><br>
-<a href="../index.html">← 学校看板</a> ｜ <a href="../map.html">通勤地图</a>
+<a href="../index.html">← 学校看板</a>　｜　${Nav.foot(null, '../')}
 </div>
 
 </div>

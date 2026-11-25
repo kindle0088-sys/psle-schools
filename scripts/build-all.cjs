@@ -177,6 +177,8 @@ if (stale.length) {
 if (VERIFY) {
   const offline = [
     ['主题与色板', 'verify-theme.cjs'],
+    ['全站导航', 'verify-nav.cjs'],
+    ['数据快照声明', 'verify-snapshot.cjs'],
     ['CCA 清单', 'verify-cca-catalog.cjs'],
     ['多学生配置', 'verify-students.cjs'],
     ['考生人数页', 'verify-cohort-page.cjs'],
@@ -190,6 +192,10 @@ if (VERIFY) {
   for (const s of STUDENTS) {
     if ((REPORT_GEN[s.id] || DEFAULT_REPORT_GEN) === 'build-report-v2.cjs') offline.push([`报告 ${s.id}`, 'verify-report-v2.cjs']);
     else if (s.planSlug) offline.push([`报告 ${s.id}`, 'verify-plan-report.cjs', `docs/reports/${s.planSlug}.html`, '--student', s.id]);
+  }
+  /* 反向校验报告有专属验证器（家长六志愿逐校核对），此前漏跑。 */
+  if (fs.existsSync(P('data/research/abcd2-reverse.json'))) {
+    offline.push(['反向校验报告', 'verify-abcd2-reverse.cjs']);
   }
   offline.push(['单校报告 ×' + schoolReports.length, 'verify-all-school-reports.cjs']);
 

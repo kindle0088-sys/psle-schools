@@ -18,6 +18,8 @@
  */
 const fs = require('fs');
 const path = require('path');
+const Nav = require('../lib/nav.cjs');
+const Snapshot = require('../lib/snapshot.cjs');
 const Iso = require('../lib/iso.cjs');
 const Subjects = require('../lib/subjects.cjs');
 
@@ -28,29 +30,32 @@ const P = (...a) => path.join(BASE, ...a);
 const CSS = fs.readFileSync(P('scripts/tpl/tokens.css'), 'utf8') + fs.readFileSync(P('scripts/tpl/school.css'), 'utf8');
 const SCHOOLS = JSON.parse(fs.readFileSync(P('docs/data/schools.json'), 'utf8')).schools;
 const NET = JSON.parse(fs.readFileSync(P('data/network.json'), 'utf8'));
-// 学生画像统一从配置读，不再依赖 analyze-student 的中间产物
-const STU = require('../lib/student.cjs').load();
-
-const SCORE = STU.al;
-const ORIGIN = STU.home.coords;
-if (!ORIGIN) {
-  console.error(`\n✗ data/students/${STU.id}.json 缺少 home.lat/lon。\n` +
-    '  单校报告的通勤时间按学生家出发计算，必须有坐标。\n' +
-    '  填上坐标，或先跑 scripts/analyze-student.cjs 让 OneMap 地理编码一次。\n');
-  process.exit(1);
-}
-
-const graph = Iso.buildGraph(NET);
-const stationMin = Iso.solveFrom(graph, ORIGIN).stationMin;
-const commutes = Iso.timeToSchools(graph, stationMin, SCHOOLS);
-const COMMUTE = Object.fromEntries(commutes.map(c => [c.school.slug, c]));
-
+/* 学生画像按 profile 的 student 字段逐份加载；未指定的沿用默认 abc1。
+   2026-11-25 复盘：39 份校报的叙述段按 abc4（AL15）写，动态卡片却一律
+   按 abc1（AL17）算，余量差 2 分 —— 根因就是这里原来只 load 一次。 */
+const Student = require('../lib/student.cjs');
 /* 步行路网数据（scripts/walk-dist.cjs 产出）。缺失时降级为地铁单源。 */
 const Walk = require('../lib/walk.cjs');
-const WALK = Walk.load(STU.id);
-if (!WALK) {
-  console.warn('\n⚠️ 未找到 data/walk-' + STU.id + '.json，报告只显示地铁通勤。' +
-    '\n   需要步行数据请先跑：node scripts/walk-dist.cjs\n');
+const graph = Iso.buildGraph(NET);
+const CTX = new Map();
+
+function contextFor(id) {
+  if (CTX.has(id)) return CTX.get(id);
+  const stu = Student.load(id);
+  const origin = stu.home.coords;
+  if (!origin) {
+    console.error(`\n✗ data/students/${id}.json 缺少 home.lat/lon。\n` +
+      '  单校报告的通勤时间按学生家出发计算，必须有坐标。\n');
+    process.exit(1);
+  }
+  const stationMin = Iso.solveFrom(graph, origin).stationMin;
+  const commutes = Iso.timeToSchools(graph, stationMin, SCHOOLS);
+  const commute = Object.fromEntries(commutes.map(c => [c.school.slug, c]));
+  const walk = Walk.load(id);
+  if (!walk) console.warn(`\n⚠️ 未找到 data/walk-${id}.json，${id} 的校报只显示地铁通勤。`);
+  const ctx = { STU: stu, SCORE: stu.al, ORIGIN: origin, COMMUTE: commute, WALK: walk };
+  CTX.set(id, ctx);
+  return ctx;
 }
 
 const esc = s => String(s == null ? '' : s)
@@ -76,7 +81,8 @@ function fmtRange(v) {
 }
 
 // ── 渲染 ────────────────────────────────────────────────────────
-function render(pf) {
+function render(pf, ctx) {
+  const { STU, SCORE, COMMUTE, WALK } = ctx;
   const sc = SCHOOLS.find(s => s.slug === pf.slug);
   if (!sc) throw new Error(`schools.json 里找不到 ${pf.slug}`);
   const pg = pf.pg || 3;
@@ -282,8 +288,10 @@ ${corrections}
 </section>
 
 <div class="foot">
+${Snapshot.line()}<br>
 <b>报告生成：</b>${pf.generatedAt || new Date().toISOString().slice(0, 10)}　·　数据口径：COP 为 ${sc.cop?.year || 2025} 年度 S1 Posting 结果，AL ${SCORE} 属 PG${pg}，只与同档学生竞争<br>
 <b>通勤模型：</b>步行 = 自 ${STU.home.postal} 出发的 <b>OSM 步行路网最短路径</b>（${WALK ? WALK.walkMetersPerMin : 80}m/min，OSRM foot profile；Valhalla pedestrian 交叉校验，两引擎分歧 &gt;1.4× 标「争议」并显示区间）；地铁 = MRT 站间 ${NET.params.rideMinPerStop} 分钟、换乘 ${NET.params.transferMin} 分钟、进站等车 ${NET.params.accessOverheadMin} 分钟 + 站到校步行；<b>两者取最快者用于通勤评分</b>。不含巴士接驳，故步行路网不通、必须坐车的学校实际更慢<br>
+<b>相关页面：</b>${Nav.foot(null, '../')}<br>
 <b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
 </div>
 
@@ -314,11 +322,12 @@ for (const f of files) {
   try {
     const pf = JSON.parse(fs.readFileSync(path.join(PROFILE_DIR, f), 'utf8'));
     if (!pf.slug) pf.slug = slug;
-    const html = render(pf);
+    const ctx = contextFor(pf.student || 'abc1');
+    const html = render(pf, ctx);
     const out = P('docs/reports', `school-${slug}.html`);
     fs.writeFileSync(out, html);
-    const cm = COMMUTE[slug] || {};
-    const cmx = Walk.merge(WALK ? WALK.bySlug.get(slug) : null, cm.minutes);
+    const cm = ctx.COMMUTE[slug] || {};
+    const cmx = Walk.merge(ctx.WALK ? ctx.WALK.bySlug.get(slug) : null, cm.minutes);
     const g = pgRow(SCHOOLS.find(s => s.slug === slug) || {}, pf.pg || 3);
     const label = !cmx ? '—'
       : `${cmx.minutes ?? '—'}min(${cmx.best === 'walk' ? '步行' : '地铁'}${cmx.walkDisputed ? '·争议' : ''})`;

@@ -3,7 +3,7 @@
  * 开放日汇总页（docs/openhouse.html）
  *
  * 定位：把 13 所深度报告学校的 2026 年开放日集中到一页，解决三个具体问题：
- *   ① 哪天有空、来得及去哪些（状态按构建当天算，不是写死的「已结束」）
+ *   ① 哪天有空、来得及去哪些（状态由浏览器按打开当天 SGT 实时算，不写死在构建时）
  *   ② 每场到底有什么活动（有官方说明就列，没有就明写「未公布」，不编）
  *   ③ 信息互相矛盾的地方在哪（MOE 列表 vs 第三方日历 vs 学校公告）
  *
@@ -13,6 +13,8 @@
  */
 const fs = require('fs');
 const path = require('path');
+const Nav = require('../lib/nav.cjs');
+const Snapshot = require('../lib/snapshot.cjs');
 
 const BASE = path.join(__dirname, '..');
 const P = (...a) => path.join(BASE, ...a);
@@ -30,7 +32,6 @@ const sgtNow = () => {
   const d = new Date(Date.now() + 8 * 3600 * 1000);
   return { y: d.getUTCFullYear(), m: d.getUTCMonth() + 1, d: d.getUTCDate() };
 };
-const TODAY = (() => { const t = sgtNow(); return `${t.y}-${String(t.m).padStart(2, '0')}-${String(t.d).padStart(2, '0')}`; })();
 const dayNum = iso => Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) / 86400000;
 const WD = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 const weekday = iso => WD[new Date(iso + 'T00:00:00Z').getUTCDay()];
@@ -53,13 +54,8 @@ const copText = slug => {
 /** 13 所里只有 Montfort 有附属区间，值得在表下点一句 */
 const withAff = Object.keys(OH.schools).filter(k => (cop3(k) || {}).aff);
 
-/** 相对状态：已结束 / 就是今天 / 还有 N 天 */
-const statusOf = ev => {
-  const d = dayNum(ev.date), t = dayNum(TODAY);
-  if (d < t) return { key: 'past', label: '已结束', days: d - t };
-  if (d === t) return { key: 'today', label: '就是今天', days: 0 };
-  return { key: 'upcoming', label: `还有 ${d - t} 天`, days: d - t };
-};
+/** 状态标签只带事件日期，文字由浏览器端脚本按当天算。
+    占位符「—」只在 JS 未执行时出现 —— 宁可显示未知，也不给一个会过期的数字。 */
 const timeOf = ev => (ev.start && ev.end ? `${ev.start}–${ev.end}` : ev.start ? `${ev.start} 起` : '时间未公布');
 const modeOf = m => ({ physical: '实体', virtual: '线上', hybrid: '实体 + 线上' }[m] || m);
 const regOf = r => ({
@@ -77,7 +73,6 @@ for (const [slug, v] of Object.entries(OH.schools)) {
   for (const ev of v.events || []) {
     rows.push({
       slug, name: s.name, short: short(s.name), school: v, ev,
-      status: statusOf(ev),
       contact: s.contact || {},
       addr: s.address || '',
     });
@@ -85,8 +80,6 @@ for (const [slug, v] of Object.entries(OH.schools)) {
 }
 rows.sort((a, b) => dayNum(a.ev.date) - dayNum(b.ev.date) || String(a.ev.start).localeCompare(String(b.ev.start)));
 
-const upcoming = rows.filter(r => r.status.key !== 'past');
-const past = rows.filter(r => r.status.key === 'past');
 const eOnly = Object.entries(OH.schools).filter(([, v]) => v.status === 'e-only').map(([k]) => k);
 const noInfo = Object.entries(OH.schools).filter(([, v]) => !(v.events || []).length && v.status !== 'e-only').map(([k]) => k);
 const noActivities = rows.filter(r => !(r.ev.activities || []).length);
@@ -97,14 +90,11 @@ const noActivities = rows.filter(r => !(r.ev.activities || []).length);
 const BARTLEY_PHONE = (SC.find(x => x.slug === 'bartley-secondary-school') || {}).contact?.phone || null;
 
 const PLAN_A_NAMES = ['Greendale Secondary School', 'Compassvale Secondary School', 'Seng Kang Secondary School', 'North Vista Secondary School', 'Bendemeer Secondary School', 'Bartley Secondary School'];
-const planAUpcoming = PLAN_A_NAMES.map(n => {
-  const up = rows.find(x => x.name === n && x.status.key !== 'past');
-  const pa = rows.filter(x => x.name === n && x.status.key === 'past').pop();   // 取最近一场已结束的
-  return { name: n, hit: up || null, past: pa || null, any: rows.some(x => x.name === n) };
-});
+/* 方案 A 涉及的学校全部场次都渲染，由浏览器端按当天挑第一场未结束的；
+   若全结束则留最后一场（日期最新）作参考。构建时挑会让页面过了当天就选错行。 */
 
 /* ── 渲染 ─────────────────────────────────────────────────── */
-const statusTag = st => `<span class="st st-${st.key}">${st.label}</span>`;
+const statusTag = ev => `<span class="st" data-evdate="${ev.date}">—</span>`;
 
 const overviewRows = rows.map(r => `<tr>
   <td><b>${esc(r.short)}</b></td>
@@ -113,7 +103,7 @@ const overviewRows = rows.map(r => `<tr>
   <td class="num mid">${esc(timeOf(r.ev))}</td>
   <td class="mid">${esc(modeOf(r.ev.mode))}</td>
   <td class="mid soft" style="font-size:12.2px">${esc(regOf(r.ev.registration))}</td>
-  <td class="mid">${statusTag(r.status)}</td>
+  <td class="mid">${statusTag(r.ev)}</td>
 </tr>`).join('\n');
 
 const card = (slug) => {
@@ -132,7 +122,7 @@ const card = (slug) => {
       return `<div class="ev">
         <div class="ev-hd">
           <span class="ev-date">${md(ev.date)}${ev.endDate ? '–' + md(ev.endDate) : ''} · ${weekday(ev.date)}</span>
-          ${statusTag(r.status)}
+          ${statusTag(ev)}
           <span class="ev-time">${esc(timeOf(ev))}</span>
           <span class="badge">${esc(modeOf(ev.mode))}</span>
           <span class="badge${ev.registration === 'required' || String(ev.registration).startsWith('opens') ? ' badge-risk' : ''}">${esc(regOf(ev.registration))}</span>
@@ -171,17 +161,17 @@ const conflictRows = rows.filter(isSuspect).map(r => `<tr>
   <td class="soft">${esc(r.ev.note || '时间未公布')}</td>
 </tr>`).join('\n');
 
-const planRows = planAUpcoming.map(x => {
+const planRows = PLAN_A_NAMES.map(n => {
+  const evs = rows.filter(r => r.name === n);
   /* 不在 13 所名单里的也要占满 4 格：跨列会让整张表的列宽跳动，
      而且读者会以为「这行少了信息」。解释放到表下面一句话。 */
-  if (!x.any) return `<tr><td class="soft">${esc(short(x.name))}</td><td class="num mid soft">—</td><td class="num mid soft">—</td><td class="mid soft">无记录</td></tr>`;
-  if (!x.hit) {
-    /* 已结束也要把日期和时间填上：表头写的是「日期 / 时间 / 状态」，
-       把整行压成「已结束 + 一句话」会让读者以为这所学校没有日期信息。 */
-    const r = x.past;
-    return `<tr><td>${esc(short(x.name))}</td><td class="num mid">${md(r.ev.date)} · ${weekday(r.ev.date)}</td><td class="num mid">${esc(timeOf(r.ev))}</td><td class="mid">${statusTag(r.status)}</td></tr>`;
-  }
-  return `<tr><td><b>${esc(short(x.name))}</b></td><td class="num mid">${md(x.hit.ev.date)} · ${weekday(x.hit.ev.date)}</td><td class="num mid">${esc(timeOf(x.hit.ev))}</td><td class="mid">${statusTag(x.hit.status)}</td></tr>`;
+  if (!evs.length) return `<tr><td class="soft">${esc(short(n))}</td><td class="num mid soft">—</td><td class="num mid soft">—</td><td class="mid soft">无记录</td></tr>`;
+  return evs.map(r => `<tr data-plan-school="${esc(r.slug)}">
+  <td><b>${esc(short(n))}</b></td>
+  <td class="num mid">${md(r.ev.date)} · ${weekday(r.ev.date)}</td>
+  <td class="num mid">${esc(timeOf(r.ev))}</td>
+  <td class="mid">${statusTag(r.ev)}</td>
+</tr>`).join('\n');
 }).join('\n');
 
 const html = `<!DOCTYPE html>
@@ -217,7 +207,7 @@ ${CSS}
   <div class="wrap">
     <a class="backlink" href="index.html">← 返回学校看板</a>
     <div class="eyebrow">PSLE 2026 · 2027 年 1 月入学</div>
-    <h1>13 所深度报告学校的开放日<small>共 ${rows.length} 场活动 · 按 ${TODAY} 计算，还剩 ${upcoming.length} 场没结束</small></h1>
+    <h1>13 所深度报告学校的开放日<small>共 ${rows.length} 场活动 · 状态按打开当天实时计算（SGT）</small></h1>
     <div class="sub">
       这一页只回答三件事：<b>哪天有空</b>、<b>去了能看什么</b>、<b>哪几条信息互相矛盾</b>。
       日期时间来自 MOE 官方汇总，活动内容只有在学校自己讲清楚时才写，没公布的一律标「未公布」——不替学校编节目单。
@@ -225,8 +215,8 @@ ${CSS}
     <div class="profile">
       <div><div class="k">收录学校</div><div class="v">${Object.keys(OH.schools).length} 所</div></div>
       <div><div class="k">活动场次</div><div class="v">${rows.length} 场</div></div>
-      <div><div class="k">还能去</div><div class="v">${upcoming.length} 场</div></div>
-      <div><div class="k">已结束</div><div class="v">${past.length} 场</div></div>
+      <div><div class="k">还能去</div><div class="v" id="ohUpcoming">—</div></div>
+      <div><div class="k">已结束</div><div class="v" id="ohPast">—</div></div>
       <div><div class="k">有活动细节</div><div class="v">${rows.length - noActivities.length}/${rows.length}</div></div>
     </div>
   </div>
@@ -246,16 +236,16 @@ ${CSS}
 
 <div class="note" style="margin-top:20px">
 <b>先说三个容易搞错的地方。</b>
-① <b>今天是 ${TODAY}</b>，13 所里有 ${past.length} 场已在 11-14 办完 —— 这一批邻里学校习惯在 PSLE 出分前两周的周六集中办；
+① <b>今天是 <span id="ohToday">—</span></b>（新加坡时间），13 所里有一批在 11-14 集中办完 —— 邻里学校习惯在 PSLE 出分前两周的周六办；后续场次状态按打开当天实时更新；
 ② <b>开放日不是录取环节</b>，去不去不影响 S1 分配，也不会让 COP 变低；
 ③ <b>「官方未公布活动」不等于没安排</b>，只是没人写出来，这种时候打电话问比到现场碰运气靠谱。
 </div>
 
 <section>
 <h2 id="s1"><span class="n">01</span>一眼看完：${rows.length} 场按时间排</h2>
-<p class="lead">同一所学校的多场活动分行列出。状态按 ${TODAY} 计算 —— 重新构建本页就会跟着变，不是写死的。</p>
+<p class="lead">同一所学校的多场活动分行列出。状态按<b>打开页面的当天</b>实时计算（新加坡时间），不需要重新构建本页。</p>
 <div style="overflow-x:auto">
-<table>
+<table id="oh-overview">
 <thead><tr>
   <th style="width:20%">学校</th>
   <th class="mid" style="width:11%">2025 PG3<br><span class="soft">非附属</span></th>
@@ -310,8 +300,8 @@ ${noInfo.length ? `<div class="warnbox"><b>${noInfo.map(k => esc(short(bySlug.ge
 
 <section>
 <h2 id="s4"><span class="n">04</span>方案 A 的 6 所，还赶得上吗</h2>
-<p class="lead">志愿报告里排的 6 个位置，逐所对照开放日状态。按 ${TODAY} 算。</p>
-<table>
+<p class="lead">志愿报告里排的 6 个位置，逐所对照开放日状态，按打开当天实时计算。一所学校有多场时先显示最近一场未结束的；若全结束，留最后一场作参考。</p>
+<table id="oh-plan">
 <thead><tr><th style="width:34%">志愿校</th><th class="mid">日期</th><th class="mid">时间</th><th class="mid">状态</th></tr></thead>
 <tbody>
 ${planRows}
@@ -351,16 +341,54 @@ ${OH.sources.map(s => `<tr><td>${esc(s.usedFor || '')}</td><td class="soft" styl
 <b>四条边界，说清楚免得误用：</b><br>
 ${OH.caveats.map((c, i) => `${'①②③④⑤'[i]} ${esc(c)}`).join('<br>')}
 </div>
-<p class="soft" style="font-size:12.4px">本页生成于 ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Singapore' })} SGT；状态按 ${TODAY} 计算，数据更新于 ${esc(OH.updatedAt)}。</p>
+<p class="soft" style="font-size:12.4px">本页数据更新于 ${esc(OH.updatedAt)}；开放日状态按打开当天实时计算（SGT），不依赖页面生成时间。</p>
 </section>
 
 <div class="foot">
-<b>关联页面</b>　<a href="index.html">学校看板</a> ｜ <a href="map.html">通勤地图</a> ｜ <a href="guide.html">填报手册</a> ｜ <a href="cohort.html">考生数据</a> ｜ <a href="plans.html">志愿方案</a><br>
+${Snapshot.line()}<br>
+<b>关联页面</b>　${Nav.foot('openhouse')}<br>
 <b>口径</b>　日期时间以 MOE Schoolbag 官方汇总为准；活动内容仅在来源明确时列出；地址电话取自 MOE SchoolFinder。<br>
 <b>免责</b>　开放日时间可能临时调整，出发前请以学校官网或电话确认为准。个人研究工具输出，非 MOE 官方建议。
 </div>
 
 </div>
+
+<script>
+/* 状态实时化：构建时只写入 data-evdate，这里按浏览器当天（SGT）重算。
+   放在 body 末尾同步执行，用户不会先看到占位符再跳变。 */
+(function(){
+  function sgtISO(){
+    var d=new Date(Date.now()+8*3600*1000);
+    return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+  }
+  function dn(iso){return Date.UTC(+iso.slice(0,4),+iso.slice(5,7)-1,+iso.slice(8,10))/86400000;}
+  function setTxt(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+  var T=dn(sgtISO());
+  setTxt('ohToday',sgtISO());
+  var sts=[].slice.call(document.querySelectorAll('.st[data-evdate]'));
+  sts.forEach(function(el){
+    var diff=dn(el.getAttribute('data-evdate'))-T;
+    var key=diff<0?'past':(diff===0?'today':'upcoming');
+    el.className='st st-'+key;
+    el.textContent=diff<0?'已结束':(diff===0?'就是今天':'还有 '+diff+' 天');
+  });
+  var overview=document.querySelector('#oh-overview tbody');
+  var cells=overview?[].slice.call(overview.querySelectorAll('.st[data-evdate]')):[];
+  var up=cells.filter(function(e){return !e.classList.contains('st-past');}).length;
+  setTxt('ohUpcoming',up+' 场');
+  setTxt('ohPast',(cells.length-up)+' 场');
+  var groups={};
+  [].slice.call(document.querySelectorAll('#oh-plan tbody tr[data-plan-school]')).forEach(function(r){
+    var k=r.getAttribute('data-plan-school');
+    (groups[k]=groups[k]||[]).push(r);
+  });
+  Object.keys(groups).forEach(function(k){
+    var g=groups[k];
+    var pick=g.filter(function(r){var s=r.querySelector('.st[data-evdate]');return s&&!s.classList.contains('st-past');})[0]||g[g.length-1];
+    g.forEach(function(r){r.style.display=(r===pick?'':'none');});
+  });
+})();
+</script>
 </body>
 </html>
 `;
@@ -368,5 +396,5 @@ ${OH.caveats.map((c, i) => `${'①②③④⑤'[i]} ${esc(c)}`).join('<br>')}
 const out = P('docs/openhouse.html');
 fs.writeFileSync(out, html, 'utf8');
 console.log(`▸ 输出 docs/openhouse.html（${(html.length / 1024).toFixed(0)}KB）`);
-console.log(`  ${Object.keys(OH.schools).length} 所 · ${rows.length} 场 · 还能去 ${upcoming.length} 场 · 已结束 ${past.length} 场`);
+console.log(`  ${Object.keys(OH.schools).length} 所 · ${rows.length} 场 · 状态由浏览器按当天 SGT 计算`);
 console.log(`  有活动细节 ${rows.length - noActivities.length}/${rows.length} 场 ｜ 无实体场 ${eOnly.length} 所 ｜ 冲突 ${conflictRows ? '有' : '无'}`);

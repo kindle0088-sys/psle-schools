@@ -13,10 +13,13 @@ const STU = Stu.load();
 const V1_ARCHIVE = 'abc1-s1-choice-2026.html';
 const html = fs.readFileSync(path.join(BASE, 'docs/reports', STU.planSlug + '.html'), 'utf8');
 const schools = JSON.parse(fs.readFileSync(path.join(BASE, 'docs/data/schools.json'), 'utf8')).schools;
-const R = JSON.parse(fs.readFileSync(
-  fs.existsSync(path.join(BASE, `data/_recommend-${STU.id}.json`))
-    ? path.join(BASE, `data/_recommend-${STU.id}.json`)
-    : path.join(BASE, 'data/_recommend.json'), 'utf8'));
+const REC_FILE = path.join(BASE, `data/_recommend-${STU.id}.json`);
+if (!fs.existsSync(REC_FILE)) { console.error('✗ 缺 ' + REC_FILE); process.exit(1); }
+const R = JSON.parse(fs.readFileSync(REC_FILE, 'utf8'));
+if (R.student?.id !== STU.id) {
+  console.error(`✗ ${REC_FILE} 属于学生 ${R.student?.id || '未知'}，与当前 ${STU.id} 不符`);
+  process.exit(1);
+}
 const NEARBY = (() => {
   const f = Stu.nearbyFile(STU);
   return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
@@ -30,6 +33,8 @@ const t = (n, ok, d = '') => {
   if (ok) { pass++; console.log('  ✅', n, d ? '— ' + d : ''); }
   else { fail++; console.log('  ❌', n, d ? '— ' + d : ''); }
 };
+
+t('报告标注数据来源学生', html.includes(`<meta name="student" content="${STU.id}">`), STU.id);
 
 /** 从原始数据取 PG3 非附属区间 */
 const pg3Of = s => {
@@ -125,10 +130,7 @@ t('含 COP 口径说明', html.includes('Posting Group 3 行的非附属区间')
 
 /* ── 通勤两列（2026-11-12）：步行来自 OSM 步行路网，地铁来自 MRT 模型，
       计分取两者最快。这里核对报告是否真的把两路都摆出来、并写明争议口径。 ── */
-const rec = (() => {
-  const f = path.join(BASE, `data/_recommend-${(function(){ try { return JSON.parse(fs.readFileSync(path.join(BASE,'data/students/active.json'),'utf8')).id; } catch(_) { return 'abc1'; } })()}.json`);
-  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
-})();
+const rec = R;   // 直接用已校验过学生身份的 R，不再从 active.json 猜
 t('报告含「步行 / 地铁」双列', html.includes('步行 / 地铁') || (html.includes('>步行<') && html.includes('>地铁<')));
 t('通勤口径写明「取最快」', html.includes('取最快者进入通勤评分') || html.includes('取最快者参与'));
 if (rec) {

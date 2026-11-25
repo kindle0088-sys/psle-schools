@@ -26,7 +26,13 @@ const html = fs.readFileSync(file, 'utf8');
 const strip = s => s.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
 const text = strip(html);
 
-const R = JSON.parse(fs.readFileSync(path.join(BASE, `data/_recommend-${studentId}.json`), 'utf8'));
+const REC_FILE = path.join(BASE, `data/_recommend-${studentId}.json`);
+if (!fs.existsSync(REC_FILE)) { console.error('✗ 缺 ' + REC_FILE); process.exit(1); }
+const R = JSON.parse(fs.readFileSync(REC_FILE, 'utf8'));
+if (R.student?.id !== studentId) {
+  console.error(`✗ ${REC_FILE} 属于学生 ${R.student?.id || '未知'}，与指定 ${studentId} 不符`);
+  process.exit(1);
+}
 const S = R.student, S2 = R.stats;
 
 let pass = 0, fail = 0;
@@ -44,6 +50,7 @@ const anchors = (html.match(/id="s[1-8]"/g) || []).length;
 t('含 8 个章节锚点', anchors === 8, anchors + ' 个');
 t('含目录且可跳转', html.includes('class="toc"') && html.includes('href="#s1"') && html.includes('href="#s8"'));
 t('有生成器标记', /name="generator" content="psle-plan-report/.test(html));
+t('报告标注数据来源学生', html.includes(`<meta name="student" content="${studentId}">`), studentId);
 t('有返回看板链接', html.includes('../index.html'));
 t('有 noindex', html.includes('noindex'));
 t('div 标签闭合', (html.match(/<div/g) || []).length === (html.match(/<\/div>/g) || []).length,

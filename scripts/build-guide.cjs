@@ -16,6 +16,8 @@
  */
 const fs = require('fs');
 const path = require('path');
+const Nav = require('../lib/nav.cjs');
+const Snapshot = require('../lib/snapshot.cjs');
 
 const BASE = path.join(__dirname, '..');
 const P = (...a) => path.join(BASE, ...a);
@@ -640,11 +642,8 @@ ${CHECKLIST}
 </section>
 
 <div class="hb-foot">
-<b>相关页面</b>　<a href="index.html">学校看板</a>（147 所，含 COP / CCA / 通勤）
-｜ <a href="map.html">通勤地图</a>
-｜ <a href="cohort.html">考生人数与学额</a>
-｜ <a href="full-sbb.html">Full SBB 科目与分级</a>
-｜ <a href="openhouse.html">开放日</a> ｜ <a href="plans.html">志愿方案</a><br>
+${Snapshot.line()}<br>
+<b>相关页面</b>　${Nav.foot('guide')}（看板收录 147 所，含 COP / CCA / 通勤）<br>
 <b>生成信息</b>　本页由 <code>scripts/build-guide.cjs</code> 从 <code>data/secondary-costs.json</code> 与相关数据生成，
 数据更新 ${esc(CO.updatedAt)}。<br>
 <b>免责</b>　个人研究工具输出，非 MOE 官方建议。政策以官方最新公告为准。

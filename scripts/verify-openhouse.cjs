@@ -4,10 +4,11 @@
  * 用法: node scripts/verify-openhouse.cjs [docs/openhouse.html]
  *
  * 这一页最容易出的错不是排版，而是三件事：
- *   ① 状态算错（把已经结束的说成「还有 3 天」）—— 读者会白跑一趟；
+ *   ① 状态写死在构建时（第二天就把「还有 3 天」说成「还有 2 天」）—— 读者会白跑一趟；
  *   ② 学校漏掉（13 所说成 13 所，实际只渲染了 12）；
  *   ③ 把「官方没公布」写成具体活动 —— 编造比缺失有害得多。
- * 所以断言围绕这三点，日期/状态一律由验证器自己重算，不读生成器的中间变量。
+ * 所以断言围绕这三点。状态已改为浏览器端现算：验证器守「静态 HTML 不写死相对天数」
+ * +「脚本按 SGT 重算」；脚本生效后的实际文字另用 Chrome headless 探针核对。
  */
 const fs = require('fs');
 const path = require('path');
@@ -27,17 +28,6 @@ let pass = 0, fail = 0;
 const t = (name, ok, detail = '') => {
   if (ok) { pass++; console.log('  ✅ ' + name + (detail ? ' — ' + detail : '')); }
   else { fail++; console.log('  ❌ ' + name + (detail ? ' — ' + detail : '')); }
-};
-
-/* 与生成器同样的口径：按新加坡时区取「今天」，再算相对天数 */
-const TODAY = (() => {
-  const d = new Date(Date.now() + 8 * 3600 * 1000);
-  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`;
-})();
-const dayNum = iso => Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) / 86400000;
-const expectStatus = iso => {
-  const d = dayNum(iso) - dayNum(TODAY);
-  return d < 0 ? '已结束' : d === 0 ? '就是今天' : `还有 ${d} 天`;
 };
 
 const slugs = Object.keys(OH.schools);
@@ -75,7 +65,7 @@ t('每所都能在 schools.json 找到', slugs.every(s => bySlug.has(s)),
     `开放日 ${slugs.length} 所 / 深度报告 ${reportSlugs.length} 所${noReport.length ? '，缺: ' + noReport.join(',') : ''}`);
 }
 
-console.log('\n══ 三、日期与状态：逐场重算');
+console.log('\n══ 三、日期与状态：构建时不写死，浏览器端现算');
 {
   /* ⚠️ 不能用标题文字定位：目录里也有「一眼看完」「逐校详情」，
      indexOf 会锚到目录上，切出来的段落是空的（本次踩过，报「0 行」）。
@@ -91,18 +81,28 @@ console.log('\n══ 三、日期与状态：逐场重算');
   t('总览表每行 7 格（学校 / COP / 日期 / 时间 / 形式 / 报名 / 状态）',
     trs.every(c => c.length === 7), [...new Set(trs.map(c => c.length))].join(','));
 
-  /* 按「日期 + 学校」配对，逐行比对状态文字 —— 只查「页面上有这个词」会被别的场次兜住。
-     ⚠️ 列序变了（2026-11-15 插入 COP 列）后这里必须跟着改，否则全部「行未找到」。 */
-  const bad = [];
-  for (const e of events) {
-    const want = expectStatus(e.ev.date);
-    const mdLabel = `${+e.ev.date.slice(5, 7)} 月 ${+e.ev.date.slice(8, 10)} 日`;
-    const short = String(bySlug.get(e.slug).name).replace(/ Secondary School| \(Secondary\)/, '');
-    const row = trs.find(c => c[0].includes(short) && c[2].includes(mdLabel));
-    if (!row) { bad.push(`${short}@${e.ev.date} 行未找到`); continue; }
-    if (!row[6].includes(want)) bad.push(`${short}@${e.ev.date} 状态=${row[6]}≠${want}`);
-  }
-  t('每场的「已结束 / 还有 N 天」与今天一致', bad.length === 0, bad.slice(0, 4).join(' ｜ ') || `${events.length} 场全对`);
+  /* 2026-11-25 实测：页面 11-24 构建后，4 场「还有 N 天」第二天就错了。
+     修法是把状态移到浏览器端现算。验证器不再比对构建时的那串数字，
+     改为守「静态 HTML 里不许有相对状态」+「脚本确实按 SGT 重算」。 */
+  const allStatus = [...html.matchAll(/<span class="st" data-evdate="([^"]+)">([^<]*)<\/span>/g)];
+  const dates = new Set(events.map(e => e.ev.date));
+  const badDate = allStatus.filter(m => !dates.has(m[1]));
+  const covered = [...dates].filter(d => allStatus.some(m => m[1] === d));
+  t('状态标签只带事件日期', allStatus.length > 0 && badDate.length === 0,
+    `${allStatus.length} 个标签${badDate.length ? '，异常: ' + badDate.slice(0, 3).map(m => m[1]).join(',') : ''}`);
+  t('每场活动都有状态标签', covered.length === dates.size, `${covered.length}/${dates.size} 个日期被覆盖`);
+  const staticHtml = html.replace(/<script>[\s\S]*?<\/script>/g, '');
+  t('构建时没有写死相对天数', !/还有 [0-9]+ 天|就是今天<\/span>|已结束<\/span>/.test(staticHtml),
+    '静态 HTML 中无相对状态文字');
+  t('实时计算脚本齐全（SGT 偏移 + 逐标签重算）',
+    /Date\.now\(\)\+8\*3600\*1000/.test(html) && /data-evdate/.test(html) &&
+    /就是今天/.test(html) && /还有 /.test(html) && /已结束/.test(html));
+  t('动态计数与今天占位齐全',
+    ['ohToday', 'ohUpcoming', 'ohPast'].every(id => html.includes('id="' + id + '"')));
+  t('方案表按学校分组，由脚本挑未结束场次',
+    (html.match(/data-plan-school="/g) || []).length >= 5 &&
+    /querySelectorAll\('#oh-plan tbody tr\[data-plan-school\]'\)/.test(html));
+  t('页面明确写「打开当天实时计算」', /打开当天实时计算|打开页面的当天/.test(staticHtml));
 }
 
 console.log('\n══ 三之二、2025 PG3 区间必须与 schools.json 一致');

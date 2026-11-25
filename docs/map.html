@@ -156,6 +156,7 @@
       <a href="index.html">学校看板</a>
       <a href="map.html" class="on">通勤地图</a>
       <a href="guide.html">填报手册</a>
+      <a href="full-sbb.html">Full SBB</a>
       <a href="openhouse.html">开放日</a>
       <a href="cohort.html">考生数据</a>
       <a href="plans.html">志愿方案</a>
@@ -217,7 +218,8 @@
   <div class="wrap">
     <b>数据来源</b> · 学校坐标：OneMap 地理编码｜MRT 网络：官方线路代号重建（151 站 / 6 线 + 樟宜支线）｜
     地址解析：OneMap Search API<br>
-    <b>免责</b> · 通勤时间为模型估算，未含巴士、步行速度因人而异、未含等车波动。请以实际试乘为准。
+    <b>免责</b> · 通勤时间为模型估算，未含巴士、步行速度因人而异、未含等车波动。请以实际试乘为准。<br>
+    <span id="dataSnapshot">数据快照加载中…</span>
   </div>
 </footer>
 
@@ -481,5 +483,6 @@ window.addEventListener('hashchange', () => {
   }
 })();
 </script>
+<script src="assets/snapshot.js"></script>
 </body>
 </html>

@@ -10,13 +10,22 @@
  */
 const fs = require('fs');
 const path = require('path');
+const Nav = require('../lib/nav.cjs');
+const Snapshot = require('../lib/snapshot.cjs');
 
 const BASE = path.join(__dirname, '..');
 const Stu = require('../lib/student.cjs');
 const STU = Stu.load();
 const REC_FILE = path.join(BASE, `data/_recommend-${STU.id}.json`);
-const R = JSON.parse(fs.readFileSync(
-  fs.existsSync(REC_FILE) ? REC_FILE : path.join(BASE, 'data/_recommend.json'), 'utf8'));
+if (!fs.existsSync(REC_FILE)) {
+  console.error(`✗ 缺 ${REC_FILE}\n  先跑：STUDENT=${STU.id} node scripts/score-candidates.cjs`);
+  process.exit(1);
+}
+const R = JSON.parse(fs.readFileSync(REC_FILE, 'utf8'));
+if (R.student?.id !== STU.id) {
+  console.error(`✗ ${REC_FILE} 属于学生 ${R.student?.id || '未知'}，与当前 ${STU.id} 不符`);
+  process.exit(1);
+}
 const S2 = R.stats;                     // 全国口径统计，报告里所有「N 所」都从这里取
 
 // MOE 邮编筛选结果按邮编天然区分学生；缺失时整节降级，不阻断出报告
@@ -215,6 +224,8 @@ const html = `<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
+<meta name="generator" content="psle-report-v2/v1">
+<meta name="student" content="${STU.id}">
 <title>PSLE 志愿规划 v2 · AL ${S.score} 分 · 6 个志愿排序</title>
 <style>
 ${PLAN_CSS}
@@ -557,7 +568,8 @@ ${['A', 'B', 'C'].map(k => {
 </section>
 
 <div class="foot">
-<div style="margin-bottom:14px;font-size:13.5px"><a href="../index.html">← 学校看板</a> ｜ <a href="../map.html">通勤地图</a></div>
+<div style="margin-bottom:14px;font-size:13.5px"><a href="../index.html">← 学校看板</a>　｜　${Nav.foot(null, '../')}</div>
+${Snapshot.line()}<br>
 <b>数据来源</b><br>
 · 学校名单 / 类型 / CCA / ALP / LLP / DSA / COP：MOE SchoolFinder，采集于 2026-11；COP 为 <b>2025 年度</b>各 Posting Group 的实际录取区间<br>
 ${NEARBY ? `· <b>MOE 附近学校列表</b>：SchoolFinder 页面输入邮编 ${esc(S.postal)} 后前端筛选所得（${S2.nearbyCount} 所），采集时间 ${esc(String(NEARBY.collectedAt || '').slice(0, 10))}<br>` : `· <b>MOE 附近学校列表</b>：本邮编未采集（候选池为全岛自算通勤）<br>`}
