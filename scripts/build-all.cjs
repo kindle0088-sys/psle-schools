@@ -74,6 +74,7 @@ const SCHOOL_REPORT_COUNT = require('fs').readdirSync(P('data/school-profiles'))
   .filter(f => f.endsWith('.json')).length;
 add(SCHOOL_REPORT_COUNT + ' 份单校深度报告', 'build-school-reports.cjs');
 add('考生人数与学额页', 'build-cohort-page.cjs');
+add('Full SBB 专题页', 'build-full-sbb.cjs');
 add('家长学习手册', 'build-guide.cjs');
 add('开放日汇总页', 'build-openhouse-page.cjs');
 add('方案看板（须最后）', 'build-plans-index.cjs');
@@ -140,6 +141,7 @@ const EXPECT = [
   'docs/data/schools.json',
   'docs/data/students-index.json',
   'docs/cohort.html',
+  'docs/full-sbb.html',
   'docs/guide.html',
   'docs/plans.html',
   'docs/openhouse.html',
@@ -178,6 +180,7 @@ if (VERIFY) {
     ['CCA 清单', 'verify-cca-catalog.cjs'],
     ['多学生配置', 'verify-students.cjs'],
     ['考生人数页', 'verify-cohort-page.cjs'],
+    ['Full SBB 专题页', 'verify-full-sbb.cjs'],
     ['家长手册', 'verify-guide.cjs'],
     ['方案看板', 'verify-plans-index.cjs'],
     ['开放日页', 'verify-openhouse.cjs'],

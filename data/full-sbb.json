@@ -1,0 +1,158 @@
+{
+  "_note": "Full SBB 专题页的结构化事实源。政策与考纲口径来自 MOE / SEAB 官方页面（2026-11-25 核验）；开课校数由 scripts/build-full-sbb.cjs 从 data/schools.json（MOE SchoolFinder 官方采集）按 match 规则现算，不写死。所有年份以官方原文为准，不推测。",
+  "verifiedAt": "2026-11-25",
+  "sources": [
+    { "id": "MOE-FSBB", "label": "MOE · Secondary school experience under Full SBB", "url": "https://moe.gov.sg/psle-fsbb/full-subject-based-banding/secondary-school-experience", "grade": "A", "covers": "取消分流、PG 与 G 层级映射、升降级规则、HMTL、人文升级、初高中科目分类" },
+    { "id": "MOE-CURR", "label": "MOE · Curriculum for secondary schools", "url": "https://moe.gov.sg/secondary/schools-offering-full-sbb", "grade": "A", "covers": "共同课程、科目级别、SEC、PSE、中五选项、升学门槛调整" },
+    { "id": "MOE-EDTALK", "label": "MOE EdTalks · What you need to know about Full SBB", "url": "https://moe.gov.sg/news/edtalks/what-you-need-to-know-about-full-sbb", "grade": "A", "covers": "为何取消分流、混合班、哪些学校不实施 Full SBB" },
+    { "id": "MOE-FAQ", "label": "MOE · Full SBB FAQ（升学门槛调整）", "url": "https://moe.gov.sg/psle-fsbb/full-subject-based-banding/faq", "grade": "A", "covers": "JC L1R5→L1R4、Poly 26→22、加分上限 4→3" },
+    { "id": "MOE-JC", "label": "MOE · Junior colleges and Millennia Institute admission", "url": "https://moe.gov.sg/post-secondary/admissions/pse/jc-and-mi", "grade": "A", "covers": "2028 起 L1R4≤16、G3 要求、单科等级要求、R1–R4 分组" },
+    { "id": "SEAB-SEC", "label": "SEAB · Secondary Education Certificate (SEC)", "url": "https://www.seab.gov.sg/secondary-education-certificate-sec/", "grade": "A", "covers": "2027 首考、G1/G2/G3 等级制、成绩映射、考试时间表、发证门槛" },
+    { "id": "SEAB-G1", "label": "SEAB · 2027 G1 syllabuses (school candidates)", "url": "https://www.seab.gov.sg/secondary-education-certificate-sec/g1-syllabuses-for-school-candidates-2027/", "grade": "A", "covers": "G1 科目清单与代码" },
+    { "id": "SEAB-G2", "label": "SEAB · 2027 G2 syllabuses (school candidates)", "url": "https://www.seab.gov.sg/secondary-education-certificate-sec/g2-syllabuses-for-school-candidates-2027/", "grade": "A", "covers": "G2 科目清单与代码" },
+    { "id": "SEAB-G3", "label": "SEAB · 2027 G3 syllabuses (school candidates)", "url": "https://www.seab.gov.sg/secondary-education-certificate-sec/g3-syllabuses-for-school-candidates-2027/", "grade": "A", "covers": "G3 科目清单与代码" },
+    { "id": "SF", "label": "MOE SchoolFinder（本项目采集）", "url": "https://www.moe.gov.sg/schoolfinder", "grade": "A", "covers": "全岛 147 校开设科目，用于统计各校开课数" }
+  ],
+  "levels": [
+    { "k": "G1", "full": "General 1", "old": "原 N(T) 标准", "sec": " grades A / B / C / D / E", "use": "打基础、偏实践；可读科技类应用科目" },
+    { "k": "G2", "full": "General 2", "old": "原 N(A) 标准", "sec": " grades 1 / 2 / 3 / 4 / 5 / 6", "use": "中等难度；2028 起 Poly 一年级可计 1 科 G2" },
+    { "k": "G3", "full": "General 3", "old": "原 Express 标准", "sec": " grades A1 / A2 / B3 / B4 / C5 / C6 / D7 / E8 / 9", "use": "最高难度；JC 录取要求全部科目为 G3" }
+  ],
+  "pg": [
+    { "score": "4–20", "pg": "PG3", "start": "G3", "note": "对应原 Express；本届 abcd2（AL 18）在此档" },
+    { "score": "21–22", "pg": "PG2 或 PG3", "start": "G2 / G3", "note": "中间档，自己选一组，6 个志愿须同组" },
+    { "score": "23–24", "pg": "PG2", "start": "G2", "note": "对应原 N(A)" },
+    { "score": "25", "pg": "PG1 或 PG2", "start": "G1 / G2", "note": "中间档" },
+    { "score": "26–30", "pg": "PG1", "start": "G1", "note": "须英语与数学 AL7 或更好" }
+  ],
+  "moreDemanding": {
+    "title": "入学时可按单科 AL 上调（英语 / 母语 / 数学 / 科学）",
+    "rows": [
+      { "start": "G3", "psleStandard": "AL 5 或更好", "psleFoundation": "—", "option": "（本身已是 G3）" },
+      { "start": "G1", "psleStandard": "AL 5 或更好", "psleFoundation": "—", "option": "G2 或 G3" },
+      { "start": "G1", "psleStandard": "AL 6", "psleFoundation": "AL A", "option": "G2" }
+    ],
+    "note": "这是「按单科」判断，不是按总分。总分进 PG3 的孩子，某一科若只拿到 AL7–8，未必能把那科也读 G3——要逐科看。升入中学后还可依据校内表现再上调。"
+  },
+  "hmtl": {
+    "rule2026": "2026 年起，高级母语（HMTL）资格不再看 PSLE 总分：母语 AL1/AL2，或高级母语 Distinction/Merit，即可在 S1 修读 HMTL。",
+    "jcUse": "HMTL 可作 JC 的 L1（第一语言）。若有 HMTL，系统分别用 G3 英语与 HMTL 各算一次 L1R4，取能 qualifying 且更低（更好）的那个。",
+    "caveat": "同一语言若读了母语又读高级母语，计分时只能二选一：用 HCL 当 L1，中文就不能再当 R4。"
+  },
+  "humanitiesUpgrade": {
+    "note": "从 S2 起，人文学科（地理、历史、英语文学）可按 S1 的 aptitude 与兴趣升到更高层级。G1 人文=社会研究+人文探索模块（HEM），非考试科；G2/G3 人文=社会研究+一门人文选修。",
+    "rows": [
+      { "s1Level": "G2 人文", "s1Subjects": "地理 / 历史 / 英语文学", "option": "G3（可一科或多科）" },
+      { "s1Level": "G1 人文", "s1Subjects": "社会研究 + HEM", "option": "G2 地理 / 历史 / 英语文学" }
+    ]
+  },
+  "commonSubjects": {
+    "note": "初中（S1–S2）混合班里约 1/3 课时读这 6 门共同课程，不分层；目的是让不同背景的孩子一起学习。考 SEC 的核心科目才按 G1/G2/G3 分层走班。",
+    "items": [
+      { "en": "Art", "zh": "美术", "match": "^art$|^art \\(|^visual arts|^aesthetics" },
+      { "en": "Character and Citizenship Education (CCE)", "zh": "品格与公民教育", "match": "^cce|^character and citizenship" },
+      { "en": "Design and Technology", "zh": "设计与工艺", "match": "^design (and|&) technology|^design studies" },
+      { "en": "Food and Consumer Education", "zh": "食品与消费者教育", "match": "^food (and|&) consumer" },
+      { "en": "Music", "zh": "音乐", "match": "^music" },
+      { "en": "Physical Education", "zh": "体育", "match": "^physical education" }
+    ]
+  },
+  "subjects": [
+    { "id": "el", "en": "English Language", "zh": "英语", "cat": "core", "compulsory": "高中必修", "jcGroup": "L1", "levels": ["G1", "G2", "G3"], "codes": { "G1": "K100", "G2": "K200", "G3": "K300" }, "match": "^english language", "note": "L1 的第一选择；JC 要求 G3 英语 A1–C6。SEC 英语笔试在 9 月，与其他科目分开。" },
+    { "id": "mtl", "en": "Mother Tongue Languages（Chinese / Malay / Tamil）", "zh": "母语（华文 / 马来文 / 淡米尔文）", "cat": "core", "compulsory": "高中必修", "jcGroup": "MTL（达标要求）", "levels": ["G1", "G2", "G3"], "codes": { "G1": "K120 / K121 / K122", "G2": "K220 / K221 / K222", "G3": "K320 / K321 / K322" }, "match": "^(chinese|malay|tamil) language", "note": "2024 起母语 B 停办，改为可按 G1/G2/G3 读。JC 要求 G3 A1–D7、G2 1–5、G1 A–D。学习困难可申请降级。" },
+    { "id": "hmtl", "en": "Higher Mother Tongue（HCL / HML / HTL）", "zh": "高级母语（高华 / 高巫 / 高淡）", "cat": "elective", "compulsory": "可替代母语", "jcGroup": "仅可作 L1", "levels": ["G3"], "codes": { "G3": "K355 / K356 / K357" }, "match": "^higher (chinese|malay|tamil)", "note": "2026 年起资格不看总分，看单科 AL1/2 或高母语 D/M。可作 JC 的 L1，但不能同时把同语言母语当 R4。" },
+    { "id": "math", "en": "Mathematics", "zh": "数学", "cat": "core", "compulsory": "高中必修", "jcGroup": "数学组", "levels": ["G1", "G2", "G3"], "codes": { "G1": "K110", "G2": "K210", "G3": "K310" }, "match": "^mathematics$", "note": "JC 要求 G3 数学 A1–D7；R2 可来自数学或科学组。" },
+    { "id": "amath", "en": "Additional Mathematics", "zh": "高级数学", "cat": "elective", "compulsory": "选修", "jcGroup": "数学组", "levels": ["G2", "G3"], "codes": { "G2": "K232", "G3": "K341" }, "match": "^additional mathematics|^advanced mathematics", "note": "JC 数学组要求可用它满足；对理科方向很关键，也是本届学生点名兴趣。" },
+    { "id": "sci", "en": "Science / Combined Science", "zh": "科学（含组合科学）", "cat": "core", "compulsory": "高中必修", "jcGroup": "科学组", "levels": ["G1", "G2", "G3"], "codes": { "G1": "K123", "G2": "K223 / K224 / K225", "G3": "K326 / K327 / K328" }, "match": "^science( |$)", "note": "G2/G3 以组合科学（物化/物生/化生）应考；G1 单科科学。主要读 G1 的学生须至少读 Computing 或 Science 之一。" },
+    { "id": "phy", "en": "Physics", "zh": "物理", "cat": "elective", "compulsory": "选修（纯理科）", "jcGroup": "科学组", "levels": ["G3"], "codes": { "G3": "K323" }, "match": "^physics", "note": "纯理科单科只在 G3 开考。想走理科方向、R2 用科学组，这是核心选项。" },
+    { "id": "chem", "en": "Chemistry", "zh": "化学", "cat": "elective", "compulsory": "选修（纯理科）", "jcGroup": "科学组", "levels": ["G3"], "codes": { "G3": "K324" }, "match": "^chemistry", "note": "纯理科单科只在 G3 开考。" },
+    { "id": "bio", "en": "Biology", "zh": "生物", "cat": "elective", "compulsory": "选修（纯理科）", "jcGroup": "科学组", "levels": ["G3"], "codes": { "G3": "K325" }, "match": "^biology", "note": "纯理科单科只在 G3 开考。" },
+    { "id": "hum", "en": "Humanities（SS + elective）", "zh": "人文学科（社会研究 + 选修）", "cat": "core", "compulsory": "高中必修", "jcGroup": "人文组", "levels": ["G1", "G2", "G3"], "codes": { "G1": "非考试科", "G2": "K229 / K230 / K231", "G3": "K335 / K336 / K337" }, "match": "^humanities", "note": "JC 的 R1 必须来自人文组——即使孩子偏理科，也至少要有一门 G3 人文。G1 人文非考试科。" },
+    { "id": "geo", "en": "Geography", "zh": "地理", "cat": "elective", "compulsory": "人文选修", "jcGroup": "人文组", "levels": ["G2", "G3"], "codes": { "G2": "K226", "G3": "K329" }, "match": "^geography", "note": "可作完整人文科目；G2 起可应考。S2 可按 aptitude 升 G3。" },
+    { "id": "hist", "en": "History", "zh": "历史", "cat": "elective", "compulsory": "人文选修", "jcGroup": "人文组", "levels": ["G2", "G3"], "codes": { "G2": "K227", "G3": "K330" }, "match": "^history", "note": "可作完整人文科目；G3 历史为 e-Exam。" },
+    { "id": "liteng", "en": "Literature in English", "zh": "英语文学", "cat": "elective", "compulsory": "人文选修", "jcGroup": "人文组", "levels": ["G2", "G3"], "codes": { "G2": "K228", "G3": "K331" }, "match": "^literature in english|^english literature", "note": "人文组 R1 的常见选择；对英文阅读写作强的孩子友好。" },
+    { "id": "litmt", "en": "Literature in Chinese / Malay / Tamil", "zh": "文学（华文 / 马来文 / 淡米尔文）", "cat": "elective", "compulsory": "人文选修", "jcGroup": "人文组", "levels": ["G3"], "codes": { "G3": "K332 / K333 / K334" }, "match": "^literature in (chinese|malay|tamil)|^chinese literature", "note": "只在 G3 开考。" },
+    { "id": "computing", "en": "Computing", "zh": "计算", "cat": "elective", "compulsory": "选修", "jcGroup": "其他组（只能作 R4）", "levels": ["G1", "G2", "G3"], "codes": { "G1": "K127", "G2": "K237", "G3": "K349" }, "match": "^computing", "note": "2026 起三级都开考（G1 由原 Computer Applications 改名）。开课校数只统计登记名含 Computing 的校，旧名 Computer Applications 不计。在 JC 分组里属「其他」，可作 R4，但不能充当 R1/R2/R3。本届学生兴趣科目。" },
+    { "id": "elec", "en": "Electronics", "zh": "电子", "cat": "elective", "compulsory": "选修", "jcGroup": "其他组", "levels": ["G3"], "codes": { "G3": "K353" }, "match": "^electronics", "note": "只在 G3 开考，开设校很少。" },
+    { "id": "poa", "en": "Principles of Accounts", "zh": "会计原理", "cat": "elective", "compulsory": "选修（商科）", "jcGroup": "其他组", "levels": ["G2", "G3"], "codes": { "G2": "K233", "G3": "K342" }, "match": "^principles of accounts", "note": "商科方向常见选修。" },
+    { "id": "bus", "en": "Business", "zh": "商业", "cat": "elective", "compulsory": "选修（商科）", "jcGroup": "其他组", "levels": ["G3"], "codes": { "G3": "K344" }, "match": "^business", "note": "2027 G3 新设；仅获准学校开设。" },
+    { "id": "ebs", "en": "Elements of Business Skills", "zh": "商业技能基础", "cat": "elective", "compulsory": "选修（商科）", "jcGroup": "其他组", "levels": ["G1"], "codes": { "G1": "K129" }, "match": "^elements of business skills", "note": "G1 商科应用科目。" },
+    { "id": "nfs", "en": "Nutrition and Food Science", "zh": "营养与食品科学", "cat": "elective", "compulsory": "选修", "jcGroup": "其他组", "levels": ["G1", "G2", "G3"], "codes": { "G1": "K125", "G2": "K235", "G3": "K346" }, "match": "^nutrition and food science|^food studies", "note": "少数三级全开的科目；偏应用。本届学生兴趣科目。" },
+    { "id": "ha", "en": "Higher Art", "zh": "高级美术", "cat": "elective", "compulsory": "选修", "jcGroup": "人文组", "levels": ["G3"], "codes": { "G3": "K348" }, "match": "^higher art", "note": "只在 G3 开考，属人文组。" },
+    { "id": "hmus", "en": "Higher Music", "zh": "高级音乐", "cat": "elective", "compulsory": "选修", "jcGroup": "人文组", "levels": ["G3"], "codes": { "G3": "K351" }, "match": "^higher music", "note": "只在 G3 开考，属人文组。" },
+    { "id": "drama", "en": "Drama", "zh": "戏剧", "cat": "elective", "compulsory": "选修", "jcGroup": "其他组", "levels": ["G3"], "codes": { "G3": "K352" }, "match": "^drama", "note": "只在 G3 开考，修订版考纲。本届学生 CCA 兴趣含 Drama。" },
+    { "id": "ess", "en": "Exercise and Sports Science", "zh": "运动与体育科学", "cat": "elective", "compulsory": "选修", "jcGroup": "其他组", "levels": ["G3"], "codes": { "G3": "K354" }, "match": "^exercise (and|&) sports science", "note": "G3 应用导向科目。" },
+    { "id": "biotech", "en": "Biotechnology", "zh": "生物技术", "cat": "elective", "compulsory": "选修（应用）", "jcGroup": "其他组", "levels": ["G3"], "codes": { "G3": "K375" }, "match": "^biotechnology", "note": "应用科目，仅获批学校开设；2028 年为最后一年考试。" },
+    { "id": "dstu", "en": "Design Studies", "zh": "设计学", "cat": "elective", "compulsory": "选修（应用）", "jcGroup": "其他组", "levels": ["G3"], "codes": { "G3": "K376" }, "match": "^design studies", "note": "应用科目；2028 年为最后一年考试。" },
+    { "id": "robot", "en": "Mobile Robotics", "zh": "移动机器人", "cat": "elective", "compulsory": "选修（应用）", "jcGroup": "其他组", "levels": ["G1"], "codes": { "G1": "K130" }, "match": "^mobile robotics", "note": "MOE-ITE 应用科目，G1；2027 年为最后一年考试。本届学生 CCA 兴趣含 Robotics。" },
+    { "id": "set", "en": "Smart Electrical Technology", "zh": "智能电气技术", "cat": "elective", "compulsory": "选修（应用）", "jcGroup": "其他组", "levels": ["G1"], "codes": { "G1": "K131" }, "match": "^smart electrical technology", "note": "MOE-ITE 应用科目，G1；2027 最后一年。" },
+    { "id": "retail", "en": "Retail Operations", "zh": "零售运营", "cat": "elective", "compulsory": "选修（应用）", "jcGroup": "其他组", "levels": ["G1"], "codes": { "G1": "K132" }, "match": "^retail operations", "note": "MOE-ITE 应用科目，G1；2027 最后一年。" },
+    { "id": "3lang", "en": "Third / Foreign Languages（Arabic, French, German, Japanese, Spanish, Thai, Hindi…）", "zh": "第三语言 / 外语（阿拉伯文、法文、德文、日文、西班牙文、泰文、印度文等）", "cat": "elective", "compulsory": "选修（语言）", "jcGroup": "部分属人文组", "levels": ["G2", "G3"], "codes": { "G2": "K239–K243", "G3": "K358–K374" }, "match": "^(arabic|bengali|burmese|french|german|hindi|japanese|spanish|thai|urdu|gujarati|panjabi|bahasa)", "note": "Bahasa Indonesia 作为第三语言在 JC 属人文组；其余多归入「其他」。开设校很少，需确认学校是否提供。" },
+    { "id": "sp", "en": "Chinese / Malay Special Programme", "zh": "华文 / 马来文特选课程", "cat": "elective", "compulsory": "选修（特选）", "jcGroup": "人文组", "levels": ["G3"], "codes": { "G3": "K364 / K365" }, "match": "special programme", "note": "仅在获批学校开设，G3；JC 归人文组。" }
+  ],
+  "sec": {
+    "firstYear": 2027,
+    "name": "Singapore-Cambridge Secondary Education Certificate (SEC)",
+    "grades": [
+      { "level": "G1", "grades": "A, B, C, D, E" },
+      { "level": "G2", "grades": "1, 2, 3, 4, 5, 6" },
+      { "level": "G3", "grades": "A1, A2, B3, B4, C5, C6, D7, E8, 9" }
+    ],
+    "award": "G3 E8 及以上 / G2 5 及以上 / G1 D 及以上，才在该科获证书等级。",
+    "timing": "英语与母语笔试在 9 月；其余科目 10 月起；全部科目统一在次年 1 月放榜（2027 考生 → 2028 年 1 月）。",
+    "mapG3toG2": [
+      ["A1–B3", "1"], ["B4–C6", "2"], ["D7", "3"], ["E8", "4"], ["9", "5"]
+    ],
+    "mapG2toG1": [
+      ["1–3", "A"], ["4", "B"], ["5", "C"], ["6", "D"]
+    ],
+    "mapNote": " grade mapping 只在需要跨层级合并计分时才用（如 ELMAB3、ELR2B2）；未达标的一律不计入。"
+  },
+  "jc": {
+    "effectiveYear": 2028,
+    "name": "JC 录取（2028 起 PSE）",
+    "threshold": "L1R4 ≤ 16（JC）/ ≤ 20（MI）",
+    "changed": "原为 L1R5 ≤ 20：科目数从 6 减到 5，门槛从 20 收到 16。课程负荷更轻，腾出的时间用于 21 世纪技能与兴趣。",
+    "allG3": "计入 L1R4 的所有科目必须是 G3（O-Level 视同 G3）。",
+    "composition": [
+      { "k": "L1", "v": "第一语言：G3 英语 或 高级母语（HMTL）" },
+      { "k": "R1", "v": "人文组中最好的 1 科 G3" },
+      { "k": "R2", "v": "数学或科学组中最好的 1 科 G3" },
+      { "k": "R3", "v": "人文 / 数学 / 科学组中最好的 1 科 G3" },
+      { "k": "R4", "v": "任意最好的 1 科 G3" }
+    ],
+    "groupRule": "3 个 R 科须同时覆盖「人文」与「数学/科学」两组——确保 A-Level 两边都有底子。",
+    "gradeReq": [
+      { "subject": "G3 英语", "grade": "A1–C6" },
+      { "subject": "G3 高级数学 或 数学（任一）", "grade": "A1–D7" },
+      { "subject": "母语（G3 A1–D7 / G2 1–5 / G1 A–D）", "grade": "达标" }
+    ],
+    "bonus": "CCA 加分上限从 4 分降到 3 分（因为计分科目少了一科）。",
+    "gradePoints": { "A1": 1, "A2": 2, "B3": 3, "B4": 4, "C5": 5, "C6": 6, "D7": 7, "E8": 8, "9": 9 },
+    "warning": "R1 必须来自人文组。本届学生兴趣清单全是理科/科技（高数、科学、计算、D&T、营养食品），没有任何人文科目——这是四年后冲 JC 的最大结构性缺口，必须在 S2–S3 补一门 G3 人文。"
+  },
+  "student": {
+    "id": "abcd2",
+    "label": "abcd2（AL 18 / PG3 / PR，兴趣偏理科科技）",
+    "score": 18,
+    "pg": "PG3",
+    "citizenship": "PR",
+    "interests": ["Higher Chinese", "Additional Mathematics", "Science", "Computing", "Design & Technology", "Nutrition and Food Science", "Applied Subjects"],
+    "cca": ["Robotics", "AI", "Drama", "Swimming", "Cooking"],
+    "startLevel": "PG3 → 多数科目起点 G3；单科如只达 AL7–8，该科未必能上 G3，需逐科确认。",
+    "timeline": [
+      { "year": "2027", "stage": "S1（中一）", "action": "混合班。核心科目按起点分层：英语/母语/数学/科学与高华尽量取 G3；确认每科单科 AL 够不够上调。选一门人文入门。" },
+      { "year": "2028", "stage": "S2（中二）", "action": "按 S1 aptitude 把人文（地理/历史/英语文学）升到 G3；继续巩固高数。CCA 选能加分且能持续的 1–2 项（Robotics / Drama 可用）。" },
+      { "year": "2029", "stage": "S3（中三）", "action": "定 SEC 选科组合：L1=英语（或高华），R1=人文 G3，R2=高数/纯理科 G3，R3=另一门理科，R4=Computing / D&T / NFS。确认学校是否开这些科。" },
+      { "year": "2030", "stage": "S4（中四）", "action": "考 SEC。英语与母语 9 月先行，其余 10–11 月。目标每科达到 JC 单科等级要求。" },
+      { "year": "2031-01", "stage": "PSE 放榜", "action": "用 L1R4 申请 JC：≤16。PR 不影响学术资格，但留意学费与派位同分排序。" }
+    ],
+    "planPoints": [
+      { "t": "补人文（最高优先级）", "d": "兴趣清单没有人文，但 JC 的 R1 必须来自人文组。在 S2 主动把一门人文（地理或历史）升到 G3 并保持，这是能否进 JC 的硬门槛——比多刷一科理科更重要。" },
+      { "t": "Computing / D&T / NFS 的定位", "d": "这三门在 JC 分组里都属「其他」，只能填 R4，不能替代 R1（人文）或 R2（数学/科学）。作为第 4 科很好，但不能拿它们去顶人文缺口。" },
+      { "t": "高华是加分项，不是替代项", "d": "HCL 可作 L1，系统取英语与 HCL 两次计算的较低值。但用了 HCL 当 L1，中文不能再当 R4；且 R 科仍须有 G3 人文。" },
+      { "t": "英语要稳在 C6 以上", "d": "JC 对 G3 英语的硬要求是 A1–C6。英语是 L1，一旦掉到 D7，L1R4 直接失去资格，比某一科 R 的分更致命。" },
+      { "t": "PR 身份的两处影响", "d": "学术门槛与公民相同；但派位同分时公民优先于 PR，且中学/JC 学费 PR 高于公民。选校时把「同分余量」留得比公民更宽一点。" }
+    ]
+  }
+}
