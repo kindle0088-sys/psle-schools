@@ -201,6 +201,7 @@ if (VERIFY) {
     offline.push(['反向校验 v2 报告', 'verify-abcd2-reverse-v2.cjs']);
   }
   offline.push(['单校报告 ×' + schoolReports.length, 'verify-all-school-reports.cjs']);
+  offline.push(['校报 abcd2 口径', 'verify-abcd2-school-reports.cjs']);
 
   console.log(`\n${c('1', '▸ 离线验证')}\n`);
   let vfail = 0;

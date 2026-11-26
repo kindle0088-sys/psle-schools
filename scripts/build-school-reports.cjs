@@ -39,6 +39,40 @@ const Walk = require('../lib/walk.cjs');
 const graph = Iso.buildGraph(NET);
 const CTX = new Map();
 
+/* 学生专属事实源：评分快照（科目/CCA 命中、余量、通勤）与公交路网。
+   2026-11-26 起 54 份校报全部按 abcd2 生成，这两份数据必须与画像同 id，
+   否则报告就会出现「叙述说命中、动态说没命中」这类静默矛盾。 */
+function loadStudentData(id, stu) {
+  const recPath = P(`data/_recommend-${id}.json`);
+  if (!fs.existsSync(recPath)) {
+    console.error(`\n✗ 缺少 ${recPath}。请先跑 STUDENT=${id} node scripts/score-candidates.cjs。\n`);
+    process.exit(1);
+  }
+  const REC = JSON.parse(fs.readFileSync(recPath, 'utf8'));
+  if (REC.student && REC.student.id !== id) {
+    console.error(`\n✗ ${recPath} 的 student.id=${REC.student.id}，与 ${id} 不一致。\n`);
+    process.exit(1);
+  }
+  const REC_MAP = new Map([...(REC.pool || []), ...(REC.outOfReach || []), ...(REC.singleSex || [])]
+    .map(x => [x.slug, x]));
+
+  let BUS = null, BUS_MAP = new Map();
+  if (stu.commuteMode === 'bus') {
+    const busPath = P(`data/bus-${id}.json`);
+    if (!fs.existsSync(busPath)) {
+      console.error(`\n✗ commuteMode=bus 需要 ${busPath}。请先跑 STUDENT=${id} node scripts/collect-bus.cjs。\n`);
+      process.exit(1);
+    }
+    BUS = JSON.parse(fs.readFileSync(busPath, 'utf8'));
+    if (BUS.studentId !== id) {
+      console.error(`\n✗ ${busPath} 的 studentId=${BUS.studentId}，与 ${id} 不一致。\n`);
+      process.exit(1);
+    }
+    BUS_MAP = new Map((BUS.rows || []).map(x => [x.slug, x.bus || null]));
+  }
+  return { REC, REC_MAP, BUS, BUS_MAP };
+}
+
 function contextFor(id) {
   if (CTX.has(id)) return CTX.get(id);
   const stu = Student.load(id);
@@ -52,8 +86,9 @@ function contextFor(id) {
   const commutes = Iso.timeToSchools(graph, stationMin, SCHOOLS);
   const commute = Object.fromEntries(commutes.map(c => [c.school.slug, c]));
   const walk = Walk.load(id);
-  if (!walk) console.warn(`\n⚠️ 未找到 data/walk-${id}.json，${id} 的校报只显示地铁通勤。`);
-  const ctx = { STU: stu, SCORE: stu.al, ORIGIN: origin, COMMUTE: commute, WALK: walk };
+  if (!walk) console.warn(`\n⚠️ 未找到 data/walk-${id}.json，${id} 的校报步行列会缺失。`);
+  const extra = loadStudentData(id, stu);
+  const ctx = { STU: stu, SCORE: stu.al, ORIGIN: origin, COMMUTE: commute, WALK: walk, ...extra };
   CTX.set(id, ctx);
   return ctx;
 }
@@ -82,7 +117,7 @@ function fmtRange(v) {
 
 // ── 渲染 ────────────────────────────────────────────────────────
 function render(pf, ctx) {
-  const { STU, SCORE, COMMUTE, WALK } = ctx;
+  const { STU, SCORE, COMMUTE, WALK, REC, REC_MAP, BUS, BUS_MAP } = ctx;
   const sc = SCHOOLS.find(s => s.slug === pf.slug);
   if (!sc) throw new Error(`schools.json 里找不到 ${pf.slug}`);
   const pg = pf.pg || 3;
@@ -90,6 +125,9 @@ function render(pf, ctx) {
   const cm = COMMUTE[pf.slug] || {};
   const cmx = Walk.merge(WALK ? WALK.bySlug.get(pf.slug) : null, cm.minutes);
   const margin = g && g.max != null ? g.max - SCORE : null;
+  const rec = REC_MAP.get(pf.slug) || null;
+  const bus = BUS ? (BUS_MAP.get(pf.slug) || null) : null;
+  const busMode = STU.commuteMode === 'bus';
 
   /* 步行 / 地铁两列：争议项给区间并注明两家引擎分歧，不取平均 */
   const walkText = !cmx || cmx.walkMin == null ? '—'
@@ -97,12 +135,20 @@ function render(pf, ctx) {
   const mrtText = !cmx || cmx.mrtMin == null ? '—' : `${cmx.mrtMin} 分钟`;
   const fastest = !cmx ? '—' : (cmx.best === 'walk' ? '步行' : '地铁');
 
+  const busOver = busMode && bus && bus.total > STU.maxCommuteMin;
+  const busText = !busMode ? null
+    : (bus ? `${bus.total} 分钟（${bus.svc} 路 · 下车步行 ${bus.walkFromStopMin} 分钟${busOver ? `；超出 ${STU.maxCommuteMin} 分钟上限` : ''}）` : '无直达车');
+  const scoreBasis = busMode
+    ? (bus ? { min: bus.total, how: busOver ? '公交·超限' : '公交' } : { min: null, how: '—' })
+    : (cmx && cmx.minutes != null ? { min: cmx.minutes, how: fastest } : { min: null, how: '—' });
+
   const profileCells = [
     { k: g?.kind === 'IP' ? 'IP 录取区间' : `PG${pg} 区间（${sc.cop?.year || 2025}）`, v: fmtRange(g) },
-    { k: `AL ${SCORE} 余量`, v: margin == null ? '—' : (margin >= 0 ? `+${margin} 分` : `${margin} 分`) },
+    { k: `AL ${SCORE} 余量`, v: margin == null ? '—' : (margin >= 0 ? `+${margin} 分` : `${margin} 分（高于上限）`) },
     { k: `步行（自 ${STU.home.postal}）`, v: walkText },
-    { k: '地铁', v: mrtText },
-    { k: '通勤计分', v: cmx && cmx.minutes != null ? `${cmx.minutes} 分钟（${fastest}）` : '—' },
+    ...(busMode ? [{ k: `公交（${STU.boardingStop ? STU.boardingStop.code : '指定站'} 上车）`, v: busText }] : []),
+    { k: busMode ? '地铁（仅参考）' : '地铁', v: mrtText },
+    { k: '通勤计分', v: scoreBasis.min != null ? `${scoreBasis.min} 分钟（${scoreBasis.how}）` : '—' },
     ...(pf.profileExtra || []),
   ];
 
@@ -193,6 +239,55 @@ ${progList}
 </div>`;
   }
 
+  /* ── abcd2 画像匹配卡（2026-11-26 全量切换）────────────────
+     所有判定从学生配置 + _recommend-abcd2.json 现算，不在模板里写校名。
+     正文的叙述写于早期画像，数字已同步重算；这张卡是最终核对口径。 */
+  const CCA_ZH = { Robotics: '机器人', AI: 'AI', Drama: '戏剧', Swimming: '游泳', Cooking: '烹饪' };
+  const detail = (rec && rec.subjectHitDetail) || {};
+  const subjRows = (STU.interests.subjects || STU.interests.academic || []).map(k => {
+    const d = detail[k] || { exact: [], related: [], relatedNote: null };
+    const exact = d.exact || [], related = d.related || [];
+    const state = exact.length ? `<span class="tag a">命中</span>`
+      : related.length ? `<span class="tag c">仅 G1</span>` : `<span class="tag b">未开设</span>`;
+    const note = exact.length ? esc(exact.join(' / '))
+      : related.length ? esc(related.join(' / ')) + (d.relatedNote ? `　<span class="soft">${esc(d.relatedNote)}</span>` : '')
+        : '<span class="soft">MOE 本届登记里没有这一项</span>';
+    return `<tr><td>${esc(k)}</td><td>${state}</td><td>${note}</td></tr>`;
+  }).join('\n');
+  const ccaHits = rec && Array.isArray(rec.ccaHits) ? rec.ccaHits : [];
+  const ccaRows = (STU.interests.cca || []).map(k => {
+    const zh = CCA_ZH[k] || k;
+    const hit = ccaHits.includes(zh);
+    return `<tr><td>${esc(k)}</td><td>${hit ? '<span class="tag a">命中</span>' : '<span class="tag b">未命中</span>'}</td><td class="soft">${hit ? 'MOE SchoolFinder 当前登记有对应社团；Sec 1 名额需开放日确认' : '当前登记里没有对应社团'}</td></tr>`;
+  }).join('\n');
+  const isPR = !!(STU.citizenship && STU.citizenship.status === 'PR');
+  const marginText = margin == null ? '无可用区间'
+    : margin >= 0 ? `余量 <b>+${margin} 分</b>` : `高于 PG3 上限 <b>${-margin} 分</b>（冲刺档）`;
+  const busLine = busMode
+    ? (bus
+      ? `从 <b>${esc(STU.boardingStop ? STU.boardingStop.code : '指定站')} ${esc(STU.boardingStop ? STU.boardingStop.name : '')}</b> 上 ${esc(bus.svc)} 路、${esc(bus.hops)} 站到 <b>${esc(bus.stopName)}</b>、再步行 ${esc(bus.walkFromStopMin)} 分钟，合计 <b>${esc(bus.total)} 分钟</b>；地铁仅列作参考，不计分。满分线 ${esc(STU.commuteFullMarkMin)} 分钟、上限 ${esc(STU.maxCommuteMin)} 分钟。${busOver ? `<b>本校超出 ${esc(STU.maxCommuteMin)} 分钟上限，按家长口径不合格。</b>` : ''}`
+      : `<b>该站没有到本校的不换乘公交</b>；地铁仅列作参考，不计分。`)
+    : `通勤按${esc(STU.commuteMode)}口径计分，满分线 ${esc(STU.commuteFullMarkMin)} 分钟、上限 ${esc(STU.maxCommuteMin)} 分钟。`;
+  const fitBlock = `
+<div class="note fit-block" id="fit-abcd2">
+<b>abcd2 画像匹配 · 自动核算</b>
+<p style="font-size:13.4px;margin:8px 0 10px">
+学生 <b>${esc(STU.label)}</b>｜<b>AL ${SCORE} / PG3</b>｜PG3 区间 <b>${esc(fmtRange(g))}</b>，${marginText}。
+${isPR ? '身份 <b>PR</b>：S1 同分排序为公民 → PR → 国际生，同分输公民；政府／政府辅助中学学费约 S$580–700／月。' : ''}
+</p>
+<p style="font-size:13.4px;margin:0 0 12px">${busLine}</p>
+<h4 style="margin:0 0 6px">学术兴趣（画像里 7 项科目，逐项对照本届开设科目）</h4>
+<div style="overflow-x:auto"><table style="margin:0">
+<thead><tr><th style="width:28%">兴趣科目</th><th style="width:14%">本校</th><th>对应科目 / 说明</th></tr></thead>
+<tbody>${subjRows}</tbody></table></div>
+<h4 style="margin:14px 0 6px">CCA 兴趣（按顺序：机器人 → AI → 戏剧 → 游泳 → 烹饪）</h4>
+<div style="overflow-x:auto"><table style="margin:0">
+<thead><tr><th style="width:28%">兴趣</th><th style="width:14%">本校</th><th>说明</th></tr></thead>
+<tbody>${ccaRows}</tbody></table></div>
+<p class="soft" style="font-size:12.4px;margin:10px 0 0">
+判定口径：科目命中 = <code>data/schools.json</code> 的 MOE 本届登记；「仅 G1」= 只有 Computer Applications 等 G1 关联课，PG3 是否能修 G2/G3 需现场确认。CCA 命中 = MOE 当前登记的社团名称，不保证 Sec 1 有名额。<b>命中不等于录取保证</b>；本卡的分数与余量按 AL ${SCORE} 现算，取代正文里基于旧画像的 comparative 描述。</p>
+</div>`;
+
   const toc = [
     '30 秒判断', '学校底色与校史', '学业与升学出路', '旗舰项目',
     'CCA 全解析', '真实声音', '开放日必问清单', '数据来源与可信度',
@@ -226,6 +321,7 @@ ${pf.corrections.map(c => `<tr><td>${c.claim}</td><td>${c.truth}</td></tr>`).joi
 <meta name="robots" content="noindex,nofollow">
 <!-- 生成器标记：验证器据此区分本模板产物与 v1 手写报告，避免对老报告套新断言 -->
 <meta name="generator" content="psle-school-report/v2">
+<meta name="student" content="${esc(STU.id)}">
 <title>${esc(pf.nameZh)} ${esc(sc.name)} · 单校深度报告</title>
 <style>
 ${CSS}
@@ -247,6 +343,7 @@ ${profileCells.map(c => `      <div><div class="k">${esc(c.k)}</div><div class="
 </div>
 
 <div class="wrap">
+${fitBlock}
 ${trendBlock}
 ${subjectBlock}
 <div class="toc">
@@ -290,7 +387,9 @@ ${corrections}
 <div class="foot">
 ${Snapshot.line()}<br>
 <b>报告生成：</b>${pf.generatedAt || new Date().toISOString().slice(0, 10)}　·　数据口径：COP 为 ${sc.cop?.year || 2025} 年度 S1 Posting 结果，AL ${SCORE} 属 PG${pg}，只与同档学生竞争<br>
-<b>通勤模型：</b>步行 = 自 ${STU.home.postal} 出发的 <b>OSM 步行路网最短路径</b>（${WALK ? WALK.walkMetersPerMin : 80}m/min，OSRM foot profile；Valhalla pedestrian 交叉校验，两引擎分歧 &gt;1.4× 标「争议」并显示区间）；地铁 = MRT 站间 ${NET.params.rideMinPerStop} 分钟、换乘 ${NET.params.transferMin} 分钟、进站等车 ${NET.params.accessOverheadMin} 分钟 + 站到校步行；<b>两者取最快者用于通勤评分</b>。不含巴士接驳，故步行路网不通、必须坐车的学校实际更慢<br>
+<b>通勤模型：</b>${busMode
+    ? `<b>公交口径（${STU.id}）</b>：从 ${esc(STU.boardingStop ? `${STU.boardingStop.code} ${STU.boardingStop.name}` : '指定站')} 上车，只取下游方向、不换乘，下车后步行；与纯步行取较快者计分，地铁仅参考不计分（数据 <code>data/bus-${esc(STU.id)}.json</code> / <code>data/walk-${esc(STU.id)}.json</code>）。`
+    : `步行 = 自 ${STU.home.postal} 出发的 <b>OSM 步行路网最短路径</b>（${WALK ? WALK.walkMetersPerMin : 80}m/min，OSRM foot profile；Valhalla pedestrian 交叉校验，两引擎分歧 &gt;1.4× 标「争议」并显示区间）；地铁 = MRT 站间 ${NET.params.rideMinPerStop} 分钟、换乘 ${NET.params.transferMin} 分钟、进站等车 ${NET.params.accessOverheadMin} 分钟 + 站到校步行；<b>两者取最快者用于通勤评分</b>。`}<br>
 <b>相关页面：</b>${Nav.foot(null, '../')}<br>
 <b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
 </div>
@@ -329,8 +428,10 @@ for (const f of files) {
     const cm = ctx.COMMUTE[slug] || {};
     const cmx = Walk.merge(ctx.WALK ? ctx.WALK.bySlug.get(slug) : null, cm.minutes);
     const g = pgRow(SCHOOLS.find(s => s.slug === slug) || {}, pf.pg || 3);
-    const label = !cmx ? '—'
-      : `${cmx.minutes ?? '—'}min(${cmx.best === 'walk' ? '步行' : '地铁'}${cmx.walkDisputed ? '·争议' : ''})`;
+    const busRow = ctx.BUS ? ctx.BUS_MAP.get(slug) : null;
+    const label = ctx.STU.commuteMode === 'bus'
+      ? (busRow ? `${busRow.total}min(公交 ${busRow.svc})` : '无直达公交')
+      : (!cmx ? '—' : `${cmx.minutes ?? '—'}min(${cmx.best === 'walk' ? '步行' : '地铁'}${cmx.walkDisputed ? '·争议' : ''})`);
     console.log(`✓ ${slug.padEnd(34)} ${(html.length / 1024).toFixed(0)}KB  PG3 ${fmtRange(g)}  通勤 ${label}`);
     built++;
   } catch (e) {

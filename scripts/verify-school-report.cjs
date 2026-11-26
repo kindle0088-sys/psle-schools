@@ -15,8 +15,8 @@ const Subjects = require('../lib/subjects.cjs');
 
 const BASE = path.join(__dirname, '..');
 /* 余量断言必须跟随报告所依据的学生画像。
-   默认 abc1 保持存量 15 份行为不变；生成/校验 abc4 报告时带 STUDENT=abc4。 */
-const STU = Student.load(process.env.STUDENT || undefined);
+   2026-11-26 起 v2 报告自带 <meta name="student">，优先读它；v1 手写存档
+   没有这个标记，才回退到 STUDENT 环境变量 / active 指针。 */
 const argFile = process.argv[2];
 if (!argFile) { console.error('用法: node verify-school-report.cjs <html路径> [--slug xxx]'); process.exit(2); }
 const slugIdx = process.argv.indexOf('--slug');
@@ -31,6 +31,8 @@ if (!slug) {
 
 if (!fs.existsSync(file)) { console.error('文件不存在:', file); process.exit(2); }
 const html = fs.readFileSync(file, 'utf8');
+const metaStu = (html.match(/name="student" content="([^"]+)"/) || [])[1];
+const STU = Student.load(metaStu || process.env.STUDENT || undefined);
 
 let pass = 0, fail = 0;
 const fails = [];
@@ -106,17 +108,35 @@ if (s) {
   const isV2Template = /name="generator" content="psle-school-report\//.test(html);
   if (s.commute && isV2Template) {
     const c = s.commute;
+    const busMode = STU.commuteMode === 'bus';
+    const busFile = path.join(BASE, `data/bus-${STU.id}.json`);
+    const BUS = busMode && fs.existsSync(busFile) ? JSON.parse(fs.readFileSync(busFile, 'utf8')) : null;
+    const busRow = BUS ? (BUS.rows || []).find(x => x.slug === s.slug) : null;
     const walkCell = (html.match(/步行（自 \d{6}）<\/div><div class="v">([^<]*)/) || [])[1] || '';
-    const mrtCell = (html.match(/<div class="k">地铁<\/div><div class="v">([^<]*)/) || [])[1] || '';
+    const mrtCell = (html.match(/<div class="k">地铁(?:（仅参考）)?<\/div><div class="v">([^<]*)/) || [])[1] || '';
+    const busCell = (html.match(/<div class="k">公交（[^<]*<\/div><div class="v">([^<]*)/) || [])[1] || '';
     const scoreCell = (html.match(/<div class="k">通勤计分<\/div><div class="v">([^<]*)/) || [])[1] || '';
     const wantWalk = c.walkRange ? `${c.walkRange[0]}–${c.walkRange[1]} 分钟（争议）`
       : (c.walkMin != null ? `${c.walkMin} 分钟` : '—');
     t('步行列与数据源一致', walkCell.trim() === wantWalk, `${walkCell.trim()} / 期望 ${wantWalk}`);
     t('地铁列与数据源一致', mrtCell.trim() === (c.mrtMin != null ? `${c.mrtMin} 分钟` : '—'), mrtCell.trim());
-    t('通勤计分格标明采用哪一档',
-      scoreCell.includes('步行') || scoreCell.includes('地铁'), scoreCell.trim());
-    t('计分分钟数等于两路最快值',
-      scoreCell.trim().startsWith(String(c.minutes)), `${scoreCell.trim()} / min=${c.minutes}`);
+    if (busMode) {
+      t('公交口径必须有专属路网数据', !!BUS, STU.id);
+      const wantBus = busRow && busRow.bus
+        ? `${busRow.bus.total} 分钟（${busRow.bus.svc} 路 · 下车步行 ${busRow.bus.walkFromStopMin} 分钟${busRow.bus.total > STU.maxCommuteMin ? `；超出 ${STU.maxCommuteMin} 分钟上限` : ''}）`
+        : '无直达车';
+      t('公交列与数据源一致', busCell.trim() === wantBus, `${busCell.trim()} / 期望 ${wantBus}`);
+      t('通勤计分采用公交而非地铁',
+        busRow && busRow.bus
+          ? (scoreCell.includes('公交') && scoreCell.trim().startsWith(String(busRow.bus.total)))
+          : scoreCell.trim() === '—',
+        busRow && busRow.bus ? scoreCell.trim() : '无直达公交 → 如实标 —');
+    } else {
+      t('通勤计分格标明采用哪一档',
+        scoreCell.includes('步行') || scoreCell.includes('地铁'), scoreCell.trim());
+      t('计分分钟数等于两路最快值',
+        scoreCell.trim().startsWith(String(c.minutes)), `${scoreCell.trim()} / min=${c.minutes}`);
+    }
     // 争议项必须显式标注，不能只给一个数字让读者以为精确
     t('争议项显式标注「争议」', c.walkDisputed ? walkCell.includes('争议') : !walkCell.includes('争议'), walkCell.trim());
   }
@@ -300,8 +320,46 @@ if (s) {
   /* 通勤时间（由 build 脚本计算，允许 ±2 分钟）
      现行模板给的是「通勤计分 N 分钟」；v1 老报告写「约 N 分钟」，两种都认。 */
   const cm = (html.match(/约\s*(\d+)\s*分钟/) || html.match(/通勤计分<\/div><div class="v">(\d+)\s*分钟/) || [])[1];
-  if (cm) t('通勤时间为数字且合理（≤60 分钟）', +cm <= 60, cm + ' 分钟');
+  if (STU.commuteMode === 'bus') {
+    /* 公交口径允许出现超限校：它们要被明确标成「公交·超限」，而不是被
+       老断言当成「通勤时间不合理」误报，也不是悄悄当成合格。 */
+    t('公交通勤已如实标注（含超限）',
+      html.includes('公交（') && (/通勤计分<\/div><div class="v">(?:\d+ 分钟（公交|—)/.test(html)),
+      cm ? cm + ' 分钟' : '—');
+  } else if (cm) t('通勤时间为数字且合理（≤60 分钟）', +cm <= 60, cm + ' 分钟');
   else t('通勤时间已填', false);
+}
+
+/* ── 三·补：abcd2 画像口径（2026-11-26 起 54 份校报统一）─────────
+   这一组专门防「叙述改了、动态没改」的静默矛盾：分数只认报告自己声明的
+   学生画像，兴趣清单逐项对照学生配置，不靠任何写死的校名。 */
+if (/name="generator" content="psle-school-report\//.test(html)) {
+  group('三·补、abcd2 画像口径');
+  t('报告声明学生画像', !!metaStu, metaStu || '(无 meta)');
+  t('摘要按 AL 18 计算', /AL\s*18\s*余量/.test(html));
+  t('画像匹配卡存在', html.includes('id="fit-abcd2"'));
+  const a = html.indexOf('id="fit-abcd2"');
+  const b = html.indexOf('<div class="toc"', a);
+  const fitHtml = a > -1 && b > a ? html.slice(a, b) : '';
+  const fitText = fitHtml.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
+  t('匹配卡已渲染', fitHtml.length > 500, fitHtml.length + ' 字符');
+  t('无旧画像分数（AL 15 / AL 17 / 15 分 / 17 分）',
+    !/AL\s*1[57]\b/.test(html) && !/(?<!\d)(?:15|17)\s*分(?!钟|之)/.test(html));
+  const subjWant = (STU.interests.subjects || STU.interests.academic || []);
+  const ccaWant = STU.interests.cca || [];
+  t('七门兴趣科目逐项列出', subjWant.length > 0 && subjWant.every(k => fitText.includes(k)), subjWant.length + ' 项');
+  t('五项 CCA 兴趣逐项列出', ccaWant.length > 0 && ccaWant.every(k => fitText.includes(k)), ccaWant.length + ' 项');
+  if (STU.citizenship && STU.citizenship.status === 'PR') {
+    t('PR 身份与同分排序提示', fitHtml.includes('PR') && fitHtml.includes('公民'));
+  }
+  if (s) {
+    const pg3 = (s.cop.rows || []).find(r => /Posting Group 3/i.test(r.label))?.nonAff;
+    if (pg3) {
+      const m = pg3.max - STU.al;
+      t('匹配卡余量与 PG3 上限一致',
+        fitHtml.includes(m >= 0 ? `+${m} 分` : `${-m} 分`), `上限 ${pg3.max} → ${m >= 0 ? '+' + m : m}`);
+    }
+  }
 }
 
 // ── 四、单校专属断言 ──

@@ -18,6 +18,8 @@
 
 **报告产物**：`docs/reports/` 下 66 份 HTML = 54 份生成的单校深度报告 + 10 份学生志愿报告 + 2 份手写历史存档（`abc1-s1-choice-2026.html`、`school-compassvale-secondary.html`）。历史存档不随数据重建，也不冒充新快照。其中 `abcd2-reverse-v2` 是家长改名单后的反向校验第二版，含与上一版的对照及 S1 派位顺序口径更正。
 
+**单校深度报告画像**：2026-11-26 起 54 份全部按 `abcd2`（AL 18 / PG3 / PR / 从 65431 站不换乘公交或纯步行）重建。每份导语下的「abcd2 画像匹配 · 自动核算」卡逐校列出 7 门兴趣科目与 5 项 CCA 的命中情况、PG3 余量、通勤分钟数；判定来自 `data/_recommend-abcd2.json` 与 `data/bus-abcd2.json`，叙述里的分数/余量也同步重算。换学生时需要重新跑 `scripts/migrate-school-profiles-abcd2.cjs` 的逻辑并全量重建，不能只改 `data/students/active.json`。
+
 ## 数据来源
 
 | 数据 | 来源 | 更新方式 |
