@@ -14,9 +14,9 @@
 | `docs/guide.html` | 填报手册 —— 录取规则、志愿梯度、单科 AL / HMTL / Full SBB 口径 |
 | `docs/full-sbb.html` | Full SBB 专题 —— 取消分流、G1/G2/G3、31 类科目分级、四年后 JC 路径 |
 | `docs/openhouse.html` | 开放日汇总 —— 13 所深度报告学校的场次、活动、矛盾点；状态按打开当天实时计算 |
-| `docs/plans.html` | 志愿方案看板 —— 9 位学生的报告入口，`activeId` 决定谁被标为「当前」 |
+| `docs/plans.html` | 志愿方案看板 —— 10 位学生的报告入口，`activeId` 决定谁被标为「当前」 |
 
-**报告产物**：`docs/reports/` 下 65 份 HTML = 54 份生成的单校深度报告 + 9 份学生志愿报告 + 2 份手写历史存档（`abc1-s1-choice-2026.html`、`school-compassvale-secondary.html`）。历史存档不随数据重建，也不冒充新快照。
+**报告产物**：`docs/reports/` 下 66 份 HTML = 54 份生成的单校深度报告 + 10 份学生志愿报告 + 2 份手写历史存档（`abc1-s1-choice-2026.html`、`school-compassvale-secondary.html`）。历史存档不随数据重建，也不冒充新快照。其中 `abcd2-reverse-v2` 是家长改名单后的反向校验第二版，含与上一版的对照及 S1 派位顺序口径更正。
 
 ## 数据来源
 

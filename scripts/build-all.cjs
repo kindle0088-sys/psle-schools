@@ -197,6 +197,9 @@ if (VERIFY) {
   if (fs.existsSync(P('data/research/abcd2-reverse.json'))) {
     offline.push(['反向校验报告', 'verify-abcd2-reverse.cjs']);
   }
+  if (fs.existsSync(P('data/research/abcd2-reverse-v2.json'))) {
+    offline.push(['反向校验 v2 报告', 'verify-abcd2-reverse-v2.cjs']);
+  }
   offline.push(['单校报告 ×' + schoolReports.length, 'verify-all-school-reports.cjs']);
 
   console.log(`\n${c('1', '▸ 离线验证')}\n`);

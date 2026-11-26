@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-25T11:46:22.267Z",
+ "generatedAt": "2026-11-26T08:44:19.772Z",
  "defaultId": "abc1",
  "activeId": "abc1",
  "students": [
@@ -12,7 +12,7 @@
    "maxCommuteMin": 45,
    "commuteMode": "fastest",
    "planSlug": "abc1-s1-choice-2026-v2",
-   "updatedAt": "2026-11-25T11:46:20.669Z",
+   "updatedAt": "2026-11-26T08:43:48.698Z",
    "plan": {
     "picks": [
      {
@@ -52,7 +52,7 @@
      "v2"
     ],
     "report": "reports/abc1-s1-choice-2026-v2.html",
-    "generatedAt": "2026-11-25T11:46:20.669Z"
+    "generatedAt": "2026-11-26T08:43:48.698Z"
    }
   },
   {
@@ -64,7 +64,7 @@
    "maxCommuteMin": 45,
    "commuteMode": "fastest",
    "planSlug": "abc2-s1-choice-2026",
-   "updatedAt": "2026-11-25T11:46:20.860Z",
+   "updatedAt": "2026-11-26T08:43:48.848Z",
    "plan": {
     "picks": [
      {
@@ -104,7 +104,7 @@
      "plan"
     ],
     "report": "reports/abc2-s1-choice-2026.html",
-    "generatedAt": "2026-11-25T11:46:20.860Z"
+    "generatedAt": "2026-11-26T08:43:48.848Z"
    }
   },
   {
@@ -116,7 +116,7 @@
    "maxCommuteMin": 40,
    "commuteMode": "walk",
    "planSlug": "abc3-s1-choice-2026",
-   "updatedAt": "2026-11-25T11:46:21.057Z",
+   "updatedAt": "2026-11-26T08:43:49.058Z",
    "plan": {
     "picks": [
      {
@@ -156,7 +156,7 @@
      "plan"
     ],
     "report": "reports/abc3-s1-choice-2026.html",
-    "generatedAt": "2026-11-25T11:46:21.057Z"
+    "generatedAt": "2026-11-26T08:43:49.059Z"
    }
   },
   {
@@ -168,7 +168,7 @@
    "maxCommuteMin": 60,
    "commuteMode": "fastest",
    "planSlug": "abc4-s1-choice-2026",
-   "updatedAt": "2026-11-25T11:46:21.259Z",
+   "updatedAt": "2026-11-26T08:43:49.260Z",
    "plan": {
     "picks": [
      {
@@ -208,7 +208,7 @@
      "plan"
     ],
     "report": "reports/abc4-s1-choice-2026.html",
-    "generatedAt": "2026-11-25T11:46:21.260Z"
+    "generatedAt": "2026-11-26T08:43:49.260Z"
    }
   },
   {
@@ -220,7 +220,7 @@
    "maxCommuteMin": 40,
    "commuteMode": "walk",
    "planSlug": "abc5-s1-choice-2026",
-   "updatedAt": "2026-11-25T11:46:21.469Z",
+   "updatedAt": "2026-11-26T08:43:49.461Z",
    "plan": {
     "picks": [
      {
@@ -260,7 +260,7 @@
      "plan"
     ],
     "report": "reports/abc5-s1-choice-2026.html",
-    "generatedAt": "2026-11-25T11:46:21.469Z"
+    "generatedAt": "2026-11-26T08:43:49.461Z"
    }
   },
   {
@@ -272,7 +272,7 @@
    "maxCommuteMin": 40,
    "commuteMode": "fastest",
    "planSlug": "abc6-s1-choice-2026",
-   "updatedAt": "2026-11-25T11:46:21.674Z",
+   "updatedAt": "2026-11-26T08:43:49.649Z",
    "plan": {
     "picks": [
      {
@@ -312,7 +312,7 @@
      "plan"
     ],
     "report": "reports/abc6-s1-choice-2026.html",
-    "generatedAt": "2026-11-25T11:46:21.674Z"
+    "generatedAt": "2026-11-26T08:43:49.649Z"
    }
   },
   {
@@ -324,7 +324,7 @@
    "maxCommuteMin": 60,
    "commuteMode": "bus",
    "planSlug": "abcd1-s1-choice-2026",
-   "updatedAt": "2026-11-25T11:46:21.860Z",
+   "updatedAt": "2026-11-26T08:43:49.830Z",
    "plan": {
     "picks": [
      {
@@ -364,7 +364,7 @@
      "plan"
     ],
     "report": "reports/abcd1-s1-choice-2026.html",
-    "generatedAt": "2026-11-25T11:46:21.861Z"
+    "generatedAt": "2026-11-26T08:43:49.830Z"
    }
   },
   {
@@ -376,7 +376,7 @@
    "maxCommuteMin": 60,
    "commuteMode": "bus",
    "planSlug": "abcd2-s1-choice-2026",
-   "updatedAt": "2026-11-25T11:46:22.264Z",
+   "updatedAt": "2026-11-26T08:43:50.435Z",
    "plan": {
     "picks": [
      {
@@ -416,7 +416,7 @@
      "plan"
     ],
     "report": "reports/abcd2-s1-choice-2026.html",
-    "generatedAt": "2026-11-25T11:46:22.264Z"
+    "generatedAt": "2026-11-26T08:43:50.435Z"
    }
   },
   {
@@ -428,7 +428,7 @@
    "maxCommuteMin": 60,
    "commuteMode": "bus",
    "planSlug": "abcd2-reverse-s1-choice-2026",
-   "updatedAt": "2026-11-25T11:46:22.074Z",
+   "updatedAt": "2026-11-26T08:43:50.232Z",
    "plan": {
     "picks": [
      {
@@ -468,7 +468,59 @@
      "plan"
     ],
     "report": "reports/abcd2-reverse-s1-choice-2026.html",
-    "generatedAt": "2026-11-25T11:46:22.074Z"
+    "generatedAt": "2026-11-26T08:43:50.232Z"
+   }
+  },
+  {
+   "id": "abcd2-reverse-v2",
+   "label": "abcd2-reverse-v2",
+   "al": 18,
+   "pgShort": "PG3",
+   "postal": "828765",
+   "maxCommuteMin": 60,
+   "commuteMode": "bus",
+   "planSlug": "abcd2-reverse-v2-s1-choice-2026",
+   "updatedAt": "2026-11-26T08:44:19.768Z",
+   "plan": {
+    "picks": [
+     {
+      "slot": 1,
+      "name": "Compassvale Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 2,
+      "name": "North Vista Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 3,
+      "name": "Punggol Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 4,
+      "name": "Naval Base Secondary School",
+      "tier": "冲刺"
+     },
+     {
+      "slot": 5,
+      "name": "Junyuan Secondary School",
+      "tier": "匹配"
+     },
+     {
+      "slot": 6,
+      "name": "Hougang Secondary School",
+      "tier": "冲刺"
+     }
+    ],
+    "poolMixed": 18,
+    "withinCommuteReachable": 19,
+    "kinds": [
+     "plan"
+    ],
+    "report": "reports/abcd2-reverse-v2-s1-choice-2026.html",
+    "generatedAt": "2026-11-26T08:44:19.768Z"
    }
   }
  ]
