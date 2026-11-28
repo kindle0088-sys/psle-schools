@@ -16,9 +16,9 @@
 | `docs/openhouse.html` | 开放日汇总 —— 13 所深度报告学校的场次、活动、矛盾点；状态按打开当天实时计算 |
 | `docs/plans.html` | 志愿方案看板 —— 10 位学生的报告入口，`activeId` 决定谁被标为「当前」 |
 
-**报告产物**：`docs/reports/` 下 66 份 HTML = 54 份生成的单校深度报告 + 10 份学生志愿报告 + 2 份手写历史存档（`abc1-s1-choice-2026.html`、`school-compassvale-secondary.html`）。历史存档不随数据重建，也不冒充新快照。其中 `abcd2-reverse-v2` 是家长改名单后的反向校验第二版，含与上一版的对照及 S1 派位顺序口径更正。
+**报告产物**：`docs/reports/` 下 67 份 HTML = 55 份生成的单校深度报告 + 10 份学生志愿报告 + 2 份手写历史存档（`abc1-s1-choice-2026.html`、`school-compassvale-secondary.html`）。历史存档不随数据重建，也不冒充新快照。其中 `abcd2-reverse-v2` 是家长改名单后的反向校验第二版，含与上一版的对照及 S1 派位顺序口径更正。
 
-**单校深度报告画像**：2026-11-26 起 54 份全部按 `abcd2`（AL 18 / PG3 / PR / 从 65431 站不换乘公交或纯步行）重建。每份导语下的「abcd2 画像匹配 · 自动核算」卡逐校列出 7 门兴趣科目与 5 项 CCA 的命中情况、PG3 余量、通勤分钟数；判定来自 `data/_recommend-abcd2.json` 与 `data/bus-abcd2.json`，叙述里的分数/余量也同步重算。换学生时需要重新跑 `scripts/migrate-school-profiles-abcd2.cjs` 的逻辑并全量重建，不能只改 `data/students/active.json`。
+**单校深度报告画像**：2026-11-26 起 55 份全部按 `abcd2`（AL 18 / PG3 / PR / 从 65431 站不换乘公交或纯步行）重建。每份导语下的「abcd2 画像匹配 · 自动核算」卡逐校列出 7 门兴趣科目与 5 项 CCA 的命中情况、PG3 余量、通勤分钟数；判定来自 `data/_recommend-abcd2.json` 与 `data/bus-abcd2.json`，叙述里的分数/余量也同步重算。换学生时需要重新跑 `scripts/migrate-school-profiles-abcd2.cjs` 的逻辑并全量重建，不能只改 `data/students/active.json`。
 
 ## 数据来源
 
@@ -55,7 +55,7 @@
 
 ## 已知缺口
 
-- **2023 COP 覆盖 52/54**：Bedok South、Bedok View 在 Wayback 的 2023 派位窗口零快照，已二次核验，不用二手表填空。2024 覆盖 53/54（Outram 当年无 S1 派位，官方注明不存在 COP），2025 覆盖 54/54。
+- **2023 COP 覆盖 53/55**：Bedok South、Bedok View 在 Wayback 的 2023 派位窗口零快照，已二次核验，不用二手表填空；Junyuan 的 2023 PG3 14–22 来自 2024-06-13 官方存档快照。2024 线上双年表覆盖全部 55 所（Outram 当年无 S1 派位，官方注明不存在 COP），2025 覆盖 55/55。
 - 等时圈不含巴士、等车波动与个体步行速度差异。
 - 开放日只覆盖 13 所深度报告学校，数据更新于 2026-11-15；日期时间可能临时调整，出发前以学校官网或电话为准。
 - Full SBB 政策快照核验于 2026-11-25；JC 规则 2028 起生效，之后需复核官方更新。
@@ -65,13 +65,13 @@
 ```bash
 cd psle-schools
 
-# 一次跑完 25 步：数据层 → 每位学生候选池 → 每位学生报告 → 54 份校报 → 各页面 → 方案看板
+# 一次跑完 25 步：数据层 → 每位学生候选池 → 每位学生报告 → 55 份校报 → 各页面 → 方案看板
 node scripts/build-all.cjs              # 只构建
 node scripts/build-all.cjs --verify     # 构建 + 全部离线验证器
 node scripts/build-all.cjs --only=guide,plans
 ```
 
-`--verify` 包含：主题色板、全站导航、数据快照、CCA 清单、多学生配置、考生页、Full SBB、手册、看板、开放日、9 份学生报告、反向校验报告、54 份校报。**顺序有硬依赖**，不能随意调换：数据层 → 候选池 → 报告 → 方案看板（最后）。
+`--verify` 包含：主题色板、全站导航、数据快照、CCA 清单、多学生配置、考生页、Full SBB、手册、看板、开放日、9 份学生报告、反向校验报告、55 份校报。**顺序有硬依赖**，不能随意调换：数据层 → 候选池 → 报告 → 方案看板（最后）。
 
 需要浏览器的两组另行执行：
 

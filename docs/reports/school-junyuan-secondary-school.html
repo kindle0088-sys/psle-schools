@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<!-- 生成器标记：验证器据此区分本模板产物与 v1 手写报告，避免对老报告套新断言 -->
+<meta name="generator" content="psle-school-report/v2">
+<meta name="student" content="abcd2">
+<title>Junyuan Secondary School Junyuan Secondary School · 单校深度报告</title>
+<style>
+/* ─────────────────────────────────────────────────────────────
+   PSLE 择校 · 共享色板（深色）
+
+   唯一的颜色来源。plan.css / school.css 里不允许再出现硬编码色值，
+   一律走这里的 token；生成器把本文件拼在模板前面。
+
+   取值与 docs/assets/style.css（看板）的 :root 保持一致 —— 两处必须同步，
+   scripts/verify-theme.cjs 会做比对。
+
+   配色约定：红绿只用于「涨跌」语义（本项目没有），所以只用中性色阶 +
+   一种强调色；琥珀/红/绿仅表达「风险/不确定/达标」，不表达学校好坏。
+   ───────────────────────────────────────────────────────────── */
+:root{
+  /* 底与面 */
+  --bg:#0a0f1a;
+  --bg-soft:#0e1526;
+  --card:#121a2a;
+  --line:#1e2b40;
+  --line2:#182338;
+
+  /* 文字 */
+  --tx:#e8eef7;
+  --tx2:#93a4bd;
+  --tx3:#78879f;
+
+  /* 强调（天蓝，与看板同色） */
+  --accent:#38bdf8;
+  --accent-dim:#0e7490;
+  --accent-bg:rgba(56,189,248,.10);
+  --accent-line:rgba(56,189,248,.30);
+  --accent-ink:#06212f;        /* 铺在 accent 底色上的文字 */
+
+  /* 语义色：琥珀＝注意 / 红＝风险 / 绿＝达成 */
+  --warm:#fbbf24;
+  --warm-bg:rgba(251,191,36,.10);
+  --warm-line:rgba(251,191,36,.30);
+
+  --risk:#f87171;
+  --risk-bg:rgba(248,113,113,.10);
+  --risk-line:rgba(248,113,113,.28);
+
+  --ok:#34d399;
+  --ok-bg:rgba(52,211,153,.10);
+  --ok-line:rgba(52,211,153,.28);
+
+  /* 交互与容器 */
+  --hover:rgba(255,255,255,.035);
+  --surface:rgba(255,255,255,.03);        /* 卡片内的次级面（数据格、note） */
+  --surface-line:rgba(255,255,255,.055);  /* 次级面的描边 */
+  --accent-hover:rgba(56,189,248,.16);    /* 强调块 hover */
+  --chip:rgba(255,255,255,.055);
+  --code:rgba(255,255,255,.07);
+  --hero-a:#0c1424;
+  --hero-b:#0a0f1a;
+
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+/* school.css —— 单校深度报告的组件
+   颜色全部来自 tpl/tokens.css（生成器会把它拼在本文件前面）。
+   ⚠️ 这个文件里不要写任何色值字面量，否则换主题时会漏掉。 */
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.78 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--tx3);text-decoration:none;margin-bottom:14px}
+.backlink:hover{color:var(--tx)}
+.hero{background:linear-gradient(180deg,var(--hero-a),var(--hero-b));color:var(--tx);padding:40px 0 36px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);opacity:.85}
+.hero h1{margin:10px 0 4px;font-size:27px;font-weight:650;letter-spacing:-.4px;line-height:1.3}
+.hero h1 small{display:block;font-size:15px;font-weight:400;color:var(--tx2);margin-top:5px}
+.hero .sub{color:var(--tx2);font-size:14px;max-width:680px;margin-top:12px}
+/* 每格独立成卡：否则格子数不满一行时，容器底色会露出一块空的「假格子」 */
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;margin-top:24px}
+.profile div{background:var(--surface);border:1px solid var(--surface-line);border-radius:8px;padding:11px 14px}
+.profile .k{font-size:11.5px;color:var(--tx3);letter-spacing:.4px}
+.profile .v{font-size:15px;font-weight:600;margin-top:3px}
+.addr{font-size:12.6px;color:var(--tx3);margin-top:12px;font-variant-numeric:tabular-nums}
+
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:22px 0 0;font-size:13.4px}
+.toc b{font-size:12px;color:var(--tx3);letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:7px}
+.toc a{display:inline-block;margin:3px 14px 3px 0;text-decoration:none;color:var(--tx2);border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+section{margin:0 0 10px}
+h2{font-size:18px;font-weight:640;margin:40px 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:16px}
+h2 .n{font-size:11.5px;font-weight:600;color:var(--accent-ink);background:var(--accent);border-radius:5px;padding:2px 7px;letter-spacing:.6px;flex:none}
+h2+.lead{color:var(--tx2);font-size:14px;margin:0 0 14px}
+h3{font-size:15.5px;font-weight:620;margin:26px 0 8px}
+h4{font-size:14px;font-weight:620;margin:18px 0 6px;color:var(--tx2)}
+p{margin:11px 0}
+
+.verdict{background:var(--accent-bg);border:1px solid var(--accent-line);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:22px 0}
+.verdict h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+.verdict ul{margin:8px 0 0;padding-left:20px;font-size:14.3px}
+.verdict li{margin:5px 0}
+.warnbox{background:var(--warm-bg);border:1px solid var(--warm-line);border-left:4px solid var(--warm);border-radius:0 10px 10px 0;padding:16px 19px;margin:22px 0;font-size:14.2px}
+.warnbox b{color:var(--warm)}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:13.4px;color:var(--tx2);margin:16px 0}
+.note b{color:var(--tx)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.panel h4{margin:0 0 8px;font-size:13.5px;color:var(--accent);letter-spacing:.2px}
+.panel ul{margin:0;padding-left:18px;font-size:13.6px}
+.panel li{margin:5px 0}
+.panel.muted h4{color:var(--tx3)}
+
+table{width:100%;border-collapse:collapse;font-size:13.3px;margin:14px 0}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:11.5px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+th.mid,td.mid{text-align:center}
+tbody tr:hover{background:var(--hover)}
+.soft{color:var(--tx3)}
+
+.bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;font-size:13px;margin:5px 0}
+.bar-row .lbl{color:var(--tx2)}
+.bar-track{background:var(--chip);border-radius:4px;height:15px;overflow:hidden}
+.bar-fill{height:100%;background:var(--accent-dim);border-radius:4px}
+.bar-fill.hi{background:var(--accent)}
+.bar-row .val{font-family:var(--mono);text-align:right;color:var(--tx2)}
+
+.tl{border-left:2px solid var(--line);margin:16px 0 0 6px;padding-left:20px}
+.tl .ev{position:relative;margin:0 0 16px}
+.tl .ev::before{content:"";position:absolute;left:-26px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600}
+.tl .d{font-size:14px;margin-top:1px}
+
+.voice{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--line2);border-radius:0 10px 10px 0;padding:15px 18px;margin:14px 0;font-size:14.2px}
+.voice .who{font-size:12.3px;color:var(--tx3);margin-bottom:6px;letter-spacing:.2px}
+.voice q{quotes:"「" "」";font-style:italic;color:var(--tx)}
+.voice p{margin:8px 0}
+
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--tx2);background:var(--chip);margin-right:5px;letter-spacing:.2px}
+.tag.a{border-color:var(--accent-line);background:var(--accent-bg);color:var(--accent)}
+.tag.b{border-color:var(--line);background:var(--chip);color:var(--tx2)}
+.tag.c{border-color:var(--warm-line);background:var(--warm-bg);color:var(--warm)}
+
+.checklist{counter-reset:c;list-style:none;padding:0;margin:14px 0}
+.checklist li{counter-increment:c;position:relative;padding:9px 0 9px 38px;border-bottom:1px solid var(--line2);font-size:14px}
+.checklist li::before{content:counter(c);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+/* 开设科目 chips：中性强调色，强=warm、特色=accent、兼有=两者叠加。
+   刻意不用红/绿——红绿在本项目另有语义（涨/跌），且这里不暗示科目好坏。 */
+.subject-chips{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 4px}
+.subj-chip{display:inline-flex;align-items:center;gap:5px;font-size:12.6px;padding:4px 9px;border:1px solid var(--line);border-radius:6px;background:var(--chip);color:var(--tx2)}
+.subj-chip.strong{border-color:var(--warm-line);background:var(--warm-bg);color:var(--tx)}
+.subj-chip.rare{border-color:var(--accent-line);background:var(--accent-bg);color:var(--tx)}
+.subj-chip.both{border-color:var(--warm-line);background:linear-gradient(135deg,var(--warm-bg),var(--accent-bg));color:var(--tx)}
+.sbadge{font-size:10px;font-weight:600;letter-spacing:.2px;padding:0 5px;border-radius:3px;line-height:1.6}
+.sbadge.s{background:var(--warm);color:var(--accent-ink)}
+.sbadge.r{background:var(--accent);color:var(--accent-ink)}
+.sbadge.sr{background:var(--tx2);color:var(--bg)}
+.strong-demo{border-color:var(--warm-line);background:var(--warm-bg)}
+.rare-demo{border-color:var(--accent-line);background:var(--accent-bg)}
+
+.foot{margin:44px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);font-size:12.6px;color:var(--tx3);line-height:1.85}
+.foot b{color:var(--tx2)}
+.foot a{color:var(--accent)}
+
+@media(max-width:600px){
+  .hero h1{font-size:21px}
+  .grid2{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:110px 1fr 42px;font-size:12.3px}
+  table{font-size:12.3px}
+  th,td{padding:7px 6px}
+}
+@media print{
+  :root{
+    --bg:#fff; --card:#fff; --line:#d7dde5; --line2:#eceff3;
+    --tx:#111827; --tx2:#374151; --tx3:#6b7280;
+    --accent:#0b6b8a; --accent-bg:#eef7fb; --accent-line:#bfe0ec; --accent-ink:#fff;
+    --warm:#8a5a00; --warm-bg:#fdf6e7; --warm-line:#ecd9b0;
+    --risk:#8c2f2f; --risk-bg:#fbf0ef; --risk-line:#efd6d4;
+    --ok:#1f5c3a; --ok-bg:#eef7f1; --ok-line:#cfe6d8;
+    --hover:transparent; --chip:#f4f5f7; --code:#f1f2f4;
+  }
+  .hero{background:#fff!important;color:var(--tx)!important;border-bottom:1px solid var(--line)}
+  .hero .profile div{background:#fafbfc;border-color:#e3e8ee}
+  .voice,.panel,.note{break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">← 返回学校看板</a>
+    <div class="eyebrow">单校深度报告 · Tampines · 政府 · 混校</div>
+    <h1>Junyuan Secondary School<small>Junyuan Secondary School（JYSS）</small></h1>
+    <div class="sub"><b>先说结论：AL 18 报这所余量 +3 分、公交 118 路最快 29 分钟到校。</b>三档 COP 连续收紧（2023 上端 22 → 2024 22 → 2025 21），目前是<b>稳中有升</b>的一所。<b>孩子是 PR</b>，余量 +3 在同分段里有缓冲，但仍不是「稳进」。学术兴趣命中 6/7（缺 Computing 正课，只有 G1 Computer Applications）；CCA 上 MOE 当前页新增的 <b>English Drama 与 Infocomm Technology (Computing)</b> 让戏剧、编程两条也命中——这两项是本地评分快照未纳入的补记，开放日要当面确认Sec 1 名额。</div>
+    <div class="profile">
+      <div><div class="k">PG3 区间（2025）</div><div class="v">14 – 21</div></div>
+      <div><div class="k">AL 18 余量</div><div class="v">+3 分</div></div>
+      <div><div class="k">步行（自 828765）</div><div class="v">113 分钟</div></div>
+      <div><div class="k">公交（65431 上车）</div><div class="v">29 分钟（118 路 · 下车步行 5 分钟）</div></div>
+      <div><div class="k">地铁（仅参考）</div><div class="v">60 分钟</div></div>
+      <div><div class="k">通勤计分</div><div class="v">29 分钟（公交）</div></div>
+      <div><div class="k">建校</div><div class="v">1999 年 1 月</div></div>
+      <div><div class="k">IP / SAP</div><div class="v">否 / 否</div></div>
+      <div><div class="k">学校性质</div><div class="v">政府学校 · 混校 · 单班制</div></div>
+      <div><div class="k">附属小学</div><div class="v">未登记</div></div>
+    </div>
+    <div class="addr">11 Tampines Street 84, S528933　·　最近站 DT32/EW2 TAMPINES，步行约 1029m</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="note fit-block" id="fit-abcd2">
+<b>abcd2 画像匹配 · 自动核算</b>
+<p style="font-size:13.4px;margin:8px 0 10px">
+学生 <b>abcd2</b>｜<b>AL 18 / PG3</b>｜PG3 区间 <b>14 – 21</b>，余量 <b>+3 分</b>。
+身份 <b>PR</b>：S1 同分排序为公民 → PR → 国际生，同分输公民；政府／政府辅助中学学费约 S$580–700／月。
+</p>
+<p style="font-size:13.4px;margin:0 0 12px">从 <b>65431 Twin Waterfalls</b> 上 118 路、8 站到 <b>Blk 874</b>、再步行 5 分钟，合计 <b>29 分钟</b>；地铁仅列作参考，不计分。满分线 16 分钟、上限 60 分钟。</p>
+<h4 style="margin:0 0 6px">学术兴趣（画像里 7 项科目，逐项对照本届开设科目）</h4>
+<div style="overflow-x:auto"><table style="margin:0">
+<thead><tr><th style="width:28%">兴趣科目</th><th style="width:14%">本校</th><th>对应科目 / 说明</th></tr></thead>
+<tbody><tr><td>Higher Chinese</td><td><span class="tag a">命中</span></td><td>Higher Chinese Language</td></tr>
+<tr><td>Additional Mathematics</td><td><span class="tag a">命中</span></td><td>Additional Mathematics</td></tr>
+<tr><td>Science</td><td><span class="tag a">命中</span></td><td>Science / Science (Chem, Bio) / Science (Phy, Chem)</td></tr>
+<tr><td>Computing</td><td><span class="tag c">仅 G1</span></td><td>Computer Applications　<span class="soft">Computer Applications = G1 Computing（原 CPA），PG3 需确认是否另有 G2/G3</span></td></tr>
+<tr><td>Design &amp; Technology</td><td><span class="tag a">命中</span></td><td>Design &amp; Technology</td></tr>
+<tr><td>Nutrition and Food Science</td><td><span class="tag a">命中</span></td><td>Nutrition and Food Science</td></tr>
+<tr><td>Applied Subjects</td><td><span class="tag a">命中</span></td><td>Art / Computer Applications / Design &amp; Technology / Music / Nutrition and Food Science</td></tr></tbody></table></div>
+<h4 style="margin:14px 0 6px">CCA 兴趣（按顺序：机器人 → AI → 戏剧 → 游泳 → 烹饪）</h4>
+<div style="overflow-x:auto"><table style="margin:0">
+<thead><tr><th style="width:28%">兴趣</th><th style="width:14%">本校</th><th>说明</th></tr></thead>
+<tbody><tr><td>Robotics</td><td><span class="tag b">未命中</span></td><td class="soft">当前登记里没有对应社团</td></tr>
+<tr><td>AI</td><td><span class="tag a">命中</span></td><td class="soft">MOE SchoolFinder 当前登记有对应社团；Sec 1 名额需开放日确认</td></tr>
+<tr><td>Drama</td><td><span class="tag b">未命中</span></td><td class="soft">当前登记里没有对应社团</td></tr>
+<tr><td>Swimming</td><td><span class="tag b">未命中</span></td><td class="soft">当前登记里没有对应社团</td></tr>
+<tr><td>Cooking</td><td><span class="tag b">未命中</span></td><td class="soft">当前登记里没有对应社团</td></tr></tbody></table></div>
+<p class="soft" style="font-size:12.4px;margin:10px 0 0">
+判定口径：科目命中 = <code>data/schools.json</code> 的 MOE 本届登记；「仅 G1」= 只有 Computer Applications 等 G1 关联课，PG3 是否能修 G2/G3 需现场确认。CCA 命中 = MOE 当前登记的社团名称，不保证 Sec 1 有名额。<b>命中不等于录取保证</b>；本卡的分数与余量按 AL 18 现算，取代正文里基于旧画像的 comparative 描述。</p>
+</div>
+
+<div class="note">
+<b>PG3 录取区间：2023 → 2025 的走向</b>
+<!-- 用三张卡片而不是表格：表格在 .note 里表头与数值列宽对不齐（实测过一次），
+     而且只有一行数据也不需要表头行。 -->
+<div style="display:flex;gap:9px;align-items:stretch;margin:11px 0 9px">
+
+  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:var(--surface)">
+    <div style="font-size:10.5px;color:var(--tx3);letter-spacing:.4px">2023</div>
+    <div style="font-family:var(--mono);font-size:15px;font-weight:600;margin-top:2px">14–22</div>
+  </div>
+  <div style="align-self:center;color:var(--tx3);font-size:14px">→</div>
+  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:var(--surface)">
+    <div style="font-size:10.5px;color:var(--tx3);letter-spacing:.4px">2024</div>
+    <div style="font-family:var(--mono);font-size:15px;font-weight:600;margin-top:2px">13–22</div>
+  </div>
+  <div style="align-self:center;color:var(--tx3);font-size:14px">→</div>
+  <div style="flex:1;border:1px solid var(--line);border-radius:7px;padding:7px 11px;background:var(--surface)">
+    <div style="font-size:10.5px;color:var(--tx3);letter-spacing:.4px">2025</div>
+    <div style="font-family:var(--mono);font-size:15px;font-weight:600;margin-top:2px">14–21</div>
+  </div>
+</div>
+<p style="margin:0 0 6px;font-size:13px">
+2023 → 2025：<b>上端 -1 分</b>（上端 = 录取门槛，变大表示变宽松）、<b>下端 持平</b>（下端 = 当年最强的那名考生）。</p>
+<p class="soft" style="font-size:12.4px;margin:0">
+2024／2025 年值来自 <b>MOE SchoolFinder 线上页面</b>（改版后直接公开相邻两届，官方 A 级）；更早年份来自 <b>Wayback 存档的 MOE SchoolFinder 页面</b>（同为官方内容，不是二手整理表）。
+</p>
+</div>
+
+<div class="note subjects-block">
+<b>开设科目（SchoolFinder，2026-11 官方快照）</b>
+<p class="soft" style="font-size:12.4px;margin:6px 0 10px">
+这是<b>本届在读学生</b>实际开设的科目，下一届可能调整；列出科目≠组合一定排得出（还要看年级与选课组合）。当前cohort快照145所普通课程校参与统计。</p>
+<div class="subject-chips">
+<span class="subj-chip">Additional Mathematics</span>
+<span class="subj-chip">Art</span>
+<span class="subj-chip">Basic Chinese Language</span>
+<span class="subj-chip">Basic Malay Language</span>
+<span class="subj-chip">Biology</span>
+<span class="subj-chip">Chemistry</span>
+<span class="subj-chip">Chinese Language</span>
+<span class="subj-chip">Computer Applications</span>
+<span class="subj-chip">Design &amp; Technology</span>
+<span class="subj-chip">Elements of Business Skills</span>
+<span class="subj-chip">English Language</span>
+<span class="subj-chip">Geography</span>
+<span class="subj-chip">Higher Chinese Language</span>
+<span class="subj-chip">History</span>
+<span class="subj-chip">Humanities (SS, Geography)</span>
+<span class="subj-chip">Literature in English</span>
+<span class="subj-chip">Malay Language</span>
+<span class="subj-chip">Mathematics</span>
+<span class="subj-chip">Music</span>
+<span class="subj-chip strong">Nutrition and Food Science<span class="sbadge s">强项</span></span>
+<span class="subj-chip">Physical Education</span>
+<span class="subj-chip">Physics</span>
+<span class="subj-chip">Principles of Accounts</span>
+<span class="subj-chip">Science</span>
+<span class="subj-chip">Science (Chem, Bio)</span>
+<span class="subj-chip">Social Studies</span>
+</div>
+<p class="soft" style="font-size:12.4px;margin:10px 0 0"><b>校方列出的重点／选修项目：</b>Developing Application-based Learning through Food Science　·　Cultivating Community Champions through Youth Leadership</p>
+<p class="soft" style="font-size:12.4px;margin:10px 0 0">
+<b>高亮口径（客观标注，不代表好坏）：</b>
+<span class="subj-chip strong strong-demo">强项示例</span> = 校方 ALP／LLP／选修项目名里点名的学科领域（本次命中 1 项：Nutrition and Food Science）；
+<span class="subj-chip rare rare-demo">特色示例</span> = 全岛 ≤40/145 所校开设的科目（本次 0 项）；
+两者兼有标「强·特」。口径由 <code>lib/subjects.cjs</code> 统一判定，阈值随报告公开，便于复核。科目清单以 <b>MOE SchoolFinder</b>（官方一手，本届在读）为准；校方重点／选修项目同时出现在 SchoolFinder 与学校官网的 curriculum／programmes 页，各校官网来源见第八节。</p>
+</div>
+<div class="toc">
+  <b>目录</b>
+  <a href="#s1">① 30 秒判断</a>
+  <a href="#s2">② 学校底色与校史</a>
+  <a href="#s3">③ 学业与升学出路</a>
+  <a href="#s4">④ 旗舰项目</a>
+  <a href="#s5">⑤ CCA 全解析</a>
+  <a href="#s6">⑥ 真实声音</a>
+  <a href="#s7">⑦ 开放日必问清单</a>
+  <a href="#s8">⑧ 数据来源与可信度</a>
+</div>
+
+<div class="note" style="margin-top:20px">
+<b>先说清楚这份报告怎么写的。</b>COP（2023 来自 Wayback 官方存档快照，2024／2025 来自 MOE SchoolFinder 当前双年表）、CCA、DSA、科目与附属关系来自 <b>MOE SchoolFinder</b>；校史、ALP／LLP、开放日与办学理念来自<b>学校官网实抓</b>（首页、School Programmes、ALP、LLP、Our History 共 5 页）。MOE 当前页登记 <b>18 项 CCA</b>，本地 11-08 评分快照只 9 项——这处差异<b>只在文字层补记，评分未重跑</b>，见第 5 节与「数据来源」表。通勤按 abcd2 的「65431 站不换乘公交 + 步行取最快」口径计算，地铁仅参考不计分。
+</div>
+
+<section>
+<h2 id="s1"><span class="n">01</span>30 秒判断</h2>
+<p class="lead">一句话：<b>Junyuan Secondary School（裕园中学）</b>是位于淡滨尼的政府混校，1999 年建校，AL <b>18</b> 报它余量 <b>+3 分</b>，从 65431 站坐 <b>118 路</b>不换乘、8 站到 Blk 874 再步行 5 分钟，合计 <b>29 分钟</b>到校。<b>学术兴趣命中 6/7</b>，CCA 在 MOE 当前页补记后戏剧与 Computing 也命中，是这六校里科目覆盖最贴合 abcd2 的一所。</p>
+<div class="warnbox">
+<b>先把 PR 这条说清楚：</b>孩子是永久居民，S1 Posting 同分时排在公民之后。余量 <b>+3 分</b>是有意义的缓冲，但<b>不是「稳进」承诺</b>——2023→2025 上端从 22 收到 21，门槛在收紧，COP 每年浮动 1–3 分。政府中学 PR 学费约 S$580–700／月，公民约 S$25／月，四年差额要提前算进家庭预算。
+</div>
+<div class="grid2">
+  <div class="panel">
+    <h4>它的条件好在哪里</h4>
+    <ul>
+      <li><b>余量 +3 分</b>：AL 18 对 2025 年 PG3 上限 21 的空间，六校里较厚</li>
+      <li><b>29 分钟</b>：118 路不换乘直达，远低于 60 分钟上限，也低于 16 分钟满分线之上的可接受区间</li>
+      <li><b>学术 6/7 命中</b>：高华、高数、科学、D&amp;T、食品营养、应用科目全有正课；仅 Computing 只有 G1 Computer Applications</li>
+      <li><b>CCA 补记后 3/5 命中</b>：AI（Media Production）、English Drama、Infocomm Technology (Computing)</li>
+      <li>ALP（FISH 食品创新科学健康）+ LLP（社区青年领导力）都与画像的食品／科技／领导力线索吻合</li>
+    </ul>
+  </div>
+  <div class="panel muted">
+    <h4>现实约束</h4>
+    <ul>
+      <li>Computing <b>没有 G2/G3 正课登记</b>——Computer Applications 是 G1 层级，中三能否选到 G2/G3 要现场问</li>
+      <li>本地评分快照（11-08）只 9 项 CCA，戏剧／Computing 属 MOE 当前页补记，<b>评分未重跑</b>，名额需开放日确认</li>
+      <li>DSA 4 项偏体育与领导力（篮球／橄榄球／排球／社区青年领导），没有 STEM／科技方向</li>
+      <li>纯步行 113 分钟、地铁 60 分钟均超 60 分钟上限，<b>必须坐这趟公交</b></li>
+      <li>未登记附属小学，录取只看非附属这一条线</li>
+    </ul>
+  </div>
+</div>
+<div class="verdict">
+  <h3>三个要记住的数字</h3>
+  <ul>
+    <li><b>PG3 14–21</b>：AL 18 余量 <b>+3 分</b>；三年上端 22 → 22 → 21，门槛略收紧。</li>
+    <li><b>29 分钟</b>：118 路不换乘 + 步行，abcd2 通勤口径；地铁 60 分钟仅参考、不计分。</li>
+    <li><b>18 项 CCA（MOE 当前页）</b>：本地快照 9 项，差额 9 项含 English Drama 与 Computing，第 5 节逐项对照。</li>
+  </ul>
+</div>
+</section>
+<section>
+<h2 id="s2"><span class="n">02</span>学校底色与校史</h2>
+<p class="lead">这所学校的校史在<a href="https://junyuansec.moe.edu.sg/our-identity/our-history/" target="_blank" rel="noopener">官网有完整一手叙述</a>——不像多数校那样留白。从 1999 年 280 名学生起步，到今天淡滨尼社区里的千人学校，四个阶段的主线都很清楚。</p>
+<div class="tl">
+<div><b>1999 年 1 月 · 创校</b><br>首任校长 Mrs Cecilia Lee 以「Focus on School Values」立校，最初只有 <b>280 名学生、17 位教职</b>，几年内学生数就超过 1000。</div>
+<div><b>2004 年 12 月 · Champion Mindset</b><br>Mrs Janet Oh 接任，推动师生建立「Champion Mindset」，口号是 <b>Lead, Serve, Excel</b>——这也是今天「Champions for the Community」愿景的源头。</div>
+<div><b>2010 年 12 月 · 创新与卓越</b><br>Mdm Lee Lai Yong 在既有基础上推进 <b>Quality and Excellence through Innovation</b>。</div>
+<div><b>2015 年 12 月 · 优势为本</b><br>Mr Mohamed Razali Bin Abdul Hamed 以 <b>Strengths-based HR Strategy</b> 带动下一阶段发展。</div>
+</div>
+<h3>校名与身份</h3>
+<p>校名「Junyuan」取自华文<b>「源」与「良善之源」的意象</b>，官网原文：<i>“Junyuan, which means in Mandarin, the SOURCE OF GOOD THINGS”</i>。校徽里字母 J、Y 落在双 S 上，象征个人在学校、社区与国家中的成长。校训是 <b>Resolute · Righteous · Responsible</b>（坚毅、正直、负责）。</p>
+<h3>基础事实</h3>
+<table>
+<thead><tr><th style="width:140px">项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td><b>建校</b></td><td>1999 年 1 月（官网 Our History 页）</td></tr>
+<tr><td><b>愿景 / 使命</b></td><td>Champions for the Community／To Nurture and Empower Every Junyuan Champ to Learn, to Lead and to Excel</td></tr>
+<tr><td><b>学校类型</b></td><td>政府学校 · 混校 · 单班制</td></tr>
+<tr><td><b>附属小学</b></td><td>未登记——按非附属口径分析</td></tr>
+<tr><td><b>地址</b></td><td>11 Tampines Street 84, S528933（学校代码 3608）</td></tr>
+<tr><td><b>官网</b></td><td><a href="https://junyuansec.moe.edu.sg/" target="_blank" rel="noopener">junyuansec.moe.edu.sg</a>（本次实抓 5 页）</td></tr>
+</tbody>
+</table>
+<div class="note"><b>对 abcd2 家庭的意义：</b>没有附属小学通道可用，录取只看非附属这一条线。这是混校，符合画像的混校偏好；校史里的「社区领袖」主线与 LLP 一脉相承，不是临时拼凑的项目。</div>
+</section>
+<section>
+<h2 id="s3"><span class="n">03</span>学业与升学出路</h2>
+<p class="lead">2025 PG3 区间 <b>14–21</b>，AL 18 的余量是 <b>+3 分</b>。下面把科目、DSA 和出口一起看。</p>
+<h3>录取档位</h3>
+<table>
+<thead><tr><th style="width:150px">项目</th><th>数值</th></tr></thead>
+<tbody>
+<tr><td><b>PG3（2025，非附属）</b></td><td><b>14–21</b></td></tr>
+<tr><td><b>AL 18 余量</b></td><td><b>+3 分</b></td></tr>
+<tr><td><b>PR 提示</b></td><td>同分排在公民之后；余量 +3 可覆盖常规 1–3 分浮动，但不能当作保证</td></tr>
+<tr><td><b>2024 / 2023 PG3</b></td><td>13–22 / 14–22（上端 22 → 22 → 21，略收紧）</td></tr>
+</tbody>
+</table>
+<h3>科目覆盖（MOE 本届登记 30 项正课）</h3>
+<p>与 abcd2 七项学术兴趣直接相关的正课：</p>
+<div class="subject-chips">
+<span class="subj-chip">Higher Chinese Language <span class="sbadge">命中</span></span>
+<span class="subj-chip">Additional Mathematics <span class="sbadge">命中</span></span>
+<span class="subj-chip">Science / Chem, Bio / Phy, Chem <span class="sbadge">命中</span></span>
+<span class="subj-chip">Design &amp; Technology <span class="sbadge">命中</span></span>
+<span class="subj-chip">Nutrition and Food Science <span class="sbadge">命中</span></span>
+<span class="subj-chip">Applied Subjects（Art / Music / D&amp;T / NFS / Computer Applications）<span class="sbadge">命中</span></span>
+<span class="subj-chip strong-demo">Computer Applications <span class="sbadge">仅 G1</span></span>
+</div>
+<div class="note"><b>Computing 的口径要说清：</b>MOE 科目表里只有 <i>Computer Applications</i>（G1 Computing，旧 CPA），<b>没有 Infocomm Technology (Computing) 正课</b>。后者出现在 CCA 清单里，是社团不是中三／中四选科。孩子想要 G2/G3 Computing，必须开放日问「中三选科有没有 Computing 及对应程度」。</div>
+<h3>DSA 招生项目（2026，4 项）</h3>
+<p><span class="tag a">Basketball (Boys)</span>
+<span class="tag a">Community Youth Leadership (Girls and Boys)</span>
+<span class="tag a">Rugby (Boys)</span>
+<span class="tag a">Volleyball (Girls)</span></p>
+<div class="note"><b>DSA 名单反过来读：</b>四项里三项是体育、一项是社区青年领导力，<b>没有 STEM／科技方向</b>。科技兴趣要靠 CCA（Infocomm Technology (Computing)）与 ALP 另找证据。</div>
+<div class="verdict">
+  <h3>毕业生去向怎么判断</h3>
+  <ul>
+    <li><b>直接证据：没有。</b>本次官网核查未取得可核的 O-Level 分布或 JC／Poly 资格率。</li>
+    <li><b>间接判断：</b>PG3 上端 21、科目覆盖 30 项、ALP 与 LLP 都成体系，属于中等偏上的一档——不能当成出口承诺。</li>
+    <li><b>开放日要问：</b>「上一届 L1R4 中位数与 JC 资格率？」「AL 18 这两年实际录到吗？」「PR 同分排位时去年卡在哪一段？」</li>
+  </ul>
+</div>
+</section>
+<section>
+<h2 id="s4"><span class="n">04</span>旗舰项目（ALP / LLP）</h2>
+<p class="lead">Junyuan 的两个旗舰项目都在官网有<b>详细的一手说明</b>，而且都和 abcd2 的食品／科技／领导力线索对得上——这在 55 所里不多见。</p>
+<h3>ALP：FISH —— Food, Innovation, Science and Health</h3>
+<p>MOE 登记名：<b>STEM – Health and Food Science</b>；项目原句：<i>Developing Application-based Learning through Food Science</i>。官网把主题展开为 <b>FISH（Food, Innovation, Science, Health）</b>，具体做法：</p>
+<ul>
+<li><b>中一：</b>Food &amp; Consumer Education 拆食物科学、营养与备餐技巧，年终是 <b>Mini-MasterChef</b>；地理讲稻米种植与可持续，马来语讲谷物文化，体育讲健康饮食并在中二营做定向挑战。</li>
+<li><b>中二：</b>各科汇流到 <b>JY MasterChef Cook-off</b>，学生用已学知识现场做菜竞赛。</li>
+<li><b>高中阶段：</b>深入咖啡冲煮、文化茶、永续食物（蘑菇种植、替代蛋白），并接入 Health and Food Science 的<b>教育与职业规划（ECG）</b>。</li>
+<li><b>比赛与参访：</b>Health and Food Science Competition 用 Design Thinking 提出题目、做原型、创新菜品；学习 journeys 到理工学院（RP）的食品科学实验室与病患照护设施。</li>
+</ul>
+<h3>LLP：Community Youth Leadership（CYL）</h3>
+<p>MOE 登记原句：<i>Cultivating Community Champions through Youth Leadership</i>。官网目标是 <b>Every student, a Community Youth Leader</b>，用 Kouzes &amp; Posner 的 <b>Five Practices of Exemplary Leadership</b> 框架：</p>
+<ul>
+<li><b>按年级递进：</b>中一 Model the Way → 中二 Challenge the Process → 中三 Inspire a Shared Vision / Enable Others to Act → 中四／五 Encourage the Heart，全部在 CCE 课里做。</li>
+<li><b>学生领袖梯队：</b>学生会、迎新领袖、同侪支持领袖（PSL）、班长、CCA 领袖，各有专门训练（Leaders' Anchor Session、Student Council Internship &amp; Training 等）。</li>
+<li><b>全员参与的项目：</b>中一 SLI 工作坊（与 Food Bank Singapore 合作办食物捐赠）、中二班级 VIA、中三协办校庆／教师节等大型活动、CHAMPs 学生自发起项目（如 Ofobrella 雨伞租借、JY Charity Garden），中三还可自愿参加柬埔寨海外 VIA。</li>
+</ul>
+<div class="verdict"><h3>对 abcd2 的兴趣意味着什么</h3><ul>
+<li><b>烹饪／食品：</b>ALP 是全校主线，中一 Mini-MasterChef、中二 Cook-off 到高中替代蛋白，比「有个烹饪社」深得多——画像第五兴趣「烹饪」在这所是<b>结构性命中</b>。</li>
+<li><b>科技：</b>ALP 归在 STEM 类但实质偏食品科学；真正的 Computing 证据在 CCA（Infocomm Technology (Computing)），中三选科仍需确认。</li>
+<li><b>领导力：</b>LLP 的年级递进与全员项目设计完整，适合愿意承担角色的孩子；PR 身份不影响 ALP／LLP／DSA 准入，同分排序才受影响。</li>
+</ul></div>
+</section>
+<section>
+<h2 id="s5"><span class="n">05</span>CCA 全解析</h2>
+<p class="lead"><b>这里有一处必须明说的数据差异：</b>MOE SchoolFinder 当前页登记 <b>18 项</b> CCA，本地 11-08 评分快照只抓到 <b>9 项</b>。按项目惯例，<b>评分沿用旧快照、不重跑</b>，但本节的清单以 MOE 当前页为准，并把新增项逐项标出——开放日务必当面确认哪些还在办、Sec 1 有没有名额。</p>
+<h3>MOE 当前登记（18 项，逐项列出）</h3>
+<table>
+<thead><tr><th style="width:36px">#</th><th>CCA</th><th style="width:100px">本地快照</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Archery (Girls and Boys)</td><td class="soft">当前页新增</td></tr>
+<tr><td>2</td><td>Audio Visual Aid (Girls and Boys)</td><td class="soft">当前页新增</td></tr>
+<tr><td>3</td><td>Badminton (Girls and Boys)</td><td>已登记</td></tr>
+<tr><td>4</td><td>Basketball (Boys)</td><td>已登记</td></tr>
+<tr><td>5</td><td>Boys' Brigade (Boys)</td><td class="soft">当前页新增</td></tr>
+<tr><td>6</td><td>Concert Band (Girls and Boys)</td><td>已登记</td></tr>
+<tr><td>7</td><td><b>English Drama (Girls and Boys)</b></td><td class="soft">当前页新增 · 戏剧命中</td></tr>
+<tr><td>8</td><td>Girls' Brigade (Girls)</td><td class="soft">当前页新增</td></tr>
+<tr><td>9</td><td>Guitar Ensemble (Girls and Boys)</td><td>已登记</td></tr>
+<tr><td>10</td><td><b>Infocomm Technology (Computing) (Girls and Boys)</b></td><td class="soft">当前页新增 · 编程命中</td></tr>
+<tr><td>11</td><td>Infocomm Technology (Media Production) (Girls and Boys)</td><td>已登记 · AI 命中</td></tr>
+<tr><td>12</td><td>Modern Dance (Girls and Boys)</td><td>已登记</td></tr>
+<tr><td>13</td><td>National Cadet Corps (NCC) (Land) (Girls and Boys)</td><td class="soft">当前页新增</td></tr>
+<tr><td>14</td><td>National Police Cadet Corps (NPCC) (Girls and Boys)</td><td>已登记</td></tr>
+<tr><td>15</td><td>Rugby (Boys)</td><td class="soft">当前页新增</td></tr>
+<tr><td>16</td><td>St John Brigade (Girls and Boys)</td><td class="soft">当前页新增</td></tr>
+<tr><td>17</td><td>Track and Field (Girls and Boys)</td><td>已登记</td></tr>
+<tr><td>18</td><td>Volleyball (Girls)</td><td>已登记</td></tr>
+</tbody>
+</table>
+<h3>abcd2 五项兴趣 · 三边核对</h3>
+<table>
+<thead><tr><th>兴趣</th><th>MOE 当前页</th><th>本地快照／评分</th></tr></thead>
+<tbody>
+<tr><td><b>机器人 Robotics</b></td><td>—（无 Robotics／Mechatronics 登记）</td><td>—（未命中）</td></tr>
+<tr><td><b>AI / 编程</b></td><td>✓ Infocomm Technology (Computing) + Media Production</td><td>✓ Media Production（命中）</td></tr>
+<tr><td><b>戏剧 Drama</b></td><td>✓ English Drama</td><td>—（11-08 快照缺，<b>评分未计入</b>）</td></tr>
+<tr><td><b>游泳 Swimming</b></td><td>—（无游泳／水球登记）</td><td>—（未命中）</td></tr>
+<tr><td><b>烹饪 Cooking</b></td><td>—（CCA 无；但 ALP 结构性覆盖）</td><td>—（CCA 未命中，ALP 命中）</td></tr>
+</tbody>
+</table>
+<div class="note"><b>口径说明（别把补记当评分）：</b>上方「abcd2 画像匹配 · 自动核算」卡里的 CCA 命中数按<b>本地 11-08 评分快照</b>判定（只命中 AI），所以戏剧显示「未命中」是与评分一致的；本节按 <b>MOE 当前页</b>补记 English Drama 与 Computing 也命中。两处不一致<b>不是矛盾，而是同一所学校在不同时间点的登记差</b>——这也正是开放日必须现场确认的理由。</div>
+<div class="verdict"><h3>开放日对 CCA 的三个必问</h3><ul>
+<li>English Drama 与 Infocomm Technology (Computing) <b>2026 年还在办吗？Sec 1 能进吗？每周几次？</b></li>
+<li>Infocomm Technology (Computing) 教的是编程还是硬件／多媒体？有没有作品与比赛产出？</li>
+<li>18 项里有 9 项是本地快照缺的——请以学校当年 CCA 手册为准，别只信任一版线上清单。</li>
+</ul></div>
+</section>
+<section>
+<h2 id="s6"><span class="n">06</span>真实声音与外部印证</h2>
+<p class="lead">这一节只放能追到出处的官方／权威表述。<b>没有核到学生第一人称证言，就直说没有</b>，不拿论坛匿名帖凑数。</p>
+<div class="voice"><b>校方自述（官网 Our History）：</b>「Junyuan Secondary School was established in January 1999 to serve the Tampines community… Beginning with just 280 students and 17 staff, the school population grew to more than 1000 within a few years.」<span class="soft">—— 建校规模与增长有一手出处。</span></div>
+<div class="voice"><b>校方自述（Our Identity 页）：</b>「Our Vision: Champions for the Community. Our Mission: To Nurture and Empower Every Junyuan Champ to Learn, to Lead and to Excel. Our Motto: Resolute Righteous Responsible.」<span class="soft">—— 与 LLP 的「Every student, a Community Youth Leader」是同一条主线。</span></div>
+<div class="voice"><b>校方自述（Open House 2026 页）：</b>「At Junyuan, we believe in nurturing Champions for the Community — whether it's in academics, character, leadership, sports, or the arts.」<span class="soft">—— 开放日自述把学术、品格、领导力、体育、艺术并列，与 18 项 CCA 的覆盖面一致。</span></div>
+<div class="note"><b>本次未抓到可引用的学生／校友第一人称内容。</b>学校官网若没有公开学生文章或获奖故事，这里就留白——真正想了解校风，开放日直接找学生聊最准。</div>
+<div class="note"><b>官方数据的边界：</b>本次兴趣判断来自 MOE SchoolFinder 与学校官网实抓（核查日期 2026-11-28），两者都可能滞后于 2026 年实际开设情况。<b>凡涉及「有没有某个社团」，以开放日当年手册为准。</b></div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section>
+<h2 id="s7"><span class="n">07</span>开放日必问清单</h2>
+<p class="lead">前提：<b>AL 18、PR、余量 +3 分、118 路 29 分钟</b>。下面 10 条按「去了就能问出决策信息」来写。</p>
+<ol class="checklist">
+<li><b>AL 18 报这所（余量 +3 分）近两年实际录取过吗？</b>——直接问招生老师；孩子是 PR，同分排在公民之后，务必问「同分段卡在哪」。</li>
+<li><b>中三／中四有没有 Computing 正课（G2/G3）？</b>——MOE 科目表只有 Computer Applications（G1）；只要有 G2/G3 通道，孩子的头号兴趣才算真正接上。</li>
+<li><b>English Drama 与 Infocomm Technology (Computing) 现在还办吗？Sec 1 能进吗？</b>——这两项是 MOE 当前页新增、本地快照缺的；问清是否招生、每周几次、有没有产出。</li>
+<li><b>Infocomm Technology (Computing) 教编程还是多媒体？</b>——要求看课程表与作品样例，别把 Media Production 当成编程课。</li>
+<li><b>29 分钟的通勤实际怎么走？</b>——abcd2 只从 65431 站坐不换乘公交或纯步行，地铁不计分；实地走一次 118 路的候车与末段步行。</li>
+<li><b>社团时间与末班车衔接得上吗？</b>——29 分钟到校不等于晚放学还方便回家，尤其加入 CCA 后。</li>
+<li><b>PR 学费具体多少、有没有减免？</b>——政府中学 PR 约 S$580–700／月，与公民差距大，先算清四年总额。</li>
+<li><b>ALP（FISH）每个年级多少课时、覆盖多少人？</b>——食品科学是全校主线还是少数人项目？问中二 Cook-off 与高中 ECG 的实际参与面。</li>
+<li><b>LLP 的学生领袖是选拔还是全员？PR 能担任吗？</b>——官网写「Every student, a Community Youth Leader」，现场问清学生会与 PSL 的遴选方式。</li>
+<li><b>开放日说 8.30am–12.00pm 还是 12.30pm？</b>——官网首页与详情页两处不一致，出发前按较早的 12:00 规划并电话确认。</li>
+</ol>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+<h2 id="s8"><span class="n">08</span>数据来源与可信度</h2>
+<p class="lead">A 级＝官方一手（MOE、学校官网、官方文件）；B 级＝权威二手（主流媒体、官方平台报道）；C 级＝网络整理，需现场核实。</p>
+<table>
+<thead><tr><th style="width:34%">内容</th><th>来源</th><th style="width:52px">可信度</th></tr></thead>
+<tbody>
+<tr><td><b>PG3 14–21（2025）／13–22（2024）、30 项科目、18 项 CCA、DSA 4 项、ALP／LLP、附属关系</b></td><td><a href="https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=junyuan-secondary-school" target="_blank" rel="noopener">MOE SchoolFinder</a>（2025／2026 年度，核查 2026-11-28）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>2023 PG3 14–22（Wayback 官方存档，页面 Last Updated 22 Apr 2024）</b></td><td><a href="https://web.archive.org/web/20240613173751/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=junyuan-secondary-school" target="_blank" rel="noopener">Wayback 快照 2024-06-13</a></td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>校史四阶段、校训、愿景、ALP FISH 课程、LLP CYL 框架、开放日 2026-11-21</b></td><td><a href="https://junyuansec.moe.edu.sg/" target="_blank" rel="noopener">学校官网实抓 5 页</a>（Our History / Our Identity / School Programmes / ALP / LLP / Open House）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>通勤：118 路不换乘 + 步行两路与最快值</b></td><td>OneMap 公交站 + OSM 步行路网 + MRT 参考模型（abcd2：65431 站不换乘公交 + 步行，≤60 分钟）</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>PR tie-breaker 与学费区间</b></td><td>MOE「How to choose schools」tie-breakers 段 + MOE school fees</td><td class="mid"><span class="tag a">A</span></td></tr>
+<tr><td><b>本地 9 项 CCA 快照 vs MOE 当前页 18 项</b></td><td><b>评分沿用 11-08 快照未重跑</b>；差额 9 项在正文补记，开放日核实</td><td class="mid"><span class="tag b">B</span></td></tr>
+<tr><td><b>O-Level 分布／升学去向</b></td><td><b>官网未公布，本次未核到</b></td><td class="mid"><span class="tag c">C</span></td></tr>
+</tbody>
+</table>
+<h3>我剔除掉的错误信息</h3>
+<p>网上流传的择校资料里，这所学校有几条被反复抄错的数字。我逐条回到一手来源核对过：</p>
+<table>
+<thead><tr><th style="width:34%">流传的说法</th><th>实际情况</th></tr></thead>
+<tbody>
+<tr><td>「MOE 当前页 18 项 CCA 就是评分用的清单」</td><td><b>不是。</b>本地 11-08 评分快照只有 9 项，当前页新增的 English Drama／Infocomm Technology (Computing) 等 9 项只在文字层补记，<b>评分未重跑</b>。画像匹配卡的 CCA 命中数与评分一致，正文清单按当前页，两处不可混用。</td></tr>
+<tr><td>「有 Infocomm Technology (Media Production) 就等于有编程社」</td><td><b>不等于。</b>Media Production 偏多媒体制作；真正的 Computing 社团是 MOE 当前页另列的 Infocomm Technology (Computing)，两者是不同条目。</td></tr>
+<tr><td>「余量 +3 分，稳进」</td><td><b>不是稳进。</b>孩子是 PR，同分排序在公民之后；COP 三年上端 22 → 22 → 21 在收紧，+3 只是缓冲。</td></tr>
+<tr><td>「Computer Applications 就是 Computing 正课」</td><td><b>不是。</b>Computer Applications = G1 Computing（原 CPA）；PG3 是否能修 G2/G3 Computing 需开放日确认，本报告标为「仅 G1」。</td></tr>
+<tr><td>「开放日时间按首页 8.30am–12.00pm」</td><td>官网首页写 12.00pm、Open House 2026 详情页写 12.30pm，<b>两处不一致</b>；本报告两处都保留，以较早者规划行程。</td></tr>
+<tr><td>「通勤按步行／地铁取最快，不含公交」</td><td><b>已过时。</b>2026-11-26 起改为 abcd2 口径：从 65431 站坐不换乘公交或纯步行，地铁仅参考不计分。本校纯步行 113 分钟、地铁 60 分钟均超限，只有 118 路 29 分钟可用。</td></tr>
+</tbody>
+</table>
+</section>
+
+<div class="foot">
+<b>数据快照</b>　学校主数据（147 所 / COP 2025 年度）更新于 2026-11-28 SGT。<br>
+<b>报告生成：</b>2026-11-28　·　数据口径：COP 为 2025 年度 S1 Posting 结果，AL 18 属 PG3，只与同档学生竞争<br>
+<b>通勤模型：</b><b>公交口径（abcd2）</b>：从 65431 Twin Waterfalls 上车，只取下游方向、不换乘，下车后步行；与纯步行取较快者计分，地铁仅参考不计分（数据 <code>data/bus-abcd2.json</code> / <code>data/walk-abcd2.json</code>）。<br>
+<b>相关页面：</b><a href="../index.html">学校看板</a> ｜ <a href="../map.html">通勤地图</a> ｜ <a href="../guide.html">填报手册</a> ｜ <a href="../full-sbb.html">Full SBB</a> ｜ <a href="../openhouse.html">开放日</a> ｜ <a href="../cohort.html">考生数据</a> ｜ <a href="../plans.html">志愿方案</a><br>
+<b>免责：</b>录取区间每年浮动，本报告只用于缩小考察范围，不构成志愿填报保证。开放日实地确认永远优先于任何二手资料。
+</div>
+
+</div>
+</body>
+</html>

@@ -58,7 +58,66 @@
     "PG3": false,
     "any": false
    },
-   "copHistory": null,
+   "copHistory": {
+    "2023": {
+     "status": "ok",
+     "archiveTs": "20240613173751",
+     "labelYear": 2023,
+     "basis": "PG",
+     "pg3": {
+      "min": 14,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 14,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 29,
+       "star": false
+      }
+     },
+     "archiveUrl": "https://web.archive.org/web/20240613173751/https://www.moe.gov.sg/schoolfinder/schooldetail?schoolname=junyuan-secondary-school"
+    },
+    "2024": {
+     "status": "ok",
+     "archiveTs": "20251126000000",
+     "labelYear": 2024,
+     "basis": "PG",
+     "pg3": {
+      "min": 13,
+      "max": 22,
+      "vacanciesRemain": false
+     },
+     "allGroups": {
+      "PG3": {
+       "min": 13,
+       "max": 22,
+       "star": false
+      },
+      "PG2": {
+       "min": 21,
+       "max": 24,
+       "star": false
+      },
+      "PG1": {
+       "min": 26,
+       "max": 29,
+       "star": false
+      }
+     },
+     "note": "2026-11-26 MOE SchoolFinder 当前双年表直接给出 2024 PG3 13–22；archiveTs 为占位，实际来源为线上当前页。"
+    }
+   },
    "margin": 3,
    "minutes": 29,
    "commuteBasis": "bus",
